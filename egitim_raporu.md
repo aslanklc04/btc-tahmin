@@ -1,25 +1,25 @@
-# Aylık eğitim raporu — 30.09.2026 22:16
+# Aylık eğitim raporu — 30.09.2026 23:15
 
-✅ 79,831 mum: 2017-08-17 → 2026-09-30 19:00 UTC
+✅ 79,832 mum: 2017-08-17 → 2026-09-30 20:00 UTC
 
-✅ 4,767,629 dakika (108/108 aylık arşiv + API) → 79,476 saat · 44 sn
+✅ 4,767,683 dakika (108/108 aylık arşiv + API) → 79,477 saat · 60 sn
 
 ✅ 4 saatlik model için 16 çok saatlik yol özelliği
 
-   modeller hazır · 79 sn
+   modeller hazır · 88 sn
 
-   modeller hazır · 118 sn
+   modeller hazır · 130 sn
 
-   modeller hazır · 141 sn
+   modeller hazır · 154 sn
 
 ✅ yığınlama ağırlıkları (son ay): 1s +0.144 · 4s +0.146 · 8s -0.045
 
-AUC 2020–bugün 0.5620 · AUC 2024+ 0.5499 (z=13.5) → ✅ yön bilgisi anlamlı · 341 sn
+AUC 2020–bugün 0.5620 · AUC 2024+ 0.5498 (z=13.5) → ✅ yön bilgisi anlamlı · 375 sn
 (tablo: CANLI ÖLÇÜM — her saat kontrol, sinyalin ilk ortaya çıktığı an)
 
                                 Sinyal  Haftada  İsabet %  İsabet 2024+ %  Brüt %             [%90]  Spot net %
 Güven                   Yön                                                                                    
-Zayıf                   YUKARI   19866   59.709    53.493          52.602   0.004  [-0.003, +0.011]      -0.196
+Zayıf                   YUKARI   19867   59.712    53.491          52.596   0.004  [-0.003, +0.011]      -0.196
                         AŞAĞI    19236   57.815    52.391          52.136  -0.000  [-0.007, +0.006]      -0.200
 Güçlü (en emin %30)     YUKARI    5544   16.663    57.612          55.546   0.023  [+0.010, +0.035]      -0.177
                         AŞAĞI     5534   16.633    56.072          53.811   0.010  [-0.004, +0.022]      -0.190
@@ -29,7 +29,7 @@ Güçlü (en emin %30)     YUKARI    5544   16.663    57.612          55.546   0
 ```
                                 Sinyal  Haftada  İsabet %  İsabet 2024+ %  Brüt %             [%90]  Spot net %
 Güven                   Yön                                                                                    
-Zayıf                   YUKARI   19866   59.709    53.493          52.602   0.004  [-0.003, +0.011]      -0.196
+Zayıf                   YUKARI   19867   59.712    53.491          52.596   0.004  [-0.003, +0.011]      -0.196
                         AŞAĞI    19236   57.815    52.391          52.136  -0.000  [-0.007, +0.006]      -0.200
 Güçlü (en emin %30)     YUKARI    5544   16.663    57.612          55.546   0.023  [+0.010, +0.035]      -0.177
                         AŞAĞI     5534   16.633    56.072          53.811   0.010  [-0.004, +0.022]      -0.190
@@ -37,7 +37,7 @@ Güçlü (en emin %30)     YUKARI    5544   16.663    57.612          55.546   0
                         AŞAĞI     2939    8.833    59.918          57.610   0.004  [-0.015, +0.022]      -0.196
 ```
 
-AUC 2020–bugün 0.5650 · AUC 2024+ 0.5544 (z=7.4) → ✅ yön bilgisi anlamlı · 262 sn
+AUC 2020–bugün 0.5650 · AUC 2024+ 0.5544 (z=7.4) → ✅ yön bilgisi anlamlı · 288 sn
 (tablo: CANLI ÖLÇÜM — her saat kontrol, sinyalin ilk ortaya çıktığı an)
 
                                 Sinyal  Haftada  İsabet %  İsabet 2024+ %  Brüt %             [%90]  Spot net %
@@ -60,7 +60,7 @@ Güçlü (en emin %30)     YUKARI    3389    9.683    57.392          55.857   0
                         AŞAĞI     1578    4.509    58.175          57.524   0.042  [-0.009, +0.094]      -0.158
 ```
 
-AUC 2020–bugün 0.5478 · AUC 2024+ 0.5277 (z=2.6) → ✅ yön bilgisi anlamlı · 145 sn
+AUC 2020–bugün 0.5478 · AUC 2024+ 0.5277 (z=2.6) → ✅ yön bilgisi anlamlı · 159 sn
 (tablo: CANLI ÖLÇÜM — her saat kontrol, sinyalin ilk ortaya çıktığı an)
 
                                 Sinyal  Haftada  İsabet %  İsabet 2024+ %  Brüt %             [%90]  Spot net %
@@ -84,13 +84,13 @@ Güçlü (en emin %30)     YUKARI    2383    6.809    56.693          56.111   0
 ```
 
 
-■ 1 saat ±1σ — bariyer AUC 2024+ 0.5343 · 25 sn
+■ 1 saat ±1σ — bariyer AUC 2024+ 0.5343 · 28 sn
 
                                 Bariyere ulaşan sinyal  Sinyal yönünde ÖNCE bariyer %  2024+ %
 Güven                   Yön                                                                   
 Zayıf                   YUKARI                    7583                          50.45    50.41
                         AŞAĞI                     8897                          53.07    52.05
-Güçlü (en emin %30)     YUKARI                    2196                          55.56    55.27
+Güçlü (en emin %30)     YUKARI                    2197                          55.53    55.20
                         AŞAĞI                     2472                          55.83    53.42
 Çok güçlü (en emin %10) YUKARI                    1515                          57.03    59.46
                         AŞAĞI                      954                          56.60    54.85
@@ -100,14 +100,14 @@ Güçlü (en emin %30)     YUKARI                    2196                       
 Güven                   Yön                                                                   
 Zayıf                   YUKARI                    7583                          50.45    50.41
                         AŞAĞI                     8897                          53.07    52.05
-Güçlü (en emin %30)     YUKARI                    2196                          55.56    55.27
+Güçlü (en emin %30)     YUKARI                    2197                          55.53    55.20
                         AŞAĞI                     2472                          55.83    53.42
 Çok güçlü (en emin %10) YUKARI                    1515                          57.03    59.46
                         AŞAĞI                      954                          56.60    54.85
 ```
 
 
-■ 4 saat ±1σ — bariyer AUC 2024+ 0.5543 · 24 sn
+■ 4 saat ±1σ — bariyer AUC 2024+ 0.5541 · 27 sn
 
                                 Bariyere ulaşan sinyal  Sinyal yönünde ÖNCE bariyer %  2024+ %
 Güven                   Yön                                                                   
@@ -130,7 +130,7 @@ Güçlü (en emin %30)     YUKARI                    1302                       
 ```
 
 
-■ 8 saat ±1σ — bariyer AUC 2024+ 0.5514 · 26 sn
+■ 8 saat ±1σ — bariyer AUC 2024+ 0.5514 · 29 sn
 
                                 Bariyere ulaşan sinyal  Sinyal yönünde ÖNCE bariyer %  2024+ %
 Güven                   Yön                                                                   
@@ -168,7 +168,23 @@ ikisi birden     → 4s sonucu: n= 730 (haftada 2.1) · isabet %63.2 (2024+ %63.
 
 ikisi birden     → 8s sonucu: n= 730 (haftada 2.1) · isabet %62.7 (2024+ %61.9) · brüt %+0.256
 
+ETH   ⭐ sonrası 8 saatte yükselme %62.1 (rastgele an %50.9) · ortalama zamanlama avantajı %+0.244 · n=420
+
+BNB   ⭐ sonrası 8 saatte yükselme %62.4 (rastgele an %51.5) · ortalama zamanlama avantajı %+0.200 · n=420
+
+SOL   ⭐ sonrası 8 saatte yükselme %60.2 (rastgele an %50.4) · ortalama zamanlama avantajı %+0.395 · n=420
+
+ADA   ⭐ sonrası 8 saatte yükselme %59.5 (rastgele an %48.6) · ortalama zamanlama avantajı %+0.364 · n=420
+
+DOT   ⭐ sonrası 8 saatte yükselme %58.3 (rastgele an %48.8) · ortalama zamanlama avantajı %+0.291 · n=420
+
+XRP   ⭐ sonrası 8 saatte yükselme %57.1 (rastgele an %49.3) · ortalama zamanlama avantajı %+0.283 · n=420
+
+DOGE  ⭐ sonrası 8 saatte yükselme %61.2 (rastgele an %49.9) · ortalama zamanlama avantajı %+0.229 · n=420
+
+🪙 Geçmişte bu sinyalden 8 saat sonra yükselme oranı: BNB %62 · ETH %62 · DOGE %61 · SOL %60 · ADA %60 · DOT %58 (rastgele an ~%50; ortalama kazanç avantajı küçük — alımları dağıtmak için zamanlama bilgisi)
+
 A sınıfı: 3450 sinyal (haftada 10.4) · 4s isabet %59.5 (2024+ %57.9) · brüt %+0.120 [%90: +0.081, +0.156] · karşılaştırma: rastgele saat %51.0
 
 
-⏱ hazırlık 8.7 dk
+⏱ hazırlık 14.0 dk
