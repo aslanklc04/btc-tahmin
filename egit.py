@@ -1,4 +1,4 @@
-# egit.py — AYLIK: v32 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
+# egit.py — AYLIK: v33 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
 import os, sys, gzip, pickle, lightgbm as lgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -155,6 +155,38 @@ for nm, m in [("yalnız 4s güçlü", a4 & ~a8), ("yalnız 8s güçlü", a8 & ~a
         AGR[(nm, Hh)] = dict(n=len(ev), wk=len(ev) / wkJ, acc=(rr_ > 0).mean() * 100, acc_h=(rh_ > 0).mean() * 100, gross=rr_.mean() * 100)
         print(f"{nm:16s} → {Hh}s sonucu: n={len(ev):4d} (haftada {len(ev)/wkJ:.1f}) · isabet %{AGR[(nm, Hh)]['acc']:.1f} (2024+ %{AGR[(nm, Hh)]['acc_h']:.1f}) · brüt %{AGR[(nm, Hh)]['gross']:+.3f}")
 
+baslik("2g) ⭐ SONRASI ALTCOİNLER — BTC ⭐ geldiğinde 8 saat içinde altcoinlerin yükselme oranı (canlı ölçüm, 2023–bugün)")
+ALT_LIST = ["ETHUSDT", "BNBUSDT", "SOLUSDT", "ADAUSDT", "DOTUSDT", "XRPUSDT", "DOGEUSDT"]   # test edildi: 2023–24 seçim, 2025–26 doğrulama
+def fetch_1h_sym(sym, start_ms, end_ms):
+    rows, cur = [], int(start_ms)
+    while cur < end_ms:
+        dt = None
+        for url in EP:
+            try:
+                r = requests.get(url, params=dict(symbol=sym, interval="1h", startTime=cur, endTime=int(end_ms), limit=1000), timeout=20)
+                if r.status_code == 200: dt = r.json(); break
+            except Exception: pass
+        if not dt: break
+        rows += dt; cur = dt[-1][0] + 3_600_000
+        if len(dt) < 1000: break
+    if not rows: return None
+    df = pd.DataFrame([x[:5] for x in rows]).astype(float)
+    s = pd.Series(df[4].values, index=pd.to_datetime(df[0], unit="ms", utc=True) + pd.Timedelta(hours=1)); s = s[s.index <= pd.Timestamp.now(tz="UTC")]
+    return s[~s.index.duplicated()].sort_index()
+_A0 = pd.Timestamp("2023-01-01", tz="UTC"); star_ev = J.index[events((a4 & a8).values, 8)]; star_ev = star_ev[star_ev >= _A0]; ALTSTAR = {}
+for sym in ALT_LIST:
+    try:
+        px_ = fetch_1h_sym(sym, (_A0 - pd.Timedelta(days=2)).timestamp() * 1000, time.time() * 1000)
+        R_ = (px_.shift(-8) / px_ - 1).dropna(); R_ = R_[R_.index >= _A0]; r_ = R_.reindex(star_ev).dropna()
+        if len(r_) < 50: continue
+        nm_ = sym.replace("USDT", ""); ALTSTAR[nm_] = dict(n=len(r_), up=(r_ > 0).mean() * 100, base=(R_ > 0).mean() * 100, adv=(r_.mean() - R_.mean()) * 100)
+        print(f"{nm_:5s} ⭐ sonrası 8 saatte yükselme %{ALTSTAR[nm_]['up']:.1f} (rastgele an %{ALTSTAR[nm_]['base']:.1f}) · ortalama zamanlama avantajı %{ALTSTAR[nm_]['adv']:+.3f} · n={len(r_)}")
+    except Exception as e: print(f"{sym}: alınamadı ({str(e)[:60]})")
+ALT_SHOW = sorted([(v["up"], k) for k, v in ALTSTAR.items() if v["up"] >= 58], reverse=True)
+ALT_LINE = ("🪙 Geçmişte bu sinyalden 8 saat sonra yükselme oranı: " + " · ".join(f"{k} %{u:.0f}" for u, k in ALT_SHOW) +
+            " (rastgele an ~%50; ortalama kazanç avantajı küçük — alımları dağıtmak için zamanlama bilgisi)") if ALT_SHOW else ""
+print(ALT_LINE or "(yükselme oranı %58'i geçen altcoin yok — satır gösterilmeyecek)")
+
 baslik("2f) 🟢 A SINIFI — 1s + 4s + 8s sinyallerinin ortalama yüzdeliği ≥ 0,85 (sonuç: 4 saat sonra, canlı ölçüm)")
 def s_final(H): return (cz(R[1]["ST"]) if H == 1 else R[H]["SF"].S)
 AC = pd.DataFrame({H: rpct(s_final(H)) for H in CFG}).dropna(); AC["m"] = AC.mean(axis=1); AC["y4"] = R[4]["D"].y.reindex(AC.index); AC = AC.dropna(subset=["y4"])
@@ -169,7 +201,7 @@ print(f"\n⏱ hazırlık {(time.time()-T0)/60:.1f} dk")
 # ================= 3) CANLI PANEL + TELEGRAM =================
 # ================= KAYIT =================
 KEEP = pd.Timedelta(days=70); cutk = lambda s: s[s.index >= s.index[-1] - KEEP]
-state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, BK=BK, BHS=BHS,
+state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, ALT_LINE=ALT_LINE, ALTSTAR=ALTSTAR, BK=BK, BHS=BHS,
              R={H: dict(model=R[H]["model"], month=R[H]["month"], PG=cutk(R[H]["PG"]), PL=cutk(R[H]["PL"]), QM=R[H]["QM"], QC=R[H]["QC"], STATS=R[H]["STATS"],
                         A_h=R[H]["A_h"], z=R[H]["z"], verdict=R[H]["verdict"]) for H in CFG},
              ST=cutk(R[1]["ST"]), STACK=R[1]["stack"],
