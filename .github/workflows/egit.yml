@@ -1,0 +1,31 @@
+name: Aylik egitim
+on:
+  schedule:
+    - cron: "30 0 1 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: btc-durum
+  cancel-in-progress: false
+jobs:
+  egit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python egit.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Modeli depoya kaydet
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add durum/model.pkl.gz egitim_raporu.md
+          git commit -m "Aylik egitim" || echo "degisiklik yok"
+          git pull --rebase && git push
