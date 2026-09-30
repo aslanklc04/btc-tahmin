@@ -1,4 +1,4 @@
-# tahmin.py — HER SAAT: kayıtlı v32 modelleriyle son saatin tahminini yapar, gerekirse Telegram'a yazar, son_durum.md'yi günceller
+# tahmin.py — HER SAAT: kayıtlı v33 modelleriyle son saatin tahminini yapar, gerekirse Telegram'a yazar, son_durum.md'yi günceller
 import os, gzip, pickle
 from ortak import *
 A_SINIFI_BILDIRIM = True       # 🟢 A sınıfı (haftada ~10) için de Telegram mesajı; istemezseniz False
@@ -63,7 +63,7 @@ pct_now = {H: float(rpct(fr_[H].iloc[-800:]).iloc[-1]) for H in CFG}; acls_m = f
 tloc = t.tz_convert(DISPLAY_TZ); head = f"🧭 BTC {tloc:%d.%m %H:%M} · ${price:,.0f}"
 if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours=8)):
     tg_send(f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
-            + "\n".join(lines + bar_tg)); G["last_star"] = t; fire = False
+            + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + "\n".join(lines + bar_tg)); G["last_star"] = t; fire = False
 if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None or t - G["last_acls"] >= pd.Timedelta(hours=4)):
     tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n"
             + "\n".join(lines + bar_tg)); G["last_acls"] = t; fire = False
@@ -71,10 +71,10 @@ if fire: tg_send(head + "\n" + "\n".join(lines + bar_tg))
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):
     tg_send(f"☀️ Günlük özet — {head}\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines)); G["last_daily"] = t
 # ---- son_durum.md (GitHub'da okunabilir panel) ----
-star = (f"## ⭐ EN GÜÇLÜ SİNYAL VAR — 4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş: 4 saat sonra isabet **%{a4_['acc']:.1f}**, 8 saat sonra **%{a8_['acc']:.1f}** ({a4_['n']} olay)"
+star = (f"## ⭐ EN GÜÇLÜ SİNYAL VAR — 4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş: 4 saat sonra isabet **%{a4_['acc']:.1f}**, 8 saat sonra **%{a8_['acc']:.1f}** ({a4_['n']} olay)" + ("\n\n" + M.get("ALT_LINE", "") if M.get("ALT_LINE") else "")
         if agree else f"⭐ En güçlü sinyal şu an **yok** (4s: {'✔' if strong_up.get(4) else '✘'} · 8s: {'✔' if strong_up.get(8) else '✘'}). Geldiğinde geçmiş isabet 4s %{a4_['acc']:.1f}, 8s %{a8_['acc']:.1f}.")
 acl_md = f"🟢 A sınıfı: **{'VAR' if acls_on else 'yok'}** (üç ufkun ortalama yüzdeliği {acls_m:.2f}, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~{AC_['wk']:.1f}, 4s isabet %{AC_['acc']:.1f}"
-md = (f"# 🧭 BTC çok ufuklu tahmin (v32) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}\n\n{acl_md}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
+md = (f"# 🧭 BTC çok ufuklu tahmin (v33) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}\n\n{acl_md}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
       "| Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |\n|---|---|---|---|---|---|---|\n" + "\n".join(md_rows) +
       "\n\n## 🎯 Hedef / stop yarışı (±1σ)\n| Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |\n|---|---|---|---|---|\n" + "\n".join(bar_md) +
       f"\n\n_Model eğitimi: {M['created'].tz_convert(DISPLAY_TZ):%d.%m.%Y} · güncelleme: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M} · ⚠️ Yatırım tavsiyesi değildir._\n")
