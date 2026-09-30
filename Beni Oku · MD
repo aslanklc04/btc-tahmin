@@ -1,0 +1,14 @@
+# 🧭 BTC çok ufuklu tahmin (v32) — GitHub Actions
+
+Bu depo, v32 modelini **Colab'ı açık tutmadan** otomatik çalıştırır:
+- **Her saat** (`Saatlik tahmin`): son saatin tahmini yapılır, güçlü sinyal varsa Telegram'a mesaj gider, güncel panel **[son_durum.md](son_durum.md)** dosyasına yazılır.
+- **Her ayın 1'i** (`Aylik egitim`): modeller yeniden eğitilir ve test edilir; rapor **[egitim_raporu.md](egitim_raporu.md)** dosyasına yazılır.
+
+## Kurulum (bir kez)
+1. **Gizli ayarlar:** Depoda **Settings → Secrets and variables → Actions → New repository secret**
+   - `TELEGRAM_TOKEN` = BotFather'ın verdiği token
+   - `TELEGRAM_CHAT_ID` = sizin chat ID'niz (botun değil!)
+2. **İlk eğitim:** **Actions** sekmesi → soldan **Aylik egitim** → **Run workflow** (≈ 20–40 dk). Bitince Telegram'a "🧠 Aylık eğitim tamamlandı" mesajı gelir.
+3. **Saatlik tahmin** kendiliğinden her saat çalışır. Hemen denemek için: Actions → **Saatlik tahmin** → **Run workflow**.
+
+⚠️ Yatırım tavsiyesi değildir.
