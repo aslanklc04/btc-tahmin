@@ -1,4 +1,4 @@
-# egit.py — AYLIK: v33 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
+# egit.py — AYLIK: v34 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
 import os, sys, gzip, pickle, lightgbm as lgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -196,12 +196,27 @@ ACLS = dict(n=len(evA), wk=len(evA) / wkAC, acc=(rA_ > 0).mean() * 100, acc_h=(r
             base=(np.exp(AC.y4.values) - 1 > 0).mean() * 100)
 print(f"A sınıfı: {ACLS['n']} sinyal (haftada {ACLS['wk']:.1f}) · 4s isabet %{ACLS['acc']:.1f} (2024+ %{ACLS['acc_h']:.1f}) · brüt %{ACLS['gross']:+.3f} [%90: {ACLS['lo']:+.3f}, {ACLS['hi']:+.3f}]"
       f" · karşılaştırma: rastgele saat %{ACLS['base']:.1f}")
+baslik("2h) ⏰ 4 SAAT — SAATE GÖRE EŞİK: iyi saat dilimlerinde 'Güçlü' yukarı sinyaller de bildirilir (canlı ölçüm)")
+S4F = R[4]["SF"].dropna(subset=["S", "T30", "T10", "y"]); blk4 = np.asarray(S4F.index.hour // 4)
+g30 = ((S4F.S > 0) & (S4F.C >= S4F.T30)).values; c10 = ((S4F.S > 0) & (S4F.C >= S4F.T10)).values; BLK = {}
+for b in range(6):
+    ev = events(g30 & (blk4 == b), 4); r_ = S4F.y.values[ev]; BLK[b] = dict(n=len(ev), acc=(r_ > 0).mean() * 100 if len(ev) else float("nan"))
+    tr0 = (b * 4 + 3) % 24
+    print(f"   {b*4:02d}–{b*4+3:02d} UTC (TR {tr0:02d}:00–{(tr0+3)%24:02d}:59): 'Güçlü+ YUKARI' 4s isabet %{BLK[b]['acc']:.1f} (n={BLK[b]['n']})")
+GOOD_BLK = [b for b, v in BLK.items() if v["n"] >= 100 and v["acc"] >= 58]
+evT = events(g30 & ~c10 & np.isin(blk4, GOOD_BLK), 4); rT = np.exp(S4F.y.values[evT]) - 1; hT = S4F.index[evT] >= pd.Timestamp(HOLD_START, tz="UTC")
+wkT = (S4F.index[-1] - S4F.index[0]).days / 7
+IYI = dict(n=len(evT), wk=len(evT) / wkT, acc=(rT > 0).mean() * 100 if len(evT) else float("nan"), acc_h=(rT[hT] > 0).mean() * 100 if hT.any() else float("nan"),
+           gross=rT.mean() * 100 if len(evT) else float("nan"))
+IYI_ON = len(GOOD_BLK) > 0 and IYI["n"] >= 100 and IYI["acc"] >= 56                       # kendini denetler: Binance'te tutmazsa bildirim kapalı
+print(f"İyi saat dilimleri (UTC blokları): {GOOD_BLK} · bu dilimlerde 'Güçlü' (çok güçlü olmayan) yukarı sinyal: {IYI['n']} (haftada {IYI['wk']:.1f}) · "
+      f"4s isabet %{IYI['acc']:.1f} (2024+ %{IYI['acc_h']:.1f}) → {'✅ bildirim AÇIK' if IYI_ON else '❌ bildirim kapalı (yeterince isabetli değil)'}")
 print(f"\n⏱ hazırlık {(time.time()-T0)/60:.1f} dk")
 
 # ================= 3) CANLI PANEL + TELEGRAM =================
 # ================= KAYIT =================
 KEEP = pd.Timedelta(days=70); cutk = lambda s: s[s.index >= s.index[-1] - KEEP]
-state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, ALT_LINE=ALT_LINE, ALTSTAR=ALTSTAR, BK=BK, BHS=BHS,
+state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, ALT_LINE=ALT_LINE, ALTSTAR=ALTSTAR, GOOD_BLK=GOOD_BLK, IYI=IYI, IYI_ON=IYI_ON, BLK=BLK, BK=BK, BHS=BHS,
              R={H: dict(model=R[H]["model"], month=R[H]["month"], PG=cutk(R[H]["PG"]), PL=cutk(R[H]["PL"]), QM=R[H]["QM"], QC=R[H]["QC"], STATS=R[H]["STATS"],
                         A_h=R[H]["A_h"], z=R[H]["z"], verdict=R[H]["verdict"]) for H in CFG},
              ST=cutk(R[1]["ST"]), STACK=R[1]["stack"],
@@ -211,5 +226,5 @@ with gzip.open("durum/model.pkl.gz", "wb") as f: pickle.dump(state, f)
 open("egitim_raporu.md", "w").write(f"# Aylık eğitim raporu — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n\n" + "\n\n".join(RAPOR))
 a4_, a8_ = AGR[("ikisi birden", 4)], AGR[("ikisi birden", 8)]
 tg_send(f"🧠 Aylık eğitim tamamlandı ({(time.time()-T0)/60:.0f} dk).\n" + "\n".join(f"{CFG[H]['ad']}: AUC 2024+ {R[H]['A_h']:.3f} (z={R[H]['z']:.1f}) {R[H]['verdict']}" for H in CFG)
-        + f"\n⭐ en güçlü (canlı ölçüm): 4s %{a4_['acc']:.1f} · 8s %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}" + f"\n🟢 A sınıfı: 4s %{ACLS['acc']:.1f} · haftada ~{ACLS['wk']:.0f}")
+        + f"\n⭐ en güçlü (canlı ölçüm): 4s %{a4_['acc']:.1f} · 8s %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}" + f"\n🟢 A sınıfı: 4s %{ACLS['acc']:.1f} · haftada ~{ACLS['wk']:.0f}" + f"\n⏰ iyi saat dilimi (4s güçlü): %{IYI['acc']:.1f} · haftada ~{IYI['wk']:.0f} · {'açık' if IYI_ON else 'kapalı'}")
 _print(f"✅ kaydedildi: durum/model.pkl.gz ({os.path.getsize('durum/model.pkl.gz')/1e6:.1f} MB) · toplam {(time.time()-T0)/60:.1f} dk")
