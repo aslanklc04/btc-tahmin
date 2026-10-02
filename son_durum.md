@@ -22,9 +22,9 @@
 | 4 saat | $87,403 (+%0.68) | $86,217 (−%0.68) | ⬆️ önce HEDEF · Güçlü | %53.6 (2024+ %53.5) |
 | 8 saat | $87,649 (+%0.97) | $85,971 (−%0.97) | ⬆️ önce HEDEF · Zayıf | %52.7 (2024+ %50.8) |
 
-_Model eğitimi: 01.10.2026 · güncelleme: 02.10.2026 16:51 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 01.10.2026 · güncelleme: 02.10.2026 16:55 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 02.10 12:01 · ✅ · 📡 Bağlantı testi: saatlik tahmin Telegram'a ulaşabiliyor (v3 · gönderildi
 
-_Çalıştırma: 02.10 16:51 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 02.10 16:55 · token VAR · sohbet kimliği VAR_
