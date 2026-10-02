@@ -145,14 +145,20 @@ def action(H, sg, li, st):
     if sg == 1 and st["lo"] > 0: return "🟢 Planlı alım için iyi an (işlem olarak komisyonu karşılamıyor)", "up"
     if sg == -1 and st["lo"] > 0: return "🔴 Alımı ertele / elde varsa satışı düşün", "dn"
     return f"{'🟡 Yukarı' if sg == 1 else '🟠 Aşağı'} eğilim — bu seviyenin geçmişi anlamlı değil (bilgi amaçlı)", "up" if sg == 1 else "dn"
+TG_LAST = {"ok": None, "info": ""}
 def tg_send(text):
+    """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için)."""
     global TELEGRAM_CHAT_ID
-    if not TELEGRAM_TOKEN: print("(Telegram token yok — mesaj gönderilmedi)"); return False
-    try:
-        if not TELEGRAM_CHAT_ID:
-            up = requests.get(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates", timeout=15).json().get("result", [])
-            if up: TELEGRAM_CHAT_ID = str(up[-1].get("message", up[-1].get("channel_post", {})).get("chat", {}).get("id", ""))
-        r = requests.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data=dict(chat_id=TELEGRAM_CHAT_ID, text=text), timeout=15)
-        if r.status_code != 200: print("⚠️ Telegram hatası:", r.text[:300])
-        return r.status_code == 200
-    except Exception as e: print(f"⚠️ Telegram hatası: {str(e)[:200]}"); return False
+    if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
+    for deneme in range(2):
+        try:
+            if not TELEGRAM_CHAT_ID:
+                up = requests.get(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates", timeout=15).json().get("result", [])
+                if up: TELEGRAM_CHAT_ID = str(up[-1].get("message", up[-1].get("channel_post", {})).get("chat", {}).get("id", ""))
+            r = requests.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data=dict(chat_id=TELEGRAM_CHAT_ID, text=text[:4000]), timeout=20)
+            if r.status_code == 200: TG_LAST.update(ok=True, info="gönderildi"); return True
+            TG_LAST.update(ok=False, info=f"HTTP {r.status_code}: {r.text[:200]}"); print("⚠️ Telegram hatası:", r.text[:300])
+        except Exception as e:
+            TG_LAST.update(ok=False, info=f"istisna: {type(e).__name__}: {str(e)[:160]}"); print(f"⚠️ Telegram hatası: {str(e)[:200]}")
+        time.sleep(3)
+    return False
