@@ -13,6 +13,13 @@ if os.path.exists("durum/gecmis.pkl"):
 if G is None:
     G = dict(created=M["created"], PG={H: M["R"][H]["PG"] for H in CFG}, PL={H: M["R"][H]["PL"] for H in CFG}, ST=M["ST"],
              BPG={B: M["BAR"][B]["PG"] for B in M["BHS"]}, BPL={B: M["BAR"][B]["PL"] for B in M["BHS"]}, last_sent={}, last_star=None, last_daily=None, last_acls=None)
+import ortak as _ortak
+_tg_raw = tg_send
+def tg_send(text):                                                                       # her gönderimi kaydet (teşhis)
+    ok = _tg_raw(text); G.setdefault("tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:60], ok=ok, info=_ortak.TG_LAST["info"]))
+    G["tglog"] = G["tglog"][-20:]; return ok
+if not G.get("tg_tested_v341"):
+    tg_send("📡 Bağlantı testi: saatlik tahmin Telegram'a ulaşabiliyor (v34.1). Bundan sonra sinyaller bu sohbete gelecek."); G["tg_tested_v341"] = True
 FEATS, FEATS1, FEATS4, BK, BHS = M["FEATS"], M["FEATS1"], M["FEATS4"], M["BK"], M["BHS"]
 now_ms = time.time() * 1000
 full = fetch_1h(now_ms - 4000 * 3_600_000, now_ms)                                     # son ~5,5 ay saatlik
@@ -106,6 +113,9 @@ md = (f"# 🧭 BTC çok ufuklu tahmin (v34) — {tloc:%d.%m.%Y %H:%M} kapanış�
       "| Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |\n|---|---|---|---|---|---|---|\n" + "\n".join(md_rows) +
       "\n\n## 🎯 Hedef / stop yarışı (±1σ)\n| Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |\n|---|---|---|---|---|\n" + "\n".join(bar_md) +
       f"\n\n_Model eğitimi: {M['created'].tz_convert(DISPLAY_TZ):%d.%m.%Y} · güncelleme: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M} · ⚠️ Yatırım tavsiyesi değildir._\n")
+tl = G.get("tglog", [])[-10:]
+md += "\n## 📨 Telegram günlüğü (son 10 gönderim)\n" + ("\n".join(f"- {x['t'].tz_convert(DISPLAY_TZ):%d.%m %H:%M} · {'✅' if x['ok'] else '❌'} · {x['tip']} · {x['info']}" for x in reversed(tl)) if tl else "- (henüz gönderim yok)") + "\n"
+md += f"\n_Çalıştırma: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m %H:%M} · token {'VAR' if _ortak.TELEGRAM_TOKEN else 'YOK'} · sohbet kimliği {'VAR' if _ortak.TELEGRAM_CHAT_ID else 'YOK'}_\n"
 open("son_durum.md", "w").write(md)
 for d_ in ("PG", "PL", "BPG", "BPL"):
     for k in G[d_]: G[d_][k] = G[d_][k][G[d_][k].index >= G[d_][k].index[-1] - pd.Timedelta(days=70)]
