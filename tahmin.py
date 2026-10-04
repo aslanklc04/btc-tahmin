@@ -1,7 +1,9 @@
-# tahmin.py — HER SAAT: kayıtlı v34 modelleriyle son saatin tahminini yapar, gerekirse Telegram'a yazar, son_durum.md'yi günceller
+# tahmin.py — HER SAAT: kayıtlı v35 modelleriyle son saatin tahminini yapar, gerekirse Telegram'a yazar, son_durum.md'yi günceller
 import os, gzip, pickle
 from ortak import *
 A_SINIFI_BILDIRIM = True       # 🟢 A sınıfı (haftada ~10) için de Telegram mesajı; istemezseniz False
+BIR_SAAT_BILDIRIM = True       # 1 saatlik ufuk sinyalleri için mesaj (en zayıf kademe); istemezseniz False
+ASAGI_BILDIRIM = True          # 🔴 aşağı / 'alımı ertele' sinyalleri için mesaj; istemezseniz False
 HAFTALIK_RAPOR = True          # her pazar 20:00'de geçen haftanın sinyal sonuçları
 GUNLUK_OZET_SAATI = 9          # her gün bu saatte (İstanbul) kısa bir "sistem çalışıyor" özeti gönderilir; istemezseniz None yapın
 if not os.path.exists("durum/model.pkl.gz"): print("⚠️ Model yok: önce 'Aylık eğitim' iş akışını elle çalıştırın."); raise SystemExit(0)
@@ -9,17 +11,17 @@ with gzip.open("durum/model.pkl.gz", "rb") as f: M = pickle.load(f)
 G = None
 if os.path.exists("durum/gecmis.pkl"):
     with open("durum/gecmis.pkl", "rb") as f: G = pickle.load(f)
-    if G.get("created") != M["created"]: G = None                                     # yeni eğitim yapılmış: geçmişi modelden başlat
+    if G.get("created") != M["created"]:                                              # yeni eğitim: tahmin geçmişi modelden başlar, KAYITLAR korunur
+        KEEP = {k: G[k] for k in ("log", "tglog", "last_weekly", "last_daily", "MIC_TAIL", "HHM_TAIL") if k in G}; G = None
 if G is None:
     G = dict(created=M["created"], PG={H: M["R"][H]["PG"] for H in CFG}, PL={H: M["R"][H]["PL"] for H in CFG}, ST=M["ST"],
              BPG={B: M["BAR"][B]["PG"] for B in M["BHS"]}, BPL={B: M["BAR"][B]["PL"] for B in M["BHS"]}, last_sent={}, last_star=None, last_daily=None, last_acls=None)
+    G.update(globals().get("KEEP", {}))
 import ortak as _ortak
 _tg_raw = tg_send
 def tg_send(text):                                                                       # her gönderimi kaydet (teşhis)
     ok = _tg_raw(text); G.setdefault("tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:60], ok=ok, info=_ortak.TG_LAST["info"]))
     G["tglog"] = G["tglog"][-20:]; return ok
-if not G.get("tg_tested_v341"):
-    tg_send("📡 Bağlantı testi: saatlik tahmin Telegram'a ulaşabiliyor (v34.1). Bundan sonra sinyaller bu sohbete gelecek."); G["tg_tested_v341"] = True
 FEATS, FEATS1, FEATS4, BK, BHS = M["FEATS"], M["FEATS1"], M["FEATS4"], M["BK"], M["BHS"]
 now_ms = time.time() * 1000
 full = fetch_1h(now_ms - 4000 * 3_600_000, now_ms)                                     # son ~5,5 ay saatlik
@@ -31,8 +33,16 @@ if mins is not None and len(mins) >= 120:
 else:
     print("⚠️ Dakika verisi alınamadı: bu saat saat içi özellikler olmadan tahmin yapılıyor.")
     MIC = pd.DataFrame(columns=[f for f in FEATS1 if f.startswith("m_")], dtype="float32"); HHM = pd.DataFrame(columns=["cv", "v"], dtype="float64")
+def _merge(old, new_):                                                                 # dakika özellik geçmişini önbellekte biriktir (z-skorlar için ~60 gün)
+    x = pd.concat([old, new_]) if len(new_) else old; x = x[~x.index.duplicated(keep="last")].sort_index(); return x.iloc[-1500:]
+MICX = _merge(G.get("MIC_TAIL", M.get("MIC_TAIL", MIC.iloc[:0])), MIC); HHMX = _merge(G.get("HHM_TAIL", M.get("HHM_TAIL", HHM.iloc[:0])), HHM)
+G["MIC_TAIL"], G["HHM_TAIL"] = MICX, HHMX
 Fl = features(full).iloc[-2000:]; t = Fl.index[-1]; price = float(full.close.loc[t])
-Fl1 = Fl.join(MIC.reindex(Fl.index)); Fl4 = Fl.join(path2_features(full.close, HHM, MIC).reindex(Fl.index))
+P2X = path2_features(full.close, HHMX, MICX)
+Fl1 = Fl.join(MICX.reindex(Fl.index)); Fl4 = Fl.join(P2X.reindex(Fl.index))
+TES_THR, TES, BUY = M.get("TES_THR"), M.get("TES", {}), M.get("BUY", {})
+try: tes_on = bool(tes_eval(tes_features(full, MICX, P2X).iloc[[-1]], TES_THR).iloc[-1]) if TES_THR else False
+except Exception as e_: tes_on = False; print("⚠️ teslimiyet hesaplanamadı:", str(e_)[:120])
 FR = {1: Fl1, 4: Fl4, 8: Fl}
 for H in CFG:                                                                            # yeni saatlerin tahminleri
     X = M["R"][H]; new = Fl.index[Fl.index > G["PG"][H].index[-1]]
@@ -51,17 +61,21 @@ if len(newi):
 # ---- sinyaller ----
 lines, md_rows, strong_up, fire = [], [], {}, False; iyi_now = False; new_sig = []
 IYI_ON, GOOD_BLK, IYI = M.get("IYI_ON", False), M.get("GOOD_BLK", []), M.get("IYI", {})
+b8_up = bool(signal_frame(G["BPG"][8], G["BPL"][8], rhs[8], False).iloc[-1].S > 0) if 8 in G["BPG"] else None
 for H, cf in CFG.items():
     X = M["R"][H]; sf = (frame_from_S(cz(G["ST"])) if H == 1 else signal_frame(G["PG"][H], G["PL"][H], rhs[H], cf["don"])).iloc[-1]
     sg = 1 if sf.S > 0 else -1; li = 2 if sf.C >= sf.T10 else (1 if sf.C >= sf.T30 else 0); st = X["STATS"][(li, sg)]
     q = np.sort([X["QM"][qq].predict(Fl.loc[[t], FEATS])[0] for qq in (0.1, 0.5, 0.9)]); lo, mid, hi = price * np.exp([q[0] - X["QC"], q[1], q[2] + X["QC"]])
     act, cls = action(H, sg, li, st); strong_up[H] = (sg == 1 and li == 2); tgt = (t + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ)
+    if H == 1 and sg == 1 and li == 2 and tes_on and TES.get("on"): act += f" · 💥 teslimiyet onayı (geçmiş %{TES['on']['acc']:.0f})"
+    if H == 4 and sg == 1 and li >= 1 and b8_up is not None and BUY.get("uyumlu"):
+        act += (f" · 🎯 bariyer uyumlu (geçmiş %{BUY['uyumlu']['acc']:.0f})" if b8_up else f" · ⚠️ bariyer çelişkili, önce STOP bekleniyor (geçmiş %{BUY['celiskili']['acc']:.0f})")
     if H == 4 and IYI_ON and sg == 1 and li == 1 and (t.hour // 4) in GOOD_BLK:
         iyi_now = True; act = f"🟢 ⏰ İyi saat diliminde güçlü yukarı — planlı alım için iyi an (bu durumda geçmiş isabet %{IYI['acc']:.1f})"
     lines.append(f"{cf['ad']}: {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]} — {act}\n   beklenen ${mid:,.0f} · %80 aralık ${lo:,.0f}–${hi:,.0f}")
     md_rows.append(f"| {cf['ad']} | {tgt:%d.%m %H:%M} | {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]} | {act} | ${mid:,.0f} | ${lo:,.0f} – ${hi:,.0f} | %{st['acc']:.1f} (2024+ %{st['acc_h']:.1f}) · en güçlü ↑ %{X['STATS'][(2, 1)]['acc']:.1f} |")
     key = f"{H}_{sg}_{li}"
-    if act[:1] in ("✅", "🟢", "🔴") and (G["last_sent"].get(key) is None or t - G["last_sent"][key] >= pd.Timedelta(hours=H)): fire = True; G["last_sent"][key] = t; new_sig.append((H, sg, f"{cf['ad']} {LEV[li].split(' (')[0]} {'↑' if sg == 1 else '↓'}" + (" ⏰" if (H == 4 and iyi_now) else "")))
+    if act[:1] in ("✅", "🟢", "🔴") and (H != 1 or BIR_SAAT_BILDIRIM) and (sg == 1 or ASAGI_BILDIRIM) and (G["last_sent"].get(key) is None or t - G["last_sent"][key] >= pd.Timedelta(hours=H)): fire = True; G["last_sent"][key] = t; new_sig.append((H, sg, f"{cf['ad']} {LEV[li].split(' (')[0]} {'↑' if sg == 1 else '↓'}" + (" ⏰" if (H == 4 and iyi_now) else "")))
 bar_md, bar_tg = [], []
 for B in BHS:
     X_ = M["BAR"][B]; bsf = signal_frame(G["BPG"][B], G["BPL"][B], rhs[B], False).iloc[-1]; bsg = 1 if bsf.S > 0 else -1; bli = 2 if bsf.C >= bsf.T10 else (1 if bsf.C >= bsf.T30 else 0)
@@ -109,7 +123,7 @@ wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=
 son7 = (f"📊 Son 7 günde sonuçlanan sinyaller: {sum(x['ok'] for x in wk7)}/{len(wk7)} tuttu" if wk7 else "📊 Son 7 günde sonuçlanan sinyal yok.")
 iyi_md = f"⏰ İyi saat dilimi (4s güçlü ↑): {'**AÇIK**' if IYI_ON else 'kapalı'} · geçmiş isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.1f}" + (" · **şu an sinyal VAR**" if iyi_now else "")
 acl_md = f"🟢 A sınıfı: **{'VAR' if acls_on else 'yok'}** (üç ufkun ortalama yüzdeliği {acls_m:.2f}, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~{AC_['wk']:.1f}, 4s isabet %{AC_['acc']:.1f}"
-md = (f"# 🧭 BTC çok ufuklu tahmin (v34) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
+md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
       "| Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |\n|---|---|---|---|---|---|---|\n" + "\n".join(md_rows) +
       "\n\n## 🎯 Hedef / stop yarışı (±1σ)\n| Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |\n|---|---|---|---|---|\n" + "\n".join(bar_md) +
       f"\n\n_Model eğitimi: {M['created'].tz_convert(DISPLAY_TZ):%d.%m.%Y} · güncelleme: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M} · ⚠️ Yatırım tavsiyesi değildir._\n")
