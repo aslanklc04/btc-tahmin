@@ -1,4 +1,4 @@
-# egit.py — AYLIK: v34 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
+# egit.py — AYLIK: v35 modellerini eğitir, yürüyen testi yapar, durum/model.pkl dosyasına kaydeder, özeti Telegram'a yollar
 import os, sys, gzip, pickle, lightgbm as lgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -211,12 +211,30 @@ IYI = dict(n=len(evT), wk=len(evT) / wkT, acc=(rT > 0).mean() * 100 if len(evT) 
 IYI_ON = len(GOOD_BLK) > 0 and IYI["n"] >= 100 and IYI["acc"] >= 56                       # kendini denetler: Binance'te tutmazsa bildirim kapalı
 print(f"İyi saat dilimleri (UTC blokları): {GOOD_BLK} · bu dilimlerde 'Güçlü' (çok güçlü olmayan) yukarı sinyal: {IYI['n']} (haftada {IYI['wk']:.1f}) · "
       f"4s isabet %{IYI['acc']:.1f} (2024+ %{IYI['acc_h']:.1f}) → {'✅ bildirim AÇIK' if IYI_ON else '❌ bildirim kapalı (yeterince isabetli değil)'}")
+
+baslik("2i) 💥 TESLİMİYET ONAYI ve 🎯 BARİYER UYUMU (Binance verisiyle eşikler ve canlı ölçüm)")
+P2_all = path2_features(o.close, HHM, MIC); TF = tes_features(o, MIC, P2_all)
+Kp = (TF.index >= pd.Timestamp("2017-09-01", tz="UTC")) & (TF.index < pd.Timestamp("2020-01-01", tz="UTC"))
+TES_THR = [[(f, op, float(TF.loc[Kp, f].quantile(int(q) / 100))) for f, op, q in rule] for rule in TES_RULES]
+U_tes = tes_eval(TF, TES_THR)
+S1F = frame_from_S(cz(R[1]["ST"])).dropna(subset=["S", "T10"]); y1 = R[1]["D"].y.reindex(S1F.index); m10 = ((S1F.S > 0) & (S1F.C >= S1F.T10)) & y1.notna()
+hold1 = S1F.index >= pd.Timestamp(HOLD_START, tz="UTC"); u_ = U_tes.reindex(S1F.index).fillna(False).values
+def _acc(mask):
+    ev = events(mask, 1); r = y1.values[ev]; hh = hold1[ev]; return dict(n=len(ev), acc=(r > 0).mean() * 100 if len(ev) else float("nan"), acc_h=(r[hh] > 0).mean() * 100 if hh.any() else float("nan"))
+TES = dict(on=_acc(m10.values & u_), off=_acc(m10.values & ~u_))
+print(f"1s çok güçlü ↑ + 💥 teslimiyet onayı: {TES['on']['n']} sinyal · isabet %{TES['on']['acc']:.1f} (2024+ %{TES['on']['acc_h']:.1f}) | onaysız: %{TES['off']['acc']:.1f} (2024+ %{TES['off']['acc_h']:.1f})")
+Sb8 = signal_frame(BAR[8]["PG"], BAR[8]["PL"], FA["r8"], False).S; S4F2 = R[4]["SF"].dropna(subset=["S", "T30", "y"]); b8 = Sb8.reindex(S4F2.index)
+g4 = ((S4F2.S > 0) & (S4F2.C >= S4F2.T30)).values; hold4 = S4F2.index >= pd.Timestamp(HOLD_START, tz="UTC")
+def _acc4(mask):
+    ev = events(mask, 4); r = S4F2.y.values[ev]; hh = hold4[ev]; return dict(n=len(ev), acc=(r > 0).mean() * 100 if len(ev) else float("nan"), acc_h=(r[hh] > 0).mean() * 100 if hh.any() else float("nan"))
+BUY = dict(uyumlu=_acc4(g4 & (b8 > 0).values), celiskili=_acc4(g4 & (b8 < 0).values))
+print(f"4s güçlü+ ↑ · bariyer UYUMLU: %{BUY['uyumlu']['acc']:.1f} (2024+ %{BUY['uyumlu']['acc_h']:.1f}, n={BUY['uyumlu']['n']}) | ÇELİŞKİLİ: %{BUY['celiskili']['acc']:.1f} (2024+ %{BUY['celiskili']['acc_h']:.1f}, n={BUY['celiskili']['n']})")
 print(f"\n⏱ hazırlık {(time.time()-T0)/60:.1f} dk")
 
 # ================= 3) CANLI PANEL + TELEGRAM =================
 # ================= KAYIT =================
 KEEP = pd.Timedelta(days=70); cutk = lambda s: s[s.index >= s.index[-1] - KEEP]
-state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, ALT_LINE=ALT_LINE, ALTSTAR=ALTSTAR, GOOD_BLK=GOOD_BLK, IYI=IYI, IYI_ON=IYI_ON, BLK=BLK, BK=BK, BHS=BHS,
+state = dict(created=pd.Timestamp.now(tz="UTC"), FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, AGR=AGR, ACLS=ACLS, ALT_LINE=ALT_LINE, ALTSTAR=ALTSTAR, GOOD_BLK=GOOD_BLK, IYI=IYI, IYI_ON=IYI_ON, BLK=BLK, TES_THR=TES_THR, TES=TES, BUY=BUY, MIC_TAIL=MIC.iloc[-1500:], HHM_TAIL=HHM.iloc[-1500:], BK=BK, BHS=BHS,
              R={H: dict(model=R[H]["model"], month=R[H]["month"], PG=cutk(R[H]["PG"]), PL=cutk(R[H]["PL"]), QM=R[H]["QM"], QC=R[H]["QC"], STATS=R[H]["STATS"],
                         A_h=R[H]["A_h"], z=R[H]["z"], verdict=R[H]["verdict"]) for H in CFG},
              ST=cutk(R[1]["ST"]), STACK=R[1]["stack"],
@@ -226,5 +244,5 @@ with gzip.open("durum/model.pkl.gz", "wb") as f: pickle.dump(state, f)
 open("egitim_raporu.md", "w").write(f"# Aylık eğitim raporu — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n\n" + "\n\n".join(RAPOR))
 a4_, a8_ = AGR[("ikisi birden", 4)], AGR[("ikisi birden", 8)]
 tg_send(f"🧠 Aylık eğitim tamamlandı ({(time.time()-T0)/60:.0f} dk).\n" + "\n".join(f"{CFG[H]['ad']}: AUC 2024+ {R[H]['A_h']:.3f} (z={R[H]['z']:.1f}) {R[H]['verdict']}" for H in CFG)
-        + f"\n⭐ en güçlü (canlı ölçüm): 4s %{a4_['acc']:.1f} · 8s %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}" + f"\n🟢 A sınıfı: 4s %{ACLS['acc']:.1f} · haftada ~{ACLS['wk']:.0f}" + f"\n⏰ iyi saat dilimi (4s güçlü): %{IYI['acc']:.1f} · haftada ~{IYI['wk']:.0f} · {'açık' if IYI_ON else 'kapalı'}")
+        + f"\n⭐ en güçlü (canlı ölçüm): 4s %{a4_['acc']:.1f} · 8s %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}" + f"\n🟢 A sınıfı: 4s %{ACLS['acc']:.1f} · haftada ~{ACLS['wk']:.0f}" + f"\n💥 teslimiyet onayı (1s): %{TES['on']['acc']:.1f} · 🎯 bariyer uyumlu (4s): %{BUY['uyumlu']['acc']:.1f} / çelişkili %{BUY['celiskili']['acc']:.1f}" + f"\n⏰ iyi saat dilimi (4s güçlü): %{IYI['acc']:.1f} · haftada ~{IYI['wk']:.0f} · {'açık' if IYI_ON else 'kapalı'}")
 _print(f"✅ kaydedildi: durum/model.pkl.gz ({os.path.getsize('durum/model.pkl.gz')/1e6:.1f} MB) · toplam {(time.time()-T0)/60:.1f} dk")
