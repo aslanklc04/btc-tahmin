@@ -145,6 +145,36 @@ def action(H, sg, li, st):
     if sg == 1 and st["lo"] > 0: return "🟢 Planlı alım için iyi an (işlem olarak komisyonu karşılamıyor)", "up"
     if sg == -1 and st["lo"] > 0: return "🔴 Alımı ertele / elde varsa satışı düşün", "dn"
     return f"{'🟡 Yukarı' if sg == 1 else '🟠 Aşağı'} eğilim — bu seviyenin geçmişi anlamlı değil (bilgi amaçlı)", "up" if sg == 1 else "dn"
+# ---- v35: 💥 teslimiyet onayı (derin kural araması: ~4 milyon kural, 3 dönem + şans kontrolü ile seçilen 20 kural) ----
+TES_RULES = [[["ret240_d1", "≤", "20"], ["dnw1_z", "≤", "20"], ["rn_xdn_4", "≥", "80"]], [["volr_336_720_d4", "≥", "80"], ["rng24", "≥", "60"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["volr_336_720_d4", "≥", "80"], ["rng24", "≥", "60"], ["rng72_d4", "≥", "60"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["volr_336_720_d4", "≥", "80"], ["rng6", "≥", "80"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["volr_48_720", "≥", "60"], ["volr_336_720_d4", "≥", "80"], ["rng72_d4", "≥", "60"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["ret240_d1", "≤", "20"], ["dnw1", "≤", "20"], ["rn_xdn_4", "≥", "80"]], [["volr_24_720_d4", "≥", "60"], ["volr_336_720_d4", "≥", "80"], ["rng24", "≥", "60"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["ret72_d1", "≤", "40"], ["ret240_d1", "≤", "20"], ["dnw1_z", "≤", "20"], ["rn_xdn_4", "≥", "80"]], [["ret16_d1", "≤", "20"], ["p2_vwapdev_mean4", "≤", "20"], ["rn_xdn_4_z", "≥", "80"]], [["ret16_d1", "≤", "20"], ["hh48", "≤", "20"], ["p2_vwapdev_mean4_z", "≤", "20"]], [["volr_48_720", "≥", "60"], ["volr_336_720_d4", "≥", "80"], ["emax_6_24_d1", "≤", "20"], ["p2_vwapdev_mean4_z", "≤", "20"]], [["volr_168_720_d4", "≥", "80"], ["rng6", "≥", "60"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["volr_24_720", "≥", "60"], ["volr_336_720_d4", "≥", "80"], ["emax_6_24_d1", "≤", "20"], ["p2_vwapdev_mean4_z", "≤", "20"], ["rn_xdn_4", "≥", "80"]], [["m_lo_pos", "≥", "80"], ["rn_xdn_4", "≥", "80"]], [["volr_168_720_d4", "≥", "80"], ["hh24_d1", "≤", "20"], ["m_last5_z", "≤", "40"]], [["volr_336_720_d4", "≥", "80"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["volr_168_720_d4", "≥", "80"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]], [["ret16_d1", "≤", "20"], ["emax_336_720_d4", "≤", "20"], ["ll720_d4", "≤", "20"], ["p2_vwapdev_mean4_z", "≤", "20"]], [["ret2", "≤", "20"], ["dnw1", "≤", "20"]], [["volr_336_720_d4", "≥", "80"], ["rng24_d4", "≥", "80"], ["hh24_d1", "≤", "20"], ["m_last5", "≤", "40"]]]
+def tes_features(o, MIC, P2):
+    """20 kuralın kullandığı 27 özellik (laboratuvar tanımlarıyla birebir)."""
+    c, h, l, op = o.close, o.high, o.low, o.open; lr = np.log(c).diff(); v720 = lr.rolling(720, min_periods=168).std(); Bs = {}
+    for k in [2, 16, 72, 240]: Bs[f"ret{k}"] = np.log(c / c.shift(k)) / (v720 * np.sqrt(k))
+    V = {k: lr.rolling(k).std() for k in [24, 48, 168, 336, 720]}
+    for a in [24, 48, 168, 336]: Bs[f"volr_{a}_720"] = V[a] / (V[720] + 1e-12)
+    rng = (h - l) / c; rm = rng.rolling(720, min_periods=168).mean() + 1e-12
+    for k in [6, 24, 72]: Bs[f"rng{k}"] = rng.rolling(k).mean() / rm
+    Bs["dnw1"] = (np.minimum(c, op) - l) / (h - l + 1e-12)
+    E = {k: c.ewm(span=k, adjust=False).mean() for k in [6, 24, 336, 720]}
+    Bs["emax_336_720"] = np.log(E[336] / E[720]) / v720; Bs["emax_6_24"] = np.log(E[6] / E[24]) / v720
+    Bs["hh24"] = np.log(c / h.rolling(24).max()) / v720; Bs["hh48"] = np.log(c / h.rolling(48).max()) / v720; Bs["ll720"] = np.log(c / l.rolling(720).min()) / v720
+    Mi = MIC.reindex(o.index); Bs["m_last5"] = Mi.m_last5.astype(float); Bs["m_lo_pos"] = Mi.m_lo_pos.astype(float)
+    Bs["p2_vwapdev_mean4"] = P2.reindex(o.index).p2_vwapdev_mean4.astype(float)
+    unit = 10 ** (np.floor(np.log10(c)) - 1); Bs["rn_xdn_4"] = (np.floor(c / unit) < np.floor(c.shift(1) / unit)).astype(float).rolling(4).sum()
+    X = pd.DataFrame(Bs, index=o.index); out = {}
+    for f in X.columns:
+        s = X[f]; out[f] = s; out[f + "_d1"] = s - s.shift(1); out[f + "_d4"] = s - s.shift(4)
+        out[f + "_z"] = (s - s.rolling(720, min_periods=168).mean()) / (s.rolling(720, min_periods=168).std() + 1e-12)
+    return pd.DataFrame(out, index=o.index).replace([np.inf, -np.inf], np.nan)
+def tes_eval(TF, THR):
+    """THR: [[(özellik, '≤'/'≥', eşik), ...], ...] → her saat için 'en az bir kural tetiklendi mi'."""
+    U = pd.Series(False, index=TF.index)
+    for rule in THR:
+        m = pd.Series(True, index=TF.index)
+        for f, op, thr in rule: m &= (TF[f] <= thr) if op == "≤" else (TF[f] >= thr)
+        U |= m.fillna(False)
+    return U
 TG_LAST = {"ok": None, "info": ""}
 def tg_send(text):
     """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için)."""
