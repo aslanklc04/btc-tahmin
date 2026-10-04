@@ -41,6 +41,7 @@ Fl = features(full).iloc[-2000:]; t = Fl.index[-1]; price = float(full.close.loc
 P2X = path2_features(full.close, HHMX, MICX)
 Fl1 = Fl.join(MICX.reindex(Fl.index)); Fl4 = Fl.join(P2X.reindex(Fl.index))
 TES_THR, TES, BUY = M.get("TES_THR"), M.get("TES", {}), M.get("BUY", {})
+TES_OK = bool(TES.get("on") and TES.get("off") and TES["on"]["acc"] >= TES["off"]["acc"] + 1)   # kendi kendini denetler: Binance geçmişinde fark yoksa etiket gösterilmez
 try: tes_on = bool(tes_eval(tes_features(full, MICX, P2X).iloc[[-1]], TES_THR).iloc[-1]) if TES_THR else False
 except Exception as e_: tes_on = False; print("⚠️ teslimiyet hesaplanamadı:", str(e_)[:120])
 FR = {1: Fl1, 4: Fl4, 8: Fl}
@@ -67,7 +68,7 @@ for H, cf in CFG.items():
     sg = 1 if sf.S > 0 else -1; li = 2 if sf.C >= sf.T10 else (1 if sf.C >= sf.T30 else 0); st = X["STATS"][(li, sg)]
     q = np.sort([X["QM"][qq].predict(Fl.loc[[t], FEATS])[0] for qq in (0.1, 0.5, 0.9)]); lo, mid, hi = price * np.exp([q[0] - X["QC"], q[1], q[2] + X["QC"]])
     act, cls = action(H, sg, li, st); strong_up[H] = (sg == 1 and li == 2); tgt = (t + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ)
-    if H == 1 and sg == 1 and li == 2 and tes_on and TES.get("on"): act += f" · 💥 teslimiyet onayı (geçmiş %{TES['on']['acc']:.0f})"
+    if H == 1 and sg == 1 and li == 2 and tes_on and TES_OK: act += f" · 💥 teslimiyet onayı (geçmiş %{TES['on']['acc']:.0f})"
     if H == 4 and sg == 1 and li >= 1 and b8_up is not None and BUY.get("uyumlu"):
         act += (f" · 🎯 bariyer uyumlu (geçmiş %{BUY['uyumlu']['acc']:.0f})" if b8_up else f" · ⚠️ bariyer çelişkili, önce STOP bekleniyor (geçmiş %{BUY['celiskili']['acc']:.0f})")
     if H == 4 and IYI_ON and sg == 1 and li == 1 and (t.hour // 4) in GOOD_BLK:
