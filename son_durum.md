@@ -22,7 +22,7 @@
 | 4 saat | $87,128 (+%0.69) | $85,932 (−%0.69) | ⬆️ önce HEDEF · Çok güçlü | %55.9 (2024+ %57.5) |
 | 8 saat | $87,376 (+%0.98) | $85,684 (−%0.98) | ⬆️ önce HEDEF · Çok güçlü | %60.1 (2024+ %64.5) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 05.10.2026 03:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 05.10.2026 03:45 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 04.10 20:42 · ✅ · 🧭 BTC 04.10 20:00 · $85,374 · gönderildi
@@ -36,4 +36,4 @@ _Model eğitimi: 04.10.2026 · güncelleme: 05.10.2026 03:05 · ⚠️ Yatırım
 - 03.10 08:01 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 03.10 08:00 · $84,577 · gönderildi
 - 03.10 06:01 · ✅ · 🧭 BTC 03.10 06:00 · $84,600 · gönderildi
 
-_Çalıştırma: 05.10 03:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 05.10 03:45 · token VAR · sohbet kimliği VAR_
