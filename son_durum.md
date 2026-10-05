@@ -1,8 +1,8 @@
-# 🧭 BTC çok ufuklu tahmin (v35) — 06.10.2026 01:00 kapanışı · $85,948.99
+# 🧭 BTC çok ufuklu tahmin (v35) — 06.10.2026 02:00 kapanışı · $85,928.01
 
 ⭐ En güçlü sinyal şu an **yok** (4s: ✘ · 8s: ✘). Geldiğinde geçmiş isabet 4s %63.2, 8s %62.7.
 
-🟢 A sınıfı: **yok** (üç ufkun ortalama yüzdeliği 0.19, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~10.4, 4s isabet %59.5
+🟢 A sınıfı: **yok** (üç ufkun ortalama yüzdeliği 0.36, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~10.4, 4s isabet %59.5
 
 ⏰ İyi saat dilimi (4s güçlü ↑): **AÇIK** · geçmiş isabet %57.9 · haftada ~7.3
 
@@ -11,18 +11,18 @@
 ## 📊 Yön ve fiyat aralıkları (%80)
 | Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |
 |---|---|---|---|---|---|---|
-| 1 saat | 06.10 02:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $85,918 | $85,682 – $86,164 | %52.4 (2024+ %52.1) · en güçlü ↑ %61.8 |
-| 4 saat | 06.10 05:00 | ⬇️ Güçlü | 🟠 Aşağı eğilim — bu seviyenin geçmişi anlamlı değil (bilgi amaçlı) | $85,838 | $85,314 – $86,447 | %54.7 (2024+ %55.4) · en güçlü ↑ %61.5 |
-| 8 saat | 06.10 09:00 | ⬇️ Güçlü | 🔴 Alımı ertele / elde varsa satışı düşün | $85,837 | $85,080 – $86,486 | %55.0 (2024+ %52.3) · en güçlü ↑ %60.2 |
+| 1 saat | 06.10 03:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $85,891 | $85,675 – $86,161 | %52.4 (2024+ %52.1) · en güçlü ↑ %61.8 |
+| 4 saat | 06.10 06:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $85,858 | $85,388 – $86,489 | %52.0 (2024+ %51.9) · en güçlü ↑ %61.5 |
+| 8 saat | 06.10 10:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $85,861 | $85,098 – $86,605 | %50.9 (2024+ %49.7) · en güçlü ↑ %60.2 |
 
 ## 🎯 Hedef / stop yarışı (±1σ)
 | Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |
 |---|---|---|---|---|
-| 1 saat | $86,244 (+%0.34) | $85,654 (−%0.34) | ⬆️ önce HEDEF · Zayıf | %50.5 (2024+ %50.4) |
-| 4 saat | $86,538 (+%0.69) | $85,360 (−%0.69) | ⬇️ önce STOP · Zayıf | %53.4 (2024+ %53.0) |
-| 8 saat | $86,783 (+%0.97) | $85,115 (−%0.97) | ⬇️ önce STOP · Zayıf | %52.7 (2024+ %51.9) |
+| 1 saat | $86,222 (+%0.34) | $85,634 (−%0.34) | ⬆️ önce HEDEF · Zayıf | %50.5 (2024+ %50.4) |
+| 4 saat | $86,515 (+%0.68) | $85,341 (−%0.68) | ⬆️ önce HEDEF · Zayıf | %53.8 (2024+ %54.1) |
+| 8 saat | $86,758 (+%0.97) | $85,098 (−%0.97) | ⬇️ önce STOP · Zayıf | %52.7 (2024+ %51.9) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 06.10.2026 01:32 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 06.10.2026 02:05 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 05.10 22:06 · ✅ · 🧭 BTC 05.10 22:00 · $85,649 · gönderildi
@@ -36,4 +36,4 @@ _Model eğitimi: 04.10.2026 · güncelleme: 06.10.2026 01:32 · ⚠️ Yatırım
 - 04.10 20:02 · ✅ · 📊 HAFTALIK SONUÇ — son 7 gün · gönderildi
 - 04.10 17:01 · ✅ · 🧭 BTC 04.10 17:00 · $85,241 · gönderildi
 
-_Çalıştırma: 06.10 01:32 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 06.10 02:05 · token VAR · sohbet kimliği VAR_
