@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
+      fail-fast: false
       matrix:
         h: ["4", "8"]
     steps:
@@ -22,7 +23,9 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python arastirma2.py ${{ matrix.h }}
+      - run: |
+          set -o pipefail
+          python arastirma2.py ${{ matrix.h }} 2>&1 | tee kayit_${{ matrix.h }}.txt
       - uses: actions/upload-artifact@v4
         with:
           name: wf2-${{ matrix.h }}
@@ -31,6 +34,14 @@ jobs:
             m1close.pkl
           if-no-files-found: ignore
           retention-days: 7
+      - name: Kaydi dala yaz
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          mkdir -p kayitlar && cp kayit_${{ matrix.h }}.txt kayitlar/ 2>/dev/null || true
+          git add kayitlar && git commit -m "Arastirma 2 kaydi ${{ matrix.h }}" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma && git push origin HEAD:arastirma && break; sleep 5; done
   rapor:
     needs: ufuk
     runs-on: ubuntu-latest
@@ -47,11 +58,15 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           merge-multiple: true
-      - run: python arastirma2.py rapor
+      - run: |
+          set -o pipefail
+          python arastirma2.py rapor 2>&1 | tee kayit_rapor.txt
       - name: Sonucu arastirma dalina yaz
+        if: always()
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add arastirma2_sonuc.md
-          git commit -m "Arastirma 2 sonucu" || echo "degisiklik yok"
-          git pull --rebase origin arastirma && git push origin HEAD:arastirma
+          mkdir -p kayitlar && cp kayit_rapor.txt kayitlar/ 2>/dev/null || true
+          git add kayitlar arastirma2_sonuc.md 2>/dev/null; git add kayitlar || true
+          git commit -m "Arastirma 2 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma && git push origin HEAD:arastirma && break; sleep 5; done

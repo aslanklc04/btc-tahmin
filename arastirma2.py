@@ -27,12 +27,12 @@ def klines_full(sym, start="2017-08-17"):
     return None
 def coinbase_1h():
     out, cur, end = [], pd.Timestamp("2017-08-01", tz="UTC"), pd.Timestamp.now(tz="UTC")
-    s = requests.Session(); s.headers.update(UA); fails = 0
-    while cur < end:
+    s = requests.Session(); s.headers.update(UA); fails = 0; t_ = time.time()
+    while cur < end and time.time() - t_ < 600:
         nx = min(cur + pd.Timedelta(hours=300), end)
         try:
             r = s.get("https://api.exchange.coinbase.com/products/BTC-USD/candles", params=dict(granularity=3600, start=cur.isoformat(), end=nx.isoformat()), timeout=20)
-            if r.status_code == 429: time.sleep(1); continue
+            if r.status_code == 429: time.sleep(1); fails += 0.2; continue
             r.raise_for_status(); out += r.json(); cur = nx; time.sleep(0.12)
         except Exception as e:
             fails += 1; log("⚠️ coinbase", str(e)[:80]); time.sleep(2)
@@ -42,7 +42,9 @@ def coinbase_1h():
     df.index = pd.to_datetime(df.t, unit="s", utc=True) + pd.Timedelta(hours=1); return df.sort_index().close
 def deribit_dvol():
     out, end = [], int(time.time() * 1000); st = int(pd.Timestamp("2021-03-01", tz="UTC").timestamp() * 1000)
+    t_ = time.time()
     for _ in range(400):
+        if time.time() - t_ > 300: break
         try:
             r = requests.get("https://www.deribit.com/api/v2/public/get_volatility_index_data", params=dict(currency="BTC", start_timestamp=st, end_timestamp=end, resolution="3600"), headers=UA, timeout=20)
             r.raise_for_status(); res = r.json()["result"]; out += res["data"]
@@ -124,7 +126,8 @@ def walk(H, D, FE, years, variant="temel"):
             if variant == "agirlik": w = np.clip(tr.y.abs() / (tr._sd * np.sqrt(H) + 1e-12), 0, 3).values
             yb = (tr.y > 0).astype(int); k = int(len(tr) * .85)
             seeds = [0, 1, 2] if variant == "tohum3" else [None]
-            z = ZF(tr[FE]); lo = LogisticRegression(C=0.01, max_iter=500).fit(z(tr[FE]), yb, sample_weight=w)
+            z = ZF(tr[FE]); z.med, z.mu, z.sd = z.med.fillna(0), z.mu.fillna(0), z.sd.fillna(1)   # eğitim penceresinde hiç verisi olmayan sütun (ör. DVOL 2021 öncesi)
+            lo = LogisticRegression(C=0.01, max_iter=500).fit(z(tr[FE]), yb, sample_weight=w)
             for sd_ in seeds:
                 kw = {} if sd_ is None else dict(random_state=sd_)
                 g = lgb.LGBMClassifier(n_estimators=600, learning_rate=0.03, num_leaves=15, min_child_samples=300, subsample=0.7, subsample_freq=1,
@@ -137,6 +140,9 @@ def walk(H, D, FE, years, variant="temel"):
         me = months[i + 1] if i + 1 < len(months) else D.index[-1] + pd.Timedelta(hours=1); rows = D[(D.index >= ms) & (D.index < me)]
         if len(rows): pg, pl = train_month(ms)(rows); PG.loc[rows.index], PL.loc[rows.index] = pg, pl
     return PG.dropna(), PL.dropna()
+import traceback
+def _hata(*a):
+    traceback.print_exc(); sys.stdout.flush()
 if MODE in ("4", "8"):
     H = int(MODE); o, FAM, M1 = get_data(need_min=(H == 4))
     FA = features(o); FEATS = list(FA.columns)
