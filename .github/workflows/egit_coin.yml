@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [altcoin]
-    paths: [egit_coin.py, tahmin_coin.py, .github/workflows/egit_coin.yml]
+    paths: [egit_coin.py]
 permissions:
   contents: write
 jobs:
@@ -54,6 +54,7 @@ jobs:
           ( time python tahmin_coin.py ) > kayitlar/coin_deneme.txt 2>&1 || true
           ( time python tahmin_coin.py ) >> kayitlar/coin_deneme.txt 2>&1 || true
           cat kayitlar/coin_deneme.txt
+          git checkout -- son_durum.md
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add kayitlar/coin_deneme.txt && git commit -m "Altcoin deneme kaydi" || exit 0

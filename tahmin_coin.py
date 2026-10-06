@@ -17,18 +17,28 @@ try:
 except Exception: GB = None
 def fmt(p): return f"${p:,.4f}" if p < 1 else (f"${p:,.2f}" if p < 1000 else f"${p:,.0f}")
 def lvname(li): return LEV[li].split(" (")[0]
+from concurrent.futures import ThreadPoolExecutor
 now_ms = time.time() * 1000; rows_md, logs_all = [], []
+JOBS = []                                                                                    # 1) modeller ve geçmiş (hızlı)
 for mf in sorted(glob.glob("durum/model_*.pkl.gz")):
     NM = os.path.basename(mf)[6:-7].replace("USDT", "")
     try:
         with gzip.open(mf, "rb") as f: M = pickle.load(f)
-        SYM = M["sym"]; SIG = M["SIG"]; G = GC.get(SYM)
+        SYM = M["sym"]; G = GC.get(SYM)
         if G is None or G.get("created") != M["created"]:                                    # yeni eğitim: tahmin geçmişi modelden, KAYITLAR korunur
             KEEP = {k: G[k] for k in ("log", "MIC_TAIL", "HHM_TAIL") if G and k in G}
             G = dict(created=M["created"], PG={H: M["R"][H]["PG"] for H in CFG}, PL={H: M["R"][H]["PL"] for H in CFG}, ST=M["ST"], last={}, **KEEP)
-        full = fetch_1h(now_ms - 4000 * 3_600_000, now_ms, sym=SYM)
-        gap_h = int((full.index[-1] - min(G["PG"][H].index[-1] for H in CFG)) / pd.Timedelta(hours=1))
-        mins = fetch_1m(now_ms - min(max(80, gap_h + 80), 40 * 24) * 3_600_000, now_ms, sym=SYM)
+        gap_h = int((pd.Timestamp(now_ms, unit="ms", tz="UTC") - min(G["PG"][H].index[-1] for H in CFG)) / pd.Timedelta(hours=1))
+        JOBS.append((NM, SYM, M, G, min(max(80, gap_h + 80), 40 * 24)))
+    except Exception: traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ model okunamadı | | | | | | | |")
+def _fetch(j):                                                                               # 2) veri: coin'ler paralel (süre kısa kalsın)
+    try: return fetch_1h(now_ms - 4000 * 3_600_000, now_ms, sym=j[1]), fetch_1m(now_ms - j[4] * 3_600_000, now_ms, sym=j[1])
+    except Exception: traceback.print_exc(); return None, None
+with ThreadPoolExecutor(max(1, len(JOBS))) as ex: DATA = list(ex.map(_fetch, JOBS))
+for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                                    # 3) sinyaller
+    try:
+        SIG = M["SIG"]
+        if full is None or len(full) < 3000: raise RuntimeError("saatlik veri alınamadı")
         if mins is not None and len(mins) >= 120: MIC = micro_features(mins).iloc[1:]; HHM = hourly_cv(mins).iloc[1:]
         else: MIC = M["MIC_TAIL"].iloc[:0]; HHM = M["HHM_TAIL"].iloc[:0]; print(f"⚠️ {NM}: dakika verisi alınamadı")
         def _merge(old, new_):

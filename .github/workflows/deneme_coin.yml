@@ -1,8 +1,9 @@
 name: Altcoin deneme (Telegram'siz)
+# deneme 2: paralel veri cekimi
 on:
   push:
     branches: [altcoin]
-    paths: [.github/workflows/deneme_coin.yml]
+    paths: [.github/workflows/deneme_coin.yml, tahmin_coin.py]
 permissions:
   contents: write
 jobs:
