@@ -61,4 +61,4 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git add son_durum.md
           git commit -m "Saatlik durum" || echo "degisiklik yok"
-          git pull --rebase && git push
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
