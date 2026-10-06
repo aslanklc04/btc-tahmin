@@ -1,0 +1,57 @@
+name: Arastirma 2 (tahmin gucu)
+on:
+  push:
+    branches: [arastirma]
+    paths: [arastirma2.py, .github/workflows/arastirma2.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ufuk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      matrix:
+        h: ["4", "8"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python arastirma2.py ${{ matrix.h }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wf2-${{ matrix.h }}
+          path: |
+            wf2_${{ matrix.h }}.pkl
+            m1close.pkl
+          if-no-files-found: ignore
+          retention-days: 7
+  rapor:
+    needs: ufuk
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - run: python arastirma2.py rapor
+      - name: Sonucu arastirma dalina yaz
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add arastirma2_sonuc.md
+          git commit -m "Arastirma 2 sonucu" || echo "degisiklik yok"
+          git pull --rebase origin arastirma && git push origin HEAD:arastirma
