@@ -1,0 +1,60 @@
+name: Aylik egitim (altcoin)
+on:
+  schedule:
+    - cron: "30 2 1 * *"
+  workflow_dispatch:
+  push:
+    branches: [altcoin]
+    paths: [egit_coin.py, tahmin_coin.py, .github/workflows/egit_coin.yml]
+permissions:
+  contents: write
+jobs:
+  egit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        sym: [ETHUSDT, BNBUSDT, DOGEUSDT]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python egit_coin.py ${{ matrix.sym }}
+        env:
+          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && secrets.TELEGRAM_TOKEN || '' }}
+          TELEGRAM_CHAT_ID: ${{ github.ref_name == 'main' && secrets.TELEGRAM_CHAT_ID || '' }}
+      - name: Modeli depoya kaydet
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add durum/model_${{ matrix.sym }}.pkl.gz durum/rapor_${{ matrix.sym }}.md
+          git commit -m "Aylik egitim ${{ matrix.sym }}" || exit 0
+          for i in 1 2 3 4 5 6; do git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep $((i*5)); done
+  deneme:
+    if: github.ref_name != 'main'
+    needs: egit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Saatlik altcoin betigini iki kez dene (Telegram'siz)
+        run: |
+          mkdir -p kayitlar
+          ( time python tahmin_coin.py ) > kayitlar/coin_deneme.txt 2>&1 || true
+          ( time python tahmin_coin.py ) >> kayitlar/coin_deneme.txt 2>&1 || true
+          cat kayitlar/coin_deneme.txt
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add kayitlar/coin_deneme.txt && git commit -m "Altcoin deneme kaydi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done

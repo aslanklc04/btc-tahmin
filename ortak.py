@@ -10,12 +10,12 @@ LEV = ["Zayıf", "Güçlü (en emin %30)", "Çok güçlü (en emin %10)"]
 EP = ["https://data-api.binance.vision/api/v3/klines", "https://api.binance.com/api/v3/klines", "https://api.binance.us/api/v3/klines"]
 TELEGRAM_TOKEN, TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_TOKEN", "").strip(), os.environ.get("TELEGRAM_CHAT_ID", "").strip()
 def baslik(s): print("\n" + "=" * 72 + f"\n{s}\n" + "=" * 72, flush=True)
-def fetch_1h(start_ms, end_ms, verbose=False):
+def fetch_1h(start_ms, end_ms, verbose=False, sym=None):
     for url in EP:
         try:
             rows, cur = [], int(start_ms)
             while cur < end_ms:
-                r = requests.get(url, params=dict(symbol=SYMBOL, interval="1h", startTime=cur, endTime=int(end_ms), limit=1000), timeout=20)
+                r = requests.get(url, params=dict(symbol=sym or SYMBOL, interval="1h", startTime=cur, endTime=int(end_ms), limit=1000), timeout=20)
                 r.raise_for_status(); dt = r.json()
                 if not dt: break
                 rows += dt; cur = dt[-1][0] + 3_600_000
@@ -51,8 +51,8 @@ def features(o):
     hr, dw = o.index.hour, o.index.dayofweek
     F["hs"], F["hc"] = np.sin(2 * np.pi * hr / 24), np.cos(2 * np.pi * hr / 24); F["ds"], F["dc"] = np.sin(2 * np.pi * dw / 7), np.cos(2 * np.pi * dw / 7)
     return F.replace([np.inf, -np.inf], np.nan)
-def _mzip(ym):
-    url = f"https://data.binance.vision/data/spot/monthly/klines/{SYMBOL}/1m/{SYMBOL}-1m-{ym}.zip"
+def _mzip(ym, sym=None):
+    sym = sym or SYMBOL; url = f"https://data.binance.vision/data/spot/monthly/klines/{sym}/1m/{sym}-1m-{ym}.zip"
     for _ in range(3):
         try:
             r = requests.get(url, timeout=60)
@@ -64,13 +64,13 @@ def to_min(df):
     ot = pd.to_numeric(df[0], errors="coerce"); ok = ot.notna(); ot = ot[ok].values.astype("float64"); ot = np.where(ot > 1e14, ot / 1000, ot)
     m = pd.DataFrame({"close": pd.to_numeric(df[4][ok]).values, "volume": pd.to_numeric(df[5][ok]).values}, index=pd.to_datetime(ot, unit="ms", utc=True) + pd.Timedelta(minutes=1))
     return m[~m.index.duplicated()].sort_index()
-def fetch_1m(start_ms, end_ms):
+def fetch_1m(start_ms, end_ms, sym=None):
     rows, cur = [], int(start_ms)
     while cur < end_ms:
         dt = None
         for url in EP:
             try:
-                r = requests.get(url, params=dict(symbol=SYMBOL, interval="1m", startTime=cur, endTime=int(end_ms), limit=1000), timeout=20)
+                r = requests.get(url, params=dict(symbol=sym or SYMBOL, interval="1m", startTime=cur, endTime=int(end_ms), limit=1000), timeout=20)
                 if r.status_code == 200: dt = r.json(); break
             except Exception: pass
         if not dt: break

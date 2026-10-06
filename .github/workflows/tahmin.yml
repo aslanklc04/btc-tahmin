@@ -35,6 +35,25 @@ jobs:
         with:
           path: durum/gecmis.pkl
           key: gecmis-${{ github.run_id }}
+      - name: Altcoin gecmisini onbellekten al
+        uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-${{ github.run_id }}
+          restore-keys: coingecmis-
+      - name: Altcoin sinyalleri (ETH, BNB, DOGE)
+        continue-on-error: true
+        timeout-minutes: 6
+        run: python tahmin_coin.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Altcoin gecmisini onbellege kaydet
+        if: hashFiles('durum/gecmis_coin.pkl') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-${{ github.run_id }}
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
