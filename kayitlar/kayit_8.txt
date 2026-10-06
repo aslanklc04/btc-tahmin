@@ -1,0 +1,13 @@
+[   57 sn] BTC 79,976 saat
+[  365 sn] alt coinler: ['ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'SOLUSDT', 'DOGEUSDT', 'ADAUSDT']
+[  451 sn] Coinbase 80,448 saat
+[  464 sn] DVOL 48,549 saat
+[  603 sn] ✅ 8s temel (36 özellik)
+[  770 sn] ✅ 8s taker (45 özellik)
+[  937 sn] ✅ 8s capraz (46 özellik)
+[ 1092 sn] ✅ 8s coinbase (41 özellik)
+[ 1248 sn] ✅ 8s dvol (41 özellik)
+[ 1341 sn] ✅ 8s temizle (36 özellik)
+[ 1454 sn] ✅ 8s agirlik (36 özellik)
+[ 1763 sn] ✅ 8s tohum3 (36 özellik)
+[ 1993 sn] ✅ 8s tum_veri (65 özellik)
