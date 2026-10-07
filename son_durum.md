@@ -22,7 +22,7 @@
 | 4 saat | $84,323 (+%0.70) | $83,157 (−%0.70) | ⬇️ önce STOP · Çok güçlü | %58.7 (2024+ %57.6) |
 | 8 saat | $84,565 (+%0.99) | $82,915 (−%0.99) | ⬇️ önce STOP · Çok güçlü | %60.0 (2024+ %55.8) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 15:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 15:43 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 07.10 09:07 · ✅ · ☀️ Günlük özet — 🧭 BTC 07.10 09:00 · $84,333 · gönderildi
@@ -36,7 +36,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 15:05 · ⚠️ Yatırım
 - 06.10 09:05 · ✅ · 🧭 BTC 06.10 09:00 · $85,518 · gönderildi
 - 06.10 08:05 · ✅ · 🧭 BTC 06.10 08:00 · $85,624 · gönderildi
 
-_Çalıştırma: 07.10 15:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 07.10 15:43 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -64,3 +64,24 @@ _Altcoin sinyalleri isabet testinden geçti; komisyon sonrası kâr kanıtlanmad
 
 ### 📨 Altcoin mesajları (son 10)
 - 07.10 15:05 · ✅ · 🪙 DOGE ⭐ EN GÜÇLÜ SİNYAL — 🧭 DOGE 07.10 15:00 · $0.08889 · gönderildi
+
+## 🧪 24 saat DENEME (10 coin) — gerçek para için değil
+Başlangıçtan (07.10.2026) beri sonuçlanan deneme işlemleri: **sonuçlanan işlem yok**
+
+| Coin | Fiyat | 24 saat | Açık deneme işlemi | 2024+ isabet · net % | 2026 isabet · net % (sinyal) |
+|---|---|---|---|---|---|
+| ADA | $0.2536 | ⬆️ Zayıf | — | %58 · +0.42 | %59 · -0.31 (46) |
+| BNB | $767.850 | ⬇️ Zayıf | — | %55 · +0.25 | %49 · -0.35 (63) |
+| BTC | $83,740 | ⬇️ Zayıf | — | %58 · +0.15 | %60 · +0.07 (58) |
+| DOGE | $0.08889 | ⬆️ Çok güçlü | — | %57 · +0.45 | %61 · +0.45 (49) |
+| DOT | $1.112 | ⬇️ Güçlü | — | %59 · +0.61 | %50 · -0.67 (30) |
+| ETH | $2,579 | ⬇️ Çok güçlü | — | %55 · +0.12 | %43 · -0.75 (47) |
+| LINK | $13.383 | ⬇️ Zayıf | — | %51 · +0.16 | %42 · -0.70 (50) |
+| NEAR | $5.035 | ⬇️ Zayıf | — | %52 · +1.16 | %58 · +1.20 (31) |
+| OP | $0.1197 | ⬆️ Zayıf | — | %50 · +0.23 | %33 · -1.16 (54) |
+| SHIB | $0.000005450 | ⬆️ Güçlü | — | %58 · +1.06 | %66 · +1.22 (47) |
+
+_Araştırma (ufuk24): 10 coin, 2024+ isabet %55, işlem başı net +%0,46 (limit emir); 2024 %58, 2025 %55, 2026 %52 (net −%0,14). Canlıda 4–6 hafta izlenir._
+
+### 📨 Deneme mesajları (son 10)
+- (henüz gönderim yok)
