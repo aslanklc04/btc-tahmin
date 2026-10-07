@@ -1,0 +1,74 @@
+name: Aylik egitim (24 saat deneme)
+on:
+  schedule:
+    - cron: "30 4 1 * *"        # her ayın 1'i 07:30 (İstanbul) — diğer eğitimlerden sonra
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: echo "coinler=$(python3 -c "import json; print(json.dumps(open('durum/deneme24_liste.txt').read().split()))")" >> "$GITHUB_OUTPUT"
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python egit24.py ${{ matrix.sym }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m24-${{ matrix.sym }}
+          path: durum/model24_${{ matrix.sym }}.pkl.gz
+          retention-days: 10
+  kaydet:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+          pattern: m24-*
+      - name: Modelleri durum/ klasorune kopyala ve ozet gonder
+        run: |
+          cp art/m24-*/model24_*.pkl.gz durum/ 2>/dev/null || true
+          python - <<'PY'
+          import glob, gzip, pickle
+          from ortak import tg_send
+          rows = []
+          for f in sorted(glob.glob("durum/model24_*.pkl.gz")):
+              M = pickle.load(gzip.open(f)); s = M["STATS"]; y = max(s["yil"]); a = s["2024+"]; b = s["yil"][y]
+              rows.append(f"• {M['sym'][:-4]}: 2024+ isabet %{a['acc']:.0f} · net {a['net']:+.2f}% · {y}: %{b['acc']:.0f} · {b['net']:+.2f}%")
+          print("\n".join(rows))
+          if rows: tg_send("🧪 24 SAAT DENEME — modeller yenilendi (" + str(len(rows)) + " coin)\nGerçek para için değil; sinyaller ve haftalık sonuç Telegram'a gelir.\n" + "\n".join(rows))
+          PY
+        env:
+          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && secrets.TELEGRAM_TOKEN || '' }}
+          TELEGRAM_CHAT_ID: ${{ github.ref_name == 'main' && secrets.TELEGRAM_CHAT_ID || '' }}
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add durum/model24_*.pkl.gz && git commit -m "24 saat deneme modelleri" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep 7; done

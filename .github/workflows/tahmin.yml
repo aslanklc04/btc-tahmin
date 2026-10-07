@@ -60,6 +60,25 @@ jobs:
         with:
           path: durum/gecmis_coin.pkl
           key: coingecmis-${{ github.run_id }}
+      - name: 24 saat deneme gecmisini onbellekten al
+        uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis24.pkl
+          key: d24gecmis-${{ github.run_id }}
+          restore-keys: d24gecmis-
+      - name: 24 saat deneme sinyalleri (durum/model24_*.pkl.gz)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python tahmin24.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: 24 saat deneme gecmisini onbellege kaydet
+        if: hashFiles('durum/gecmis24.pkl') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: durum/gecmis24.pkl
+          key: d24gecmis-${{ github.run_id }}
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
