@@ -24,9 +24,10 @@ jobs:
           path: art
           run-id: 37573562538
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: python trend_para.py
+      - run: |
+          set +e; python trend_para.py > trend_para_log.txt 2>&1; echo "exit=$?" >> trend_para_log.txt; tail -40 trend_para_log.txt
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add trend_para_sonuc.md && git commit -m "BTC trend para testi sonucu" || exit 0
+          git add trend_para_log.txt; git add trend_para_sonuc.md 2>/dev/null; git commit -m "BTC trend para testi sonucu" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

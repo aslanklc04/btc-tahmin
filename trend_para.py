@@ -9,6 +9,7 @@
 import os, glob, time, requests, numpy as np, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 from ortak import *
+from ortak import _mzip
 T0 = time.time(); L = []
 def yaz(s=""): print(s, flush=True); L.append(s)
 def kl(sym="BTCUSDT"):
