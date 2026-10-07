@@ -1,0 +1,111 @@
+# 📈 BTC trend kuralı — para testi — 07.10.2026 13:19
+Veri: 2017-08-17 → 2026-10-07 10:00 UTC · seçim (eşikler) 2017-09 → 2023-12 · karar 2024-01 → bugün
+Eşikler (yalnız seçim döneminden): ema720 ≥ 15.33% (fiyat 30g ortalamanın bu kadar üstünde) · r168 ≥ 14.49% (7 günlük yükseliş)
+
+Dakikalık fiyat: 26660/26972 dakika bulundu (eksik %1.16) · 102 sn
+
+## Gerçekçi: mesaj :06’da gelir, giriş-çıkış o dakika (6 dk)
+
+### 2017–23 (seçim) · al-tut: yıllık %48.8, maxDD %-83.9
+```
+                                               işlem  haftada  isabet%  brüt%  piyasada%  net spot  net BNB  net vadeli  net limit  vadeli alt  vadeli üst  yıllık% BNB  yıllık% vadeli  maxDD% vadeli
+ad                                                                                                                                                                                                    
+8 saat · A · ema720 üst %10                      713    2.173   52.314  0.136     10.344    -0.064   -0.014       0.036      0.096      -0.152       0.219       -5.920          -0.429        -45.468
+8 saat · B · r168 üst %10                        751    2.289   54.461  0.221     10.896     0.021    0.071       0.121      0.181      -0.034       0.270        4.436          10.860        -31.513
+8 saat · C · A ve B                              441    1.344   52.154  0.128      6.398    -0.072   -0.022       0.028      0.088      -0.224       0.253       -4.277          -0.859        -45.774
+8 saat · D · A veya B                           1026    3.127   53.801  0.193     14.885    -0.007    0.043       0.093      0.153      -0.050       0.227        1.219           9.823        -37.320
+8 saat · Taban · koşulsuz her 8 saatte al-sat   6818   20.778   51.540  0.052     98.917    -0.148   -0.098      -0.048      0.012      -0.092      -0.007      -73.169         -53.833        -99.761
+8 saat · ⭐ (mevcut sinyal)                       423    2.027   60.520  0.273      9.651     0.073    0.123       0.173      0.233      -0.012       0.339       11.379          17.420        -36.175
+8 saat · ⭐ + D (trend de varken)                  97    0.465   64.948  0.440      2.213     0.240    0.290       0.340      0.400      -0.007       0.662        6.602           7.899        -17.296
+koşul  · A · ema720 üst %10                      211    0.643   31.754  0.749     10.007     0.549    0.599       0.649      0.709      -0.068       1.535       15.239          17.182        -31.654
+koşul  · B · r168 üst %10                        310    0.945   38.387  0.312      9.314     0.112    0.162       0.212      0.272      -0.107       0.534        4.884           7.500        -30.761
+koşul  · C · A ve B                              183    0.558   33.880  0.141      5.403    -0.059   -0.009       0.041      0.101      -0.327       0.474       -1.896          -0.457        -25.852
+koşul  · D · A veya B                            337    1.027   36.202  0.678     13.919     0.478    0.528       0.578      0.638       0.062       1.159       23.233          26.569        -22.651
+```
+
+### 2024+ (karar) · al-tut: yıllık %28.1, maxDD %-53.7
+```
+                                               işlem  haftada  isabet%  brüt%  piyasada%  net spot  net BNB  net vadeli  net limit  vadeli alt  vadeli üst  yıllık% BNB  yıllık% vadeli  maxDD% vadeli
+ad                                                                                                                                                                                                    
+8 saat · A · ema720 üst %10                      121    0.839   56.198  0.317      3.992     0.117    0.167       0.217      0.277      -0.003       0.430        6.925           9.286         -8.717
+8 saat · B · r168 üst %10                         84    0.582   47.619  0.225      2.771     0.025    0.075       0.125      0.185      -0.245       0.355        1.780           3.336        -11.945
+8 saat · C · A ve B                               62    0.430   51.613  0.446      2.045     0.246    0.296       0.346      0.406       0.158       0.664        6.475           7.672         -7.178
+8 saat · D · A veya B                            141    0.977   54.610  0.237      4.652     0.037    0.087       0.137      0.197      -0.157       0.327        3.754           6.431        -14.949
+8 saat · Taban · koşulsuz her 8 saatte al-sat   3030   21.000   52.013  0.032     99.959    -0.168   -0.118      -0.068     -0.008      -0.106      -0.030      -75.250         -57.167        -93.975
+8 saat · ⭐ (mevcut sinyal)                       307    2.128   61.564  0.194     10.128    -0.006    0.044       0.094      0.154      -0.048       0.224        3.687           9.602        -18.458
+8 saat · ⭐ + D (trend de varken)                  27    0.187   62.963  0.309      0.891     0.109    0.159       0.209      0.269      -0.195       0.622        1.472           1.967         -4.270
+koşul  · A · ema720 üst %10                       25    0.173   44.000  1.389      3.682     1.189    1.239       1.289      1.349       0.070       3.001       10.744          11.240         -4.245
+koşul  · B · r168 üst %10                         28    0.194   42.857  0.857      2.421     0.657    0.707       0.757      0.817      -0.181       1.771        6.797           7.335         -4.970
+koşul  · C · A ve B                               20    0.139   45.000  1.013      1.847     0.813    0.863       0.913      0.973      -0.010       2.498        6.032           6.413         -2.290
+koşul  · D · A veya B                             33    0.229   42.424  1.167      4.256     0.967    1.017       1.067      1.127      -0.021       2.462       11.543          12.204         -5.872
+```
+
+## İyimser: saat kapanışında giriş-çıkış (0 dk)
+
+### 2017–23 (seçim) · al-tut: yıllık %48.8, maxDD %-83.9
+```
+                                               işlem  haftada  isabet%  brüt%  piyasada%  net spot  net BNB  net vadeli  net limit  vadeli alt  vadeli üst  yıllık% BNB  yıllık% vadeli  maxDD% vadeli
+ad                                                                                                                                                                                                    
+8 saat · A · ema720 üst %10                      714    2.176   53.922  0.133     10.359    -0.067   -0.017       0.033      0.093      -0.158       0.216       -6.274          -0.795        -46.958
+8 saat · B · r168 üst %10                        750    2.286   53.867  0.237     10.881     0.037    0.087       0.137      0.197      -0.022       0.289        6.482          13.022        -33.568
+8 saat · C · A ve B                              440    1.341   52.045  0.119      6.384    -0.081   -0.031       0.019      0.079      -0.238       0.251       -4.946          -1.559        -49.396
+8 saat · D · A veya B                           1027    3.130   54.528  0.204     14.900     0.004    0.054       0.104      0.164      -0.036       0.233        3.116          11.888        -37.895
+8 saat · Taban · koşulsuz her 8 saatte al-sat   6820   20.784   51.760  0.052     98.946    -0.148   -0.098      -0.048      0.012      -0.092      -0.007      -73.149         -53.790        -99.766
+8 saat · ⭐ (mevcut sinyal)                       423    2.027   63.357  0.266      9.651     0.066    0.116       0.166      0.226      -0.008       0.331       10.765          16.773        -34.597
+8 saat · ⭐ + D (trend de varken)                  97    0.465   71.134  0.422      2.213     0.222    0.272       0.322      0.382      -0.044       0.651        6.136           7.427        -19.602
+koşul  · A · ema720 üst %10                      211    0.643   22.275  0.674     10.007     0.474    0.524       0.574      0.634      -0.109       1.438       12.724          14.627        -34.562
+koşul  · B · r168 üst %10                        310    0.945   35.161  0.322      9.314     0.122    0.172       0.222      0.282      -0.103       0.556        5.428           8.056        -32.134
+koşul  · C · A ve B                              183    0.558   25.683  0.084      5.403    -0.116   -0.066      -0.016      0.044      -0.390       0.444       -3.499          -2.083        -29.326
+koşul  · D · A veya B                            337    1.027   31.157  0.672     13.919     0.472    0.522       0.572      0.632       0.061       1.137       23.181          26.516        -22.430
+```
+
+### 2024+ (karar) · al-tut: yıllık %28.1, maxDD %-53.7
+```
+                                               işlem  haftada  isabet%  brüt%  piyasada%  net spot  net BNB  net vadeli  net limit  vadeli alt  vadeli üst  yıllık% BNB  yıllık% vadeli  maxDD% vadeli
+ad                                                                                                                                                                                                    
+8 saat · A · ema720 üst %10                      121    0.839   57.025  0.318      3.992     0.118    0.168       0.218      0.278      -0.004       0.437        6.930           9.291         -9.233
+8 saat · B · r168 üst %10                         84    0.582   48.810  0.207      2.771     0.007    0.057       0.107      0.167      -0.211       0.334        1.178           2.725        -12.891
+8 saat · C · A ve B                               62    0.430   51.613  0.413      2.045     0.213    0.263       0.313      0.373       0.105       0.654        5.706           6.894         -7.258
+8 saat · D · A veya B                            141    0.977   53.901  0.241      4.652     0.041    0.091       0.141      0.201      -0.146       0.333        3.832           6.511        -15.499
+8 saat · Taban · koşulsuz her 8 saatte al-sat   3030   21.000   52.376  0.033     99.959    -0.167   -0.117      -0.067     -0.007      -0.105      -0.029      -75.266         -57.193        -93.963
+8 saat · ⭐ (mevcut sinyal)                       307    2.128   61.889  0.242     10.128     0.042    0.092       0.142      0.202      -0.002       0.272        9.293          15.526        -15.039
+8 saat · ⭐ + D (trend de varken)                  27    0.187   66.667  0.346      0.891     0.146    0.196       0.246      0.306      -0.156       0.618        1.832           2.330         -4.415
+koşul  · A · ema720 üst %10                       25    0.173   32.000  1.247      3.682     1.047    1.097       1.147      1.207       0.015       2.862        9.425           9.916         -4.623
+koşul  · B · r168 üst %10                         28    0.194   35.714  0.641      2.421     0.441    0.491       0.541      0.601      -0.408       1.555        4.484           5.012         -7.797
+koşul  · C · A ve B                               20    0.139   45.000  0.879      1.847     0.679    0.729       0.779      0.839      -0.082       2.214        5.052           5.430         -2.944
+koşul  · D · A veya B                             33    0.229   27.273  0.957      4.256     0.757    0.807       0.857      0.917      -0.200       2.248        8.833           9.481         -7.797
+```
+
+## Yıl yıl getiri (6 dk, vadeli %0,05, bileşik %) — al-tut ile karşılaştırma
+```
+yil                                             2017  2018  2019   2020  2021  2022   2023   2024  2025  2026
+ad                                                                                                           
+8 saat · A · ema720 üst %10                      7.0  -5.6  14.6    5.6 -18.4   NaN   -2.4   25.6   NaN   1.7
+8 saat · B · r168 üst %10                       27.9   1.4  22.9    8.7  12.8  -5.4    3.4   11.2  -5.2   3.9
+8 saat · C · A ve B                             22.3  -4.2  -0.3    8.0 -24.5   NaN   -0.5   18.9   NaN   3.2
+8 saat · D · A veya B                           12.5  -0.7  38.2    4.9  17.2  -5.4    0.4   22.4  -5.2   2.4
+8 saat · Taban · koşulsuz her 8 saatte al-sat   70.4 -90.4 -30.5   32.1 -49.3 -88.2  -13.4  -26.3 -68.7 -58.5
+8 saat · ⭐ (mevcut sinyal)                       NaN   NaN   NaN   24.7  60.9 -31.7   38.7   36.0  -9.7   4.9
+8 saat · ⭐ + D (trend de varken)                 NaN   NaN   NaN  -11.3  41.2   1.3    6.7    5.5  -3.0   3.1
+koşul  · A · ema720 üst %10                    122.5  -3.0  28.1   40.0 -31.3   NaN    1.8   38.4   NaN  -3.0
+koşul  · B · r168 üst %10                        1.0   8.8  25.1    4.4  29.4 -11.2   -4.4   20.8  -4.4   5.3
+koşul  · C · A ve B                             -3.6  -2.2  10.5    0.1  -5.8   NaN   -1.2   20.1   NaN  -1.1
+koşul  · D · A veya B                          133.1   7.9  45.1   46.1  -5.7 -11.2   -1.4   39.2  -4.4   3.3
+AL-TUT (BTC)                                   220.7 -73.1  94.5  304.4  60.1 -64.3  155.5  121.1  -6.2  -4.4
+```
+
+## Karar (6 dk gecikme · önceden sabit ölçüt)
+Ölçüt: iki dönemde de BNB-komisyonlu net > 0 · 2024+ vadeli net alt sınır > 0 · 2024+ brüt, tabandan (koşulsuz al) yüksek · 2024+ yıllık (vadeli) al-tut'tan yüksek ya da maxDD'si belirgin küçük
+- ❌ 8 saat tut · A · ema720 üst %10: net>0 iki dönem ✗ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 121 işlem, haftada 0.8, isabet %56, net vadeli %0.217, yıllık %9, maxDD %-9)
+- ❌ 8 saat tut · B · r168 üst %10: net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 84 işlem, haftada 0.6, isabet %48, net vadeli %0.125, yıllık %3, maxDD %-12)
+- ❌ 8 saat tut · C · A ve B: net>0 iki dönem ✗ · güven alt>0 ✓ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 62 işlem, haftada 0.4, isabet %52, net vadeli %0.346, yıllık %8, maxDD %-7)
+- ❌ 8 saat tut · D · A veya B: net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 141 işlem, haftada 1.0, isabet %55, net vadeli %0.137, yıllık %6, maxDD %-15)
+- ❌ 8 saat tut · ⭐ (mevcut sinyal): net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 307 işlem, haftada 2.1, isabet %62, net vadeli %0.094, yıllık %10, maxDD %-18)
+- ❌ 8 saat tut · ⭐ + D (trend de varken): net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 27 işlem, haftada 0.2, isabet %63, net vadeli %0.209, yıllık %2, maxDD %-4)
+- ✅ koşul sürdükçe tut · A · ema720 üst %10: net>0 iki dönem ✓ · güven alt>0 ✓ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 25 işlem, haftada 0.2, isabet %44, net vadeli %1.289, yıllık %11, maxDD %-4)
+- ❌ koşul sürdükçe tut · B · r168 üst %10: net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 28 işlem, haftada 0.2, isabet %43, net vadeli %0.757, yıllık %7, maxDD %-5)
+- ❌ koşul sürdükçe tut · C · A ve B: net>0 iki dönem ✗ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 20 işlem, haftada 0.1, isabet %45, net vadeli %0.913, yıllık %6, maxDD %-2)
+- ❌ koşul sürdükçe tut · D · A veya B: net>0 iki dönem ✓ · güven alt>0 ✗ · tabandan iyi ✓ · al-tut'a göre ✓ (2024+: 33 işlem, haftada 0.2, isabet %42, net vadeli %1.067, yıllık %12, maxDD %-6)
+
+_Süre: 105 sn · brüt/net = işlem başı ortalama % · alt/üst = haftalık blok bootstrap %90 aralığı · piyasada = zamanın yüzde kaçı pozisyonda_
+exit=0
