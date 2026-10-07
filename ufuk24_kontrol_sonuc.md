@@ -1,0 +1,30 @@
+# 🔎 Uzun ufuk — sağlamlık kontrolleri — 07.10.2026 15:21
+
+## 24 saat 'Çok güçlü ↑' · seçilen coin'ler (yalnız 2020–23'e göre): ADA BNB BTC DOGE DOT ETH LINK NEAR OP SHIB
+- 2024+ sinyal: 1873 · isabet %55.4 · brüt %0.497 · net (limit) %0.457
+- Taban (aynı coin'ler, HER saatte al, 24 s tut): isabet %49.1 · brüt %0.049 → sinyalin fazlası %0.448 puan
+- Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %100.0'inden iyi · kaydırılmış ort. %0.053 (%95'lik: %0.270)
+- Yıl yıl (2024+):  2024: 716 sinyal, isabet %58, net %0.75 · 2025: 682 sinyal, isabet %55, net %0.57 · 2026: 475 sinyal, isabet %52, net %-0.14
+- Kâr dağılımı: 144 hafta · kârlı hafta %65 · en iyi 5 haftanın toplam kârdaki payı %69
+- Portföy (her coin'e %10 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %35.2 · en büyük düşüş %-20.4 · zamanın %19'inde piyasada
+- Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %0.9 · en büyük düşüş %-71.9
+
+## 72 saat 'Çok güçlü ↑' · seçilen coin'ler (yalnız 2020–23'e göre): ADA BNB BTC DOGE DOT ETH LINK NEAR SHIB
+- 2024+ sinyal: 733 · isabet %52.8 · brüt %1.253 · net (limit) %1.213
+- Taban (aynı coin'ler, HER saatte al, 72 s tut): isabet %48.6 · brüt %0.229 → sinyalin fazlası %1.023 puan
+- Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %100.0'inden iyi · kaydırılmış ort. %0.230 (%95'lik: %0.727)
+- Yıl yıl (2024+):  2024: 265 sinyal, isabet %55, net %1.79 · 2025: 261 sinyal, isabet %56, net %1.53 · 2026: 207 sinyal, isabet %46, net %0.07
+- Kâr dağılımı: 143 hafta · kârlı hafta %55 · en iyi 5 haftanın toplam kârdaki payı %58
+- Portföy (her coin'e %11 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %37.8 · en büyük düşüş %-21.4 · zamanın %24'inde piyasada
+- Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %5.2 · en büyük düşüş %-71.1
+
+## 8 saat 'Çok güçlü ↑' · seçilen coin'ler (yalnız 2020–23'e göre): ADA BNB BTC DOGE DOT ETH LINK NEAR OP SHIB
+- 2024+ sinyal: 4132 · isabet %55.0 · brüt %0.191 · net (limit) %0.151
+- Taban (aynı coin'ler, HER saatte al, 8 s tut): isabet %49.5 · brüt %0.016 → sinyalin fazlası %0.175 puan
+- Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %99.8'inden iyi · kaydırılmış ort. %0.014 (%95'lik: %0.119)
+- Yıl yıl (2024+):  2024: 1598 sinyal, isabet %58, net %0.36 · 2025: 1452 sinyal, isabet %55, net %0.09 · 2026: 1082 sinyal, isabet %50, net %-0.06
+- Kâr dağılımı: 143 hafta · kârlı hafta %64 · en iyi 5 haftanın toplam kârdaki payı %95
+- Portföy (her coin'e %10 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %22.3 · en büyük düşüş %-27.6 · zamanın %14'inde piyasada
+- Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %-0.1 · en büyük düşüş %-71.9
+
+_Süre: 30 sn · giriş sinyalden 1 saat sonra · komisyon limit %0,02 her yön_
