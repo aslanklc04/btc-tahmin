@@ -1,8 +1,9 @@
 # coin_sec.py — eğitim çıktılarından (art/) modelleri durum/'a alır. İlk kurulumda (--ilk) izlenecek coin listesini de yazar:
-#   tek başına açık sinyali olan VEYA 🤝 ortak sinyal listesinde (durum/ortak_acik.csv) olan coin'ler.
+#   tek başına açık sinyali olan VEYA 🤝 ortak (durum/ortak_acik.csv) ya da 🔇 BTC sessizken (durum/tek_acik.csv) listesinde olan coin'ler.
 import glob, gzip, os, pickle, shutil, sys, pandas as pd
 os.makedirs("durum", exist_ok=True)
 J = set(pd.read_csv("durum/ortak_acik.csv").sym) if os.path.exists("durum/ortak_acik.csv") else set()
+J |= set(pd.read_csv("durum/tek_acik.csv").sym) if os.path.exists("durum/tek_acik.csv") else set()      # 🔇 BTC sessizken listesi
 liste = [l.strip() for l in open("durum/coin_listesi.txt")] if os.path.exists("durum/coin_listesi.txt") and "--ilk" not in sys.argv else None
 sec = []
 for f in sorted(glob.glob("art/**/model_*.pkl.gz", recursive=True)):

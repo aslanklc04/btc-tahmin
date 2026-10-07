@@ -1,5 +1,6 @@
 # tahmin_coin.py — HER SAAT (tahmin.py'den SONRA): altcoin sinyalleri (durum/model_*.pkl.gz). BTC sistemine dokunmaz; bir coin'de hata olursa yalnız o coin atlanır.
 # v3: 🤝 BTC + coin ORTAK SİNYAL (coin sinyali, BTC'nin 4s Çok güçlü ↑ sinyaliyle aynı saatte; liste: durum/ortak_acik.csv, aylık denetlenir)
+# v4: 🔇 BTC SESSİZKEN coin sinyali (BTC'de ⭐ / 4s Çok güçlü ↑ / A sınıfı yokken; liste: durum/tek_acik.csv, aylık denetlenir)
 #     her ufuk için beklenen fiyat + %80 aralık · küçük fiyat biçimi (SHIB, PEPE) · yalnız bildirimi açık coin'ler hesaplanır · altcoin mesaj günlüğü
 import os, glob, gzip, pickle, traceback
 from concurrent.futures import ThreadPoolExecutor
@@ -12,15 +13,19 @@ if os.path.exists(STATE_F):
     try:
         with open(STATE_F, "rb") as f: GC = pickle.load(f)
     except Exception: GC = {}
-JOINT = {}                                                                                   # {sembol: {sinyal: satır}} — 🤝 ortak sinyal listesi
-try:
-    for _, r in pd.read_csv("durum/ortak_acik.csv").iterrows(): JOINT.setdefault(r.sym, {})[r.sinyal] = r
-except Exception: pass
-BTC_T, BTC_STRONG, BTC_LAST = None, False, None                                              # BTC'nin bu saatteki durumu (tahmin.py az önce kaydetti)
+JOINT, TEK = {}, {}                                                                          # {sembol: {sinyal: satır}} — 🤝 ortak / 🔇 BTC sessizken listeleri
+for _f, _d in [("durum/ortak_acik.csv", JOINT), ("durum/tek_acik.csv", TEK)]:
+    try:
+        for _, r in pd.read_csv(_f).iterrows(): _d.setdefault(r.sym, {})[r.sinyal] = r
+    except Exception: pass
+BTC_T, BTC_STRONG, BTC_QUIET, BTC_LAST = None, False, False, None                            # BTC'nin bu saatteki durumu (tahmin.py az önce kaydetti)
 try:
     with open("durum/gecmis.pkl", "rb") as f: GB = pickle.load(f)
-    sf4 = signal_frame(GB["PG"][4], GB["PL"][4], pd.Series(dtype=float), False).iloc[-1]
-    BTC_T = GB["PG"][4].index[-1]; BTC_STRONG = bool(sf4.S > 0 and sf4.C >= sf4.T10)          # BTC 4s Çok güçlü ↑
+    _e = pd.Series(dtype=float); sf4 = signal_frame(GB["PG"][4], GB["PL"][4], _e, False).iloc[-1]
+    BTC_T = GB["PG"][4].index[-1]; BTC_STRONG = bool(sf4.S > 0 and sf4.C >= sf4.T10)          # BTC 4s Çok güçlü ↑ (⭐ bunu da içerir)
+    _fr = {1: frame_from_S(cz(GB["ST"])).S, 4: signal_frame(GB["PG"][4], GB["PL"][4], _e, False).S, 8: signal_frame(GB["PG"][8], GB["PL"][8], _e, False).S}
+    BTC_ACLS = float(np.mean([rpct(_fr[H].iloc[-800:]).iloc[-1] for H in CFG])) >= 0.85
+    BTC_QUIET = (not BTC_STRONG) and (not BTC_ACLS)                                           # BTC'de ⭐ / 4s Çok güçlü ↑ / A sınıfı yok
     lt = [v for v in GB.get("last_sent", {}).values() if v is not None] + [GB.get("last_star"), GB.get("last_acls")]
     lt = [v for v in lt if v is not None]; BTC_LAST = max(lt) if lt else None
 except Exception: traceback.print_exc()
@@ -41,7 +46,7 @@ for mf in sorted(glob.glob("durum/model_*.pkl.gz")):
     try:
         with gzip.open(mf, "rb") as f: M = pickle.load(f)
         SYM = M["sym"]
-        if not any(v["on"] for v in M["SIG"].values()) and SYM not in JOINT: kapali.append(NM); continue   # açık sinyali yok: bu ay izlenmez
+        if not any(v["on"] for v in M["SIG"].values()) and SYM not in JOINT and SYM not in TEK: kapali.append(NM); continue   # açık sinyali yok: bu ay izlenmez
         G = GC.get(SYM)
         if G is None or G.get("created") != M["created"]:                                    # yeni eğitim: tahmin geçmişi modelden, KAYITLAR korunur
             KEEP = {k: G[k] for k in ("log", "MIC_TAIL", "HHM_TAIL", "last") if G and k in G}
@@ -57,7 +62,7 @@ def _merge(old, new_):
     x = pd.concat([old, new_]) if len(new_) else old; x = x[~x.index.duplicated(keep="last")].sort_index(); return x.iloc[-1500:]
 for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                                    # 3) sinyaller
     try:
-        SIG = M["SIG"]; JO = JOINT.get(SYM, {})
+        SIG = M["SIG"]; JO = JOINT.get(SYM, {}); TK = TEK.get(SYM, {})
         if full is None or len(full) < 2900: raise RuntimeError("saatlik veri alınamadı")
         if mins is not None and len(mins) >= 120: MIC = micro_features(mins).iloc[1:]; HHM = hourly_cv(mins).iloc[1:]
         else: MIC = M["MIC_TAIL"].iloc[:0]; HHM = M["HHM_TAIL"].iloc[:0]; print(f"⚠️ {NM}: dakika verisi alınamadı")
@@ -85,7 +90,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
                 q = np.sort([X_["QM"][qq].predict(Fl.loc[[t], M["FEATS"]])[0] for qq in (0.1, 0.5, 0.9)]); RNG[H] = price * np.exp([q[0] - X_["QC"], q[1], q[2] + X_["QC"]])
         DON = f"{M.get('EVAL0', pd.Timestamp(HOLD_START, tz='UTC')):%Y}+"
         now = {"star": cur[4] == (1, 2) and cur[8] == (1, 2), "u4": cur[4] == (1, 2), "acls": am >= 0.85}
-        btc_ok = BTC_STRONG and BTC_T == t
+        btc_ok = BTC_STRONG and BTC_T == t; btc_sessiz = BTC_QUIET and BTC_T == t
         # ---- sonuç takibi (coin'in kendi fiyatıyla) ----
         LOG = G.setdefault("log", [])
         for e_ in LOG:
@@ -96,7 +101,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         G.setdefault("last", {})
         yeni = lambda k: G["last"].get(k) is None or t - G["last"][k] >= pd.Timedelta(hours=SIG[k]["H"])
         f_ortak = [k for k in ("star", "u4", "acls") if now[k] and btc_ok and k in JO and yeni(k)]
-        f_tek = [k for k in ("star", "u4", "acls") if now[k] and SIG[k]["on"] and k not in f_ortak and yeni(k)]
+        f_tek = [k for k in ("star", "u4", "acls") if now[k] and (SIG[k]["on"] or (k in TK and btc_sessiz)) and k not in f_ortak and yeni(k)]
         tloc = t.tz_convert(DISPLAY_TZ); head = f"🧭 {NM} {tloc:%d.%m %H:%M} · {fmt(price)}"
         ufuk = " · ".join(f"{CFG[H]['ad']}: {'⬆️' if cur[H][0] == 1 else '⬇️'} {lvname(cur[H][1])}" for H in CFG)
         ufuk_tg = "\n".join(f"{CFG[H]['ad']}: {'⬆️' if cur[H][0] == 1 else '⬇️'} {lvname(cur[H][1])}" + (f"\n   beklenen {fmt(RNG[H][1])} · %80 aralık {fmt(RNG[H][0])}–{fmt(RNG[H][2])}" if H in RNG else "") for H in CFG)
@@ -106,17 +111,21 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=SIG[k]["H"], sg=1, p=price))
         if f_tek:
             k0 = f_tek[0]; s0 = SIG[k0]
-            baslik = {"star": f"🪙 {NM} ⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI' · geçmiş ({DON}, canlı ölçüm): 4s isabet %{s0['acc_h4']:.0f} · 8s %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}",
-                      "u4": f"🪙 {NM} 4 SAAT ÇOK GÜÇLÜ ↑ — {head}\nGeçmiş ({DON}, canlı ölçüm): 4 saat sonra isabet %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}",
-                      "acls": f"🪙 {NM} 🟢 A SINIFI — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {am:.2f}) · geçmiş ({DON}): 4 saat sonra isabet %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}"}[k0]
+            if not SIG[k0]["on"]:                                                            # yalnız 🔇 listesinden: BTC'de fırsat yokken coin'de fırsat
+                baslik = (f"🪙🔇 {NM} {dict(star='⭐ EN GÜÇLÜ', u4='4 SAAT ÇOK GÜÇLÜ ↑', acls='🟢 A SINIFI')[k0]} — BTC SESSİZKEN — {head}\nBTC'de güçlü sinyal yokken bu coin'de {AD[k0]} · geçmiş (2024+, BTC sessizken): "
+                          f"4 saat sonra isabet %{TK[k0]['isabet']:.0f} · haftada ~{TK[k0]['haftada']:.1f}")
+            elif k0 == "star": baslik = f"🪙 {NM} ⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI' · geçmiş ({DON}, canlı ölçüm): 4s isabet %{s0['acc_h4']:.0f} · 8s %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}"
+            elif k0 == "u4": baslik = f"🪙 {NM} 4 SAAT ÇOK GÜÇLÜ ↑ — {head}\nGeçmiş ({DON}, canlı ölçüm): 4 saat sonra isabet %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}"
+            else: baslik = f"🪙 {NM} 🟢 A SINIFI — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {am:.2f}) · geçmiş ({DON}): 4 saat sonra isabet %{s0['acc_h']:.0f} · haftada ~{s0['wk']:.1f}"
+            if SIG[k0]["on"] and k0 in TK and btc_sessiz: baslik += f"\n🔇 BTC sessizken bu sinyalin geçmişi: %{TK[k0]['isabet']:.0f}"
             ek = [AD[k] for k in f_tek[1:]]
             btc_ = "BTC bu saatte de sinyal verdi" if (BTC_LAST is not None and BTC_LAST == t) else "BTC bu saatte sinyal vermedi"
             txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n"
                    "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.")
             if COIN_BILDIRIM: tg_send(txt)
-            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}", H=SIG[k]["H"], sg=1, p=price))
+            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"], sg=1, p=price))
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
-        acik = " · ".join(f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]) or "—"
+        acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
         ort_ = " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in JO) or "—"
         son7 = (str(sum(x["ok"] for x in wk7)) + "/" + str(len(wk7))) if wk7 else "—"
         rows_md.append(f"| {NM} | {fmt(price)} | " + " | ".join(f"{'⬆️' if cur[H][0] == 1 else '⬇️'} {lvname(cur[H][1])}" + (f"<br>{fmt(RNG[H][1])} ({fmt(RNG[H][0])}–{fmt(RNG[H][2])})" if H in RNG else "") for H in CFG)
@@ -151,8 +160,8 @@ except Exception: traceback.print_exc()
 if rows_md or kapali:
     tl = GC.get("_tglog", [])[-10:]
     md = ("\n## 🪙 Altcoinler (kendi modelleriyle)\n"
-          f"BTC şu an 4s Çok güçlü ↑: **{'EVET — 🤝 ortak sinyaller etkin' if BTC_STRONG else 'hayır'}**\n\n"
-          "| Coin | Fiyat | 1 saat | 4 saat | 8 saat | ⭐ | A sınıfı (eşik 0,85) | Tek başına açık (isabet) | 🤝 BTC ile ortak açık (isabet) | Son 7 gün |\n|---|---|---|---|---|---|---|---|---|---|\n"
+          f"BTC şu an: **{'4s Çok güçlü ↑ — 🤝 ortak sinyaller etkin' if BTC_STRONG else ('sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin' if BTC_QUIET else 'A sınıfı var — ortak/sessiz listeleri bu saat beklemede')}**\n\n"
+          "| Coin | Fiyat | 1 saat | 4 saat | 8 saat | ⭐ | A sınıfı (eşik 0,85) | Tek başına açık · 🔇 BTC sessizken (isabet) | 🤝 BTC ile ortak açık (isabet) | Son 7 gün |\n|---|---|---|---|---|---|---|---|---|---|\n"
           + "\n".join(rows_md) + "\n\nHücrelerde: yön · beklenen fiyat (%80 aralık)."
           + (f" Bu ay açık sinyali olmayan (izlenmeyen): {', '.join(kapali)}." if kapali else "")
           + "\n\n_Altcoin sinyalleri isabet testinden geçti; komisyon sonrası kâr kanıtlanmadı. Her ay yeniden denetlenir. 🤝 ortak sinyal: coin sinyali BTC'nin 4s Çok güçlü ↑ sinyaliyle aynı saatte gelirse (19 coin taraması: 2020–23 %63–64, 2024+ %59–61; BTC sessizken %53–56)._\n"
