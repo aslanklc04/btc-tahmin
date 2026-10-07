@@ -1,0 +1,32 @@
+name: Kurulum (tarama modelleri)
+on:
+  push:
+    branches: [tarama]
+    paths: [.github/workflows/kur_tarama.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  kur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tarama
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+          run-id: 37573562538
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: python ortak_analiz.py && python coin_sec.py --ilk && cat durum/coin_listesi.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add durum/ && git commit -m "Kurulum: tarama modelleri, ortak sinyal listesi, coin listesi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin tarama && git push origin HEAD:tarama && break; sleep 5; done
