@@ -88,6 +88,7 @@ fr_ = {1: frame_from_S(cz(G["ST"])).S, 4: signal_frame(G["PG"][4], G["PL"][4], r
 pct_now = {H: float(rpct(fr_[H].iloc[-800:]).iloc[-1]) for H in CFG}; acls_m = float(np.mean(list(pct_now.values()))); acls_on = acls_m >= 0.85
 tloc = t.tz_convert(DISPLAY_TZ); head = f"🧭 BTC {tloc:%d.%m %H:%M} · ${price:,.0f}"; GECIK = "⏱️ Sinyal gelince gecikmeden hareket edin (testte beklemek sonucu kötüleştirdi)."
 P_NOW = float(mins.close.iloc[-1]) if mins is not None and len(mins) else price               # mesaj anındaki fiyat (limit emir için)
+CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 Coinbase primi: ABD alıyor mu? (birlesim.py)
 def emir_satiri(H):                                                                        # limit_test.py: BTC ⭐ ve 4s Çok güçlü ↑'de limit emir iki dönemde de kârı artırdı
     cik = (t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ)
     return (f"💡 Emir önerisi: LİMİT alış ${P_NOW:,.1f} (şu anki fiyat) — 60 dk geçerli, dolmazsa işleme girme.\n"
@@ -100,16 +101,16 @@ for e_ in LOG:
     if "ok" not in e_ and tt in full.index:
         p2 = float(full.close.loc[tt]); e_["ok"] = bool((p2 > e_["p"]) == (e_["sg"] == 1)); e_["ret"] = (p2 / e_["p"] - 1) * e_["sg"] * 100
 G["log"] = [e_ for e_ in LOG if t - e_["t"] <= pd.Timedelta(days=60)]
-def logsig(tip, H, sg): G["log"].append(dict(t=t, tip=tip, H=H, sg=sg, p=price))
+def logsig(tip, H, sg): G["log"].append(dict(t=t, tip=tip, H=H, sg=sg, p=price, cb=CBZ))
 if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours=8)):
     tg_send(f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
-            + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + emir_satiri(8) + "\n" + "\n".join(lines + bar_tg)); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
+            + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + CBL + "\n" + emir_satiri(8) + "\n" + "\n".join(lines + bar_tg)); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
 if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None or t - G["last_acls"] >= pd.Timedelta(hours=4)):
-    tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n"
+    tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBL + "\n"
             + "\n".join(lines + bar_tg)); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now else head)
-    tg_send(hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
+    tg_send(hdr + "\n" + (GECIK + "\n" + CBL + "\n" if any(x[1] == 1 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_weekly") is None or t - G["last_weekly"] >= pd.Timedelta(days=6)):
     wk_ = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]
@@ -118,6 +119,7 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
         for e_ in wk_: by.setdefault(e_["tip"], []).append(e_)
         body = "\n".join(f"• {k}: {sum(x['ok'] for x in v)}/{len(v)} tuttu (%{100*sum(x['ok'] for x in v)/len(v):.0f}) · ort. %{np.mean([x['ret'] for x in v]):+.2f}" for k, v in by.items())
         tot = sum(x["ok"] for x in wk_)
+        cbo = cb_ozet([e_ for e_ in wk_ if e_.get("sg") == 1]); body += ("\n" + cbo if cbo else "")
         tg_send(f"📊 HAFTALIK SONUÇ — son 7 gün\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
     else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.")
     G["last_weekly"] = t
@@ -131,7 +133,7 @@ son7 = (f"📊 Son 7 günde sonuçlanan sinyaller: {sum(x['ok'] for x in wk7)}/{
 iyi_md = f"⏰ İyi saat dilimi (4s güçlü ↑): {'**AÇIK**' if IYI_ON else 'kapalı'} · geçmiş isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.1f}" + (" · **şu an sinyal VAR**" if iyi_now else "")
 acl_md = f"🟢 A sınıfı: **{'VAR' if acls_on else 'yok'}** (üç ufkun ortalama yüzdeliği {acls_m:.2f}, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~{AC_['wk']:.1f}, 4s isabet %{AC_['acc']:.1f}"
 emir_md = ("\n\n" + emir_satiri(8 if agree else 4).replace("\n   ", "  \n")) if (agree or strong_up.get(4)) else ""
-md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}{emir_md}\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
+md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}{emir_md}\n\n{CBL} · prim {CBD['bp'] if CBD else float('nan'):+.1f} baz puan\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
       "| Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |\n|---|---|---|---|---|---|---|\n" + "\n".join(md_rows) +
       "\n\n## 🎯 Hedef / stop yarışı (±1σ)\n| Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |\n|---|---|---|---|---|\n" + "\n".join(bar_md) +
       f"\n\n_Model eğitimi: {M['created'].tz_convert(DISPLAY_TZ):%d.%m.%Y} · güncelleme: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M} · ⚠️ Yatırım tavsiyesi değildir._\n")

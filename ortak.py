@@ -192,3 +192,41 @@ def tg_send(text):
             TG_LAST.update(ok=False, info=f"istisna: {type(e).__name__}: {str(e)[:160]}"); print(f"⚠️ Telegram hatası: {str(e)[:200]}")
         time.sleep(3)
     return False
+# ---- 💵 Coinbase primi (ABD alıcıları) — araştırma: bosluklar2.py, cb_kontrol.py, birlesim.py ----
+# Prim = log(Coinbase BTC-USD / Binance BTCUSDT), son 30 güne göre z. Model ↑ sinyali z > 0 iken (ABD normalden fazla ödüyor) geçmişte belirgin daha isabetli/kârlı,
+# z ≤ −1 iken (ABD satıyor) sinyaller kaybettirdi. Aynı saatlik çalışmada tek kez hesaplanır (durum/cb_prim.json), diğer betikler dosyadan okur.
+def cb_prim(path="durum/cb_prim.json"):
+    import json
+    try:
+        d = json.load(open(path))
+        if time.time() - d["hesap"] < 1800: return d
+    except Exception: pass
+    try:
+        now = pd.Timestamp.now(tz="UTC").floor("h"); out = []; s = requests.Session(); s.headers.update({"User-Agent": "btc-tahmin"})
+        for k in (3, 2, 1):
+            a, b = now - pd.Timedelta(hours=300 * k), now - pd.Timedelta(hours=300 * (k - 1))
+            for _ in range(3):
+                r = s.get("https://api.exchange.coinbase.com/products/BTC-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
+                if r.status_code == 200: out += r.json(); break
+                time.sleep(1.5)
+        cb = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
+        cb = pd.Series(cb.close.values.astype(float), index=pd.to_datetime(cb.t, unit="s", utc=True) + pd.Timedelta(hours=1)).sort_index()
+        bn = fetch_1h((now - pd.Timedelta(hours=920)).timestamp() * 1000, time.time() * 1000).close
+        p = np.log(cb / bn.reindex(cb.index)).dropna(); p = p[p.index <= bn.index[-1]]
+        z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
+        d = dict(z=float(z.iloc[-1]), bp=float(p.iloc[-1] * 1e4), t=str(z.index[-1]), hesap=time.time())
+        os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(d, open(path, "w")); return d
+    except Exception as e:
+        print("⚠️ Coinbase primi alınamadı:", str(e)[:200]); return None
+def cb_z(d): return float(d["z"]) if d and np.isfinite(d.get("z", np.nan)) else float("nan")
+def cb_satir(d):
+    z = cb_z(d)
+    if not np.isfinite(z): return "💵 ABD (Coinbase primi): bu saat alınamadı"
+    if z >= 1: return f"💵 ABD güçlü alıyor (Coinbase primi z {z:+.1f}) ✅ onaylı — geçmişte bu durumda isabet ve kâr en yüksek"
+    if z > 0: return f"💵 ABD alıyor (Coinbase primi z {z:+.1f}) ✅ onaylı"
+    if z > -1: return f"💵 ABD almıyor (Coinbase primi z {z:+.1f}) ⚠️ onaysız — geçmişte isabet ve kâr daha düşük"
+    return f"💵 ABD satıyor (Coinbase primi z {z:+.1f}) ⛔ onaysız — geçmişte bu durumda sinyaller kaybettirdi"
+def cb_ozet(x):                                                                              # haftalık rapor: onaylı / onaysız ayrımı
+    a = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] > 0]; b = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] <= 0]
+    f = lambda v: f"{sum(e['ok'] for e in v)}/{len(v)} tuttu (%{100*sum(e['ok'] for e in v)/len(v):.0f})" if v else "yok"
+    return f"💵 ABD onaylı (prim z > 0): {f(a)} · onaysız: {f(b)}" if (a or b) else ""

@@ -35,6 +35,7 @@ def fmt(p):
     if p >= 1: return f"${p:,.2f}"
     return f"${p:.{min(12, 3 - int(np.floor(np.log10(p))))}f}"                               # 4 anlamlı basamak: 0,09021 · 0,00001234
 def lvname(li): return LEV[li].split(" (")[0]
+CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 ABD alıyor mu? (tahmin.py bu saat hesapladı; dosyadan)
 _tg_raw = tg_send
 def tg_send(text):                                                                           # altcoin gönderimlerini kaydet (panelde görünür)
     ok = _tg_raw(text); GC.setdefault("_tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"]))
@@ -108,7 +109,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         if f_ortak:                                                                          # 🤝 bu saatin ortak mesajında toplanır
             r4 = (f" → 4s beklenen {fmt(RNG[4][1])} (%80: {fmt(RNG[4][0])}–{fmt(RNG[4][2])})" if 4 in RNG else "")
             ortak_msg.append(f"• {NM} {fmt(price)} — " + " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in f_ortak) + r4)
-            for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=SIG[k]["H"], sg=1, p=price))
+            for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=SIG[k]["H"], sg=1, p=price, cb=CBZ))
         if f_tek:
             k0 = f_tek[0]; s0 = SIG[k0]
             if not SIG[k0]["on"]:                                                            # yalnız 🔇 listesinden: BTC'de fırsat yokken coin'de fırsat
@@ -120,10 +121,10 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             if SIG[k0]["on"] and k0 in TK and btc_sessiz: baslik += f"\n🔇 BTC sessizken bu sinyalin geçmişi: %{TK[k0]['isabet']:.0f}"
             ek = [AD[k] for k in f_tek[1:]]
             btc_ = "BTC bu saatte de sinyal verdi" if (BTC_LAST is not None and BTC_LAST == t) else "BTC bu saatte sinyal vermedi"
-            txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n"
+            txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{CBL}\n"
                    "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.")
             if COIN_BILDIRIM: tg_send(txt)
-            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"], sg=1, p=price))
+            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"], sg=1, p=price, cb=CBZ))
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
         ort_ = " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in JO) or "—"
@@ -140,7 +141,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
 if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                                        # 🤝 tek mesaj: bu saatte BTC güçlüyken gelen tüm coin sinyalleri
     tl0 = BTC_T.tz_convert(DISPLAY_TZ)
     tg_send(f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet):\n" + "\n".join(ortak_msg)
-            + "\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. Komisyon sonrası kâr kanıtlanmadı.")
+            + "\n" + CBL + "\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. Komisyon sonrası kâr kanıtlanmadı.")
 # ---- haftalık altcoin raporu (pazar 20:00, BTC raporuyla aynı saatte) ----
 try:
     tl_ = pd.Timestamp.now(tz=DISPLAY_TZ).floor("h")
@@ -152,6 +153,7 @@ try:
             body = "\n".join(f"• {k}: {sum(x['ok'] for x in v)}/{len(v)} tuttu (%{100*sum(x['ok'] for x in v)/len(v):.0f}) · ort. %{np.mean([x['ret'] for x in v]):+.2f}" for k, v in by.items())
             oo = [x for x in wk_ if x["tip"].startswith("🤝")]; tt_ = [x for x in wk_ if not x["tip"].startswith("🤝")]
             ozet = (f"\n🤝 ortak: {sum(x['ok'] for x in oo)}/{len(oo)}" if oo else "") + (f" · tek başına: {sum(x['ok'] for x in tt_)}/{len(tt_)}" if tt_ else "")
+            cbo = cb_ozet(wk_); ozet += ("\n" + cbo if cbo else "")
             tot = sum(x["ok"] for x in wk_); tg_send(f"🪙📊 ALTCOİN HAFTALIK SONUÇ — son 7 gün\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f}){ozet}")
         else: tg_send("🪙📊 ALTCOİN HAFTALIK SONUÇ — son 7 günde sonuçlanan altcoin sinyali yok.")
         GC["_last_weekly"] = tl_
