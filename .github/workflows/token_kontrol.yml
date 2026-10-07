@@ -1,0 +1,38 @@
+name: Token kontrolu (depo acilmadan once)
+# Eski bir commit'te yazılı kalmış Telegram token'ı, şu an kullanılan gizli token ile AYNI mı?
+# Yalnız SHA-256 özetleri karşılaştırılır; token hiçbir yerde yazdırılmaz.
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/token_kontrol.yml]
+permissions:
+  contents: write
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - name: Karsilastir
+        env:
+          TT: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import os, hashlib
+          t = os.environ.get("TT", "").strip()
+          h = lambda s: hashlib.sha256(s.encode()).hexdigest()
+          ESKI_TAM = "5dd6207be6e49cf537750dd526c425eeb6bf3c884923174055e4c2e4524a2cc5"
+          ESKI_BOT = "a2bccbf1687fbef1933a0f1e829060e14a3dfcb56dcdd797758d4b1a1073856e"
+          ayni_tam = bool(t) and h(t) == ESKI_TAM
+          ayni_bot = bool(t) and ":" in t and h(t.split(":")[0]) == ESKI_BOT
+          s = (f"# Token kontrolü\n- Gizli token tanımlı: {'evet' if t else 'hayır'}\n- Geçmişteki token ile AYNI: {'EVET — yenilenmeli' if ayni_tam else 'hayır'}\n"
+               f"- Aynı bot: {'evet' if ayni_bot else 'hayır'}\n")
+          open("token_kontrol.md", "w").write(s); print(s)
+          EOF
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add token_kontrol.md && git commit -m "Token kontrolu sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
