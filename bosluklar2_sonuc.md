@@ -1,0 +1,108 @@
+# 🕳️ Başka boşluklar — 07.10.2026 20:12
+Veri: Binance BTC/ETH/USDC · Coinbase ✓ · Upbit ✓ · USD/KRW ✓ · vadeli prim ✓ · fonlama ✓ · emir defteri 1372 gün · 137 sn
+Emir defteri dosya örneği: `timestamp,percentage,depth,notional ⏎ 2023-01-16 23:55:31,-5,12382.70400000,256121006.59438000 ⏎ 2023-01-16 23:55:31,-4,10127.17000000,210492088.58341000 ⏎ 2023-01-16 23:55:31,-3,8524.15500000,177757069.35042000 ⏎ 2023-01-16 23:55:31,-2,6002.59600000,1257171`
+
+_Sonraki 24 saat: olaydan 1 saat sonra giriş, 24 saat tut · 'fazla' = aynı dönemde rastgele saatin ortalamasına göre fark (puan) · net = yön × getiri − limit komisyon_
+
+## Coinbase primi (BTC) · 2017-08 → · ortalama +0.00008, sapma 0.00622
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2    3     4    5     6    7     8     9    10
+seçim -38.3 -26.4 -3.4 -11.3 -8.1   8.3  3.6  22.8  12.5  40.2
+2024+ -36.3 -33.5 -3.0   3.0  6.3  25.1  9.1   0.0  18.2  23.0
+```
+- ✅ z ≥ +2 (boşluk çok geniş): seçim 290 olay, fazla +0.39% → yön AL · 2024+ 115 olay, fazla +0.51%, işlem net +0.53% (alt +0.13%) · 2026 25 olay, fazla +0.51%
+- ✅ z ≤ −2 (boşluk ters yönde çok geniş): seçim 346 olay, fazla -0.52% → yön SAT · 2024+ 152 olay, fazla -0.48%, işlem net +0.38% (alt +0.04%) · 2026 42 olay, fazla -0.52%
+
+## Kore primi / kimchi (BTC) · 2017-10 → · ortalama +0.01853, sapma 0.03845
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2    3     4     5    6     7     8     9   10
+seçim   1.4 -11.7 -9.4 -11.0  13.5  5.0  10.4   6.5  -1.6 -3.2
+2024+ -32.9 -33.1  7.9  -6.2  -7.1  4.9  27.0  29.9  14.5  4.6
+```
+- ❌ z ≥ +2 (boşluk çok geniş): seçim 263 olay, fazla +0.00% → yön AL · 2024+ 86 olay, fazla -0.06%, işlem net -0.04% (alt -0.47%) · 2026 15 olay, fazla +0.03%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 211 olay, fazla +0.10% → yön AL · 2024+ 80 olay, fazla -0.47%, işlem net -0.45% (alt -0.97%) · 2026 22 olay, fazla -0.12%
+
+## Tether primi (USDT, USDC/USDT'den) · 2018-12 → · ortalama -0.00004, sapma 0.00231
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2    3    4    5     6     7     8     9    10
+seçim -31.5 -20.9  3.4 -6.0  4.8   9.1   9.1   0.3  17.9  13.8
+2024+ -26.0 -41.0 -5.7 -5.6  1.9  21.9  13.0 -11.8  26.8  28.6
+```
+- ✅ z ≥ +2 (boşluk çok geniş): seçim 160 olay, fazla +0.26% → yön AL · 2024+ 93 olay, fazla +0.59%, işlem net +0.61% (alt +0.20%) · 2026 21 olay, fazla +0.05%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 199 olay, fazla -0.44% → yön SAT · 2024+ 130 olay, fazla -0.29%, işlem net +0.18% (alt -0.13%) · 2026 34 olay, fazla +0.12%
+
+## Spot–vadeli primi (BTC) · 2020-01 → · ortalama -0.00013, sapma 0.00056
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2     3     4    5     6     7     8     9    10
+seçim  20.6  22.0  17.1  23.0 -3.8 -19.0 -10.8  -8.4 -10.3 -30.4
+2024+  12.9 -10.1  -5.6  -5.1 -3.7  -3.0 -17.2 -13.9  28.1  20.7
+```
+- ❌ z ≥ +2 (boşluk çok geniş): seçim 196 olay, fazla -0.20% → yön SAT · 2024+ 127 olay, fazla +0.25%, işlem net -0.36% (alt -0.71%) · 2026 37 olay, fazla +0.36%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 97 olay, fazla -0.07% → yön SAT · 2024+ 117 olay, fazla +0.12%, işlem net -0.23% (alt -0.52%) · 2026 36 olay, fazla -0.24%
+
+## Spot–vadeli primi (ETH) · 2020-01 → · ortalama -0.00007, sapma 0.00061
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2    3    4     5    6     7     8    9    10
+seçim  30.2  16.1  4.4 -9.8   7.0 -2.7 -24.5 -39.5 -7.0  25.8
+2024+   5.4 -17.9 -2.7 -7.2  12.3 -1.9 -13.6   4.9  1.1  22.0
+```
+- ❌ z ≥ +2 (boşluk çok geniş): seçim 191 olay, fazla +0.35% → yön AL · 2024+ 117 olay, fazla +0.25%, işlem net +0.23% (alt -0.32%) · 2026 29 olay, fazla +0.93%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 102 olay, fazla -0.33% → yön SAT · 2024+ 105 olay, fazla -0.10%, işlem net +0.04% (alt -0.57%) · 2026 31 olay, fazla -1.17%
+
+## Emir defteri dengesizliği ±%1 (BTC) · 2023-01 → · ortalama +0.01690, sapma 0.15170
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2     3     4     5     6    7     8     9    10
+seçim  28.4  16.6  22.8  18.0   7.7 -10.0  9.0 -24.0 -14.9 -53.6
+2024+  -3.4  -8.4  -0.6  -4.7  17.8   0.2  4.7   1.2   2.3 -17.7
+```
+- ❌ z ≥ +2 (boşluk çok geniş): seçim 56 olay, fazla -0.57% → yön SAT · 2024+ 139 olay, fazla -0.35%, işlem net +0.24% (alt -0.06%) · 2026 33 olay, fazla -0.47%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 53 olay, fazla +0.89% → yön AL · 2024+ 135 olay, fazla -0.26%, işlem net -0.23% (alt -0.51%) · 2026 30 olay, fazla -0.15%
+
+## Emir defteri dengesizliği ±%5 (BTC) · 2023-01 → · ortalama +0.05609, sapma 0.12546
+Dilim (1 = boşluk en düşük, 10 = en yüksek) → sonraki 24 saat, tabana göre fazla (baz puan, 100 = %1):
+```
+dilim     1     2    3    4    5     6     7     8     9    10
+seçim   4.5  21.9  6.5  2.5 -2.3  -4.7 -36.5 -21.1   3.5  25.7
+2024+ -22.6   5.5 -5.6 -1.4  7.5  12.9  -3.1 -13.1 -15.6  46.7
+```
+- ✅ z ≥ +2 (boşluk çok geniş): seçim 37 olay, fazla +0.16% → yön AL · 2024+ 85 olay, fazla +0.54%, işlem net +0.56% (alt +0.03%) · 2026 20 olay, fazla -0.34%
+- ❌ z ≤ −2 (boşluk ters yönde çok geniş): seçim 37 olay, fazla +0.32% → yön AL · 2024+ 83 olay, fazla -0.33%, işlem net -0.31% (alt -0.73%) · 2026 21 olay, fazla -0.56%
+
+## D) Fonlama saati: ödemeden önceki son saat (… → 00/08/16 UTC) ve sonraki ilk saat, fonlama yönüne göre BTC getirisi (baz puan)
+```
+                                      saat  ödemeden önceki saat  sonraki saat  diğer saatler
+donem durum                                                                                  
+≤2023 fonlama > %0,01 (uzunlar öder)   831                 -1.78          0.69          -0.97
+      fonlama < 0 (kısalar öder)       590                  6.95          3.34           2.52
+      hepsi                           4381                  0.09          0.73           0.53
+2024+ fonlama > %0,01 (uzunlar öder)   214                 -0.66          4.58           0.89
+      fonlama < 0 (kısalar öder)       446                  0.79          0.99           0.33
+      hepsi                           3013                 -0.52          0.32           0.41
+2026  fonlama > %0,01 (uzunlar öder)     0                   NaN           NaN            NaN
+      fonlama < 0 (kısalar öder)       213                  1.04          1.82          -0.16
+      hepsi                            820                  2.19          1.79          -0.76
+```
+
+## Özet
+- ✅ Coinbase primi (BTC) · z ≥ +2 (boşluk çok geniş)
+- ✅ Coinbase primi (BTC) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ❌ Kore primi / kimchi (BTC) · z ≥ +2 (boşluk çok geniş)
+- ❌ Kore primi / kimchi (BTC) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ✅ Tether primi (USDT, USDC/USDT'den) · z ≥ +2 (boşluk çok geniş)
+- ❌ Tether primi (USDT, USDC/USDT'den) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ❌ Spot–vadeli primi (BTC) · z ≥ +2 (boşluk çok geniş)
+- ❌ Spot–vadeli primi (BTC) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ❌ Spot–vadeli primi (ETH) · z ≥ +2 (boşluk çok geniş)
+- ❌ Spot–vadeli primi (ETH) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ❌ Emir defteri dengesizliği ±%1 (BTC) · z ≥ +2 (boşluk çok geniş)
+- ❌ Emir defteri dengesizliği ±%1 (BTC) · z ≤ −2 (boşluk ters yönde çok geniş)
+- ✅ Emir defteri dengesizliği ±%5 (BTC) · z ≥ +2 (boşluk çok geniş)
+- ❌ Emir defteri dengesizliği ±%5 (BTC) · z ≤ −2 (boşluk ters yönde çok geniş)
+
+_Süre: 137 sn_
