@@ -3,19 +3,32 @@ on:
   schedule:
     - cron: "30 2 1 * *"
   workflow_dispatch:
-  push:
-    branches: [altcoin]
-    paths: [egit_coin.py]
+    inputs:
+      test_liste:
+        description: "Deneme için virgülle coin listesi (boşsa durum/coin_listesi.txt)"
+        required: false
+        default: ""
 permissions:
   contents: write
 jobs:
-  egit:
+  liste:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: |
+          L="${{ inputs.test_liste }}"; [ -n "$L" ] || L=$(paste -sd, durum/coin_listesi.txt)
+          echo "coinler=$(python3 -c "import json,sys; print(json.dumps(['BTCUSDT'] + [x.strip() for x in sys.argv[1].split(',') if x.strip()]))" "$L")" >> "$GITHUB_OUTPUT"
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
     strategy:
       fail-fast: false
       matrix:
-        sym: [ETHUSDT, BNBUSDT, DOGEUSDT]
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,37 +38,40 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python egit_coin.py ${{ matrix.sym }}
         env:
-          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && secrets.TELEGRAM_TOKEN || '' }}
+          DISA_AKTAR: "1"
+          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && matrix.sym != 'BTCUSDT' && secrets.TELEGRAM_TOKEN || '' }}
           TELEGRAM_CHAT_ID: ${{ github.ref_name == 'main' && secrets.TELEGRAM_CHAT_ID || '' }}
-      - name: Modeli depoya kaydet
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add durum/model_${{ matrix.sym }}.pkl.gz durum/rapor_${{ matrix.sym }}.md
-          git commit -m "Aylik egitim ${{ matrix.sym }}" || exit 0
-          for i in 1 2 3 4 5 6; do git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep $((i*5)); done
-  deneme:
-    if: github.ref_name != 'main'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coin-${{ matrix.sym }}
+          path: |
+            durum/model_${{ matrix.sym }}.pkl.gz
+            durum/rapor_${{ matrix.sym }}.md
+            disa_${{ matrix.sym }}.pkl
+          retention-days: 10
+  ortak:
     needs: egit
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Saatlik altcoin betigini iki kez dene (Telegram'siz)
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - run: python ortak_analiz.py && python coin_sec.py
+        env:
+          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && secrets.TELEGRAM_TOKEN || '' }}
+          TELEGRAM_CHAT_ID: ${{ github.ref_name == 'main' && secrets.TELEGRAM_CHAT_ID || '' }}
+      - name: Modelleri ve ortak listeyi depoya kaydet
         run: |
-          mkdir -p kayitlar
-          ( time python tahmin_coin.py ) > kayitlar/coin_deneme.txt 2>&1 || true
-          ( time python tahmin_coin.py ) >> kayitlar/coin_deneme.txt 2>&1 || true
-          cat kayitlar/coin_deneme.txt
-          git checkout -- son_durum.md
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add kayitlar/coin_deneme.txt && git commit -m "Altcoin deneme kaydi" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
+          git add durum/model_*.pkl.gz durum/rapor_*.md durum/ortak_acik.csv durum/ortak_rapor.md
+          git commit -m "Aylik egitim (altcoin + ortak sinyal denetimi)" || exit 0
+          for i in 1 2 3 4 5 6; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep $((i*5)); done

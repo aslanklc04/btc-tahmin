@@ -1,37 +1,41 @@
-# ortak_analiz.py — "BTC 4s Çok güçlü ↑ ile AYNI SAATTE gelen coin sinyali" (kullanıcının hipotezi) · seçim 2020–23, hüküm 2024+
+# ortak_analiz.py — 🤝 BTC + coin ORTAK SİNYAL denetimi (aylık, coin eğitimlerinden sonra).
+# Ortak sinyal: coin'in ⭐ / 4s Çok güçlü ↑ / A sınıfı sinyali, BTC'nin 4s Çok güçlü ↑ sinyaliyle AYNI SAATTE gelirse.
+# Bulgu (07.10.2026 taraması, 19 coin): tüm coin'ler birlikte isabet 2020–23'te %63–64,5, 2024+'da %59–61 (BTC sessizken %53–56).
+# Açma kuralı (coin + sinyal başına): 2024+ isabet ≥ %58, ≥ 50 sinyal, 2024+ döneminin iki yarısında da ≥ %55,
+#   ve 2020–23'te ≥ 30 sinyal varsa orada da ≥ %55. Sonuç: durum/ortak_acik.csv (tahmin_coin.py okur).
 import glob, os, numpy as np, pandas as pd
 from ortak import *
 L = []
 def yaz(s=""): print(s, flush=True); L.append(s)
 f = lambda p: glob.glob(f"art/**/{p}", recursive=True)
-EXB = pd.read_pickle(f("disa_BTCUSDT.pkl")[0]); PER = {"2020–23": ("2020-01-01", "2024-01-01"), "2024+": ("2024-01-01", "2030-01-01")}
-rows = []
+EXB = pd.read_pickle(f("disa_BTCUSDT.pkl")[0]); A24 = pd.Timestamp("2024-01-01", tz="UTC"); A20 = pd.Timestamp("2020-01-01", tz="UTC")
+AD = {"star": "⭐", "u4": "4s ÇG↑", "acls": "A"}; rows, havuz = [], []
 for p in sorted(f("disa_*USDT.pkl")):
     sym = os.path.basename(p)[5:-4]
     if sym == "BTCUSDT": continue
     X = pd.read_pickle(p); B = EXB.reindex(X.index); bs = B.u4.fillna(False).values.astype(bool)
     bany = (B.star.fillna(False) | B.u4.fillna(False) | B.acls.fillna(False)).values.astype(bool)
     for k, H in [("star", 8), ("u4", 4), ("acls", 4)]:
-        for kosul, c in [("🤝 ortak (BTC 4s ÇG↑)", bs), ("tek (BTC sessiz)", ~bany), ("hepsi", np.ones(len(X), bool))]:
-            m = X[k].values.astype(bool) & c & X.y4.notna().values; ev = events(m, H); t = X.index[ev]
-            for per, (a, b) in PER.items():
-                s = (t >= pd.Timestamp(a, tz="UTC")) & (t < pd.Timestamp(b, tz="UTC"))
-                if s.sum() == 0: continue
-                r = np.exp(X.y4.values[ev][s]) - 1; rb = np.exp(B.y4.values[ev][s]) - 1; tt = t[s]; md = tt[len(tt) // 2]
-                wk = max(1, (min(pd.Timestamp(b, tz="UTC"), X.index[-1]) - max(pd.Timestamp(a, tz="UTC"), X.index[0])).days / 7)
-                rows.append(dict(coin=sym[:-4], sinyal={"star": "⭐", "u4": "4s ÇG↑", "acls": "A"}[k], kosul=kosul, donem=per, n=int(s.sum()), haftada=s.sum() / wk,
-                                 isabet=(r > 0).mean() * 100, y1=(r[tt < md] > 0).mean() * 100, y2=(r[tt >= md] > 0).mean() * 100,
-                                 brut=r.mean() * 100, btc_brut=np.nanmean(rb) * 100, btc_isabet=np.nanmean(rb > 0) * 100))
+        for kosul, c in [("ortak", bs), ("tek", ~bany)]:
+            m = X[k].values.astype(bool) & c & X.y4.notna().values; ev = events(m, H); t = X.index[ev]; r = np.exp(X.y4.values[ev]) - 1
+            for per, s in [("2020–23", (t >= A20) & (t < A24)), ("2024+", t >= A24)]:
+                if s.any(): havuz.append(dict(sinyal=AD[k], kosul=kosul, donem=per, n=int(s.sum()), k=int((r[s] > 0).sum()), g=float(r[s].sum())))
+            if kosul != "ortak": continue
+            s24 = t >= A24; r24 = r[s24]; t24 = t[s24]; md = t24[len(t24) // 2] if len(t24) else None; s20 = (t >= A20) & (t < A24)
+            wk = max(1, (X.index[-1] - max(A24, X.index[0])).days / 7)
+            rows.append(dict(sym=sym, sinyal=k, n=int(s24.sum()), haftada=s24.sum() / wk, isabet=(r24 > 0).mean() * 100 if len(r24) else np.nan,
+                             y1=(r24[t24 < md] > 0).mean() * 100 if len(r24) else np.nan, y2=(r24[t24 >= md] > 0).mean() * 100 if len(r24) else np.nan,
+                             n20=int(s20.sum()), isabet20=(r[s20] > 0).mean() * 100 if s20.any() else np.nan, brut=r24.mean() * 100 if len(r24) else np.nan))
 D = pd.DataFrame(rows)
-yaz(f"# 🤝 BTC + coin ortak sinyal analizi — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
-yaz("Hipotez (kullanıcıdan, veriye bakmadan önce): coin sinyali BTC'nin 4s Çok güçlü ↑ sinyaliyle AYNI SAATTE gelirse daha isabetli. Sonuç: coin'in 4 saat sonraki fiyatı.\n")
-P = D.assign(k=D.n * D.isabet / 100, g=D.n * D.brut / 100, gb=D.n * D.btc_brut / 100).groupby(["sinyal", "kosul", "donem"]).agg(n=("n", "sum"), k=("k", "sum"), g=("g", "sum"), gb=("gb", "sum"), haftada=("haftada", "sum"))
-P["isabet %"] = (100 * P.k / P.n).round(1); P["coin brüt %"] = (100 * P.g / P.n).round(3); P["BTC brüt % (aynı saat)"] = (100 * P.gb / P.n).round(3); P["haftada"] = P.haftada.round(1)
-yaz("## 1) Tüm coin'ler birlikte (seçim 2020–23 → hüküm 2024+)\n```\n" + P.drop(columns=["k", "g", "gb"]).to_string() + "\n```")
-J = D[D.kosul.str.startswith("🤝")].copy()
-S = J[J.donem == "2020–23"].set_index(["coin", "sinyal"]); Hh = J[J.donem == "2024+"].set_index(["coin", "sinyal"])
-T = Hh[["n", "haftada", "isabet", "y1", "y2", "brut", "btc_brut"]].join(S[["n", "isabet"]].rename(columns={"n": "n 20–23", "isabet": "isabet 20–23"}))
-T["AÇ"] = (T.n >= 50) & (T.isabet >= 58) & (T.y1 >= 55) & (T.y2 >= 55)
-yaz("\n## 2) Coin bazında 🤝 ortak sinyal (2024+; kural: isabet ≥ %58, ≥ 50 sinyal, iki yarıda ≥ %55) · yanında 2020–23\n```\n" + T.round(1).sort_values("isabet", ascending=False).to_string() + "\n```")
-yaz("\nAçılacak 🤝 ortak sinyaller: " + (", ".join(f"{c} {s}" for c, s in T[T.AÇ].index) or "yok"))
-open("ortak_sonuc.md", "w").write("\n".join(L) + "\n"); T[T.AÇ].reset_index()[["coin", "sinyal"]].to_csv("ortak_acik.csv", index=False)
+D["ac"] = (D.n >= 50) & (D.isabet >= 58) & (D.y1 >= 55) & (D.y2 >= 55) & ((D.n20 < 30) | (D.isabet20 >= 55))
+P = pd.DataFrame(havuz).groupby(["sinyal", "kosul", "donem"]).sum(); P["isabet %"] = (100 * P.k / P.n).round(1); P["brüt %"] = (100 * P.g / P.n).round(3)
+yaz(f"# 🤝 BTC + coin ortak sinyal denetimi — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
+yaz("Tüm coin'ler birlikte (ortak = BTC 4s Çok güçlü ↑ aynı saatte · tek = BTC'de hiç sinyal yok):\n```\n" + P.drop(columns=["k", "g"]).to_string() + "\n```")
+T = D.assign(coin=D.sym.str.replace("USDT", ""), sinyal_=D.sinyal.map(AD)).set_index(["coin", "sinyal_"])[["n", "haftada", "isabet", "y1", "y2", "n20", "isabet20", "brut", "ac"]]
+yaz("\nCoin bazında (2024+; kural: ≥ %58, ≥ 50 sinyal, iki yarıda ≥ %55, 2020–23'te ≥ 30 sinyal varsa orada da ≥ %55):\n```\n" + T.round(1).sort_values("isabet", ascending=False).to_string() + "\n```")
+A = D[D.ac]; yaz(f"\nAçık 🤝 ortak sinyaller ({len(A)}): " + (", ".join(f"{s.replace('USDT','')} {AD[k]}" for s, k in zip(A.sym, A.sinyal)) or "yok"))
+os.makedirs("durum", exist_ok=True); A[["sym", "sinyal", "n", "haftada", "isabet", "isabet20"]].to_csv("durum/ortak_acik.csv", index=False)
+open("durum/ortak_rapor.md", "w").write("\n".join(L) + "\n")
+if os.environ.get("TELEGRAM_TOKEN"):
+    tg_send(f"🤝🧠 Ortak sinyal denetimi tamamlandı: {len(A)} coin-sinyal açık (BTC 4s Çok güçlü ↑ ile aynı saatte gelen coin sinyalleri).\n"
+            + "\n".join(f"• {s.replace('USDT','')} {AD[k]}: %{i:.0f} (haftada ~{w:.1f})" for s, k, i, w in zip(A.sym, A.sinyal, A.isabet, A.haftada)))

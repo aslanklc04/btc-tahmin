@@ -1,8 +1,6 @@
 name: Saatlik tahmin
 on:
-  schedule:
-    - cron: "7 * * * *"
-  workflow_dispatch:
+  workflow_dispatch:          # her saat :05'te cron-job.org tetikler (GitHub'ın kendi zamanlayıcısı ek çalışmalarla dakika kotasını harcadığı için kaldırıldı)
 permissions:
   contents: write
 concurrency:
@@ -15,10 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
+        id: py
         with:
           python-version: "3.11"
-          cache: pip
-      - run: pip install -r requirements.txt
+      - name: Python paketleri (önbellekten — her saat ~10 sn kazandırır)
+        id: venv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.py.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
+      - if: steps.venv.outputs.cache-hit != 'true'
+        run: python -m venv .venv && .venv/bin/pip install -q -r requirements.txt
+      - run: echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
       - name: Gecmisi onbellekten al
         uses: actions/cache/restore@v4
         with:
