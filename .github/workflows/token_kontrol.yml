@@ -15,12 +15,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: arastirma3
+          fetch-depth: 0
       - name: Karsilastir
         env:
           TT: ${{ secrets.TELEGRAM_TOKEN }}
+          CID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          ESKI=$(git show a3c8ceb:.github/workflows/tahmin.yml | grep -oE '[0-9]{8,10}:[A-Za-z0-9_-]{35}' | head -1); echo "::add-mask::$ESKI"; export ESKI
           python3 - <<'EOF'
-          import os, hashlib
+          import os, hashlib, urllib.request, urllib.parse, urllib.error
           t = os.environ.get("TT", "").strip()
           h = lambda s: hashlib.sha256(s.encode()).hexdigest()
           ESKI_TAM = "5dd6207be6e49cf537750dd526c425eeb6bf3c884923174055e4c2e4524a2cc5"
@@ -29,6 +32,15 @@ jobs:
           ayni_bot = bool(t) and ":" in t and h(t.split(":")[0]) == ESKI_BOT
           s = (f"# Token kontrolü\n- Gizli token tanımlı: {'evet' if t else 'hayır'}\n- Geçmişteki token ile AYNI: {'EVET — yenilenmeli' if ayni_tam else 'hayır'}\n"
                f"- Aynı bot: {'evet' if ayni_bot else 'hayır'}\n")
+          def kod(url, data=None):
+              try: return urllib.request.urlopen(url, data=urllib.parse.urlencode(data).encode() if data else None, timeout=20).status
+              except urllib.error.HTTPError as x: return x.code
+              except Exception as x: return type(x).__name__
+          def getme(tok): return kod(f"https://api.telegram.org/bot{tok}/getMe")
+          e = os.environ.get("ESKI", "")
+          s += f"- Yeni token Telegram'da geçerli (getMe): {getme(t) if t else '-'}\n- Geçmişteki ESKİ token (getMe, 401 = iptal edilmiş): {getme(e) if e else '-'}\n"
+          r = kod(f"https://api.telegram.org/bot{t}/sendMessage", dict(chat_id=os.environ.get("CID", ""), text="✅ Yeni Telegram token çalışıyor (kontrol mesajı)"))
+          s += f"- Test mesajı gönderimi: {r}\n"
           open("token_kontrol.md", "w").write(s); print(s)
           EOF
       - run: |
