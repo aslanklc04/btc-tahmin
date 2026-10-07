@@ -1,4 +1,4 @@
-# 🪙 ETH aylık eğitim — 07.10.2026 07:59
+# 🪙 ETH aylık eğitim — 07.10.2026 08:21
 
 - 1 saat: AUC 2024+ 0.5517
 - 4 saat: AUC 2024+ 0.5422
