@@ -1,0 +1,198 @@
+== art/u24-ADAUSDT/log24_ADAUSDT.txt
+[   53 sn] ADAUSDT: 74,200 saat · 2018-04-17 → 2026-10-07 12:00 · test 2020-01+
+[  191 sn] ADAUSDT: 8s bitti · AUC ≤2023 0.5565 · 2024+ 0.5380
+[  321 sn] ADAUSDT: 24s bitti · AUC ≤2023 0.5425 · 2024+ 0.5109
+[  453 sn] ADAUSDT: 72s bitti · AUC ≤2023 0.5399 · 2024+ 0.5228
+[  453 sn] ADAUSDT: kaydedildi
+exit=0
+== art/u24-APTUSDT/log24_APTUSDT.txt
+[   25 sn] APTUSDT: 34,786 saat · 2022-10-19 → 2026-10-07 12:00 · test 2023-11+
+[   62 sn] APTUSDT: 8s bitti · AUC ≤2023 0.5390 · 2024+ 0.5188
+[   97 sn] APTUSDT: 24s bitti · AUC ≤2023 0.5542 · 2024+ 0.4809
+[  136 sn] APTUSDT: 72s bitti · AUC ≤2023 nan · 2024+ 0.4781
+[  136 sn] APTUSDT: kaydedildi
+exit=0
+== art/u24-ARBUSDT/log24_ARBUSDT.txt
+[   28 sn] ARBUSDT: 31,052 saat · 2023-03-23 → 2026-10-07 12:00 · test 2024-04+
+[   60 sn] ARBUSDT: 8s bitti · AUC ≤2023 nan · 2024+ 0.5212
+[   90 sn] ARBUSDT: 24s bitti · AUC ≤2023 nan · 2024+ 0.4963
+[  123 sn] ARBUSDT: 72s bitti · AUC ≤2023 nan · 2024+ 0.5386
+[  123 sn] ARBUSDT: kaydedildi
+exit=0
+== art/u24-BNBUSDT/log24_BNBUSDT.txt
+[   80 sn] BNBUSDT: 78,055 saat · 2017-11-06 → 2026-10-07 12:00 · test 2020-01+
+[  220 sn] BNBUSDT: 8s bitti · AUC ≤2023 0.5597 · 2024+ 0.5287
+[  349 sn] BNBUSDT: 24s bitti · AUC ≤2023 0.5284 · 2024+ 0.5175
+[  476 sn] BNBUSDT: 72s bitti · AUC ≤2023 0.5077 · 2024+ 0.5179
+[  476 sn] BNBUSDT: kaydedildi
+exit=0
+== art/u24-BTCUSDT/log24_BTCUSDT.txt
+[   57 sn] BTCUSDT: 79,992 saat · 2017-08-17 → 2026-10-07 12:00 · test 2020-01+
+[  166 sn] BTCUSDT: 8s bitti · AUC ≤2023 0.5510 · 2024+ 0.5279
+[  274 sn] BTCUSDT: 24s bitti · AUC ≤2023 0.5280 · 2024+ 0.5371
+[  372 sn] BTCUSDT: 72s bitti · AUC ≤2023 0.5264 · 2024+ 0.5557
+[  372 sn] BTCUSDT: kaydedildi
+exit=0
+== art/u24-DOGEUSDT/log24_DOGEUSDT.txt
+[   46 sn] DOGEUSDT: 63,580 saat · 2019-07-05 → 2026-10-07 12:00 · test 2021-01+
+[  147 sn] DOGEUSDT: 8s bitti · AUC ≤2023 0.5523 · 2024+ 0.5496
+[  245 sn] DOGEUSDT: 24s bitti · AUC ≤2023 0.5503 · 2024+ 0.5528
+[  342 sn] DOGEUSDT: 72s bitti · AUC ≤2023 0.5024 · 2024+ 0.5956
+[  342 sn] DOGEUSDT: kaydedildi
+exit=0
+== art/u24-DOTUSDT/log24_DOTUSDT.txt
+[   40 sn] DOTUSDT: 53,753 saat · 2020-08-19 → 2026-10-07 12:00 · test 2021-09+
+[  120 sn] DOTUSDT: 8s bitti · AUC ≤2023 0.5105 · 2024+ 0.5414
+[  200 sn] DOTUSDT: 24s bitti · AUC ≤2023 0.5310 · 2024+ 0.5345
+[  274 sn] DOTUSDT: 72s bitti · AUC ≤2023 0.5248 · 2024+ 0.5575
+[  274 sn] DOTUSDT: kaydedildi
+exit=0
+== art/u24-ETHUSDT/log24_ETHUSDT.txt
+[   76 sn] ETHUSDT: 79,992 saat · 2017-08-17 → 2026-10-07 12:00 · test 2020-01+
+[  216 sn] ETHUSDT: 8s bitti · AUC ≤2023 0.5375 · 2024+ 0.5331
+[  356 sn] ETHUSDT: 24s bitti · AUC ≤2023 0.5226 · 2024+ 0.5313
+[  488 sn] ETHUSDT: 72s bitti · AUC ≤2023 0.4615 · 2024+ 0.4920
+[  488 sn] ETHUSDT: kaydedildi
+exit=0
+== art/u24-FLOKIUSDT/log24_FLOKIUSDT.txt
+[   22 sn] FLOKIUSDT: 30,018 saat · 2023-05-05 → 2026-10-07 12:00 · test 2024-06+
+[   58 sn] FLOKIUSDT: 8s bitti · AUC ≤2023 nan · 2024+ 0.5414
+[   91 sn] FLOKIUSDT: 24s bitti · AUC ≤2023 nan · 2024+ 0.5370
+[  127 sn] FLOKIUSDT: 72s bitti · AUC ≤2023 nan · 2024+ 0.5736
+[  127 sn] FLOKIUSDT: kaydedildi
+exit=0
+== art/u24-LINKUSDT/log24_LINKUSDT.txt
+[   68 sn] LINKUSDT: 67,646 saat · 2019-01-16 → 2026-10-07 12:00 · test 2020-02+
+[  187 sn] LINKUSDT: 8s bitti · AUC ≤2023 0.5339 · 2024+ 0.5089
+[  305 sn] LINKUSDT: 24s bitti · AUC ≤2023 0.5316 · 2024+ 0.5116
+[  426 sn] LINKUSDT: 72s bitti · AUC ≤2023 0.5239 · 2024+ 0.5046
+[  426 sn] LINKUSDT: kaydedildi
+exit=0
+== art/u24-NEARUSDT/log24_NEARUSDT.txt
+[   54 sn] NEARUSDT: 52,403 saat · 2020-10-14 → 2026-10-07 12:00 · test 2021-11+
+[  136 sn] NEARUSDT: 8s bitti · AUC ≤2023 0.5284 · 2024+ 0.5127
+[  218 sn] NEARUSDT: 24s bitti · AUC ≤2023 0.4970 · 2024+ 0.5003
+[  303 sn] NEARUSDT: 72s bitti · AUC ≤2023 0.5000 · 2024+ 0.5051
+[  303 sn] NEARUSDT: kaydedildi
+exit=0
+== art/u24-OPUSDT/log24_OPUSDT.txt
+[   28 sn] OPUSDT: 38,139 saat · 2022-06-01 → 2026-10-07 12:00 · test 2023-07+
+[   72 sn] OPUSDT: 8s bitti · AUC ≤2023 0.5163 · 2024+ 0.5237
+[  117 sn] OPUSDT: 24s bitti · AUC ≤2023 0.5478 · 2024+ 0.4972
+[  160 sn] OPUSDT: 72s bitti · AUC ≤2023 0.6072 · 2024+ 0.4802
+[  160 sn] OPUSDT: kaydedildi
+exit=0
+== art/u24-PEPEUSDT/log24_PEPEUSDT.txt
+[   27 sn] PEPEUSDT: 30,018 saat · 2023-05-05 → 2026-10-07 12:00 · test 2024-06+
+[   59 sn] PEPEUSDT: 8s bitti · AUC ≤2023 nan · 2024+ 0.5138
+[   92 sn] PEPEUSDT: 24s bitti · AUC ≤2023 nan · 2024+ 0.5254
+[  128 sn] PEPEUSDT: 72s bitti · AUC ≤2023 nan · 2024+ 0.5685
+[  128 sn] PEPEUSDT: kaydedildi
+exit=0
+== art/u24-SHIBUSDT/log24_SHIBUSDT.txt
+[   50 sn] SHIBUSDT: 47,418 saat · 2021-05-10 → 2026-10-07 12:00 · test 2022-06+
+[  112 sn] SHIBUSDT: 8s bitti · AUC ≤2023 0.5614 · 2024+ 0.5514
+[  178 sn] SHIBUSDT: 24s bitti · AUC ≤2023 0.5724 · 2024+ 0.5488
+[  239 sn] SHIBUSDT: 72s bitti · AUC ≤2023 0.5344 · 2024+ 0.5222
+[  239 sn] SHIBUSDT: kaydedildi
+exit=0
+== art/u24-SUIUSDT/log24_SUIUSDT.txt
+[   26 sn] SUIUSDT: 30,072 saat · 2023-05-03 → 2026-10-07 12:00 · test 2024-06+
+[   59 sn] SUIUSDT: 8s bitti · AUC ≤2023 nan · 2024+ 0.5426
+[   89 sn] SUIUSDT: 24s bitti · AUC ≤2023 nan · 2024+ 0.5051
+[  123 sn] SUIUSDT: 72s bitti · AUC ≤2023 nan · 2024+ 0.4479
+[  123 sn] SUIUSDT: kaydedildi
+exit=0
+# ⏳ Uzun ufuk (8 / 24 / 72 saat) — 07.10.2026 15:18
+Coin'ler (15): ADA APT ARB BNB BTC DOGE DOT ETH FLOKI LINK NEAR OP PEPE SHIB SUI · ufuklar: [8, 24, 72]
+
+Olay sayısı: 51,225 · 1 sn
+
+## Yön bilgisi (AUC, 0,50 = yazı tura) — coin × ufuk
+```
+H          8              24             72       
+donem 2020–23  2024+ 2020–23  2024+ 2020–23  2024+
+coin                                              
+ADA     0.551  0.539   0.546  0.509   0.553  0.517
+APT     0.539  0.519   0.554  0.481     NaN  0.478
+ARB       NaN  0.521     NaN  0.496     NaN  0.539
+BNB     0.549  0.536   0.540  0.511   0.527  0.515
+BTC     0.556  0.539   0.544  0.513   0.545  0.544
+DOGE    0.559  0.545   0.566  0.554   0.516  0.598
+DOT     0.510  0.541   0.531  0.535   0.525  0.558
+ETH     0.539  0.544   0.516  0.526   0.468  0.482
+FLOKI     NaN  0.541     NaN  0.537     NaN  0.574
+LINK    0.532  0.520   0.523  0.532   0.504  0.490
+NEAR    0.528  0.513   0.497  0.500   0.500  0.505
+OP      0.516  0.524   0.548  0.497   0.607  0.480
+PEPE      NaN  0.514     NaN  0.525     NaN  0.568
+SHIB    0.561  0.551   0.572  0.549   0.534  0.522
+SUI       NaN  0.543     NaN  0.505     NaN  0.448
+```
+Ortalama AUC: 8s ≤2023 0.540 / 2024+ 0.533 · 24s ≤2023 0.540 / 2024+ 0.518 · 72s ≤2023 0.528 / 2024+ 0.521
+
+## Tüm coin'ler toplamı (BTC dahil) — ufuk × seviye
+### Giriş 1 saat gecikmeli (temkinli)
+```
+                                 sinyal  haftada  isabet   brut  net vadeli %0,05  alt vadeli %0,05  net limit %0,02  alt limit %0,02
+ufuk    seviye          donem                                                                                                        
+8 saat  Güçlü ve üstü ↑ 2020–23    9867   47.275  55.893  0.294             0.194             0.101            0.254            0.161
+                        2024+     11964   82.919  52.834  0.111             0.011            -0.077            0.071           -0.017
+        Çok güçlü ↑     2020–23    4801   23.003  58.196  0.403             0.303             0.162            0.363            0.222
+                        2024+      5854   40.572  54.663  0.212             0.112            -0.020            0.172            0.040
+24 saat Güçlü ve üstü ↑ 2020–23    3699   17.723  55.664  0.649             0.549             0.215            0.609            0.275
+                        2024+      4858   33.669  52.655  0.314             0.214            -0.045            0.274            0.015
+        Çok güçlü ↑     2020–23    1979    9.482  56.392  0.643             0.543             0.186            0.603            0.246
+                        2024+      2647   18.346  54.439  0.521             0.421             0.091            0.481            0.151
+72 saat Güçlü ve üstü ↑ 2020–23    1533    7.345  53.294  1.255             1.155             0.466            1.215            0.526
+                        2024+      2012   13.945  51.740  0.877             0.777             0.049            0.837            0.109
+        Çok güçlü ↑     2020–23     860    4.120  54.186  1.212             1.112             0.332            1.172            0.392
+                        2024+      1152    7.984  52.083  1.232             1.132             0.346            1.192            0.406
+```
+### Giriş sinyal saati kapanışı (iyimser)
+```
+                                 sinyal  haftada  isabet   brut  net vadeli %0,05  alt vadeli %0,05  net limit %0,02  alt limit %0,02
+ufuk    seviye          donem                                                                                                        
+8 saat  Güçlü ve üstü ↑ 2020–23    9867   47.275  56.501  0.313             0.213             0.112            0.273            0.172
+                        2024+     11964   82.919  53.653  0.138             0.038            -0.057            0.098            0.003
+        Çok güçlü ↑     2020–23    4800   22.998  59.229  0.459             0.359             0.213            0.419            0.273
+                        2024+      5854   40.572  54.834  0.227             0.127            -0.017            0.187            0.043
+24 saat Güçlü ve üstü ↑ 2020–23    3698   17.718  55.516  0.647             0.547             0.218            0.607            0.278
+                        2024+      4858   33.669  52.326  0.326             0.226            -0.035            0.286            0.025
+        Çok güçlü ↑     2020–23    1977    9.472  57.258  0.788             0.688             0.314            0.748            0.374
+                        2024+      2647   18.346  54.628  0.551             0.451             0.113            0.511            0.173
+72 saat Güçlü ve üstü ↑ 2020–23    1532    7.340  53.003  1.197             1.097             0.435            1.157            0.495
+                        2024+      2012   13.945  51.640  0.913             0.813             0.047            0.873            0.107
+        Çok güçlü ↑     2020–23     860    4.120  54.070  1.257             1.157             0.363            1.217            0.423
+                        2024+      1152    7.984  52.170  1.212             1.112             0.340            1.172            0.400
+```
+
+## Coin coin: 24 saat 'Çok güçlü ↑' (1 saat gecikme, limit komisyon)
+```
+       2020–23 sinyal  2020–23 isabet  2020–23 net  2024+ sinyal  2024+ isabet  2024+ net
+coin                                                                                     
+ADA               291           59.79         1.27           199         58.29       0.42
+APT                14           71.43         1.35           199         46.73      -0.28
+ARB                 0             NaN          NaN           140         48.57      -0.08
+BNB               286           62.59         0.66           217         55.30       0.25
+BTC               229           56.33         0.20           200         58.50       0.15
+DOGE              217           59.91         0.70           195         56.92       0.45
+DOT               134           49.25         0.14           148         58.78       0.61
+ETH               250           50.00         0.07           178         55.06       0.12
+FLOKI               0             NaN          NaN           158         50.63       0.37
+LINK              290           56.55         0.96           183         50.82       0.16
+NEAR              116           54.31         0.19           174         52.30       1.16
+OP                 46           45.65         1.13           177         49.72       0.23
+PEPE                0             NaN          NaN           137         59.12       1.81
+SHIB              106           51.89         0.28           202         57.92       1.06
+SUI                 0             NaN          NaN           140         57.86       1.25
+```
+
+## Karar (önceden sabit): 24 saat 'Çok güçlü ↑' · coin'ler yalnız 2020–23'e göre seçildi → 2024+
+Seçilen coin'ler (10): ADA BNB BTC DOGE DOT ETH LINK NEAR OP SHIB
+✅ 2024+: 1873 sinyal · haftada 13.0 · isabet %55.4 (yarılar %59 / %52) · brüt %0.497 · net limit %0.457 (alt %0.157) · net vadeli %0.397
+Karşılaştırma — 8 saat, aynı yöntemle seçilen 10 coin, 2024+: haftada 28.6 · isabet %55.0 · net limit %0.151 (alt %0.012)
+Karşılaştırma — 72 saat, aynı yöntemle seçilen 9 coin, 2024+: haftada 5.1 · isabet %52.8 · net limit %1.213 (alt %0.459)
+
+_Süre: 6 sn · brüt/net % = işlem başı · alt = haftalık blok bootstrap %90 alt sınırı · veri sonu 2026-10-07 03:00 UTC_
+exit=0
