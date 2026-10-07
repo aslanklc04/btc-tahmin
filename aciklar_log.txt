@@ -1,0 +1,106 @@
+# 🕳️ Fiyat boşlukları ('açıklar') — 07.10.2026 20:04
+Veri: 10 varlık, saatlik Binance · 72 sn
+
+## A) CME hafta sonu boşluğu (spot BTC, 456 hafta sonu)
+### Boşluk ≥ %0.5 — dolma oranı vs ayna seviye (aynı uzaklık, ters yön)
+```
+       bosluk  yukari  1g dolma %  1g ayna %  3g dolma %  3g ayna %  7g dolma %  7g ayna %  30g dolma %  30g ayna %
+donem                                                                                                              
+≤2023     232     143        44.0       52.6        62.5       64.7        71.1       73.3         82.8        85.3
+2024+      92      54        45.7       65.2        69.6       76.1        79.3       85.9         91.3        91.3
+2026       22      15        45.5       63.6        72.7       72.7        81.8       90.9         86.4        90.9
+```
+### Boşluk ≥ %1.0 — dolma oranı vs ayna seviye (aynı uzaklık, ters yön)
+```
+       bosluk  yukari  1g dolma %  1g ayna %  3g dolma %  3g ayna %  7g dolma %  7g ayna %  30g dolma %  30g ayna %
+donem                                                                                                              
+≤2023     183     109        38.3       46.4        57.4       59.6        68.3       68.3         80.9        82.5
+2024+      63      38        38.1       61.9        63.5       71.4        74.6       84.1         90.5        88.9
+2026       15       9        40.0       60.0        66.7       60.0        80.0       86.7         86.7        86.7
+```
+### Boşluk ≥ %2.0 — dolma oranı vs ayna seviye (aynı uzaklık, ters yön)
+```
+       bosluk  yukari  1g dolma %  1g ayna %  3g dolma %  3g ayna %  7g dolma %  7g ayna %  30g dolma %  30g ayna %
+donem                                                                                                              
+≤2023     122      76        35.2       34.4        48.4       48.4        61.5       58.2         77.0        77.9
+2024+      25      10        20.0       40.0        52.0       52.0        64.0       76.0         88.0        76.0
+2026        6       1        33.3       16.7        66.7       16.7        83.3       66.7         83.3        66.7
+```
+### İşlem: pazar açılışından 1 saat sonra boşluk yönüne gir · seviyede limit çıkış · 72 saatte dolmazsa piyasa (işlem başı %)
+```
+                                          n  isabet  brut   net   alt
+esik  yon                        donem                               
+≥%0.5 ikisi                      ≤2023  224   69.64 -0.51 -0.56 -1.21
+                                 2024+   89   75.28  0.22  0.18 -0.43
+                                 2026    20   80.00  0.89  0.85 -0.01
+      yalnız AŞAĞI boşluk → al   ≤2023   87   73.56  0.05  0.00 -0.90
+                                 2024+   37   81.08  1.13  1.08  0.34
+                                 2026     7   71.43  1.58  1.53   NaN
+      yalnız YUKARI boşluk → sat ≤2023  137   67.15 -0.86 -0.92 -1.71
+                                 2024+   52   71.15 -0.42 -0.47 -1.42
+                                 2026    13   84.62  0.53  0.48 -0.41
+≥%1.0 ikisi                      ≤2023  180   66.67 -0.37 -0.43 -1.14
+                                 2024+   61   68.85  0.25  0.20 -0.65
+                                 2026    13   76.92  0.92  0.87 -0.47
+      yalnız AŞAĞI boşluk → al   ≤2023   73   69.86  0.18  0.12 -0.89
+                                 2024+   25   80.00  1.61  1.57  0.56
+                                 2026     6   83.33  1.94  1.90   NaN
+      yalnız YUKARI boşluk → sat ≤2023  107   64.49 -0.75 -0.80 -1.73
+                                 2024+   36   61.11 -0.69 -0.75 -1.89
+                                 2026     7   71.43  0.04 -0.01   NaN
+≥%2.0 ikisi                      ≤2023  122   62.30 -0.46 -0.51 -1.41
+                                 2024+   25   64.00  0.52  0.46 -1.30
+                                 2026     6   83.33  1.71  1.66   NaN
+      yalnız AŞAĞI boşluk → al   ≤2023   46   63.04 -0.16 -0.21 -1.66
+                                 2024+   15   73.33  1.48  1.43 -0.34
+                                 2026     5   80.00  1.71  1.67   NaN
+      yalnız YUKARI boşluk → sat ≤2023   76   61.84 -0.64 -0.69 -1.96
+                                 2024+   10   50.00 -0.92 -0.98 -4.29
+                                 2026     1  100.00  1.72  1.65   NaN
+```
+### Gerçek CME grafiği (Yahoo BTC=F günlük: cuma kapanış → pazartesi açılış)
+```
+             bosluk  1 hafta dolma %  1 hafta ayna %  1 ay dolma %  1 ay ayna %
+esik  donem                                                                    
+≥%0.5 ≤2023     212             75.0            75.0          84.9         88.2
+      2024+      89             77.5            79.8          88.8         87.6
+      2026       23             87.0            73.9          91.3         73.9
+≥%1.0 ≤2023     167             71.3            71.3          83.2         86.8
+      2024+      66             72.7            77.3          86.4         84.8
+      2026       19             84.2            68.4          89.5         68.4
+≥%2.0 ≤2023     110             67.3            61.8          80.0         84.5
+      2024+      31             64.5            74.2          83.9         83.9
+      2026        8             75.0            62.5          87.5         62.5
+```
+
+## B) Adil değer boşluğu (FVG) — boşluğa geri dönüşte limit işlem, 24 saat sonra çık · kontrol: ±7 gün içinde rastgele anda aynı derinlikte limit
+FVG sayısı: 72,993 · 76 sn
+```
+                                fvg  haftada  geri dönüş %  kontrol dönüş %  isabet  kontrol isabet  brüt  kontrol brüt   net   alt
+tf     yon             donem                                                                                                       
+1 saat aşağı FVG → sat ≤2023  17721    47.54         89.17            84.58   47.58           51.59 -0.35         -0.24 -0.42   NaN
+                       2024+  10608    64.40         87.34            84.50   51.24           52.40  0.05          0.06 -0.02 -0.23
+                       2026    2595    58.36         88.67            86.17   53.46           52.59  0.22         -0.04  0.15 -0.20
+       yukarı FVG → al ≤2023  18667    49.53         88.20            86.08   51.52           53.33  0.69          0.59  0.62   NaN
+                       2024+  10642    64.90         87.74            86.67   48.76           51.50  0.14          0.29  0.07 -0.16
+                       2026    2667    59.75         88.34            86.05   47.20           49.98  0.11          0.33  0.04 -0.29
+4 saat aşağı FVG → sat ≤2023   4603    12.18         87.86            83.01   49.98           54.67 -0.49         -0.13 -0.56 -1.55
+                       2024+   2871    17.49         87.11            84.50   51.94           54.99  0.06          0.38 -0.01 -0.32
+                       2026     687    14.86         83.41            87.34   50.79           57.83  0.00          0.31 -0.07 -0.64
+       yukarı FVG → al ≤2023   5040    13.28         87.40            83.37   55.12           56.64  1.07          0.96  1.00  0.66
+                       2024+   2841    17.70         89.02            86.94   50.57           53.68  0.31          0.55  0.24 -0.07
+                       2026     680    15.67         88.53            85.74   46.51           51.63 -0.01          0.57 -0.08 -0.45
+```
+
+## Karar (önceden sabit)
+- ❌ CME boşluğu ≥%0.5 · ikisi: 1 haftada dolma > ayna (iki dönem) ✗ · net ≤2023 -0.56 · 2024+ +0.18 (alt -0.43, n=89) · 2026 +0.85 (n=20)
+- ❌ CME boşluğu ≥%0.5 · yalnız AŞAĞI boşluk → al: 1 haftada dolma > ayna (iki dönem) ✗ · net ≤2023 +0.00 · 2024+ +1.08 (alt +0.34, n=37) · 2026 +1.53 (n=7)
+- ❌ CME boşluğu ≥%1.0 · ikisi: 1 haftada dolma > ayna (iki dönem) ✗ · net ≤2023 -0.43 · 2024+ +0.20 (alt -0.65, n=61) · 2026 +0.87 (n=13)
+- ❌ CME boşluğu ≥%1.0 · yalnız AŞAĞI boşluk → al: 1 haftada dolma > ayna (iki dönem) ✗ · net ≤2023 +0.12 · 2024+ +1.57 (alt +0.56, n=25) · 2026 +1.90 (n=6)
+- ❌ FVG 1 saat · aşağı FVG → sat: brüt vs kontrol ≤2023 -0.349/-0.239 · 2024+ +0.049/+0.056 · 2024+ net -0.021 (alt -0.231) · haftada 64
+- ❌ FVG 1 saat · yukarı FVG → al: brüt vs kontrol ≤2023 +0.691/+0.587 · 2024+ +0.143/+0.291 · 2024+ net +0.073 (alt -0.156) · haftada 65
+- ❌ FVG 4 saat · aşağı FVG → sat: brüt vs kontrol ≤2023 -0.492/-0.127 · 2024+ +0.065/+0.384 · 2024+ net -0.005 (alt -0.317) · haftada 17
+- ❌ FVG 4 saat · yukarı FVG → al: brüt vs kontrol ≤2023 +1.067/+0.964 · 2024+ +0.307/+0.550 · 2024+ net +0.237 (alt -0.066) · haftada 18
+
+_Süre: 77 sn · net = işlem başı %, limit giriş %0,02 + çıkış (limit %0,02 / piyasa %0,05) · alt = haftalık blok bootstrap %90 alt sınırı_
+exit=0
