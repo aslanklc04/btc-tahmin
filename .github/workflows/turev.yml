@@ -1,0 +1,69 @@
+name: Vadeli piyasa testi (24 saat)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [turev.py, turev_rapor.py, .github/workflows/turev.yml]
+permissions:
+  contents: write
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - id: l
+        run: echo 'coinler=["ADAUSDT","BNBUSDT","BTCUSDT","DOGEUSDT","DOTUSDT","ETHUSDT","LINKUSDT","NEARUSDT","OPUSDT","SHIBUSDT"]' >> "$GITHUB_OUTPUT"
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; python turev.py ${{ matrix.sym }} > logtv_${{ matrix.sym }}.txt 2>&1; echo "exit=$?" >> logtv_${{ matrix.sym }}.txt; tail -12 logtv_${{ matrix.sym }}.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tv-${{ matrix.sym }}
+          path: |
+            turev_${{ matrix.sym }}.pkl
+            logtv_${{ matrix.sym }}.txt
+          retention-days: 30
+  rapor:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - run: |
+          set +e; for f in art/*/logtv_*.txt; do echo "== $f"; cat "$f"; done > turev_log.txt
+          python turev_rapor.py >> turev_log.txt 2>&1; echo "exit=$?" >> turev_log.txt; tail -30 turev_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add turev_log.txt; git add turev_sonuc.md 2>/dev/null; git commit -m "Vadeli piyasa testi sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
