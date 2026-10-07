@@ -1,0 +1,27 @@
+name: Coinbase primi kontrolu
+on:
+  push:
+    branches: [arastirma3]
+    paths: [cb_kontrol.py, .github/workflows/cb_kontrol.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; python cb_kontrol.py > cb_kontrol_log.txt 2>&1; echo "exit=$?" >> cb_kontrol_log.txt; tail -40 cb_kontrol_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add cb_kontrol_log.txt; git add cb_kontrol_sonuc.md 2>/dev/null; git commit -m "Coinbase primi kontrol sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
