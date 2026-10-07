@@ -1,0 +1,199 @@
+== art/tv-ADAUSDT/logtv_ADAUSDT.txt
+[   91 sn] ADAUSDT: spot 74,204 saat · fonlama 7,339 · prim 58,239 · vadeli mum 58,432 · metrik 509,908 satır
+[   92 sn] ADAUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  193 sn] ADAUSDT: temel bitti
+[  328 sn] ADAUSDT: türev bitti · en önemli 12: hh720 vol720 r720 fr_m168* ll720 ls* top* dc oi24* oi_z* vol168 ema720 · vadeli özelliklerin kazanç payı %40
+[  455 sn] ADAUSDT: karıştırma 1 bitti
+[  585 sn] ADAUSDT: karıştırma 2 bitti
+[  713 sn] ADAUSDT: karıştırma 3 bitti
+[  840 sn] ADAUSDT: karıştırma 4 bitti
+[  967 sn] ADAUSDT: karıştırma 5 bitti
+[ 1091 sn] ADAUSDT: karıştırma 6 bitti
+[ 1091 sn] ADAUSDT: kaydedildi
+exit=0
+== art/tv-BNBUSDT/logtv_BNBUSDT.txt
+[   93 sn] BNBUSDT: spot 78,059 saat · fonlama 7,274 · prim 57,999 · vadeli mum 58,192 · metrik 509,908 satır
+[   93 sn] BNBUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  180 sn] BNBUSDT: temel bitti
+[  291 sn] BNBUSDT: türev bitti · en önemli 12: ll720 vol720 volr2 ls* hh720 fr_m168* oi_z* vol168 top* v24 r720 ema168 · vadeli özelliklerin kazanç payı %36
+[  402 sn] BNBUSDT: karıştırma 1 bitti
+[  514 sn] BNBUSDT: karıştırma 2 bitti
+[  628 sn] BNBUSDT: karıştırma 3 bitti
+[  740 sn] BNBUSDT: karıştırma 4 bitti
+[  850 sn] BNBUSDT: karıştırma 5 bitti
+[  962 sn] BNBUSDT: karıştırma 6 bitti
+[  962 sn] BNBUSDT: kaydedildi
+exit=0
+== art/tv-BTCUSDT/logtv_BTCUSDT.txt
+[  100 sn] BTCUSDT: spot 79,996 saat · fonlama 7,395 · prim 58,967 · vadeli mum 59,160 · metrik 715,997 satır
+[  101 sn] BTCUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  195 sn] BTCUSDT: temel bitti
+[  325 sn] BTCUSDT: türev bitti · en önemli 12: ls* hh720 ema720 r336 oi_z* r720 vol720 ll720 top* prem_m24* volr2 r168_vs · vadeli özelliklerin kazanç payı %42
+[  449 sn] BTCUSDT: karıştırma 1 bitti
+[  568 sn] BTCUSDT: karıştırma 2 bitti
+[  689 sn] BTCUSDT: karıştırma 3 bitti
+[  803 sn] BTCUSDT: karıştırma 4 bitti
+[  920 sn] BTCUSDT: karıştırma 5 bitti
+[ 1039 sn] BTCUSDT: karıştırma 6 bitti
+[ 1039 sn] BTCUSDT: kaydedildi
+exit=0
+== art/tv-DOGEUSDT/logtv_DOGEUSDT.txt
+[   83 sn] DOGEUSDT: spot 63,584 saat · fonlama 6,821 · prim 54,374 · vadeli mum 54,567 · metrik 509,908 satır
+[   83 sn] DOGEUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  185 sn] DOGEUSDT: temel bitti
+[  322 sn] DOGEUSDT: türev bitti · en önemli 12: vol720 vol168 ll720 fr_m168* hh720 oi_z* top* ll168 volr2 r720 ema720 r336 · vadeli özelliklerin kazanç payı %34
+[  451 sn] DOGEUSDT: karıştırma 1 bitti
+[  581 sn] DOGEUSDT: karıştırma 2 bitti
+[  707 sn] DOGEUSDT: karıştırma 3 bitti
+[  833 sn] DOGEUSDT: karıştırma 4 bitti
+[  961 sn] DOGEUSDT: karıştırma 5 bitti
+[ 1087 sn] DOGEUSDT: karıştırma 6 bitti
+[ 1087 sn] DOGEUSDT: kaydedildi
+exit=0
+== art/tv-DOTUSDT/logtv_DOTUSDT.txt
+[   73 sn] DOTUSDT: spot 53,757 saat · fonlama 6,698 · prim 53,344 · vadeli mum 53,537 · metrik 509,908 satır
+[   74 sn] DOTUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  142 sn] DOTUSDT: temel bitti
+[  236 sn] DOTUSDT: türev bitti · en önemli 12: volr2 ls* r168_vs vol720 ll168 fr_m168* hh720 ema168 dc oi_z* ls_z* fr_m24* · vadeli özelliklerin kazanç payı %40
+[  324 sn] DOTUSDT: karıştırma 1 bitti
+[  413 sn] DOTUSDT: karıştırma 2 bitti
+[  502 sn] DOTUSDT: karıştırma 3 bitti
+[  590 sn] DOTUSDT: karıştırma 4 bitti
+[  682 sn] DOTUSDT: karıştırma 5 bitti
+[  772 sn] DOTUSDT: karıştırma 6 bitti
+[  772 sn] DOTUSDT: kaydedildi
+exit=0
+== art/tv-ETHUSDT/logtv_ETHUSDT.txt
+[  123 sn] ETHUSDT: spot 79,996 saat · fonlama 7,395 · prim 58,967 · vadeli mum 59,160 · metrik 509,908 satır
+[  123 sn] ETHUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  224 sn] ETHUSDT: temel bitti
+[  358 sn] ETHUSDT: türev bitti · en önemli 12: vol720 ll720 ls_z* top_z* r168_vs vol168 top* oi_z* r72 volr2 ema24 oi24* · vadeli özelliklerin kazanç payı %36
+[  487 sn] ETHUSDT: karıştırma 1 bitti
+[  615 sn] ETHUSDT: karıştırma 2 bitti
+[  743 sn] ETHUSDT: karıştırma 3 bitti
+[  873 sn] ETHUSDT: karıştırma 4 bitti
+[  997 sn] ETHUSDT: karıştırma 5 bitti
+[ 1125 sn] ETHUSDT: karıştırma 6 bitti
+[ 1125 sn] ETHUSDT: kaydedildi
+exit=0
+== art/tv-LINKUSDT/logtv_LINKUSDT.txt
+[   86 sn] LINKUSDT: spot 67,650 saat · fonlama 7,346 · prim 58,575 · vadeli mum 58,768 · metrik 509,908 satır
+[   87 sn] LINKUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  183 sn] LINKUSDT: temel bitti
+[  314 sn] LINKUSDT: türev bitti · en önemli 12: r720 pos168 ema720 oi_z* vol720 hh720 ll720 ls* top_z* dc r168_vs hh168 · vadeli özelliklerin kazanç payı %29
+[  437 sn] LINKUSDT: karıştırma 1 bitti
+[  561 sn] LINKUSDT: karıştırma 2 bitti
+[  687 sn] LINKUSDT: karıştırma 3 bitti
+[  809 sn] LINKUSDT: karıştırma 4 bitti
+[  932 sn] LINKUSDT: karıştırma 5 bitti
+[ 1055 sn] LINKUSDT: karıştırma 6 bitti
+[ 1055 sn] LINKUSDT: kaydedildi
+exit=0
+== art/tv-NEARUSDT/logtv_NEARUSDT.txt
+[  105 sn] NEARUSDT: spot 52,407 saat · fonlama 6,532 · prim 52,071 · vadeli mum 52,120 · metrik 509,620 satır
+[  105 sn] NEARUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:100% prem_m8:99% prem_m24:99% prem_z:99% ftk1:99% ftk4:99% ftk24:99% fvol_z:96% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  186 sn] NEARUSDT: temel bitti
+[  299 sn] NEARUSDT: türev bitti · en önemli 12: vol720 prem_m24* vol168 top* ftk24* ll720 hh720 oi_z* ls* r720 top_z* prem_m8* · vadeli özelliklerin kazanç payı %50
+[  406 sn] NEARUSDT: karıştırma 1 bitti
+[  511 sn] NEARUSDT: karıştırma 2 bitti
+[  616 sn] NEARUSDT: karıştırma 3 bitti
+[  723 sn] NEARUSDT: karıştırma 4 bitti
+[  827 sn] NEARUSDT: karıştırma 5 bitti
+[  931 sn] NEARUSDT: karıştırma 6 bitti
+[  931 sn] NEARUSDT: kaydedildi
+exit=0
+== art/tv-OPUSDT/logtv_OPUSDT.txt
+[   74 sn] OPUSDT: spot 38,143 saat · fonlama 4,748 · prim 37,930 · vadeli mum 37,978 · metrik 457,423 satır
+[   74 sn] OPUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:99% fr_m24:100% fr_m168:99% prem:99% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:98% oi1:100% oi4:100% oi24:100% oi_z:99% oi_r24:100% ls:100% ls_z:99% ls24:100% top:89% top_z:88% mtk1:100% mtk24:100%
+[  114 sn] OPUSDT: temel bitti
+[  169 sn] OPUSDT: türev bitti · en önemli 12: hh720 vol720 r168_vs top_z* ema72 vol168 mtk24* oi_z* ls* fvol_z* rsi56 ftk24* · vadeli özelliklerin kazanç payı %38
+[  223 sn] OPUSDT: karıştırma 1 bitti
+[  275 sn] OPUSDT: karıştırma 2 bitti
+[  327 sn] OPUSDT: karıştırma 3 bitti
+[  381 sn] OPUSDT: karıştırma 4 bitti
+[  433 sn] OPUSDT: karıştırma 5 bitti
+[  485 sn] OPUSDT: karıştırma 6 bitti
+[  485 sn] OPUSDT: kaydedildi
+exit=0
+== art/tv-SHIBUSDT/logtv_SHIBUSDT.txt
+[   79 sn] SHIBUSDT: spot 47,422 saat · fonlama 5,908 · prim 47,099 · vadeli mum 47,263 · metrik 509,908 satır
+[   80 sn] SHIBUSDT: 24 vadeli özellik · test döneminde dolu oran: fr:100% fr_z:100% fr_m24:100% fr_m168:100% prem:100% prem_m8:99% prem_m24:99% prem_z:99% ftk1:100% ftk4:100% ftk24:100% fvol_z:100% oi1:100% oi4:100% oi24:100% oi_z:100% oi_r24:100% ls:99% ls_z:99% ls24:99% top:82% top_z:81% mtk1:93% mtk24:93%
+[  149 sn] SHIBUSDT: temel bitti
+[  251 sn] SHIBUSDT: türev bitti · en önemli 12: vol720 volr2 oi_z* ema72 ema24 fr_m168* ll720 prem_m24* dc vol168 ll168 ema168 · vadeli özelliklerin kazanç payı %33
+[  347 sn] SHIBUSDT: karıştırma 1 bitti
+[  438 sn] SHIBUSDT: karıştırma 2 bitti
+[  535 sn] SHIBUSDT: karıştırma 3 bitti
+[  627 sn] SHIBUSDT: karıştırma 4 bitti
+[  715 sn] SHIBUSDT: karıştırma 5 bitti
+[  804 sn] SHIBUSDT: karıştırma 6 bitti
+[  804 sn] SHIBUSDT: kaydedildi
+exit=0
+# 🏦 Vadeli piyasa pozisyonlanması → 24 saat tahmin — 07.10.2026 19:48
+Coin'ler (10): ADA BNB BTC DOGE DOT ETH LINK NEAR OP SHIB · varyantlar: temel, turev, k1, k2, k3, k4, k5, k6
+
+## Coin başına AUC farkı (türev − temel)
+```
+      2022–23 (seçim)  2024+ (karar)    2026
+coin                                        
+ADA           -0.0061         0.0111  0.0145
+BNB            0.0070        -0.0004  0.0193
+BTC           -0.0152        -0.0140 -0.0080
+DOGE          -0.0352         0.0158 -0.0089
+DOT            0.0125         0.0149  0.0574
+ETH            0.0097        -0.0101  0.0055
+LINK          -0.0194        -0.0125  0.0029
+NEAR           0.0123         0.0150 -0.0178
+OP            -0.0347        -0.0113  0.0123
+SHIB           0.0150         0.0148  0.0319
+```
+## 10 coin ortalaması AUC ve fark (temel'e göre)
+```
+v                    k1      k2      k3      k4      k5      k6   temel   turev
+donem                                                                          
+2022–23 (seçim)  0.5383  0.5404  0.5327  0.5367  0.5282  0.5315  0.5374  0.5320
+2024+ (karar)    0.5229  0.5149  0.5206  0.5219  0.5164  0.5186  0.5240  0.5263
+2026             0.5010  0.4951  0.4931  0.4984  0.4887  0.5064  0.4959  0.5068
+```
+```
+v                    k1      k2      k3      k4      k5      k6  temel   turev
+donem                                                                         
+2022–23 (seçim)  0.0008  0.0030 -0.0047 -0.0007 -0.0093 -0.0060    0.0 -0.0054
+2024+ (karar)   -0.0011 -0.0091 -0.0034 -0.0021 -0.0076 -0.0054    0.0  0.0023
+2026             0.0051 -0.0008 -0.0028  0.0025 -0.0072  0.0105    0.0  0.0109
+```
+## 'Çok güçlü ↑' sinyali (24 saat, giriş 1 saat sonra, limit komisyon) — 10 coin toplamı
+```
+                       sinyal  haftada  isabet   net   alt
+donem           v                                         
+2022–23 (seçim) temel    1227    11.77   54.12  0.22 -0.22
+2024+ (karar)   temel    1873    12.99   55.42  0.46  0.16
+2026            temel     475    11.96   51.79 -0.14 -0.69
+2022–23 (seçim) turev    1049    10.06   55.39  0.48 -0.06
+2024+ (karar)   turev    1672    11.60   54.84  0.40  0.06
+2026            turev     414    10.42   50.24 -0.18 -0.76
+2022–23 (seçim) k1       1053    10.10   54.51  0.30 -0.17
+2024+ (karar)   k1       1677    11.63   54.14  0.35  0.05
+2026            k1        425    10.70   50.35 -0.22 -0.73
+2022–23 (seçim) k2       1068    10.24   54.68  0.30 -0.09
+2024+ (karar)   k2       1714    11.89   53.44  0.36  0.07
+2026            k2        430    10.83   49.53 -0.05 -0.46
+2022–23 (seçim) k3       1065    10.21   53.33  0.30 -0.13
+2024+ (karar)   k3       1649    11.44   54.15  0.38  0.02
+2026            k3        383     9.64   51.44 -0.15 -0.82
+2022–23 (seçim) k4       1107    10.62   54.83  0.27 -0.16
+2024+ (karar)   k4       1735    12.04   53.49  0.31 -0.05
+2026            k4        416    10.47   48.08 -0.24 -0.92
+2022–23 (seçim) k5       1109    10.63   54.19  0.28 -0.09
+2024+ (karar)   k5       1701    11.80   51.97  0.20 -0.11
+2026            k5        431    10.85   51.74 -0.15 -0.68
+2022–23 (seçim) k6       1059    10.15   54.96  0.32 -0.12
+2024+ (karar)   k6       1764    12.24   56.01  0.48  0.14
+2026            k6        453    11.41   54.30  0.05 -0.55
+```
+
+## Karar: ❌ tutarlı kazanç yok
+- AUC farkı seçimde -0.0054 (✗) · kararda +0.0023 (✓)
+- Karıştırmalar (bilgisiz) kararda: -0.0011 -0.0091 -0.0034 -0.0021 -0.0076 -0.0054 → gerçek fark hepsinden büyük mü: ✓
+- 2024+ 'Çok güçlü ↑': isabet %55.4 → %54.8 · net +0.46 → +0.40 · haftada 13.0 → 11.6 (✗)
+- 2026: AUC farkı +0.0109 · isabet %51.8 → %50.2
+exit=0
