@@ -47,7 +47,7 @@ jobs:
           path: durum/gecmis_coin.pkl
           key: coingecmis-${{ github.run_id }}
           restore-keys: coingecmis-
-      - name: Altcoin sinyalleri (ETH, BNB, DOGE)
+      - name: Altcoin sinyalleri (durum/coin_listesi.txt)
         continue-on-error: true
         timeout-minutes: 6
         run: python tahmin_coin.py
