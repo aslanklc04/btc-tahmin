@@ -1,4 +1,4 @@
-# 🔎 Uzun ufuk — sağlamlık kontrolleri — 07.10.2026 15:23
+# 🔎 Uzun ufuk — sağlamlık kontrolleri — 07.10.2026 15:25
 
 ## 24 saat 'Çok güçlü ↑' · seçilen coin'ler (yalnız 2020–23'e göre): ADA BNB BTC DOGE DOT ETH LINK NEAR OP SHIB
 - 2024+ sinyal: 1873 · isabet %55.4 · brüt %0.497 · net (limit) %0.457
@@ -6,6 +6,7 @@
 - Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %100.0'inden iyi · kaydırılmış ort. %0.053 (%95'lik: %0.270)
 - Yıl yıl (2024+):  2024: 716 sinyal, isabet %58, net %0.75 · 2025: 682 sinyal, isabet %55, net %0.57 · 2026: 475 sinyal, isabet %52, net %-0.14
 - Yıl yıl TABAN (her saatte al) ve sinyalin fazlası:  2024: taban brüt %0.22 (isabet %50) → fazla %0.56 · 2025: taban brüt %-0.11 (isabet %49) → fazla %0.73 · 2026: taban brüt %0.03 (isabet %48) → fazla %-0.14
+- Çeyrek çeyrek (sinyal sayısı · isabet · sinyalin tabana göre fazlası):  2024Q1: 172 · %65 · +1.32 · 2024Q2: 170 · %53 · +0.51 · 2024Q3: 180 · %58 · +0.29 · 2024Q4: 194 · %56 · +0.16 · 2025Q1: 180 · %59 · +1.22 · 2025Q2: 180 · %57 · +1.00 · 2025Q3: 166 · %52 · -0.28 · 2025Q4: 156 · %52 · +0.89 · 2026Q1: 141 · %53 · -0.10 · 2026Q2: 184 · %47 · -0.33 · 2026Q3: 135 · %56 · +0.03 · 2026Q4: 15 · %60 · +1.22
 - Kâr dağılımı: 144 hafta · kârlı hafta %65 · en iyi 5 haftanın toplam kârdaki payı %69
 - Portföy (her coin'e %10 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %35.2 · en büyük düşüş %-20.4 · zamanın %19'inde piyasada
 - Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %0.9 · en büyük düşüş %-71.9
@@ -16,6 +17,7 @@
 - Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %100.0'inden iyi · kaydırılmış ort. %0.230 (%95'lik: %0.727)
 - Yıl yıl (2024+):  2024: 265 sinyal, isabet %55, net %1.79 · 2025: 261 sinyal, isabet %56, net %1.53 · 2026: 207 sinyal, isabet %46, net %0.07
 - Yıl yıl TABAN (her saatte al) ve sinyalin fazlası:  2024: taban brüt %0.81 (isabet %51) → fazla %1.02 · 2025: taban brüt %-0.28 (isabet %48) → fazla %1.85 · 2026: taban brüt %0.13 (isabet %47) → fazla %-0.02
+- Çeyrek çeyrek (sinyal sayısı · isabet · sinyalin tabana göre fazlası):  2024Q1: 56 · %54 · +0.60 · 2024Q2: 69 · %45 · +0.65 · 2024Q3: 82 · %56 · +1.83 · 2024Q4: 58 · %67 · +1.45 · 2025Q1: 67 · %52 · +2.19 · 2025Q2: 62 · %61 · +2.72 · 2025Q3: 62 · %63 · +0.39 · 2025Q4: 70 · %49 · +2.26 · 2026Q1: 62 · %24 · -1.28 · 2026Q2: 80 · %56 · +0.51 · 2026Q3: 61 · %51 · +0.67 · 2026Q4: 4 · %100 · +0.81
 - Kâr dağılımı: 143 hafta · kârlı hafta %55 · en iyi 5 haftanın toplam kârdaki payı %58
 - Portföy (her coin'e %11 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %37.8 · en büyük düşüş %-21.4 · zamanın %24'inde piyasada
 - Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %5.2 · en büyük düşüş %-71.1
@@ -26,8 +28,9 @@
 - Zaman kaydırma testi (1000 kez): gerçek brüt, kaydırılmışların %99.8'inden iyi · kaydırılmış ort. %0.014 (%95'lik: %0.119)
 - Yıl yıl (2024+):  2024: 1598 sinyal, isabet %58, net %0.36 · 2025: 1452 sinyal, isabet %55, net %0.09 · 2026: 1082 sinyal, isabet %50, net %-0.06
 - Yıl yıl TABAN (her saatte al) ve sinyalin fazlası:  2024: taban brüt %0.07 (isabet %50) → fazla %0.32 · 2025: taban brüt %-0.04 (isabet %50) → fazla %0.16 · 2026: taban brüt %0.01 (isabet %48) → fazla %-0.03
+- Çeyrek çeyrek (sinyal sayısı · isabet · sinyalin tabana göre fazlası):  2024Q1: 369 · %64 · +0.81 · 2024Q2: 373 · %54 · +0.08 · 2024Q3: 373 · %56 · +0.09 · 2024Q4: 483 · %59 · +0.29 · 2025Q1: 354 · %57 · +0.40 · 2025Q2: 409 · %57 · +0.25 · 2025Q3: 381 · %55 · +0.13 · 2025Q4: 308 · %52 · -0.22 · 2026Q1: 334 · %51 · +0.15 · 2026Q2: 388 · %44 · -0.20 · 2026Q3: 332 · %54 · -0.03 · 2026Q4: 28 · %50 · +0.15
 - Kâr dağılımı: 143 hafta · kârlı hafta %64 · en iyi 5 haftanın toplam kârdaki payı %95
 - Portföy (her coin'e %10 pay, yalnız sinyalde piyasada, limit komisyon): yıllık %22.3 · en büyük düşüş %-27.6 · zamanın %14'inde piyasada
 - Karşılaştırma — aynı coin'leri eşit al-tut (2024+): yıllık %-0.1 · en büyük düşüş %-71.9
 
-_Süre: 30 sn · giriş sinyalden 1 saat sonra · komisyon limit %0,02 her yön_
+_Süre: 31 sn · giriş sinyalden 1 saat sonra · komisyon limit %0,02 her yön_
