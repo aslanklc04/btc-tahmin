@@ -47,6 +47,8 @@ for H in (24, 72, 8):
     T = pd.DataFrame({"t": ts, "g": r, "net": net})
     yy = T.groupby(T.t.dt.year).agg(sinyal=("g", "size"), isabet=("g", lambda x: 100 * (x > 0).mean()), net=("net", lambda x: 100 * x.mean()))
     yaz("- Yıl yıl (2024+):  " + " · ".join(f"{y}: {int(a.sinyal)} sinyal, isabet %{a.isabet:.0f}, net %{a.net:.2f}" for y, a in yy.iterrows()))
+    TB = pd.concat([pd.DataFrame({"t": P[s]["idx"], "g": P[s]["g"]}) for s in sec]); TB = TB[(TB.t >= A24) & TB.g.notna()]; tby = TB.groupby(TB.t.dt.year).g.agg(["mean", lambda x: (x > 0).mean()])
+    yaz("- Yıl yıl TABAN (her saatte al) ve sinyalin fazlası:  " + " · ".join(f"{y}: taban brüt %{100*tby.loc[y, 'mean']:.2f} (isabet %{100*tby.iloc[:, 1].loc[y]:.0f}) → fazla %{100*(T[T.t.dt.year == y].g.mean() - tby.loc[y, 'mean']):.2f}" for y in yy.index))
     wk = T.groupby(T.t.dt.to_period("W")).net.sum().sort_values(ascending=False); top = wk.head(5).sum() / wk.sum() if wk.sum() > 0 else np.nan
     yaz(f"- Kâr dağılımı: {len(wk)} hafta · kârlı hafta %{100*(wk>0).mean():.0f} · en iyi 5 haftanın toplam kârdaki payı %{100*top:.0f}")
     # portföy: coin başına eşit pay, pay yalnız sinyalde piyasada (aynı coin'de işlemler çakışmaz)
