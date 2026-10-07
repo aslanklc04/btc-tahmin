@@ -1,6 +1,6 @@
-# 🪙 APT aylık eğitim — 07.10.2026 08:16
+# 🪙 APT aylık eğitim — 07.10.2026 07:55
 
-- 1 saat: AUC 2024+ 0.5268
+- 1 saat: AUC 2024+ 0.5269
 - 4 saat: AUC 2024+ 0.5185
 - 8 saat: AUC 2024+ 0.5190
 
