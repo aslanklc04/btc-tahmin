@@ -22,7 +22,7 @@
 | 4 saat | $86,113 (+%0.67) | $84,967 (−%0.67) | ⬇️ önce STOP · Güçlü | %57.0 (2024+ %56.6) |
 | 8 saat | $86,350 (+%0.95) | $84,730 (−%0.95) | ⬇️ önce STOP · Güçlü | %56.3 (2024+ %54.2) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 04:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 04:25 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 06.10 22:05 · ✅ · 🧭 BTC 06.10 22:00 · $85,507 · gönderildi
@@ -36,7 +36,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 07.10.2026 04:05 · ⚠️ Yatırım
 - 05.10 22:06 · ✅ · 🧭 BTC 05.10 22:00 · $85,649 · gönderildi
 - 05.10 19:06 · ✅ · 🧭 BTC 05.10 19:00 · $85,270 · gönderildi
 
-_Çalıştırma: 07.10 04:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 07.10 04:25 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 | Coin | Fiyat | 1 saat | 4 saat | 8 saat | ⭐ | A sınıfı (eşik 0,85) | Açık bildirimler (2024+ isabet) | Son 7 gün |
