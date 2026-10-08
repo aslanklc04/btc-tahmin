@@ -1,0 +1,114 @@
+# ⛓️💵 Arz + talep birlikte — 08.10.2026 09:12
+Stabil coin arzı: 2017-11 → 2026-10-08, son 312 milyar $ · Coin Metrics BTC/ETH · 7 sn
+
+## BTC · talep ölçüsünün tek başına etkisi (stabil coin 7 g büyüme z dilimleri → sonraki 7 gün, tabana göre fazla %)
+```
+       z ≤ −1  −1…0   0…1  z ≥ 1  korelasyon
+dönem                                       
+≤2023   -0.62 -0.58  0.77   0.93        0.06
+2024+   -1.61  0.31  0.50   0.23        0.08
+2026    -3.35 -0.62  0.82   2.70        0.26
+```
+### BTC kurallar (net = işlem başı %, yön kuralın kendisinde: AL ya da SAT)
+```
+                                                                     olay  isabet   net   alt
+kural                                                     gun donem                          
+AL-1 arz çıkıyor + talep artıyor (7 g)                    3   ≤2023    28   53.57  1.12 -0.70
+                                                              2024+    24   75.00  0.79 -0.24
+                                                              2026     12   83.33  0.40 -0.75
+AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor 3   ≤2023    46   60.87  1.62  0.23
+                                                              2024+    49   55.10  0.75 -0.28
+                                                              2026     16   62.50  0.59 -1.06
+AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5         3   ≤2023    76   57.89  1.05 -0.05
+                                                              2024+    47   57.45  0.67 -0.25
+                                                              2026     13   69.23  0.85 -0.72
+SAT-1 coin'ler borsaya akıyor + talep zayıf               3   ≤2023    53   49.06 -0.19 -1.91
+                                                              2024+    23   73.91  1.67  0.05
+                                                              2026      8   87.50  3.54  1.22
+SAT-2 yalnız coin'ler borsaya akıyor                      3   ≤2023    94   47.87 -0.95 -2.22
+                                                              2024+    34   61.76  0.59 -0.87
+                                                              2026     10   60.00  0.73 -3.39
+AL-1 arz çıkıyor + talep artıyor (7 g)                    7   ≤2023    18   50.00  2.09 -1.04
+                                                              2024+    14   35.71 -0.37 -2.38
+                                                              2026      6   33.33 -0.76   NaN
+AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor 7   ≤2023    24   58.33  1.86 -1.47
+                                                              2024+    25   44.00  0.66 -1.15
+                                                              2026      8   25.00  0.70 -1.17
+AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5         7   ≤2023    41   63.41  2.33 -0.15
+                                                              2024+    24   54.17  1.57 -0.50
+                                                              2026      7   57.14  2.01   NaN
+SAT-1 coin'ler borsaya akıyor + talep zayıf               7   ≤2023    34   47.06 -0.29 -3.50
+                                                              2024+    15   80.00  1.24 -2.38
+                                                              2026      4  100.00  7.40   NaN
+SAT-2 yalnız coin'ler borsaya akıyor                      7   ≤2023    52   46.15 -1.37 -4.15
+                                                              2024+    20   70.00  0.27 -3.51
+                                                              2026      5   80.00  0.97   NaN
+```
+Şu an (BTC): arz çıkışı z +0.97 · borsadaki miktar azalışı z +1.87 · talep 7g z +0.90 · talep 30g z +1.06
+
+## ETH · talep ölçüsünün tek başına etkisi (stabil coin 7 g büyüme z dilimleri → sonraki 7 gün, tabana göre fazla %)
+```
+       z ≤ −1  −1…0   0…1  z ≥ 1  korelasyon
+dönem                                       
+≤2023   -0.94  0.15 -0.30   0.92        0.04
+2024+   -3.25 -0.20  1.36   1.39        0.15
+2026    -4.23 -0.63  0.80   3.62        0.25
+```
+### ETH kurallar (net = işlem başı %, yön kuralın kendisinde: AL ya da SAT)
+```
+                                                                     olay  isabet   net   alt
+kural                                                     gun donem                          
+AL-1 arz çıkıyor + talep artıyor (7 g)                    3   ≤2023    30   43.33  0.55 -1.49
+                                                              2024+    17   52.94  0.30 -1.38
+                                                              2026      4   50.00 -0.23   NaN
+AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor 3   ≤2023    51   58.82  2.15  0.60
+                                                              2024+    28   57.14  1.81  0.18
+                                                              2026      5   80.00  2.92   NaN
+AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5         3   ≤2023    76   57.89  1.54  0.30
+                                                              2024+    47   65.96  1.20  0.05
+                                                              2026     13   69.23  0.39 -1.42
+SAT-1 coin'ler borsaya akıyor + talep zayıf               3   ≤2023    49   51.02  0.02 -2.10
+                                                              2024+    17   76.47  2.66  0.84
+SAT-2 yalnız coin'ler borsaya akıyor                      3   ≤2023    78   52.56 -0.39 -2.31
+                                                              2024+    29   62.07  2.16  0.90
+                                                              2026      6   66.67  1.57   NaN
+AL-1 arz çıkıyor + talep artıyor (7 g)                    7   ≤2023    20   65.00  2.02 -1.85
+                                                              2024+    13   69.23  4.01  0.55
+                                                              2026      4   75.00 -0.80   NaN
+AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor 7   ≤2023    24   75.00  4.56  1.21
+                                                              2024+    15   66.67  4.53  1.39
+                                                              2026      4   75.00  4.90   NaN
+AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5         7   ≤2023    41   63.41  2.15 -0.55
+                                                              2024+    24   58.33  2.39 -0.38
+                                                              2026      7   71.43  0.81   NaN
+SAT-1 coin'ler borsaya akıyor + talep zayıf               7   ≤2023    29   79.31  1.27 -2.88
+                                                              2024+    10   80.00  6.72  3.26
+SAT-2 yalnız coin'ler borsaya akıyor                      7   ≤2023    42   69.05 -0.10 -3.79
+                                                              2024+    18   61.11  3.75  0.93
+                                                              2026      3   66.67  1.23   NaN
+```
+Şu an (ETH): arz çıkışı z -1.56 · borsadaki miktar azalışı z -2.36 · talep 7g z +0.90 · talep 30g z +1.06
+
+## Karar (önceden sabit: ≤2023 net > 0 · 2024+ net > 0 ve alt > 0)
+- ❌ BTC · AL-1 arz çıkıyor + talep artıyor (7 g) · 3 gün: ≤2023 28 olay net %+1.12 · 2024+ 24 olay, isabet %75, net %+0.79 (alt %-0.24) · 2026 12 olay net %+0.40
+- ❌ BTC · AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor · 3 gün: ≤2023 46 olay net %+1.62 · 2024+ 49 olay, isabet %55, net %+0.75 (alt %-0.28) · 2026 16 olay net %+0.59
+- ❌ BTC · AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5 · 3 gün: ≤2023 76 olay net %+1.05 · 2024+ 47 olay, isabet %57, net %+0.67 (alt %-0.25) · 2026 13 olay net %+0.85
+- ❌ BTC · SAT-1 coin'ler borsaya akıyor + talep zayıf · 3 gün: ≤2023 53 olay net %-0.19 · 2024+ 23 olay, isabet %74, net %+1.67 (alt %+0.05) · 2026 8 olay net %+3.54
+- ❌ BTC · SAT-2 yalnız coin'ler borsaya akıyor · 3 gün: ≤2023 94 olay net %-0.95 · 2024+ 34 olay, isabet %62, net %+0.59 (alt %-0.87) · 2026 10 olay net %+0.73
+- ❌ BTC · AL-1 arz çıkıyor + talep artıyor (7 g) · 7 gün: ≤2023 18 olay net %+2.09 · 2024+ 14 olay, isabet %36, net %-0.37 (alt %-2.38) · 2026 6 olay net %-0.76
+- ❌ BTC · AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor · 7 gün: ≤2023 24 olay net %+1.86 · 2024+ 25 olay, isabet %44, net %+0.66 (alt %-1.15) · 2026 8 olay net %+0.70
+- ❌ BTC · AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5 · 7 gün: ≤2023 41 olay net %+2.33 · 2024+ 24 olay, isabet %54, net %+1.57 (alt %-0.50) · 2026 7 olay net %+2.01
+- ❌ BTC · SAT-1 coin'ler borsaya akıyor + talep zayıf · 7 gün: ≤2023 34 olay net %-0.29 · 2024+ 15 olay, isabet %80, net %+1.24 (alt %-2.38) · 2026 4 olay net %+7.40
+- ❌ BTC · SAT-2 yalnız coin'ler borsaya akıyor · 7 gün: ≤2023 52 olay net %-1.37 · 2024+ 20 olay, isabet %70, net %+0.27 (alt %-3.51) · 2026 5 olay net %+0.97
+- ❌ ETH · AL-1 arz çıkıyor + talep artıyor (7 g) · 3 gün: ≤2023 30 olay net %+0.55 · 2024+ 17 olay, isabet %53, net %+0.30 (alt %-1.38) · 2026 4 olay net %-0.23
+- ✅ ETH · AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor · 3 gün: ≤2023 51 olay net %+2.15 · 2024+ 28 olay, isabet %57, net %+1.81 (alt %+0.18) · 2026 5 olay net %+2.92
+- ✅ ETH · AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5 · 3 gün: ≤2023 76 olay net %+1.54 · 2024+ 47 olay, isabet %66, net %+1.20 (alt %+0.05) · 2026 13 olay net %+0.39
+- ✅ ETH · SAT-1 coin'ler borsaya akıyor + talep zayıf · 3 gün: ≤2023 49 olay net %+0.02 · 2024+ 17 olay, isabet %76, net %+2.66 (alt %+0.84)
+- ❌ ETH · SAT-2 yalnız coin'ler borsaya akıyor · 3 gün: ≤2023 78 olay net %-0.39 · 2024+ 29 olay, isabet %62, net %+2.16 (alt %+0.90) · 2026 6 olay net %+1.57
+- ✅ ETH · AL-1 arz çıkıyor + talep artıyor (7 g) · 7 gün: ≤2023 20 olay net %+2.02 · 2024+ 13 olay, isabet %69, net %+4.01 (alt %+0.55) · 2026 4 olay net %-0.80
+- ✅ ETH · AL-2 borsadaki miktar azalıyor + stabil coin 30 g büyüyor · 7 gün: ≤2023 24 olay net %+4.56 · 2024+ 15 olay, isabet %67, net %+4.53 (alt %+1.39) · 2026 4 olay net %+4.90
+- ❌ ETH · AL-3 yalnız talep: stabil coin 7 g büyüme z ≥ 1,5 · 7 gün: ≤2023 41 olay net %+2.15 · 2024+ 24 olay, isabet %58, net %+2.39 (alt %-0.38) · 2026 7 olay net %+0.81
+- ✅ ETH · SAT-1 coin'ler borsaya akıyor + talep zayıf · 7 gün: ≤2023 29 olay net %+1.27 · 2024+ 10 olay, isabet %80, net %+6.72 (alt %+3.26)
+- ❌ ETH · SAT-2 yalnız coin'ler borsaya akıyor · 7 gün: ≤2023 42 olay net %-0.10 · 2024+ 18 olay, isabet %61, net %+3.75 (alt %+0.93) · 2026 3 olay net %+1.23
+
+_Süre: 8 sn_
