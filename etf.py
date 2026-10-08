@@ -31,8 +31,11 @@ def ishares(pid, slug, ad):                                                     
     try:
         r = requests.get(url, headers=UA, timeout=90); print(ad, r.status_code, len(r.content))
         if r.status_code != 200: return None
-        x = r.content.decode("utf-8-sig", errors="ignore"); print("sayfalar:", re.findall(r'Worksheet ss:Name="([^"]+)"', x))
-        w = re.search(r'Worksheet ss:Name="Historical".*?</ss:Worksheet>', x, re.S)
+        b = r.content; print("ilk baytlar:", b[:16])
+        x = b.decode("utf-16") if b[:2] in (b"\xff\xfe", b"\xfe\xff") else b.decode("utf-8-sig", errors="ignore")
+        print("başı:", repr(x[:300])); print("sayfalar:", re.findall(r'Worksheet\s+ss:Name="([^"]+)"', x), "| 'Shares Outstanding' sayısı:", x.count("Shares Outstanding"))
+        i_ = x.find("Shares Outstanding"); print("çevresi:", repr(x[max(0, i_ - 600):i_ + 400]) if i_ >= 0 else "-")
+        w = re.search(r'Worksheet\s+ss:Name="Historical".*?</ss:Worksheet>', x, re.S)
         if not w: return None
         R = [[re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<ss:Cell[^>]*>(.*?)</ss:Cell>", row, re.S)] for row in re.findall(r"<ss:Row[^>]*>(.*?)</ss:Row>", w.group(0), re.S)]
         h = next(i for i, rr in enumerate(R) if any("Shares Outstanding" in c for c in rr)); H_ = R[h]; print("başlık:", H_, "| ilk:", R[h + 1][:6], "| son:", R[-1][:6])
