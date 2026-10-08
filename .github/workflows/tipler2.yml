@@ -1,0 +1,27 @@
+name: Zincir ustu yatirimci tipler2i
+on:
+  push:
+    branches: [arastirma3]
+    paths: [tipler2.py, .github/workflows/tipler2.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; python tipler2.py > tipler2_log.txt 2>&1; echo "exit=$?" >> tipler2_log.txt; tail -60 tipler2_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add tipler2_log.txt; git add veri_bgeo 2>/dev/null || true; git add tipler2_sonuc.md 2>/dev/null || true; git commit -m "Yatirimci tipler2i sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
