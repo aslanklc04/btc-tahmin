@@ -29,12 +29,15 @@ def farside(url):
 def ishares(pid, slug, ad):                                                                              # Farside kapalıysa: iShares (IBIT / ETHA) günlük pay sayısı × NAV → akış (milyon $)
     url = f"https://www.ishares.com/us/products/{pid}/{slug}/1521942788811.ajax?fileType=xls&fileName={ad}_fund&dataType=fund"
     try:
-        r = requests.get(url, headers=UA, timeout=90); print(ad, r.status_code, len(r.content))
+        sy = requests.get(f"https://www.ishares.com/us/products/{pid}/{slug}", headers=UA, timeout=90).text
+        lk = sorted(set(re.findall(r'["\']([^"\'\s]*\.ajax\?fileType=(?:xls|csv)[^"\'\s]*)["\']', sy))); print(ad, "indirme bağlantıları:", lk[:8])
+        fx = [u for u in lk if "fileType=xls" in u and "_fund" in u]
+        if fx: url = "https://www.ishares.com" + fx[0].replace("&amp;", "&") if fx[0].startswith("/") else fx[0].replace("&amp;", "&")
+        r = requests.get(url, headers=UA, timeout=90); print(ad, url, r.status_code, len(r.content))
         if r.status_code != 200: return None
         b = r.content; print("ilk baytlar:", b[:16])
         x = b.decode("utf-16") if b[:2] in (b"\xff\xfe", b"\xfe\xff") else b.decode("utf-8-sig", errors="ignore")
-        print("başı:", repr(x[:300])); print("sayfalar:", re.findall(r'Worksheet\s+ss:Name="([^"]+)"', x), "| 'Shares Outstanding' sayısı:", x.count("Shares Outstanding"))
-        i_ = x.find("Shares Outstanding"); print("çevresi:", repr(x[max(0, i_ - 600):i_ + 400]) if i_ >= 0 else "-")
+        print("başı:", repr(x[:200])); print("sayfalar:", re.findall(r'Worksheet\s+ss:Name="([^"]+)"', x), "| 'Shares Outstanding' sayısı:", x.count("Shares Outstanding"))
         w = re.search(r'Worksheet\s+ss:Name="Historical".*?</ss:Worksheet>', x, re.S)
         if not w: return None
         R = [[re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<ss:Cell[^>]*>(.*?)</ss:Cell>", row, re.S)] for row in re.findall(r"<ss:Row[^>]*>(.*?)</ss:Row>", w.group(0), re.S)]
