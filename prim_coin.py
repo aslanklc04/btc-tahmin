@@ -54,7 +54,11 @@ def veri(nm):
         z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
         return nm, pd.DataFrame({"c": o.close.reindex(ix), "z": z, "bp": 1e4 * p})
     except Exception as e: print(nm, e); return nm, None
-with ThreadPoolExecutor(6) as ex: V = {k: v for k, v in ex.map(veri, EVREN) if v is not None}
+if os.path.exists("prim_veri.pkl"): V = pd.read_pickle("prim_veri.pkl"); yaz("_(veri önceki çalışmanın kaydından)_")
+else:
+    with ThreadPoolExecutor(6) as ex: V = {k: v for k, v in ex.map(veri, EVREN) if v is not None}
+    pd.to_pickle({k: v.astype("float32") for k, v in V.items()}, "prim_veri.pkl")
+V = {k: v.astype("float64") for k, v in V.items() if len(v) >= 3000}
 yaz(f"Veri gelen: {len(V)} coin · {time.time()-T0:.0f} sn\n")
 A24, A26, LMT = pd.Timestamp("2024-01-01", tz="UTC"), pd.Timestamp("2026-01-01", tz="UTC"), 0.0002
 DON = (("seçim 2022-06→2023", lambda i: i < A24), ("doğrulama 2024+", lambda i: i >= A24), ("2026", lambda i: i >= A26))
@@ -85,6 +89,7 @@ for nm, D in V.items():
             rows.append(dict(coin=nm, kural=k.split(" ")[0], saat=H, **{pn: fmt(o[pn]) for pn, _ in DON}, ok=gecti(o),
                              n24=o[DON[1][0]][0], is24=o[DON[1][0]][1], net24=o[DON[1][0]][2], alt24=o[DON[1][0]][3], n26=o["2026"][0], is26=o["2026"][1], net26=o["2026"][2]))
             for _ in range(5):
+                if len(m) < 3000: break
                 sh = int(rng.integers(500, len(m) - 500)); pm = pd.Series(np.roll(m.values, sh), index=m.index)
                 po = ozet(net_ser(D, pm, yon, H), reps=200)
                 if po[DON[0][0]][0] >= 10: pl_n += 1; pl_ok += gecti(po)
