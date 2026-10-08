@@ -26,7 +26,7 @@
 | 4 saat | $83,630 (+%0.61) | $82,609 (−%0.61) | ⬇️ önce STOP · Güçlü | %57.0 (2024+ %56.6) |
 | 8 saat | $83,841 (+%0.87) | $82,398 (−%0.87) | ⬇️ önce STOP · Güçlü | %56.3 (2024+ %54.2) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 13:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 13:29 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 08.10 10:05 · ✅ · 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 08.10 10:00 · $8 · gönderildi
@@ -40,7 +40,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 13:05 · ⚠️ Yatırım
 - 07.10 18:05 · ✅ · 🧭 BTC 07.10 18:00 · $83,010 · gönderildi
 - 07.10 17:05 · ✅ · 🧭 BTC 07.10 17:00 · $83,192 · gönderildi
 
-_Çalıştırma: 08.10 13:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 08.10 13:29 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -106,3 +106,10 @@ Son değerlendirme: **08.10 09:27** (veri günü 07.10)
 Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
 
 _Kurallar: AL-2 (7 g), AL-1 (7 g), AL-3 (3 g), SAT-1 (7 g) — zincir2.py'de ≤2023'te seçildi, 2024+'da doğrulandı; zincir3.py: TR 09:00 girişle de tuttu. Yılda ~25–30 sinyal beklenir._
+
+## 🧑 Küçük yatırımcı kaçıyor → BTC AL (günlük)
+Henüz değerlendirme yok (her gün TR 15:00'ten sonra, dünün verisi gelince).
+
+Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
+
+_tipler2.py: 53 denemelik taramada öne çıktı · tipler3.py: iki dönemde de anlamlı, fiyat etkisinden bağımsız, TR 15:00 girişle tuttu. Ayda ~1 sinyal._
