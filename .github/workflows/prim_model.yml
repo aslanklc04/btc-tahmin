@@ -1,0 +1,70 @@
+name: Prim modelin icinde (4 ve 8 saat)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [prim_model.py, prim_model_rapor.py, .github/workflows/prim_model.yml]
+permissions:
+  contents: write
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - id: l
+        run: echo 'coinler=["BTCUSDT","ETHUSDT","ADAUSDT","DOGEUSDT","DOTUSDT","LINKUSDT","SHIBUSDT","NEARUSDT","OPUSDT","APTUSDT","SUIUSDT","ARBUSDT"]' >> "$GITHUB_OUTPUT"
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+        h: [4, 8]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; python prim_model.py ${{ matrix.sym }} ${{ matrix.h }} > logpm_${{ matrix.sym }}_${{ matrix.h }}.txt 2>&1; echo "exit=$?" >> logpm_${{ matrix.sym }}_${{ matrix.h }}.txt; tail -12 logpm_${{ matrix.sym }}_${{ matrix.h }}.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pm-${{ matrix.sym }}-${{ matrix.h }}
+          path: |
+            pm_${{ matrix.sym }}_${{ matrix.h }}.pkl
+            logpm_${{ matrix.sym }}_${{ matrix.h }}.txt
+          retention-days: 30
+  rapor:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - run: |
+          set +e; for f in art/*/logpm_*.txt; do echo "== $f"; tail -8 "$f"; done > prim_model_log.txt
+          python prim_model_rapor.py >> prim_model_log.txt 2>&1; echo "exit=$?" >> prim_model_log.txt; tail -30 prim_model_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add prim_model_log.txt; git add prim_model_sonuc.md 2>/dev/null || true; git commit -m "Prim modelin icinde sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
