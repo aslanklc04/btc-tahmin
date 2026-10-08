@@ -4,6 +4,8 @@
 
 💵 ABD satıyor (Coinbase primi z -1.6) ⛔ onaysız — geçmişte bu durumda sinyaller kaybettirdi · prim -7.1 baz puan
 
+🔻 Kısa (satış) sinyali: yok (eşik: Coinbase primi z ≤ −2; şu an -1.6)
+
 🟢 A sınıfı: **yok** (üç ufkun ortalama yüzdeliği 0.79, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~10.4, 4s isabet %59.5
 
 ⏰ İyi saat dilimi (4s güçlü ↑): **AÇIK** · geçmiş isabet %57.9 · haftada ~7.3
@@ -24,7 +26,7 @@
 | 4 saat | $83,170 (+%0.63) | $82,134 (−%0.63) | ⬇️ önce STOP · Çok güçlü | %58.7 (2024+ %57.6) |
 | 8 saat | $83,384 (+%0.89) | $81,920 (−%0.89) | ⬇️ önce STOP · Çok güçlü | %60.0 (2024+ %55.8) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:09 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:57 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 08.10 07:05 · ✅ · 🧭 BTC 08.10 07:00 · $82,757 · gönderildi
@@ -38,7 +40,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:09 · ⚠️ Yatırım
 - 07.10 09:07 · ✅ · ☀️ Günlük özet — 🧭 BTC 07.10 09:00 · $84,333 · gönderildi
 - 07.10 08:05 · ✅ · 🧭 BTC 07.10 08:00 · $84,103 · gönderildi
 
-_Çalıştırma: 08.10 08:09 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 08.10 08:57 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
