@@ -1,0 +1,36 @@
+# 💸 Sıcak para ve alım büyüklüğü fikirleri — 09.10.2026 01:46
+Spot veri: 20 coin (BTC, ETH, BNB, SOL, XRP, DOGE, ADA, AVAX, LINK, DOT, NEAR, SHIB, PEPE, SUI, APT, ARB, OP, FLOKI, UNI, AAVE) · 200 sn
+cm usdt_eth 403 {"error":{"type":"forbidden","message":"Requested metric 'FlowInExNtv' with frequency '1d' for asset 'usdt_eth' is not available with supplied credent
+cm usdt_trx 400 {"error":{"type":"bad_parameter","message":"Bad parameter 'metrics'. All requested metrics aren't supported for asset 'usdt_trx' and frequency '1d'."}
+cm usdc 400 {"error":{"type":"bad_parameter","message":"Bad parameter 'metrics'. All requested metrics aren't supported for asset 'usdc' and frequency '1d'."}}
+cm usdt 400 {"error":{"type":"bad_parameter","message":"Bad parameter 'metrics'. All requested metrics aren't supported for asset 'usdt' and frequency '1d'."}}
+cm usdc_eth 403 {"error":{"type":"forbidden","message":"Requested metric 'FlowInExNtv' with frequency '1d' for asset 'usdc_eth' is not available with supplied credent
+_Coin Metrics ücretsiz sürümünde stabil coin borsa akışı alınamadı → H1 test edilemedi_
+
+## Sonuç — 2 / 19 deneme geçti · plasebo geçme oranı %0.0 → tesadüfen ≈ 0.0
+_olay · isabet · işlem başı net % · haftalık blok %5 alt sınır_
+```
+                                                                fikir  sure                           ≤2023                           2024+                           2026  haftada gecti
+                              H2 alım patlaması ≥2× · alış payı ≥ %55   4 s 14820 · %46 · +0.01 · alt -0.05 17207 · %47 · +0.03 · alt -0.02 5945 · %46 · +0.01 · alt -0.07    119.1     ❌
+                              H2 alım patlaması ≥2× · alış payı ≥ %55   8 s 12045 · %47 · +0.15 · alt +0.05 13974 · %48 · +0.08 · alt -0.01 4707 · %45 · +0.05 · alt -0.10     96.8     ❌
+                              H2 alım patlaması ≥2× · alış payı ≥ %55  24 s  7567 · %49 · +0.48 · alt +0.22  8722 · %48 · +0.13 · alt -0.09 2830 · %47 · -0.01 · alt -0.41     60.4     ❌
+        H3 büyük alım emirleri (4 s ort. işlem ≥2×) · alış payı ≥ %52   4 s   285 · %44 · +0.26 · alt -0.12   745 · %45 · -0.04 · alt -0.22  317 · %46 · -0.02 · alt -0.16      5.2     ❌
+        H3 büyük alım emirleri (4 s ort. işlem ≥2×) · alış payı ≥ %52   8 s   246 · %44 · +1.26 · alt +0.26   638 · %45 · -0.00 · alt -0.23  267 · %46 · -0.03 · alt -0.24      4.4     ❌
+        H3 büyük alım emirleri (4 s ort. işlem ≥2×) · alış payı ≥ %52  24 s   197 · %50 · +1.88 · alt +0.35   481 · %50 · -0.25 · alt -0.62  193 · %50 · -0.10 · alt -0.64      3.3     ❌
+                              H2 alım patlaması ≥3× · alış payı ≥ %55   4 s  8415 · %46 · +0.03 · alt -0.04  9277 · %47 · +0.07 · alt -0.01 3299 · %45 · +0.02 · alt -0.07     64.2     ❌
+                              H2 alım patlaması ≥3× · alış payı ≥ %55   8 s  7079 · %47 · +0.17 · alt +0.04  7853 · %48 · +0.18 · alt +0.05 2744 · %46 · +0.10 · alt -0.09     54.4     ✅
+                              H2 alım patlaması ≥3× · alış payı ≥ %55  24 s  4843 · %49 · +0.57 · alt +0.26  5429 · %50 · +0.36 · alt +0.12 1834 · %48 · +0.15 · alt -0.34     37.6     ✅
+        H3 büyük alım emirleri (4 s ort. işlem ≥3×) · alış payı ≥ %52   4 s    17 · %53 · +4.63 · alt -1.23   117 · %46 · -0.14 · alt -0.66   68 · %44 · -0.13 · alt -0.36      0.8     ❌
+        H3 büyük alım emirleri (4 s ort. işlem ≥3×) · alış payı ≥ %52   8 s   13 · %46 · +15.28 · alt -1.39   100 · %48 · -0.04 · alt -0.56   56 · %48 · +0.01 · alt -0.31      0.7     ❌
+        H3 büyük alım emirleri (4 s ort. işlem ≥3×) · alış payı ≥ %52  24 s   12 · %42 · +10.29 · alt -1.97    69 · %45 · -0.52 · alt -1.64   33 · %45 · +0.96 · alt -0.31      0.5     ❌
+H4 katlanarak artan alım (3 saat üst üste, son ≥2×) · alış payı ≥ %55   4 s  7008 · %46 · +0.03 · alt -0.05  8210 · %47 · +0.03 · alt -0.03 2893 · %47 · +0.05 · alt -0.04     56.8     ❌
+H4 katlanarak artan alım (3 saat üst üste, son ≥2×) · alış payı ≥ %55   8 s  6349 · %48 · +0.18 · alt +0.07  7424 · %48 · +0.10 · alt -0.01 2579 · %45 · +0.06 · alt -0.10     51.4     ❌
+H4 katlanarak artan alım (3 saat üst üste, son ≥2×) · alış payı ≥ %55  24 s  4802 · %48 · +0.50 · alt +0.24  5625 · %49 · +0.20 · alt -0.03 1898 · %47 · +0.14 · alt -0.28     39.0     ❌
+    H3g günlük büyük alım emirleri (ort. işlem ≥2×) · alış payı ≥ %52 0 gün      5 · %40 · +4.07 · alt +nan    25 · %32 · -1.15 · alt -2.34   12 · %25 · -0.03 · alt -1.36      0.2     ❌
+    H3g günlük büyük alım emirleri (ort. işlem ≥2×) · alış payı ≥ %52 0 gün      5 · %20 · -3.76 · alt +nan    19 · %37 · +0.14 · alt -1.46    8 · %38 · +0.39 · alt -3.54      0.1     ❌
+    H3g günlük büyük alım emirleri (ort. işlem ≥3×) · alış payı ≥ %52 0 gün                               —      6 · %67 · +1.56 · alt +nan     5 · %60 · +1.42 · alt +nan      0.0     ❌
+    H3g günlük büyük alım emirleri (ort. işlem ≥3×) · alış payı ≥ %52 0 gün                               —     4 · %75 · +12.80 · alt +nan    3 · %67 · +15.44 · alt +nan      0.0     ❌
+```
+
+_Süre: 212 sn_
+exit=0
