@@ -26,7 +26,7 @@
 | 4 saat | $83,201 (+%0.63) | $82,167 (−%0.63) | ⬇️ önce STOP · Çok güçlü | %58.7 (2024+ %57.6) |
 | 8 saat | $83,415 (+%0.88) | $81,953 (−%0.88) | ⬇️ önce STOP · Çok güçlü | %60.0 (2024+ %55.8) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 09:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 09:26 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 08.10 09:05 · ✅ · ☀️ Günlük özet — 🧭 BTC 08.10 09:00 · $82,684 · gönderildi
@@ -40,7 +40,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 09:05 · ⚠️ Yatırım
 - 07.10 17:05 · ✅ · 🧭 BTC 07.10 17:00 · $83,192 · gönderildi
 - 07.10 16:05 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 07.10 16:00 · $83,492 · gönderildi
 
-_Çalıştırma: 08.10 09:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 08.10 09:26 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -96,3 +96,13 @@ _Araştırma (ufuk24): 10 coin, 2024+ isabet %55, işlem başı net +%0,46 (limi
 ### 📨 Deneme mesajları (son 10)
 - 08.10 08:06 · ✅ · 🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — 08.10 08:00 · gönderildi
 - 07.10 17:06 · ✅ · 🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — 07.10 17:00 · gönderildi
+
+## ⛓️ Arz/Talep (günlük, ETH) — borsadan çıkan coin + stabil coin talebi
+Son değerlendirme: **08.10 09:27** (veri günü 07.10)
+
+- ETH: borsadan çıkış 7g z -1.6 · borsadaki miktar azalışı 30g z -2.4 · stabil coin 7g z +0.9 · stabil coin 30g z +1.1 → hiçbir kuralın koşulu yok
+- BTC (yalnız bilgi): borsadan çıkış 7g z +1.0 · borsadaki miktar azalışı 30g z +1.9 · stabil coin 7g z +0.9 · stabil coin 30g z +1.1 · koşul: AL-2
+
+Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
+
+_Kurallar: AL-2 (7 g), AL-1 (7 g), AL-3 (3 g), SAT-1 (7 g) — zincir2.py'de ≤2023'te seçildi, 2024+'da doğrulandı; zincir3.py: TR 09:00 girişle de tuttu. Yılda ~25–30 sinyal beklenir._
