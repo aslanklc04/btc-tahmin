@@ -30,7 +30,7 @@ jobs:
           {
           echo "=== 1) 💵 prim: tüm coin'ler zorla tetiklendi (eşik -10), kuru ==="
           python -c "import pandas as pd; d=pd.read_csv('durum/prim_acik.csv'); d['esik']=-10; d.to_csv('durum/prim_acik.csv', index=False)"
-          PRIM_KURU=1 python prim_canli.py 2>&1 | head -60
+          PRIM_KURU=1 python prim_canli.py 2>&1 | head -14
           echo "exit=$?"
           git checkout durum/prim_acik.csv
           echo "=== 2) ⛓️ zincir kuru ==="
@@ -49,7 +49,9 @@ jobs:
           "
           python -c "
           import gonder
-          gonder.tg_send = lambda m: (print('──── GÖNDER ────'); print(m); True)[-1]
+          def _g(m):
+              print('──── GÖNDER ────'); print(m); return True
+          gonder.tg_send = _g
           gonder.main()
           "
           echo "=== 5) içe aktarma: tahmin / tahmin_coin / tahmin24 sözdizimi ==="

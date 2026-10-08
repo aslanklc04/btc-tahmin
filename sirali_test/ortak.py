@@ -276,14 +276,14 @@ def fiyat_yaz(p):
     if p >= 1000: return f"${p:,.0f}"
     if p >= 1: return f"${p:,.3f}"
     return f"${p:.{min(12, 3 - int(np.floor(np.log10(p))))}f}"
-def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+): fazla getirinin ilk 4 saatteki payı
+CIKIS_NOT = "kâr-al / stop koyma"                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
+def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
     if z is None or not np.isfinite(z) or z < 1: return ""
-    if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): geçmişte ek kazancın ~%70'i ilk 4 saatte geldi — hemen gir"
-    if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli — ek kazancın ~%35'i ilk 4 saatte, kalanı 1–3 günde"
-    return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılır (ilk 4 saatte ~%20)"
+    if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor (ilk 4 saatte belirgin) ve günlerce sürebiliyor — hemen gir, ERKEN ÇIKMA (testte 4 saatte çıkmak kârı ~%60 düşürdü)"
+    if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli, 1–3 güne yayılıyor — hemen gir, erken çıkma"
+    return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma"
 def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)"):
     """p: giriş fiyatı · cikis_t: çıkış zamanı (UTC) · ort: geçmişte bu sinyalin ortalama BRÜT getirisi % (yön dahil, komisyon öncesi)."""
-    c = f"{giris} {fiyat_yaz(p)} → çıkış {pd.Timestamp(cikis_t).tz_convert(DISPLAY_TZ):%d.%m %H:%M} (o saatte sat{'' if yon > 0 else ' / kapat'})"
-    if p is not None and np.isfinite(p) and ort is not None and np.isfinite(ort):
-        c += f" · beklenen çıkış ≈ {fiyat_yaz(p * (1 + yon * ort / 100))} (geçmiş ort. {('+' if ort >= 0 else '−') if yon > 0 else ('düşüş ' if ort >= 0 else 'yükseliş ')}%{abs(ort):.2f}, garanti değil)"
+    c = f"{giris} {fiyat_yaz(p)} → çıkış {pd.Timestamp(cikis_t).tz_convert(DISPLAY_TZ):%d.%m %H:%M}'de {'sat' if yon > 0 else 'kapat'} ({CIKIS_NOT})"
+    if ort is not None and np.isfinite(ort): c += f" · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}"
     return c

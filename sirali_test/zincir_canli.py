@@ -18,7 +18,7 @@ KURAL = [   # (ad, açıklama, yön, tutma günü, koşul, geçmiş — zincir3_
     ("SAT-1", "ETH borsalara akıyor (7 g net giriş z ≤ −1,5) + talep zayıf (stabil coin 7 g büyüme z ≤ 0)", -1, 7, lambda z: (z.cik7 <= -1.5) & (z.t7 <= 0),
      "2024+: 10 işlem, 10/10 tuttu, net +%7,33 (alt +%4,48) · ≤2023: 29 işlem +%0,39 (zayıf) · en kötü ara yükseliş %13"),
 ]
-NET_2024 = {"AL-2": 4.62, "AL-1": 2.76, "AL-3": 1.84, "SAT-1": 7.33}                          # KURAL'daki 2024+ işlem başı net % (beklenen çıkış fiyatı için; brüt = net + %0,04)
+NET_2024 = {"AL-2": 4.62, "AL-1": 2.76, "AL-3": 1.84, "SAT-1": 7.33}                          # KURAL'daki 2024+ işlem başı net % (mesajdaki geçmiş ortalama sonuç; brüt = net + %0,04)
 ADLAR = {"cik7": "borsadan çıkış 7g", "ms30": "borsadaki miktar azalışı 30g", "t7": "stabil coin 7g", "t30": "stabil coin 30g"}
 def zs(s, n=90): return (s - s.rolling(n, min_periods=30).mean()) / (s.rolling(n, min_periods=30).std() + 1e-12)
 def cm(asset, gun=400):
@@ -90,7 +90,7 @@ def calis():
                     for ad, acik, y, gun, kos, gec in yeni:
                         cikis = (t0 + pd.Timedelta(days=gun, minutes=6)).tz_convert(DISPLAY_TZ)
                         gr_ = NET_2024.get(ad, np.nan) + 200 * FEE
-                        bek_ = (f" · beklenen çıkış ≈ {fmt(p_now * (1 + y * gr_ / 100))} (geçmiş ort. {'+' if y > 0 else '−'}%{gr_:.2f}, garanti değil)" if np.isfinite(p_now) and np.isfinite(gr_) else "")
+                        bek_ = f" · {CIKIS_NOT}" + (f" · geçmiş ort. sonuç: fiyat %{gr_:.2f} {'yükseldi' if y > 0 else 'düştü'}" if np.isfinite(gr_) else "")
                         sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}\n   Geçmiş: {gec}")
                         if np.isfinite(p_now) and len(yon) == 1: GZ["log"].append(dict(t=t0, kural=ad, yon=y, gun=gun, p=p_now, veri=son_gun))
                     CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
