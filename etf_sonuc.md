@@ -1,4 +1,4 @@
-# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:39
+# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:44
 - BTC ETF: alınamadı · CFTC: 2018-04-10 → 2026-09-29, 443 hafta, varlık yöneticisi net +18.3%, kaldıraçlı fon net -35.0%
 - ETH ETF: alınamadı · CFTC: 2021-04-06 → 2026-09-29, 287 hafta, varlık yöneticisi net -4.4%, kaldıraçlı fon net -29.5%
 
@@ -60,4 +60,4 @@ BTC 4/8 saat ↑ + ⭐ + A C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 
              🧪 24 saat C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      10.6  56 / 57 (138)  54 / 62 (280) · net +0.46 / +0.98 -17.94  49 / 63 (89)  ❌
 ```
 
-_Süre: 12 sn_
+_Süre: 13 sn_
