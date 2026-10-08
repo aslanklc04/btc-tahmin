@@ -1,0 +1,17 @@
+# 🔎 Ek filtre taraması — 08.10.2026 18:38
+Olay: 36,513 (2022-06+) · BTC 4/8 saat ↑ + ⭐ + A 8,413 · coin tek başına 8,179 · coin 🤝 ortak 8,071 · BTC 1 saat ↑ 5,702 · 🧪 24 saat 3,717 · coin 🔇 sessiz 2,431 · 2 sn
+
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/filtre_hepsi.py", line 106, in <module>
+    for k in ("alti", "r24z", "vr", "rsi", "z"): cols[k][i] = asof(o[k].astype(float), t)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/filtre_hepsi.py", line 99, in asof
+    L_ = pd.DataFrame({"t": pd.DatetimeIndex(t).astype("datetime64[ns, UTC]"), "i": np.arange(len(t))}).sort_values("t")
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 1159, in astype
+    new_values = values.astype(dtype, copy=copy)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 719, in astype
+    raise TypeError(
+TypeError: Cannot use .astype to convert from timezone-naive dtype to timezone-aware dtype. Use obj.tz_localize instead or series.dt.tz_localize instead
+exit=1
