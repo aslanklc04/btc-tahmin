@@ -66,9 +66,12 @@ for sym, M in MODELS.items():
                 e["ret"] = 100 * (p2 / e["p"] - 1); e["net"] = e["ret"] - 200 * FEE; e["ok"] = bool(p2 > e["p"])
         ev = events(mk, H); yeni = len(ev) > 0 and ev[-1] == len(W_) - 1 and GS["last"].get(sym) != t   # araştırmadaki sayımın aynısı (son 30 gün zinciri)
         if yeni:
-            p_now = anlik(sym, price); GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=CBZ)); T_FIRE = t
+            p_now = anlik(sym, price); CBO = CBD if NM == "BTC" else cb_prim(NM); ZC = cb_coin_z(NM, CBO, CBD)        # 💵 coin'in kendi Coinbase primi
+            GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
             fire.append(f"• {NM} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
-                        f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else ""))
+                        f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
+                        + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
+                        + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız")))))
         acik = [e for e in GS["log"] if e["sym"] == sym and "ok" not in e]
         rows_md.append(f"| {NM} | {fmt(price)} | {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]}{' · 🧪 SİNYAL' if yeni else ''} | "
                        + (f"giriş {fmt(acik[-1]['p'])} → çıkış {(acik[-1]['t'] + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}" if acik else "—")
@@ -77,7 +80,7 @@ for sym, M in MODELS.items():
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     tg_send(f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGerçek para için değil, canlı takip (4–6 hafta). Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf.\n"
-            + "\n".join(fire) + "\n" + CBL + "\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.")
+            + "\n".join(fire) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.")
 # ---- haftalık deneme raporu (pazar 20:00) ----
 kap = [e for e in GS["log"] if "ok" in e]
 def ozet_onay(x):

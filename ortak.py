@@ -195,8 +195,9 @@ def tg_send(text):
 # ---- 💵 Coinbase primi (ABD alıcıları) — araştırma: bosluklar2.py, cb_kontrol.py, birlesim.py ----
 # Prim = log(Coinbase BTC-USD / Binance BTCUSDT), son 30 güne göre z. Model ↑ sinyali z > 0 iken (ABD normalden fazla ödüyor) geçmişte belirgin daha isabetli/kârlı,
 # z ≤ −1 iken (ABD satıyor) sinyaller kaybettirdi. Aynı saatlik çalışmada tek kez hesaplanır (durum/cb_prim.json), diğer betikler dosyadan okur.
-def cb_prim(path="durum/cb_prim.json"):
+def cb_prim(nm="BTC", path=None):
     import json
+    path = path or ("durum/cb_prim.json" if nm == "BTC" else f"durum/cb_prim_{nm}.json")
     try:
         d = json.load(open(path))
         if time.time() - d["hesap"] < 1800: return d
@@ -206,18 +207,20 @@ def cb_prim(path="durum/cb_prim.json"):
         for k in (3, 2, 1):
             a, b = now - pd.Timedelta(hours=300 * k), now - pd.Timedelta(hours=300 * (k - 1))
             for _ in range(3):
-                r = s.get("https://api.exchange.coinbase.com/products/BTC-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
+                r = s.get(f"https://api.exchange.coinbase.com/products/{nm}-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
+                if r.status_code == 404: return None                                         # bu coin Coinbase'de yok
                 if r.status_code == 200: out += r.json(); break
                 time.sleep(1.5)
         cb = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
         cb = pd.Series(cb.close.values.astype(float), index=pd.to_datetime(cb.t, unit="s", utc=True) + pd.Timedelta(hours=1)).sort_index()
-        bn = fetch_1h((now - pd.Timedelta(hours=920)).timestamp() * 1000, time.time() * 1000).close
+        if len(out) < 200: return None
+        bn = fetch_1h((now - pd.Timedelta(hours=920)).timestamp() * 1000, time.time() * 1000, sym=f"{nm}USDT").close
         p = np.log(cb / bn.reindex(cb.index)).dropna(); p = p[p.index <= bn.index[-1]]
         z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
         d = dict(z=float(z.iloc[-1]), bp=float(p.iloc[-1] * 1e4), t=str(z.index[-1]), hesap=time.time())
         os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(d, open(path, "w")); return d
     except Exception as e:
-        print("⚠️ Coinbase primi alınamadı:", str(e)[:200]); return None
+        print(f"⚠️ {nm} Coinbase primi alınamadı:", str(e)[:200]); return None
 def cb_z(d): return float(d["z"]) if d and np.isfinite(d.get("z", np.nan)) else float("nan")
 def cb_satir(d):
     z = cb_z(d)
@@ -230,3 +233,20 @@ def cb_ozet(x):                                                                 
     a = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] > 0]; b = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] <= 0]
     f = lambda v: f"{sum(e['ok'] for e in v)}/{len(v)} tuttu (%{100*sum(e['ok'] for e in v)/len(v):.0f})" if v else "yok"
     return f"💵 ABD onaylı (prim z > 0): {f(a)} · onaysız: {f(b)}" if (a or b) else ""
+# Coin sinyallerinde coin'in KENDİ Coinbase primi (birlesim_coin.py: 2026'da kendi primi onaylı %53 / ⛔ %47; BTC primi onaylı %49 — BTC primi coin'lerde işe yaramadı).
+# DOGE, NEAR, PEPE'de kendi primi filtresi de işe yaramadı → yalnız bilgi olarak gösterilir.
+CB_BILGI = {"DOGE", "NEAR", "PEPE"}
+def cb_kisa(d):
+    z = cb_z(d)
+    if not np.isfinite(z): return "?"
+    return f"{'✅' if z > 0 else ('⚠️' if z > -1 else '⛔')} z {z:+.1f}"
+def cb_satir_coin(nm, d_own, d_btc):
+    z = cb_z(d_own); btc = f" · BTC geneli: {cb_kisa(d_btc)}"
+    if not np.isfinite(z): return f"💵 {nm} için Coinbase primi yok · BTC geneli: " + cb_satir(d_btc).replace("💵 ", "")
+    if nm in CB_BILGI: return f"💵 {nm} Coinbase primi z {z:+.1f} (bu coin'de prim filtresi geçmişte işe yaramadı — yalnız bilgi){btc}"
+    if z >= 1: return f"💵 {nm}: ABD güçlü alıyor (kendi Coinbase primi z {z:+.1f}) ✅ onaylı{btc}"
+    if z > 0: return f"💵 {nm}: ABD alıyor (kendi Coinbase primi z {z:+.1f}) ✅ onaylı{btc}"
+    if z > -1: return f"💵 {nm}: ABD almıyor (kendi Coinbase primi z {z:+.1f}) ⚠️ onaysız — geçmişte isabet daha düşük{btc}"
+    return f"💵 {nm}: ABD SATIYOR (kendi Coinbase primi z {z:+.1f}) ⛔ ALMA — geçmişte bu durumda coin sinyalleri %47 tuttu{btc}"
+def cb_coin_z(nm, d_own, d_btc):                                                             # kayıt için: coin'in kendi primi (yoksa BTC'ninki)
+    z = cb_z(d_own); return z if np.isfinite(z) else cb_z(d_btc)
