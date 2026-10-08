@@ -100,10 +100,11 @@ def calis():
     acik = [e for e in GZ["log"] if "ok" not in e]
     if any(now >= e["t"] + pd.Timedelta(days=e["gun"]) for e in acik):
         try:
-            o = fetch_1h((now - pd.Timedelta(days=30)).timestamp() * 1000, now.timestamp() * 1000, sym="ETHUSDT").close
+            bas = min(e["t"] for e in acik) - pd.Timedelta(days=2)
+            o = fetch_1h(bas.timestamp() * 1000, now.timestamp() * 1000, sym="ETHUSDT").close
             for e in acik:
                 te = e["t"] + pd.Timedelta(days=e["gun"])
-                if now < te: continue
+                if now < te or not (o.index <= te).any(): continue
                 p2 = float(o.loc[te]) if te in o.index else float(o[o.index <= te].iloc[-1])
                 e["ret"] = 100 * e["yon"] * (p2 / e["p"] - 1); e["net"] = e["ret"] - 200 * FEE; e["ok"] = bool(e["ret"] > 0); e["p2"] = p2
                 tg(f"⛓️ ETH {e['kural']} işlemi kapandı — {'✅ tuttu' if e['ok'] else '❌ tutmadı'}\n{fmt(e['p'])} → {fmt(p2)} · {'AL' if e['yon'] > 0 else 'SAT'} · net %{e['net']:+.2f} (komisyon dahil)")
@@ -112,7 +113,7 @@ def calis():
     # ---- haftalık özet (pazar 20:00; yalnız en az bir sinyal geldiyse) ----
     try:
         tlh = tl.floor("h")
-        if GZ["log"] and tlh.weekday() == 6 and tlh.hour == 20 and (GZ.get("last_weekly") is None or tlh - GZ["last_weekly"] >= pd.Timedelta(days=6)):
+        if GZ["log"] and tlh.weekday() == 6 and tlh.hour >= 20 and (GZ.get("last_weekly") is None or tlh - GZ["last_weekly"] >= pd.Timedelta(days=6)):
             wk = [e for e in kap if now - e["t"] - pd.Timedelta(days=e["gun"]) <= pd.Timedelta(days=8)]
             tg(f"⛓️📊 ARZ/TALEP (ETH) — HAFTALIK\nBu hafta kapanan: {ozet(wk)}\nBaşlangıçtan ({GZ['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: {ozet(kap)}\nAçık işlem: {len([e for e in GZ['log'] if 'ok' not in e])}")
             GZ["last_weekly"] = tlh

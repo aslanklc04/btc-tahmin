@@ -75,8 +75,9 @@ def calis():
                 te = e["t"] + pd.Timedelta(days=GUN)
                 if now < te: continue
                 nm = e.get("sym", "BTC")
-                if nm not in OO: OO[nm] = fetch_1h((now - pd.Timedelta(days=30)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT").close
+                if nm not in OO: OO[nm] = fetch_1h((min(x["t"] for x in acik) - pd.Timedelta(days=2)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT").close
                 o = OO[nm]
+                if not (o.index <= te).any(): continue
                 p2 = float(o.loc[te]) if te in o.index else float(o[o.index <= te].iloc[-1])
                 e["ret"] = 100 * (p2 / e["p"] - 1); e["net"] = e["ret"] - 200 * FEE; e["ok"] = bool(e["ret"] > 0); e["p2"] = p2
                 tg(f"🧑 {nm} küçük yatırımcı işlemi kapandı — {'✅ tuttu' if e['ok'] else '❌ tutmadı'}\n{fmt(e['p'])} → {fmt(p2)} · AL · net %{e['net']:+.2f} (komisyon dahil)")
@@ -85,7 +86,7 @@ def calis():
     # ---- haftalık özet (pazar 20:00; en az bir sinyal geldiyse) ----
     try:
         tlh = tl.floor("h")
-        if GK["log"] and tlh.weekday() == 6 and tlh.hour == 20 and (GK.get("last_weekly") is None or tlh - GK["last_weekly"] >= pd.Timedelta(days=6)):
+        if GK["log"] and tlh.weekday() == 6 and tlh.hour >= 20 and (GK.get("last_weekly") is None or tlh - GK["last_weekly"] >= pd.Timedelta(days=6)):
             wk = [e for e in kap if now - e["t"] - pd.Timedelta(days=GUN) <= pd.Timedelta(days=8)]
             tg(f"🧑📊 KÜÇÜK YATIRIMCI (BTC / ETH) — HAFTALIK\nBu hafta kapanan: {ozet(wk)}\nBaşlangıçtan ({GK['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: "
                + " · ".join(f"{nm}: {ozet([e for e in kap if e.get('sym', 'BTC') == nm])}" for nm, *_ in KOIN) + f"\nAçık işlem: {len([e for e in GK['log'] if 'ok' not in e])}")

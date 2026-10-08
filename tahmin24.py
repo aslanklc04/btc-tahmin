@@ -89,7 +89,7 @@ def ozet_onay(x):
 def ozet(x): return f"{sum(e['ok'] for e in x)}/{len(x)} tuttu (%{100*sum(e['ok'] for e in x)/len(x):.0f}) · ort. net %{np.mean([e['net'] for e in x]):+.2f} · toplam %{np.sum([e['net'] for e in x]):+.1f}" if x else "sonuçlanan işlem yok"
 try:
     tl_ = now.tz_convert(DISPLAY_TZ).floor("h")
-    if MODELS and tl_.weekday() == 6 and tl_.hour == 20 and (GS.get("last_weekly") is None or tl_ - GS["last_weekly"] >= pd.Timedelta(days=6)):
+    if MODELS and tl_.weekday() == 6 and tl_.hour >= 20 and (GS.get("last_weekly") is None or tl_ - GS["last_weekly"] >= pd.Timedelta(days=6)):
         wk = [e for e in kap if now - e["t"] <= pd.Timedelta(days=8)]
         tg_send(f"🧪📊 24 SAAT DENEME — HAFTALIK\nSon 7 gün: {ozet(wk)}\nBaşlangıçtan ({GS['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: {ozet(kap)}\n{ozet_onay(kap)}\n(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)")
         GS["last_weekly"] = tl_

@@ -12,7 +12,7 @@ G = None
 if os.path.exists("durum/gecmis.pkl"):
     with open("durum/gecmis.pkl", "rb") as f: G = pickle.load(f)
     if G.get("created") != M["created"]:                                              # yeni eğitim: tahmin geçmişi modelden başlar, KAYITLAR korunur
-        KEEP = {k: G[k] for k in ("log", "tglog", "last_weekly", "last_daily", "MIC_TAIL", "HHM_TAIL") if k in G}; G = None
+        KEEP = {k: G[k] for k in ("log", "tglog", "last_weekly", "last_daily", "MIC_TAIL", "HHM_TAIL", "last_sent", "last_star", "last_acls", "last_kisa") if k in G}; G = None
 if G is None:
     G = dict(created=M["created"], PG={H: M["R"][H]["PG"] for H in CFG}, PL={H: M["R"][H]["PL"] for H in CFG}, ST=M["ST"],
              BPG={B: M["BAR"][B]["PG"] for B in M["BHS"]}, BPL={B: M["BAR"][B]["PL"] for B in M["BHS"]}, last_sent={}, last_star=None, last_daily=None, last_acls=None)
@@ -30,6 +30,7 @@ mins = fetch_1m(now_ms - min(max(80, gap_h + 80), 40 * 24) * 3_600_000, now_ms) 
 if mins is None or len(mins) < 120: time.sleep(5); mins = fetch_1m(now_ms - 5 * 24 * 3_600_000, now_ms)   # bir kez daha, daha geniş pencereyle dene
 if mins is not None and len(mins) >= 120:
     MIC = micro_features(mins).iloc[1:]; HHM = hourly_cv(mins).iloc[1:]                 # ilk (eksik) saat atlanır
+    MIC, HHM = MIC[MIC.index <= full.index[-1]], HHM[HHM.index <= full.index[-1]]          # henüz kapanmamış saat (birkaç dakikalık) kaydedilmez
 else:
     print("⚠️ Dakika verisi alınamadı: bu saat saat içi özellikler olmadan tahmin yapılıyor.")
     MIC = pd.DataFrame(columns=[f for f in FEATS1 if f.startswith("m_")], dtype="float32"); HHM = pd.DataFrame(columns=["cv", "v"], dtype="float64")
@@ -109,7 +110,7 @@ if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None o
     tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBL + "\n"
             + "\n".join(lines + bar_tg)); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
-    hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now else head)
+    hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig) else head)
     tg_send(hdr + "\n" + (GECIK + "\n" + CBL + "\n" if any(x[1] == 1 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 # ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
