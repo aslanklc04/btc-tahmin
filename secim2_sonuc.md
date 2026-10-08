@@ -1,0 +1,22 @@
+# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 08.10.2026 23:28
+Olay: 56,210 · tip: 24 · 169 sn
+
+## Adaylar — _haftada sinyal · isabet · işlem başı net % · haftalık toplam %_
+```
+                                                          2022-06→2023                                  2024+                                   2026
+aday                                                                                                                                                
+R0 bugün (⛔ hariç hepsi)         124.9/hf · %56.8 · +0.208 · top +25.9  130.7/hf · %57.1 · +0.284 · top +37.1  135.5/hf · %56.5 · +0.277 · top +37.6
+R1 hepsi, z ≥ 0,5                 61.8/hf · %56.7 · +0.274 · top +16.9   61.0/hf · %57.9 · +0.450 · top +27.4   70.6/hf · %56.5 · +0.311 · top +21.9
+R2 BTC ailesi yok, ⛔ hariç        74.0/hf · %57.2 · +0.341 · top +25.3   85.3/hf · %58.2 · +0.408 · top +34.8   93.8/hf · %58.2 · +0.377 · top +35.4
+R3 BTC ailesi yok, z ≥ 0          53.3/hf · %56.7 · +0.388 · top +20.7   57.5/hf · %58.5 · +0.561 · top +32.3   64.4/hf · %58.6 · +0.479 · top +30.8
+R4 BTC ve coin-tek yok, ⛔ hariç   55.6/hf · %56.5 · +0.382 · top +21.2   65.7/hf · %58.5 · +0.491 · top +32.2   68.8/hf · %58.8 · +0.468 · top +32.2
+R5 BTC ve coin-tek yok, z ≥ 0     41.4/hf · %55.9 · +0.433 · top +17.9   45.9/hf · %58.6 · +0.647 · top +29.7   49.0/hf · %59.1 · +0.589 · top +28.9
+R6 hepsi, z ≥ 1                   41.3/hf · %56.3 · +0.307 · top +12.7   41.4/hf · %57.6 · +0.583 · top +24.1   48.4/hf · %55.5 · +0.365 · top +17.7
+R7 BTC ailesi yok, z ≥ 0,5        41.6/hf · %56.6 · +0.408 · top +17.0   43.5/hf · %58.5 · +0.601 · top +26.2   49.7/hf · %57.3 · +0.418 · top +20.8
+```
+
+Sayı koşulunu sağlayanlar: R3 BTC ailesi yok, z ≥ 0, R5 BTC ve coin-tek yok, z ≥ 0, R6 hepsi, z ≥ 1, R7 BTC ailesi yok, z ≥ 0,5
+**Seçimde (2022-06→2023) en kârlı:** R5 BTC ve coin-tek yok, z ≥ 0
+2024+: isabet 58.6 vs 57.1 (+1.5) ❌ · net +0.647 vs +0.284 (×2.28) ✅ · 2026: isabet 59.1 vs 56.5 · net +0.589 vs +0.277 ✅ → ❌ aday değil
+
+_Süre: 169 sn_
