@@ -24,7 +24,7 @@
 | 4 saat | $83,170 (+%0.63) | $82,134 (−%0.63) | ⬇️ önce STOP · Çok güçlü | %58.7 (2024+ %57.6) |
 | 8 saat | $83,384 (+%0.89) | $81,920 (−%0.89) | ⬇️ önce STOP · Çok güçlü | %60.0 (2024+ %55.8) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:09 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 08.10 07:05 · ✅ · 🧭 BTC 08.10 07:00 · $82,757 · gönderildi
@@ -38,7 +38,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 08:05 · ⚠️ Yatırım
 - 07.10 09:07 · ✅ · ☀️ Günlük özet — 🧭 BTC 07.10 09:00 · $84,333 · gönderildi
 - 07.10 08:05 · ✅ · 🧭 BTC 07.10 08:00 · $84,103 · gönderildi
 
-_Çalıştırma: 08.10 08:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 08.10 08:09 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -81,7 +81,7 @@ Başlangıçtan (07.10.2026) beri sonuçlanan deneme işlemleri: **sonuçlanan i
 | ADA | $0.2524 | ⬇️ Zayıf | — | %58 · +0.42 | %59 · -0.31 (46) |
 | BNB | $766.950 | ⬆️ Güçlü | — | %55 · +0.25 | %49 · -0.35 (63) |
 | BTC | $82,652 | ⬇️ Güçlü | — | %58 · +0.15 | %60 · +0.07 (58) |
-| DOGE | $0.08737 | ⬆️ Çok güçlü · 🧪 SİNYAL | giriş $0.08739 → çıkış 09.10 08:00 | %57 · +0.45 | %61 · +0.45 (49) |
+| DOGE | $0.08737 | ⬆️ Çok güçlü | giriş $0.08739 → çıkış 09.10 08:00 | %57 · +0.45 | %61 · +0.45 (49) |
 | DOT | $1.095 | ⬇️ Zayıf | — | %59 · +0.61 | %50 · -0.67 (30) |
 | ETH | $2,563 | ⬇️ Güçlü | — | %55 · +0.12 | %43 · -0.75 (47) |
 | LINK | $13.084 | ⬆️ Zayıf | — | %51 · +0.16 | %42 · -0.70 (50) |
