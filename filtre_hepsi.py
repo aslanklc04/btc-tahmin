@@ -93,11 +93,13 @@ try:
     uc = fetch_1h(P0.timestamp() * 1000 - 40 * 86400e3, time.time() * 1000, sym="USDCUSDT").close; lu = np.log(uc)
     TZ = (lu - lu.rolling(720, min_periods=168).mean()) / (lu.rolling(720, min_periods=168).std() + 1e-12)
 except Exception as e: print("USDC", e); TZ = None
+def _utc(x):
+    x = pd.DatetimeIndex(x); x = x.tz_localize("UTC") if x.tz is None else x.tz_convert("UTC"); return x.as_unit("ns")
 def asof(s, t):
     if s is None: return np.full(len(t), np.nan)
-    s = s.dropna(); s.index = pd.DatetimeIndex(s.index).astype("datetime64[ns, UTC]")
-    L_ = pd.DataFrame({"t": pd.DatetimeIndex(t).astype("datetime64[ns, UTC]"), "i": np.arange(len(t))}).sort_values("t")
-    m = pd.merge_asof(L_, pd.DataFrame({"t": s.index, "v": s.values}), on="t", direction="backward"); return m.sort_values("i").v.values
+    s = s.dropna(); s.index = _utc(s.index)
+    L_ = pd.DataFrame({"t": _utc(t), "i": np.arange(len(t))}).sort_values("t")
+    m = pd.merge_asof(L_, pd.DataFrame({"t": s.index, "v": s.values.astype(float)}).sort_values("t"), on="t", direction="backward"); return m.sort_values("i").v.values
 cols = {k: np.full(len(E), np.nan) for k in ("alti", "btc_alti", "r24z", "vr", "rsi", "z", "fon", "kal", "vix", "stab", "teth")}
 for nm, g in E.groupby("coin"):
     i = g.index.values; t = g.t.values

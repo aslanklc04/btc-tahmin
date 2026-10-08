@@ -42,18 +42,11 @@ jobs:
           name: prim-veri
           run-id: 37771896586
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: BTC yuruyen test (tum ufuk cercevesi)
-        continue-on-error: true
-        timeout-minutes: 110
-        run: python egit_coin.py BTCUSDT > filtre_hepsi_egit_log.txt 2>&1; tail -5 filtre_hepsi_egit_log.txt
-        env:
-          DISA_AKTAR: "1"
-          SF_AKTAR: "1"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: sf-btc
-          path: sf_BTCUSDT.pkl
-          retention-days: 30
+          run-id: 37801388956
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           set +e; python filtre_hepsi.py > filtre_hepsi_log.txt 2>&1; echo "exit=$?" >> filtre_hepsi_log.txt; tail -30 filtre_hepsi_log.txt
       - run: |
