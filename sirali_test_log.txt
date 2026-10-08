@@ -1,0 +1,95 @@
+=== 1) 💵 prim: tüm coin'ler zorla tetiklendi (eşik -10), kuru ===
+---- (kuru) Telegram ----
+[öncelik 587.4927958362234 · 💵 ABD güçlü alıyor: FIL (z +1.3), AAVE (z +0.7), ALGO (z +0.6), CRV (z -0.1), NEAR (z -0.1), INJ (z -0.4), AVAX (z -1.2), UNI (z -1.3), SOL (z -1.3), XRP (z -2.0), BTC (z -2.0), DOGE (z -2.1), ETH (z -2.3), ADA (z -2.6), LINK (z -3.5)]
+💵🟢 ABD GÜÇLÜ ALIYOR → AL — 08.10 21:57
+Coinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: primi en yüksek olan üstte.
+• FIL: kendi primi z +1.3 (+9.1 baz puan) · limit ALIŞ $1.027 · çıkış 09.10 05:06 (8 saat) · beklenen çıkış ≈ $1.032 (geçmiş ort. +%0.54, garanti değil)
+   Geçmiş 2024+: 356 işlem, isabet %53, işlem başı +%0.50 · 2026: 103 işlem, %57, +%0.55
+   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılır (ilk 4 saatte ~%20)
+• AAVE: kendi primi z +0.7 (+1.2 baz puan) · limit ALIŞ $163.940 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $164.931 (geçmiş ort. +%0.60, garanti değil)
+   Geçmiş 2024+: 285 işlem, isabet %54, işlem başı +%0.56 · 2026: 91 işlem, %58, +%0.92
+• ALGO: kendi primi z +0.6 (+2.6 baz puan) · limit ALIŞ $0.1184 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $0.1201 (geçmiş ort. +%1.47, garanti değil)
+   Geçmiş 2024+: 80 işlem, isabet %51, işlem başı +%1.43 · 2026: 28 işlem, %43, +%0.57
+• CRV: kendi primi z -0.1 (-3.0 baz puan) · limit ALIŞ $0.3375 · çıkış 09.10 05:06 (8 saat) · beklenen çıkış ≈ $0.3399 (geçmiş ort. +%0.72, garanti değil)
+   Geçmiş 2024+: 159 işlem, isabet %56, işlem başı +%0.68 · 2026: 55 işlem, %60, +%0.56
+• NEAR: kendi primi z -0.1 (-2.9 baz puan) · limit ALIŞ $4.513 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $4.556 (geçmiş ort. +%0.96, garanti değil)
+   Geçmiş 2024+: 275 işlem, isabet %53, işlem başı +%0.92 · 2026: 92 işlem, %48, +%1.04
+• INJ: kendi primi z -0.4 (-6.1 baz puan) · limit ALIŞ $6.622 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $6.688 (geçmiş ort. +%1.00, garanti değil)
+   Geçmiş 2024+: 92 işlem, isabet %53, işlem başı +%0.96 · 2026: 34 işlem, %53, +%0.64
+• AVAX: kendi primi z -1.2 (-8.1 baz puan) · limit ALIŞ $9.999 · çıkış 09.10 01:06 (4 saat) · beklenen çıkış ≈ $10.068 (geçmiş ort. +%0.69, garanti değil)
+   Geçmiş 2024+: 95 işlem, isabet %64, işlem başı +%0.65 · 2026: 24 işlem, %71, +%0.64
+• UNI: kendi primi z -1.3 (-10.2 baz puan) · limit ALIŞ $7.203 · çıkış 09.10 01:06 (4 saat) · beklenen çıkış ≈ $7.224 (geçmiş ort. +%0.30, garanti değil)
+   Geçmiş 2024+: 508 işlem, isabet %51, işlem başı +%0.26 · 2026: 154 işlem, %51, +%0.25
+• SOL: kendi primi z -1.3 (-6.6 baz puan) · limit ALIŞ $108.070 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $109.144 (geçmiş ort. +%0.99, garanti değil)
+   Geçmiş 2024+: 41 işlem, isabet %51, işlem başı +%0.95 · 2026: 7 işlem, %71, +%1.71
+• XRP: kendi primi z -2.0 (-8.3 baz puan) · limit ALIŞ $1.360 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $1.382 (geçmiş ort. +%1.62, garanti değil)
+   Geçmiş 2024+: 131 işlem, isabet %56, işlem başı +%1.58 · 2026: 28 işlem, %39, +%0.65
+• BTC: kendi primi z -2.0 (-8.5 baz puan) · limit ALIŞ $81,498 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $81,984 (geçmiş ort. +%0.60, garanti değil)
+   Geçmiş 2024+: 115 işlem, isabet %58, işlem başı +%0.56 · 2026: 25 işlem, %56, +%0.59
+• DOGE: kendi primi z -2.1 (-11.0 baz puan) · limit ALIŞ $0.08302 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $0.08493 (geçmiş ort. +%2.30, garanti değil)
+   Geçmiş 2024+: 66 işlem, isabet %62, işlem başı +%2.26 · 2026: 19 işlem, %58, +%1.23
+• ETH: kendi primi z -2.3 (-9.3 baz puan) · limit ALIŞ $2,448 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $2,481 (geçmiş ort. +%1.36, garanti değil)
+   Geçmiş 2024+: 39 işlem, isabet %59, işlem başı +%1.32 · 2026: 5 işlem, %100, +%3.88
+• ADA: kendi primi z -2.6 (-14.6 baz puan) · limit ALIŞ $0.2288 · çıkış 09.10 21:06 (24 saat) · beklenen çıkış ≈ $0.2331 (geçmiş ort. +%1.89, garanti değil)
+   Geçmiş 2024+: 77 işlem, isabet %60, işlem başı +%1.85 · 2026: 28 işlem, %57, +%1.36
+• LINK: kendi primi z -3.5 (-17.2 baz puan) · limit ALIŞ $12.390 · çıkış 09.10 05:06 (8 saat) · beklenen çıkış ≈ $12.438 (geçmiş ort. +%0.38, garanti değil)
+   Geçmiş 2024+: 309 işlem, isabet %55, işlem başı +%0.34 · 2026: 108 işlem, %53, +%0.14
+⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.
+-------------------------
+
+## 💵 ABD güçlü alıyor → coin AL (kendi Coinbase primi, saatlik)
+Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
+
+| Coin | Kendi primi z | Eşik | Tut | Durum | Geçmiş 2024+ (isabet · işlem başı net) |
+|---|---|---|---|---|---|
+| DOGE | -2.08 | ≥ -10 | 24 s | 🟢 açık: $0.08302 → 09.10 21:00 | %62 · +%2.26 (66) |
+| XRP | -1.98 | ≥ -10 | 24 s | 🟢 açık: $1.360 → 09.10 21:00 | %56 · +%1.58 (131) |
+| ADA | -2.55 | ≥ -10 | 24 s | 🟢 açık: $0.2288 → 09.10 21:00 | %60 · +%1.85 (77) |
+| ALGO | +0.59 | ≥ -10 | 24 s | 🟢 açık: $0.1184 → 09.10 21:00 | %51 · +%1.43 (80) |
+| NEAR | -0.06 | ≥ -10 | 24 s | 🟢 açık: $4.513 → 09.10 21:00 | %53 · +%0.92 (275) |
+| ETH | -2.32 | ≥ -10 | 24 s | 🟢 açık: $2,448 → 09.10 21:00 | %59 · +%1.32 (39) |
+| CRV | -0.06 | ≥ -10 | 8 s | 🟢 açık: $0.3375 → 09.10 05:00 | %56 · +%0.68 (159) |
+| AVAX | -1.19 | ≥ -10 | 4 s | 🟢 açık: $9.999 → 09.10 01:00 | %64 · +%0.65 (95) |
+| LINK | -3.48 | ≥ -10 | 8 s | 🟢 açık: $12.390 → 09.10 05:00 | %55 · +%0.34 (309) |
+| BTC | -2.01 | ≥ -10 | 24 s | 🟢 açık: $81,498 → 09.10 21:00 | %58 · +%0.56 (115) |
+| UNI | -1.31 | ≥ -10 | 4 s | 🟢 açık: $7.203 → 09.10 01:00 | %51 · +%0.26 (508) |
+| AAVE | +0.70 | ≥ -10 | 24 s | 🟢 açık: $163.940 → 09.10 21:00 | %54 · +%0.56 (285) |
+| FIL | +1.25 | ≥ -10 | 8 s | 🟢 açık: $1.027 → 09.10 05:00 | %53 · +%0.50 (356) |
+| SOL | -1.34 | ≥ -10 | 24 s | 🟢 açık: $108.070 → 09.10 21:00 | %51 · +%0.95 (41) |
+| INJ | -0.35 | ≥ -10 | 24 s | 🟢 açık: $6.622 → 09.10 21:00 | %53 · +%0.96 (92) |
+
+_prim_coin.py: 50 coin'de 441 denemenin 37'si geçti (tesadüfen ~7) · prim2.py: coin başına tek kural, gecikmesiz girişle ve 2026'da da tuttu. İsabet ~%54; kâr ortalamadan._
+exit=0
+Updated 1 path from the index
+=== 2) ⛓️ zincir kuru ===
+Coin Metrics son gün: ETH 07.10 · BTC 07.10 · ölçülerin son tam günü 07.10 · stabil coin son 08.10 (312 milyar $)
+
+## ⛓️ Arz/Talep (günlük, ETH) — borsadan çıkan coin + stabil coin talebi
+Son değerlendirme: **08.10 21:57** (veri günü 07.10)
+
+- ETH: borsadan çıkış 7g z -1.6 · borsadaki miktar azalışı 30g z -2.4 · stabil coin 7g z +0.9 · stabil coin 30g z +1.1 → hiçbir kuralın koşulu yok
+- BTC (yalnız bilgi): borsadan çıkış 7g z +1.0 · borsadaki miktar azalışı 30g z +1.9 · stabil coin 7g z +0.9 · stabil coin 30g z +1.1 · koşul: AL-2
+
+Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
+
+_Kurallar: AL-2 (7 g), AL-1 (7 g), AL-3 (3 g), SAT-1 (7 g) — zincir2.py'de ≤2023'te seçildi, 2024+'da doğrulandı; zincir3.py: TR 09:00 girişle de tuttu. Yılda ~25–30 sinyal beklenir._
+
+=== 3) 🧑 küçük yatırımcı kuru ===
+bitcoin-data.com son gün 07.10 · küçük cüzdan BTC 1,396,716 · z +0.58
+
+## 🧑 Küçük yatırımcı kaçıyor → BTC / ETH AL (günlük)
+Son değerlendirme: **08.10 21:57** (veri günü 07.10) · 1 BTC'den küçük cüzdanlarda 1,396,716 BTC, 30 günde %+0.11 · z **+0.58** (sinyal: z ≤ -1.5) → sinyal yok
+
+Başlangıçtan (08.10.2026) beri sonuçlanan: BTC **sonuçlanan işlem yok** · ETH **sonuçlanan işlem yok**
+
+_tipler2.py: 53 denemelik taramada öne çıktı · tipler3.py: iki dönemde de anlamlı, fiyat etkisinden bağımsız, TR 15:00 girişle tuttu. Ayda ~1 sinyal. kucuk_coin.py: ETH de geçti (en kötü ara düşüş %24); diğer coin'ler yalnız bilgi._
+
+=== 4) kuyruk + gonder (Telegram yerine ekrana) ===
+⏩ Prim yüksek (z 2–3): yükseliş kademeli — ek kazancın ~%35'i ilk 4 saatte, kalanı 1–3 günde
+⚡ Prim çok yüksek (z ≥ 3): geçmişte ek kazancın ~%70'i ilk 4 saatte geldi — hemen gir
+  File "<string>", line 3
+    gonder.tg_send = lambda m: (print('──── GÖNDER ────'); print(m); True)[-1]
+                                                         ^
+SyntaxError: invalid syntax
+=== 5) içe aktarma: tahmin / tahmin_coin / tahmin24 sözdizimi ===
+derlendi
