@@ -1,0 +1,34 @@
+name: Duman testi (kontrol dali)
+on:
+  push:
+    branches: [kontrol]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kontrol
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Uçtan uca (Telegram'sız)
+        run: |
+          set +e
+          pip freeze | grep -iE "^(numpy|pandas|lightgbm|scikit-learn|requests|scipy|joblib)==" > duman_surum.txt
+          : > duman_log.txt
+          for s in tahmin.py tahmin_coin.py tahmin24.py; do echo "=== $s" >> duman_log.txt; python $s >> duman_log.txt 2>&1; echo "exit=$?" >> duman_log.txt; done
+          echo "=== zincir_canli.py" >> duman_log.txt; ZINCIR_KURU=1 python zincir_canli.py >> duman_log.txt 2>&1; echo "exit=$?" >> duman_log.txt
+          echo "=== kucuk_canli.py" >> duman_log.txt; KUCUK_KURU=1 python kucuk_canli.py >> duman_log.txt 2>&1; echo "exit=$?" >> duman_log.txt
+          echo "=== prim_canli.py" >> duman_log.txt; PRIM_KURU=1 python prim_canli.py >> duman_log.txt 2>&1; echo "exit=$?" >> duman_log.txt
+          cp son_durum.md duman_panel.md 2>/dev/null
+          grep -c Traceback duman_log.txt; grep "^exit=" duman_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add duman_log.txt duman_surum.txt duman_panel.md 2>/dev/null; git commit -m "Duman testi sonucu" || exit 0
+          git push origin HEAD:kontrol
