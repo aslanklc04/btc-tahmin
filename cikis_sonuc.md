@@ -1,7 +1,7 @@
-# 🚪 Giriş zamanı ve çıkış stratejisi — 08.10.2026 22:22
-Olay: 56,211 · BTC 1/4/8 s + ⭐ + A 21,137 · coin tek başına 11,875 · coin 🤝 ortak 10,749 · 🧪 24 saat 4,624 · 💵 ABD alıyor (tek başına) 4,043 · coin 🔇 sessiz 3,357 · 🔻 BTC kısa 240 · ⛓️ ETH 108 · 🧑 küçük yatırımcı 78 · fiyat verisi 24/24 coin · 172 sn
+# 🚪 Giriş zamanı ve çıkış stratejisi — 08.10.2026 22:28
+Olay: 56,211 · BTC 1/4/8 s + ⭐ + A 21,137 · coin tek başına 11,875 · coin 🤝 ortak 10,749 · 🧪 24 saat 4,624 · 💵 ABD alıyor (tek başına) 4,043 · coin 🔇 sessiz 3,357 · 🔻 BTC kısa 240 · ⛓️ ETH 108 · 🧑 küçük yatırımcı 78 · fiyat verisi 24/24 coin · 170 sn
 
-Değerlendirilen olay: 56,206 · 195 sn
+Değerlendirilen olay: 56,206 · 215 sn
 
 
 ## BTC 1/4/8 s + ⭐ + A — 21,135 işlem · ana süre 4 saat · beklenen fiyat hedefi +%0.13
@@ -263,7 +263,30 @@ Prim z ≥ 3 iken 4 saatte çık vs süre dolunca: seçim (2024 öncesi): 19 iş
         🧑 küçük yatırımcı    78                            Süre ×3      7.380  4.014      4.956                    ✅ kanıtlandı
                 🧪 24 saat  4624                            Süre ×3      0.370 -0.176      0.065 ❌ kanıtlanmadı → bugünkü kalsın
 ```
-Herkese tek strateji (seçimde en iyi): **{bestG}** → 2024+ fark {100*fG:+.3f} (alt {100*lbG:+.3f}) · 2026 {100*fG26:+.3f}
+Herkese tek strateji (seçimde en iyi): **Süre ×3** → 2024+ fark +0.215 (alt +0.073) · 2026 +0.025
 Prim z ≥ 3 (tüm türler, ana süre > 4 s), 2024+: 898 işlem · 4 saatte çık +0.50 · süre dolunca +1.31 · fark alt sınır -1.179
 
-_Süre: 195 sn_
+## Risk ve zaman: bugünkü süre vs 3 katı (2024+)
+_işlem başı net · günlük (24 saat başına) net · tutma süresince ortalama en kötü ara düşüş · en kötü %5'lik ara düşüş · ara düşüşü −%10'dan kötü işlem oranı_
+```
+BTC 1/4/8 s + ⭐ + A        bugünkü  net +0.02 · günlük +0.14 · ara düşüş ort -0.7 · %5 -2.5 · <−%10: %0
+BTC 1/4/8 s + ⭐ + A        3 katı   net +0.07 · günlük +0.16 · ara düşüş ort -1.2 · %5 -3.9 · <−%10: %0
+coin tek başına            bugünkü  net +0.09 · günlük +0.45 · ara düşüş ort -1.6 · %5 -5.4 · <−%10: %2
+coin tek başına            3 katı   net +0.23 · günlük +0.37 · ara düşüş ort -2.6 · %5 -8.6 · <−%10: %4
+coin 🔇 sessiz              bugünkü  net +0.24 · günlük +1.45 · ara düşüş ort -1.9 · %5 -7.0 · <−%10: %2
+coin 🔇 sessiz              3 katı   net +0.47 · günlük +0.95 · ara düşüş ort -3.1 · %5 -10.7 · <−%10: %6
+coin 🤝 ortak               bugünkü  net +0.20 · günlük +1.19 · ara düşüş ort -1.8 · %5 -4.9 · <−%10: %2
+coin 🤝 ortak               3 katı   net +0.44 · günlük +0.88 · ara düşüş ort -2.9 · %5 -8.9 · <−%10: %4
+⛓️ ETH                     bugünkü  net +2.60 · günlük +0.58 · ara düşüş ort -4.3 · %5 -10.2 · <−%10: %5
+⛓️ ETH                     3 katı   net +4.59 · günlük +0.34 · ara düşüş ort -7.7 · %5 -23.4 · <−%10: %25
+💵 ABD alıyor (tek başına)  bugünkü  net +0.71 · günlük +1.18 · ara düşüş ort -2.6 · %5 -7.9 · <−%10: %3
+💵 ABD alıyor (tek başına)  3 katı   net +1.21 · günlük +0.68 · ara düşüş ort -4.3 · %5 -12.3 · <−%10: %9
+🔻 BTC kısa                 bugünkü  net +0.30 · günlük +0.30 · ara düşüş ort -1.8 · %5 -4.5 · <−%10: %0
+🔻 BTC kısa                 3 katı   net +0.41 · günlük +0.14 · ara düşüş ort -2.9 · %5 -8.4 · <−%10: %1
+🧑 küçük yatırımcı          bugünkü  net +3.54 · günlük +0.51 · ara düşüş ort -4.9 · %5 -14.1 · <−%10: %20
+🧑 küçük yatırımcı          3 katı   net +10.92 · günlük +0.52 · ara düşüş ort -6.4 · %5 -17.9 · <−%10: %25
+🧪 24 saat                  bugünkü  net +0.51 · günlük +0.51 · ara düşüş ort -4.4 · %5 -13.3 · <−%10: %9
+🧪 24 saat                  3 katı   net +0.88 · günlük +0.29 · ara düşüş ort -6.9 · %5 -21.0 · <−%10: %21
+```
+
+_Süre: 215 sn_
