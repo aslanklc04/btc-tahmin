@@ -333,4 +333,3 @@ FLOKI   düşüşe başladı (5 g z≤−1,5)    7  AL                          
 ```
 
 _Süre: 47 sn_
-exit=0
