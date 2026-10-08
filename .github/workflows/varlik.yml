@@ -1,0 +1,27 @@
+name: Oncu varlik taramasi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [varlik.py, .github/workflows/varlik.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt yfinance
+      - run: |
+          set +e; python varlik.py > varlik_log.txt 2>&1; echo "exit=$?" >> varlik_log.txt; tail -60 varlik_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add varlik_log.txt; git add varlik_sonuc.md 2>/dev/null; git commit -m "Oncu varlik sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
