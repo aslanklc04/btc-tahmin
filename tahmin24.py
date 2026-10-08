@@ -68,10 +68,13 @@ for sym, M in MODELS.items():
         if yeni:
             p_now = anlik(sym, price); CBO = CBD if NM == "BTC" else cb_prim(NM); ZC = cb_coin_z(NM, CBO, CBD)        # 💵 coin'in kendi Coinbase primi
             GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
-            fire.append(f"• {NM} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
-                        f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
+            gr24_ = st24.get("gross", st24.get("net", np.nan) + 200 * FEE); hz_ = hiz_notu(ZC if CBO else float("nan"))
+            fire.append((ZC if CBO else float("nan"), NM, f"• {NM} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
+                        + (f" · beklenen çıkış ≈ {fmt(p_now * (1 + gr24_ / 100))} (geçmiş ort. {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f})" if np.isfinite(gr24_) else "")
+                        + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
                         + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
-                        + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız")))))
+                        + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız"))))
+                        + (f"\n   {hz_}" if hz_ else "")))
         acik = [e for e in GS["log"] if e["sym"] == sym and "ok" not in e]
         rows_md.append(f"| {NM} | {fmt(price)} | {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]}{' · 🧪 SİNYAL' if yeni else ''} | "
                        + (f"giriş {fmt(acik[-1]['p'])} → çıkış {(acik[-1]['t'] + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}" if acik else "—")
@@ -79,8 +82,11 @@ for sym, M in MODELS.items():
     except Exception: traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ hata | | | |")
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
-    tg_send(f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGerçek para için değil, canlı takip (4–6 hafta). Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf.\n"
-            + "\n".join(fire) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.")
+    fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
+    zmax_ = max((x[0] for x in fire if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in fire)
+    tg_send(f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGerçek para için değil, canlı takip (4–6 hafta). Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf. Sıra: kendi primi yüksek olan üstte.\n"
+            + "\n".join(x[2] for x in fire) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
+            oncelik=sira_puani("🧪", zmax_, hepsi_alma), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in fire))
 # ---- haftalık deneme raporu (pazar 20:00) ----
 kap = [e for e in GS["log"] if "ok" in e]
 def ozet_onay(x):

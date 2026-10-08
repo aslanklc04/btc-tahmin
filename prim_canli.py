@@ -32,9 +32,9 @@ def calis():
         except Exception: GP = {}
     for k, v in (("log", []), ("tglog", []), ("last", {}), ("son", {})): GP.setdefault(k, v)
     GP.setdefault("start", pd.Timestamp.now(tz="UTC"))
-    def tg(text):
-        if kuru: print("---- (kuru) Telegram ----\n" + text + "\n-------------------------"); return False
-        ok = tg_send(text); GP["tglog"] = (GP["tglog"] + [dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"])])[-10:]; return ok
+    def tg(text, **kw):
+        if kuru: print("---- (kuru) Telegram ----\n" + (f"[öncelik {kw.get('oncelik')} · {kw.get('etiket')}]\n" if kw else "") + text + "\n-------------------------"); return False
+        ok = tg_send(text, **kw); GP["tglog"] = (GP["tglog"] + [dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"])])[-10:]; return ok
     now = pd.Timestamp.now(tz="UTC"); tl = now.tz_convert(DISPLAY_TZ)
     with ThreadPoolExecutor(4) as ex: CB = dict(zip(LS.coin, ex.map(lambda c: cb_prim(c), LS.coin)))
     fire = []
@@ -49,11 +49,15 @@ def calis():
             p = anlik(f"{r.coin}USDT"); GP["last"][r.coin] = t
             if np.isfinite(p): GP["log"].append(dict(t=t, coin=r.coin, p=p, H=int(r.saat), z=z))
             cikis = (t + pd.Timedelta(hours=int(r.saat), minutes=6)).tz_convert(DISPLAY_TZ)
-            fire.append(f"• {r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)\n"
-                        f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}")
+            gr_ = float(r.net) + 200 * FEE; hz_ = hiz_notu(z)
+            fire.append((z, r.coin, f"• {r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)"
+                        + (f" · beklenen çıkış ≈ {fmt(p * (1 + gr_ / 100))} (geçmiş ort. +%{gr_:.2f}, garanti değil)" if np.isfinite(p) else "") + "\n"
+                        f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))
     if fire:
-        tg(f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik).\n" + "\n".join(fire)
-           + "\n⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.")
+        fire.sort(key=lambda x: -x[0])                                                         # primi en yüksek olan üstte
+        tg(f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: primi en yüksek olan üstte.\n" + "\n".join(x[2] for x in fire)
+           + "\n⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
+           oncelik=sira_puani("💵", fire[0][0]), etiket="💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f})" for x in fire))
     # ---- sonuçlanan işlemler ----
     acik = [e for e in GP["log"] if "ok" not in e and now >= e["t"] + pd.Timedelta(hours=e["H"])]
     OO = {}

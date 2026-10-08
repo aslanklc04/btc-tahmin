@@ -1,5 +1,5 @@
 # ortak.py — v32 modelinin GitHub Actions sürümü için ortak parçalar (egit.py ve tahmin.py kullanır)
-import os, io, time, zipfile, warnings, requests, numpy as np, pandas as pd
+import os, io, json, time, zipfile, warnings, requests, numpy as np, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 warnings.filterwarnings("ignore"); pd.set_option("display.width", 220)
 SPOT_FEE, DISPLAY_TZ = 0.001, "Europe/Istanbul"
@@ -176,9 +176,19 @@ def tes_eval(TF, THR):
         U |= m.fillna(False)
     return U
 TG_LAST = {"ok": None, "info": ""}
-def tg_send(text):
-    """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için)."""
+KUYRUK_F = "durum/tg_kuyruk.json"
+def tg_send(text, oncelik=None, etiket=None):
+    """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için).
+    TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
+    oncelik: sira_puani() (küçük = önce) · yoksa rapor/bilgi sayılır, sinyallerden sonra gider. etiket: sıralama listesindeki kısa ad."""
     global TELEGRAM_CHAT_ID
+    if os.environ.get("TG_SIRALI") == "1":
+        try:
+            q = json.load(open(KUYRUK_F, encoding="utf-8")) if os.path.exists(KUYRUK_F) else []
+            q.append(dict(o=float(oncelik) if oncelik is not None else 9999.0, e=etiket or text.split("\n")[0][:70], m=text, t=time.time(), s=len(q)))
+            os.makedirs(os.path.dirname(KUYRUK_F), exist_ok=True); json.dump(q, open(KUYRUK_F, "w", encoding="utf-8"), ensure_ascii=False)
+            TG_LAST.update(ok=True, info="sıraya alındı (gonder.py gönderir)"); return True
+        except Exception as e: print(f"⚠️ kuyruk yazılamadı, doğrudan gönderiliyor: {e}")
     if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
     for deneme in range(2):
         try:
@@ -252,3 +262,28 @@ def cb_satir_coin(nm, d_own, d_btc):
     return f"💵 {nm}: ABD SATIYOR (kendi Coinbase primi z {z:+.1f}) ⛔ ALMA — geçmişte bu durumda coin sinyalleri 2026'da %48 tuttu (ABD alırken %64){btc}"
 def cb_coin_z(nm, d_own, d_btc):                                                             # kayıt için: coin'in kendi primi (yoksa BTC'ninki)
     z = cb_z(d_own); return z if np.isfinite(z) else cb_z(d_btc)
+# ---- 📋 MESAJ ÖNCELİK SIRASI: aynı saatte gelen sinyaller en iyisi üstte (gonder.py) ----
+# Tür sırası araştırmadaki 2024+ isabet · işlem başı net'e göre (merdiven.py, satis.py, zincir3.py, tipler3.py; ⛔ olanlar hariç):
+#   ⛓️ ETH arz/talep AL %61 · +%2,5 (7 g) ve 🧑 küçük yatırımcı %66 · +%2,9 (7 g) → 🤝 BTC ile ortak %62 · +%0,23 (2026 %67) → 🔇 BTC sessizken %62 · +%0,29 →
+#   🪙 coin tek başına %59 · +%0,13 → 🧪 24 saat %56 · +%0,69 → 💵 ABD alıyor (tek başına) %54 · +%0,72 → ₿ BTC saatlik/⭐/A %58 · +%0,05 → 🔻 kısa %51 · +%0,36 → ℹ️ bilgi.
+# Aynı türde coin'in kendi Coinbase primi yüksek olan önce (merdiven: prim yükseldikçe isabet ve kâr artıyor). ⛔ (ABD satıyor) olanlar en sona.
+SIRA_TUR = {"⛓️": 1, "🧑": 1, "🤝": 2, "🔇": 3, "🪙": 4, "🧪": 5, "💵": 6, "₿": 7, "🔻": 8, "ℹ️": 9}
+def sira_puani(tur, z=float("nan"), alma=False):
+    g = SIRA_TUR.get(tur, 9) + (20 if alma else 0); zz = float(z) if z is not None and np.isfinite(z) else -1.0
+    return g * 100 - max(-5.0, min(5.0, zz)) * 10
+def fiyat_yaz(p):
+    if p is None or not np.isfinite(p) or p <= 0: return "$?"
+    if p >= 1000: return f"${p:,.0f}"
+    if p >= 1: return f"${p:,.3f}"
+    return f"${p:.{min(12, 3 - int(np.floor(np.log10(p))))}f}"
+def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+): fazla getirinin ilk 4 saatteki payı
+    if z is None or not np.isfinite(z) or z < 1: return ""
+    if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): geçmişte ek kazancın ~%70'i ilk 4 saatte geldi — hemen gir"
+    if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli — ek kazancın ~%35'i ilk 4 saatte, kalanı 1–3 günde"
+    return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılır (ilk 4 saatte ~%20)"
+def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)"):
+    """p: giriş fiyatı · cikis_t: çıkış zamanı (UTC) · ort: geçmişte bu sinyalin ortalama BRÜT getirisi % (yön dahil, komisyon öncesi)."""
+    c = f"{giris} {fiyat_yaz(p)} → çıkış {pd.Timestamp(cikis_t).tz_convert(DISPLAY_TZ):%d.%m %H:%M} (o saatte sat{'' if yon > 0 else ' / kapat'})"
+    if p is not None and np.isfinite(p) and ort is not None and np.isfinite(ort):
+        c += f" · beklenen çıkış ≈ {fiyat_yaz(p * (1 + yon * ort / 100))} (geçmiş ort. {('+' if ort >= 0 else '−') if yon > 0 else ('düşüş ' if ort >= 0 else 'yükseliş ')}%{abs(ort):.2f}, garanti değil)"
+    return c

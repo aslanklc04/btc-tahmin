@@ -18,6 +18,7 @@ KURAL = [   # (ad, açıklama, yön, tutma günü, koşul, geçmiş — zincir3_
     ("SAT-1", "ETH borsalara akıyor (7 g net giriş z ≤ −1,5) + talep zayıf (stabil coin 7 g büyüme z ≤ 0)", -1, 7, lambda z: (z.cik7 <= -1.5) & (z.t7 <= 0),
      "2024+: 10 işlem, 10/10 tuttu, net +%7,33 (alt +%4,48) · ≤2023: 29 işlem +%0,39 (zayıf) · en kötü ara yükseliş %13"),
 ]
+NET_2024 = {"AL-2": 4.62, "AL-1": 2.76, "AL-3": 1.84, "SAT-1": 7.33}                          # KURAL'daki 2024+ işlem başı net % (beklenen çıkış fiyatı için; brüt = net + %0,04)
 ADLAR = {"cik7": "borsadan çıkış 7g", "ms30": "borsadaki miktar azalışı 30g", "t7": "stabil coin 7g", "t30": "stabil coin 30g"}
 def zs(s, n=90): return (s - s.rolling(n, min_periods=30).mean()) / (s.rolling(n, min_periods=30).std() + 1e-12)
 def cm(asset, gun=400):
@@ -64,9 +65,9 @@ def calis():
         except Exception: GZ = {}
     for k, v in (("log", []), ("tglog", []), ("son", None), ("gun", None)): GZ.setdefault(k, v)
     GZ.setdefault("start", pd.Timestamp.now(tz="UTC"))
-    def tg(text):
-        if kuru: print("---- (kuru) Telegram ----\n" + text + "\n-------------------------"); return False
-        ok = tg_send(text); GZ["tglog"] = (GZ["tglog"] + [dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"])])[-10:]; return ok
+    def tg(text, **kw):
+        if kuru: print("---- (kuru) Telegram ----\n" + (f"[öncelik {kw.get('oncelik')} · {kw.get('etiket')}]\n" if kw else "") + text + "\n-------------------------"); return False
+        ok = tg_send(text, **kw); GZ["tglog"] = (GZ["tglog"] + [dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"])])[-10:]; return ok
     now = pd.Timestamp.now(tz="UTC"); tl = now.tz_convert(DISPLAY_TZ); dun = now.floor("D") - pd.Timedelta(days=1)
     # ---- günlük değerlendirme (TR 09:00'dan sonra, dünün verisi gelince, günde bir kez) ----
     if kuru or (tl.hour >= 9 and GZ["gun"] != dun):
@@ -88,11 +89,16 @@ def calis():
                     sat = []
                     for ad, acik, y, gun, kos, gec in yeni:
                         cikis = (t0 + pd.Timedelta(days=gun, minutes=6)).tz_convert(DISPLAY_TZ)
-                        sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut)\n   Geçmiş: {gec}")
+                        gr_ = NET_2024.get(ad, np.nan) + 200 * FEE
+                        bek_ = (f" · beklenen çıkış ≈ {fmt(p_now * (1 + y * gr_ / 100))} (geçmiş ort. {'+' if y > 0 else '−'}%{gr_:.2f}, garanti değil)" if np.isfinite(p_now) and np.isfinite(gr_) else "")
+                        sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}\n   Geçmiş: {gec}")
                         if np.isfinite(p_now) and len(yon) == 1: GZ["log"].append(dict(t=t0, kural=ad, yon=y, gun=gun, p=p_now, veri=son_gun))
+                    CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
                     tg(f"{bas} — {tl:%d.%m %H:%M}\nVeri: {son_gun:%d.%m} günü (Coin Metrics + DefiLlama · test bu giriş saatiyle yapıldı: zincir3.py)\n"
-                       f"ETH ölçüleri: {zsatir(r)}\n\n" + "\n".join(sat) + f"\n\n{btc_satir}\n"
-                       "⚠️ Seyrek, 3–7 gün süren işlemler; geçmiş örnek az (10–47). İşlem sürerken geçmişte en kötü ters hareket 2024+ %11–15, eski yıllarda %30'a kadar → kaldıraç en fazla 2x. Yatırım tavsiyesi değildir.")
+                       f"ETH ölçüleri: {zsatir(r)}\n💵 ETH Coinbase primi: {cb_kisa(CBE)} (bilgi)" + (f"\n{hz_}" if hz_ else "") + "\n\n" + "\n".join(sat) + f"\n\n{btc_satir}\n"
+                       "⚠️ Seyrek, 3–7 gün süren işlemler; geçmiş örnek az (10–47). İşlem sürerken geçmişte en kötü ters hareket 2024+ %11–15, eski yıllarda %30'a kadar → kaldıraç en fazla 2x. Yatırım tavsiyesi değildir.",
+                       oncelik=sira_puani("⛓️", ZE if yon == {1} else (-ZE if np.isfinite(ZE) else ZE)) if len(yon) == 1 else sira_puani("ℹ️"),
+                       etiket=f"⛓️ ETH arz/talep {'AL' if yon == {1} else ('SAT (kısa)' if yon == {-1} else 'çelişkili — işlem açma')} ({', '.join(k[0] for k in yeni)}, 3–7 gün)")
                 if not kuru: GZ["gun"] = dun
             else: print(f"Dünün ({dun:%d.%m}) verisi henüz yok → sonraki saat yeniden bakılacak")
         except Exception: traceback.print_exc()

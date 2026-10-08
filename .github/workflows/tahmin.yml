@@ -10,6 +10,8 @@ jobs:
   tahmin:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      TG_SIRALI: "1"            # mesajlar kuyruğa; sondaki gonder.py öncelik sırasıyla (en iyi sinyal üstte) gönderir
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -136,6 +138,13 @@ jobs:
         with:
           path: durum/prim.pkl
           key: pgecmis-${{ github.run_id }}
+      - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
+        if: always()
+        timeout-minutes: 3
+        run: python gonder.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
