@@ -225,4 +225,3 @@ PENGU            0 · — · — · — 171 · 57 · +0.08 · -0.69  96 · 59 ·
 BTC z -2.1 · ETH z -1.6 · ADA z -0.0 · APT z -1.0 · ARB z -1.3 · BNB z -5.2 · DOGE z -1.6 · DOT z -1.2 · FLOKI z -3.6 · LINK z +0.2 · NEAR z -1.1 · OP z -2.5 · PEPE z -0.9 · SHIB z -1.0 · SUI z -1.1 · SOL z -1.5 · ZEC z -0.9 · XRP z -0.8 · UNI z -0.2 · PUMP z -0.7 · AVAX z -0.8 · MET z -0.8 · SAND z +0.1 · ENA z -0.7 · WLD z -0.3 · QNT z -0.5 · TAO z -2.2 · LTC z -0.9 · RAY z -0.7 · AAVE z -1.7 · ONDO z -0.3 · ORCA z -1.4 · PAXG z -1.9 · HBAR z -1.5 · STRK z -0.0 · XLM z -0.4 · FET z -0.4 · ZRO z +0.0 · OGN z +0.1 · W z +1.0 · ALGO z -1.5 · PENGU z -2.2 · FIL z -0.8 · TRUMP z -0.9 · CRV z -1.3 · MINA z -0.6 · INJ z -0.5 · RLC z -0.2 · POL z -0.4
 
 _Süre: 967 sn_
-exit=0
