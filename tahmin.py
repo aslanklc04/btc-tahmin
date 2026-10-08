@@ -112,6 +112,17 @@ if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now else head)
     tg_send(hdr + "\n" + (GECIK + "\n" + CBL + "\n" if any(x[1] == 1 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
+# ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
+KISA_BILDIRIM = True
+kisa_now = bool(np.isfinite(CBZ) and CBZ <= -2)
+if KISA_BILDIRIM and kisa_now and (G.get("last_kisa") is None or t - G["last_kisa"] >= pd.Timedelta(hours=24)):
+    cik_k = (t + pd.Timedelta(hours=24, minutes=6)).tz_convert(DISPLAY_TZ)
+    tg_send(f"🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — {head}\nABD güçlü satıyor: Coinbase primi z {CBZ:+.1f} ({CBD['bp']:+.1f} baz puan)\n"
+            "Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)\n"
+            f"💡 Vadelide LİMİT kısa (satış) ${P_NOW:,.1f} — 60 dk geçerli · çıkış {cik_k:%d.%m %H:%M}: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle.\n"
+            "Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).\n⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.")
+    G["last_kisa"] = t; logsig("🔻 Coinbase kısa (24s)", 24, -1)
+kisa_md = (f"🔻 Kısa (satış) sinyali: **VAR** — ABD güçlü satıyor (prim z {CBZ:+.1f})" if kisa_now else f"🔻 Kısa (satış) sinyali: yok (eşik: Coinbase primi z ≤ −2; şu an {CBZ:+.1f})")
 if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_weekly") is None or t - G["last_weekly"] >= pd.Timedelta(days=6)):
     wk_ = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]
     if wk_:
@@ -133,7 +144,7 @@ son7 = (f"📊 Son 7 günde sonuçlanan sinyaller: {sum(x['ok'] for x in wk7)}/{
 iyi_md = f"⏰ İyi saat dilimi (4s güçlü ↑): {'**AÇIK**' if IYI_ON else 'kapalı'} · geçmiş isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.1f}" + (" · **şu an sinyal VAR**" if iyi_now else "")
 acl_md = f"🟢 A sınıfı: **{'VAR' if acls_on else 'yok'}** (üç ufkun ortalama yüzdeliği {acls_m:.2f}, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~{AC_['wk']:.1f}, 4s isabet %{AC_['acc']:.1f}"
 emir_md = ("\n\n" + emir_satiri(8 if agree else 4).replace("\n   ", "  \n")) if (agree or strong_up.get(4)) else ""
-md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}{emir_md}\n\n{CBL} · prim {CBD['bp'] if CBD else float('nan'):+.1f} baz puan\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
+md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanışı · ${price:,.2f}\n\n{star}{emir_md}\n\n{CBL} · prim {CBD['bp'] if CBD else float('nan'):+.1f} baz puan\n\n{kisa_md}\n\n{acl_md}\n\n{iyi_md}\n\n{son7}\n\n## 📊 Yön ve fiyat aralıkları (%80)\n"
       "| Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |\n|---|---|---|---|---|---|---|\n" + "\n".join(md_rows) +
       "\n\n## 🎯 Hedef / stop yarışı (±1σ)\n| Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |\n|---|---|---|---|---|\n" + "\n".join(bar_md) +
       f"\n\n_Model eğitimi: {M['created'].tz_convert(DISPLAY_TZ):%d.%m.%Y} · güncelleme: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M} · ⚠️ Yatırım tavsiyesi değildir._\n")
@@ -145,4 +156,20 @@ for d_ in ("PG", "PL", "BPG", "BPL"):
     for k in G[d_]: G[d_][k] = G[d_][k][G[d_][k].index >= G[d_][k].index[-1] - pd.Timedelta(days=70)]
 G["ST"] = G["ST"][G["ST"].index >= G["ST"].index[-1] - pd.Timedelta(days=70)]
 with open("durum/gecmis.pkl", "wb") as f: pickle.dump(G, f)
+# ---- spot emir defteri kaydı: "sabırsız satıcı" fikrini ileride spot defterle test etmek için (vadeli defter ABD sunucusundan erişilemiyor, HTTP 451) ----
+try:
+    import csv
+    dp = requests.get("https://data-api.binance.vision/api/v3/depth", params=dict(symbol="BTCUSDT", limit=5000), timeout=15).json()
+    bids, asks = np.array(dp["bids"], float), np.array(dp["asks"], float); mid = (bids[0, 0] + asks[0, 0]) / 2
+    nt = lambda a, m: float((a[:, 0] * a[:, 1])[m].sum())
+    k_ = requests.get(EP[0], params=dict(symbol="BTCUSDT", interval="1h", limit=2), timeout=15).json()[0]          # son KAPANMIŞ saat
+    row = dict(t=str(t), kayit=str(pd.Timestamp.now(tz="UTC").floor("s")), mid=mid, bid1=nt(bids, bids[:, 0] >= mid * 0.99), ask1=nt(asks, asks[:, 0] <= mid * 1.01),
+               bid5=nt(bids, bids[:, 0] >= mid * 0.95), ask5=nt(asks, asks[:, 0] <= mid * 1.05), bid_kapsam=float(bids[-1, 0] / mid - 1), ask_kapsam=float(asks[-1, 0] / mid - 1),
+               qv=float(k_[7]), tbq=float(k_[10]), cb_z=CBZ)
+    f_ = "durum/defter_kayit.csv"; ilk = not os.path.exists(f_)
+    with open(f_, "a", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(row))
+        if ilk: w.writeheader()
+        w.writerow(row)
+except Exception as e: print("⚠️ emir defteri kaydı:", str(e)[:150])
 print(md)
