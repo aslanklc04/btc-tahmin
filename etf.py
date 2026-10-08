@@ -87,10 +87,37 @@ if TFF is not None:
         g = lambda c: pd.to_numeric(x[c], errors="coerce")
         oi = g("Open_Interest_All"); am = (g("Asset_Mgr_Positions_Long_All") - g("Asset_Mgr_Positions_Short_All")) / oi; lm = (g("Lev_Money_Positions_Long_All") - g("Lev_Money_Positions_Short_All")) / oi
         COT[a] = pd.DataFrame({"am": am, "lm": lm})
-yaz(f"# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
+# ---- GERÇEK KARANLIK HAVUZ İZİ: FINRA günlük borsa dışı (TRF: dark pool + iç eşleştirme) işlem dosyaları, BTC ve ETH spot ETF'leri ----
+# DIX mantığı (SqueezeMetrics): borsa dışında "açığa satış" payı yüksek → piyasa yapıcılar büyük alıcıya satıyor → gizli ALIM baskısı. Pay: borsa dışı hacim / toplam hacim (Yahoo).
+EKS = {"BTC": ["IBIT", "FBTC", "GBTC", "ARKB", "BITB", "HODL", "BTCO", "BRRR", "EZBC", "BTCW", "BTC"], "ETH": ["ETHA", "FETH", "ETHE", "ETHW", "ETHV", "EZET", "QETH", "CETH", "ETH"]}
+def finra_gun(d):
+    try:
+        r = requests.get(f"https://cdn.finra.org/equity/regsho/daily/CNMSshvol{d:%Y%m%d}.txt", headers=UA, timeout=60)
+        if r.status_code != 200: return None
+        x = pd.read_csv(io.StringIO(r.text), sep="|", dtype={"Date": str}); return x[x.Symbol.isin(EKS["BTC"] + EKS["ETH"])]
+    except Exception: return None
+FC = "veri_finra.csv.gz"; FR = pd.read_csv(FC, dtype={"Date": str}) if os.path.exists(FC) else pd.DataFrame(columns=["Date", "Symbol", "ShortVolume", "ShortExemptVolume", "TotalVolume", "Market"])
+var = set(FR.Date.astype(str)); gunler = [d for d in pd.bdate_range("2024-01-11", pd.Timestamp.now().normalize() - pd.Timedelta(days=1)) if f"{d:%Y%m%d}" not in var]
+with ThreadPoolExecutor(8) as ex: yeni = [x for x in ex.map(finra_gun, gunler) if x is not None and len(x)]
+if yeni: FR = pd.concat([FR] + yeni, ignore_index=True); FR.to_csv(FC, index=False, compression="gzip")
+print("FINRA gün:", FR.Date.nunique(), "yeni:", len(yeni), "/", len(gunler))
+try:
+    import yfinance as yf
+    YV = {a: sum(yf.Ticker(t).history(start="2024-01-01", auto_adjust=False)["Volume"].rename(lambda i: pd.Timestamp(i.date(), tz="UTC")) for t in EKS[a][:1]) for a in ("BTC", "ETH")}   # en büyük ETF (IBIT / ETHA)
+except Exception as e: print("yahoo hata", e); YV = {}
+DIX = {}
+for a in ("BTC", "ETH"):
+    x = FR[FR.Symbol.isin(EKS[a])].copy()
+    if x.empty: continue
+    x["t"] = pd.to_datetime(x.Date.astype(str), format="%Y%m%d").dt.tz_localize("UTC"); g = x.groupby("t")[["ShortVolume", "TotalVolume"]].sum()
+    dix = g.ShortVolume / g.TotalVolume; bb = x[x.Symbol == EKS[a][0]].groupby("t").TotalVolume.sum()
+    pay = (bb / YV[a].reindex(bb.index)).replace([np.inf, -np.inf], np.nan) if a in YV else pd.Series(dtype=float)
+    DIX[a] = pd.DataFrame({"dix": dix, "pay": pay}).sort_index()
+yaz(f"# 🕶️ Karanlık oda izleri: ETF akışı, FINRA karanlık havuz ve CFTC kurumsal pozisyonları — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
 for a in ("BTC", "ETH"):
     s = ETF.get(a); c = COT.get(a)
     yaz(f"- {a} ETF: " + ("alınamadı" if s is None else f"[{KAYNAK.get(a)}] {s.index[0]:%Y-%m-%d} → {s.index[-1]:%Y-%m-%d}, {len(s)} gün, son 5 gün toplam {s.iloc[-5:].sum():+,.0f} milyon $")
+        + " · karanlık havuz: " + ("yok" if a not in DIX else f"{DIX[a].index[0]:%Y-%m-%d} → {DIX[a].index[-1]:%Y-%m-%d}, {len(DIX[a])} gün, son DIX %{100*DIX[a].dix.iloc[-1]:.0f}, {EKS[a][0]} borsa dışı pay %{100*DIX[a].pay.iloc[-1]:.0f}")
         + " · CFTC: " + ("yok" if c is None else f"{c.index[0]:%Y-%m-%d} → {c.index[-1]:%Y-%m-%d}, {len(c)} hafta, varlık yöneticisi net {c.am.iloc[-1]:+.1%}, kaldıraçlı fon net {c.lm.iloc[-1]:+.1%}"))
 def gunluk(sym):
     rows, cur = [], int(pd.Timestamp("2017-12-01", tz="UTC").timestamp() * 1000)
@@ -133,6 +160,11 @@ for a in ("BTC", "ETH"):
         z1 = (s - s.rolling(60, min_periods=20).mean()) / (s.rolling(60, min_periods=20).std() + 1e-9); s3 = s.rolling(3).sum(); z3 = (s3 - s3.rolling(60, min_periods=20).mean()) / (s3.rolling(60, min_periods=20).std() + 1e-9)
         for ad, m in (("ETF akışı z ≥ 1,5", z1 >= 1.5), ("ETF akışı z ≤ −1,5", z1 <= -1.5), ("ETF 3 g toplam z ≥ 1,5", z3 >= 1.5), ("ETF 3 g toplam z ≤ −1,5", z3 <= -1.5)):
             test(ad, a, m, 1, (1, 3, 7), D_ETF)
+    if a in DIX:
+        Z_ = (lambda v: (v - v.rolling(60, min_periods=20).mean()) / (v.rolling(60, min_periods=20).std() + 1e-9)); q = DIX[a]
+        for ad, v in (("Karanlık havuz DIX", q.dix), ("Karanlık havuz DIX 5 g ort", q.dix.rolling(5).mean()), ("Karanlık havuz borsa dışı pay", q.pay)):
+            zv = Z_(v.dropna())
+            for ad2, m in ((f"{ad} z ≥ 1,5", zv >= 1.5), (f"{ad} z ≤ −1,5", zv <= -1.5)): test(ad2, a, m, 1, (1, 3, 7), D_ETF)
     c = COT.get(a)
     if c is not None:
         for k, adk in (("am", "varlık yöneticisi"), ("lm", "kaldıraçlı fon")):
@@ -141,7 +173,7 @@ for a in ("BTC", "ETH"):
                 test(ad, a, m, 0, (7, 14), D_COT)
 R = pd.DataFrame(rows)
 yaz(f"\n## A) Tek başına sinyal\nToplam {len(R)} deneme · ✅ geçen **{int(R.ok.sum()) if len(R) else 0}** · plasebo geçme oranı %{100*pl[1]/max(1,pl[0]):.1f} → tesadüfen ≈ {pl[1]/max(1,pl[0])*len(R):.1f}\n_işlem · isabet % · işlem başı net % · alt sınır %_")
-for D, ad in ((D_ETF, "ETF"), (D_COT, "CFTC")):
+for D, ad in ((D_ETF, "ETF"), (D_ETF, "Karanlık"), (D_COT, "CFTC")):
     G = R[R.sinyal.str.startswith(ad)]
     if len(G): yaz(f"```\n" + G[["coin", "sinyal", "gun", "yon"] + [pn for pn, _, _ in D] + ["ok"]].to_string(index=False) + "\n```")
 # ---- B) filtre: mevcut sinyallere ----
@@ -155,12 +187,16 @@ def asof(s, t):
 gun_once = (tt - pd.Timedelta(hours=14)).floor("D") - pd.Timedelta(days=1)   # T günü akışı ancak T+1 14:00 UTC'den sonra kullanılır (temkinli)                                                         # dünün (ABD günü) akışı: sinyal gününden önce bilinen
 sb = ETF.get("BTC"); E["etf"] = asof(sb, gun_once); E["etf_z"] = asof((sb - sb.rolling(60, min_periods=20).mean()) / (sb.rolling(60, min_periods=20).std() + 1e-9) if sb is not None else None, gun_once)
 E["etf5"] = asof(sb.rolling(5).sum() if sb is not None else None, gun_once)
+if "BTC" in DIX:
+    Z_ = (lambda v: (v - v.rolling(60, min_periods=20).mean()) / (v.rolling(60, min_periods=20).std() + 1e-9)); E["dix_z"] = asof(Z_(DIX["BTC"].dix.dropna()), gun_once); E["dix5_z"] = asof(Z_(DIX["BTC"].dix.rolling(5).mean().dropna()), gun_once); E["pay_z"] = asof(Z_(DIX["BTC"].pay.dropna()), gun_once)
+else: E["dix_z"] = E["dix5_z"] = E["pay_z"] = np.nan
 cb = COT.get("BTC")
 if cb is not None:
     am_d = cb.am.diff(); am_d.index = am_d.index + pd.Timedelta(days=4); lm_d = cb.lm.diff(); lmz = (lm_d - lm_d.rolling(52, min_periods=20).mean()) / (lm_d.rolling(52, min_periods=20).std() + 1e-9); lmz.index = lmz.index + pd.Timedelta(days=4)
     E["am_d"] = asof(am_d, tt); E["lm_z"] = asof(lmz, tt)
 else: E["am_d"] = np.nan; E["lm_z"] = np.nan
 KOT = {"E1 dün ETF'ten net çıkış": (E.etf < 0, "etf"), "E2 dünkü ETF akışı z ≤ −1": (E.etf_z <= -1, "etf"), "E3 son 5 gün ETF toplamı < 0": (E.etf5 < 0, "etf"),
+       "D1 dünkü karanlık havuz DIX z ≤ −1": (E.dix_z <= -1, "etf"), "D2 karanlık havuz DIX 5 g ort z ≤ −1": (E.dix5_z <= -1, "etf"), "D3 IBIT borsa dışı pay z ≤ −1": (E.pay_z <= -1, "etf"),
        "C1 varlık yöneticileri net uzunu azaltmış": (E.am_d < 0, "cot"), "C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)": (E.lm_z >= 1, "cot")}
 def fark_boot(ok, kotu, hafta, reps=1000):
     d = pd.DataFrame({"ok": ok.astype(float), "k": kotu.astype(bool), "h": hafta})
