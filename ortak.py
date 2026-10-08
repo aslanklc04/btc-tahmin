@@ -230,25 +230,25 @@ def cb_satir(d):
     if z >= 1: return f"💵 ABD güçlü alıyor (Coinbase primi z {z:+.1f}) ✅ onaylı — geçmişte bu durumda isabet ve kâr en yüksek"
     if z > 0: return f"💵 ABD alıyor (Coinbase primi z {z:+.1f}) ✅ onaylı"
     if z > -1: return f"💵 ABD almıyor (Coinbase primi z {z:+.1f}) ⚠️ onaysız — geçmişte isabet ve kâr daha düşük"
-    return f"💵 ABD satıyor (Coinbase primi z {z:+.1f}) ⛔ onaysız — geçmişte bu durumda sinyaller kaybettirdi"
+    return f"💵 ABD satıyor (Coinbase primi z {z:+.1f}) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69)"   # prim_hepsi.py, 2024+
 def cb_ozet(x):                                                                              # haftalık rapor: onaylı / onaysız ayrımı
     a = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] > 0]; b = [e for e in x if np.isfinite(e.get("cb", np.nan)) and e["cb"] <= 0]
     f = lambda v: f"{sum(e['ok'] for e in v)}/{len(v)} tuttu (%{100*sum(e['ok'] for e in v)/len(v):.0f})" if v else "yok"
     return f"💵 ABD onaylı (prim z > 0): {f(a)} · onaysız: {f(b)}" if (a or b) else ""
-# Coin sinyallerinde coin'in KENDİ Coinbase primi (birlesim_coin.py: 2026'da kendi primi onaylı %53 / ⛔ %47; BTC primi onaylı %49 — BTC primi coin'lerde işe yaramadı).
-# DOGE, NEAR, PEPE'de kendi primi filtresi de işe yaramadı → yalnız bilgi olarak gösterilir.
-CB_BILGI = {"DOGE", "NEAR", "PEPE"}
+# Coin sinyallerinde coin'in KENDİ Coinbase primi (BTC primi coin'lerde işe yaramadı). prim_hepsi.py (08.10.2026, tüm sinyal türleri, 15 coin): 2026'da coin sinyalleri
+# ⛔ (z ≤ −1) %48, ✅ (z > 0) %64; 2024+'da 15 coin'in 14'ünde ✅ > ⛔ — DOGE, NEAR, PEPE dahil (önceki dar testteki 'yalnız bilgi' istisnası kaldırıldı).
+CB_BILGI = set()
 def cb_kisa(d):
     z = cb_z(d)
     if not np.isfinite(z): return "?"
     return f"{'✅' if z > 0 else ('⚠️' if z > -1 else '⛔')} z {z:+.1f}"
 def cb_satir_coin(nm, d_own, d_btc):
     z = cb_z(d_own); btc = f" · BTC geneli: {cb_kisa(d_btc)}"
-    if not np.isfinite(z): return f"💵 {nm} için Coinbase primi yok · BTC geneli: " + cb_satir(d_btc).replace("💵 ", "")
+    if not np.isfinite(z): return f"💵 {nm} için Coinbase primi yok · BTC geneli: {cb_kisa(d_btc)} (coin'lerde BTC primi işe yaramadı — yalnız bilgi)"
     if nm in CB_BILGI: return f"💵 {nm} Coinbase primi z {z:+.1f} (bu coin'de prim filtresi geçmişte işe yaramadı — yalnız bilgi){btc}"
     if z >= 1: return f"💵 {nm}: ABD güçlü alıyor (kendi Coinbase primi z {z:+.1f}) ✅ onaylı{btc}"
     if z > 0: return f"💵 {nm}: ABD alıyor (kendi Coinbase primi z {z:+.1f}) ✅ onaylı{btc}"
     if z > -1: return f"💵 {nm}: ABD almıyor (kendi Coinbase primi z {z:+.1f}) ⚠️ onaysız — geçmişte isabet daha düşük{btc}"
-    return f"💵 {nm}: ABD SATIYOR (kendi Coinbase primi z {z:+.1f}) ⛔ ALMA — geçmişte bu durumda coin sinyalleri %47 tuttu{btc}"
+    return f"💵 {nm}: ABD SATIYOR (kendi Coinbase primi z {z:+.1f}) ⛔ ALMA — geçmişte bu durumda coin sinyalleri 2026'da %48 tuttu (ABD alırken %64){btc}"
 def cb_coin_z(nm, d_own, d_btc):                                                             # kayıt için: coin'in kendi primi (yoksa BTC'ninki)
     z = cb_z(d_own); return z if np.isfinite(z) else cb_z(d_btc)

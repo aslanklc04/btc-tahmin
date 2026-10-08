@@ -111,7 +111,7 @@ if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None o
             + "\n".join(lines + bar_tg)); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig) else head)
-    tg_send(hdr + "\n" + (GECIK + "\n" + CBL + "\n" if any(x[1] == 1 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
+    tg_send(hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (CBL + "\n" if any(x[1] == 1 and x[0] >= 4 for x in new_sig) else "") + (emir_satiri(4) + "\n" if u4_yeni else "") + "\n".join(lines + bar_tg))
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 # ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
 KISA_BILDIRIM = True
