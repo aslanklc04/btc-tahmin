@@ -2,7 +2,7 @@ name: Coinbase primi simdi
 on:
   push:
     branches: [arastirma3]
-    paths: [cb_simdi.py, .github/workflows/cb_simdi.yml]
+    paths: [cb_simdi.py, ortak_canli.py, .github/workflows/cb_simdi.yml]
 permissions:
   contents: write
 jobs:
