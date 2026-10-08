@@ -1,0 +1,64 @@
+name: Oncelik sirasi kuru test
+on:
+  push:
+    branches: [arastirma3]
+    paths: [sirali_test/**, .github/workflows/sirali_test.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r canli/requirements.txt
+      - name: Kuru testler (Telegram'a gitmez)
+        run: |
+          cp sirali_test/*.py canli/
+          cd canli
+          set +e
+          {
+          echo "=== 1) 💵 prim: tüm coin'ler zorla tetiklendi (eşik -10), kuru ==="
+          python -c "import pandas as pd; d=pd.read_csv('durum/prim_acik.csv'); d['esik']=-10; d.to_csv('durum/prim_acik.csv', index=False)"
+          PRIM_KURU=1 python prim_canli.py 2>&1 | head -60
+          echo "exit=$?"
+          git checkout durum/prim_acik.csv
+          echo "=== 2) ⛓️ zincir kuru ==="
+          ZINCIR_KURU=1 timeout 200 python zincir_canli.py 2>&1 | tail -25
+          echo "=== 3) 🧑 küçük yatırımcı kuru ==="
+          KUCUK_KURU=1 timeout 120 python kucuk_canli.py 2>&1 | tail -25
+          echo "=== 4) kuyruk + gonder (Telegram yerine ekrana) ==="
+          TG_SIRALI=1 python -c "
+          from ortak import *
+          import numpy as np, pandas as pd
+          t = pd.Timestamp.now(tz='UTC').floor('h')
+          tg_send('₿ BTC örnek\n💡 ' + giris_cikis(62000.0, t + pd.Timedelta(hours=4, minutes=6), 0.12), oncelik=sira_puani('₿', 0.4), etiket='₿ BTC 4 s Çok güçlü ↑ · prim ✅ z +0.4')
+          tg_send('📊 rapor')
+          tg_send('🤝 örnek', oncelik=sira_puani('🤝', 2.3), etiket='🤝 BTC ile ortak: ADA (z +2.3)')
+          print(hiz_notu(2.3)); print(hiz_notu(3.5))
+          "
+          python -c "
+          import gonder
+          gonder.tg_send = lambda m: (print('──── GÖNDER ────'); print(m); True)[-1]
+          gonder.main()
+          "
+          echo "=== 5) içe aktarma: tahmin / tahmin_coin / tahmin24 sözdizimi ==="
+          python -m py_compile tahmin.py tahmin_coin.py tahmin24.py && echo derlendi
+          } > ../sirali_test_log.txt 2>&1
+          cd ..
+          tail -80 sirali_test_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add sirali_test_log.txt; git commit -m "Oncelik sirasi kuru test sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
