@@ -51,7 +51,7 @@ def calis():
             cikis = (t + pd.Timedelta(hours=int(r.saat), minutes=6)).tz_convert(DISPLAY_TZ)
             gr_ = float(r.net) + 200 * FEE; hz_ = hiz_notu(z)
             fire.append((z, r.coin, f"• {r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)"
-                        + (f" · beklenen çıkış ≈ {fmt(p * (1 + gr_ / 100))} (geçmiş ort. +%{gr_:.2f}, garanti değil)" if np.isfinite(p) else "") + "\n"
+                        + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}\n"
                         f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))
     if fire:
         fire.sort(key=lambda x: -x[0])                                                         # primi en yüksek olan üstte

@@ -10,7 +10,7 @@ import ortak as _ortak
 STATE_F, FEE, GUN, ESIK = "durum/kucuk.pkl", 0.0002, 7, -1.5
 KOIN = (("BTC", "BTCUSDT", "2x", "2022-10→2024-09 17 işlem, isabet %76, işlem başı +%4,65 · 2024-10→ bugün 22 işlem, %68, +%2,98 (alt sınır +%0,65) · 2026: 8 işlem, %75, +%3,09 · en kötü ara düşüş %17"),
         ("ETH", "ETHUSDT", "1,5x", "2022-10→2024-09 17 işlem, isabet %76, +%3,24 · 2024-10→ bugün 22 işlem, %68, +%3,86 (alt sınır +%0,64) · 2026: 8 işlem, %62, +%3,18 · en kötü ara düşüş %24"))
-NET_2024 = {"BTC": 2.98, "ETH": 3.86}                                                        # KOIN'daki 2024-10→ işlem başı net % (beklenen çıkış fiyatı için; brüt = net + %0,04)
+NET_2024 = {"BTC": 2.98, "ETH": 3.86}                                                        # KOIN'daki 2024-10→ işlem başı net % (mesajdaki geçmiş ortalama sonuç; brüt = net + %0,04)
 BILGI = ("ℹ️ Aynı sinyalde diğer büyük coin'ler de yükselmiş ama çok daha sert dalgalanarak (2024-10→, 7 gün, işlem başı net · en kötü ara düşüş): XRP +%11,0 · %56 · ADA +%7,0 · %67 · "
          "LINK +%6,5 · %65 · BNB +%2,6 · %34. Alacaksan KALDIRAÇSIZ ve küçük miktar: 10.10.2025 çöküşünde altcoin'ler birkaç saatte %50–95 düştü.")
 def zs(s, n=90): return (s - s.rolling(n, min_periods=30).mean()) / (s.rolling(n, min_periods=30).std() + 1e-12)
@@ -59,7 +59,7 @@ def calis():
                     for nm, sym, kal, gec in KOIN:
                         p_now = anlik(sym); CBK = cb_prim(nm); ZK[nm] = cb_z(CBK); gr_ = NET_2024.get(nm, np.nan) + 200 * FEE; hz_ = hiz_notu(ZK[nm])
                         if np.isfinite(p_now): GK["log"].append(dict(t=t0, sym=nm, p=p_now, veri=son_gun, z=zn))
-                        bek_ = f" · beklenen çıkış ≈ {fmt(p_now * (1 + gr_ / 100))} (geçmiş ort. +%{gr_:.2f}, garanti değil)" if np.isfinite(p_now) and np.isfinite(gr_) else ""
+                        bek_ = f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}" if np.isfinite(gr_) else f" · {CIKIS_NOT}"
                         sat.append(f"• {nm}: limit ALIŞ {fmt(p_now) if np.isfinite(p_now) else '?'} · kaldıraç en fazla {kal}{bek_}\n   💵 {nm} Coinbase primi: {cb_kisa(CBK)} (bilgi)" + (f" · {hz_}" if hz_ else "") + f"\n   Geçmiş: {gec}")
                     tg(f"🧑🟢 BTC / ETH AL — KÜÇÜK YATIRIMCI KAÇIYOR — {tl:%d.%m %H:%M}\n"
                        f"1 BTC'den küçük cüzdanlardaki BTC 30 günde %{d30:+.2f} değişti (olağandışı düşüş, z {zn:+.1f}) · veri günü {son_gun:%d.%m}\n"

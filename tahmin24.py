@@ -70,7 +70,7 @@ for sym, M in MODELS.items():
             GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
             gr24_ = st24.get("gross", st24.get("net", np.nan) + 200 * FEE); hz_ = hiz_notu(ZC if CBO else float("nan"))
             fire.append((ZC if CBO else float("nan"), NM, f"• {NM} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
-                        + (f" · beklenen çıkış ≈ {fmt(p_now * (1 + gr24_ / 100))} (geçmiş ort. {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f})" if np.isfinite(gr24_) else "")
+                        + f" ({CIKIS_NOT})" + (f" · geçmiş ort. sonuç {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f}" if np.isfinite(gr24_) else "")
                         + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
                         + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
                         + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız"))))

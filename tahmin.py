@@ -92,7 +92,7 @@ P_NOW = float(mins.close.iloc[-1]) if mins is not None and len(mins) else price 
 CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 Coinbase primi: ABD alıyor mu? (birlesim.py)
 def emir_satiri(H, ort=None):                                                              # limit_test.py: BTC ⭐ ve 4s Çok güçlü ↑'de limit emir iki dönemde de kârı artırdı
     cik = (t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ)
-    bek = (f" · beklenen çıkış ≈ ${P_NOW * (1 + ort / 100):,.0f} (geçmiş ort. {'+' if ort >= 0 else '−'}%{abs(ort):.2f}, garanti değil)" if ort is not None and np.isfinite(ort) else "")
+    bek = (f" · {CIKIS_NOT} · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}" if ort is not None and np.isfinite(ort) else f" · {CIKIS_NOT}")
     return (f"💡 Emir önerisi: LİMİT alış ${P_NOW:,.1f} (şu anki fiyat) — 60 dk geçerli, dolmazsa işleme girme.\n"
             f"   Çıkış {cik:%d.%m %H:%M}: o anki fiyattan LİMİT satış — 60 dk'da dolmazsa piyasa emriyle sat. (Testte işlem başı kârı ~%0,05 artırdı.){bek}")
 HIZ = hiz_notu(CBZ); HIZL = (HIZ + "\n") if HIZ else ""; ALMA = bool(np.isfinite(CBZ) and CBZ <= -1)
@@ -128,7 +128,7 @@ if KISA_BILDIRIM and kisa_now and (G.get("last_kisa") is None or t - G["last_kis
     cik_k = (t + pd.Timedelta(hours=24, minutes=6)).tz_convert(DISPLAY_TZ)
     tg_send(f"🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — {head}\nABD güçlü satıyor: Coinbase primi z {CBZ:+.1f} ({CBD['bp']:+.1f} baz puan)\n"
             "Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)\n"
-            f"💡 Vadelide LİMİT kısa (satış) ${P_NOW:,.1f} — 60 dk geçerli · çıkış {cik_k:%d.%m %H:%M}: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · beklenen çıkış ≈ ${P_NOW * (1 - 0.0040):,.0f} (geçmiş ort. −%0,40, garanti değil)\n"
+            f"💡 Vadelide LİMİT kısa (satış) ${P_NOW:,.1f} — 60 dk geçerli · çıkış {cik_k:%d.%m %H:%M}: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · {CIKIS_NOT} · geçmiş ort. sonuç: fiyat %0,40 düştü\n"
             "Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).\n⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.",
             oncelik=sira_puani("🔻", -CBZ), etiket=f"🔻 BTC KISA (24 s) · ABD satıyor z {CBZ:+.1f}")
     G["last_kisa"] = t; logsig("🔻 Coinbase kısa (24s)", 24, -1)
