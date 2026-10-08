@@ -79,6 +79,25 @@ jobs:
         with:
           path: durum/gecmis24.pkl
           key: d24gecmis-${{ github.run_id }}
+      - name: Arz/talep gecmisini onbellekten al
+        uses: actions/cache/restore@v4
+        with:
+          path: durum/zincir.pkl
+          key: zgecmis-${{ github.run_id }}
+          restore-keys: zgecmis-
+      - name: Gunluk arz/talep kontrolu (ETH; TR 09:00 sonrasi, gunde bir)
+        continue-on-error: true
+        timeout-minutes: 4
+        run: python zincir_canli.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Arz/talep gecmisini onbellege kaydet
+        if: hashFiles('durum/zincir.pkl') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: durum/zincir.pkl
+          key: zgecmis-${{ github.run_id }}
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
