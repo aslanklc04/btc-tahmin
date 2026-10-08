@@ -1,0 +1,25 @@
+# 💪 İkisi de güçlü alıyor (ABD z ≥ 2 ve Avrupa z ≥ 2) → AL: sağlamlık — 08.10.2026 21:20
+46 coin · _işlem · isabet · işlem başı net % (haftalık blok %5 alt sınır)_
+
+## 24 saat tut
+- İkisi de z ≥ 2: 22-06→23: 396 · %57 · +0.88 (alt -0.12) | 2024+: 876 · %56 · +1.19 (alt +0.61) | 2026: 253 · %53 · +0.89 (alt -0.01)
+- Gün sayısı (2024+): 410 farklı gün · en iyi 5 hafta: 2024-07-04, 2026-10-01, 2024-02-29, 2025-01-30, 2024-10-31 · bunlar çıkınca net +0.58% (776 işlem)
+- Aynı sayıda işlem veren yalnız ABD kuralı: z ≥ 4.25 → 22-06→23: 378 · %52 · +1.02 (alt -0.30) | 2024+: 1023 · %55 · +1.36 (alt +0.60) | 2026: 349 · %48 · +0.94 (alt +0.13)
+- Coin coin (2024+, ≥ 10 işlem): 34/40 coin'de net > 0 · en iyi: XLM +4.34, CRV +4.02, OP +3.32, FIL +3.02, SUI +2.99, ADA +2.28 · en kötü: DOGE -2.67, APT -1.32, WLD -0.45, PENGU -0.16
+- Plasebo (Avrupa primi kaydırılmış): ortalama +0.32% · gözlenen +1.19% · p = 0.000
+- Ölçütler: R1 ❌ · R2 ✅ · R3 ❌ · R4 ✅ · R5 ✅
+
+## 8 saat tut
+- İkisi de z ≥ 2: 22-06→23: 524 · %58 · +0.56 (alt -0.01) | 2024+: 983 · %56 · +0.61 (alt +0.20) | 2026: 286 · %49 · +0.15 (alt -0.20)
+- Gün sayısı (2024+): 420 farklı gün · en iyi 5 hafta: 2024-04-11, 2024-07-04, 2024-02-29, 2024-11-21, 2026-10-01 · bunlar çıkınca net +0.23% (877 işlem)
+- Aynı sayıda işlem veren yalnız ABD kuralı: z ≥ 4.25 → 22-06→23: 497 · %53 · +0.57 (alt -0.05) | 2024+: 1107 · %59 · +1.17 (alt +0.59) | 2026: 371 · %53 · +0.52 (alt +0.14)
+- Coin coin (2024+, ≥ 10 işlem): 32/40 coin'de net > 0 · en iyi: ORCA +2.42, XLM +2.37, CRV +2.35, SUI +1.92, ENA +1.74, AAVE +1.64 · en kötü: PENGU -1.53, OGN -0.71, UNI -0.66, DOGE -0.56
+- Plasebo (Avrupa primi kaydırılmış): ortalama +0.19% · gözlenen +0.61% · p = 0.030
+- Ölçütler: R1 ❌ · R2 ✅ · R3 ❌ · R4 ✅ · R5 ✅
+
+## Canlıdaki 15 💵 coin'inde (24 s, bilgi)
+22-06→23: 200 · %58 · +1.11 (alt -0.03) | 2024+: 346 · %60 · +1.54 (alt +0.78) | 2026: 76 · %62 · +1.09 (alt +0.51)
+Haftada sinyal (2024+): 46 coin 6.1 · canlıdaki 15 coin 2.4
+
+**Karar (24 s):** ❌ en az bir ölçüt geçmedi · 8 s: ❌
+_Süre: 19 sn_
