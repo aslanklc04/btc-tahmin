@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/cb_simdi.py", line 8, in <module>
+    d = cb_prim(nm, path=f"tmp_cb/{nm}.json")
+        ^^^^^^^
+NameError: name 'cb_prim' is not defined
+exit=1
