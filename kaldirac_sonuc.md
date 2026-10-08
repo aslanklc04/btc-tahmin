@@ -1,7 +1,7 @@
-# ⚖️ Spot uzun vadeli alıcı + vadeli kaldıraç — 08.10.2026 13:42
+# ⚖️ Spot uzun vadeli alıcı + vadeli kaldıraç — 08.10.2026 13:46
 
-**BTC**: 2021-06-01 → 2026-10-07 (1955 gün) · kaldıraç ile spot alıcı korelasyonu +nan · kaldıraç ile fonlama +nan · 57 sn
-**ETH**: 2021-12-01 → 2026-10-07 (1772 gün) · kaldıraç ile spot alıcı korelasyonu +nan · kaldıraç ile fonlama +nan · 101 sn
+**BTC**: 2021-06-01 → 2026-10-07 (1955 gün) · kaldıraç ile spot alıcı korelasyonu +0.02 · kaldıraç ile fonlama +0.20 · 44 sn
+**ETH**: 2021-12-01 → 2026-10-07 (1772 gün) · kaldıraç ile spot alıcı korelasyonu +0.07 · kaldıraç ile fonlama +0.36 · 80 sn
 
 ## 1. Ne olur? (o durumdaki GÜNLER, tekrarlar dahil · sonraki getiri ortalaması · 3 gün içinde %5+ düşüş / %5+ yükseliş olasılığı)
 ### BTC
@@ -11,7 +11,7 @@ _ort3 / ort7: sonraki 3 / 7 gün ortalama getiri % · dusus5 / yukselis5: 3 gün
 durum                                                             donem                                               
 (tüm günler)                                                      seçim 2022–23     944  0.19  0.50   25.85      27.86
 Kaldıraç çok yüksek (z ≥ 1,5)                                     seçim 2022–23     147 -0.58 -1.41   32.65      23.13
-Kaldıraç çok düşük (z ≤ −1,5)                                     seçim 2022–23      96  0.37  2.01   19.79      19.79
+Kaldıraç çok düşük (z ≤ −1,5)                                     seçim 2022–23      95  0.38  2.02   20.00      18.95
 Spot uzun vadeli alıcı (z ≥ 1)                                    seçim 2022–23     128  0.74  1.50   21.88      31.25
 SENİN FİKRİN: spot alıcı (z ≥ 1) + kaldıraç yüksek (z ≥ 1)        seçim 2022–23      39  0.77  1.02   23.08      30.77
 Spot alıcı (z ≥ 1) + kaldıraç düşük (z ≤ 0) — 'sağlıklı' yükseliş seçim 2022–23      58  0.94  2.73   13.79      27.59
@@ -23,7 +23,7 @@ Küçük hesaplar çok uzun (z ≥ 1,5)                                 seçim 2
 Kaldıraç yüksek (z ≥ 1) + küçük hesaplar uzun (z ≥ 1)             seçim 2022–23      83 -0.87 -2.04   42.17      27.71
 (tüm günler)                                                      doğrulama 2024+  1003  0.28  0.66   20.64      20.64
 Kaldıraç çok yüksek (z ≥ 1,5)                                     doğrulama 2024+   119 -0.50 -0.63   21.85      12.61
-Kaldıraç çok düşük (z ≤ −1,5)                                     doğrulama 2024+   105 -0.23 -0.83   30.48      20.00
+Kaldıraç çok düşük (z ≤ −1,5)                                     doğrulama 2024+   103 -0.39 -1.09   31.07      18.45
 Spot uzun vadeli alıcı (z ≥ 1)                                    doğrulama 2024+   178  0.04  1.01   17.42      17.98
 SENİN FİKRİN: spot alıcı (z ≥ 1) + kaldıraç yüksek (z ≥ 1)        doğrulama 2024+    62 -0.50 -0.03   24.19       9.68
 Spot alıcı (z ≥ 1) + kaldıraç düşük (z ≤ 0) — 'sağlıklı' yükseliş doğrulama 2024+    47  0.77  1.67   12.77      27.66
@@ -41,7 +41,7 @@ _ort3 / ort7: sonraki 3 / 7 gün ortalama getiri % · dusus5 / yukselis5: 3 gün
 durum                                                             donem                                               
 (tüm günler)                                                      seçim 2022–23     761 -0.06 -0.12   33.38      33.64
 Kaldıraç çok yüksek (z ≥ 1,5)                                     seçim 2022–23     115  0.75  1.33   35.65      47.83
-Kaldıraç çok düşük (z ≤ −1,5)                                     seçim 2022–23      52 -0.04  0.20   26.92      26.92
+Kaldıraç çok düşük (z ≤ −1,5)                                     seçim 2022–23      51 -0.03  0.18   27.45      25.49
 Spot uzun vadeli alıcı (z ≥ 1)                                    seçim 2022–23     111  1.18  2.17   30.63      38.74
 SENİN FİKRİN: spot alıcı (z ≥ 1) + kaldıraç yüksek (z ≥ 1)        seçim 2022–23      48  2.83  4.14   25.00      50.00
 Spot alıcı (z ≥ 1) + kaldıraç düşük (z ≤ 0) — 'sağlıklı' yükseliş seçim 2022–23      35  1.63  2.06   20.00      34.29
@@ -66,13 +66,13 @@ Kaldıraç yüksek (z ≥ 1) + küçük hesaplar uzun (z ≥ 1)             doğ
 ```
 
 ## 2. Para testi (olay: durumun ilk günü, tutma süresince tekrar yok · işlem · isabet % · net % · alt sınır %)
-Toplam 44 deneme · ✅ geçen **3** · plasebo geçme oranı %3.1 → tesadüfen beklenen ≈ **1.4**
+Toplam 44 deneme · ✅ geçen **3** · plasebo geçme oranı %3.0 → tesadüfen beklenen ≈ **1.3**
 ```
 coin                                                             durum  gun            yon           seçim 2022–23         doğrulama 2024+                    2026 ok
  BTC                                     Kaldıraç çok yüksek (z ≥ 1,5)    3    SAT (sabit) 67 · 60 · +0.43 · -0.62 54 · 57 · +0.18 · -0.81 13 · 46 · -0.07 · -1.31  ❌
  BTC                                     Kaldıraç çok yüksek (z ≥ 1,5)    7    SAT (sabit) 35 · 66 · +1.92 · -0.97 33 · 58 · +0.55 · -1.14  8 · 50 · -0.88 · -5.21  ❌
- BTC                                     Kaldıraç çok düşük (z ≤ −1,5)    3     AL (sabit) 42 · 45 · +0.51 · -0.50 45 · 49 · -0.40 · -0.85 12 · 58 · -0.04 · -0.36  ❌
- BTC                                     Kaldıraç çok düşük (z ≤ −1,5)    7     AL (sabit) 24 · 62 · +3.19 · +0.59 22 · 32 · -0.69 · -2.20      5 · 60 · -0.51 · —  ❌
+ BTC                                     Kaldıraç çok düşük (z ≤ −1,5)    3     AL (sabit) 41 · 46 · +0.52 · -0.62 44 · 48 · -0.54 · -0.95 12 · 58 · -0.04 · -0.36  ❌
+ BTC                                     Kaldıraç çok düşük (z ≤ −1,5)    7     AL (sabit) 23 · 61 · +3.27 · +0.34 21 · 29 · -1.27 · -2.61      5 · 60 · -0.51 · —  ❌
  BTC                                    Spot uzun vadeli alıcı (z ≥ 1)    3  AL (seçimden) 56 · 55 · +0.10 · -0.92 72 · 54 · +0.08 · -0.54 22 · 50 · -0.68 · -1.81  ❌
  BTC                                    Spot uzun vadeli alıcı (z ≥ 1)    7 SAT (seçimden) 29 · 59 · +0.75 · -1.78 40 · 42 · -1.08 · -2.40 11 · 73 · +1.38 · -0.14  ❌
  BTC        SENİN FİKRİN: spot alıcı (z ≥ 1) + kaldıraç yüksek (z ≥ 1)    3  AL (seçimden) 17 · 53 · +0.48 · -1.42 32 · 47 · -0.16 · -0.90      7 · 43 · -0.97 · —  ❌
@@ -93,8 +93,8 @@ coin                                                             durum  gun     
  BTC             Kaldıraç yüksek (z ≥ 1) + küçük hesaplar uzun (z ≥ 1)    7    SAT (sabit) 19 · 47 · +1.33 · -1.43 15 · 53 · -0.03 · -3.55      3 · 33 · -5.27 · —  ❌
  ETH                                     Kaldıraç çok yüksek (z ≥ 1,5)    3    SAT (sabit) 50 · 44 · -1.14 · -3.12 81 · 46 · -0.90 · -1.94 23 · 39 · -0.90 · -3.30  ❌
  ETH                                     Kaldıraç çok yüksek (z ≥ 1,5)    7    SAT (sabit) 27 · 48 · -0.39 · -4.05 48 · 42 · -2.16 · -4.31 15 · 53 · +0.06 · -4.26  ❌
- ETH                                     Kaldıraç çok düşük (z ≤ −1,5)    3     AL (sabit) 23 · 35 · -0.01 · -1.39 29 · 62 · +0.59 · -0.61      4 · 25 · -1.13 · —  ❌
- ETH                                     Kaldıraç çok düşük (z ≤ −1,5)    7     AL (sabit) 14 · 36 · +0.33 · -2.09 14 · 57 · +1.02 · -0.77     2 · 100 · +2.36 · —  ❌
+ ETH                                     Kaldıraç çok düşük (z ≤ −1,5)    3     AL (sabit) 22 · 36 · +0.02 · -1.47 29 · 62 · +0.59 · -0.61      4 · 25 · -1.13 · —  ❌
+ ETH                                     Kaldıraç çok düşük (z ≤ −1,5)    7     AL (sabit) 13 · 31 · +0.23 · -2.50 14 · 57 · +1.02 · -0.77     2 · 100 · +2.36 · —  ❌
  ETH                                    Spot uzun vadeli alıcı (z ≥ 1)    3  AL (seçimden) 47 · 53 · +1.46 · -0.16 71 · 45 · +0.33 · -0.72 18 · 44 · +0.45 · -0.98  ❌
  ETH                                    Spot uzun vadeli alıcı (z ≥ 1)    7  AL (seçimden) 26 · 58 · +3.13 · -0.17 37 · 65 · +2.73 · +0.55 10 · 60 · +1.42 · -1.08  ✅
  ETH        SENİN FİKRİN: spot alıcı (z ≥ 1) + kaldıraç yüksek (z ≥ 1)    3  AL (seçimden) 21 · 62 · +2.49 · +0.13 46 · 54 · +0.28 · -0.83 11 · 64 · +1.27 · -1.01  ❌
@@ -117,4 +117,12 @@ coin                                                             durum  gun     
 Şu an BTC (07.10): kaldıraç z -1.77 · spot alıcı z +0.97 · fonlama z +nan · küçük hesaplar uzun z -0.56
 Şu an ETH (07.10): kaldıraç z +2.14 · spot alıcı z -1.56 · fonlama z +nan · küçük hesaplar uzun z +1.10
 
-_Süre: 115 sn_
+## 3. ETH 'senin fikrin' kuralı: 41 olay · bunların 17 tanesi mevcut ⛓️ AL kurallarıyla ±3 gün içinde çakışıyor (yeni olan: 24)
+- hepsi · giriş d+1 TR 09:00: seçim 2022–23: 12 · %42 · +1.95 (alt -3.40) · en kötü ara düşüş %-18 | doğrulama 2024+: 29 · %62 · +2.40 (alt +0.42) · en kötü ara düşüş %-18 | 2026: 8 · %75 · +2.22 (alt -1.39) · en kötü ara düşüş %-12
+- hepsi · giriş d+1 TR 15:00: seçim 2022–23: 12 · %42 · +3.00 (alt -2.49) · en kötü ara düşüş %-18 | doğrulama 2024+: 29 · %59 · +2.73 (alt +0.61) · en kötü ara düşüş %-17 | 2026: 8 · %75 · +2.94 (alt -0.46) · en kötü ara düşüş %-13
+- hepsi · giriş d+1 kapanışı: seçim 2022–23: 12 · %50 · +3.84 (alt -1.12) · en kötü ara düşüş %-16 | doğrulama 2024+: 29 · %72 · +3.10 (alt +1.13) · en kötü ara düşüş %-16 | 2026: 8 · %75 · +2.12 (alt -0.84) · en kötü ara düşüş %-13
+- yalnız yeni (⛓️ ile çakışmayan) · giriş d+1 TR 09:00: seçim 2022–23: 8 · %50 · +2.18 (alt -5.65) · en kötü ara düşüş %-18 | doğrulama 2024+: 16 · %56 · +0.78 (alt -1.42) · en kötü ara düşüş %-18 | 2026: 3 · %67 · +1.20 · en kötü ara düşüş %-5
+- yalnız yeni (⛓️ ile çakışmayan) · giriş d+1 TR 15:00: seçim 2022–23: 8 · %50 · +3.34 (alt -4.47) · en kötü ara düşüş %-18 | doğrulama 2024+: 16 · %44 · +0.69 (alt -1.83) · en kötü ara düşüş %-17 | 2026: 3 · %67 · +2.26 · en kötü ara düşüş %-5
+- yalnız yeni (⛓️ ile çakışmayan) · giriş d+1 kapanışı: seçim 2022–23: 8 · %62 · +5.05 (alt -1.64) · en kötü ara düşüş %-16 | doğrulama 2024+: 16 · %62 · +1.34 (alt -1.11) · en kötü ara düşüş %-16 | 2026: 3 · %67 · +1.57 · en kötü ara düşüş %-6
+
+_Süre: 126 sn_
