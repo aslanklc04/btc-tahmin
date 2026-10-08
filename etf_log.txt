@@ -1,16 +1,16 @@
 https://farside.co.uk/bitcoin-etf-flow-all-data/ 403
 https://farside.co.uk/ethereum-etf-flow-all-data/ 403
-iShares-Bitcoin-Trust-ETF 200 1380638
+iShares-Bitcoin-Trust-ETF indirme bağlantıları: []
+iShares-Bitcoin-Trust-ETF https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf/1521942788811.ajax?fileType=xls&fileName=iShares-Bitcoin-Trust-ETF_fund&dataType=fund 200 1380498
 ilk baytlar: b'<!DOCTYPE html>\n'
-başı: '<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">\n<head>\n<link rel="preload" href="/blk-one02-c-assets/include/bundles/minified-5b9fb124fde47901b87423ed48184673.css" as="style" />\n<link rel="preload" href="/blk-one02-c-assets/inc'
+başı: '<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">\n<head>\n<link rel="preload" href="/blk-one02-c-assets/include/bundles/minified-5'
 sayfalar: [] | 'Shares Outstanding' sayısı: 4
-çevresi: 'l,"text":"Weight"}],"label.maturity_bucket_holding.yield":[{"metadata":null,"text":"Yield"}],"label.maturity_bucket_holding.yield_to_maturity":[{"metadata":null,"text":"Yield to Maturity"}],"label.na":[{"metadata":null,"text":"N/A"}],"label.navdata.assetsundermanagement":[{"metadata":null,"text":"Assets Under Management"}],"label.navdata.aum_advisor_class":[{"metadata":null,"text":"Assets Under Management (Advisor Shares)"}],"label.navdata.aum_common_advisor":[{"metadata":null,"text":"Assets Under Management (Common &amp; Advisor)"}],"label.navdata.sharesoutstanding":[{"metadata":null,"text":"Shares Outstanding"}],"label.navdata.totalnetassets":[{"metadata":null,"text":"Net Assets"}],"label.navdata.unitsoutstanding":[{"metadata":null,"text":"Units Outstanding"}],"label.net":[{"metadata":null,"text":"Net"}],"label.no":[{"metadata":null,"text":"No"}],"label.performance.settype.2":[{"metadata":null,"text":"Share Class"}],"label.performance.settype.9":[{"metadata":null,"text":"Share Class"'
-iShares-Ethereum-Trust-ETF 200 1371529
+iShares-Ethereum-Trust-ETF indirme bağlantıları: []
+iShares-Ethereum-Trust-ETF https://www.ishares.com/us/products/337614/ishares-ethereum-trust-etf/1521942788811.ajax?fileType=xls&fileName=iShares-Ethereum-Trust-ETF_fund&dataType=fund 200 1371389
 ilk baytlar: b'<!DOCTYPE html>\n'
-başı: '<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">\n<head>\n<link rel="preload" href="/blk-one02-c-assets/include/bundles/minified-5b9fb124fde47901b87423ed48184673.css" as="style" />\n<link rel="preload" href="/blk-one02-c-assets/inc'
+başı: '<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">\n<head>\n<link rel="preload" href="/blk-one02-c-assets/include/bundles/minified-5'
 sayfalar: [] | 'Shares Outstanding' sayısı: 4
-çevresi: 'l,"text":"Weight"}],"label.maturity_bucket_holding.yield":[{"metadata":null,"text":"Yield"}],"label.maturity_bucket_holding.yield_to_maturity":[{"metadata":null,"text":"Yield to Maturity"}],"label.na":[{"metadata":null,"text":"N/A"}],"label.navdata.assetsundermanagement":[{"metadata":null,"text":"Assets Under Management"}],"label.navdata.aum_advisor_class":[{"metadata":null,"text":"Assets Under Management (Advisor Shares)"}],"label.navdata.aum_common_advisor":[{"metadata":null,"text":"Assets Under Management (Common &amp; Advisor)"}],"label.navdata.sharesoutstanding":[{"metadata":null,"text":"Shares Outstanding"}],"label.navdata.totalnetassets":[{"metadata":null,"text":"Net Assets"}],"label.navdata.unitsoutstanding":[{"metadata":null,"text":"Units Outstanding"}],"label.net":[{"metadata":null,"text":"Net"}],"label.no":[{"metadata":null,"text":"No"}],"label.performance.settype.2":[{"metadata":null,"text":"Share Class"}],"label.performance.settype.9":[{"metadata":null,"text":"Share Class"'
-# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:45
+# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:47
 - BTC ETF: alınamadı · CFTC: 2018-04-10 → 2026-09-29, 443 hafta, varlık yöneticisi net +18.3%, kaldıraçlı fon net -35.0%
 - ETH ETF: alınamadı · CFTC: 2021-04-06 → 2026-09-29, 287 hafta, varlık yöneticisi net -4.4%, kaldıraçlı fon net -29.5%
 
@@ -72,5 +72,5 @@ BTC 4/8 saat ↑ + ⭐ + A C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 
              🧪 24 saat C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      10.6  56 / 57 (138)  54 / 62 (280) · net +0.46 / +0.98 -17.94  49 / 63 (89)  ❌
 ```
 
-_Süre: 12 sn_
+_Süre: 14 sn_
 exit=0
