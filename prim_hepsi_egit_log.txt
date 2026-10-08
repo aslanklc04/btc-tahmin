@@ -1,0 +1,12 @@
+[   76 sn] BTC: 80,019 saat · 2017-08-17 → 2026-10-08 15:00 UTC
+[   76 sn] BTC: dakika arşivi 2017-09-01 · test 2020-01-01 · değerlendirme 2024-01-01+
+[   99 sn] BTC: 4,778,916 dakika (109/109 aylık arşiv)
+[  178 sn] BTC: 1s yürüyen test bitti
+[  289 sn] BTC: 4s yürüyen test bitti
+[  443 sn] BTC: 8s yürüyen test bitti
+[  445 sn] BTC: 4s Çok güçlü ↑: haftada 4.6 · isabet %61.5 (2024+ %60.6, n=673, yarılar %63/%58) → AÇIK
+[  445 sn] BTC: ⭐ en güçlü: haftada 2.1 · isabet %62.7 (2024+ %63.5, n=307, yarılar %67/%60) → AÇIK
+[  445 sn] BTC: 🟢 A sınıfı: haftada 10.4 · isabet %59.5 (2024+ %57.9, n=1496, yarılar %61/%55) → kapalı
+[  445 sn] BTC: sf kaydedildi
+(Telegram token yok — mesaj gönderilmedi)
+[  446 sn] BTC: ✅ kaydedildi: durum/model_BTCUSDT.pkl.gz (2.4 MB) · 7.4 dk
