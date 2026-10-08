@@ -1,0 +1,40 @@
+name: Ikisi de guclu aliyor saglamlik
+on:
+  push:
+    branches: [arastirma3]
+    paths: [ab_prim2.py, .github/workflows/ab_prim2.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art3
+          name: prim-veri
+          run-id: 37771896586
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art4
+          name: ab-veri
+          run-id: 37822710013
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          set +e; python ab_prim2.py > ab_prim2_log.txt 2>&1; echo "exit=$?" >> ab_prim2_log.txt; tail -30 ab_prim2_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add ab_prim2_log.txt; for f in ab_prim2_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Ikisi de guclu aliyor saglamlik sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
