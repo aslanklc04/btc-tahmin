@@ -67,6 +67,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         if full is None or len(full) < 2900: raise RuntimeError("saatlik veri alınamadı")
         if mins is not None and len(mins) >= 120: MIC = micro_features(mins).iloc[1:]; HHM = hourly_cv(mins).iloc[1:]
         else: MIC = M["MIC_TAIL"].iloc[:0]; HHM = M["HHM_TAIL"].iloc[:0]; print(f"⚠️ {NM}: dakika verisi alınamadı")
+        MIC, HHM = MIC[MIC.index <= full.index[-1]], HHM[HHM.index <= full.index[-1]]          # henüz kapanmamış saat kaydedilmez
         MICX = _merge(G.get("MIC_TAIL", M["MIC_TAIL"]), MIC); HHMX = _merge(G.get("HHM_TAIL", M["HHM_TAIL"]), HHM); G["MIC_TAIL"], G["HHM_TAIL"] = MICX, HHMX
         Fl = features(full).iloc[-2000:]; t = Fl.index[-1]; price = float(full.close.loc[t])
         FR = {1: Fl.join(MICX.reindex(Fl.index)), 4: Fl.join(path2_features(full.close, HHMX, MICX).reindex(Fl.index)), 8: Fl}
@@ -111,7 +112,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             r4 = (f" → 4s beklenen {fmt(RNG[4][1])} (%80: {fmt(RNG[4][0])}–{fmt(RNG[4][2])})" if 4 in RNG else "")
             ortak_msg.append(f"• {NM} {fmt(price)} — " + " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in f_ortak) + r4
                              + f" · 💵 {NM}: {cb_kisa(CBO) if CBO else 'prim yok'}" + (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA" if np.isfinite(cb_z(CBO)) and cb_z(CBO) <= -1 else "")))
-            for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=SIG[k]["H"], sg=1, p=price, cb=ZC))
+            for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=4 if k == "star" else SIG[k]["H"], sg=1, p=price, cb=ZC))   # 🤝 isabeti 4 saatte ölçüldü
         if f_tek:
             k0 = f_tek[0]; s0 = SIG[k0]
             if not SIG[k0]["on"]:                                                            # yalnız 🔇 listesinden: BTC'de fırsat yokken coin'de fırsat
@@ -126,7 +127,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n"
                    "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.")
             if COIN_BILDIRIM: tg_send(txt)
-            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"], sg=1, p=price, cb=ZC))
+            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"] if SIG[k]["on"] else 4, sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
         ort_ = " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in JO) or "—"
@@ -147,7 +148,7 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
 # ---- haftalık altcoin raporu (pazar 20:00, BTC raporuyla aynı saatte) ----
 try:
     tl_ = pd.Timestamp.now(tz=DISPLAY_TZ).floor("h")
-    if (rows_md or kapali) and tl_.weekday() == 6 and tl_.hour == 20 and (GC.get("_last_weekly") is None or tl_ - GC["_last_weekly"] >= pd.Timedelta(days=6)):
+    if (rows_md or kapali) and tl_.weekday() == 6 and tl_.hour >= 20 and (GC.get("_last_weekly") is None or tl_ - GC["_last_weekly"] >= pd.Timedelta(days=6)):
         wk_ = [e_ for e_ in logs_all if "ok" in e_ and pd.Timestamp.now(tz="UTC") - e_["t"] <= pd.Timedelta(days=7)]
         if wk_:
             by = {}

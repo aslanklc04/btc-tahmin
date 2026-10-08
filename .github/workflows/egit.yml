@@ -28,4 +28,4 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git add durum/model.pkl.gz egitim_raporu.md
           git commit -m "Aylik egitim" || echo "degisiklik yok"
-          git pull --rebase && git push
+          ok=0; for i in 1 2 3 4 5; do git pull --rebase --autostash && git push && ok=1 && break; sleep $((i*5)); done; [ $ok = 1 ] || { echo '::error::model depoya gönderilemedi'; exit 1; }

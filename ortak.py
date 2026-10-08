@@ -217,6 +217,8 @@ def cb_prim(nm="BTC", path=None):
         bn = fetch_1h((now - pd.Timedelta(hours=920)).timestamp() * 1000, time.time() * 1000, sym=f"{nm}USDT").close
         p = np.log(cb / bn.reindex(cb.index)).dropna(); p = p[p.index <= bn.index[-1]]
         z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
+        if len(z) == 0 or pd.Timestamp.now(tz="UTC") - z.index[-1] > pd.Timedelta(hours=3) or not np.isfinite(z.iloc[-1]):   # eksik/eski veri: prim yok say (eski z ile sinyal verme)
+            print(f"⚠️ {nm} Coinbase primi eski ya da eksik (son {z.index[-1] if len(z) else '—'}) — kullanılmadı"); return None
         d = dict(z=float(z.iloc[-1]), bp=float(p.iloc[-1] * 1e4), t=str(z.index[-1]), hesap=time.time())
         os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(d, open(path, "w")); return d
     except Exception as e:
