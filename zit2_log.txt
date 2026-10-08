@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2870, in _infer_tz_from_endpoints
+    inferred_tz = timezones.infer_tzinfo(start, end)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timezones.pyx", line 488, in pandas._libs.tslibs.timezones.infer_tzinfo
+AssertionError: Inputs must both have the same timezone, None != UTC
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/zit2.py", line 39, in <module>
+    ix = pd.date_range("2017-08-17", pd.Timestamp.now(tz="UTC").floor("D") - pd.Timedelta(days=1), freq="D", tz="UTC")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/datetimes.py", line 1491, in date_range
+    dtarr = DatetimeArray._generate_range(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 461, in _generate_range
+    tz = _infer_tz_from_endpoints(start, end, tz)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2873, in _infer_tz_from_endpoints
+    raise TypeError(
+TypeError: Start and end cannot both be tz-aware with different timezones
+exit=1
