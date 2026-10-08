@@ -1,0 +1,29 @@
+# 💵 Coin'in kendi Coinbase primi → tek başına AL / SAT — 08.10.2026 14:26
+Coinbase USD ∩ Binance USDT: 211 coin · test edilen (50): BTC, ETH, ADA, APT, ARB, BNB, DOGE, DOT, FLOKI, LINK, NEAR, OP, PEPE, SHIB, SUI, SOL, ZEC, XRP, UNI, PUMP, AVAX, MET, SAND, ENA, WLD, QNT, TAO, LTC, HYPE, RAY, AAVE, ONDO, ORCA, PAXG, HBAR, XLM, FET, ZRO, STRK, W, PENGU, OGN, ALGO, FIL, TRUMP, INJ, MINA, CRV, ASTER, RLC
+
+Veri gelen: 50 coin · 894 sn
+
+## 1. Havuz (tüm coin'ler birlikte) · işlem · isabet % · işlem başı net % · alt sınır %
+```
+                           seçim 2022-06→2023             doğrulama 2024+                       2026 karar
+kural         saat                                                                                        
+AL2 (z ≥ 2)   4     6716 · 49 · +0.07 · -0.07  18317 · 49 · +0.07 · +0.01  6484 · 47 · -0.01 · -0.08     ✅
+              8     5533 · 50 · +0.13 · -0.06  15123 · 49 · +0.13 · +0.03  5506 · 47 · +0.03 · -0.08     ✅
+              24    3862 · 49 · +0.23 · -0.22  10345 · 49 · +0.32 · +0.10  3863 · 48 · +0.26 · +0.00     ✅
+AL3 (z ≥ 3)   4     1787 · 49 · +0.14 · -0.16   4435 · 52 · +0.21 · +0.04  1547 · 46 · -0.13 · -0.25     ✅
+              8     1502 · 49 · +0.16 · -0.21   4054 · 52 · +0.38 · +0.14  1453 · 47 · -0.02 · -0.21     ✅
+              24    1208 · 50 · +0.20 · -0.53   3410 · 50 · +0.58 · +0.26  1256 · 45 · +0.17 · -0.23     ✅
+SAT2 (z ≤ −2) 4     6776 · 50 · +0.03 · -0.09  18981 · 49 · -0.02 · -0.08  7016 · 50 · -0.00 · -0.09     ❌
+              8     5476 · 50 · +0.11 · -0.10  15118 · 50 · -0.01 · -0.12  5775 · 51 · -0.05 · -0.21     ❌
+              24    3695 · 52 · +0.09 · -0.29   9858 · 52 · +0.02 · -0.21  3915 · 51 · -0.10 · -0.52     ❌
+```
+
+## 2. Coin başına
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/prim_coin.py", line 88, in <module>
+    sh = int(rng.integers(500, len(m) - 500)); pm = pd.Series(np.roll(m.values, sh), index=m.index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/_generator.pyx", line 674, in numpy.random._generator.Generator.integers
+  File "numpy/random/_bounded_integers.pyx", line 1334, in numpy.random._bounded_integers._rand_int64
+ValueError: low >= high
+exit=1
