@@ -26,7 +26,26 @@ def farside(url):
             if len(s) > 100: s.index = pd.DatetimeIndex(s.index).tz_localize("UTC"); return s[~s.index.duplicated()].sort_index()
     except Exception as e: print(url, e)
     return None
+def ishares(pid, slug, ad):                                                                              # Farside kapalıysa: iShares (IBIT / ETHA) günlük pay sayısı × NAV → akış (milyon $)
+    url = f"https://www.ishares.com/us/products/{pid}/{slug}/1521942788811.ajax?fileType=xls&fileName={ad}_fund&dataType=fund"
+    try:
+        r = requests.get(url, headers=UA, timeout=90); print(ad, r.status_code, len(r.content))
+        if r.status_code != 200: return None
+        x = r.content.decode("utf-8-sig", errors="ignore"); print("sayfalar:", re.findall(r'Worksheet ss:Name="([^"]+)"', x))
+        w = re.search(r'Worksheet ss:Name="Historical".*?</ss:Worksheet>', x, re.S)
+        if not w: return None
+        R = [[re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<ss:Cell[^>]*>(.*?)</ss:Cell>", row, re.S)] for row in re.findall(r"<ss:Row[^>]*>(.*?)</ss:Row>", w.group(0), re.S)]
+        h = next(i for i, rr in enumerate(R) if any("Shares Outstanding" in c for c in rr)); H_ = R[h]; print("başlık:", H_, "| ilk:", R[h + 1][:6], "| son:", R[-1][:6])
+        D = pd.DataFrame([rr[:len(H_)] for rr in R[h + 1:] if len(rr) >= len(H_)], columns=H_)
+        num = lambda c: pd.to_numeric(D[[k for k in H_ if c in k][0]].str.replace(",", "").str.replace("$", ""), errors="coerce")
+        t = pd.to_datetime(D[H_[0]], errors="coerce", format="mixed"); so, nav = num("Shares Outstanding"), num("NAV")
+        s = pd.DataFrame({"so": so.values, "nav": nav.values}, index=t).dropna(); s = s[s.index.notna()].sort_index(); s = s[~s.index.duplicated()]
+        f_ = (s.so.diff() * s.nav / 1e6).dropna(); f_.index = pd.DatetimeIndex(f_.index).tz_localize("UTC"); return f_ if len(f_) > 100 else None
+    except Exception as e: print(ad, "hata", e); return None
 ETF = {"BTC": farside("https://farside.co.uk/bitcoin-etf-flow-all-data/"), "ETH": farside("https://farside.co.uk/ethereum-etf-flow-all-data/")}
+KAYNAK = {k: "Farside (tüm ABD spot ETF'leri)" for k, v in ETF.items() if v is not None}
+for a, pid, slug, ad in (("BTC", 333011, "ishares-bitcoin-trust-etf", "iShares-Bitcoin-Trust-ETF"), ("ETH", 337614, "ishares-ethereum-trust-etf", "iShares-Ethereum-Trust-ETF")):
+    if ETF[a] is None: ETF[a] = ishares(pid, slug, ad); KAYNAK[a] = "iShares " + ("IBIT" if a == "BTC" else "ETHA") + " (en büyük ETF, pay sayısı değişimi × NAV)"
 def cftc():
     rows = []
     for y in range(2018, pd.Timestamp.now().year + 1):
@@ -51,7 +70,7 @@ if TFF is not None:
 yaz(f"# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
 for a in ("BTC", "ETH"):
     s = ETF.get(a); c = COT.get(a)
-    yaz(f"- {a} ETF: " + ("alınamadı" if s is None else f"{s.index[0]:%Y-%m-%d} → {s.index[-1]:%Y-%m-%d}, {len(s)} gün, son 5 gün toplam {s.iloc[-5:].sum():+,.0f} milyon $")
+    yaz(f"- {a} ETF: " + ("alınamadı" if s is None else f"[{KAYNAK.get(a)}] {s.index[0]:%Y-%m-%d} → {s.index[-1]:%Y-%m-%d}, {len(s)} gün, son 5 gün toplam {s.iloc[-5:].sum():+,.0f} milyon $")
         + " · CFTC: " + ("yok" if c is None else f"{c.index[0]:%Y-%m-%d} → {c.index[-1]:%Y-%m-%d}, {len(c)} hafta, varlık yöneticisi net {c.am.iloc[-1]:+.1%}, kaldıraçlı fon net {c.lm.iloc[-1]:+.1%}"))
 def gunluk(sym):
     rows, cur = [], int(pd.Timestamp("2017-12-01", tz="UTC").timestamp() * 1000)
@@ -113,7 +132,7 @@ def asof(s, t):
     s = s.dropna(); s.index = pd.DatetimeIndex(s.index).as_unit("ns")
     L_ = pd.DataFrame({"t": pd.DatetimeIndex(t).as_unit("ns"), "i": np.arange(len(t))}).sort_values("t")
     return pd.merge_asof(L_, pd.DataFrame({"t": s.index, "v": s.values.astype(float)}), on="t", direction="backward").sort_values("i").v.values
-gun_once = tt.floor("D") - pd.Timedelta(days=1)                                                         # dünün (ABD günü) akışı: sinyal gününden önce bilinen
+gun_once = (tt - pd.Timedelta(hours=14)).floor("D") - pd.Timedelta(days=1)   # T günü akışı ancak T+1 14:00 UTC'den sonra kullanılır (temkinli)                                                         # dünün (ABD günü) akışı: sinyal gününden önce bilinen
 sb = ETF.get("BTC"); E["etf"] = asof(sb, gun_once); E["etf_z"] = asof((sb - sb.rolling(60, min_periods=20).mean()) / (sb.rolling(60, min_periods=20).std() + 1e-9) if sb is not None else None, gun_once)
 E["etf5"] = asof(sb.rolling(5).sum() if sb is not None else None, gun_once)
 cb = COT.get("BTC")
