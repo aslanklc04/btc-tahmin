@@ -36,16 +36,16 @@ def gunluk(sym):
 with ThreadPoolExecutor(10) as ex: PX = {k: v for k, v in ex.map(gunluk, [s["symbol"] for s in SY]) if v is not None}
 ITIBARI = set("EUR GBP AUD TRY BRL RUB UAH NGN ZAR BIDR IDRT BVND USDC BUSD TUSD USDP FDUSD DAI PAX UST USDS USDSB SUSD AEUR EURI XUSD USD1 RLUSD BFUSD U USDE".split())
 BUYUK = "BTC ETH BNB XRP ADA LINK DOT EOS TRX XTZ LTC BCH FIL SXP YFI SUSHI UNI AAVE 1INCH XLM".split()
-ix = pd.date_range("2017-08-17", pd.Timestamp.now(tz="UTC").floor("D") - pd.Timedelta(days=1), freq="D", tz="UTC")
+ix = pd.date_range(pd.Timestamp("2017-08-17", tz="UTC"), pd.Timestamp.now(tz="UTC").floor("D") - pd.Timedelta(days=1), freq="D").astype("datetime64[ns, UTC]")
 LP, KAT = {}, {}
 for sym, d in PX.items():
     b = BASE[sym]
     if b in ITIBARI or any(b == p + s for p in BUYUK for s in ("UP", "DOWN", "BULL", "BEAR")): continue
     lp = np.log(d.c).iloc[15:]; r = lp.diff()
     if len(r) < 200 or r.std() < 0.005: continue
-    lp[r.abs() > 1.5] = np.nan; LP[b] = lp.reindex(ix); KAT[b] = "coin"
+    lp[r.abs() > 1.5] = np.nan; lp.index = lp.index.astype("datetime64[ns, UTC]"); LP[b] = lp.reindex(ix); KAT[b] = "coin"
 for ad, (x, dn, kay) in SER.items():
-    x = x[x.index >= ix[0] - pd.Timedelta(days=200)]; LP[ad] = (np.log(x) if dn in ("log", "ters") else x); KAT[ad] = "fred" if kay == "fred" else "dış"
+    x = x[x.index >= ix[0] - pd.Timedelta(days=200)]; x.index = x.index.astype("datetime64[ns, UTC]"); LP[ad] = (np.log(x) if dn in ("log", "ters") else x); KAT[ad] = "fred" if kay == "fred" else "dış"
 yaz(f"# 🔄 Her coinin zıttı — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\nAday: {sum(v == 'coin' for v in KAT.values())} coin (çıkarılanlar dahil; stabil/itibari/kaldıraçlı hariç) + {sum(v != 'coin' for v in KAT.values())} dış varlık · {time.time()-T0:.0f} sn\n")
 # ---- hedefler ----
 SIS = [l.strip().replace("USDT", "") for l in open("durum/coin_listesi.txt") if l.strip()] if __import__("os").path.exists("durum/coin_listesi.txt") else []
