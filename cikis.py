@@ -144,6 +144,7 @@ def degerlendir(ev, m_bek):
     for g in (1, 2):                                                                              # giriş gecikmesi
         q = yol(ev.nm, ev.t, Hb, gec=g); out[f"gec{g}"] = (yon * q[3][Hb - 1] - 2 * MK, Hb) if q is not None else (np.nan, Hb)
     out["4s"] = zaman(c, min(4, Hb), yon)
+    adv = lo if yon > 0 else -hi; out["dd1"] = (float(adv[:Hb].min()), Hb); out["dd3"] = (float(adv[:3 * Hb].min()), 3 * Hb)   # tutma süresince en kötü ara düşüş
     return out
 A24_, A26_ = pd.Timestamp("2024-01-01", tz="UTC"), pd.Timestamp("2026-01-01", tz="UTC")
 DON2 = (("seçim (2024 öncesi)", lambda i: i < A24_), ("2024+", lambda i: i >= A24_), ("2026", lambda i: i >= A26_))
@@ -191,7 +192,14 @@ for aile, G in R.groupby("aile"):
 sec = R[pd.DatetimeIndex(R.t) < A24_]; bestG = max(STR, key=lambda k: sec[k].mean()); v = R[pd.DatetimeIndex(R.t) >= A24_]; v26 = R[pd.DatetimeIndex(R.t) >= A26_]
 fG = (v[bestG] - v[BASE]).mean(); lbG = lb_fark((v[bestG] - v[BASE]).values, v.hafta.values); fG26 = (v26[bestG] - v26[BASE]).mean()
 z3 = R[(R.z >= 3) & (R.H > 4)]; z3a = z3[pd.DatetimeIndex(z3.t) >= A24_]
-yaz(f"\n## Özet\n```\n" + pd.DataFrame(KARAR).round(3).to_string(index=False) + "\n```\nHerkese tek strateji (seçimde en iyi): **{bestG}** → 2024+ fark {100*fG:+.3f} (alt {100*lbG:+.3f}) · 2026 {100*fG26:+.3f}")
+yaz(f"\n## Özet\n```\n" + pd.DataFrame(KARAR).round(3).to_string(index=False) + "\n```\n" + f"Herkese tek strateji (seçimde en iyi): **{bestG}** → 2024+ fark {100*fG:+.3f} (alt {100*lbG:+.3f}) · 2026 {100*fG26:+.3f}")
 yaz(f"Prim z ≥ 3 (tüm türler, ana süre > 4 s), 2024+: {len(z3a)} işlem · 4 saatte çık {100*z3a['4s'].mean():+.2f} · süre dolunca {100*z3a[BASE].mean():+.2f} · fark alt sınır {100*lb_fark((z3a['4s']-z3a[BASE]).values, z3a.hafta.values):+.3f}")
+yaz("\n## Risk ve zaman: bugünkü süre vs 3 katı (2024+)\n_işlem başı net · günlük (24 saat başına) net · tutma süresince ortalama en kötü ara düşüş · en kötü %5'lik ara düşüş · ara düşüşü −%10'dan kötü işlem oranı_\n```")
+for aile, G in R.groupby("aile"):
+    v = G[pd.DatetimeIndex(G.t) >= A24_]
+    if len(v) < 10: continue
+    for ad, k, dd in (("bugünkü", BASE, "dd1"), ("3 katı", "Süre ×3", "dd3")):
+        yaz(f"{aile[:26]:26s} {ad:8s} net {100*v[k].mean():+.2f} · günlük {100*v[k].mean()/v['h_'+k].mean()*24:+.2f} · ara düşüş ort {100*v[dd].mean():+.1f} · %5 {100*v[dd].quantile(.05):+.1f} · <−%10: %{100*(v[dd] < -0.10).mean():.0f}")
+yaz("```")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("cikis_sonuc.md", "w").write("\n".join(L) + "\n")
