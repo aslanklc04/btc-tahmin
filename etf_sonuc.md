@@ -1,10 +1,25 @@
-# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:47
-- BTC ETF: alınamadı · CFTC: 2018-04-10 → 2026-09-29, 443 hafta, varlık yöneticisi net +18.3%, kaldıraçlı fon net -35.0%
+# 🕶️ Karanlık oda izleri: ETF akışı ve CFTC kurumsal pozisyonları — 08.10.2026 19:48
+- BTC ETF: [BGeometrics (tüm ABD spot BTC ETF'leri)] 2024-01-11 → 2026-10-06, 674 gün, son 5 gün toplam +1,775 milyon $ · CFTC: 2018-04-10 → 2026-09-29, 443 hafta, varlık yöneticisi net +18.3%, kaldıraçlı fon net -35.0%
 - ETH ETF: alınamadı · CFTC: 2021-04-06 → 2026-09-29, 287 hafta, varlık yöneticisi net -4.4%, kaldıraçlı fon net -29.5%
 
 ## A) Tek başına sinyal
-Toplam 16 deneme · ✅ geçen **1** · plasebo geçme oranı %3.8 → tesadüfen ≈ 0.6
+Toplam 28 deneme · ✅ geçen **1** · plasebo geçme oranı %2.6 → tesadüfen ≈ 0.7
 _işlem · isabet % · işlem başı net % · alt sınır %_
+```
+coin                  sinyal  gun yon              seçim 2024         doğrulama 2025+                    2026    ok
+ BTC       ETF akışı z ≥ 1,5    1 SAT 20 · 55 · -0.01 · -0.50 31 · 45 · -0.42 · -1.41 18 · 56 · -0.38 · -1.85 False
+ BTC       ETF akışı z ≥ 1,5    3  AL 15 · 47 · +0.68 · -2.06 24 · 54 · +0.53 · -0.87 15 · 47 · +0.79 · -1.32 False
+ BTC       ETF akışı z ≥ 1,5    7  AL  9 · 56 · +1.61 · -2.30 17 · 59 · +0.42 · -1.92 11 · 45 · +0.89 · -2.67 False
+ BTC      ETF akışı z ≤ −1,5    1  AL 10 · 40 · +0.08 · -1.88 29 · 55 · -0.12 · -0.71 11 · 45 · -0.01 · -1.09 False
+ BTC      ETF akışı z ≤ −1,5    3  AL  9 · 56 · +1.24 · -1.83 22 · 50 · -0.37 · -1.78  9 · 33 · -0.75 · -3.37 False
+ BTC      ETF akışı z ≤ −1,5    7  AL  8 · 62 · +4.37 · +0.10 17 · 47 · -1.42 · -4.52      6 · 33 · -4.29 · — False
+ BTC  ETF 3 g toplam z ≥ 1,5    1  AL 26 · 42 · +0.16 · -0.61 36 · 50 · -0.14 · -0.58 21 · 43 · -0.03 · -0.66 False
+ BTC  ETF 3 g toplam z ≥ 1,5    3  AL 15 · 47 · +0.62 · -1.64 20 · 60 · +0.20 · -0.71 10 · 40 · -0.34 · -1.58 False
+ BTC  ETF 3 g toplam z ≥ 1,5    7  AL 11 · 55 · +1.60 · -1.93 14 · 43 · -0.04 · -2.04  8 · 38 · +0.29 · -2.37 False
+ BTC ETF 3 g toplam z ≤ −1,5    1  AL 14 · 50 · +0.27 · -1.15 40 · 38 · -0.35 · -0.82 20 · 30 · -0.64 · -1.05 False
+ BTC ETF 3 g toplam z ≤ −1,5    3  AL  8 · 50 · +0.05 · -2.74 23 · 57 · -0.61 · -2.13  9 · 44 · -1.20 · -3.48 False
+ BTC ETF 3 g toplam z ≤ −1,5    7  AL      7 · 71 · +3.30 · — 17 · 41 · -1.82 · -4.45  8 · 25 · -3.91 · -7.34 False
+```
 ```
 coin                                           sinyal  gun yon             seçim ≤2023         doğrulama 2024+                2026    ok
  BTC   CFTC varlık yöneticisi net uzun artışı z ≥ 1,5    7 SAT 17 · 35 · +0.58 · -2.33      7 · 29 · -1.69 · —  4 · 25 · -1.12 · — False
@@ -28,36 +43,36 @@ coin                                           sinyal  gun yon             seçi
 ## B) Filtre olarak (iyi / kötü isabet %, kötü işlem sayısı) — 0 / 30 geçti
 ```
                   aile                                          filtre  kotu_pay          secim                          dogrulama    alt         y2026 ok
-          BTC 1 saat ↑                        E1 dün ETF'ten net çıkış       0.0   60 / nan (0)    56 / nan (0) · net -0.03 / +nan    NaN  56 / nan (0)  ❌
-          BTC 1 saat ↑                       E2 dünkü ETF akışı z ≤ −1       0.0   60 / nan (0)    56 / nan (0) · net -0.03 / +nan    NaN  56 / nan (0)  ❌
-          BTC 1 saat ↑                    E3 son 5 gün ETF toplamı < 0       0.0   60 / nan (0)    56 / nan (0) · net -0.03 / +nan    NaN  56 / nan (0)  ❌
-          BTC 1 saat ↑       C1 varlık yöneticileri net uzunu azaltmış      53.0  62 / 60 (974) 57 / 57 (1933) · net -0.01 / -0.02  -2.68 54 / 57 (589)  ❌
-          BTC 1 saat ↑ C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      14.4  61 / 62 (253)  58 / 56 (525) · net -0.01 / -0.02  -2.27 55 / 59 (124)  ❌
-BTC 4/8 saat ↑ + ⭐ + A                        E1 dün ETF'ten net çıkış       0.0   60 / nan (0)    56 / nan (0) · net -0.01 / +nan    NaN  55 / nan (0)  ❌
-BTC 4/8 saat ↑ + ⭐ + A                       E2 dünkü ETF akışı z ≤ −1       0.0   60 / nan (0)    56 / nan (0) · net -0.01 / +nan    NaN  55 / nan (0)  ❌
-BTC 4/8 saat ↑ + ⭐ + A                    E3 son 5 gün ETF toplamı < 0       0.0   60 / nan (0)    56 / nan (0) · net -0.01 / +nan    NaN  55 / nan (0)  ❌
-BTC 4/8 saat ↑ + ⭐ + A       C1 varlık yöneticileri net uzunu azaltmış      51.9 58 / 59 (1443) 58 / 58 (2770) · net +0.07 / +0.02  -3.55 57 / 53 (832)  ❌
-BTC 4/8 saat ↑ + ⭐ + A C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.5  59 / 58 (393)  58 / 57 (668) · net +0.04 / +0.11  -5.38 55 / 49 (148)  ❌
-       coin tek başına                        E1 dün ETF'ten net çıkış       0.0   62 / nan (0)    56 / nan (0) · net +0.02 / +nan    NaN  56 / nan (0)  ❌
-       coin tek başına                       E2 dünkü ETF akışı z ≤ −1       0.0   62 / nan (0)    56 / nan (0) · net +0.02 / +nan    NaN  56 / nan (0)  ❌
-       coin tek başına                    E3 son 5 gün ETF toplamı < 0       0.0   62 / nan (0)    56 / nan (0) · net +0.02 / +nan    NaN  56 / nan (0)  ❌
-       coin tek başına       C1 varlık yöneticileri net uzunu azaltmış      50.5 63 / 58 (1373) 59 / 57 (2600) · net +0.10 / +0.09  -1.20 57 / 56 (753)  ❌
-       coin tek başına C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      11.7  60 / 62 (400)  58 / 58 (602) · net +0.08 / +0.20  -5.46 57 / 52 (157)  ❌
-         coin 🔇 sessiz                        E1 dün ETF'ten net çıkış       0.0   66 / nan (0)    57 / nan (0) · net +0.02 / +nan    NaN  54 / nan (0)  ❌
-         coin 🔇 sessiz                       E2 dünkü ETF akışı z ≤ −1       0.0   66 / nan (0)    57 / nan (0) · net +0.02 / +nan    NaN  54 / nan (0)  ❌
-         coin 🔇 sessiz                    E3 son 5 gün ETF toplamı < 0       0.0   66 / nan (0)    57 / nan (0) · net +0.02 / +nan    NaN  54 / nan (0)  ❌
-         coin 🔇 sessiz       C1 varlık yöneticileri net uzunu azaltmış      50.0  59 / 61 (335)  63 / 58 (777) · net +0.39 / +0.09   0.21 56 / 52 (202)  ❌
-         coin 🔇 sessiz C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.2  60 / 60 (144)  60 / 61 (189) · net +0.25 / +0.20  -8.73  54 / 54 (48)  ❌
-          coin 🤝 ortak                        E1 dün ETF'ten net çıkış       0.0   64 / nan (0)    60 / nan (0) · net +0.12 / +nan    NaN  63 / nan (0)  ❌
-          coin 🤝 ortak                       E2 dünkü ETF akışı z ≤ −1       0.0   64 / nan (0)    60 / nan (0) · net +0.12 / +nan    NaN  63 / nan (0)  ❌
-          coin 🤝 ortak                    E3 son 5 gün ETF toplamı < 0       0.0   64 / nan (0)    60 / nan (0) · net +0.12 / +nan    NaN  63 / nan (0)  ❌
-          coin 🤝 ortak       C1 varlık yöneticileri net uzunu azaltmış      51.3 57 / 60 (1082) 62 / 60 (2851) · net +0.24 / +0.16  -3.77 68 / 60 (780)  ❌
-          coin 🤝 ortak C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.7  58 / 59 (258)  61 / 60 (706) · net +0.19 / +0.29  -8.91 64 / 57 (183)  ❌
-             🧪 24 saat                        E1 dün ETF'ten net çıkış       0.0   57 / nan (0)    53 / nan (0) · net +0.34 / +nan    NaN  50 / nan (0)  ❌
-             🧪 24 saat                       E2 dünkü ETF akışı z ≤ −1       0.0   57 / nan (0)    53 / nan (0) · net +0.34 / +nan    NaN  50 / nan (0)  ❌
-             🧪 24 saat                    E3 son 5 gün ETF toplamı < 0       0.0   57 / nan (0)    53 / nan (0) · net +0.34 / +nan    NaN  50 / nan (0)  ❌
-             🧪 24 saat       C1 varlık yöneticileri net uzunu azaltmış      46.7  54 / 59 (476) 56 / 53 (1237) · net +0.73 / +0.26  -2.98 49 / 52 (365)  ❌
-             🧪 24 saat C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      10.6  56 / 57 (138)  54 / 62 (280) · net +0.46 / +0.98 -17.94  49 / 63 (89)  ❌
+          BTC 1 saat ↑                        E1 dün ETF'ten net çıkış      39.4  60 / 61 (392)  55 / 57 (900) · net -0.03 / -0.02  -6.29 55 / 57 (445)  ❌
+          BTC 1 saat ↑                       E2 dünkü ETF akışı z ≤ −1      11.9  60 / 63 (164)  55 / 58 (272) · net -0.04 / +0.01  -8.67 55 / 60 (110)  ❌
+          BTC 1 saat ↑                    E3 son 5 gün ETF toplamı < 0      40.2  61 / 60 (336)  56 / 55 (918) · net -0.03 / -0.03  -2.58 56 / 56 (470)  ❌
+          BTC 1 saat ↑       C1 varlık yöneticileri net uzunu azaltmış      53.0  62 / 60 (974) 57 / 57 (1933) · net -0.01 / -0.02  -2.61 54 / 57 (589)  ❌
+          BTC 1 saat ↑ C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      14.4  61 / 62 (253)  58 / 56 (525) · net -0.01 / -0.02  -2.44 55 / 59 (124)  ❌
+BTC 4/8 saat ↑ + ⭐ + A                        E1 dün ETF'ten net çıkış      41.5  63 / 56 (693) 56 / 56 (1362) · net -0.01 / +0.01  -5.04 54 / 55 (670)  ❌
+BTC 4/8 saat ↑ + ⭐ + A                       E2 dünkü ETF akışı z ≤ −1      12.2  61 / 59 (304)  55 / 58 (401) · net -0.01 / +0.03 -10.16 54 / 59 (140)  ❌
+BTC 4/8 saat ↑ + ⭐ + A                    E3 son 5 gün ETF toplamı < 0      40.2  63 / 53 (490) 57 / 54 (1319) · net +0.02 / -0.04  -2.90 57 / 52 (673)  ❌
+BTC 4/8 saat ↑ + ⭐ + A       C1 varlık yöneticileri net uzunu azaltmış      51.9 58 / 59 (1443) 58 / 58 (2770) · net +0.07 / +0.02  -3.56 57 / 53 (832)  ❌
+BTC 4/8 saat ↑ + ⭐ + A C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.5  59 / 58 (393)  58 / 57 (668) · net +0.04 / +0.11  -5.26 55 / 49 (148)  ❌
+       coin tek başına                        E1 dün ETF'ten net çıkış      43.0  63 / 60 (631) 56 / 56 (1369) · net +0.00 / +0.04  -5.71 57 / 56 (683)  ❌
+       coin tek başına                       E2 dünkü ETF akışı z ≤ −1      16.0  62 / 61 (265)  56 / 55 (508) · net +0.01 / +0.08  -6.98 57 / 54 (198)  ❌
+       coin tek başına                    E3 son 5 gün ETF toplamı < 0      40.4  63 / 57 (406) 56 / 56 (1287) · net +0.02 / +0.01  -4.16 58 / 55 (628)  ❌
+       coin tek başına       C1 varlık yöneticileri net uzunu azaltmış      50.5 63 / 58 (1373) 59 / 57 (2600) · net +0.10 / +0.09  -1.02 57 / 56 (753)  ❌
+       coin tek başına C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      11.7  60 / 62 (400)  58 / 58 (602) · net +0.08 / +0.20  -5.44 57 / 52 (157)  ❌
+         coin 🔇 sessiz                        E1 dün ETF'ten net çıkış      49.7  68 / 62 (198)  58 / 56 (476) · net +0.02 / +0.02  -5.12 56 / 53 (240)  ❌
+         coin 🔇 sessiz                       E2 dünkü ETF akışı z ≤ −1      22.0   65 / 72 (82)  58 / 55 (211) · net +0.01 / +0.06  -5.32 58 / 44 (104)  ❌
+         coin 🔇 sessiz                    E3 son 5 gün ETF toplamı < 0      43.1  67 / 61 (118)  59 / 55 (413) · net +0.09 / -0.06  -2.01 60 / 49 (186)  ❌
+         coin 🔇 sessiz       C1 varlık yöneticileri net uzunu azaltmış      50.0  59 / 61 (335)  63 / 58 (777) · net +0.39 / +0.09   0.32 56 / 52 (202)  ❌
+         coin 🔇 sessiz C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.2  60 / 60 (144)  60 / 61 (189) · net +0.25 / +0.20  -7.94  54 / 54 (48)  ❌
+          coin 🤝 ortak                        E1 dün ETF'ten net çıkış      39.2  63 / 66 (695) 57 / 63 (1354) · net -0.01 / +0.33 -13.44 62 / 65 (598)  ❌
+          coin 🤝 ortak                       E2 dünkü ETF akışı z ≤ −1      11.8  63 / 68 (299)  58 / 68 (409) · net +0.06 / +0.61 -18.76 62 / 76 (113)  ❌
+          coin 🤝 ortak                    E3 son 5 gün ETF toplamı < 0      39.1  65 / 61 (463) 58 / 62 (1350) · net +0.00 / +0.31 -10.79 67 / 60 (670)  ❌
+          coin 🤝 ortak       C1 varlık yöneticileri net uzunu azaltmış      51.3 57 / 60 (1082) 62 / 60 (2851) · net +0.24 / +0.16  -3.45 68 / 60 (780)  ❌
+          coin 🤝 ortak C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      12.7  58 / 59 (258)  61 / 60 (706) · net +0.19 / +0.29  -8.12 64 / 57 (183)  ❌
+             🧪 24 saat                        E1 dün ETF'ten net çıkış      48.5  55 / 61 (367)  53 / 53 (834) · net +0.35 / +0.33  -7.98 49 / 52 (423)  ❌
+             🧪 24 saat                       E2 dünkü ETF akışı z ≤ −1      20.3  57 / 59 (185)  54 / 51 (350) · net +0.49 / -0.27  -6.01 51 / 47 (166)  ❌
+             🧪 24 saat                    E3 son 5 gün ETF toplamı < 0      43.4  57 / 57 (223)  54 / 52 (747) · net +0.40 / +0.26  -5.25 54 / 47 (376)  ❌
+             🧪 24 saat       C1 varlık yöneticileri net uzunu azaltmış      46.7  54 / 59 (476) 56 / 53 (1237) · net +0.73 / +0.26  -3.38 49 / 52 (365)  ❌
+             🧪 24 saat C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1)      10.6  56 / 57 (138)  54 / 62 (280) · net +0.46 / +0.98 -18.02  49 / 63 (89)  ❌
 ```
 
 _Süre: 14 sn_
