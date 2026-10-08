@@ -1,0 +1,533 @@
+# 🔭 Öncü varlık: hangisi yükselince BTC sonra düşüyor? — 08.10.2026 10:13
+Veri alınan: 23 varlık · BTC 2017-08 → 2026-10-08 · 21 sn
+
+## 1. İlişki tablosu (günlük)
+_ayni_gun_kor: aynı gün birlikte mi hareket ediyor (− = ters) · sonraki_Hg_kor: varlığın son 5 günlük hareketi ile BTC'nin SONRAKİ H günü (1 gün gecikmeli) — negatif = varlık yükselince BTC sonra düşüyor. ±0,05 altı pratikte ilişki yok._
+### ≤2023
+```
+                               ayni_gun_kor  sonraki_1g_kor  sonraki_3g_kor  sonraki_7g_kor
+varlik                                                                                     
+Kredi riski spreadi                  -0.054          -0.021          -0.110           0.054
+Doğalgaz                              0.016          -0.023          -0.064          -0.115
+Altın                                 0.108          -0.047          -0.063          -0.071
+Japon yeni güçleniyor                 0.005          -0.059          -0.056          -0.047
+Gümüş                                 0.131          -0.041          -0.043          -0.060
+Euro/dolar                            0.005          -0.039          -0.039          -0.050
+VIX korku endeksi                    -0.247           0.006          -0.039           0.011
+MOVE tahvil oynaklığı                -0.077           0.010          -0.015           0.007
+Bakır                                 0.115          -0.018          -0.011          -0.056
+Petrol                                0.075          -0.009          -0.008          -0.042
+Uzun vadeli ABD tahvili (TLT)        -0.011          -0.001          -0.007          -0.013
+ABD 10 yıl faizi                     -0.019           0.002           0.005           0.020
+Reel faiz (10 y)                     -0.072           0.004           0.009           0.057
+Fed net likidite                      0.032           0.076           0.038          -0.012
+DXY dolar endeksi                    -0.107           0.017           0.039           0.070
+Nikkei 225                            0.025           0.023           0.040           0.031
+MicroStrategy hissesi                 0.434           0.022           0.044           0.027
+Nasdaq                                0.308           0.012           0.045          -0.009
+Dolar/yuan                            0.029           0.016           0.052           0.055
+Faiz eğrisi 10y−2y                    0.028           0.052           0.060           0.037
+S&P 500                               0.286           0.028           0.064           0.005
+Coinbase hissesi                      0.507           0.029           0.070           0.058
+Yüksek getirili tahvil (HYG)          0.220           0.041           0.104           0.045
+```
+### 2024+
+```
+                               ayni_gun_kor  sonraki_1g_kor  sonraki_3g_kor  sonraki_7g_kor
+varlik                                                                                     
+Euro/dolar                            0.018          -0.047          -0.078          -0.118
+Gümüş                                 0.159          -0.048          -0.074          -0.037
+Fed net likidite                      0.077          -0.003          -0.057          -0.028
+MOVE tahvil oynaklığı                -0.183          -0.022          -0.052          -0.015
+Japon yeni güçleniyor                -0.018           0.002          -0.047          -0.090
+Faiz eğrisi 10y−2y                   -0.022          -0.071          -0.039          -0.080
+Kredi riski spreadi                  -0.263          -0.013          -0.038          -0.052
+Doğalgaz                              0.029          -0.002          -0.037          -0.101
+Altın                                 0.125          -0.025          -0.031          -0.009
+Bakır                                 0.118          -0.022          -0.029          -0.009
+VIX korku endeksi                    -0.354          -0.004          -0.022          -0.046
+Nikkei 225                           -0.019          -0.049          -0.008          -0.003
+Uzun vadeli ABD tahvili (TLT)        -0.027           0.065          -0.003          -0.008
+Nasdaq                                0.390          -0.003           0.004           0.040
+Petrol                               -0.047          -0.035           0.005           0.067
+ABD 10 yıl faizi                      0.040          -0.049           0.007           0.030
+S&P 500                               0.383           0.006           0.010           0.045
+Reel faiz (10 y)                     -0.029          -0.040           0.011           0.026
+Yüksek getirili tahvil (HYG)          0.301           0.035           0.030           0.027
+Coinbase hissesi                      0.633           0.043           0.031           0.084
+MicroStrategy hissesi                 0.693           0.059           0.048           0.101
+DXY dolar endeksi                    -0.077           0.006           0.054           0.111
+Dolar/yuan                            0.053           0.030           0.110           0.148
+```
+### 2026
+```
+                               ayni_gun_kor  sonraki_1g_kor  sonraki_3g_kor  sonraki_7g_kor
+varlik                                                                                     
+Euro/dolar                           -0.026          -0.097          -0.191          -0.296
+Doğalgaz                              0.002          -0.021          -0.172          -0.260
+Fed net likidite                      0.048          -0.227          -0.169          -0.124
+Gümüş                                 0.205          -0.028          -0.145          -0.134
+Bakır                                 0.190          -0.130          -0.125          -0.144
+Uzun vadeli ABD tahvili (TLT)         0.079          -0.013          -0.123          -0.183
+Altın                                 0.215          -0.036          -0.115          -0.117
+Japon yeni güçleniyor                -0.031          -0.071          -0.100          -0.230
+S&P 500                               0.444          -0.023          -0.071          -0.092
+Nasdaq                                0.432          -0.031          -0.062          -0.095
+Nikkei 225                           -0.065          -0.053          -0.053          -0.123
+Yüksek getirili tahvil (HYG)          0.348          -0.015          -0.038          -0.042
+MicroStrategy hissesi                 0.789           0.017          -0.010           0.021
+VIX korku endeksi                    -0.368           0.004          -0.001           0.044
+Coinbase hissesi                      0.722           0.029           0.001           0.161
+Petrol                               -0.116          -0.040           0.004           0.118
+Faiz eğrisi 10y−2y                   -0.021          -0.077           0.031           0.069
+Kredi riski spreadi                  -0.329          -0.003           0.041          -0.020
+MOVE tahvil oynaklığı                -0.250          -0.019           0.043           0.071
+Reel faiz (10 y)                     -0.137           0.028           0.069           0.077
+Dolar/yuan                            0.060          -0.005           0.074           0.094
+ABD 10 yıl faizi                     -0.091           0.026           0.082           0.140
+DXY dolar endeksi                    -0.220           0.060           0.117           0.264
+```
+
+## 2. Para testi (önceden sabit: yön ≤2023'ten · 2024+ net > 0 ve alt > 0 → ✅) — giriş 1 gün gecikmeli
+Toplam 254 deneme · ✅ geçen: **18** · plasebo (rastgele kaydırılmış sinyal) geçme oranı %7.3 → tesadüfen beklenen ≈ **18.4**
+
+### ✅ Geçenler
+```
+                       varlik                        sinyal  gun yon ≤2023 işlem·isabet·net·alt 2024+ işlem·isabet·net·alt 2026 işlem·isabet·net·alt  hemen_2024_net
+            VIX korku endeksi yükselişe başladı (5 g z≥1,5)    7  AL    39 · 59 · +2.19 · -1.16    14 · 57 · +1.67 · +0.09        3 · 67 · +3.76 · —        1.625383
+            VIX korku endeksi   düşüşe başladı (5 g z≤−1,5)    7  AL    20 · 75 · +8.12 · +4.20    12 · 75 · +3.97 · +1.20        2 · 50 · +1.50 · —        2.159284
+                        Bakır   düşüşe başladı (5 g z≤−1,5)    1  AL    86 · 57 · +0.80 · +0.15    31 · 55 · +0.57 · +0.06        5 · 60 · +0.75 · —        0.489689
+                        Bakır   düşüşe başladı (5 g z≤−1,5)    3  AL    54 · 61 · +1.25 · -0.11    18 · 67 · +1.53 · +0.59        3 · 67 · +2.17 · —        0.904269
+                   Euro/dolar        ani yükseliş (1 g z≥2)    1 SAT    33 · 36 · +0.48 · -0.75    20 · 60 · +0.73 · +0.16   10 · 50 · +0.32 · -0.36       -0.206548
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    1 SAT    66 · 53 · +0.45 · -0.15    14 · 64 · +1.15 · +0.10        4 · 75 · +1.77 · —       -1.009074
+                   Dolar/yuan yükselişe başladı (5 g z≥1,5)    3  AL    60 · 60 · +1.15 · -0.11    13 · 85 · +1.20 · +0.24        3 · 67 · +0.61 · —        0.574581
+                   Dolar/yuan yükselişe başladı (5 g z≥1,5)    7  AL    41 · 51 · +0.63 · -1.47     9 · 78 · +2.37 · +0.61       2 · 100 · +2.90 · —        0.874396
+                       Nasdaq yükselişe başladı (5 g z≥1,5)    7  AL    46 · 54 · +0.97 · -1.34    23 · 70 · +2.98 · +0.31        7 · 43 · -2.02 · —        1.206038
+                      S&P 500 yükselişe başladı (5 g z≥1,5)    7  AL    42 · 52 · +1.51 · -1.10    24 · 71 · +2.47 · +0.13        6 · 50 · -2.18 · —        2.136827
+ Yüksek getirili tahvil (HYG) yükselişe başladı (5 g z≥1,5)    3  AL    64 · 53 · +0.88 · -0.10    25 · 76 · +1.80 · +0.62       4 · 100 · +1.76 · —       -0.525617
+ Yüksek getirili tahvil (HYG) yükselişe başladı (5 g z≥1,5)    7  AL    49 · 53 · +1.55 · -0.05    18 · 83 · +3.08 · +0.74       2 · 100 · +7.19 · —        2.909722
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    7  AL    36 · 56 · +1.50 · -2.38    11 · 64 · +2.18 · +0.34        6 · 50 · +2.31 · —        2.183314
+             Coinbase hissesi        ani yükseliş (1 g z≥2)    7  AL    18 · 50 · +0.77 · -1.47    20 · 70 · +3.56 · +1.69    9 · 56 · +1.23 · -0.76       -3.599904
+             Coinbase hissesi yükselişe başladı (5 g z≥1,5)    1  AL    50 · 50 · +0.31 · -0.23    46 · 63 · +0.51 · +0.16    8 · 50 · -0.06 · -0.68       -0.287926
+             Coinbase hissesi yükselişe başladı (5 g z≥1,5)    7  AL    21 · 57 · +2.97 · +0.40    15 · 87 · +4.50 · +1.60        4 · 75 · +0.16 · —        3.736079
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    3  AL    36 · 61 · +0.88 · -0.55    20 · 75 · +3.37 · +2.06        7 · 71 · +2.72 · —       -2.177921
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    7  AL    34 · 65 · +2.30 · -0.49    16 · 81 · +5.02 · +2.75        7 · 86 · +3.40 · —        5.861446
+```
+### 'Yükselince BTC SAT' sonuçları (kullanıcının sorusu): yükseliş sinyalleri, ≤2023'te BTC sonra düşmüş olanlar
+```
+                       varlik                        sinyal  gun yon ≤2023 işlem·isabet·net·alt 2024+ işlem·isabet·net·alt 2026 işlem·isabet·net·alt  hemen_2024_net
+            DXY dolar endeksi        ani yükseliş (1 g z≥2)    1 SAT    36 · 44 · -0.33 · -2.00    14 · 36 · -0.50 · -1.56        6 · 33 · -1.59 · —       -0.562113
+            DXY dolar endeksi        ani yükseliş (1 g z≥2)    3 SAT    33 · 39 · -0.18 · -2.35    13 · 54 · -0.29 · -2.03        5 · 40 · -0.97 · —       -0.711670
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    1 SAT    50 · 40 · +0.70 · -0.63    18 · 44 · -0.49 · -1.88    8 · 50 · -0.42 · -1.99       -1.001724
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    3 SAT    49 · 47 · +0.75 · -1.14    17 · 41 · +0.25 · -1.40    8 · 38 · +0.10 · -1.44        1.148510
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    7 SAT    43 · 56 · +0.40 · -2.35    15 · 53 · -0.81 · -3.59        7 · 57 · +0.60 · —        0.506630
+             ABD 10 yıl faizi yükselişe başladı (5 g z≥1,5)    3 SAT    73 · 44 · +0.11 · -1.01    31 · 39 · -0.77 · -1.93   11 · 36 · -0.78 · -2.48        0.397297
+             ABD 10 yıl faizi yükselişe başladı (5 g z≥1,5)    7 SAT    53 · 55 · -0.16 · -2.48    21 · 33 · -2.28 · -4.32    8 · 38 · -1.06 · -2.78       -0.995752
+            VIX korku endeksi        ani yükseliş (1 g z≥2)    3 SAT    56 · 55 · -0.03 · -2.00    15 · 47 · -0.23 · -1.71        3 · 33 · -1.81 · —       -0.142222
+            VIX korku endeksi        ani yükseliş (1 g z≥2)    7 SAT    46 · 50 · -0.79 · -4.45    12 · 67 · -0.43 · -1.77        3 · 33 · -3.96 · —       -0.564999
+        MOVE tahvil oynaklığı        ani yükseliş (1 g z≥2)    3 SAT    50 · 46 · +0.06 · -1.95    24 · 33 · -0.82 · -1.95    8 · 25 · -1.20 · -2.53        0.673060
+        MOVE tahvil oynaklığı yükselişe başladı (5 g z≥1,5)    3 SAT    65 · 49 · +0.65 · -1.02    17 · 35 · -1.04 · -3.04        5 · 40 · +1.44 · —       -0.873517
+        MOVE tahvil oynaklığı yükselişe başladı (5 g z≥1,5)    7 SAT    42 · 55 · -0.01 · -3.16    13 · 46 · -0.84 · -3.17        4 · 75 · +1.89 · —       -0.197024
+                        Altın yükselişe başladı (5 g z≥1,5)    1 SAT   117 · 47 · +0.00 · -0.47    67 · 40 · +0.01 · -0.45   14 · 50 · +0.96 · -0.12       -0.417037
+                        Altın yükselişe başladı (5 g z≥1,5)    3 SAT    64 · 47 · +0.51 · -1.07    39 · 46 · +0.35 · -0.75    8 · 62 · +1.70 · +0.26        0.764172
+                        Altın yükselişe başladı (5 g z≥1,5)    7 SAT    46 · 50 · +0.45 · -2.11    26 · 62 · +2.09 · -0.50        5 · 80 · +6.48 · —        1.597398
+                        Gümüş        ani yükseliş (1 g z≥2)    3 SAT    44 · 57 · +0.18 · -1.40    25 · 48 · +0.64 · -0.44        3 · 67 · +2.82 · —        1.095318
+                        Gümüş yükselişe başladı (5 g z≥1,5)    1 SAT   102 · 49 · -0.07 · -0.71    62 · 44 · -0.19 · -0.66        7 · 71 · +1.03 · —        0.202136
+                        Gümüş yükselişe başladı (5 g z≥1,5)    3 SAT    58 · 59 · +0.14 · -1.04    34 · 50 · -0.37 · -1.47       5 · 100 · +3.10 · —        0.629473
+                        Gümüş yükselişe başladı (5 g z≥1,5)    7 SAT    37 · 54 · -0.01 · -3.00    24 · 42 · -1.16 · -3.13        4 · 50 · +3.29 · —       -0.129922
+                       Petrol        ani yükseliş (1 g z≥2)    1 SAT    31 · 39 · -0.24 · -2.50    14 · 36 · -0.10 · -1.23        7 · 43 · -0.55 · —       -0.183684
+                        Bakır        ani yükseliş (1 g z≥2)    3 SAT    37 · 43 · -0.21 · -1.91    20 · 40 · -0.89 · -3.08       3 · 100 · +4.96 · —       -0.271739
+                        Bakır        ani yükseliş (1 g z≥2)    7 SAT    34 · 59 · +0.22 · -2.57    16 · 44 · -1.23 · -4.54        2 · 50 · +7.13 · —       -0.076234
+                        Bakır yükselişe başladı (5 g z≥1,5)    1 SAT    80 · 48 · -0.02 · -0.76    54 · 41 · -0.46 · -1.07   10 · 60 · +0.94 · +0.09       -0.363483
+                        Bakır yükselişe başladı (5 g z≥1,5)    3 SAT    53 · 51 · +0.44 · -1.50    32 · 44 · -0.36 · -1.05        7 · 71 · +1.65 · —       -0.315413
+                        Bakır yükselişe başladı (5 g z≥1,5)    7 SAT    36 · 61 · +1.79 · -1.00    20 · 35 · -1.30 · -3.53        6 · 67 · +2.30 · —       -0.488981
+                     Doğalgaz        ani yükseliş (1 g z≥2)    1 SAT    50 · 48 · +0.17 · -1.29    21 · 43 · -0.18 · -0.74         4 · 0 · -0.25 · —       -0.530489
+                     Doğalgaz        ani yükseliş (1 g z≥2)    3 SAT    46 · 43 · -0.15 · -2.18    20 · 50 · +0.48 · -0.98       3 · 100 · +2.09 · —        1.187142
+                     Doğalgaz        ani yükseliş (1 g z≥2)    7 SAT    40 · 48 · -0.68 · -3.91    18 · 39 · -0.65 · -3.46        2 · 50 · -0.26 · —       -0.903418
+                     Doğalgaz yükselişe başladı (5 g z≥1,5)    3 SAT    67 · 49 · +0.87 · -0.41    24 · 46 · -0.10 · -1.37       3 · 100 · +3.08 · —       -1.381556
+                     Doğalgaz yükselişe başladı (5 g z≥1,5)    7 SAT    43 · 58 · +0.31 · -3.09    20 · 55 · +1.20 · -1.63       3 · 67 · +10.12 · —       -0.239254
+        Japon yeni güçleniyor        ani yükseliş (1 g z≥2)    3 SAT    42 · 36 · -0.27 · -2.26    20 · 40 · -1.24 · -2.77        7 · 43 · -0.08 · —       -1.069159
+        Japon yeni güçleniyor        ani yükseliş (1 g z≥2)    7 SAT    38 · 55 · +1.93 · -1.42    15 · 53 · +0.07 · -2.66        5 · 60 · +3.11 · —        0.286925
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    1 SAT   102 · 43 · +0.22 · -0.39    53 · 45 · -0.15 · -0.63   19 · 47 · +0.58 · -0.18       -0.061998
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    3 SAT    64 · 42 · +0.25 · -1.17    33 · 45 · -0.05 · -1.36   12 · 42 · +0.41 · -1.48       -0.030071
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    7 SAT    44 · 50 · +0.64 · -1.88    22 · 55 · +0.71 · -2.15        6 · 67 · +0.98 · —        0.116103
+                   Euro/dolar        ani yükseliş (1 g z≥2)    1 SAT    33 · 36 · +0.48 · -0.75    20 · 60 · +0.73 · +0.16   10 · 50 · +0.32 · -0.36       -0.206548
+                   Euro/dolar        ani yükseliş (1 g z≥2)    3 SAT    33 · 36 · +0.05 · -2.12    16 · 38 · -0.09 · -1.78    8 · 38 · +0.08 · -1.45       -1.066961
+                   Euro/dolar        ani yükseliş (1 g z≥2)    7 SAT    30 · 50 · +2.02 · -0.93    16 · 50 · +1.18 · -1.84    8 · 50 · +2.24 · -2.81        0.000430
+                   Euro/dolar yükselişe başladı (5 g z≥1,5)    1 SAT    94 · 44 · -0.02 · -0.70    36 · 44 · +0.03 · -1.00   13 · 54 · +1.06 · -0.30       -0.112069
+                   Euro/dolar yükselişe başladı (5 g z≥1,5)    7 SAT    42 · 45 · -0.48 · -3.56    15 · 47 · +0.58 · -2.11        5 · 60 · +3.19 · —        0.145475
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    1 SAT    66 · 53 · +0.45 · -0.15    14 · 64 · +1.15 · +0.10        4 · 75 · +1.77 · —       -1.009074
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    3 SAT    55 · 40 · -0.28 · -1.54    13 · 62 · +0.59 · -2.48       3 · 100 · +4.15 · —       -0.243612
+                       Nasdaq        ani yükseliş (1 g z≥2)    1 SAT    39 · 41 · +0.09 · -1.66    15 · 47 · -0.26 · -1.46        4 · 75 · +0.40 · —        1.018259
+                       Nasdaq        ani yükseliş (1 g z≥2)    7 SAT    34 · 50 · -0.53 · -4.09    15 · 47 · -1.54 · -5.48        4 · 25 · -2.05 · —        0.345720
+                      S&P 500        ani yükseliş (1 g z≥2)    1 SAT    41 · 46 · +0.33 · -1.39    13 · 38 · -0.49 · -1.66        3 · 33 · -0.55 · —        0.778644
+                      S&P 500        ani yükseliş (1 g z≥2)    3 SAT    39 · 46 · -0.13 · -2.34    13 · 62 · +0.58 · -1.82       3 · 100 · +1.00 · —        0.642239
+                      S&P 500        ani yükseliş (1 g z≥2)    7 SAT    35 · 51 · +0.02 · -4.09    13 · 38 · -3.14 · -7.20         3 · 0 · -3.37 · —       -0.963861
+                   Nikkei 225        ani yükseliş (1 g z≥2)    1 SAT    52 · 44 · +0.36 · -0.54    18 · 56 · +0.05 · -2.00    9 · 67 · +2.13 · +0.15       -0.263905
+                   Nikkei 225        ani yükseliş (1 g z≥2)    3 SAT    50 · 48 · +1.50 · -0.11    17 · 53 · +0.07 · -1.41    9 · 56 · +0.98 · -0.34        0.239785
+ Yüksek getirili tahvil (HYG)        ani yükseliş (1 g z≥2)    1 SAT    54 · 43 · -0.02 · -1.36    13 · 62 · +0.23 · -0.96        7 · 57 · +0.92 · —        1.000955
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    1 SAT    42 · 48 · +0.12 · -0.82    12 · 33 · -1.45 · -3.06        7 · 43 · -1.14 · —        1.038357
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    3 SAT    40 · 55 · -0.06 · -2.62    11 · 36 · -1.46 · -3.26        6 · 50 · -2.09 · —       -2.177110
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    1 SAT    87 · 49 · +0.36 · -0.19    38 · 42 · -0.33 · -1.18        7 · 43 · -0.32 · —       -0.331472
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    3 SAT    53 · 51 · +0.98 · -0.76    24 · 50 · -0.48 · -1.70        5 · 40 · -0.52 · —       -0.441728
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    7 SAT    38 · 53 · +0.86 · -2.31    17 · 41 · -0.92 · -3.05        4 · 75 · +3.39 · —        2.117681
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    1 SAT    43 · 47 · -0.15 · -0.85    23 · 17 · -1.96 · -2.93        7 · 14 · -1.43 · —        0.229421
+             Reel faiz (10 y)        ani yükseliş (1 g z≥2)    1 SAT    48 · 48 · +0.51 · -0.44    21 · 48 · -0.33 · -1.28    9 · 44 · -0.33 · -1.26             NaN
+             Reel faiz (10 y)        ani yükseliş (1 g z≥2)    3 SAT    43 · 58 · +1.61 · -0.19    19 · 37 · -0.29 · -1.38    8 · 38 · -0.44 · -1.21             NaN
+             Reel faiz (10 y) yükselişe başladı (5 g z≥1,5)    1 SAT   101 · 48 · -0.25 · -0.92    50 · 40 · -0.47 · -1.12   26 · 35 · -0.64 · -1.45             NaN
+             Reel faiz (10 y) yükselişe başladı (5 g z≥1,5)    3 SAT    60 · 42 · -0.00 · -1.66    31 · 45 · -0.58 · -1.40   15 · 40 · -0.83 · -1.95             NaN
+```
+### Tüm denemeler (2024+ sırasıyla)
+```
+                       varlik                        sinyal  gun yon ≤2023 işlem·isabet·net·alt 2024+ işlem·isabet·net·alt 2026 işlem·isabet·net·alt  hemen_2024_net    ok
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    7  AL    34 · 65 · +2.30 · -0.49    16 · 81 · +5.02 · +2.75        7 · 86 · +3.40 · —        5.861446  True
+             Coinbase hissesi yükselişe başladı (5 g z≥1,5)    7  AL    21 · 57 · +2.97 · +0.40    15 · 87 · +4.50 · +1.60        4 · 75 · +0.16 · —        3.736079  True
+            VIX korku endeksi   düşüşe başladı (5 g z≤−1,5)    7  AL    20 · 75 · +8.12 · +4.20    12 · 75 · +3.97 · +1.20        2 · 50 · +1.50 · —        2.159284  True
+             Coinbase hissesi        ani yükseliş (1 g z≥2)    7  AL    18 · 50 · +0.77 · -1.47    20 · 70 · +3.56 · +1.69    9 · 56 · +1.23 · -0.76       -3.599904  True
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    3  AL    36 · 61 · +0.88 · -0.55    20 · 75 · +3.37 · +2.06        7 · 71 · +2.72 · —       -2.177921  True
+ Yüksek getirili tahvil (HYG) yükselişe başladı (5 g z≥1,5)    7  AL    49 · 53 · +1.55 · -0.05    18 · 83 · +3.08 · +0.74       2 · 100 · +7.19 · —        2.909722  True
+                       Nasdaq yükselişe başladı (5 g z≥1,5)    7  AL    46 · 54 · +0.97 · -1.34    23 · 70 · +2.98 · +0.31        7 · 43 · -2.02 · —        1.206038  True
+        Japon yeni güçleniyor          ani düşüş (1 g z≤−2)    7  AL    39 · 56 · +1.43 · -1.25    13 · 62 · +2.65 · -0.69         1 · 0 · -9.24 · —       -1.806102 False
+                      S&P 500 yükselişe başladı (5 g z≥1,5)    7  AL    42 · 52 · +1.51 · -1.10    24 · 71 · +2.47 · +0.13        6 · 50 · -2.18 · —        2.136827  True
+                   Dolar/yuan yükselişe başladı (5 g z≥1,5)    7  AL    41 · 51 · +0.63 · -1.47     9 · 78 · +2.37 · +0.61       2 · 100 · +2.90 · —        0.874396  True
+                        Bakır   düşüşe başladı (5 g z≤−1,5)    7  AL    40 · 55 · +1.46 · -1.07    13 · 62 · +2.27 · -0.44        3 · 67 · +2.53 · —        2.672964 False
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    7  AL    36 · 56 · +1.50 · -2.38    11 · 64 · +2.18 · +0.34        6 · 50 · +2.31 · —        2.183314  True
+                        Altın yükselişe başladı (5 g z≥1,5)    7 SAT    46 · 50 · +0.45 · -2.11    26 · 62 · +2.09 · -0.50        5 · 80 · +6.48 · —        1.597398 False
+                       Nasdaq   düşüşe başladı (5 g z≤−1,5)    7  AL    42 · 55 · +1.18 · -1.85    19 · 58 · +2.06 · -0.21        5 · 80 · +4.11 · —        2.233738 False
+        Japon yeni güçleniyor          ani düşüş (1 g z≤−2)    3  AL    42 · 62 · +0.73 · -1.27    14 · 64 · +1.84 · -0.43         1 · 0 · -6.95 · —        0.773653 False
+                        Bakır          ani düşüş (1 g z≤−2)    7  AL    40 · 60 · +2.05 · -0.67    13 · 62 · +1.83 · -0.82        4 · 50 · -0.90 · —        0.491403 False
+ Yüksek getirili tahvil (HYG) yükselişe başladı (5 g z≥1,5)    3  AL    64 · 53 · +0.88 · -0.10    25 · 76 · +1.80 · +0.62       4 · 100 · +1.76 · —       -0.525617  True
+        MOVE tahvil oynaklığı   düşüşe başladı (5 g z≤−1,5)    7  AL    35 · 46 · +0.58 · -2.35    15 · 53 · +1.79 · -1.72        3 · 33 · -5.21 · —        2.034425 False
+                   Nikkei 225          ani düşüş (1 g z≤−2)    7 SAT    45 · 49 · -0.57 · -3.52    16 · 75 · +1.79 · -0.99       2 · 100 · +4.51 · —        0.660328 False
+            VIX korku endeksi yükselişe başladı (5 g z≥1,5)    7  AL    39 · 59 · +2.19 · -1.16    14 · 57 · +1.67 · +0.09        3 · 67 · +3.76 · —        1.625383  True
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    7  AL    48 · 62 · +2.56 · +0.37    12 · 58 · +1.66 · -2.37        3 · 33 · -2.58 · —        2.368306 False
+             Reel faiz (10 y) yükselişe başladı (5 g z≥1,5)    7  AL    40 · 48 · +1.07 · -1.80    19 · 63 · +1.55 · -0.17    9 · 56 · +0.65 · -1.03             NaN False
+                        Bakır   düşüşe başladı (5 g z≤−1,5)    3  AL    54 · 61 · +1.25 · -0.11    18 · 67 · +1.53 · +0.59        3 · 67 · +2.17 · —        0.904269  True
+        MicroStrategy hissesi yükselişe başladı (5 g z≥1,5)    7  AL    46 · 59 · +2.54 · +0.04    22 · 64 · +1.52 · -0.45        4 · 75 · +0.84 · —        1.610114 False
+            VIX korku endeksi   düşüşe başladı (5 g z≤−1,5)    3  AL    24 · 71 · +4.98 · +2.98    16 · 69 · +1.45 · -0.58       2 · 100 · +0.94 · —        0.833933 False
+             Reel faiz (10 y)        ani yükseliş (1 g z≥2)    7  AL    38 · 42 · +1.14 · -1.99    18 · 56 · +1.33 · -0.83    8 · 50 · +0.22 · -1.87             NaN False
+                      S&P 500 yükselişe başladı (5 g z≥1,5)    3  AL    59 · 59 · +2.27 · +0.77    32 · 62 · +1.23 · -0.14    9 · 67 · -0.48 · -3.55        0.580986 False
+            VIX korku endeksi yükselişe başladı (5 g z≥1,5)    3  AL    53 · 55 · +0.94 · -0.88    20 · 60 · +1.22 · -0.04        4 · 75 · +2.01 · —       -1.056001 False
+                   Dolar/yuan   düşüşe başladı (5 g z≤−1,5)    7 SAT    40 · 57 · +2.16 · -0.28    12 · 50 · +1.22 · -1.51        4 · 50 · -0.07 · —        0.565622 False
+            VIX korku endeksi          ani düşüş (1 g z≤−2)    7  AL    25 · 44 · +0.62 · -3.07    14 · 64 · +1.21 · -1.54        4 · 75 · +1.60 · —       -1.271684 False
+                   Dolar/yuan yükselişe başladı (5 g z≥1,5)    3  AL    60 · 60 · +1.15 · -0.11    13 · 85 · +1.20 · +0.24        3 · 67 · +0.61 · —        0.574581  True
+                      S&P 500   düşüşe başladı (5 g z≤−1,5)    3  AL    61 · 54 · +0.25 · -1.48    21 · 57 · +1.20 · -0.19        3 · 33 · +0.28 · —       -0.770332 False
+                     Doğalgaz yükselişe başladı (5 g z≥1,5)    7 SAT    43 · 58 · +0.31 · -3.09    20 · 55 · +1.20 · -1.63       3 · 67 · +10.12 · —       -0.239254 False
+                   Euro/dolar        ani yükseliş (1 g z≥2)    7 SAT    30 · 50 · +2.02 · -0.93    16 · 50 · +1.18 · -1.84    8 · 50 · +2.24 · -2.81        0.000430 False
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    1 SAT    66 · 53 · +0.45 · -0.15    14 · 64 · +1.15 · +0.10        4 · 75 · +1.77 · —       -1.009074  True
+            DXY dolar endeksi          ani düşüş (1 g z≤−2)    3 SAT    37 · 59 · +1.55 · -0.87    18 · 39 · +1.07 · -0.57    8 · 25 · +0.14 · -2.47        0.457352 False
+             Coinbase hissesi        ani yükseliş (1 g z≥2)    3  AL    19 · 58 · +0.66 · -1.10    23 · 52 · +1.05 · -0.22    9 · 22 · -0.94 · -3.16       -0.580125 False
+        Japon yeni güçleniyor   düşüşe başladı (5 g z≤−1,5)    7  AL    45 · 44 · +2.90 · +0.32    12 · 58 · +0.99 · -1.66        2 · 50 · +1.10 · —       -1.517401 False
+                       Nasdaq yükselişe başladı (5 g z≥1,5)    3  AL    59 · 58 · +0.55 · -0.86    31 · 58 · +0.97 · -0.36   11 · 55 · -0.57 · -3.06        0.102913 False
+            DXY dolar endeksi          ani düşüş (1 g z≤−2)    7 SAT    33 · 52 · +1.97 · -1.06    17 · 41 · +0.96 · -1.33        7 · 57 · +1.38 · —        0.076521 False
+        Japon yeni güçleniyor   düşüşe başladı (5 g z≤−1,5)    3  AL    63 · 63 · +1.31 · -0.20    16 · 62 · +0.96 · -0.43        3 · 33 · +2.71 · —       -2.448504 False
+                      S&P 500   düşüşe başladı (5 g z≤−1,5)    7  AL    41 · 59 · +1.62 · -1.84    15 · 40 · +0.91 · -1.10        3 · 33 · +1.27 · —        0.480228 False
+             Coinbase hissesi yükselişe başladı (5 g z≥1,5)    3  AL    33 · 64 · +1.93 · +0.58    27 · 56 · +0.87 · -0.34        6 · 33 · -0.90 · —        0.645368 False
+                   Nikkei 225   düşüşe başladı (5 g z≤−1,5)    7 SAT    44 · 45 · -0.53 · -3.68    11 · 45 · +0.83 · -1.96       2 · 100 · +0.50 · —       -0.189642 False
+                       Petrol        ani yükseliş (1 g z≥2)    7  AL    26 · 62 · +1.44 · -3.56    10 · 50 · +0.75 · -1.34        4 · 75 · +2.76 · —       -1.142174 False
+        MOVE tahvil oynaklığı        ani yükseliş (1 g z≥2)    7  AL    41 · 46 · +1.65 · -1.75    20 · 50 · +0.74 · -0.94        7 · 29 · -1.02 · —       -0.174023 False
+                   Euro/dolar        ani yükseliş (1 g z≥2)    1 SAT    33 · 36 · +0.48 · -0.75    20 · 60 · +0.73 · +0.16   10 · 50 · +0.32 · -0.36       -0.206548  True
+                   Euro/dolar   düşüşe başladı (5 g z≤−1,5)    3  AL    74 · 50 · +0.84 · -0.23    22 · 55 · +0.71 · -0.74        7 · 57 · +1.35 · —       -0.761742 False
+             Coinbase hissesi        ani yükseliş (1 g z≥2)    1  AL    19 · 53 · +0.08 · -0.99    23 · 57 · +0.71 · -0.30    9 · 33 · -0.42 · -1.98        0.168017 False
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    7 SAT    44 · 50 · +0.64 · -1.88    22 · 55 · +0.71 · -2.15        6 · 67 · +0.98 · —        0.116103 False
+                        Gümüş          ani düşüş (1 g z≤−2)    1 SAT    50 · 42 · -0.03 · -0.71    19 · 53 · +0.68 · -0.11       2 · 100 · +3.63 · —       -0.351934 False
+                       Petrol yükselişe başladı (5 g z≥1,5)    7  AL    39 · 46 · +1.70 · -1.38    22 · 59 · +0.67 · -1.28    9 · 67 · -0.62 · -4.43        0.798078 False
+                        Gümüş        ani yükseliş (1 g z≥2)    3 SAT    44 · 57 · +0.18 · -1.40    25 · 48 · +0.64 · -0.44        3 · 67 · +2.82 · —        1.095318 False
+                   Dolar/yuan        ani yükseliş (1 g z≥2)    3 SAT    55 · 40 · -0.28 · -1.54    13 · 62 · +0.59 · -2.48       3 · 100 · +4.15 · —       -0.243612 False
+                   Euro/dolar yükselişe başladı (5 g z≥1,5)    7 SAT    42 · 45 · -0.48 · -3.56    15 · 47 · +0.58 · -2.11        5 · 60 · +3.19 · —        0.145475 False
+                       Petrol yükselişe başladı (5 g z≥1,5)    3  AL    50 · 60 · +0.92 · -1.14    28 · 57 · +0.58 · -0.50   13 · 54 · +0.29 · -1.30        0.492397 False
+                      S&P 500        ani yükseliş (1 g z≥2)    3 SAT    39 · 46 · -0.13 · -2.34    13 · 62 · +0.58 · -1.82       3 · 100 · +1.00 · —        0.642239 False
+                        Bakır   düşüşe başladı (5 g z≤−1,5)    1  AL    86 · 57 · +0.80 · +0.15    31 · 55 · +0.57 · +0.06        5 · 60 · +0.75 · —        0.489689  True
+                       Nasdaq   düşüşe başladı (5 g z≤−1,5)    1  AL   103 · 55 · +0.15 · -0.53    44 · 41 · +0.55 · -0.21    9 · 33 · +1.40 · -1.41       -0.602757 False
+                   Dolar/yuan   düşüşe başladı (5 g z≤−1,5)    3 SAT    62 · 45 · +0.56 · -1.09    19 · 58 · +0.54 · -0.55        7 · 57 · +0.13 · —        0.481320 False
+             ABD 10 yıl faizi          ani düşüş (1 g z≤−2)    3 SAT    40 · 48 · -0.20 · -2.56    12 · 50 · +0.54 · -1.26       3 · 100 · +0.90 · —        0.825909 False
+                        Altın          ani düşüş (1 g z≤−2)    7  AL    46 · 61 · +1.99 · -0.07    18 · 67 · +0.53 · -1.83        3 · 33 · -5.29 · —        0.138795 False
+        MicroStrategy hissesi yükselişe başladı (5 g z≥1,5)    3  AL    69 · 55 · +1.23 · -0.11    33 · 64 · +0.53 · -0.48    8 · 62 · +0.19 · -0.72        0.539869 False
+             Coinbase hissesi yükselişe başladı (5 g z≥1,5)    1  AL    50 · 50 · +0.31 · -0.23    46 · 63 · +0.51 · +0.16    8 · 50 · -0.06 · -0.68       -0.287926  True
+            VIX korku endeksi          ani düşüş (1 g z≤−2)    1  AL    27 · 44 · -0.02 · -0.81    15 · 40 · +0.50 · -0.78        4 · 25 · -0.15 · —       -0.658114 False
+            VIX korku endeksi   düşüşe başladı (5 g z≤−1,5)    1  AL    39 · 67 · +1.68 · +0.87    25 · 68 · +0.50 · -0.06       2 · 100 · +0.60 · —        0.343128 False
+                   Nikkei 225          ani düşüş (1 g z≤−2)    3 SAT    52 · 48 · +0.30 · -1.37    21 · 52 · +0.50 · -1.04        4 · 50 · +2.74 · —        0.391783 False
+                     Doğalgaz        ani yükseliş (1 g z≥2)    3 SAT    46 · 43 · -0.15 · -2.18    20 · 50 · +0.48 · -0.98       3 · 100 · +2.09 · —        1.187142 False
+                        Gümüş          ani düşüş (1 g z≤−2)    3 SAT    47 · 40 · +0.22 · -1.09    17 · 59 · +0.48 · -1.39       2 · 100 · +7.70 · —        0.431591 False
+                        Bakır          ani düşüş (1 g z≤−2)    3  AL    43 · 72 · +2.43 · +0.98    14 · 64 · +0.45 · -0.59        4 · 50 · -0.80 · —       -0.787632 False
+                   Euro/dolar   düşüşe başladı (5 g z≤−1,5)    7  AL    55 · 51 · +2.01 · -0.59    16 · 50 · +0.44 · -0.87        4 · 50 · +1.68 · —       -0.138875 False
+ Yüksek getirili tahvil (HYG)        ani yükseliş (1 g z≥2)    7  AL    41 · 49 · +1.47 · -1.59    11 · 55 · +0.42 · -1.55        5 · 60 · +0.60 · —        0.927172 False
+ Yüksek getirili tahvil (HYG) yükselişe başladı (5 g z≥1,5)    1  AL   110 · 51 · +0.27 · -0.17    34 · 65 · +0.39 · -0.08        6 · 83 · +0.32 · —       -0.136188 False
+                   Nikkei 225   düşüşe başladı (5 g z≤−1,5)    3 SAT    64 · 47 · -0.19 · -1.93    17 · 53 · +0.39 · -0.65        3 · 67 · +2.37 · —        1.018308 False
+            DXY dolar endeksi   düşüşe başladı (5 g z≤−1,5)    3  AL    59 · 53 · +0.53 · -1.43    21 · 62 · +0.39 · -1.23    8 · 62 · +0.16 · -2.64       -0.694051 False
+                   Euro/dolar          ani düşüş (1 g z≤−2)    7  AL    40 · 60 · +3.81 · +1.10    15 · 40 · +0.37 · -2.72        7 · 43 · -2.07 · —       -0.297835 False
+            VIX korku endeksi yükselişe başladı (5 g z≥1,5)    1  AL    94 · 55 · +0.72 · +0.08    32 · 53 · +0.35 · -0.26        4 · 50 · +0.44 · —        0.190778 False
+                        Altın yükselişe başladı (5 g z≥1,5)    3 SAT    64 · 47 · +0.51 · -1.07    39 · 46 · +0.35 · -0.75    8 · 62 · +1.70 · +0.26        0.764172 False
+             ABD 10 yıl faizi yükselişe başladı (5 g z≥1,5)    1  AL   113 · 54 · +0.16 · -0.44    49 · 51 · +0.34 · -0.15   22 · 50 · +0.40 · -0.30       -0.264318 False
+        MOVE tahvil oynaklığı yükselişe başladı (5 g z≥1,5)    1  AL   111 · 59 · +0.60 · -0.01    31 · 39 · +0.31 · -0.47    9 · 33 · -0.55 · -1.87        0.120106 False
+        Japon yeni güçleniyor   düşüşe başladı (5 g z≤−1,5)    1  AL   111 · 52 · +0.41 · -0.16    29 · 48 · +0.31 · -0.57        6 · 33 · +1.54 · —       -1.412723 False
+            DXY dolar endeksi   düşüşe başladı (5 g z≤−1,5)    1  AL    96 · 50 · +0.17 · -0.28    36 · 53 · +0.30 · -0.60   15 · 40 · -0.69 · -2.21       -0.364108 False
+            VIX korku endeksi          ani düşüş (1 g z≤−2)    3  AL    26 · 46 · +1.00 · -0.91    15 · 53 · +0.30 · -1.80        4 · 25 · -1.32 · —       -0.201138 False
+             Fed net likidite yükselişe başladı (5 g z≥1,5)    1  AL    28 · 75 · +1.63 · +0.58    13 · 54 · +0.30 · -0.77         1 · 0 · -2.77 · —             NaN False
+                   Nikkei 225          ani düşüş (1 g z≤−2)    1 SAT    58 · 40 · -0.09 · -0.82    25 · 56 · +0.27 · -0.80        5 · 60 · +1.33 · —       -0.191177 False
+                       Nasdaq yükselişe başladı (5 g z≥1,5)    1  AL    88 · 59 · +0.18 · -0.51    47 · 55 · +0.27 · -0.11   20 · 50 · -0.28 · -0.96       -0.005632 False
+                        Bakır          ani düşüş (1 g z≤−2)    1  AL    47 · 55 · +2.32 · +1.22    15 · 53 · +0.26 · -0.26        4 · 25 · +0.14 · —       -0.950303 False
+                        Altın        ani yükseliş (1 g z≥2)    7  AL    40 · 52 · +0.57 · -2.18    15 · 53 · +0.26 · -3.78         3 · 0 · -9.15 · —        0.070511 False
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    3 SAT    49 · 47 · +0.75 · -1.14    17 · 41 · +0.25 · -1.40    8 · 38 · +0.10 · -1.44        1.148510 False
+                       Petrol        ani yükseliş (1 g z≥2)    3  AL    29 · 59 · +0.75 · -2.35    11 · 64 · +0.25 · -2.12        5 · 80 · +1.80 · —       -0.403887 False
+        MicroStrategy hissesi          ani düşüş (1 g z≤−2)    7 SAT    31 · 55 · +0.64 · -2.59    17 · 65 · +0.24 · -2.61        3 · 67 · +5.14 · —        0.218233 False
+            DXY dolar endeksi          ani düşüş (1 g z≤−2)    1 SAT    41 · 71 · +1.04 · +0.23    20 · 50 · +0.24 · -0.76    8 · 62 · +0.53 · -1.92       -0.805006 False
+ Yüksek getirili tahvil (HYG)        ani yükseliş (1 g z≥2)    1 SAT    54 · 43 · -0.02 · -1.36    13 · 62 · +0.23 · -0.96        7 · 57 · +0.92 · —        1.000955 False
+                        Altın   düşüşe başladı (5 g z≤−1,5)    1  AL    85 · 54 · +0.75 · +0.14    33 · 42 · +0.19 · -0.45   12 · 33 · -0.66 · -1.48        0.512163 False
+             Fed net likidite yükselişe başladı (5 g z≥1,5)    7  AL    28 · 54 · +0.76 · -1.59    13 · 62 · +0.18 · -1.82         1 · 0 · -5.25 · —             NaN False
+                      S&P 500 yükselişe başladı (5 g z≥1,5)    1  AL    96 · 59 · +0.59 · +0.00    54 · 54 · +0.18 · -0.22   17 · 53 · -0.34 · -1.14        0.109552 False
+Uzun vadeli ABD tahvili (TLT)   düşüşe başladı (5 g z≤−1,5)    3 SAT    69 · 48 · +0.27 · -0.89    21 · 57 · +0.16 · -1.26    8 · 50 · -0.35 · -2.33        0.045924 False
+                   Dolar/yuan yükselişe başladı (5 g z≥1,5)    1  AL   100 · 53 · +0.01 · -0.47    19 · 47 · +0.14 · -0.57        3 · 33 · -1.24 · —       -0.375932 False
+             Fed net likidite   düşüşe başladı (5 g z≤−1,5)    3 SAT    40 · 55 · +0.37 · -0.91    13 · 54 · +0.12 · -0.68       1 · 100 · +0.83 · —             NaN False
+                       Petrol   düşüşe başladı (5 g z≤−1,5)    1  AL   118 · 55 · +0.61 · -0.10    37 · 51 · +0.12 · -0.47        4 · 25 · -0.82 · —        0.331272 False
+           Faiz eğrisi 10y−2y        ani yükseliş (1 g z≥2)    3  AL    45 · 60 · +0.97 · -1.55    21 · 48 · +0.10 · -1.52        7 · 29 · -1.70 · —             NaN False
+        MOVE tahvil oynaklığı   düşüşe başladı (5 g z≤−1,5)    1 SAT    73 · 53 · -0.08 · -0.61    30 · 47 · +0.09 · -0.37        5 · 60 · +0.96 · —        0.178736 False
+        MicroStrategy hissesi yükselişe başladı (5 g z≥1,5)    1  AL   125 · 55 · +0.38 · -0.02    51 · 57 · +0.08 · -0.30   14 · 50 · -0.40 · -0.79       -0.183699 False
+        MOVE tahvil oynaklığı   düşüşe başladı (5 g z≤−1,5)    3  AL    47 · 49 · +0.64 · -0.82    19 · 53 · +0.08 · -1.79        4 · 50 · -2.75 · —        0.030780 False
+        Japon yeni güçleniyor        ani yükseliş (1 g z≥2)    1  AL    44 · 57 · +0.23 · -0.64    23 · 43 · +0.08 · -0.42    8 · 38 · -0.30 · -0.93       -0.040272 False
+                   Nikkei 225        ani yükseliş (1 g z≥2)    3 SAT    50 · 48 · +1.50 · -0.11    17 · 53 · +0.07 · -1.41    9 · 56 · +0.98 · -0.34        0.239785 False
+        Japon yeni güçleniyor        ani yükseliş (1 g z≥2)    7 SAT    38 · 55 · +1.93 · -1.42    15 · 53 · +0.07 · -2.66        5 · 60 · +3.11 · —        0.286925 False
+                   Euro/dolar          ani düşüş (1 g z≤−2)    3  AL    42 · 60 · +1.91 · +0.54    17 · 41 · +0.06 · -2.06    9 · 56 · -0.77 · -3.18       -1.717366 False
+                   Nikkei 225        ani yükseliş (1 g z≥2)    1 SAT    52 · 44 · +0.36 · -0.54    18 · 56 · +0.05 · -2.00    9 · 67 · +2.13 · +0.15       -0.263905 False
+             Reel faiz (10 y)   düşüşe başladı (5 g z≤−1,5)    3 SAT    49 · 47 · +1.13 · -0.80    12 · 50 · +0.04 · -1.61        2 · 50 · -1.87 · —             NaN False
+                   Euro/dolar yükselişe başladı (5 g z≥1,5)    1 SAT    94 · 44 · -0.02 · -0.70    36 · 44 · +0.03 · -1.00   13 · 54 · +1.06 · -0.30       -0.112069 False
+                        Altın   düşüşe başladı (5 g z≤−1,5)    3  AL    55 · 65 · +0.85 · -0.41    21 · 43 · +0.02 · -1.33        7 · 43 · -1.04 · —       -0.540055 False
+                      S&P 500   düşüşe başladı (5 g z≤−1,5)    1  AL   109 · 53 · +0.17 · -0.48    36 · 42 · +0.02 · -0.60        3 · 33 · -0.17 · —       -0.876883 False
+                   Dolar/yuan   düşüşe başladı (5 g z≤−1,5)    1  AL   102 · 48 · +0.00 · -0.50    27 · 44 · +0.02 · -0.82    9 · 44 · -0.19 · -1.91        0.230358 False
+                        Altın          ani düşüş (1 g z≤−2)    1  AL    55 · 55 · +0.40 · -0.20    22 · 45 · +0.01 · -0.67         3 · 0 · -1.62 · —        0.695555 False
+                        Altın yükselişe başladı (5 g z≥1,5)    1 SAT   117 · 47 · +0.00 · -0.47    67 · 40 · +0.01 · -0.45   14 · 50 · +0.96 · -0.12       -0.417037 False
+                       Petrol   düşüşe başladı (5 g z≤−1,5)    3  AL    68 · 51 · +0.71 · -0.88    24 · 46 · +0.00 · -1.54        4 · 50 · +0.60 · —        0.593649 False
+        MOVE tahvil oynaklığı        ani yükseliş (1 g z≥2)    1  AL    52 · 58 · +0.65 · -0.14    24 · 54 · -0.01 · -0.79    8 · 38 · -0.44 · -1.04       -0.851995 False
+                        Gümüş   düşüşe başladı (5 g z≤−1,5)    3  AL    61 · 59 · +0.77 · -0.52    15 · 40 · -0.01 · -1.72        5 · 20 · -1.56 · —       -1.655071 False
+        MicroStrategy hissesi          ani düşüş (1 g z≤−2)    3 SAT    38 · 53 · +1.42 · -0.39    19 · 42 · -0.03 · -1.58       3 · 100 · +2.41 · —       -0.653554 False
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    3 SAT    64 · 42 · +0.25 · -1.17    33 · 45 · -0.05 · -1.36   12 · 42 · +0.41 · -1.48       -0.030071 False
+                        Gümüş        ani yükseliş (1 g z≥2)    1  AL    47 · 45 · +0.06 · -0.70    28 · 46 · -0.08 · -0.85        3 · 33 · -0.39 · —       -0.556118 False
+ Yüksek getirili tahvil (HYG)   düşüşe başladı (5 g z≤−1,5)    1 SAT   105 · 50 · +0.39 · -0.27    33 · 39 · -0.08 · -0.57   16 · 25 · -0.45 · -1.14       -0.104043 False
+                   Euro/dolar        ani yükseliş (1 g z≥2)    3 SAT    33 · 36 · +0.05 · -2.12    16 · 38 · -0.09 · -1.78    8 · 38 · +0.08 · -1.45       -1.066961 False
+                   Euro/dolar yükselişe başladı (5 g z≥1,5)    3  AL    59 · 58 · +0.39 · -1.58    22 · 64 · -0.09 · -1.58        7 · 57 · -1.07 · —       -0.242346 False
+             Reel faiz (10 y)   düşüşe başladı (5 g z≤−1,5)    1 SAT    87 · 47 · +0.09 · -0.59    17 · 47 · -0.09 · -1.05        2 · 50 · -0.68 · —             NaN False
+                       Petrol        ani yükseliş (1 g z≥2)    1 SAT    31 · 39 · -0.24 · -2.50    14 · 36 · -0.10 · -1.23        7 · 43 · -0.55 · —       -0.183684 False
+                     Doğalgaz yükselişe başladı (5 g z≥1,5)    3 SAT    67 · 49 · +0.87 · -0.41    24 · 46 · -0.10 · -1.37       3 · 100 · +3.08 · —       -1.381556 False
+ Yüksek getirili tahvil (HYG)          ani düşüş (1 g z≤−2)    1 SAT    61 · 44 · -0.08 · -0.79    19 · 42 · -0.11 · -0.78    8 · 50 · +0.38 · -0.29        0.529374 False
+             Coinbase hissesi   düşüşe başladı (5 g z≤−1,5)    3 SAT    22 · 45 · +0.62 · -0.90    25 · 44 · -0.12 · -1.36        6 · 67 · +0.99 · —       -0.785165 False
+                      S&P 500          ani düşüş (1 g z≤−2)    3 SAT    55 · 55 · +1.54 · -0.21    24 · 50 · -0.12 · -1.56        4 · 25 · -1.92 · —        0.357998 False
+        MicroStrategy hissesi   düşüşe başladı (5 g z≤−1,5)    3 SAT    49 · 49 · -0.24 · -2.25    23 · 43 · -0.13 · -1.52        5 · 80 · +0.59 · —       -0.138612 False
+                        Altın        ani yükseliş (1 g z≥2)    1  AL    50 · 48 · +0.73 · -0.07    19 · 58 · -0.14 · -1.75        4 · 50 · -3.46 · —       -1.060035 False
+                   Euro/dolar   düşüşe başladı (5 g z≤−1,5)    1  AL   118 · 52 · +0.12 · -0.36    39 · 41 · -0.14 · -0.68   15 · 40 · -0.04 · -1.24       -0.589084 False
+        MOVE tahvil oynaklığı          ani düşüş (1 g z≤−2)    1 SAT    26 · 46 · +0.83 · -1.54    13 · 38 · -0.14 · -1.04        3 · 33 · +1.00 · —       -1.198022 False
+        Japon yeni güçleniyor yükselişe başladı (5 g z≥1,5)    1 SAT   102 · 43 · +0.22 · -0.39    53 · 45 · -0.15 · -0.63   19 · 47 · +0.58 · -0.18       -0.061998 False
+                        Altın   düşüşe başladı (5 g z≤−1,5)    7  AL    41 · 51 · +1.21 · -1.06    15 · 47 · -0.17 · -3.51        5 · 40 · -2.46 · —        0.573745 False
+             Reel faiz (10 y)          ani düşüş (1 g z≤−2)    3 SAT    36 · 53 · +0.00 · -1.62     8 · 38 · -0.18 · -2.07        2 · 50 · +0.84 · —             NaN False
+                     Doğalgaz        ani yükseliş (1 g z≥2)    1 SAT    50 · 48 · +0.17 · -1.29    21 · 43 · -0.18 · -0.74         4 · 0 · -0.25 · —       -0.530489 False
+           Faiz eğrisi 10y−2y   düşüşe başladı (5 g z≤−1,5)    3 SAT    54 · 54 · +1.42 · -0.35    15 · 53 · -0.18 · -1.20   11 · 45 · -0.38 · -1.64             NaN False
+                       Nasdaq          ani düşüş (1 g z≤−2)    3 SAT    63 · 54 · +1.27 · -0.28    24 · 46 · -0.19 · -1.84        3 · 33 · -0.67 · —       -1.027524 False
+             Fed net likidite   düşüşe başladı (5 g z≤−1,5)    1 SAT    40 · 57 · +0.46 · -0.46    13 · 38 · -0.19 · -0.85       1 · 100 · +0.60 · —             NaN False
+                        Gümüş yükselişe başladı (5 g z≥1,5)    1 SAT   102 · 49 · -0.07 · -0.71    62 · 44 · -0.19 · -0.66        7 · 71 · +1.03 · —        0.202136 False
+            VIX korku endeksi        ani yükseliş (1 g z≥2)    3 SAT    56 · 55 · -0.03 · -2.00    15 · 47 · -0.23 · -1.71        3 · 33 · -1.81 · —       -0.142222 False
+                     Doğalgaz yükselişe başladı (5 g z≥1,5)    1  AL   116 · 51 · +0.16 · -0.35    42 · 45 · -0.23 · -0.90    8 · 12 · -1.15 · -1.71       -0.627326 False
+           Faiz eğrisi 10y−2y        ani yükseliş (1 g z≥2)    1  AL    49 · 59 · +0.42 · -1.03    22 · 59 · -0.25 · -1.00        7 · 14 · -2.00 · —             NaN False
+                   Nikkei 225   düşüşe başladı (5 g z≤−1,5)    1 SAT   111 · 52 · +0.41 · -0.34    31 · 48 · -0.26 · -0.99        5 · 80 · +1.83 · —        0.354771 False
+                       Nasdaq        ani yükseliş (1 g z≥2)    1 SAT    39 · 41 · +0.09 · -1.66    15 · 47 · -0.26 · -1.46        4 · 75 · +0.40 · —        1.018259 False
+                   Nikkei 225 yükselişe başladı (5 g z≥1,5)    3  AL    77 · 57 · +1.87 · +0.50    29 · 45 · -0.27 · -1.22    9 · 44 · -1.06 · -2.86       -1.041445 False
+        MicroStrategy hissesi          ani düşüş (1 g z≤−2)    1  AL    44 · 57 · +0.25 · -0.84    20 · 40 · -0.27 · -1.28        4 · 25 · -2.10 · —       -0.766312 False
+            DXY dolar endeksi        ani yükseliş (1 g z≥2)    3 SAT    33 · 39 · -0.18 · -2.35    13 · 54 · -0.29 · -2.03        5 · 40 · -0.97 · —       -0.711670 False
+             Reel faiz (10 y)        ani yükseliş (1 g z≥2)    3 SAT    43 · 58 · +1.61 · -0.19    19 · 37 · -0.29 · -1.38    8 · 38 · -0.44 · -1.21             NaN False
+        MicroStrategy hissesi   düşüşe başladı (5 g z≤−1,5)    1  AL    82 · 56 · +0.39 · -0.38    41 · 46 · -0.30 · -0.82   11 · 45 · -0.24 · -1.82        0.097408 False
+            DXY dolar endeksi yükselişe başladı (5 g z≥1,5)    1  AL   115 · 52 · +0.03 · -0.58    37 · 32 · -0.33 · -0.83   18 · 33 · -0.43 · -1.03       -0.488653 False
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    1 SAT    87 · 49 · +0.36 · -0.19    38 · 42 · -0.33 · -1.18        7 · 43 · -0.32 · —       -0.331472 False
+             Reel faiz (10 y)        ani yükseliş (1 g z≥2)    1 SAT    48 · 48 · +0.51 · -0.44    21 · 48 · -0.33 · -1.28    9 · 44 · -0.33 · -1.26             NaN False
+            DXY dolar endeksi yükselişe başladı (5 g z≥1,5)    3  AL    73 · 59 · +0.59 · -0.77    23 · 39 · -0.34 · -1.61   11 · 36 · -1.18 · -3.16       -0.800082 False
+                   Nikkei 225        ani yükseliş (1 g z≥2)    7  AL    46 · 59 · +2.20 · +0.02    16 · 56 · -0.34 · -2.98    8 · 50 · -0.60 · -3.81       -0.269323 False
+        MicroStrategy hissesi   düşüşe başladı (5 g z≤−1,5)    7  AL    33 · 36 · +1.08 · -3.02    17 · 47 · -0.36 · -2.72        4 · 25 · -1.77 · —       -0.500827 False
+                        Bakır yükselişe başladı (5 g z≥1,5)    3 SAT    53 · 51 · +0.44 · -1.50    32 · 44 · -0.36 · -1.05        7 · 71 · +1.65 · —       -0.315413 False
+            DXY dolar endeksi        ani yükseliş (1 g z≥2)    7  AL    31 · 55 · +2.57 · -1.36    12 · 42 · -0.37 · -3.80        4 · 50 · -1.25 · —       -1.585671 False
+            DXY dolar endeksi yükselişe başladı (5 g z≥1,5)    7  AL    53 · 58 · +2.17 · -0.34    18 · 44 · -0.37 · -2.34    9 · 33 · -1.23 · -3.92       -0.965115 False
+                        Gümüş yükselişe başladı (5 g z≥1,5)    3 SAT    58 · 59 · +0.14 · -1.04    34 · 50 · -0.37 · -1.47       5 · 100 · +3.10 · —        0.629473 False
+           Faiz eğrisi 10y−2y        ani yükseliş (1 g z≥2)    7  AL    39 · 67 · +4.93 · +1.49    20 · 50 · -0.39 · -3.15        7 · 14 · -5.36 · —             NaN False
+Uzun vadeli ABD tahvili (TLT)   düşüşe başladı (5 g z≤−1,5)    1  AL   105 · 50 · +0.17 · -0.48    33 · 45 · -0.39 · -0.99   14 · 50 · -0.04 · -0.39        0.248790 False
+                       Nasdaq          ani düşüş (1 g z≤−2)    1 SAT    68 · 44 · -0.16 · -1.06    28 · 43 · -0.41 · -1.35        4 · 25 · -0.98 · —       -0.031247 False
+            VIX korku endeksi        ani yükseliş (1 g z≥2)    7 SAT    46 · 50 · -0.79 · -4.45    12 · 67 · -0.43 · -1.77        3 · 33 · -3.96 · —       -0.564999 False
+                     Doğalgaz   düşüşe başladı (5 g z≤−1,5)    1  AL   100 · 46 · +0.02 · -0.57    34 · 41 · -0.43 · -0.95    9 · 33 · -1.07 · -1.53       -0.635731 False
+            VIX korku endeksi        ani yükseliş (1 g z≥2)    1  AL    58 · 53 · +0.14 · -0.62    17 · 53 · -0.44 · -1.45        3 · 67 · +0.64 · —       -0.638750 False
+                        Gümüş   düşüşe başladı (5 g z≤−1,5)    1  AL   112 · 49 · +0.46 · -0.15    24 · 42 · -0.45 · -1.01    8 · 38 · -1.05 · -1.73       -0.806006 False
+                   Nikkei 225 yükselişe başladı (5 g z≥1,5)    1  AL   130 · 60 · +0.45 · -0.04    50 · 42 · -0.46 · -0.86   18 · 33 · -0.86 · -1.23        0.416481 False
+                        Bakır yükselişe başladı (5 g z≥1,5)    1 SAT    80 · 48 · -0.02 · -0.76    54 · 41 · -0.46 · -1.07   10 · 60 · +0.94 · +0.09       -0.363483 False
+             Reel faiz (10 y) yükselişe başladı (5 g z≥1,5)    1 SAT   101 · 48 · -0.25 · -0.92    50 · 40 · -0.47 · -1.12   26 · 35 · -0.64 · -1.45             NaN False
+                       Petrol yükselişe başladı (5 g z≥1,5)    1  AL    74 · 58 · +0.59 · -0.14    44 · 43 · -0.48 · -1.00   20 · 40 · -0.79 · -1.61        0.034189 False
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    3 SAT    53 · 51 · +0.98 · -0.76    24 · 50 · -0.48 · -1.70        5 · 40 · -0.52 · —       -0.441728 False
+                      S&P 500          ani düşüş (1 g z≤−2)    7 SAT    41 · 61 · +0.04 · -3.55    21 · 48 · -0.48 · -2.28        4 · 50 · -1.59 · —        0.766414 False
+                      S&P 500        ani yükseliş (1 g z≥2)    1 SAT    41 · 46 · +0.33 · -1.39    13 · 38 · -0.49 · -1.66        3 · 33 · -0.55 · —        0.778644 False
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    1 SAT    50 · 40 · +0.70 · -0.63    18 · 44 · -0.49 · -1.88    8 · 50 · -0.42 · -1.99       -1.001724 False
+            DXY dolar endeksi        ani yükseliş (1 g z≥2)    1 SAT    36 · 44 · -0.33 · -2.00    14 · 36 · -0.50 · -1.56        6 · 33 · -1.59 · —       -0.562113 False
+                      S&P 500          ani düşüş (1 g z≤−2)    1 SAT    61 · 44 · +0.02 · -0.92    26 · 42 · -0.50 · -1.39        5 · 20 · -0.89 · —        0.347434 False
+                     Doğalgaz   düşüşe başladı (5 g z≤−1,5)    3  AL    61 · 56 · +1.15 · -0.25    20 · 45 · -0.52 · -1.92        4 · 25 · -2.70 · —       -1.116056 False
+             ABD 10 yıl faizi          ani düşüş (1 g z≤−2)    1 SAT    43 · 49 · +0.30 · -0.54    13 · 46 · -0.53 · -1.77        3 · 67 · +0.71 · —       -1.074244 False
+ Yüksek getirili tahvil (HYG)   düşüşe başladı (5 g z≤−1,5)    3 SAT    66 · 45 · +0.51 · -1.19    21 · 33 · -0.55 · -1.71    9 · 33 · -1.19 · -2.53        0.916943 False
+                       Petrol          ani düşüş (1 g z≤−2)    7  AL    40 · 60 · +3.22 · -0.57    18 · 44 · -0.55 · -2.54        6 · 50 · -1.74 · —       -0.498357 False
+                   Dolar/yuan          ani düşüş (1 g z≤−2)    3 SAT    51 · 49 · +0.20 · -1.13    17 · 47 · -0.57 · -1.98        3 · 67 · +0.66 · —       -1.144016 False
+             Reel faiz (10 y) yükselişe başladı (5 g z≥1,5)    3 SAT    60 · 42 · -0.00 · -1.66    31 · 45 · -0.58 · -1.40   15 · 40 · -0.83 · -1.95             NaN False
+           Faiz eğrisi 10y−2y yükselişe başladı (5 g z≥1,5)    3  AL    65 · 63 · +1.02 · -0.09    22 · 55 · -0.62 · -1.75        6 · 67 · -0.08 · —             NaN False
+           Faiz eğrisi 10y−2y   düşüşe başladı (5 g z≤−1,5)    1 SAT    84 · 54 · +0.83 · +0.16    19 · 37 · -0.64 · -1.29   15 · 40 · -0.69 · -1.53             NaN False
+             ABD 10 yıl faizi   düşüşe başladı (5 g z≤−1,5)    3 SAT    59 · 56 · +0.67 · -0.98    25 · 44 · -0.65 · -1.55        5 · 20 · -1.13 · —       -0.378226 False
+                     Doğalgaz        ani yükseliş (1 g z≥2)    7 SAT    40 · 48 · -0.68 · -3.91    18 · 39 · -0.65 · -3.46        2 · 50 · -0.26 · —       -0.903418 False
+           Faiz eğrisi 10y−2y yükselişe başladı (5 g z≥1,5)    1  AL   101 · 58 · +0.81 · +0.19    37 · 38 · -0.65 · -1.29   11 · 36 · -0.28 · -1.35             NaN False
+                   Nikkei 225 yükselişe başladı (5 g z≥1,5)    7  AL    49 · 69 · +4.96 · +2.72    19 · 47 · -0.65 · -2.90        7 · 29 · -2.94 · —       -1.652014 False
+                       Petrol          ani düşüş (1 g z≤−2)    1  AL    54 · 56 · +0.50 · -0.48    21 · 43 · -0.66 · -1.59        6 · 50 · -0.62 · —       -0.074751 False
+                   Euro/dolar          ani düşüş (1 g z≤−2)    1  AL    43 · 47 · +0.79 · -0.24    17 · 53 · -0.66 · -1.52    9 · 56 · -0.83 · -2.00       -0.604306 False
+Uzun vadeli ABD tahvili (TLT)          ani düşüş (1 g z≤−2)    7 SAT    40 · 48 · -0.06 · -3.07    13 · 62 · -0.69 · -3.65        6 · 83 · +1.01 · —       -0.682439 False
+        MOVE tahvil oynaklığı          ani düşüş (1 g z≤−2)    3 SAT    23 · 61 · +1.75 · -1.26    12 · 33 · -0.71 · -2.49        3 · 67 · +1.48 · —        0.656507 False
+                        Altın          ani düşüş (1 g z≤−2)    3 SAT    51 · 47 · -0.10 · -1.52    22 · 50 · -0.72 · -1.87        3 · 33 · +0.63 · —       -0.673711 False
+                        Gümüş   düşüşe başladı (5 g z≤−1,5)    7  AL    37 · 46 · +1.61 · -0.73    11 · 27 · -0.75 · -3.66        3 · 33 · -3.14 · —       -0.654946 False
+             ABD 10 yıl faizi yükselişe başladı (5 g z≥1,5)    3 SAT    73 · 44 · +0.11 · -1.01    31 · 39 · -0.77 · -1.93   11 · 36 · -0.78 · -2.48        0.397297 False
+             ABD 10 yıl faizi   düşüşe başladı (5 g z≤−1,5)    1 SAT    99 · 49 · +0.51 · -0.29    35 · 40 · -0.79 · -1.52        5 · 80 · +0.66 · —        0.267712 False
+             Coinbase hissesi   düşüşe başladı (5 g z≤−1,5)    1  AL    34 · 53 · -0.00 · -0.78    40 · 32 · -0.79 · -1.48    9 · 33 · -0.41 · -1.32       -0.353543 False
+             ABD 10 yıl faizi        ani yükseliş (1 g z≥2)    7 SAT    43 · 56 · +0.40 · -2.35    15 · 53 · -0.81 · -3.59        7 · 57 · +0.60 · —        0.506630 False
+        MOVE tahvil oynaklığı        ani yükseliş (1 g z≥2)    3 SAT    50 · 46 · +0.06 · -1.95    24 · 33 · -0.82 · -1.95    8 · 25 · -1.20 · -2.53        0.673060 False
+        MOVE tahvil oynaklığı yükselişe başladı (5 g z≥1,5)    7 SAT    42 · 55 · -0.01 · -3.16    13 · 46 · -0.84 · -3.17        4 · 75 · +1.89 · —       -0.197024 False
+                        Altın        ani yükseliş (1 g z≥2)    3  AL    47 · 60 · +1.37 · -0.22    18 · 56 · -0.86 · -2.95        4 · 25 · -3.53 · —       -0.858790 False
+                        Bakır        ani yükseliş (1 g z≥2)    3 SAT    37 · 43 · -0.21 · -1.91    20 · 40 · -0.89 · -3.08       3 · 100 · +4.96 · —       -0.271739 False
+Uzun vadeli ABD tahvili (TLT) yükselişe başladı (5 g z≥1,5)    7 SAT    38 · 53 · +0.86 · -2.31    17 · 41 · -0.92 · -3.05        4 · 75 · +3.39 · —        2.117681 False
+                        Bakır        ani yükseliş (1 g z≥2)    1  AL    37 · 54 · +0.15 · -0.51    21 · 38 · -0.95 · -2.84         3 · 0 · -7.80 · —       -0.405479 False
+             Fed net likidite yükselişe başladı (5 g z≥1,5)    3  AL    28 · 61 · +1.78 · +0.35    13 · 46 · -0.96 · -2.87         1 · 0 · -0.81 · —             NaN False
+                       Nasdaq          ani düşüş (1 g z≤−2)    7 SAT    45 · 58 · -0.86 · -5.10    20 · 60 · -1.02 · -3.08        3 · 33 · -2.28 · —       -0.341857 False
+        MOVE tahvil oynaklığı yükselişe başladı (5 g z≥1,5)    3 SAT    65 · 49 · +0.65 · -1.02    17 · 35 · -1.04 · -3.04        5 · 40 · +1.44 · —       -0.873517 False
+             Reel faiz (10 y)          ani düşüş (1 g z≤−2)    1 SAT    40 · 52 · +0.21 · -0.68     8 · 50 · -1.04 · -2.16        2 · 50 · -0.68 · —             NaN False
+                       Petrol   düşüşe başladı (5 g z≤−1,5)    7  AL    42 · 55 · +2.26 · -1.05    16 · 38 · -1.09 · -3.12        3 · 33 · -3.60 · —       -0.842459 False
+                   Dolar/yuan          ani düşüş (1 g z≤−2)    1 SAT    55 · 45 · +0.03 · -0.97    19 · 37 · -1.11 · -1.92        4 · 50 · +0.60 · —       -0.036318 False
+Uzun vadeli ABD tahvili (TLT)          ani düşüş (1 g z≤−2)    1 SAT    48 · 44 · +0.83 · -0.33    16 · 38 · -1.14 · -2.45        7 · 57 · +0.56 · —       -0.917267 False
+                        Gümüş yükselişe başladı (5 g z≥1,5)    7 SAT    37 · 54 · -0.01 · -3.00    24 · 42 · -1.16 · -3.13        4 · 50 · +3.29 · —       -0.129922 False
+ Yüksek getirili tahvil (HYG)          ani düşüş (1 g z≤−2)    7 SAT    40 · 57 · +1.24 · -1.90    14 · 43 · -1.19 · -3.39        5 · 40 · -1.13 · —       -0.150725 False
+                        Bakır        ani yükseliş (1 g z≥2)    7 SAT    34 · 59 · +0.22 · -2.57    16 · 44 · -1.23 · -4.54        2 · 50 · +7.13 · —       -0.076234 False
+        Japon yeni güçleniyor        ani yükseliş (1 g z≥2)    3 SAT    42 · 36 · -0.27 · -2.26    20 · 40 · -1.24 · -2.77        7 · 43 · -0.08 · —       -1.069159 False
+                        Bakır yükselişe başladı (5 g z≥1,5)    7 SAT    36 · 61 · +1.79 · -1.00    20 · 35 · -1.30 · -3.53        6 · 67 · +2.30 · —       -0.488981 False
+                       Nasdaq        ani yükseliş (1 g z≥2)    3  AL    38 · 55 · +0.49 · -1.79    15 · 40 · -1.34 · -3.51        4 · 25 · -1.32 · —        1.391800 False
+ Yüksek getirili tahvil (HYG)   düşüşe başladı (5 g z≤−1,5)    7 SAT    45 · 49 · -0.37 · -3.58    14 · 36 · -1.39 · -3.10        5 · 20 · -1.66 · —       -0.223118 False
+ Yüksek getirili tahvil (HYG)        ani yükseliş (1 g z≥2)    3  AL    47 · 57 · +0.30 · -1.65    13 · 38 · -1.40 · -2.91        7 · 14 · -2.68 · —        1.681725 False
+                       Petrol          ani düşüş (1 g z≤−2)    3  AL    50 · 58 · +0.46 · -1.52    19 · 42 · -1.42 · -2.97        6 · 33 · -2.59 · —       -1.480382 False
+                     Doğalgaz          ani düşüş (1 g z≤−2)    1  AL    49 · 57 · +0.59 · -0.29    11 · 18 · -1.43 · -2.73         4 · 0 · -2.74 · —       -0.706640 False
+        Japon yeni güçleniyor          ani düşüş (1 g z≤−2)    1  AL    44 · 57 · +0.85 · -0.13    15 · 33 · -1.45 · -2.24         1 · 0 · -3.54 · —        0.304322 False
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    1 SAT    42 · 48 · +0.12 · -0.82    12 · 33 · -1.45 · -3.06        7 · 43 · -1.14 · —        1.038357 False
+                        Gümüş        ani yükseliş (1 g z≥2)    7  AL    41 · 41 · +1.65 · -1.05    19 · 47 · -1.46 · -3.59        3 · 33 · -6.98 · —       -1.646054 False
+Uzun vadeli ABD tahvili (TLT)        ani yükseliş (1 g z≥2)    3 SAT    40 · 55 · -0.06 · -2.62    11 · 36 · -1.46 · -3.26        6 · 50 · -2.09 · —       -2.177110 False
+            DXY dolar endeksi   düşüşe başladı (5 g z≤−1,5)    7 SAT    42 · 50 · -0.31 · -3.60    12 · 33 · -1.50 · -3.94        4 · 25 · -1.35 · —       -1.565986 False
+Uzun vadeli ABD tahvili (TLT)          ani düşüş (1 g z≤−2)    3 SAT    45 · 49 · +1.11 · -1.01    14 · 43 · -1.51 · -3.43        6 · 50 · -0.41 · —       -1.265078 False
+                       Nasdaq        ani yükseliş (1 g z≥2)    7 SAT    34 · 50 · -0.53 · -4.09    15 · 47 · -1.54 · -5.48        4 · 25 · -2.05 · —        0.345720 False
+ Yüksek getirili tahvil (HYG)          ani düşüş (1 g z≤−2)    3 SAT    53 · 43 · +0.99 · -0.86    16 · 25 · -1.59 · -3.11        6 · 17 · -0.93 · —       -0.007198 False
+                   Dolar/yuan          ani düşüş (1 g z≤−2)    7 SAT    45 · 44 · -0.26 · -2.59    15 · 40 · -1.62 · -3.96        3 · 67 · -0.96 · —       -2.555829 False
+                     Doğalgaz   düşüşe başladı (5 g z≤−1,5)    7  AL    43 · 60 · +2.14 · -0.43    13 · 54 · -1.64 · -4.23        2 · 50 · -3.51 · —       -2.324017 False
+           Faiz eğrisi 10y−2y          ani düşüş (1 g z≤−2)    1 SAT    43 · 53 · +0.63 · -0.08    11 · 27 · -1.65 · -2.93    8 · 25 · -1.63 · -3.07             NaN False
+             ABD 10 yıl faizi   düşüşe başladı (5 g z≤−1,5)    7 SAT    42 · 60 · +1.16 · -1.23    19 · 32 · -1.65 · -3.41        4 · 50 · +2.75 · —        0.861246 False
+             Reel faiz (10 y)   düşüşe başladı (5 g z≤−1,5)    7 SAT    35 · 51 · +1.09 · -1.71    10 · 40 · -1.73 · -3.70        2 · 50 · -3.04 · —             NaN False
+Uzun vadeli ABD tahvili (TLT)   düşüşe başladı (5 g z≤−1,5)    7 SAT    51 · 57 · +0.19 · -2.25    15 · 33 · -1.77 · -3.84        5 · 40 · -1.16 · —       -2.431459 False
+        MicroStrategy hissesi        ani yükseliş (1 g z≥2)    1 SAT    43 · 47 · -0.15 · -0.85    23 · 17 · -1.96 · -2.93        7 · 14 · -1.43 · —        0.229421 False
+           Faiz eğrisi 10y−2y          ani düşüş (1 g z≤−2)    7 SAT    39 · 36 · -1.18 · -4.62    11 · 36 · -1.96 · -4.27    8 · 38 · -1.85 · -4.25             NaN False
+           Faiz eğrisi 10y−2y          ani düşüş (1 g z≤−2)    3 SAT    42 · 43 · +0.61 · -1.71    11 · 36 · -2.08 · -3.53    8 · 38 · -2.31 · -4.05             NaN False
+             ABD 10 yıl faizi          ani düşüş (1 g z≤−2)    7 SAT    34 · 44 · +0.08 · -3.42    11 · 36 · -2.10 · -4.18        3 · 33 · -1.14 · —       -0.092064 False
+           Faiz eğrisi 10y−2y   düşüşe başladı (5 g z≤−1,5)    7 SAT    38 · 58 · +0.36 · -3.41    11 · 27 · -2.14 · -4.21        7 · 43 · -1.39 · —             NaN False
+                        Gümüş          ani düşüş (1 g z≤−2)    7  AL    42 · 60 · +2.64 · +0.47    14 · 36 · -2.23 · -5.98        1 · 0 · -18.17 · —       -0.911894 False
+             ABD 10 yıl faizi yükselişe başladı (5 g z≥1,5)    7 SAT    53 · 55 · -0.16 · -2.48    21 · 33 · -2.28 · -4.32    8 · 38 · -1.06 · -2.78       -0.995752 False
+                       Nasdaq   düşüşe başladı (5 g z≤−1,5)    3 SAT    63 · 41 · +0.12 · -1.22    25 · 32 · -2.36 · -3.71        6 · 50 · -1.77 · —       -1.367009 False
+             Fed net likidite   düşüşe başladı (5 g z≤−1,5)    7 SAT    40 · 52 · +0.27 · -2.49    13 · 23 · -2.37 · -5.01        1 · 0 · -15.12 · —             NaN False
+                     Doğalgaz          ani düşüş (1 g z≤−2)    3  AL    48 · 56 · +0.51 · -1.16    10 · 30 · -2.45 · -4.25        4 · 25 · -3.91 · —       -4.081179 False
+           Faiz eğrisi 10y−2y yükselişe başladı (5 g z≥1,5)    7  AL    44 · 52 · +1.84 · -0.81    16 · 31 · -2.54 · -4.18        3 · 67 · -2.90 · —             NaN False
+        MOVE tahvil oynaklığı          ani düşüş (1 g z≤−2)    7 SAT    21 · 38 · -0.03 · -3.77    11 · 36 · -2.83 · -6.14        3 · 67 · +0.18 · —        2.688091 False
+             Reel faiz (10 y)          ani düşüş (1 g z≤−2)    7 SAT    33 · 52 · +0.52 · -2.04         7 · 29 · -2.86 · —        2 · 50 · -2.16 · —             NaN False
+                      S&P 500        ani yükseliş (1 g z≥2)    7 SAT    35 · 51 · +0.02 · -4.09    13 · 38 · -3.14 · -7.20         3 · 0 · -3.37 · —       -0.963861 False
+                     Doğalgaz          ani düşüş (1 g z≤−2)    7  AL    41 · 61 · +1.68 · -1.31     9 · 33 · -3.30 · -6.64        3 · 33 · -4.88 · —       -4.915222 False
+```
+
+## 3. Saatlik (son 730 gün, Yahoo vadeli/döviz): varlık 1 saatte ani hareket → BTC sonraki saatler (giriş 1 saat sonra)
+- DXY vadeli: saatlik veri alınamadı
+_ayni_saat_kor: aynı saatte birlikte mi · sonraki_kor: varlığın son 1 saati ile BTC'nin sonraki H saati (negatif = varlık yükselince BTC sonra düşüyor)_
+```
+                                                         ayni_saat_kor        sonraki_kor       
+donem                                                           1. yıl 2. yıl      1. yıl 2. yıl
+varlik                                              saat                                        
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor) 1           -0.071  0.092      -0.022 -0.005
+                                                    4           -0.071  0.092      -0.001 -0.011
+                                                    24          -0.071  0.093      -0.010 -0.002
+Altın vadeli                                        1            0.052  0.269      -0.001  0.001
+                                                    4            0.052  0.269       0.009 -0.006
+                                                    24           0.052  0.269       0.019 -0.012
+Euro/dolar                                          1            0.051  0.170      -0.010  0.020
+                                                    4            0.051  0.170       0.011  0.006
+                                                    24           0.051  0.171       0.013  0.011
+Gümüş vadeli                                        1            0.151  0.289      -0.016 -0.005
+                                                    4            0.151  0.289       0.005 -0.003
+                                                    24           0.151  0.289       0.014  0.003
+Nasdaq vadeli                                       1            0.454  0.459      -0.018  0.009
+                                                    4            0.454  0.459      -0.002  0.005
+                                                    24           0.454  0.459      -0.028 -0.008
+Petrol vadeli                                       1            0.085 -0.155       0.006  0.027
+                                                    4            0.085 -0.155      -0.002  0.005
+                                                    24           0.085 -0.155      -0.031  0.006
+S&P vadeli                                          1            0.440  0.436      -0.014  0.022
+                                                    4            0.440  0.436      -0.003  0.007
+                                                    24           0.440  0.436      -0.028 -0.007
+VIX                                                 1           -0.456 -0.451       0.019 -0.014
+                                                    4           -0.456 -0.451      -0.003 -0.003
+                                                    24          -0.456 -0.452       0.020 -0.015
+Yen güçleniyor (USD/JPY ters)                       1           -0.105  0.054       0.002  0.005
+                                                    4           -0.105  0.054       0.015  0.004
+                                                    24          -0.105  0.055       0.025  0.003
+```
+Saatlik para testi (54 deneme; yön 1. yıldan, 2. yıl net > 0 ve alt > 0 → ✅; işlem · isabet · işlem başı net %): ✅ geçen **0**
+```
+                                             varlik               sinyal  saat yon              yil1                          yil2    ok
+                                       Altın vadeli ani yükseliş (z≥2,5)     1  AL  71 · %42 · -0.07  79 · %42 · -0.08 (alt -0.18) False
+                                       Altın vadeli   ani düşüş (z≤−2,5)     1  AL  85 · %47 · -0.03 113 · %49 · -0.05 (alt -0.17) False
+                                       Altın vadeli ani yükseliş (z≥2,5)     4  AL  67 · %45 · +0.03  71 · %48 · -0.06 (alt -0.32) False
+                                       Altın vadeli   ani düşüş (z≤−2,5)     4  AL  78 · %62 · +0.22  92 · %49 · -0.09 (alt -0.24) False
+                                       Altın vadeli ani yükseliş (z≥2,5)    24  AL  54 · %54 · +0.37  53 · %43 · -0.06 (alt -0.68) False
+                                       Altın vadeli   ani düşüş (z≤−2,5)    24  AL  61 · %57 · +0.27  63 · %48 · -0.22 (alt -0.81) False
+                                      Petrol vadeli ani yükseliş (z≥2,5)     1  AL  79 · %43 · -0.06  80 · %51 · -0.01 (alt -0.11) False
+                                      Petrol vadeli   ani düşüş (z≤−2,5)     1 SAT 100 · %45 · -0.05  99 · %44 · -0.10 (alt -0.18) False
+                                      Petrol vadeli ani yükseliş (z≥2,5)     4  AL  67 · %49 · +0.05  73 · %45 · +0.01 (alt -0.20) False
+                                      Petrol vadeli   ani düşüş (z≤−2,5)     4 SAT  87 · %41 · -0.10  93 · %42 · -0.19 (alt -0.37) False
+                                      Petrol vadeli ani yükseliş (z≥2,5)    24 SAT  50 · %56 · +0.23  50 · %46 · -0.15 (alt -0.73) False
+                                      Petrol vadeli   ani düşüş (z≤−2,5)    24  AL  69 · %51 · +0.15  68 · %41 · -0.55 (alt -1.07) False
+                                      Nasdaq vadeli ani yükseliş (z≥2,5)     1 SAT  81 · %53 · +0.01  99 · %32 · -0.14 (alt -0.24) False
+                                      Nasdaq vadeli   ani düşüş (z≤−2,5)     1  AL 112 · %54 · +0.03 109 · %47 · -0.07 (alt -0.17) False
+                                      Nasdaq vadeli ani yükseliş (z≥2,5)     4  AL  72 · %42 · -0.01  88 · %48 · -0.06 (alt -0.22) False
+                                      Nasdaq vadeli   ani düşüş (z≤−2,5)     4  AL  97 · %52 · +0.08  94 · %44 · -0.14 (alt -0.31) False
+                                      Nasdaq vadeli ani yükseliş (z≥2,5)    24  AL  56 · %61 · +0.54  71 · %46 · -0.25 (alt -0.76) False
+                                      Nasdaq vadeli   ani düşüş (z≤−2,5)    24  AL  77 · %57 · +0.43  69 · %42 · -0.22 (alt -0.82) False
+                                         S&P vadeli ani yükseliş (z≥2,5)     1 SAT  77 · %51 · -0.01 101 · %34 · -0.18 (alt -0.29) False
+                                         S&P vadeli   ani düşüş (z≤−2,5)     1  AL 115 · %50 · -0.01 110 · %53 · -0.10 (alt -0.23) False
+                                         S&P vadeli ani yükseliş (z≥2,5)     4  AL  63 · %43 · -0.00  86 · %47 · -0.09 (alt -0.24) False
+                                         S&P vadeli   ani düşüş (z≤−2,5)     4  AL  93 · %53 · +0.08  90 · %42 · -0.20 (alt -0.40) False
+                                         S&P vadeli ani yükseliş (z≥2,5)    24  AL  49 · %55 · +0.73  63 · %48 · -0.11 (alt -0.68) False
+                                         S&P vadeli   ani düşüş (z≤−2,5)    24  AL  69 · %61 · +0.42  63 · %40 · -0.44 (alt -1.10) False
+                      Yen güçleniyor (USD/JPY ters) ani yükseliş (z≥2,5)     1 SAT  79 · %43 · -0.09 105 · %33 · -0.17 (alt -0.25) False
+                      Yen güçleniyor (USD/JPY ters)   ani düşüş (z≤−2,5)     1  AL  59 · %51 · +0.03  53 · %40 · +0.00 (alt -0.13) False
+                      Yen güçleniyor (USD/JPY ters) ani yükseliş (z≥2,5)     4  AL  70 · %51 · -0.06  86 · %47 · -0.16 (alt -0.40) False
+                      Yen güçleniyor (USD/JPY ters)   ani düşüş (z≤−2,5)     4  AL  56 · %50 · +0.13  49 · %41 · +0.01 (alt -0.21) False
+                      Yen güçleniyor (USD/JPY ters) ani yükseliş (z≥2,5)    24  AL  54 · %54 · +0.10  59 · %53 · -0.05 (alt -0.48) False
+                      Yen güçleniyor (USD/JPY ters)   ani düşüş (z≤−2,5)    24 SAT  44 · %43 · -0.06  39 · %54 · +0.23 (alt -0.27) False
+                                         Euro/dolar ani yükseliş (z≥2,5)     1 SAT  86 · %37 · -0.08  90 · %38 · -0.20 (alt -0.34) False
+                                         Euro/dolar   ani düşüş (z≤−2,5)     1  AL  84 · %48 · -0.07  78 · %38 · -0.13 (alt -0.27) False
+                                         Euro/dolar ani yükseliş (z≥2,5)     4  AL  79 · %46 · +0.00  80 · %45 · -0.17 (alt -0.36) False
+                                         Euro/dolar   ani düşüş (z≤−2,5)     4  AL  76 · %49 · +0.03  64 · %47 · -0.02 (alt -0.29) False
+                                         Euro/dolar ani yükseliş (z≥2,5)    24 SAT  59 · %53 · -0.11  64 · %47 · -0.34 (alt -0.90) False
+                                         Euro/dolar   ani düşüş (z≤−2,5)    24  AL  57 · %54 · +0.47  47 · %38 · -0.63 (alt -1.22) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor) ani yükseliş (z≥2,5)     1  AL  84 · %51 · -0.07  91 · %45 · +0.00 (alt -0.13) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor)   ani düşüş (z≤−2,5)     1  AL  77 · %44 · -0.07  98 · %44 · -0.08 (alt -0.16) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor) ani yükseliş (z≥2,5)     4  AL  79 · %49 · +0.06  80 · %54 · -0.03 (alt -0.24) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor)   ani düşüş (z≤−2,5)     4  AL  66 · %53 · +0.10  89 · %46 · -0.08 (alt -0.23) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor) ani yükseliş (z≥2,5)    24  AL  63 · %48 · -0.01  69 · %45 · -0.20 (alt -0.68) False
+10 y tahvil vadeli (fiyat; yükseliş = faiz düşüyor)   ani düşüş (z≤−2,5)    24  AL  48 · %60 · +0.36  66 · %45 · -0.28 (alt -0.69) False
+                                       Gümüş vadeli ani yükseliş (z≥2,5)     1 SAT  76 · %46 · -0.06  76 · %47 · -0.15 (alt -0.28) False
+                                       Gümüş vadeli   ani düşüş (z≤−2,5)     1  AL  88 · %44 · -0.04  96 · %48 · -0.04 (alt -0.14) False
+                                       Gümüş vadeli ani yükseliş (z≥2,5)     4  AL  67 · %43 · +0.08  71 · %44 · -0.11 (alt -0.37) False
+                                       Gümüş vadeli   ani düşüş (z≤−2,5)     4  AL  74 · %51 · -0.01  80 · %49 · -0.06 (alt -0.24) False
+                                       Gümüş vadeli ani yükseliş (z≥2,5)    24  AL  55 · %51 · +0.15  58 · %48 · +0.11 (alt -0.43) False
+                                       Gümüş vadeli   ani düşüş (z≤−2,5)    24 SAT  62 · %55 · -0.05  56 · %52 · +0.13 (alt -0.55) False
+                                                VIX ani yükseliş (z≥2,5)     1  AL  63 · %52 · +0.03  66 · %50 · -0.03 (alt -0.17) False
+                                                VIX   ani düşüş (z≤−2,5)     1 SAT  49 · %49 · -0.03  58 · %38 · -0.13 (alt -0.32) False
+                                                VIX ani yükseliş (z≥2,5)     4  AL  53 · %49 · +0.09  54 · %43 · -0.16 (alt -0.42) False
+                                                VIX   ani düşüş (z≤−2,5)     4  AL  42 · %43 · +0.04  52 · %40 · -0.18 (alt -0.41) False
+                                                VIX ani yükseliş (z≥2,5)    24  AL  42 · %50 · +0.18  45 · %42 · -0.65 (alt -1.24) False
+                                                VIX   ani düşüş (z≤−2,5)    24  AL  36 · %47 · +0.43  40 · %48 · -0.44 (alt -1.01) False
+```
+
+_Süre: 128 sn_
