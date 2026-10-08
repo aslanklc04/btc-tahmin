@@ -97,6 +97,12 @@ if os.environ.get("DISA_AKTAR"):                                                
     EX = pd.DataFrame({"u4": u4m.reindex(SF[4].index).fillna(False)}, index=SF[4].index)
     EX["star"] = pd.Series(sm_, index=J.index).reindex(EX.index).fillna(False); EX["acls"] = (AC.m >= 0.85).reindex(EX.index).fillna(False)
     EX["y4"] = R[4]["D"].y.reindex(EX.index); EX["y8"] = R[8]["D"].y.reindex(EX.index); EX.to_pickle(f"disa_{SYM}.pkl")
+if os.environ.get("SF_AKTAR"):                                                                 # prim_hepsi.py: saatlik tüm ufuk/seviye/yön çerçevesi
+    X_ = pd.DataFrame(index=SF[4].index)
+    for H in CFG:
+        for a_ in ("S", "C", "T10", "T30"): X_[f"{a_}{H}"] = SF[H][a_].reindex(X_.index)
+        X_[f"y{H}"] = R[H]["D"].y.reindex(X_.index)
+    X_["am"] = AC.m.reindex(X_.index); X_.astype("float32").to_pickle(f"sf_{SYM}.pkl"); log("sf kaydedildi")
 # ---------------- 4) kayıt ----------------
 KEEP = pd.Timedelta(days=70); cutk = lambda s: s[s.index >= s.index[-1] - KEEP]
 state = dict(created=pd.Timestamp.now(tz="UTC"), sym=SYM, FEATS=FEATS, FEATS1=FEATS1, FEATS4=FEATS4, SIG=SIG, AUC=AUC,
