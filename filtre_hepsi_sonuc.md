@@ -217,4 +217,3 @@ BTC 4/8 saat ↑ + ⭐ + A                  (plasebo: rastgele %27)       NaN   
 ```
 
 _Süre: 52 sn_
-exit=0
