@@ -7,7 +7,7 @@
 #     Seçim ≤2023 · doğrulama 2024+.
 # B) FİLTRE: canlıda mesajı giden AL sinyalleri (filtre_hepsi.py ile aynı olaylar) — "kötü" koşul: E1 dün ETF'ten net çıkış · E2 dünkü akış z ≤ −1 · E3 son 5 işlem günü toplamı < 0 ·
 #    C1 son CFTC raporunda varlık yöneticileri net uzunu azaltmış · C2 kaldıraçlı fonlar net uzunu artırmış (z ≥ 1).  ETF filtreleri: seçim 2024, doğrulama 2025+.  CFTC: seçim 2022-06→2023, doğrulama 2024+.
-import os, io, re, glob, time, gzip, pickle, zipfile, requests, numpy as np, pandas as pd
+import os, io, re, json, glob, time, gzip, pickle, zipfile, requests, numpy as np, pandas as pd
 from ortak import *
 T0 = time.time(); L = []
 def yaz(s=""): print(s, flush=True); L.append(s)
@@ -48,8 +48,22 @@ def ishares(pid, slug, ad):                                                     
         s = pd.DataFrame({"so": so.values, "nav": nav.values}, index=t).dropna(); s = s[s.index.notna()].sort_index(); s = s[~s.index.duplicated()]
         f_ = (s.so.diff() * s.nav / 1e6).dropna(); f_.index = pd.DatetimeIndex(f_.index).tz_localize("UTC"); return f_ if len(f_) > 100 else None
     except Exception as e: print(ad, "hata", e); return None
+def bgeo_etf():                                                                                        # BGeometrics ücretsiz API: tüm ABD spot BTC ETF'leri günlük akış (anahtar yok, günde 15 istek)
+    f_ = "veri_bgeo/etf-flow-btc.json"; os.makedirs("veri_bgeo", exist_ok=True)
+    try:
+        if not (os.path.exists(f_) and time.time() - os.path.getmtime(f_) < 20 * 3600):
+            r = requests.get("https://bitcoin-data.com/v1/etf-flow-btc", timeout=60, headers={"User-Agent": "btc-tahmin-arastirma"}); print("bgeo etf", r.status_code, len(r.content))
+            if r.status_code == 200 and r.text.lstrip().startswith("["): open(f_, "w").write(r.text)
+        J = pd.DataFrame(json.load(open(f_))); print("bgeo alanlar:", list(J.columns), "| son:", J.iloc[-1].to_dict())
+        sy = [c for c in J.columns if c not in ("d", "unixTs")]; N = J[sy].apply(pd.to_numeric, errors="coerce")
+        tc = [c for c in sy if "total" in c.lower()] or ([sy[0]] if len(sy) == 1 else [])
+        v = N[tc[0]] if tc else N.sum(axis=1, min_count=1); s = pd.Series(v.values, index=pd.to_datetime(J.d).dt.tz_localize("UTC")).dropna().sort_index()
+        print("bgeo seçilen:", tc or "toplam(" + ",".join(sy) + ")"); return s[~s.index.duplicated()] if len(s) > 100 else None
+    except Exception as e: print("bgeo hata", e); return None
 ETF = {"BTC": farside("https://farside.co.uk/bitcoin-etf-flow-all-data/"), "ETH": farside("https://farside.co.uk/ethereum-etf-flow-all-data/")}
 KAYNAK = {k: "Farside (tüm ABD spot ETF'leri)" for k, v in ETF.items() if v is not None}
+if ETF["BTC"] is None:
+    ETF["BTC"] = bgeo_etf(); KAYNAK["BTC"] = "BGeometrics (tüm ABD spot BTC ETF'leri)"
 for a, pid, slug, ad in (("BTC", 333011, "ishares-bitcoin-trust-etf", "iShares-Bitcoin-Trust-ETF"), ("ETH", 337614, "ishares-ethereum-trust-etf", "iShares-Ethereum-Trust-ETF")):
     if ETF[a] is None: ETF[a] = ishares(pid, slug, ad); KAYNAK[a] = "iShares " + ("IBIT" if a == "BTC" else "ETHA") + " (en büyük ETF, pay sayısı değişimi × NAV)"
 def cftc():
