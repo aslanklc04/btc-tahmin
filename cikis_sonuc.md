@@ -1,0 +1,269 @@
+# 🚪 Giriş zamanı ve çıkış stratejisi — 08.10.2026 22:22
+Olay: 56,211 · BTC 1/4/8 s + ⭐ + A 21,137 · coin tek başına 11,875 · coin 🤝 ortak 10,749 · 🧪 24 saat 4,624 · 💵 ABD alıyor (tek başına) 4,043 · coin 🔇 sessiz 3,357 · 🔻 BTC kısa 240 · ⛓️ ETH 108 · 🧑 küçük yatırımcı 78 · fiyat verisi 24/24 coin · 172 sn
+
+Değerlendirilen olay: 56,206 · 195 sn
+
+
+## BTC 1/4/8 s + ⭐ + A — 21,135 işlem · ana süre 4 saat · beklenen fiyat hedefi +%0.13
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                             +0.05 · %57 · 2s   -0.00 · %54 · 2s   -0.04 · %52 · 2s
+Süre ×1 (bugün)                       +0.09 · %57 · 4s   +0.02 · %54 · 4s   -0.01 · %51 · 3s
+Süre ×1,5                             +0.11 · %57 · 6s   +0.04 · %55 · 6s   -0.01 · %52 · 5s
+Süre ×2                               +0.11 · %57 · 7s   +0.05 · %55 · 7s   -0.02 · %52 · 7s
+Süre ×3                              +0.12 · %56 · 11s  +0.07 · %55 · 11s  -0.04 · %51 · 10s
+Kâr-al: beklenen fiyat                +0.00 · %90 · 1s   -0.03 · %84 · 1s   -0.04 · %81 · 2s
+Kâr-al +0,5σ                          +0.05 · %69 · 3s   -0.00 · %67 · 3s   -0.02 · %63 · 3s
+Kâr-al +1σ                            +0.06 · %60 · 3s   +0.00 · %57 · 3s   -0.01 · %54 · 3s
+Kâr-al +2σ                            +0.09 · %58 · 4s   +0.01 · %54 · 3s   -0.02 · %51 · 3s
+Zarar-kes −1σ                         +0.00 · %51 · 3s   -0.01 · %50 · 3s   -0.04 · %48 · 3s
+Zarar-kes −2σ                         +0.05 · %56 · 4s   +0.00 · %53 · 3s   -0.03 · %50 · 3s
++1σ / −1σ                             -0.03 · %53 · 3s   -0.03 · %52 · 3s   -0.05 · %50 · 3s
++2σ / −1σ                             -0.00 · %52 · 3s   -0.02 · %50 · 3s   -0.04 · %48 · 3s
++2σ / −2σ                             +0.04 · %56 · 3s   -0.00 · %54 · 3s   -0.03 · %50 · 3s
++1σ / −2σ                             +0.01 · %58 · 3s   -0.02 · %56 · 3s   -0.03 · %52 · 3s
+Kârdaysa 2 katına uzat                +0.10 · %46 · 6s   +0.04 · %45 · 6s   -0.01 · %42 · 5s
+Kârdaysa iz süren stop 1σ (≤3 kat)    +0.10 · %42 · 6s   +0.02 · %40 · 6s   -0.03 · %36 · 6s
+İz süren stop 1σ (≤2 kat)             -0.01 · %43 · 5s   -0.03 · %42 · 5s   -0.06 · %41 · 5s
+İz süren stop 2σ (≤3 kat)             +0.04 · %50 · 9s   +0.02 · %50 · 9s   -0.07 · %47 · 9s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.09 · 1 s gecikme +0.06 · 2 s gecikme +0.03 | 2024+: 0 s +0.02 · 1 s gecikme +0.01 · 2 s gecikme -0.00 | 2026: 0 s -0.01 · 1 s gecikme +0.01 · 2 s gecikme -0.01
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.051 (alt sınır +0.001) · 2026 fark -0.023 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## coin tek başına — 11,875 işlem · ana süre 4 saat · beklenen fiyat hedefi +%0.31
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                             +0.16 · %57 · 2s   +0.08 · %58 · 3s   +0.05 · %55 · 2s
+Süre ×1 (bugün)                       +0.27 · %59 · 5s   +0.09 · %57 · 5s   +0.03 · %54 · 5s
+Süre ×1,5                             +0.32 · %58 · 7s   +0.11 · %56 · 8s   -0.02 · %51 · 7s
+Süre ×2                               +0.32 · %57 · 9s  +0.16 · %56 · 10s  -0.01 · %53 · 10s
+Süre ×3                              +0.40 · %56 · 14s  +0.23 · %56 · 15s  -0.07 · %50 · 15s
+Kâr-al: beklenen fiyat                +0.04 · %87 · 2s   -0.00 · %84 · 2s   -0.01 · %78 · 2s
+Kâr-al +0,5σ                          +0.15 · %72 · 3s   +0.04 · %71 · 3s   +0.04 · %68 · 3s
+Kâr-al +1σ                            +0.21 · %62 · 4s   +0.06 · %60 · 4s   +0.02 · %58 · 4s
+Kâr-al +2σ                            +0.26 · %59 · 5s   +0.07 · %57 · 5s   +0.02 · %55 · 5s
+Zarar-kes −1σ                         +0.07 · %52 · 4s   +0.03 · %50 · 4s   -0.00 · %51 · 4s
+Zarar-kes −2σ                         +0.14 · %58 · 4s   +0.05 · %56 · 5s   -0.03 · %53 · 5s
++1σ / −1σ                             +0.01 · %54 · 3s   -0.00 · %54 · 3s   -0.01 · %54 · 4s
++2σ / −1σ                             +0.06 · %52 · 4s   +0.00 · %50 · 4s   -0.01 · %51 · 4s
++2σ / −2σ                             +0.14 · %58 · 4s   +0.03 · %56 · 5s   -0.04 · %53 · 5s
++1σ / −2σ                             +0.08 · %60 · 4s   +0.02 · %59 · 4s   -0.02 · %57 · 4s
+Kârdaysa 2 katına uzat                +0.29 · %46 · 8s   +0.11 · %46 · 8s   +0.01 · %44 · 8s
+Kârdaysa iz süren stop 1σ (≤3 kat)    +0.27 · %43 · 8s   +0.09 · %44 · 8s   +0.02 · %41 · 8s
+İz süren stop 1σ (≤2 kat)             +0.02 · %41 · 5s   -0.03 · %40 · 5s   -0.03 · %41 · 6s
+İz süren stop 2σ (≤3 kat)            +0.16 · %49 · 11s  -0.01 · %47 · 11s  -0.10 · %46 · 11s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.27 · 1 s gecikme +0.24 · 2 s gecikme +0.16 | 2024+: 0 s +0.09 · 1 s gecikme +0.05 · 2 s gecikme +0.01 | 2026: 0 s +0.03 · 1 s gecikme +0.01 · 2 s gecikme -0.04
+Prim z ≥ 3 iken 4 saatte çık vs süre dolunca: seçim (2024 öncesi): 17 işlem · 4 s +1.04 / bugünkü +1.70 | 2024+: 13 işlem · 4 s +1.48 / bugünkü +1.40 | 2026: 3 işlem · 4 s +2.32 / bugünkü +0.70
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.136 (alt sınır +0.014) · 2026 fark -0.104 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## coin 🔇 sessiz — 3,357 işlem · ana süre 4 saat · beklenen fiyat hedefi +%0.28
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                             +0.11 · %56 · 2s   +0.18 · %58 · 2s   +0.08 · %54 · 2s
+Süre ×1 (bugün)                       +0.24 · %58 · 4s   +0.24 · %60 · 4s   -0.09 · %53 · 4s
+Süre ×1,5                             +0.34 · %58 · 6s   +0.34 · %57 · 6s   -0.17 · %47 · 6s
+Süre ×2                               +0.38 · %57 · 8s   +0.40 · %59 · 8s   -0.10 · %50 · 8s
+Süre ×3                              +0.50 · %56 · 12s  +0.47 · %58 · 12s  -0.20 · %48 · 12s
+Kâr-al: beklenen fiyat                +0.05 · %89 · 2s   -0.01 · %88 · 2s   -0.06 · %85 · 2s
+Kâr-al +0,5σ                          +0.15 · %73 · 2s   +0.16 · %76 · 2s   -0.04 · %71 · 3s
+Kâr-al +1σ                            +0.22 · %62 · 3s   +0.17 · %65 · 3s   -0.07 · %60 · 3s
+Kâr-al +2σ                            +0.24 · %59 · 4s   +0.21 · %60 · 4s   -0.09 · %53 · 4s
+Zarar-kes −1σ                         +0.00 · %50 · 3s   +0.01 · %49 · 3s   -0.02 · %48 · 3s
+Zarar-kes −2σ                         +0.09 · %57 · 4s   +0.07 · %57 · 4s   -0.10 · %52 · 4s
++1σ / −1σ                             -0.04 · %53 · 3s   -0.04 · %53 · 3s   -0.03 · %54 · 3s
++2σ / −1σ                             -0.02 · %50 · 3s   -0.02 · %49 · 3s   -0.03 · %48 · 3s
++2σ / −2σ                             +0.08 · %57 · 4s   +0.02 · %57 · 4s   -0.11 · %52 · 4s
++1σ / −2σ                             +0.06 · %60 · 3s   -0.01 · %61 · 3s   -0.08 · %58 · 3s
+Kârdaysa 2 katına uzat                +0.31 · %47 · 6s   +0.37 · %50 · 6s   -0.08 · %41 · 6s
+Kârdaysa iz süren stop 1σ (≤3 kat)    +0.26 · %44 · 6s   +0.24 · %48 · 6s   -0.08 · %39 · 6s
+İz süren stop 1σ (≤2 kat)             -0.02 · %41 · 4s   -0.02 · %40 · 4s   +0.00 · %40 · 4s
+İz süren stop 2σ (≤3 kat)             +0.09 · %48 · 9s   +0.04 · %45 · 8s   -0.20 · %39 · 8s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.24 · 1 s gecikme +0.24 · 2 s gecikme +0.20 | 2024+: 0 s +0.24 · 1 s gecikme +0.14 · 2 s gecikme +0.12 | 2026: 0 s -0.09 · 1 s gecikme -0.21 · 2 s gecikme -0.29
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.233 (alt sınır +0.043) · 2026 fark -0.112 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## coin 🤝 ortak — 10,749 işlem · ana süre 4 saat · beklenen fiyat hedefi +%0.60
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                             +0.39 · %60 · 2s   +0.13 · %60 · 2s   +0.21 · %61 · 2s
+Süre ×1 (bugün)                       +0.56 · %62 · 4s   +0.20 · %60 · 4s   +0.38 · %63 · 4s
+Süre ×1,5                             +0.54 · %62 · 6s   +0.17 · %58 · 6s   +0.38 · %60 · 6s
+Süre ×2                               +0.57 · %61 · 8s   +0.25 · %58 · 8s   +0.45 · %56 · 8s
+Süre ×3                              +0.69 · %59 · 12s  +0.44 · %59 · 12s  +0.48 · %57 · 12s
+Kâr-al: beklenen fiyat                +0.15 · %81 · 2s   +0.09 · %80 · 2s   +0.12 · %73 · 2s
+Kâr-al +0,5σ                          +0.25 · %76 · 2s   +0.13 · %75 · 2s   +0.18 · %73 · 3s
+Kâr-al +1σ                            +0.36 · %65 · 3s   +0.16 · %63 · 3s   +0.27 · %64 · 3s
+Kâr-al +2σ                            +0.48 · %62 · 4s   +0.20 · %60 · 4s   +0.36 · %63 · 4s
+Zarar-kes −1σ                         +0.16 · %53 · 3s   +0.08 · %53 · 3s   +0.19 · %57 · 3s
+Zarar-kes −2σ                         +0.33 · %60 · 4s   +0.19 · %59 · 4s   +0.28 · %61 · 4s
++1σ / −1σ                             +0.06 · %56 · 3s   +0.02 · %55 · 3s   +0.11 · %58 · 3s
++2σ / −1σ                             +0.14 · %53 · 3s   +0.06 · %53 · 3s   +0.18 · %57 · 3s
++2σ / −2σ                             +0.30 · %61 · 4s   +0.17 · %59 · 4s   +0.27 · %61 · 4s
++1σ / −2σ                             +0.19 · %63 · 3s   +0.13 · %62 · 3s   +0.18 · %63 · 3s
+Kârdaysa 2 katına uzat                +0.52 · %51 · 7s   +0.28 · %48 · 6s   +0.35 · %47 · 7s
+Kârdaysa iz süren stop 1σ (≤3 kat)    +0.60 · %48 · 7s   +0.25 · %46 · 7s   +0.41 · %46 · 7s
+İz süren stop 1σ (≤2 kat)             +0.16 · %44 · 4s   +0.06 · %41 · 4s   +0.14 · %43 · 5s
+İz süren stop 2σ (≤3 kat)             +0.40 · %52 · 9s   +0.19 · %50 · 9s  +0.20 · %50 · 10s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.56 · 1 s gecikme +0.32 · 2 s gecikme +0.12 | 2024+: 0 s +0.20 · 1 s gecikme +0.08 · 2 s gecikme +0.00 | 2026: 0 s +0.38 · 1 s gecikme +0.28 · 2 s gecikme +0.13
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.241 (alt sınır -0.012) · 2026 fark +0.100 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## ⛓️ ETH — 106 işlem · ana süre 72 saat · beklenen fiyat hedefi +%2.69
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)               2024+                2026
+Süre ×0,5                            +1.19 · %55 · 56s   +1.16 · %55 · 54s   +1.30 · %47 · 54s
+Süre ×1 (bugün)                     +2.65 · %64 · 113s  +2.60 · %59 · 108s  +2.39 · %63 · 107s
+Süre ×1,5                           +2.15 · %64 · 169s  +2.58 · %63 · 161s  +0.81 · %68 · 161s
+Süre ×2                             +2.44 · %64 · 225s  +3.34 · %60 · 215s  +1.23 · %58 · 215s
+Süre ×3                             +3.11 · %67 · 338s  +4.59 · %59 · 323s  +2.69 · %53 · 322s
+Kâr-al: beklenen fiyat               +1.89 · %85 · 49s   +0.99 · %75 · 50s   +0.78 · %68 · 64s
+Kâr-al +0,5σ                         +1.57 · %79 · 65s   +1.04 · %70 · 66s   +1.37 · %74 · 64s
+Kâr-al +1σ                           +2.35 · %67 · 85s   +1.56 · %59 · 86s   +1.49 · %63 · 86s
+Kâr-al +2σ                          +2.42 · %64 · 108s  +2.13 · %59 · 103s  +1.35 · %63 · 102s
+Zarar-kes −1σ                       +1.97 · %61 · 100s   +1.88 · %52 · 95s  +2.17 · %58 · 101s
+Zarar-kes −2σ                       +2.37 · %64 · 111s  +2.59 · %59 · 107s  +2.33 · %63 · 104s
++1σ / −1σ                            +1.67 · %64 · 73s   +1.01 · %53 · 75s   +1.28 · %58 · 80s
++2σ / −1σ                            +1.75 · %61 · 95s   +1.61 · %53 · 91s   +1.14 · %58 · 96s
++2σ / −2σ                           +2.14 · %64 · 106s  +2.12 · %59 · 102s   +1.30 · %63 · 99s
++1σ / −2σ                            +2.07 · %67 · 84s   +1.54 · %59 · 86s   +1.43 · %63 · 83s
+Kârdaysa 2 katına uzat              +2.50 · %55 · 188s  +2.77 · %45 · 174s  +1.63 · %47 · 178s
+Kârdaysa iz süren stop 1σ (≤3 kat)  +2.21 · %52 · 174s  +2.34 · %41 · 153s  +3.56 · %47 · 167s
+İz süren stop 1σ (≤2 kat)           +1.03 · %48 · 120s  +1.50 · %42 · 122s  +1.82 · %53 · 125s
+İz süren stop 2σ (≤3 kat)           +2.34 · %61 · 307s  +3.89 · %58 · 272s  +3.25 · %47 · 267s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +2.65 · 1 s gecikme +2.51 · 2 s gecikme +2.55 | 2024+: 0 s +2.60 · 1 s gecikme +2.53 · 2 s gecikme +2.53 | 2026: 0 s +2.39 · 1 s gecikme +2.25 · 2 s gecikme +2.26
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +1.986 (alt sınır -0.638) · 2026 fark +0.302 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## 💵 ABD alıyor (tek başına) — 4,043 işlem · ana süre 24 saat · beklenen fiyat hedefi +%0.57
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                             +0.32 · %55 · 7s   +0.49 · %54 · 7s   +0.47 · %54 · 7s
+Süre ×1 (bugün)                      +0.53 · %54 · 15s  +0.71 · %54 · 14s  +0.62 · %54 · 14s
+Süre ×1,5                            +0.68 · %53 · 22s  +0.84 · %55 · 22s  +0.62 · %52 · 21s
+Süre ×2                              +0.95 · %54 · 29s  +0.96 · %54 · 29s  +0.70 · %53 · 28s
+Süre ×3                              +1.22 · %55 · 44s  +1.21 · %55 · 43s  +0.79 · %51 · 43s
+Kâr-al: beklenen fiyat                +0.14 · %84 · 4s   +0.12 · %86 · 4s   +0.16 · %86 · 4s
+Kâr-al +0,5σ                          +0.38 · %70 · 8s   +0.32 · %69 · 8s   +0.34 · %70 · 8s
+Kâr-al +1σ                           +0.48 · %58 · 12s  +0.41 · %58 · 12s  +0.41 · %58 · 11s
+Kâr-al +2σ                           +0.62 · %55 · 14s  +0.61 · %55 · 13s  +0.54 · %55 · 13s
+Zarar-kes −1σ                        +0.39 · %51 · 13s  +0.45 · %51 · 13s  +0.53 · %52 · 13s
+Zarar-kes −2σ                        +0.45 · %53 · 14s  +0.59 · %54 · 14s  +0.57 · %54 · 14s
++1σ / −1σ                            +0.30 · %55 · 10s  +0.21 · %54 · 10s  +0.33 · %56 · 10s
++2σ / −1σ                            +0.45 · %51 · 12s  +0.36 · %51 · 12s  +0.44 · %53 · 12s
++2σ / −2σ                            +0.55 · %54 · 13s  +0.49 · %54 · 13s  +0.48 · %54 · 13s
++1σ / −2σ                            +0.41 · %58 · 11s  +0.31 · %57 · 11s  +0.37 · %58 · 11s
+Kârdaysa 2 katına uzat               +0.74 · %41 · 23s  +0.75 · %42 · 22s  +0.63 · %41 · 22s
+Kârdaysa iz süren stop 1σ (≤3 kat)   +0.62 · %41 · 20s  +0.77 · %41 · 21s  +0.65 · %41 · 19s
+İz süren stop 1σ (≤2 kat)            +0.22 · %40 · 14s  +0.20 · %41 · 15s  +0.46 · %43 · 14s
+İz süren stop 2σ (≤3 kat)            +0.80 · %50 · 34s  +0.47 · %48 · 34s  +0.46 · %47 · 34s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.53 · 1 s gecikme +0.39 · 2 s gecikme +0.37 | 2024+: 0 s +0.71 · 1 s gecikme +0.62 · 2 s gecikme +0.57 | 2026: 0 s +0.62 · 1 s gecikme +0.42 · 2 s gecikme +0.33
+Prim z ≥ 3 iken 4 saatte çık vs süre dolunca: seçim (2024 öncesi): 488 işlem · 4 s +0.42 / bugünkü +0.87 | 2024+: 840 işlem · 4 s +0.48 / bugünkü +1.23 | 2026: 260 işlem · 4 s +0.40 / bugünkü +0.89
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.509 (alt sınır +0.111) · 2026 fark +0.162 → ✅ kanıtlandı
+
+## 🔻 BTC kısa — 239 işlem · ana süre 24 saat · beklenen fiyat hedefi +%0.76
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                            +0.38 · %55 · 12s  +0.09 · %43 · 12s  -0.08 · %40 · 12s
+Süre ×1 (bugün)                      +0.72 · %53 · 24s  +0.30 · %49 · 24s  +0.31 · %38 · 24s
+Süre ×1,5                            +0.47 · %47 · 36s  +0.34 · %50 · 36s  +0.19 · %40 · 36s
+Süre ×2                              +0.76 · %48 · 48s  +0.27 · %53 · 48s  +0.30 · %45 · 48s
+Süre ×3                              +0.59 · %46 · 72s  +0.41 · %52 · 72s  +0.43 · %55 · 72s
+Kâr-al: beklenen fiyat               +0.07 · %72 · 11s  +0.08 · %73 · 12s  +0.11 · %71 · 13s
+Kâr-al +0,5σ                         +0.12 · %67 · 13s  +0.17 · %67 · 14s  -0.00 · %60 · 16s
+Kâr-al +1σ                           +0.18 · %54 · 19s  +0.29 · %53 · 19s  +0.05 · %43 · 20s
+Kâr-al +2σ                           +0.62 · %54 · 21s  +0.37 · %49 · 23s  +0.39 · %40 · 23s
+Zarar-kes −1σ                        +0.87 · %51 · 21s  +0.09 · %44 · 21s  +0.29 · %38 · 22s
+Zarar-kes −2σ                        +0.60 · %51 · 23s  +0.31 · %49 · 24s  +0.38 · %38 · 24s
++1σ / −1σ                            +0.28 · %52 · 16s  +0.03 · %49 · 16s  -0.06 · %43 · 18s
++2σ / −1σ                            +0.72 · %52 · 19s  +0.15 · %45 · 20s  +0.27 · %40 · 21s
++2σ / −2σ                            +0.46 · %52 · 20s  +0.38 · %49 · 23s  +0.42 · %40 · 23s
++1σ / −2σ                            +0.15 · %53 · 18s  +0.29 · %53 · 19s  +0.08 · %43 · 20s
+Kârdaysa 2 katına uzat               +0.57 · %39 · 37s  +0.45 · %42 · 36s  +0.40 · %33 · 34s
+Kârdaysa iz süren stop 1σ (≤3 kat)   +0.87 · %41 · 33s  +0.41 · %40 · 32s  +0.41 · %31 · 32s
+İz süren stop 1σ (≤2 kat)            +0.44 · %43 · 25s  -0.00 · %36 · 23s  +0.27 · %33 · 25s
+İz süren stop 2σ (≤3 kat)            +0.27 · %45 · 52s  +0.39 · %51 · 57s  +0.70 · %55 · 58s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.72 · 1 s gecikme +0.65 · 2 s gecikme +0.51 | 2024+: 0 s +0.30 · 1 s gecikme +0.34 · 2 s gecikme +0.34 | 2026: 0 s +0.31 · 1 s gecikme +0.45 · 2 s gecikme +0.41
+**Seçimde en iyi:** Kârdaysa iz süren stop 1σ (≤3 kat) → 2024+ fark +0.114 (alt sınır -0.078) · 2026 fark +0.103 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## 🧑 küçük yatırımcı — 78 işlem · ana süre 168 saat · beklenen fiyat hedefi +%4.31
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                    seçim (2024 öncesi)                2024+                2026
+Süre ×0,5                             +2.05 · %64 · 84s    +0.12 · %55 · 84s   -0.25 · %44 · 84s
+Süre ×1 (bugün)                      +4.27 · %73 · 168s   +3.54 · %66 · 168s  +2.96 · %69 · 168s
+Süre ×1,5                            +6.60 · %86 · 252s   +4.81 · %68 · 252s  +2.97 · %56 · 252s
+Süre ×2                              +7.63 · %77 · 336s   +7.86 · %75 · 336s  +5.37 · %62 · 336s
+Süre ×3                             +10.03 · %82 · 504s  +10.92 · %71 · 504s  +7.92 · %62 · 504s
+Kâr-al: beklenen fiyat               +2.54 · %73 · 103s   +1.47 · %70 · 124s  +1.17 · %69 · 134s
+Kâr-al +0,5σ                          +1.60 · %77 · 87s   +1.23 · %73 · 104s  +0.72 · %75 · 103s
+Kâr-al +1σ                           +2.43 · %73 · 128s   +2.18 · %68 · 139s  +0.83 · %69 · 143s
+Kâr-al +2σ                           +3.64 · %73 · 142s   +2.65 · %66 · 158s  +0.81 · %69 · 160s
+Zarar-kes −1σ                        +3.75 · %73 · 153s   +2.20 · %57 · 138s  +3.11 · %69 · 164s
+Zarar-kes −2σ                        +4.27 · %73 · 168s   +3.49 · %66 · 164s  +2.96 · %69 · 168s
++1σ / −1σ                            +1.91 · %73 · 113s   +0.78 · %59 · 110s  +0.98 · %69 · 139s
++2σ / −1σ                            +3.12 · %73 · 127s   +1.31 · %57 · 128s  +0.96 · %69 · 156s
++2σ / −2σ                            +3.64 · %73 · 142s   +2.60 · %66 · 154s  +0.81 · %69 · 160s
++1σ / −2σ                            +2.43 · %73 · 128s   +2.13 · %68 · 135s  +0.83 · %69 · 143s
+Kârdaysa 2 katına uzat               +6.71 · %59 · 290s   +6.37 · %59 · 279s  +2.83 · %50 · 284s
+Kârdaysa iz süren stop 1σ (≤3 kat)   +5.19 · %55 · 235s   +6.41 · %52 · 272s  +3.57 · %44 · 258s
+İz süren stop 1σ (≤2 kat)            +1.35 · %41 · 129s   +3.92 · %50 · 187s  +3.72 · %50 · 217s
+İz süren stop 2σ (≤3 kat)            +9.22 · %77 · 494s  +10.15 · %71 · 460s  +7.96 · %62 · 462s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +4.27 · 1 s gecikme +4.29 · 2 s gecikme +4.10 | 2024+: 0 s +3.54 · 1 s gecikme +3.46 · 2 s gecikme +3.29 | 2026: 0 s +2.96 · 1 s gecikme +3.07 · 2 s gecikme +2.95
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +7.380 (alt sınır +4.014) · 2026 fark +4.956 → ✅ kanıtlandı
+
+## 🧪 24 saat — 4,624 işlem · ana süre 24 saat · beklenen fiyat hedefi +%0.79
+_hücre: işlem başı net % · isabet · ortalama tutma süresi_
+```
+                                   seçim (2024 öncesi)              2024+               2026
+Süre ×0,5                            +0.34 · %56 · 12s  +0.16 · %52 · 12s  -0.00 · %50 · 12s
+Süre ×1 (bugün)                      +0.75 · %57 · 24s  +0.51 · %55 · 24s  +0.15 · %50 · 24s
+Süre ×1,5                            +0.86 · %56 · 36s  +0.58 · %53 · 36s  +0.11 · %52 · 36s
+Süre ×2                              +0.88 · %56 · 48s  +0.64 · %53 · 48s  +0.21 · %50 · 48s
+Süre ×3                              +1.13 · %55 · 72s  +0.88 · %52 · 72s  +0.21 · %49 · 72s
+Kâr-al: beklenen fiyat                +0.17 · %86 · 7s   +0.09 · %86 · 7s   +0.05 · %81 · 9s
+Kâr-al +0,5σ                         +0.29 · %71 · 13s  +0.20 · %70 · 13s  -0.08 · %65 · 14s
+Kâr-al +1σ                           +0.46 · %60 · 20s  +0.29 · %58 · 20s  +0.02 · %55 · 20s
+Kâr-al +2σ                           +0.66 · %57 · 23s  +0.39 · %55 · 23s  +0.03 · %50 · 23s
+Zarar-kes −1σ                        +0.47 · %51 · 20s  +0.16 · %48 · 19s  +0.01 · %46 · 19s
+Zarar-kes −2σ                        +0.62 · %56 · 23s  +0.28 · %53 · 23s  -0.09 · %49 · 22s
++1σ / −1σ                            +0.23 · %55 · 15s  -0.02 · %52 · 15s  -0.10 · %50 · 15s
++2σ / −1σ                            +0.40 · %52 · 19s  +0.06 · %48 · 18s  -0.08 · %46 · 18s
++2σ / −2σ                            +0.51 · %56 · 21s  +0.16 · %53 · 22s  -0.21 · %49 · 21s
++1σ / −2σ                            +0.31 · %59 · 18s  +0.08 · %56 · 18s  -0.21 · %53 · 18s
+Kârdaysa 2 katına uzat               +0.75 · %45 · 38s  +0.61 · %43 · 37s  +0.41 · %39 · 36s
+Kârdaysa iz süren stop 1σ (≤3 kat)   +0.66 · %43 · 35s  +0.54 · %42 · 35s  +0.29 · %38 · 34s
+İz süren stop 1σ (≤2 kat)            +0.12 · %39 · 23s  +0.02 · %39 · 22s  +0.06 · %39 · 22s
+İz süren stop 2σ (≤3 kat)            +0.52 · %48 · 54s  +0.21 · %45 · 53s  +0.25 · %44 · 53s
+```
+Giriş gecikmesi (aynı süre tutulur): seçim (2024 öncesi): 0 s +0.75 · 1 s gecikme +0.60 · 2 s gecikme +0.51 | 2024+: 0 s +0.51 · 1 s gecikme +0.48 · 2 s gecikme +0.42 | 2026: 0 s +0.15 · 1 s gecikme +0.17 · 2 s gecikme +0.15
+Prim z ≥ 3 iken 4 saatte çık vs süre dolunca: seçim (2024 öncesi): 19 işlem · 4 s +0.43 / bugünkü +1.75 | 2024+: 32 işlem · 4 s +1.07 / bugünkü +3.41 | 2026: 7 işlem · 4 s -1.34 / bugünkü -0.46
+**Seçimde en iyi:** Süre ×3 → 2024+ fark +0.370 (alt sınır -0.176) · 2026 fark +0.065 → ❌ kanıtlanmadı → bugünkü kalsın
+
+## Özet
+```
+                      tur     n                            secilen  fark_2024    alt  fark_2026                           karar
+      BTC 1/4/8 s + ⭐ + A 21135                            Süre ×3      0.051  0.001     -0.023 ❌ kanıtlanmadı → bugünkü kalsın
+          coin tek başına 11875                            Süre ×3      0.136  0.014     -0.104 ❌ kanıtlanmadı → bugünkü kalsın
+            coin 🔇 sessiz  3357                            Süre ×3      0.233  0.043     -0.112 ❌ kanıtlanmadı → bugünkü kalsın
+             coin 🤝 ortak 10749                            Süre ×3      0.241 -0.012      0.100 ❌ kanıtlanmadı → bugünkü kalsın
+                   ⛓️ ETH   106                            Süre ×3      1.986 -0.638      0.302 ❌ kanıtlanmadı → bugünkü kalsın
+💵 ABD alıyor (tek başına)  4043                            Süre ×3      0.509  0.111      0.162                    ✅ kanıtlandı
+               🔻 BTC kısa   239 Kârdaysa iz süren stop 1σ (≤3 kat)      0.114 -0.078      0.103 ❌ kanıtlanmadı → bugünkü kalsın
+        🧑 küçük yatırımcı    78                            Süre ×3      7.380  4.014      4.956                    ✅ kanıtlandı
+                🧪 24 saat  4624                            Süre ×3      0.370 -0.176      0.065 ❌ kanıtlanmadı → bugünkü kalsın
+```
+Herkese tek strateji (seçimde en iyi): **{bestG}** → 2024+ fark {100*fG:+.3f} (alt {100*lbG:+.3f}) · 2026 {100*fG26:+.3f}
+Prim z ≥ 3 (tüm türler, ana süre > 4 s), 2024+: 898 işlem · 4 saatte çık +0.50 · süre dolunca +1.31 · fark alt sınır -1.179
+
+_Süre: 195 sn_
