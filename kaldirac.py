@@ -29,17 +29,17 @@ for a, FS in (("btc", "BTCUSDT"), ("eth", "ETHUSDT")):
     MT = load(f"data/futures/um/daily/metrics/{FS}/"); FR = load(f"data/futures/um/monthly/fundingRate/{FS}/", ["calc_time", "funding_interval_hours", "last_funding_rate"])
     MT["t"] = pd.to_datetime(MT.create_time, utc=True, errors="coerce"); MT = MT.dropna(subset=["t"]); MT["d"] = MT.t.dt.floor("D")
     for c in ("sum_open_interest", "count_long_short_ratio"): MT[c] = pd.to_numeric(MT[c], errors="coerce")
-    g = MT.groupby("d"); oi = g.sum_open_interest.last(); ls = g.count_long_short_ratio.mean()
+    g = MT.groupby("d"); oi = g.sum_open_interest.last(); ls = g.count_long_short_ratio.mean().where(lambda v: v > 0)
     FR["t"] = ms2ts(FR.calc_time); FR["v"] = pd.to_numeric(FR.last_funding_rate, errors="coerce"); fr = FR.dropna(subset=["v"]).groupby(FR.t.dt.floor("D")).v.mean()
     cmd = cm(a, ["FlowInExNtv", "FlowOutExNtv", "SplyExNtv", "SplyCur"]); px = gunluk_tam(FS)
     ix = px.index[(px.index >= oi.index.min()) & (px.index <= min(oi.index.max(), cmd.index.max()))]
     D = pd.DataFrame(index=ix); D["c"], D["h"], D["l"] = px.c.reindex(ix), px.h.reindex(ix), px.l.reindex(ix)
     cmd = cmd.reindex(ix)
-    D["kaldirac"] = zs(np.log(oi.reindex(ix) / cmd.SplyExNtv))                                              # OI / borsa rezervi
-    D["kaldirac_arz"] = zs(np.log(oi.reindex(ix) / cmd.SplyCur))                                            # OI / toplam arz (yedek ölçü)
+    D["kaldirac"] = zs(np.log((oi.reindex(ix) / cmd.SplyExNtv).where(lambda v: v > 0)))                                              # OI / borsa rezervi
+    D["kaldirac_arz"] = zs(np.log((oi.reindex(ix) / cmd.SplyCur).where(lambda v: v > 0)))                                            # OI / toplam arz (yedek ölçü)
     D["spot_alici"] = zs(-(cmd.FlowInExNtv - cmd.FlowOutExNtv).rolling(7).sum() / cmd.SplyExNtv)            # + = borsadan çıkış (uzun vadeli alıcı)
     D["fonlama"] = zs(fr.reindex(ix).rolling(7).mean()); D["kucuk_uzun"] = zs(np.log(ls.reindex(ix)).rolling(3).mean())
-    VERI[a] = D
+    D = D.replace([np.inf, -np.inf], np.nan); VERI[a] = D
     yaz(f"**{a.upper()}**: {ix[0]:%Y-%m-%d} → {ix[-1]:%Y-%m-%d} ({len(ix)} gün) · kaldıraç ile spot alıcı korelasyonu {D.kaldirac.corr(D.spot_alici):+.2f} · kaldıraç ile fonlama {D.kaldirac.corr(D.fonlama):+.2f} · {time.time()-T0:.0f} sn")
 def ileri(D, HD):
     c = D.c; y = c.shift(-(1 + HD)) / c.shift(-1) - 1
@@ -97,5 +97,31 @@ yaz(f"Toplam {len(R)} deneme · ✅ geçen **{int((R.ok=='✅').sum())}** · pla
 for a, D in VERI.items():
     r = D.dropna(subset=["kaldirac"]).iloc[-1]
     yaz(f"Şu an {a.upper()} ({D.dropna(subset=['kaldirac']).index[-1]:%d.%m}): kaldıraç z {r.kaldirac:+.2f} · spot alıcı z {r.spot_alici:+.2f} · fonlama z {r.fonlama:+.2f} · küçük hesaplar uzun z {r.kucuk_uzun:+.2f}")
+
+# ---- 3. ETH: senin fikrin (spot alıcı z ≥ 1 + kaldıraç z ≥ 1 → AL 7 gün) — mevcut ⛓️ kurallarıyla örtüşme ve canlı giriş saati ----
+try:
+    import zincir_canli as ZC
+    D = VERI["eth"]; cme = cm("eth", ["FlowInExNtv", "FlowOutExNtv", "SplyExNtv"]); Zs = ZC.olcu(cme, ZC.stabil()).reindex(D.index)
+    OL = ZC.kural_olaylari(Zs); m = ((D.spot_alici >= 1) & (D.kaldirac >= 1)).fillna(False); ev = D.index[events(m.values, 7)]
+    mevcut = sorted(set().union(*[set(v) for k, v in OL.items() if k.startswith("AL")]))
+    yakin = [d for d in ev if any(abs((d - x).days) <= 3 for x in mevcut)]
+    yaz(f"\n## 3. ETH 'senin fikrin' kuralı: {len(ev)} olay · bunların {len(yakin)} tanesi mevcut ⛓️ AL kurallarıyla ±3 gün içinde çakışıyor (yeni olan: {len(ev)-len(yakin)})")
+    H1 = fetch_1h(pd.Timestamp("2021-11-01", tz="UTC").timestamp() * 1000, time.time() * 1000, sym="ETHUSDT")
+    for ad, sec in (("hepsi", list(ev)), ("yalnız yeni (⛓️ ile çakışmayan)", [d for d in ev if d not in yakin])):
+        for gn, dt in (("d+1 TR 09:00", pd.Timedelta(days=1, hours=6)), ("d+1 TR 15:00", pd.Timedelta(days=1, hours=12)), ("d+1 kapanışı", pd.Timedelta(days=2))):
+            R_ = []
+            for d in sec:
+                t1 = d + dt; t2 = t1 + pd.Timedelta(days=7)
+                if t2 > H1.index[-1] or t1 not in H1.index: continue
+                p1 = H1.close.loc[t1]; w = H1.loc[(H1.index > t1) & (H1.index <= t2)]
+                R_.append(dict(t=d, net=w.close.iloc[-1] / p1 - 1 - 2 * LMT, mae=w.low.min() / p1 - 1))
+            E = pd.DataFrame(R_).set_index("t") if R_ else None
+            if E is None: continue
+            parca = []
+            for pn, f in DON:
+                e = E[f(E.index)]
+                if len(e): parca.append(f"{pn}: {len(e)} · %{100*(e.net>0).mean():.0f} · {100*e.net.mean():+.2f}" + (f" (alt {100*wboot(e.net.values, e.index.values)[0]:+.2f})" if len(e) >= 8 else "") + f" · en kötü ara düşüş %{100*e.mae.min():.0f}")
+            yaz(f"- {ad} · giriş {gn}: " + " | ".join(parca))
+except Exception as e_: import traceback; traceback.print_exc(); yaz(f"_bölüm 3 hata: {e_}_")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("kaldirac_sonuc.md", "w").write("\n".join(L) + "\n")
