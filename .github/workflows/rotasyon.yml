@@ -1,0 +1,27 @@
+name: Para rotasyonu kripto hisse tahvil
+on:
+  push:
+    branches: [arastirma3]
+    paths: [rotasyon.py, .github/workflows/rotasyon.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt yfinance
+      - run: |
+          set +e; python rotasyon.py > rotasyon_log.txt 2>&1; echo "exit=$?" >> rotasyon_log.txt; tail -30 rotasyon_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add rotasyon_log.txt; for f in rotasyon_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Para rotasyonu kripto hisse tahvil sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
