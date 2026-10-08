@@ -1,5 +1,344 @@
-== art/*/logpm_*.txt
-# 💵🧠 Coinbase primi modelin içinde — 08.10.2026 18:47
+== art/pm-ADAUSDT-4/logpm_ADAUSDT_4.txt
+[  198 sn] ADAUSDT 4s: temel bitti
+[  263 sn] ADAUSDT 4s: prim bitti · en önemli 12: ema72 r24 r336 r4 r24_vs pos168 ema720 r168 hh720 hc vol720 pr_z168* · prim özelliklerinin kazanç payı %9
+[  328 sn] ADAUSDT 4s: karıştırma 1 bitti
+[  394 sn] ADAUSDT 4s: karıştırma 2 bitti
+[  459 sn] ADAUSDT 4s: karıştırma 3 bitti
+[  523 sn] ADAUSDT 4s: karıştırma 4 bitti
+[  523 sn] ADAUSDT 4s: kaydedildi
+exit=0
+== art/pm-ADAUSDT-8/logpm_ADAUSDT_8.txt
+[  221 sn] ADAUSDT 8s: temel bitti
+[  300 sn] ADAUSDT 8s: prim bitti · en önemli 12: r24 ema72 r336 r24_vs vol720 pos168 volr vol168 ema168 ema720 r168 pr_z168* · prim özelliklerinin kazanç payı %8
+[  381 sn] ADAUSDT 8s: karıştırma 1 bitti
+[  463 sn] ADAUSDT 8s: karıştırma 2 bitti
+[  545 sn] ADAUSDT 8s: karıştırma 3 bitti
+[  625 sn] ADAUSDT 8s: karıştırma 4 bitti
+[  625 sn] ADAUSDT 8s: kaydedildi
+exit=0
+== art/pm-APTUSDT-4/logpm_APTUSDT_4.txt
+[  115 sn] APTUSDT 4s: temel bitti
+[  138 sn] APTUSDT 4s: prim bitti · en önemli 12: vol720 r4 r2 vol168 r72 hs pos168 ll720 volr2 ema720 ds r336 · prim özelliklerinin kazanç payı %6
+[  162 sn] APTUSDT 4s: karıştırma 1 bitti
+[  184 sn] APTUSDT 4s: karıştırma 2 bitti
+[  207 sn] APTUSDT 4s: karıştırma 3 bitti
+[  230 sn] APTUSDT 4s: karıştırma 4 bitti
+[  230 sn] APTUSDT 4s: kaydedildi
+exit=0
+== art/pm-APTUSDT-8/logpm_APTUSDT_8.txt
+[  128 sn] APTUSDT 8s: temel bitti
+[  175 sn] APTUSDT 8s: prim bitti · en önemli 12: ema168 ema720 hh720 volr2 ll720 ema72 r336 vol168 r720 pos168 rsi14 r168 · prim özelliklerinin kazanç payı %3
+[  220 sn] APTUSDT 8s: karıştırma 1 bitti
+[  267 sn] APTUSDT 8s: karıştırma 2 bitti
+[  312 sn] APTUSDT 8s: karıştırma 3 bitti
+[  359 sn] APTUSDT 8s: karıştırma 4 bitti
+[  359 sn] APTUSDT 8s: kaydedildi
+exit=0
+== art/pm-ARBUSDT-4/logpm_ARBUSDT_4.txt
+[  115 sn] ARBUSDT 4s: temel bitti
+[  134 sn] ARBUSDT 4s: prim bitti · en önemli 12: ema168 r4 r336 hs volr2 hh720 r24_vs r24 vol168 ema720 hh168 r2 · prim özelliklerinin kazanç payı %8
+[  154 sn] ARBUSDT 4s: karıştırma 1 bitti
+[  173 sn] ARBUSDT 4s: karıştırma 2 bitti
+[  192 sn] ARBUSDT 4s: karıştırma 3 bitti
+[  211 sn] ARBUSDT 4s: karıştırma 4 bitti
+[  211 sn] ARBUSDT 4s: kaydedildi
+exit=0
+== art/pm-ARBUSDT-8/logpm_ARBUSDT_8.txt
+[  113 sn] ARBUSDT 8s: temel bitti
+[  143 sn] ARBUSDT 8s: prim bitti · en önemli 12: hh720 vol720 ema168 r168 volr2 r336 vol168 ema720 ll720 pr_m24z* ll168 r720 · prim özelliklerinin kazanç payı %7
+[  173 sn] ARBUSDT 8s: karıştırma 1 bitti
+[  202 sn] ARBUSDT 8s: karıştırma 2 bitti
+[  231 sn] ARBUSDT 8s: karıştırma 3 bitti
+[  261 sn] ARBUSDT 8s: karıştırma 4 bitti
+[  261 sn] ARBUSDT 8s: kaydedildi
+exit=0
+== art/pm-BTCUSDT-4/logpm_BTCUSDT_4.txt
+[  188 sn] BTCUSDT 4s: temel bitti
+[  240 sn] BTCUSDT 4s: prim bitti · en önemli 12: r4 r24_vs rsi14 r2 ds r24 volr hc ema24 pr_d24* v1 r8_vs · prim özelliklerinin kazanç payı %11
+[  289 sn] BTCUSDT 4s: karıştırma 1 bitti
+[  339 sn] BTCUSDT 4s: karıştırma 2 bitti
+[  391 sn] BTCUSDT 4s: karıştırma 3 bitti
+[  442 sn] BTCUSDT 4s: karıştırma 4 bitti
+[  442 sn] BTCUSDT 4s: kaydedildi
+exit=0
+== art/pm-BTCUSDT-8/logpm_BTCUSDT_8.txt
+[  240 sn] BTCUSDT 8s: temel bitti
+[  359 sn] BTCUSDT 8s: prim bitti · en önemli 12: pr_m24z* vol720 vol168 volr2 r24_vs ema720 r720 r336 hh720 ll168 ll720 r24 · prim özelliklerinin kazanç payı %12
+[  473 sn] BTCUSDT 8s: karıştırma 1 bitti
+[  588 sn] BTCUSDT 8s: karıştırma 2 bitti
+[  703 sn] BTCUSDT 8s: karıştırma 3 bitti
+[  818 sn] BTCUSDT 8s: karıştırma 4 bitti
+[  818 sn] BTCUSDT 8s: kaydedildi
+exit=0
+== art/pm-DOGEUSDT-4/logpm_DOGEUSDT_4.txt
+[  176 sn] DOGEUSDT 4s: temel bitti
+[  235 sn] DOGEUSDT 4s: prim bitti · en önemli 12: r24_vs r4 r24 r2 hs pr_z168* ll720 hc ema72 vol720 hh720 rsi14 · prim özelliklerinin kazanç payı %10
+[  296 sn] DOGEUSDT 4s: karıştırma 1 bitti
+[  357 sn] DOGEUSDT 4s: karıştırma 2 bitti
+[  420 sn] DOGEUSDT 4s: karıştırma 3 bitti
+[  481 sn] DOGEUSDT 4s: karıştırma 4 bitti
+[  481 sn] DOGEUSDT 4s: kaydedildi
+exit=0
+== art/pm-DOGEUSDT-8/logpm_DOGEUSDT_8.txt
+[  212 sn] DOGEUSDT 8s: temel bitti
+[  327 sn] DOGEUSDT 8s: prim bitti · en önemli 12: ema720 r24_vs r24 hs pr_m24z* hh720 ll720 volr2 vol720 ema72 vol168 ds · prim özelliklerinin kazanç payı %8
+[  440 sn] DOGEUSDT 8s: karıştırma 1 bitti
+[  553 sn] DOGEUSDT 8s: karıştırma 2 bitti
+[  669 sn] DOGEUSDT 8s: karıştırma 3 bitti
+[  783 sn] DOGEUSDT 8s: karıştırma 4 bitti
+[  783 sn] DOGEUSDT 8s: kaydedildi
+exit=0
+== art/pm-DOTUSDT-4/logpm_DOTUSDT_4.txt
+[  150 sn] DOTUSDT 4s: temel bitti
+[  192 sn] DOTUSDT 4s: prim bitti · en önemli 12: ema72 ema168 pos168 r2 r24_vs vol720 hs vol24 r4 ema720 r72 r168_vs · prim özelliklerinin kazanç payı %9
+[  231 sn] DOTUSDT 4s: karıştırma 1 bitti
+[  270 sn] DOTUSDT 4s: karıştırma 2 bitti
+[  310 sn] DOTUSDT 4s: karıştırma 3 bitti
+[  349 sn] DOTUSDT 4s: karıştırma 4 bitti
+[  349 sn] DOTUSDT 4s: kaydedildi
+exit=0
+== art/pm-DOTUSDT-8/logpm_DOTUSDT_8.txt
+[  210 sn] DOTUSDT 8s: temel bitti
+[  306 sn] DOTUSDT 8s: prim bitti · en önemli 12: ema168 pos168 volr2 ema720 ema72 vol24 vol720 vol168 r720 ll168 r168_vs volr · prim özelliklerinin kazanç payı %7
+[  403 sn] DOTUSDT 8s: karıştırma 1 bitti
+[  498 sn] DOTUSDT 8s: karıştırma 2 bitti
+[  596 sn] DOTUSDT 8s: karıştırma 3 bitti
+[  691 sn] DOTUSDT 8s: karıştırma 4 bitti
+[  691 sn] DOTUSDT 8s: kaydedildi
+exit=0
+== art/pm-ETHUSDT-4/logpm_ETHUSDT_4.txt
+[  202 sn] ETHUSDT 4s: temel bitti
+[  269 sn] ETHUSDT 4s: prim bitti · en önemli 12: r24 r24_vs r4 r336 r2 volr2 rsi14 r1 r168_vs hc pr_z168* vol24 · prim özelliklerinin kazanç payı %8
+[  333 sn] ETHUSDT 4s: karıştırma 1 bitti
+[  401 sn] ETHUSDT 4s: karıştırma 2 bitti
+[  467 sn] ETHUSDT 4s: karıştırma 3 bitti
+[  533 sn] ETHUSDT 4s: karıştırma 4 bitti
+[  533 sn] ETHUSDT 4s: kaydedildi
+exit=0
+== art/pm-ETHUSDT-8/logpm_ETHUSDT_8.txt
+[  255 sn] ETHUSDT 8s: temel bitti
+[  351 sn] ETHUSDT 8s: prim bitti · en önemli 12: pr_m24z* rsi14 ll720 r72 volr2 r24 ema72 hh720 hc ema168 r24_vs vol168 · prim özelliklerinin kazanç payı %18
+[  446 sn] ETHUSDT 8s: karıştırma 1 bitti
+[  542 sn] ETHUSDT 8s: karıştırma 2 bitti
+[  639 sn] ETHUSDT 8s: karıştırma 3 bitti
+[  733 sn] ETHUSDT 8s: karıştırma 4 bitti
+[  733 sn] ETHUSDT 8s: kaydedildi
+exit=0
+== art/pm-LINKUSDT-4/logpm_LINKUSDT_4.txt
+[  190 sn] LINKUSDT 4s: temel bitti
+[  249 sn] LINKUSDT 4s: prim bitti · en önemli 12: pr_m24z* hc pos168 volr r24 pr_z168* ema72 hh720 pr_z720* r24_vs ema720 r4 · prim özelliklerinin kazanç payı %17
+[  308 sn] LINKUSDT 4s: karıştırma 1 bitti
+[  366 sn] LINKUSDT 4s: karıştırma 2 bitti
+[  425 sn] LINKUSDT 4s: karıştırma 3 bitti
+[  482 sn] LINKUSDT 4s: karıştırma 4 bitti
+[  482 sn] LINKUSDT 4s: kaydedildi
+exit=0
+== art/pm-LINKUSDT-8/logpm_LINKUSDT_8.txt
+[  179 sn] LINKUSDT 8s: temel bitti
+[  257 sn] LINKUSDT 8s: prim bitti · en önemli 12: ema720 pr_m24z* hh720 r720 ll720 vol720 hh168 vol168 vol24 ema168 volr volr2 · prim özelliklerinin kazanç payı %10
+[  333 sn] LINKUSDT 8s: karıştırma 1 bitti
+[  412 sn] LINKUSDT 8s: karıştırma 2 bitti
+[  491 sn] LINKUSDT 8s: karıştırma 3 bitti
+[  568 sn] LINKUSDT 8s: karıştırma 4 bitti
+[  568 sn] LINKUSDT 8s: kaydedildi
+exit=0
+== art/pm-NEARUSDT-4/logpm_NEARUSDT_4.txt
+[  150 sn] NEARUSDT 4s: temel bitti
+[  192 sn] NEARUSDT 4s: prim bitti · en önemli 12: ema720 hh720 r4 pr_m24z* volr ema168 r24_vs hc vol720 ema72 vol24 ll168 · prim özelliklerinin kazanç payı %10
+[  234 sn] NEARUSDT 4s: karıştırma 1 bitti
+[  275 sn] NEARUSDT 4s: karıştırma 2 bitti
+[  315 sn] NEARUSDT 4s: karıştırma 3 bitti
+[  356 sn] NEARUSDT 4s: karıştırma 4 bitti
+[  356 sn] NEARUSDT 4s: kaydedildi
+exit=0
+== art/pm-NEARUSDT-8/logpm_NEARUSDT_8.txt
+[  200 sn] NEARUSDT 8s: temel bitti
+[  276 sn] NEARUSDT 8s: prim bitti · en önemli 12: ema720 r336 pr_m24z* hh720 ema168 rsi56 hh168 ll168 vol24 vol168 volr2 vol720 · prim özelliklerinin kazanç payı %7
+[  353 sn] NEARUSDT 8s: karıştırma 1 bitti
+[  430 sn] NEARUSDT 8s: karıştırma 2 bitti
+[  506 sn] NEARUSDT 8s: karıştırma 3 bitti
+[  583 sn] NEARUSDT 8s: karıştırma 4 bitti
+[  583 sn] NEARUSDT 8s: kaydedildi
+exit=0
+== art/pm-OPUSDT-4/logpm_OPUSDT_4.txt
+[  121 sn] OPUSDT 4s: temel bitti
+[  148 sn] OPUSDT 4s: prim bitti · en önemli 12: pr_z168* r2 ema168 hh720 hc r4 pr_z720* r24_vs volr2 hs r24 ema720 · prim özelliklerinin kazanç payı %17
+[  176 sn] OPUSDT 4s: karıştırma 1 bitti
+[  204 sn] OPUSDT 4s: karıştırma 2 bitti
+[  232 sn] OPUSDT 4s: karıştırma 3 bitti
+[  259 sn] OPUSDT 4s: karıştırma 4 bitti
+[  259 sn] OPUSDT 4s: kaydedildi
+exit=0
+== art/pm-OPUSDT-8/logpm_OPUSDT_8.txt
+[  144 sn] OPUSDT 8s: temel bitti
+[  202 sn] OPUSDT 8s: prim bitti · en önemli 12: hh720 ema168 ll168 r720 hs r8_vs ema72 r168 volr2 pr_m24z* rsi14 pr_d24* · prim özelliklerinin kazanç payı %7
+[  258 sn] OPUSDT 8s: karıştırma 1 bitti
+[  316 sn] OPUSDT 8s: karıştırma 2 bitti
+[  372 sn] OPUSDT 8s: karıştırma 3 bitti
+[  426 sn] OPUSDT 8s: karıştırma 4 bitti
+[  426 sn] OPUSDT 8s: kaydedildi
+exit=0
+== art/pm-SHIBUSDT-4/logpm_SHIBUSDT_4.txt
+[  143 sn] SHIBUSDT 4s: temel bitti
+[  187 sn] SHIBUSDT 4s: prim bitti · en önemli 12: r24 r24_vs r4 hc ema72 r2 vol24 hs pr_m24z* volr2 ema720 pr_z720* · prim özelliklerinin kazanç payı %11
+[  230 sn] SHIBUSDT 4s: karıştırma 1 bitti
+[  272 sn] SHIBUSDT 4s: karıştırma 2 bitti
+[  313 sn] SHIBUSDT 4s: karıştırma 3 bitti
+[  355 sn] SHIBUSDT 4s: karıştırma 4 bitti
+[  355 sn] SHIBUSDT 4s: kaydedildi
+exit=0
+== art/pm-SHIBUSDT-8/logpm_SHIBUSDT_8.txt
+[  166 sn] SHIBUSDT 8s: temel bitti
+[  247 sn] SHIBUSDT 8s: prim bitti · en önemli 12: r24_vs hs vol720 vol24 ema72 volr2 pr_m24z* r24 v24 hh720 vol168 volr · prim özelliklerinin kazanç payı %8
+[  325 sn] SHIBUSDT 8s: karıştırma 1 bitti
+[  404 sn] SHIBUSDT 8s: karıştırma 2 bitti
+[  482 sn] SHIBUSDT 8s: karıştırma 3 bitti
+[  561 sn] SHIBUSDT 8s: karıştırma 4 bitti
+[  561 sn] SHIBUSDT 8s: kaydedildi
+exit=0
+== art/pm-SUIUSDT-4/logpm_SUIUSDT_4.txt
+[  104 sn] SUIUSDT 4s: temel bitti
+[  124 sn] SUIUSDT 4s: prim bitti · en önemli 12: r72 ema720 r24 r24_vs hs volr2 vol24 pr_z168* ema72 r8_vs hh168 pr_m24z* · prim özelliklerinin kazanç payı %9
+[  142 sn] SUIUSDT 4s: karıştırma 1 bitti
+[  160 sn] SUIUSDT 4s: karıştırma 2 bitti
+[  177 sn] SUIUSDT 4s: karıştırma 3 bitti
+[  195 sn] SUIUSDT 4s: karıştırma 4 bitti
+[  195 sn] SUIUSDT 4s: kaydedildi
+exit=0
+== art/pm-SUIUSDT-8/logpm_SUIUSDT_8.txt
+[  156 sn] SUIUSDT 8s: temel bitti
+[  193 sn] SUIUSDT 8s: prim bitti · en önemli 12: ema72 pr_m24z* r72 volr2 vol168 vol24 r24_vs hh720 ll720 rsi56 r168 r24 · prim özelliklerinin kazanç payı %10
+[  229 sn] SUIUSDT 8s: karıştırma 1 bitti
+[  266 sn] SUIUSDT 8s: karıştırma 2 bitti
+[  304 sn] SUIUSDT 8s: karıştırma 3 bitti
+[  340 sn] SUIUSDT 8s: karıştırma 4 bitti
+[  340 sn] SUIUSDT 8s: kaydedildi
+exit=0
+# 💵🧠 Coinbase primi modelin içinde — 08.10.2026 19:09
+4 saat: 12 coin (ADA APT ARB BTC DOGE DOT ETH LINK NEAR OP SHIB SUI) · 8 saat: 12 coin (ADA APT ARB BTC DOGE DOT ETH LINK NEAR OP SHIB SUI)
 
+## 4 saat
+### Coin başına AUC farkı (prim − temel)
+```
+          2022–23 (seçim)  2024+ (karar)    2026
+coin                                            
+ADAUSDT            0.0013         0.0037  0.0062
+APTUSDT           -0.0129        -0.0002 -0.0097
+ARBUSDT               NaN         0.0036  0.0041
+BTCUSDT            0.0042         0.0012  0.0005
+DOGEUSDT          -0.0044        -0.0006 -0.0021
+DOTUSDT            0.0101         0.0122  0.0082
+ETHUSDT            0.0012        -0.0011  0.0023
+LINKUSDT           0.0004         0.0040  0.0006
+NEARUSDT          -0.0021         0.0080  0.0067
+OPUSDT            -0.0002         0.0092  0.0114
+SHIBUSDT           0.0005         0.0069  0.0069
+SUIUSDT               NaN         0.0060  0.0035
+```
+### Coin ortalaması AUC ve temel'e göre fark
+```
+v                    k1      k2      k3      k4    prim   temel
+donem                                                          
+2022–23 (seçim)  0.5351  0.5358  0.5356  0.5329  0.5357  0.5359
+2024+ (karar)    0.5286  0.5299  0.5282  0.5292  0.5330  0.5286
+2026             0.5133  0.5127  0.5108  0.5117  0.5166  0.5134
+```
+```
+v                    k1      k2      k3      k4    prim  temel
+donem                                                         
+2022–23 (seçim) -0.0008 -0.0001 -0.0003 -0.0030 -0.0002    0.0
+2024+ (karar)    0.0000  0.0013 -0.0004  0.0006  0.0044    0.0
+2026            -0.0001 -0.0007 -0.0026 -0.0017  0.0032    0.0
+```
+### 'Çok güçlü ↑' sinyali (4 saat tut, limit komisyon) — coin'ler toplamı
+```
+                       sinyal  haftada  isabet   net   alt
+donem           v                                         
+2022–23 (seçim) temel    4045    38.79   58.74  0.11  0.02
+2024+ (karar)   temel    8352    57.83   55.21  0.06 -0.03
+2026            temel    2321    58.02   52.82  0.07 -0.01
+2022–23 (seçim) prim     4082    39.14   58.35  0.12  0.05
+2024+ (karar)   prim     8522    59.00   55.20  0.08  0.00
+2026            prim     2412    60.30   53.40  0.06 -0.03
+2022–23 (seçim) k1       3985    38.21   58.22  0.09 -0.00
+2024+ (karar)   k1       8347    57.79   55.09  0.06 -0.03
+2026            k1       2347    58.68   52.32  0.04 -0.04
+2022–23 (seçim) k2       4057    38.90   57.75  0.11  0.02
+2024+ (karar)   k2       8321    57.61   55.23  0.07 -0.02
+2026            k2       2277    56.92   53.18  0.03 -0.05
+2022–23 (seçim) k3       4056    38.89   57.27  0.10  0.01
+2024+ (karar)   k3       8282    57.34   54.85  0.05 -0.04
+2026            k3       2278    56.95   52.06  0.06 -0.03
+2022–23 (seçim) k4       4013    38.48   57.44  0.09  0.00
+2024+ (karar)   k4       8363    57.90   54.79  0.05 -0.04
+2026            k4       2333    58.32   52.29  0.04 -0.05
+```
+### Karar (4 saat): ❌ tutarlı kazanç yok
+- AUC farkı seçimde -0.0002 (✗) · kararda +0.0044 (✓)
+- Karıştırmalar kararda: +0.0000 +0.0013 -0.0004 +0.0006 → gerçek fark hepsinden büyük mü: ✓
+- 2024+ 'Çok güçlü ↑': isabet %55.2 → %55.2 · net +0.06 → +0.08 · haftada 57.8 → 59.0 (✗)
+- 2026: AUC farkı +0.0032 · isabet %52.8 → %53.4 · net +0.07 → +0.06
+
+## 8 saat
+### Coin başına AUC farkı (prim − temel)
+```
+          2022–23 (seçim)  2024+ (karar)    2026
+coin                                            
+ADAUSDT            0.0038         0.0027  0.0008
+APTUSDT           -0.0193        -0.0008 -0.0157
+ARBUSDT               NaN        -0.0065 -0.0212
+BTCUSDT            0.0007        -0.0001 -0.0069
+DOGEUSDT           0.0004        -0.0016  0.0026
+DOTUSDT           -0.0038         0.0123  0.0166
+ETHUSDT           -0.0024        -0.0037 -0.0107
+LINKUSDT          -0.0012         0.0100  0.0163
+NEARUSDT          -0.0063         0.0058 -0.0010
+OPUSDT             0.0202        -0.0002 -0.0072
+SHIBUSDT          -0.0075        -0.0002 -0.0046
+SUIUSDT               NaN        -0.0078 -0.0168
+```
+### Coin ortalaması AUC ve temel'e göre fark
+```
+v                    k1      k2      k3      k4    prim   temel
+donem                                                          
+2022–23 (seçim)  0.5451  0.5391  0.5366  0.5420  0.5388  0.5404
+2024+ (karar)    0.5274  0.5289  0.5285  0.5277  0.5311  0.5303
+2026             0.5098  0.5129  0.5129  0.5124  0.5121  0.5160
+```
+```
+v                    k1      k2      k3      k4    prim  temel
+donem                                                         
+2022–23 (seçim)  0.0047 -0.0013 -0.0038  0.0016 -0.0015    0.0
+2024+ (karar)   -0.0029 -0.0013 -0.0018 -0.0026  0.0008    0.0
+2026            -0.0062 -0.0031 -0.0031 -0.0037 -0.0040    0.0
+```
+### 'Çok güçlü ↑' sinyali (8 saat tut, limit komisyon) — coin'ler toplamı
+```
+                       sinyal  haftada  isabet   net   alt
+donem           v                                         
+2022–23 (seçim) temel    2495    23.92   56.95  0.26  0.06
+2024+ (karar)   temel    4769    33.02   54.33  0.17  0.02
+2026            temel    1270    31.75   49.06  0.01 -0.16
+2022–23 (seçim) prim     2564    24.59   56.16  0.24  0.06
+2024+ (karar)   prim     4955    34.31   54.57  0.18  0.01
+2026            prim     1331    33.28   48.53  0.04 -0.15
+2022–23 (seçim) k1       2466    23.65   57.18  0.24  0.03
+2024+ (karar)   k1       4706    32.58   54.48  0.17  0.02
+2026            k1       1265    31.62   49.17  0.02 -0.18
+2022–23 (seçim) k2       2416    23.17   56.33  0.18 -0.05
+2024+ (karar)   k2       4737    32.80   55.01  0.19  0.03
+2026            k2       1241    31.02   49.64 -0.01 -0.22
+2022–23 (seçim) k3       2497    23.94   56.19  0.22  0.02
+2024+ (karar)   k3       4724    32.71   54.66  0.17  0.03
+2026            k3       1261    31.52   51.78  0.11 -0.09
+2022–23 (seçim) k4       2483    23.81   56.63  0.20 -0.01
+2024+ (karar)   k4       4723    32.70   54.94  0.20  0.04
+2026            k4       1262    31.55   50.95  0.10 -0.10
+```
+### Karar (8 saat): ❌ tutarlı kazanç yok
+- AUC farkı seçimde -0.0015 (✗) · kararda +0.0008 (✓)
+- Karıştırmalar kararda: -0.0029 -0.0013 -0.0018 -0.0026 → gerçek fark hepsinden büyük mü: ✓
+- 2024+ 'Çok güçlü ↑': isabet %54.3 → %54.6 · net +0.17 → +0.18 · haftada 33.0 → 34.3 (✓)
+- 2026: AUC farkı -0.0040 · isabet %49.1 → %48.5 · net +0.01 → +0.04
 
 exit=0
