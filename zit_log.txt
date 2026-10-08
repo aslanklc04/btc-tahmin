@@ -1,0 +1,260 @@
+# 🔄 BTC'nin zıttı coin var mı? — 08.10.2026 10:04
+Binance USDT çiftleri: 760 (durum: TRADING 506, BREAK 254)
+Günlük veri alınan: 721 çift · 25 sn
+
+## 1. Genel tablo: coin'ler BTC ile ne kadar birlikte hareket ediyor? (günlük, normal coin'ler)
+```
+       coin  medyan_kor  negatif_kor_coin  medyan_btc_up_dus  medyan_kayan_neg
+donem                                                                         
+2024+   580        0.50                 1               8.75               0.0
+2026    486        0.47                 1               5.26               0.0
+≤2023   397        0.55                 1              14.29               0.0
+```
+_kor: 1 = BTC ile tam aynı, 0 = ilgisiz, −1 = tam zıt · btc_up_dus: BTC +%3 üstü günlerde coin'in düştüğü günlerin %'si · kayan_neg: 90 günlük korelasyonun negatif olduğu günlerin %'si_
+
+## 2. Kategorilere göre (2024+)
+```
+               coin  medyan_kor  en_dusuk_kor  medyan_btc_up_dus
+kat                                                             
+altın             2        0.38          0.22              20.38
+normal          580        0.50         -0.05               8.75
+sabit değerli    14       -0.03         -0.38              48.67
+```
+En negatif kaldıraçlı/altın/sabit örnekler (tüm dönemler):
+```
+   coin              kat   durum donem  gun   kor  beta  btc_up_dus  btc_dn_yuk
+BTCDOWN kaldıraçlı token   BREAK ≤2023 1312 -0.98 -2.31      100.00       99.35
+ETHDOWN kaldıraçlı token   BREAK ≤2023 1251 -0.68 -2.31       98.25       94.04
+BCHDOWN kaldıraçlı token   BREAK ≤2023  264 -0.67 -2.61       97.96       91.67
+DOTDOWN kaldıraçlı token   BREAK ≤2023  792 -0.63 -2.62       92.37       92.44
+   USDC    sabit değerli TRADING 2024+ 1012 -0.38 -0.00       75.82       62.35
+   USDC    sabit değerli TRADING  2026  281 -0.32 -0.00       78.95       61.11
+  RLUSD    sabit değerli TRADING  2026  245 -0.31 -0.00       61.11       50.00
+  RLUSD    sabit değerli TRADING 2024+  245 -0.31 -0.00       61.11       50.00
+   PAXG            altın TRADING ≤2023 1206  0.10  0.02       41.07       41.78
+   PAXG            altın TRADING 2024+ 1012  0.22  0.10       30.77       40.00
+   PAXG            altın TRADING  2026  281  0.42  0.28       15.79       33.33
+   XAUT            altın TRADING 2024+  182  0.54  0.33       10.00        0.00
+```
+
+## 3. Önceden sabit seçim: ≤2023'te BTC ile EN ZIT 15 normal coin (≥365 gün) → 2024+ ve 2026'da hâlâ zıt mı?
+≤2023:
+```
+  coin    kat   durum  gun  kor  beta  btc_up_dus  btc_dn_yuk  kayan_neg  ertesi_kor
+   AUD normal   BREAK 1014 0.23  0.07       30.92       27.34       0.00        0.00
+   GBP normal   BREAK 1243 0.27  0.05       28.82       26.67       3.46       -0.00
+   BNX normal   BREAK  767 0.28  0.60       23.38       27.50       0.00       -0.00
+SANTOS normal TRADING  746 0.29  0.73       12.16       13.51       0.00        0.00
+  BOND normal   BREAK  895 0.31  0.77       22.43        8.33       0.11        0.00
+    OG normal TRADING 1082 0.33  0.78       17.73       19.26       7.95        0.01
+   VGX normal   BREAK  755 0.34  0.98       28.95       13.16       3.05       -0.04
+ TRIBE normal   BREAK  447 0.34  0.40       28.57       16.67       0.22        0.10
+   ATM normal TRADING 1082 0.35  0.67       14.18       17.78       3.14        0.03
+ PORTO normal TRADING  761 0.35  0.74       17.11       15.38       4.34        0.03
+  GHST normal   BREAK  849 0.36  0.29       21.74       16.48       0.00        0.01
+   MIR normal   BREAK  603 0.37  0.91       22.35       13.83       0.00        0.04
+ALPINE normal TRADING  664 0.37  0.92       16.92       16.67       0.00       -0.00
+   PSG normal TRADING 1091 0.37  0.67       25.52       18.84       0.00        0.00
+   REQ normal TRADING  849 0.38  0.90       13.04        7.69       0.00       -0.01
+```
+Aynı coin'ler 2024+:
+```
+  coin    kat   durum    gun  kor  beta  btc_up_dus  btc_dn_yuk  kayan_neg  ertesi_kor
+   BNX normal   BREAK  443.0 0.21  0.68       25.00       33.33       0.00       -0.12
+SANTOS normal TRADING 1012.0 0.35  0.73       25.27       20.00       0.00        0.00
+  BOND normal   BREAK  204.0 0.39  0.89        7.69       21.74       0.00       -0.02
+    OG normal TRADING 1012.0 0.22  0.56       19.78       27.06       8.10        0.01
+   VGX normal   BREAK  239.0 0.35  0.71       16.13        3.57       0.00       -0.06
+   ATM normal TRADING 1012.0 0.33  0.59       16.48       14.12       1.88       -0.01
+ PORTO normal TRADING 1012.0 0.48  0.79       13.19       15.29       0.00       -0.05
+  GHST normal   BREAK  775.0 0.39  0.94       12.00       12.33       0.00       -0.00
+ALPINE normal TRADING 1012.0 0.26  0.73       10.99       15.29       3.56       -0.02
+   PSG normal TRADING 1012.0 0.40  0.60       19.78       11.76       0.00        0.01
+   REQ normal TRADING 1012.0 0.47  0.84       10.99        9.41       0.00        0.00
+```
+Aynı coin'ler 2026:
+```
+  coin    kat   durum   gun  kor  beta  btc_up_dus  btc_dn_yuk  kayan_neg  ertesi_kor
+SANTOS normal TRADING 281.0 0.41  0.69       26.32       22.22       0.00        0.01
+    OG normal TRADING 281.0 0.29  0.72        5.26       27.78      12.10       -0.03
+   ATM normal TRADING 281.0 0.14  0.32       15.79       22.22       6.76       -0.04
+ PORTO normal TRADING 281.0 0.48  0.86        0.00       11.11       0.00       -0.10
+ALPINE normal TRADING 281.0 0.55  0.74        5.26        5.56       0.00        0.01
+   PSG normal TRADING 281.0 0.39  0.55        5.26        0.00       0.00        0.05
+   REQ normal TRADING 281.0 0.38  0.70        0.00        0.00       0.00        0.04
+```
+→ ≤2023'te korelasyonu negatif olan normal coin: 0 · bunlardan 2024+'da da negatif kalan: 0
+
+## 4. Bilgi: 2024+'da BTC ile en zıt 15 normal coin (≥180 gün; seçim sonradan yapıldığı için şans payı yüksek)
+```
+  coin    kat   durum  gun  kor  beta  btc_up_dus  btc_dn_yuk  kayan_neg  ertesi_kor
+  BANK normal TRADING  315 0.09  0.45       42.86       30.00       3.81        0.05
+    AT normal TRADING  301 0.13  0.33       40.00       38.89       0.00       -0.01
+   OPN normal TRADING  203 0.14  0.62       33.33       11.11       9.85       -0.08
+  ALLO normal TRADING  317 0.15  0.62       31.82       20.00      29.34        0.00
+  ENSO normal TRADING  345 0.17  0.59       18.18       29.17       0.00       -0.09
+   ZBT normal TRADING  342 0.18  0.62       13.64       20.83      20.18        0.01
+  HOME normal TRADING  469 0.18  0.55       30.77       20.69      18.76        0.01
+   GFT normal   BREAK  338 0.20  0.65       13.33       17.14      19.82       -0.05
+    FF normal TRADING  360 0.20  0.48       31.82       41.67       9.17        0.04
+RESOLV normal TRADING  470 0.21  0.72       30.77       34.48       0.64        0.03
+   BNX normal   BREAK  443 0.21  0.68       25.00       33.33       0.00       -0.12
+  PROS normal   BREAK  472 0.21  0.75       18.33       20.37      11.44       -0.02
+   MDX normal   BREAK  204 0.22  0.74       19.23        8.70       0.00       -0.02
+   GPS normal TRADING  569 0.22  0.73       25.71       29.73      14.24        0.03
+   KAT normal TRADING  190 0.22  0.90       18.18       28.57       0.00        0.06
+```
+2026'da en zıt 10 normal coin (≥120 gün):
+```
+  coin    kat   durum  gun  kor  beta  btc_up_dus  btc_dn_yuk  kayan_neg  ertesi_kor
+   JST normal TRADING  281 0.02  0.03       68.42       55.56      37.37        0.11
+   GPS normal TRADING  281 0.02  0.07       36.84       55.56      28.83        0.08
+  BANK normal TRADING  281 0.10  0.47       42.11       27.78       4.27        0.05
+ PARTI normal TRADING  281 0.10  0.28       26.32       27.78      26.69        0.00
+  HOME normal TRADING  281 0.11  0.35       31.58       33.33      31.32       -0.02
+GENIUS normal TRADING  125 0.11  0.23       44.44         NaN       1.60       -0.09
+   NFP normal   BREAK  190 0.11  0.54        8.33       18.75       2.63        0.07
+    FF normal TRADING  281 0.12  0.25       36.84       44.44      11.74        0.02
+   SYN normal TRADING  281 0.13  0.60       21.05       44.44       1.07       -0.04
+   RIF normal TRADING  281 0.14  0.52       21.05       44.44       4.63       -0.05
+```
+
+## 5. 'BTC yükselirken düşen' en sık coin'ler (2024+, BTC +%3 üstü günler ≥ 15, normal)
+```
+  coin   durum  gun  n_up  btc_up_dus  n_dn  btc_dn_yuk  kor
+  DREP   BREAK   94    17       47.06     9        0.00 0.08
+  BANK TRADING  315    21       42.86    20       30.00 0.09
+    AT TRADING  301    20       40.00    18       38.89 0.13
+   MOB   BREAK   94    17       35.29     9       11.11 0.02
+  币安人生 TRADING  260    18       33.33    17       35.29 0.23
+ FRONT   BREAK  240    31       32.26    29       20.69 0.33
+    FF TRADING  360    22       31.82    24       41.67 0.20
+  ALLO TRADING  317    22       31.82    20       20.00 0.15
+  ZAMA TRADING  234    16       31.25    12       25.00 0.25
+  HOME TRADING  469    26       30.77    29       20.69 0.18
+RESOLV TRADING  470    26       30.77    29       34.48 0.21
+   PNT   BREAK   94    17       29.41     9        0.00 0.12
+```
+
+## 6. Bizim sistemdeki coin'ler (günlük korelasyon)
+```
+donem  2024+  2026  ≤2023
+coin                     
+ADA     0.73  0.79   0.71
+APT     0.64  0.69   0.61
+ARB     0.63  0.58   0.56
+BNB     0.69  0.82   0.67
+DOGE    0.78  0.80   0.50
+DOT     0.66  0.62   0.69
+ETH     0.82  0.91   0.80
+FLOKI   0.64  0.74   0.57
+LINK    0.71  0.82   0.63
+NEAR    0.63  0.51   0.57
+OP      0.61  0.59   0.60
+PEPE    0.68  0.69   0.69
+SHIB    0.69  0.73   0.55
+SUI     0.62  0.76   0.53
+```
+
+## 7. Para testi (önceden sabit): BTC büyük günden sonra ERTESİ GÜN zıt hareket eden coin'ler
+≤2023'te ertesi gün korelasyonu en negatif 10 coin: HC -0.21, ASTR -0.12, APE -0.12, GMX -0.11, KDA -0.10, HBAR -0.10, PEOPLE -0.10, XMR -0.10, BAT -0.10, MKR -0.10
+```
+              islem  isabet   net   alt
+coin   donem                           
+HC     ≤2023    101   59.41  1.12  0.05
+ASTR   ≤2023    128   57.81  1.85  0.80
+       2024+    176   51.70 -0.21 -0.80
+       2026      37   40.54 -1.36 -2.71
+APE    ≤2023    121   63.64  1.82  0.88
+       2024+    176   52.27  0.07 -0.55
+       2026      37   43.24 -0.78 -2.23
+GMX    ≤2023     67   58.21  1.18  0.31
+       2024+    176   55.11  0.06 -0.52
+       2026      37   48.65 -0.78 -2.06
+KDA    ≤2023    123   63.41  0.98  0.30
+       2024+    132   53.79  0.26 -0.67
+HBAR   ≤2023    405   58.52  0.53 -0.21
+       2024+    176   48.30  0.01 -0.64
+       2026      37   35.14 -0.91 -2.26
+PEOPLE ≤2023    146   63.01  1.91  0.86
+       2024+    176   47.73 -1.09 -2.25
+       2026      37   40.54 -1.72 -3.50
+XMR    ≤2023    461   61.82  0.67  0.32
+       2024+     11   72.73  2.04  1.04
+BAT    ≤2023    462   57.58  0.68  0.20
+       2024+    176   46.02 -0.48 -1.07
+       2026      37   43.24 -1.45 -2.90
+MKR    ≤2023    323   55.73  0.79  0.09
+       2024+    126   57.94  0.56 -0.29
+```
+Toplam 2024+: 1325 işlem, ortalama net %-0.12
+
+## 8. Saatlik bakış (adaylar: AUD, GBP, BNX, SANTOS, BOND, OG, VGX, TRIBE, BANK, AT, OPN, ALLO, ENSO, ZBT, PAXG)
+```
+                       n   kor  btc_buyuk_hareket  zit_yon
+coin   saat donem                                         
+AUD    1    ≤2023  24655  0.12               2864    33.03
+       4    ≤2023   6163  0.15                796    33.29
+GBP    1    ≤2023  30138  0.14               3037    31.97
+       4    ≤2023   7534  0.17                847    32.47
+BNX    1    ≤2023  18748  0.34               1277    13.86
+            2024+  10612  0.28                745    16.38
+       4    ≤2023   4685  0.36                367    14.17
+            2024+   2653  0.27                221    18.10
+SANTOS 1    ≤2023  18250  0.23               1226    13.62
+            2024+  24272  0.29               1258    16.14
+            2026    6728  0.34                284    14.08
+       4    ≤2023   4562  0.23                355    17.46
+            2024+   6068  0.28                360    18.06
+            2026    1682  0.36                 71    11.27
+BOND   1    ≤2023  21825  0.29               1594    12.92
+            2024+   4876  0.44                325    12.00
+       4    ≤2023   5455  0.31                445     8.99
+            2024+   1219  0.47                 96    10.42
+OG     1    ≤2023  26306  0.32               2705    15.01
+            2024+  24272  0.24               1258    19.63
+            2026    6728  0.23                284    19.01
+       4    ≤2023   6576  0.35                762    15.75
+            2024+   6068  0.24                360    21.94
+            2026    1682  0.23                 71    14.08
+VGX    1    ≤2023  18470  0.30               1254    13.48
+            2024+   5716  0.30                408    14.22
+       4    ≤2023   4617  0.30                359    11.14
+            2024+   1429  0.40                123    12.20
+TRIBE  1    ≤2023  11058  0.30               1135    18.85
+       4    ≤2023   2763  0.31                317    18.61
+BANK   1    2024+   7888  0.12                348    22.70
+            2026    6728  0.10                284    24.30
+       4    2024+   1971  0.11                 95    28.42
+            2026    1682  0.09                 71    29.58
+AT     1    2024+   7552  0.13                318    24.21
+            2026    6728  0.12                284    25.00
+       4    2024+   1887  0.14                 83    43.37
+            2026    1682  0.11                 71    45.07
+OPN    1    2024+   5201  0.24                165    21.82
+            2026    5201  0.24                165    21.82
+       4    2024+   1299  0.22                 38    15.79
+            2026    1299  0.22                 38    15.79
+ALLO   1    2024+   7936  0.19                351    19.94
+            2026    6728  0.18                284    20.42
+       4    2024+   1983  0.20                 97    26.80
+            2026    1682  0.19                 71    28.17
+ENSO   1    2024+   8613  0.21                378    16.93
+            2026    6728  0.17                284    19.72
+       4    2024+   2152  0.23                107    15.89
+            2026    1682  0.17                 71    18.31
+ZBT    1    2024+   8537  0.26                374    11.50
+            2026    6728  0.23                284    12.68
+       4    2024+   2133  0.23                105    12.38
+            2026    1682  0.18                 71    14.08
+PAXG   1    ≤2023  29270  0.18               2990    32.01
+            2024+  24272  0.12               1258    32.19
+            2026    6728  0.29                284    31.34
+       4    ≤2023   7317  0.13                836    37.92
+            2024+   6068  0.08                360    33.61
+            2026    1682  0.30                 71    32.39
+```
+_zit_yon: BTC'nin büyük oynadığı saatlerde (1 s: ≥%1, 4 s: ≥%2) coin'in ters yöne gittiği saatlerin %'si (50 = yazı tura)_
+
+_Süre: 129 sn_
+exit=0
