@@ -1,0 +1,56 @@
+name: Prim merdiveni
+on:
+  push:
+    branches: [arastirma3]
+    paths: [merdiven.py, .github/workflows/merdiven.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art1
+          pattern: coin-*
+          run-id: 37573562538
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art2
+          pattern: u24-*
+          run-id: 37618956269
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art3
+          name: prim-veri
+          run-id: 37771896586
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: sf-btc
+          run-id: 37801388956
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          set +e; python merdiven.py > merdiven_log.txt 2>&1; echo "exit=$?" >> merdiven_log.txt; tail -30 merdiven_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add merdiven_log.txt; for f in merdiven_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Prim merdiveni sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
