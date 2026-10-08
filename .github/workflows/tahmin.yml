@@ -98,6 +98,25 @@ jobs:
         with:
           path: durum/zincir.pkl
           key: zgecmis-${{ github.run_id }}
+      - name: Kucuk yatirimci gecmisini onbellekten al
+        uses: actions/cache/restore@v4
+        with:
+          path: durum/kucuk.pkl
+          key: kgecmis-${{ github.run_id }}
+          restore-keys: kgecmis-
+      - name: Kucuk yatirimci kontrolu (BTC; TR 15:00 sonrasi, gunde bir)
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python kucuk_canli.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Kucuk yatirimci gecmisini onbellege kaydet
+        if: hashFiles('durum/kucuk.pkl') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: durum/kucuk.pkl
+          key: kgecmis-${{ github.run_id }}
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
