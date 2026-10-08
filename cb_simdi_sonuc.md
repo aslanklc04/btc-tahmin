@@ -16,4 +16,3 @@
 | PEPE | -24.8 | -0.93 | ⚠️ ABD almıyor (bu coin’de filtre yalnız bilgi) |
 | SHIB | -18.5 | -1.00 | ⛔ ABD satıyor |
 | SUI | -7.1 | -1.09 | ⛔ ABD satıyor |
-exit=0
