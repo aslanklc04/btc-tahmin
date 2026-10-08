@@ -2,7 +2,7 @@
 
 ⭐ En güçlü sinyal şu an **yok** (4s: ✘ · 8s: ✘). Geldiğinde geçmiş isabet 4s %63.2, 8s %62.7.
 
-💵 ABD satıyor (Coinbase primi z -1.8) ⛔ onaysız — geçmişte bu durumda sinyaller kaybettirdi · prim -7.9 baz puan
+💵 ABD satıyor (Coinbase primi z -1.8) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69) · prim -7.9 baz puan
 
 🔻 Kısa (satış) sinyali: yok (eşik: Coinbase primi z ≤ −2; şu an -1.8)
 
@@ -26,7 +26,7 @@
 | 4 saat | $83,221 (+%0.63) | $82,187 (−%0.63) | ⬇️ önce STOP · Güçlü | %57.0 (2024+ %56.6) |
 | 8 saat | $83,435 (+%0.88) | $81,973 (−%0.88) | ⬇️ önce STOP · Çok güçlü | %60.0 (2024+ %55.8) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 18:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 18:26 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 08.10 15:05 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 08.10 15:00 · $82,506 · gönderildi
@@ -40,7 +40,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 08.10.2026 18:05 · ⚠️ Yatırım
 - 07.10 21:05 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 07.10 21:00 · $83,159 · gönderildi
 - 07.10 18:05 · ✅ · 🧭 BTC 07.10 18:00 · $83,010 · gönderildi
 
-_Çalıştırma: 08.10 18:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 08.10 18:26 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -77,7 +77,7 @@ _Altcoin sinyalleri isabet testinden geçti; komisyon sonrası kâr kanıtlanmad
 ## 🧪 24 saat DENEME (10 coin) — gerçek para için değil
 Başlangıçtan (07.10.2026) beri sonuçlanan deneme işlemleri: **1/1 tuttu (%100) · ort. net %+0.15 · toplam %+0.1**
 
-Şu an: 💵 ABD satıyor (Coinbase primi z -1.8) ⛔ onaysız — geçmişte bu durumda sinyaller kaybettirdi
+Şu an: 💵 ABD satıyor (Coinbase primi z -1.8) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69)
 
 | Coin | Fiyat | 24 saat | Açık deneme işlemi | 2024+ isabet · net % | 2026 isabet · net % (sinyal) |
 |---|---|---|---|---|---|
