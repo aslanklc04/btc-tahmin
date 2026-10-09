@@ -19,8 +19,8 @@ if G is None:
     G.update(globals().get("KEEP", {}))
 import ortak as _ortak
 _tg_raw = tg_send
-def tg_send(text):                                                                       # her gönderimi kaydet (teşhis)
-    ok = _tg_raw(text); G.setdefault("tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:60], ok=ok, info=_ortak.TG_LAST["info"]))
+def tg_send(text, **kw):                                                                 # her gönderimi kaydet (teşhis) · oncelik/etiket gonder.py sırası için geçer
+    ok = _tg_raw(text, **kw); G.setdefault("tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:60], ok=ok, info=_ortak.TG_LAST["info"]))
     G["tglog"] = G["tglog"][-20:]; return ok
 FEATS, FEATS1, FEATS4, BK, BHS = M["FEATS"], M["FEATS1"], M["FEATS4"], M["BK"], M["BHS"]
 now_ms = time.time() * 1000
@@ -105,6 +105,10 @@ for e_ in LOG:
         p2 = float(full.close.loc[tt]); e_["ok"] = bool((p2 > e_["p"]) == (e_["sg"] == 1)); e_["ret"] = (p2 / e_["p"] - 1) * e_["sg"] * 100
 G["log"] = [e_ for e_ in LOG if t - e_["t"] <= pd.Timedelta(days=60)]
 def logsig(tip, H, sg): G["log"].append(dict(t=t, tip=tip, H=H, sg=sg, p=price, cb=CBZ))
+TEST_ZORLA = os.environ.get("TEST_ZORLA", "")                                             # yalnız test: sinyalleri zorla (TG_SIRALI=1 ile kuyruğa yazılır, gönderilmez)
+if TEST_ZORLA:
+    agree = TEST_ZORLA == "star"; acls_on = TEST_ZORLA == "acls"; G["last_star"] = G["last_acls"] = G["last_kisa"] = None
+    if TEST_ZORLA == "fire": fire = True; new_sig = new_sig or [(4, 1, "4 saat Çok güçlü ↑ (TEST)")]; ORT_YENI = ORT_YENI or [(4, 1, 2, 0.12)]
 if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours=8)):
     tg_send(f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
             + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + CBL + "\n" + HIZL + emir_satiri(8, a8_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
@@ -123,7 +127,7 @@ if fire:
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 # ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
 KISA_BILDIRIM = True
-kisa_now = bool(np.isfinite(CBZ) and CBZ <= -2)
+kisa_now = bool(np.isfinite(CBZ) and CBZ <= -2) or TEST_ZORLA == "kisa"
 if KISA_BILDIRIM and kisa_now and (G.get("last_kisa") is None or t - G["last_kisa"] >= pd.Timedelta(hours=24)):
     cik_k = (t + pd.Timedelta(hours=24, minutes=6)).tz_convert(DISPLAY_TZ)
     tg_send(f"🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — {head}\nABD güçlü satıyor: Coinbase primi z {CBZ:+.1f} ({CBD['bp']:+.1f} baz puan)\n"

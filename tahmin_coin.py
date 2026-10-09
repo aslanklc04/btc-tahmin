@@ -37,8 +37,8 @@ def fmt(p):
 def lvname(li): return LEV[li].split(" (")[0]
 CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 ABD alıyor mu? (tahmin.py bu saat hesapladı; dosyadan)
 _tg_raw = tg_send
-def tg_send(text):                                                                           # altcoin gönderimlerini kaydet (panelde görünür)
-    ok = _tg_raw(text); GC.setdefault("_tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"]))
+def tg_send(text, **kw):                                                                     # altcoin gönderimlerini kaydet (panelde görünür) · oncelik/etiket geçer
+    ok = _tg_raw(text, **kw); GC.setdefault("_tglog", []).append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"]))
     GC["_tglog"] = GC["_tglog"][-20:]; return ok
 now_ms = time.time() * 1000; rows_md, logs_all, kapali, ortak_msg = [], [], [], []
 JOBS = []                                                                                    # 1) modeller ve geçmiş (hızlı)
@@ -93,6 +93,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         DON = f"{M.get('EVAL0', pd.Timestamp(HOLD_START, tz='UTC')):%Y}+"
         now = {"star": cur[4] == (1, 2) and cur[8] == (1, 2), "u4": cur[4] == (1, 2), "acls": am >= 0.85}
         btc_ok = BTC_STRONG and BTC_T == t; btc_sessiz = BTC_QUIET and BTC_T == t
+        if os.environ.get("TEST_ZORLA"): now = {"star": True, "u4": True, "acls": True}; btc_ok = True; G["last"] = {}; BTC_T = BTC_T if BTC_T is not None else t   # yalnız test
         # ---- sonuç takibi (coin'in kendi fiyatıyla) ----
         LOG = G.setdefault("log", [])
         for e_ in LOG:
@@ -147,7 +148,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         G["ST"] = G["ST"][G["ST"].index >= G["ST"].index[-1] - pd.Timedelta(days=70)]
         print(f"✅ {NM}: {ufuk} · ⭐ {now['star']} · A {am:.2f} · ortak {f_ortak or '-'} · tek {f_tek or '-'}")
     except Exception:
-        traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ bu saat hesaplanamadı | | | | | | | | |")
+        traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ bu saat hesaplanamadı | | | | | | | | |"); hata_kaydet("altcoin", f"{NM} hesaplanamadı ({traceback.format_exc().strip().splitlines()[-1][:120]})")
 if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                                        # 🤝 tek mesaj: bu saatte BTC güçlüyken gelen tüm coin sinyalleri
     tl0 = BTC_T.tz_convert(DISPLAY_TZ)
     ortak_msg.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                     # coin'in kendi primi yüksek olan üstte

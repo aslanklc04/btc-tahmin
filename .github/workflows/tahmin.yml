@@ -33,7 +33,8 @@ jobs:
           path: durum/gecmis.pkl
           key: gecmis-${{ github.run_id }}
           restore-keys: gecmis-
-      - run: python tahmin.py
+      - id: btc
+        run: python tahmin.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -50,6 +51,7 @@ jobs:
           key: coingecmis-${{ github.run_id }}
           restore-keys: coingecmis-
       - name: Altcoin sinyalleri (durum/coin_listesi.txt)
+        id: coin
         continue-on-error: true
         timeout-minutes: 6
         run: python tahmin_coin.py
@@ -69,6 +71,7 @@ jobs:
           key: d24gecmis-${{ github.run_id }}
           restore-keys: d24gecmis-
       - name: 24 saat deneme sinyalleri (durum/model24_*.pkl.gz)
+        id: d24
         continue-on-error: true
         timeout-minutes: 5
         run: python tahmin24.py
@@ -88,6 +91,7 @@ jobs:
           key: zgecmis-${{ github.run_id }}
           restore-keys: zgecmis-
       - name: Gunluk arz/talep kontrolu (ETH; TR 09:00 sonrasi, gunde bir)
+        id: zincir
         continue-on-error: true
         timeout-minutes: 4
         run: python zincir_canli.py
@@ -107,6 +111,7 @@ jobs:
           key: kgecmis-${{ github.run_id }}
           restore-keys: kgecmis-
       - name: Kucuk yatirimci kontrolu (BTC; TR 15:00 sonrasi, gunde bir)
+        id: kucuk
         continue-on-error: true
         timeout-minutes: 3
         run: python kucuk_canli.py
@@ -126,6 +131,7 @@ jobs:
           key: pgecmis-${{ github.run_id }}
           restore-keys: pgecmis-
       - name: ABD guclu aliyor -> coin AL (kendi Coinbase primi, durum/prim_acik.csv)
+        id: prim
         continue-on-error: true
         timeout-minutes: 5
         run: python prim_canli.py
@@ -145,6 +151,7 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }}"
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0

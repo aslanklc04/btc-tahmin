@@ -176,7 +176,11 @@ def tes_eval(TF, THR):
         U |= m.fillna(False)
     return U
 TG_LAST = {"ok": None, "info": ""}
-KUYRUK_F = "durum/tg_kuyruk.json"
+KUYRUK_F, HATA_F = "durum/tg_kuyruk.json", "durum/adim_hata.txt"
+def hata_kaydet(adim, ayrinti):                                                               # gonder.py bu saatin hatalarını Telegram'a uyarı olarak yollar
+    try:
+        os.makedirs(os.path.dirname(HATA_F), exist_ok=True); open(HATA_F, "a", encoding="utf-8").write(f"{adim}: {ayrinti}\n")
+    except Exception: pass
 def tg_send(text, oncelik=None, etiket=None):
     """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için).
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.

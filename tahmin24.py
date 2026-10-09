@@ -20,8 +20,8 @@ def fmt(p):
     if p >= 1: return f"${p:,.3f}"
     return f"${p:.{min(12, 3 - int(np.floor(np.log10(p))))}f}"
 _tg_raw = tg_send
-def tg_send(text):
-    ok = _tg_raw(text) if BILDIRIM else False; GS["tglog"].append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"]))
+def tg_send(text, **kw):
+    ok = _tg_raw(text, **kw) if BILDIRIM else False; GS["tglog"].append(dict(t=pd.Timestamp.now(tz="UTC"), tip=text.split("\n")[0][:70], ok=ok, info=_ortak.TG_LAST["info"]))
     GS["tglog"] = GS["tglog"][-10:]; return ok
 def anlik(sym, yedek):                                                                       # mesaj anındaki fiyat (limit emir için)
     for url in EP:
@@ -65,6 +65,8 @@ for sym, M in MODELS.items():
                 else: continue
                 e["ret"] = 100 * (p2 / e["p"] - 1); e["net"] = e["ret"] - 200 * FEE; e["ok"] = bool(p2 > e["p"])
         ev = events(mk, H); yeni = len(ev) > 0 and ev[-1] == len(W_) - 1 and GS["last"].get(sym) != t   # araştırmadaki sayımın aynısı (son 30 gün zinciri)
+        if os.environ.get("TEST_ZORLA") and not fire: yeni = True                               # yalnız test: ilk iki coin'i zorla
+        if os.environ.get("TEST_ZORLA") and len(fire) == 1: yeni = True
         if yeni:
             p_now = anlik(sym, price); CBO = CBD if NM == "BTC" else cb_prim(NM); ZC = cb_coin_z(NM, CBO, CBD)        # 💵 coin'in kendi Coinbase primi
             GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
@@ -79,7 +81,7 @@ for sym, M in MODELS.items():
         rows_md.append(f"| {NM} | {fmt(price)} | {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]}{' · 🧪 SİNYAL' if yeni else ''} | "
                        + (f"giriş {fmt(acik[-1]['p'])} → çıkış {(acik[-1]['t'] + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}" if acik else "—")
                        + f" | %{st24['acc']:.0f} · {st24['net']:+.2f} | " + (f"%{s26['acc']:.0f} · {s26['net']:+.2f} ({s26['n']})" if s26 else "—") + " |")
-    except Exception: traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ hata | | | |")
+    except Exception: traceback.print_exc(); rows_md.append(f"| {NM} | ⚠️ hata | | | |"); hata_kaydet("24 saat", f"{NM} ({traceback.format_exc().strip().splitlines()[-1][:120]})")
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
