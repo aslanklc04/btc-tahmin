@@ -1,0 +1,22 @@
+# 🔁 Yeni bilgi mi? USDT primi ve Kore primi vs canlı Coinbase primi — 09.10.2026 05:24
+Aynı saatte birlikte hareket (korelasyon): USDT primi z ↔ BTC Coinbase primi z: +0.93 · Kore primi z ↔ Coinbase primi z: -0.04 · USDT ↔ Kore: -0.03
+
+_olay · isabet · işlem başı net % · haftalık blok %5 alt sınır_
+```
+USDT primi z ≥ 2 → BTC        8 s · hepsi                                  2024+: 167 · %50 · +0.24 · alt +0.07 | 2026: 38 · %47 · +0.27 · alt -0.44
+USDT primi z ≥ 2 → BTC        8 s · 💵 yokken (kendi Coinbase primi z < 2)  2024+: 95 · %46 · +0.24 · alt -0.00 | 2026: 23 · %52 · +0.29 · alt +0.04
+USDT primi z ≥ 2 → BTC        8 s · 💵 varken (z ≥ 2)                       2024+: 126 · %49 · +0.26 · alt +0.05 | 2026: 28 · %46 · +0.12 · alt -0.72
+USDT primi z ≥ 2 → BTC       24 s · hepsi                                  2024+: 98 · %57 · +0.71 · alt +0.29 | 2026: 20 · %55 · +0.30 · alt -1.11
+USDT primi z ≥ 2 → BTC       24 s · 💵 yokken (kendi Coinbase primi z < 2)  2024+: 68 · %44 · +0.22 · alt -0.37 | 2026: 15 · %53 · +0.33 · alt -0.78
+USDT primi z ≥ 2 → BTC       24 s · 💵 varken (z ≥ 2)                       2024+: 72 · %50 · +0.59 · alt +0.02 | 2026: 14 · %50 · +0.38 · alt -1.66
+USDT primi z ≥ 2 → coin'ler   8 s · hepsi                                  2024+: 6721 · %51 · +0.44 · alt +0.16 | 2026: 1862 · %44 · +0.23 · alt -0.75
+USDT primi z ≥ 2 → coin'ler   8 s · 💵 yokken (kendi Coinbase primi z < 2)  2024+: 6051 · %50 · +0.39 · alt +0.12 | 2026: 1732 · %45 · +0.27 · alt -0.65
+USDT primi z ≥ 2 → coin'ler   8 s · 💵 varken (z ≥ 2)                       2024+: 2590 · %55 · +0.73 · alt +0.40 | 2026: 576 · %48 · +0.09 · alt -1.26
+USDT primi z ≥ 2 → coin'ler  24 s · hepsi                                  2024+: 3968 · %55 · +1.19 · alt +0.45 | 2026: 980 · %47 · +0.43 · alt -1.57
+USDT primi z ≥ 2 → coin'ler  24 s · 💵 yokken (kendi Coinbase primi z < 2)  2024+: 3689 · %54 · +1.00 · alt +0.30 | 2026: 930 · %47 · +0.47 · alt -1.55
+USDT primi z ≥ 2 → coin'ler  24 s · 💵 varken (z ≥ 2)                       2024+: 1668 · %55 · +1.07 · alt +0.46 | 2026: 361 · %51 · +0.79 · alt -2.01
+Kore primi z ≥ 2 → BTC        4 s · hepsi                                  2024+: 277 · %55 · +0.17 · alt +0.08 | 2026: 107 · %53 · +0.14 · alt +0.04
+Kore primi z ≥ 2 → BTC        4 s · 💵 yokken (kendi Coinbase primi z < 2)  2024+: 266 · %54 · +0.14 · alt +0.04 | 2026: 106 · %53 · +0.14 · alt +0.03
+Kore primi z ≥ 2 → BTC        4 s · 💵 varken (z ≥ 2)                       2024+: 11 · %73 · +1.04 · alt +0.34 | 2026: 1
+```
+**Önceden yazılı karar (💵 yokken de çalışıyor mu?):** USDT primi z ≥ 2 → BTC · 8 s: ❌ · USDT primi z ≥ 2 → BTC · 24 s: ❌ · USDT primi z ≥ 2 → coin'ler · 8 s: ✅ yeni bilgi · USDT primi z ≥ 2 → coin'ler · 24 s: ✅ yeni bilgi · Kore primi z ≥ 2 → BTC · 4 s: ✅ yeni bilgi
