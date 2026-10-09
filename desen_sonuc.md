@@ -1,35 +1,3 @@
-btcturk USDTTRY 59400 mum 147 sn
-upbit KRW-USDT 20451 mum 148 sn
-btcturk BTCTRY 59409 mum 195 sn
-btcturk ETHTRY 59387 mum 243 sn
-upbit KRW-BTC 59400 mum 281 sn
-btcturk XRPTRY 59392 mum 292 sn
-btcturk DOGETRY 46279 mum 337 sn
-btcturk ADATRY 51782 mum 382 sn
-upbit KRW-ETH 59400 mum 413 sn
-btcturk SOLTRY 45879 mum 427 sn
-btcturk AVAXTRY 47440 mum 478 sn
-btcturk LINKTRY 58632 mum 501 sn
-btcturk DOTTRY 50231 mum 522 sn
-btcturk NEARTRY 17910 mum 543 sn
-upbit KRW-XRP 59400 mum 547 sn
-btcturk SHIBTRY 43608 mum 564 sn
-btcturk SUITRY 8191 mum 591 sn
-upbit KRW-DOGE 49179 mum 657 sn
-upbit KRW-ADA 59400 mum 791 sn
-upbit KRW-SOL 43603 mum 888 sn
-btcturk APTTRY 29911 mum 924 sn
-upbit KRW-AVAX 40807 mum 980 sn
-upbit KRW-LINK 54059 mum 1100 sn
-upbit KRW-DOT 52568 mum 1218 sn
-btcturk ARBTRY 30723 mum 1270 sn
-upbit KRW-NEAR 42133 mum 1311 sn
-btcturk PEPETRY 27764 mum 1313 sn
-upbit KRW-SHIB 32568 mum 1383 sn
-upbit KRW-SUI 30036 mum 1450 sn
-upbit KRW-APT 34743 mum 1527 sn
-upbit KRW-ARB 30859 mum 1595 sn
-upbit KRW-PEPE 16622 mum 1632 sn
 # 🔎 Coinbase primi gibi işaretler — 09.10.2026 05:23
 Binance spot: 15 coin · Upbit KRW: 16 (USDT, BTC, ETH, XRP, DOGE, ADA, SOL, AVAX, LINK, DOT, NEAR, SHIB, SUI, APT, ARB, PEPE) · BtcTurk TRY: 16 (USDT, BTC, ETH, XRP, DOGE, ADA, SOL, AVAX, LINK, DOT, NEAR, SHIB, SUI, APT, ARB, PEPE) · Coinbase USDT-USD: 47602 saat · Binance vadeli prim: 15 coin · 1632 sn
 
@@ -85,4 +53,3 @@ B2 coin'in BTC'ye göre Türkiye primi → coin z ≤ −2 (düşük)    24  AL 
 A1 Kore primi (BTC seviyesi): BTC z +0.4 · A2 coin'in BTC'ye göre Kore primi: ETH z +0.1, XRP z +1.1, DOGE z +1.9, ADA z -0.0, SOL z +1.2, AVAX z -0.3 · B1 Türkiye primi (BTC seviyesi): BTC z +1.8 · B2 coin'in BTC'ye göre Türkiye primi: ETH z -0.7, XRP z -1.4, DOGE z +0.5, ADA z -0.4, SOL z +1.5, AVAX z -0.3 · C USDT primi: BTC z -1.9 · D vadeli primi (vadeli − spot): BTC z -0.2, ETH z -0.2, XRP z -0.7, DOGE z -0.5, ADA z +0.5, SOL z -0.5
 
 _Süre: 1645 sn_
-exit=0
