@@ -8,7 +8,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,7 +19,13 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: |
-          set +e; timeout 3600 python -u desen.py > desen_log.txt 2>&1; echo "exit=$?" >> desen_log.txt; tail -30 desen_log.txt
+          set +e; timeout 5700 python -u desen.py > desen_log.txt 2>&1; echo "exit=$?" >> desen_log.txt; tail -30 desen_log.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: desen-veri
+          path: desen_veri.pkl
+          retention-days: 30
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"

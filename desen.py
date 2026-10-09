@@ -12,7 +12,7 @@ from ortak import *
 T0 = time.time(); L = []
 def yaz(s=""): print(s, flush=True); L.append(s)
 BAS = pd.Timestamp("2020-01-01", tz="UTC"); SON = pd.Timestamp.now(tz="UTC").floor("h"); UA = {"User-Agent": "btc-tahmin-arastirma"}
-COINS = ["BTC", "ETH", "XRP", "DOGE", "ADA", "SOL", "AVAX", "LINK", "DOT", "NEAR", "SHIB", "SUI", "APT", "ARB", "PEPE", "TRX", "BCH", "ETC", "XLM", "HBAR"]
+COINS = ["BTC", "ETH", "XRP", "DOGE", "ADA", "SOL", "AVAX", "LINK", "DOT", "NEAR", "SHIB", "SUI", "APT", "ARB", "PEPE"]
 class Hiz:
     def __init__(s, aralik): s.a, s.k, s.t = aralik, threading.Lock(), 0.0
     def bekle(s):
@@ -36,7 +36,7 @@ def spot(nm):
 with ThreadPoolExecutor(6) as ex: SP = {k: v for k, v in ex.map(spot, COINS) if v is not None and len(v) > 3000}
 for v in SP.values(): v.index = pd.DatetimeIndex(v.index).as_unit("ns")
 # ---------------- A) Upbit ----------------
-HU = Hiz(0.13)
+HU = Hiz(0.11)
 T_UP = time.time()
 def upbit(market):
     global T_UP
@@ -115,33 +115,35 @@ def vadeli_prim(nm):
     return nm, s[s.index >= BAS]
 zf = lambda p: (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
 ISARET = {}                                                                                      # aile → {coin: z serisi}
+import os, pickle
+VF = "desen_veri.pkl"
+if os.path.exists(VF): UP, BT, U, VP = pickle.load(open(VF, "rb")); print("veri önbellekten")
+else:
+    def _up(): return {c: upbit(f"KRW-{c}") for c in ["USDT"] + COINS}
+    def _bt(): return {c: btcturk(f"{c}TRY") for c in ["USDT"] + COINS}
+    def _vp():
+        with ThreadPoolExecutor(4) as ex: return {k: v for k, v in ex.map(vadeli_prim, list(SP)) if v is not None and len(v) > 2000}
+    with ThreadPoolExecutor(4) as ex: f1, f2, f3, f4 = ex.submit(_up), ex.submit(_bt), ex.submit(coinbase, "USDT-USD"), ex.submit(_vp); UP, BT, U, VP = f1.result(), f2.result(), f3.result(), f4.result()
+    pickle.dump((UP, BT, U, VP), open(VF, "wb"))
+UP = {k: v for k, v in UP.items() if v is not None and len(v) > 2000}; BT = {k: v for k, v in BT.items() if v is not None and len(v) > 2000}
+yaz(f"# 🔎 Coinbase primi gibi işaretler — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\nBinance spot: {len(SP)} coin · Upbit KRW: {len(UP)} ({', '.join(UP)}) · BtcTurk TRY: {len(BT)} ({', '.join(BT)}) · "
+    f"Coinbase USDT-USD: {'yok' if U is None else len(U)} saat · Binance vadeli prim: {len(VP)} coin · {time.time()-T0:.0f} sn\n")
 # A
-UP = {}
-with ThreadPoolExecutor(1) as ex: UP = dict(zip(["USDT"] + COINS, ex.map(lambda c: upbit(f"KRW-{c}"), ["USDT"] + COINS)))
-UP = {k: v for k, v in UP.items() if v is not None and len(v) > 2000}
-yaz(f"# 🔎 Coinbase primi gibi işaretler — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\nBinance spot: {len(SP)} coin · Upbit KRW: {len(UP)} ({', '.join(UP)}) · {time.time()-T0:.0f} sn")
 if "BTC" in UP and "BTC" in SP:
     if "USDT" in UP:
         ix = SP["BTC"].index; p = np.log(UP["BTC"].reindex(ix) / (UP["USDT"].reindex(ix) * SP["BTC"])); ISARET["A1 Kore primi (BTC seviyesi) → BTC"] = {"BTC": zf(p.where(p.abs() < 0.3))}
     pb = np.log(UP["BTC"] / SP["BTC"].reindex(UP["BTC"].index))
     ISARET["A2 coin'in BTC'ye göre Kore primi → coin"] = {c: zf((np.log(UP[c] / SP[c].reindex(UP[c].index)) - pb.reindex(UP[c].index)).where(lambda x: x.abs() < 0.3)) for c in UP if c not in ("BTC", "USDT") and c in SP}
 # B
-with ThreadPoolExecutor(1) as ex: BT = dict(zip(["USDT"] + COINS, ex.map(lambda c: btcturk(f"{c}TRY"), ["USDT"] + COINS)))
-BT = {k: v for k, v in BT.items() if v is not None and len(v) > 2000}
-yaz(f"BtcTurk TRY: {len(BT)} ({', '.join(BT)}) · {time.time()-T0:.0f} sn")
 if "BTC" in BT and "BTC" in SP:
     if "USDT" in BT:
         ix = SP["BTC"].index; p = np.log(BT["BTC"].reindex(ix) / (BT["USDT"].reindex(ix) * SP["BTC"])); ISARET["B1 Türkiye primi (BTC seviyesi) → BTC"] = {"BTC": zf(p.where(p.abs() < 0.3))}
     pb = np.log(BT["BTC"] / SP["BTC"].reindex(BT["BTC"].index))
     ISARET["B2 coin'in BTC'ye göre Türkiye primi → coin"] = {c: zf((np.log(BT[c] / SP[c].reindex(BT[c].index)) - pb.reindex(BT[c].index)).where(lambda x: x.abs() < 0.3)) for c in BT if c not in ("BTC", "USDT") and c in SP}
 # C
-U = coinbase("USDT-USD")
-yaz(f"Coinbase USDT-USD: {'yok' if U is None else f'{U.index[0]:%Y-%m-%d} → {len(U)} saat'} · {time.time()-T0:.0f} sn")
 if U is not None and len(U) > 2000:
     zu = zf(np.log(U).where(lambda x: x.abs() < 0.05)); ISARET["C USDT primi → BTC"] = {"BTC": zu}; ISARET["C USDT primi → tüm coin'ler"] = {c: zu for c in SP}
 # D
-with ThreadPoolExecutor(4) as ex: VP = {k: v for k, v in ex.map(vadeli_prim, list(SP)) if v is not None and len(v) > 2000}
-yaz(f"Binance vadeli premium index: {len(VP)} coin · {time.time()-T0:.0f} sn\n")
 if VP: ISARET["D vadeli primi (vadeli − spot) → coin"] = {c: zf(v) for c, v in VP.items()}
 # ---------------- test ----------------
 LMT = 0.0002; A24, A26 = pd.Timestamp("2024-01-01", tz="UTC"), pd.Timestamp("2026-01-01", tz="UTC")
