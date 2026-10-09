@@ -1,0 +1,36 @@
+upbit KRW-USDT 20450 mum 195 sn
+upbit KRW-BTC 59400 mum 330 sn
+upbit KRW-ETH 59400 mum 465 sn
+upbit KRW-XRP 59400 mum 599 sn
+upbit KRW-DOGE 49178 mum 711 sn
+upbit KRW-ADA 59400 mum 846 sn
+upbit KRW-SOL 43602 mum 946 sn
+upbit KRW-AVAX 40806 mum 1039 sn
+upbit KRW-LINK 54058 mum 1163 sn
+upbit KRW-DOT 52567 mum 1282 sn
+upbit KRW-NEAR 42132 mum 1378 sn
+upbit KRW-SHIB 32567 mum 1451 sn
+upbit KRW-SUI 30035 mum 1520 sn
+upbit KRW-APT 34742 mum 1601 sn
+upbit KRW-ARB 30858 mum 1672 sn
+upbit KRW-PEPE 16621 mum 1710 sn
+upbit KRW-TRX 59400 mum 1846 sn
+upbit KRW-BCH 59400 mum 1980 sn
+upbit KRW-ETC 59400 mum 2116 sn
+upbit KRW-XLM 59400 mum 2250 sn
+upbit KRW-HBAR 59400 mum 2386 sn
+# 🔎 Coinbase primi gibi işaretler — 09.10.2026 04:34
+Binance spot: 20 coin · Upbit KRW: 21 (USDT, BTC, ETH, XRP, DOGE, ADA, SOL, AVAX, LINK, DOT, NEAR, SHIB, SUI, APT, ARB, PEPE, TRX, BCH, ETC, XLM, HBAR) · 2386 sn
+btcturk USDTTRY 58678 mum 2443 sn
+btcturk BTCTRY 59408 mum 2493 sn
+btcturk ETHTRY 59387 mum 2548 sn
+btcturk XRPTRY 59390 mum 2596 sn
+btcturk DOGETRY 46278 mum 2642 sn
+btcturk ADATRY 51782 mum 2689 sn
+btcturk SOLTRY 45878 mum 2735 sn
+btcturk AVAXTRY 42085 mum 3117 sn
+btcturk LINKTRY 54553 mum 3427 sn
+btcturk DOTTRY 50230 mum 3482 sn
+btcturk NEARTRY 17908 mum 3525 sn
+btcturk SHIBTRY 43607 mum 3570 sn
+exit=124
