@@ -19,7 +19,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: |
-          set +e; python desen.py > desen_log.txt 2>&1; echo "exit=$?" >> desen_log.txt; tail -30 desen_log.txt
+          set +e; timeout 3600 python -u desen.py > desen_log.txt 2>&1; echo "exit=$?" >> desen_log.txt; tail -30 desen_log.txt
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"

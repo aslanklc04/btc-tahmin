@@ -37,15 +37,20 @@ with ThreadPoolExecutor(6) as ex: SP = {k: v for k, v in ex.map(spot, COINS) if 
 for v in SP.values(): v.index = pd.DatetimeIndex(v.index).as_unit("ns")
 # ---------------- A) Upbit ----------------
 HU = Hiz(0.13)
+T_UP = time.time()
 def upbit(market):
-    out, to = [], SON
+    global T_UP
+    T_UP = time.time(); out, to = [], SON
     while to > BAS:
         r = al("https://api.upbit.com/v1/candles/minutes/60", HU, market=market, to=to.strftime("%Y-%m-%dT%H:%M:%SZ"), count=200)
         if r is None or r.status_code != 200: print("upbit", market, r.status_code if r is not None else "yok", (r.text[:100] if r is not None else "")); break
         j = r.json()
         if not j: break
-        out += j; to = pd.Timestamp(j[-1]["candle_date_time_utc"], tz="UTC")
+        yeni = pd.Timestamp(j[-1]["candle_date_time_utc"], tz="UTC")
+        if yeni >= to or time.time() - T_UP > 900: print("upbit", market, "durdu (sayfa ilerlemedi ya da süre doldu)", yeni, to); out += j; break   # koruma: sonsuz döngü / süre
+        out += j; to = yeni
         if len(j) < 200: break
+    print("upbit", market, len(out), "mum", f"{time.time()-T0:.0f} sn", flush=True)
     if not out: return None
     d = pd.DataFrame(out).drop_duplicates("candle_date_time_utc")
     s = pd.Series(d.trade_price.astype(float).values, index=pd.to_datetime(d.candle_date_time_utc, utc=True) + pd.Timedelta(hours=1)).sort_index(); s.index = s.index.as_unit("ns"); return s
@@ -61,6 +66,7 @@ def btcturk(sym):
             if j.get("s") == "ok" and j.get("t"): out += list(zip(j["t"], j["c"]))
         elif r is not None and cur == BAS: print("btcturk", sym, r.status_code, r.text[:100])
         cur = nx
+    print("btcturk", sym, len(out), "mum", f"{time.time()-T0:.0f} sn", flush=True)
     if not out: return None
     d = pd.DataFrame(out, columns=["t", "c"]).drop_duplicates("t")
     s = pd.Series(d.c.astype(float).values, index=pd.to_datetime(d.t.astype("int64"), unit="s", utc=True) + pd.Timedelta(hours=1)).sort_index(); s.index = s.index.as_unit("ns"); return s
