@@ -1,0 +1,65 @@
+name: Zorla sinyal kuru test (canli kod, gonderilmez)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/zorla_test.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TG_SIRALI: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis.pkl
+          key: gecmis-x
+          restore-keys: gecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-x
+          restore-keys: coingecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis24.pkl
+          key: d24gecmis-x
+          restore-keys: d24gecmis-
+      - name: Zorla testler
+        run: |
+          set +e
+          {
+          for m in star acls fire kisa; do echo "=== tahmin.py TEST_ZORLA=$m"; TEST_ZORLA=$m timeout 600 python tahmin.py > /tmp/t_$m.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/t_$m.txt | head -12; done
+          echo "=== tahmin_coin.py"; TEST_ZORLA=1 timeout 400 python tahmin_coin.py > /tmp/c.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c.txt | head -20
+          echo "=== tahmin24.py"; TEST_ZORLA=1 timeout 300 python tahmin24.py > /tmp/d.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d.txt | head -12
+          echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
+          echo "=== gönderim (Telegram yerine ekran; altcoin adımı 'failure' gibi davranılıyor)"
+          ADIMLAR="btc=success coin=failure d24=success" python -c "
+          import gonder
+          def _g(m):
+              print('──── GÖNDER ────'); print(m[:1500]); return True
+          gonder.tg_send = _g
+          gonder.main()
+          "
+          } > zorla_log.txt 2>&1
+          cat zorla_log.txt | head -150
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+          path: ar
+      - run: |
+          cp zorla_log.txt ar/ && cd ar
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add zorla_log.txt; git commit -m "Zorla sinyal kuru test sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
