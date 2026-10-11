@@ -85,7 +85,7 @@ for sym, M in MODELS.items():
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
-    for sinif_, grup in (("ana", [x for x in fire if ana_mi(x[0])]), ("yedek", [x for x in fire if not ana_mi(x[0])])):   # ✅ kendi primi ≥ 0 olanlar işlem sinyali
+    for sinif_, grup in [("ana", [x for x in fire if ana_mi(x[0])])] + [("yedek", [x]) for x in fire if not ana_mi(x[0])]:   # ✅ kendi primi ≥ 0 olanlar işlem sinyali · 🔸 yedekler coin başına ayrı
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" if sinif_ == "ana" else
