@@ -11,12 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:
-      - name: Genis taramanin bitmesini bekle
-        timeout-minutes: 120
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          while [ "$(gh api repos/${{ github.repository }}/actions/runs/38139240014 -q .status)" != "completed" ]; do sleep 60; done; echo bitti
       - uses: actions/checkout@v4
         with:
           ref: arastirma3
@@ -25,12 +19,19 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4          # başka çalıştırmadan indirmede 100 sınırı → iki parça
+        with:
+          path: ga
+          pattern: g-[0-9A-O]*
+          run-id: 38139240014
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/download-artifact@v4
         with:
           path: ga
-          pattern: g-*
+          pattern: g-[P-Z]*
           run-id: 38139240014
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: ls ga | wc -l; ls ga/g-BTCUSDT
       - uses: actions/download-artifact@v4
         with:
           name: kosul-veri
