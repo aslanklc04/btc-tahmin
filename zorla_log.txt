@@ -13,15 +13,14 @@ exit=0
 === tahmin24.py
 exit=0
 === tahmin_coin.py NORMAL (126 geniş coin dahil, süre)
-exit=0 süre=11 sn
-14
+exit=0 süre=77 sn
+140
 === tahmin24.py NORMAL (126 geniş coin dahil, süre)
-exit=0 süre=46 sn
+exit=0 süre=42 sn
 === hata dosyası
 === kuyruk özeti (sınıf · öncelik · etiket)
 yedek · 2725 · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5
 ana · 775 · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5
-bilgi · 9999 · 📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
 yedek · 2725 · ₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.5
 ana · 775 · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5
 yedek · 2725 · ₿ BTC 4 saat Çok güçlü ↑ (TEST) · prim ⛔ z -2.5
@@ -41,7 +40,6 @@ yedek · 2220 · 🤝 BTC ile ortak: ADA (z -2.0 ⛔)
 yedek · 2222 · 🤝 BTC ile ortak: ARB (z -2.2 ⛔)
 yedek · 2223 · 🤝 BTC ile ortak: BNB (z -2.3 ⛔)
 yedek · 2227 · 🤝 BTC ile ortak: ETH (z -2.7 ⛔)
-bilgi · 9999 · 🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
 yedek · 2320 · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.0
 yedek · 2323 · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -2.3
 yedek · 2313 · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -1.3
@@ -50,7 +48,6 @@ yedek · 2327 · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.7
 yedek · 310 · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0
 yedek · 2520 · 🧪 24 saat: ADA (z -2.0 ⛔)
 yedek · 2523 · 🧪 24 saat: BNB (z -2.3 ⛔)
-bilgi · 9999 · 🧪📊 24 SAAT DENEME — HAFTALIK
 === SENARYO 1: gün boş, tüm zorla sinyaller (altcoin adımı 'failure' gibi)
 ──── GÖNDER ────
 ⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:
@@ -78,7 +75,7 @@ BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,795.3 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,825.1 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -86,7 +83,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,791.3 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,817.1 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -94,7 +91,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,824.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,806.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -102,7 +99,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,828.3 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,806.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -189,42 +186,7 @@ BTC bu saatte sinyal vermedi
 💵 SHIB: ABD almıyor (kendi Coinbase primi z -1.0) ⚠️ onaysız — geçmişte isabet daha düşük · BTC geneli: ⛔ z -2.5
 💡 Giriş (limit) $0.000005540 → çıkış 12.10 04:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.46
 ⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.
-──── GÖNDER ────
-📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
-ℹ️ BTC alış sinyalleri artık işlem sinyali olarak gönderilmiyor (yalnız yedek olabilir); 🔻 kısa gönderiliyor.
-• 8 saat Güçlü ↓: 6/11 tuttu (%55) · ort. %+0.05
-• 1 saat Çok güçlü ↑: 3/5 tuttu (%60) · ort. %-0.09
-• 4 saat Güçlü ↑: 1/1 tuttu (%100) · ort. %+0.79
-• 1 saat Güçlü ↑: 6/12 tuttu (%50) · ort. %+0.04
-• 🟢 A sınıfı (4s): 2/7 tuttu (%29) · ort. %-0.33
-• 8 saat Güçlü ↑: 1/2 tuttu (%50) · ort. %-0.07
-• 🔻 Coinbase kısa (24s): 1/3 tuttu (%33) · ort. %+0.02
-💵 ABD onaylı (prim z > 0): yok · onaysız: 5/12 tuttu (%42)
-Toplam: 20/41 tuttu (%49)
-(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)
-──── GÖNDER ────
-🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
-ℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.
-• ADA ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.43
-• ADA ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+0.26
-• BNB 🟢 A sınıfı: 3/6 tuttu (%50) · ort. %-0.38
-• BNB 4s Çok güçlü ↑: 3/4 tuttu (%75) · ort. %-0.51
-• BNB ⭐ en güçlü 🔇: 2/3 tuttu (%67) · ort. %+0.22
-• DOGE ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.70
-• DOGE ⭐ en güçlü 🔇: 1/2 tuttu (%50) · ort. %+0.60
-• DOT ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+5.62
-• ETH 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.16
-• SHIB ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.12
-• SHIB ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+2.71
-Toplam: 15/22 tuttu (%68) · tek başına: 15/22
-💵 ABD onaylı (prim z > 0): 2/2 tuttu (%100) · onaysız: 12/17 tuttu (%71)
-──── GÖNDER ────
-🧪📊 24 SAAT DENEME — HAFTALIK
-Son 7 gün: 8/9 tuttu (%89) · ort. net %+3.54 · toplam %+31.9
-Başlangıçtan (07.10) beri: 8/9 tuttu (%89) · ort. net %+3.54 · toplam %+31.9
-💵 ABD onaylı: 1/1 tuttu (%100) · ort. net %+4.81 · toplam %+4.8 | onaysız: 6/7 tuttu (%86) · ort. net %+3.84 · toplam %+26.9
-(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)
-Gönderildi: 15/32 (ana 5, yedek 24, panel 0, bilgi 3) · bugün giden sinyal: 12
+Gönderildi: 12/29 (ana 5, yedek 24, panel 0, bilgi 0) · bugün giden sinyal: 12
 === SENARYO 2: gün boş, yalnız yedekler → en iyi yedek gitmeli
 ──── GÖNDER ────
 🔸 YEDEK SİNYAL 1/7 (ana değil) — seçilmiş sette değil: bu tür sinyaller geçmişte ortalama ~%0 kazandırdı (isabet ~%55).
@@ -310,42 +272,7 @@ BTC bu saatte sinyal vermedi
 💵 SHIB: ABD almıyor (kendi Coinbase primi z -1.0) ⚠️ onaysız — geçmişte isabet daha düşük · BTC geneli: ⛔ z -2.5
 💡 Giriş (limit) $0.000005540 → çıkış 12.10 04:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.46
 ⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.
-──── GÖNDER ────
-📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
-ℹ️ BTC alış sinyalleri artık işlem sinyali olarak gönderilmiyor (yalnız yedek olabilir); 🔻 kısa gönderiliyor.
-• 8 saat Güçlü ↓: 6/11 tuttu (%55) · ort. %+0.05
-• 1 saat Çok güçlü ↑: 3/5 tuttu (%60) · ort. %-0.09
-• 4 saat Güçlü ↑: 1/1 tuttu (%100) · ort. %+0.79
-• 1 saat Güçlü ↑: 6/12 tuttu (%50) · ort. %+0.04
-• 🟢 A sınıfı (4s): 2/7 tuttu (%29) · ort. %-0.33
-• 8 saat Güçlü ↑: 1/2 tuttu (%50) · ort. %-0.07
-• 🔻 Coinbase kısa (24s): 1/3 tuttu (%33) · ort. %+0.02
-💵 ABD onaylı (prim z > 0): yok · onaysız: 5/12 tuttu (%42)
-Toplam: 20/41 tuttu (%49)
-(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)
-──── GÖNDER ────
-🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
-ℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.
-• ADA ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.43
-• ADA ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+0.26
-• BNB 🟢 A sınıfı: 3/6 tuttu (%50) · ort. %-0.38
-• BNB 4s Çok güçlü ↑: 3/4 tuttu (%75) · ort. %-0.51
-• BNB ⭐ en güçlü 🔇: 2/3 tuttu (%67) · ort. %+0.22
-• DOGE ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.70
-• DOGE ⭐ en güçlü 🔇: 1/2 tuttu (%50) · ort. %+0.60
-• DOT ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+5.62
-• ETH 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.16
-• SHIB ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.12
-• SHIB ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+2.71
-Toplam: 15/22 tuttu (%68) · tek başına: 15/22
-💵 ABD onaylı (prim z > 0): 2/2 tuttu (%100) · onaysız: 12/17 tuttu (%71)
-──── GÖNDER ────
-🧪📊 24 SAAT DENEME — HAFTALIK
-Son 7 gün: 8/9 tuttu (%89) · ort. net %+3.54 · toplam %+31.9
-Başlangıçtan (07.10) beri: 8/9 tuttu (%89) · ort. net %+3.54 · toplam %+31.9
-💵 ABD onaylı: 1/1 tuttu (%100) · ort. net %+4.81 · toplam %+4.8 | onaysız: 6/7 tuttu (%86) · ort. net %+3.84 · toplam %+26.9
-(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)
-Gönderildi: 10/27 (ana 0, yedek 24, panel 0, bilgi 3) · bugün giden sinyal: 7
+Gönderildi: 7/24 (ana 0, yedek 24, panel 0, bilgi 0) · bugün giden sinyal: 7
 === SENARYO 3: aynı gün tekrar yedekler → gitmemeli
 ──── GÖNDER ────
 🔸 YEDEK SİNYAL 1/7 (ana değil) — seçilmiş sette değil: bu tür sinyaller geçmişte ortalama ~%0 kazandırdı (isabet ~%55).
@@ -391,28 +318,28 @@ BTC 4s Çok güçlü ↑ ve aynı sa
 4 ve 8 saat bi
 Gönderildi: 7/24 (ana 0, yedek 24, panel 0, bilgi 0) · bugün giden sinyal: 14
 === panel sonu
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: SUI (z -1.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
 
 
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 14
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- 11.10 20:07 · 🔸 yedek · ₿ BTC 4 saat Çok güçlü ↑ (TEST) · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · ₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🧪 24 saat: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🧪 24 saat: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.7 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -2.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.0 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -1.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: ETH (z -2.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: ARB (z -2.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: FLOKI (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: NEAR (z -1.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: DOGE (z -1.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: SUI (z -1.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:07 · 🔸 yedek · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
-- 11.10 20:07 · 🔸 yedek · 🔇 DOT ⭐ en güçlü · isabet %58 · prim ⚠️ z -0.6 → gönderildi
-- 11.10 20:07 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
+- 11.10 20:18 · 🔸 yedek · ₿ BTC 4 saat Çok güçlü ↑ (TEST) · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · ₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🧪 24 saat: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🧪 24 saat: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.7 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -2.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.0 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -1.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ETH (z -2.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ARB (z -2.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: FLOKI (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: NEAR (z -1.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: DOGE (z -1.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SUI (z -1.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:18 · 🔸 yedek · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
+- 11.10 20:18 · 🔸 yedek · 🔇 DOT ⭐ en güçlü · isabet %58 · prim ⚠️ z -0.6 → gönderildi
+- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
