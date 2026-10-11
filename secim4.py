@@ -195,5 +195,31 @@ else:
         + f"\n→ {'✅ CANLIYA ADAY' if ok else '❌ aday değil'}")
     x = Ez[(SEC[sec] > 0) & (tz_ >= A24_)]
     yaz("\nSeçilen setin içi (2024+, aile bazında):\n```\n" + "\n".join(f"{a:32s} {oz(g, HAF['2024+'], False)}" for a, g in x.groupby(np.where(SEC[sec][(SEC[sec] > 0) & (tz_ >= A24_)] == 2, "DOLGU · " + x.aile, x.aile))) + "\n```")
+# (4) TAKVİM GÜNÜ DOLGUSU: o gün (TR) henüz hiç sinyal gitmediyse havuzdaki ilk sinyal gönderilir. Kademeli: 00–12 yalnız R4 · 12–18 R0'a kadar · 18–24 her şey (⛔, BTC ailesi, BTC kısa dahil)
+HER = ~dol | dol; R4p = nb & (z > -1); R0p = ~dol & (z > -1)
+def sim_gun(base, kademe):
+    out = np.zeros(len(Ez), np.int8); gun_ = None; gitti = False; b_ = base[ORD]; saat = ((tz_ + pd.Timedelta(hours=3)).hour.values)[ORD]; gn = (tz_ + pd.Timedelta(hours=3)).floor("D").values[ORD]
+    pk = [(p[ORD], h0) for p, h0 in kademe]
+    for j, i in enumerate(ORD):
+        if gn[j] != gun_: gun_ = gn[j]; gitti = False
+        if b_[j]: out[i] = 1; gitti = True; continue
+        if not gitti:
+            for k_, (p_, h0) in enumerate(pk):
+                if p_[j] and saat[j] >= h0: out[i] = 2 + k_; gitti = True; break
+    return out
+R5b = BASE["R5 (BTC ve coin-tek yok, coin z ≥ 0)"]
+GUN = {"G1: gün boşsa R4": [(R4p, 0)], "G2: gün boşsa R0": [(R0p, 0)], "G3: gün boşsa her şey": [(HER, 0)],
+       "G4: kademeli (R4 → 12:00'den sonra R0 → 18:00'den sonra her şey)": [(R4p, 0), (R0p, 12), (HER, 18)]}
+yaz("\n## 4) Takvim günü dolgusu — o gün hiç sinyal gitmediyse (temel: R5)\n_hücre: haftada · isabet · net · sessiz gün % · dolgu: haftada / isabet / net_\n```")
+for ga, kd in GUN.items():
+    sec = sim_gun(R5b, kd); parca = []
+    for dn, md, hf in DN:
+        x = Ez[(sec > 0) & md]; xd = Ez[(sec >= 2) & md]; s_, b_ = gun(sec, md, *GB[dn])
+        parca.append(f"{dn}: {len(x)/hf:4.0f}/hf · %{100*x.ok.mean():.1f} · {100*x.net.mean():+.3f} · sessiz %{100*s_:.1f} · en uzun {b_:.0f} s · dolgu {len(xd)/hf:.1f}/hf %{100*xd.ok.mean():.0f} {100*xd.net.mean():+.3f}")
+    yaz(f"{ga}\n   " + "\n   ".join(parca))
+    if ga.startswith("G4"):
+        for k_, ad in enumerate(("R4 kademesi", "R0 kademesi", "her şey kademesi")):
+            yaz(f"   ↳ {ad}: " + " | ".join(f"{dn}: {oz(Ez[(sec == 2 + k_) & md], hf, False)}" for dn, md, hf in DN))
+yaz("```")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("secim4_sonuc.md", "w").write("\n".join(L) + "\n")
