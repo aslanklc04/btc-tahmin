@@ -1,7 +1,7 @@
-# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 14:53
-Olay: 56,802 · tip: 25 · 228 sn
+# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 14:58
+Olay: 56,802 · tip: 25 · 168 sn
 
-# 🔀 Coin primi vs BTC primi + sessiz günü olmayan sinyal seti — 11.10.2026 14:53
+# 🔀 Coin primi vs BTC primi + sessiz günü olmayan sinyal seti — 11.10.2026 14:58
 _Coin sinyalleri: 🤝 BTC ile ortak · 🔇 BTC sessizken · coin tek başına · 🧪 24 saat (BTC hariç). Hücre: haftada · isabet · işlem başı net % (komisyon sonrası) · alt = haftalık blok %5 alt sınır_
 
 ## 1) Coin ve BTC primi aynı yönde mi, zıt yönde mi?
@@ -124,4 +124,28 @@ S2 (fark ≥ 0,5 ve coin z > −1) + F3 dolgu: R4 + ABD satarken BTC kısa
 
 Koşulları (sessiz gün ≤ %2, haftada 35–80) sağlayan aday yok
 
-_Süre: 229 sn_
+## 4) Takvim günü dolgusu — o gün hiç sinyal gitmediyse (temel: R5)
+_hücre: haftada · isabet · net · sessiz gün % · dolgu: haftada / isabet / net_
+```
+G1: gün boşsa R4
+   2022-06→2023:   44/hf · %55.7 · +0.429 · sessiz %6.2 · en uzun 114 s · dolgu 1.4/hf %53 -0.214
+   2024+:   49/hf · %58.1 · +0.628 · sessiz %7.1 · en uzun 111 s · dolgu 1.6/hf %52 -0.085
+   2026:   53/hf · %58.6 · +0.583 · sessiz %2.1 · en uzun 73 s · dolgu 1.9/hf %56 +0.030
+G2: gün boşsa R0
+   2022-06→2023:   47/hf · %55.8 · +0.405 · sessiz %0.9 · en uzun 57 s · dolgu 4.2/hf %56 -0.054
+   2024+:   52/hf · %58.0 · +0.608 · sessiz %3.2 · en uzun 67 s · dolgu 4.3/hf %55 +0.115
+   2026:   55/hf · %58.3 · +0.555 · sessiz %0.7 · en uzun 45 s · dolgu 4.5/hf %54 +0.001
+G3: gün boşsa her şey
+   2022-06→2023:   47/hf · %56.0 · +0.410 · sessiz %0.7 · en uzun 53 s · dolgu 4.6/hf %57 +0.041
+   2024+:   52/hf · %58.0 · +0.595 · sessiz %1.3 · en uzun 52 s · dolgu 4.9/hf %55 +0.033
+   2026:   56/hf · %58.3 · +0.554 · sessiz %0.0 · en uzun 42 s · dolgu 5.0/hf %54 +0.039
+G4: kademeli (R4 → 12:00'den sonra R0 → 18:00'den sonra her şey)
+   2022-06→2023:   45/hf · %55.8 · +0.425 · sessiz %1.6 · en uzun 85 s · dolgu 2.0/hf %55 -0.121
+   2024+:   50/hf · %58.1 · +0.621 · sessiz %3.7 · en uzun 72 s · dolgu 2.2/hf %53 -0.041
+   2026:   53/hf · %58.7 · +0.586 · sessiz %1.1 · en uzun 64 s · dolgu 2.2/hf %58 +0.166
+   ↳ R4 kademesi: 2022-06→2023:   1.2/hf · %53.5 · -0.237 | 2024+:   1.5/hf · %54.3 · +0.024 | 2026:   1.8/hf · %58.9 · +0.223
+   ↳ R0 kademesi: 2022-06→2023:   0.7/hf · %59.3 · +0.057 | 2024+:   0.6/hf · %54.8 · -0.117 | 2026:   0.2/hf · %70.0 · +0.222
+   ↳ her şey kademesi: 2022-06→2023:   0.1/hf · %42.9 · +0.053 | 2024+:   0.2/hf · %34.6 · -0.319 | 2026:   0.1/hf · %20.0 · -0.788
+```
+
+_Süre: 169 sn_
