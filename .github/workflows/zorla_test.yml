@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# genis liste 🤝 z>=2 testi
+# canli (main) kuru test
 on:
   push:
     branches: [arastirma3]
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: genis-coin
+          ref: main
       - name: modeller dali (sure olcumu)
         run: |
           T=$(date +%s); git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller; echo "modeller indirme $(( $(date +%s) - T )) sn"; ls modeller | wc -l
