@@ -1,5 +1,30 @@
 {
 "gun": "2026-10-11",
 "giden": 0,
-"log": []
+"log": [
+{
+"t": "11.10 20:06",
+"s": "ℹ️ bilgi",
+"e": "📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün",
+"k": "gönderildi"
+},
+{
+"t": "11.10 20:06",
+"s": "ℹ️ bilgi",
+"e": "🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün",
+"k": "gönderildi"
+},
+{
+"t": "11.10 20:06",
+"s": "ℹ️ bilgi",
+"e": "🧪📊 24 SAAT DENEME — HAFTALIK",
+"k": "gönderildi"
+},
+{
+"t": "11.10 20:06",
+"s": "ℹ️ bilgi",
+"e": "⛓️📊 ARZ/TALEP (ETH) — HAFTALIK",
+"k": "gönderildi"
+}
+]
 }
