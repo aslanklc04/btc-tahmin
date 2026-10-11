@@ -1,0 +1,37 @@
+name: Aylik egitim genis liste kuru testi (modeller-test dali)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/aylik_test.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      TELEGRAM_TOKEN: ""
+      TELEGRAM_CHAT_ID: ""
+      MODELLER_DAL: modeller-test
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: genis-coin
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - name: kucuk liste ile egitim + modeller-test dalina yazim
+        run: |
+          set -x
+          printf "AAVEUSDT\nRUNEUSDT\n" > durum/genis_liste.txt
+          for s in OPUSDT AAVEUSDT RUNEUSDT; do DISA_AKTAR=1 timeout 1500 python egit_coin.py $s > /tmp/e_$s.txt 2>&1; echo "$s coin exit=$?"; mkdir -p art/coin-$s; mv durum/model_$s.pkl.gz durum/rapor_$s.md disa_$s.pkl art/coin-$s/ 2>/dev/null; done
+          ./modeller_yaz.sh art model_
+          timeout 600 python ortak_analiz.py > /tmp/oa.txt 2>&1; echo "ortak_analiz exit=$?"; tail -5 /tmp/oa.txt
+          timeout 300 python coin_sec.py; echo "coin_sec exit=$?"; git status --short durum | head
+          for s in AAVEUSDT; do timeout 1500 python egit24.py $s > /tmp/d_$s.txt 2>&1; echo "$s 24s exit=$?"; mkdir -p art24/m24-$s; mv durum/model24_$s.pkl.gz art24/m24-$s/; done
+          ./modeller_yaz.sh art24 model24_
+          rm -rf kontrol && git clone -q --depth 1 -b modeller-test "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" kontrol && ls -la kontrol && git -C kontrol log --oneline
