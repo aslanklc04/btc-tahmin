@@ -2,7 +2,7 @@ name: Zorla sinyal kuru test (canli kod, gonderilmez)
 on:
   push:
     branches: [arastirma3]
-    paths: [.github/workflows/zorla_test.yml]
+    paths: [.github/workflows/zorla_test.yml]  # canli-r5 dalını test eder
 permissions:
   contents: write
 jobs:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: canli-r5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -43,14 +43,38 @@ jobs:
           echo "=== tahmin_coin.py"; TEST_ZORLA=1 timeout 400 python tahmin_coin.py > /tmp/c.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c.txt | head -20
           echo "=== tahmin24.py"; TEST_ZORLA=1 timeout 300 python tahmin24.py > /tmp/d.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d.txt | head -12
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
-          echo "=== gönderim (Telegram yerine ekran; altcoin adımı 'failure' gibi davranılıyor)"
+          echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
+          import json
+          for m in json.load(open('durum/tg_kuyruk.json')): print(m.get('c'), '·', round(m['o']), '·', m['e'])
+          "
+          cp durum/tg_kuyruk.json /tmp/q.json
+          echo "=== SENARYO 1: gün boş, tüm zorla sinyaller (altcoin adımı 'failure' gibi)"
           ADIMLAR="btc=success coin=failure d24=success" python -c "
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:1500]); return True
+              print('──── GÖNDER ────'); print(m[:1200]); return True
           gonder.tg_send = _g
           gonder.main()
           "
+          echo "=== SENARYO 2: gün boş, yalnız yedekler → en iyi yedek gitmeli"
+          rm -f durum/gun_durum.json; python -c "
+          import json; q = json.load(open('/tmp/q.json')); json.dump([m for m in q if m.get('c') != 'ana'], open('durum/tg_kuyruk.json', 'w'))
+          import gonder
+          def _g(m):
+              print('──── GÖNDER ────'); print(m[:1200]); return True
+          gonder.tg_send = _g
+          gonder.main()
+          "
+          echo "=== SENARYO 3: aynı gün tekrar yedekler → gitmemeli"
+          python -c "
+          import json; q = json.load(open('/tmp/q.json')); json.dump([m for m in q if m.get('c') == 'yedek'], open('durum/tg_kuyruk.json', 'w'))
+          import gonder
+          def _g(m):
+              print('──── GÖNDER ────'); print(m[:300]); return True
+          gonder.tg_send = _g
+          gonder.main()
+          "
+          echo "=== panel sonu"; tail -25 son_durum.md
           } > zorla_log.txt 2>&1
           cat zorla_log.txt | head -150
       - uses: actions/checkout@v4
