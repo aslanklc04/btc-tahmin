@@ -1,12 +1,12 @@
-# 🧭 BTC çok ufuklu tahmin (v35) — 11.10.2026 08:00 kapanışı · $83,028.18
+# 🧭 BTC çok ufuklu tahmin (v35) — 11.10.2026 09:00 kapanışı · $83,054.66
 
 ⭐ En güçlü sinyal şu an **yok** (4s: ✘ · 8s: ✘). Geldiğinde geçmiş isabet 4s %63.2, 8s %62.7.
 
-💵 ABD satıyor (Coinbase primi z -2.5) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69) · prim -11.3 baz puan
+💵 ABD satıyor (Coinbase primi z -2.4) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69) · prim -11.0 baz puan
 
-🔻 Kısa (satış) sinyali: **VAR** — ABD güçlü satıyor (prim z -2.5)
+🔻 Kısa (satış) sinyali: **VAR** — ABD güçlü satıyor (prim z -2.4)
 
-🟢 A sınıfı: **yok** (üç ufkun ortalama yüzdeliği 0.22, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~10.4, 4s isabet %59.5
+🟢 A sınıfı: **yok** (üç ufkun ortalama yüzdeliği 0.30, eşik 0,85) · geçmiş (canlı ölçüm): haftada ~10.4, 4s isabet %59.5
 
 ⏰ İyi saat dilimi (4s güçlü ↑): **AÇIK** · geçmiş isabet %57.9 · haftada ~7.3
 
@@ -15,20 +15,21 @@
 ## 📊 Yön ve fiyat aralıkları (%80)
 | Ufuk | Hedef | Yön | Karar | Beklenen | %80 aralık | Bu seviyenin geçmiş isabeti (canlı ölçüm) |
 |---|---|---|---|---|---|---|
-| 1 saat | 11.10 09:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $83,012 | $82,898 – $83,164 | %52.4 (2024+ %52.1) · en güçlü ↑ %61.8 |
-| 4 saat | 11.10 12:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $83,032 | $82,793 – $83,364 | %52.0 (2024+ %51.9) · en güçlü ↑ %61.5 |
-| 8 saat | 11.10 16:00 | ⬇️ Güçlü | 🔴 Alımı ertele / elde varsa satışı düşün | $83,035 | $82,665 – $83,739 | %55.0 (2024+ %52.3) · en güçlü ↑ %60.2 |
+| 1 saat | 11.10 10:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $83,057 | $82,968 – $83,191 | %52.4 (2024+ %52.1) · en güçlü ↑ %61.8 |
+| 4 saat | 11.10 13:00 | ⬇️ Zayıf | ⚪ Zayıf sinyal — belirgin avantaj yok | $83,081 | $82,864 – $83,422 | %52.0 (2024+ %51.9) · en güçlü ↑ %61.5 |
+| 8 saat | 11.10 17:00 | ⬇️ Güçlü | 🔴 Alımı ertele / elde varsa satışı düşün | $83,083 | $82,720 – $83,716 | %55.0 (2024+ %52.3) · en güçlü ↑ %60.2 |
 
 ## 🎯 Hedef / stop yarışı (±1σ)
 | Ufuk | Hedef | Stop | Model | Geçmişte sinyal yönünde önce bariyer |
 |---|---|---|---|---|
-| 1 saat | $83,300 (+%0.33) | $82,756 (−%0.33) | ⬆️ önce HEDEF · Zayıf | %50.5 (2024+ %50.4) |
-| 4 saat | $83,573 (+%0.66) | $82,484 (−%0.66) | ⬆️ önce HEDEF · Zayıf | %53.8 (2024+ %54.1) |
-| 8 saat | $83,798 (+%0.93) | $82,258 (−%0.93) | ⬆️ önce HEDEF · Zayıf | %52.8 (2024+ %50.9) |
+| 1 saat | $83,327 (+%0.33) | $82,783 (−%0.33) | ⬆️ önce HEDEF · Güçlü | %55.6 (2024+ %55.3) |
+| 4 saat | $83,599 (+%0.66) | $82,510 (−%0.66) | ⬆️ önce HEDEF · Zayıf | %53.8 (2024+ %54.1) |
+| 8 saat | $83,824 (+%0.93) | $82,285 (−%0.93) | ⬆️ önce HEDEF · Zayıf | %52.8 (2024+ %50.9) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 11.10.2026 08:05 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 11.10.2026 09:05 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
+- 11.10 09:05 · ✅ · ☀️ Günlük özet — 🧭 BTC 11.10 09:00 · $83,055 · sıraya alındı (gonder.py gönderir)
 - 11.10 07:05 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 11.10 07:00 · $82,820 · sıraya alındı (gonder.py gönderir)
 - 11.10 05:05 · ✅ · 🧭 BTC 11.10 05:00 · $83,038 · sıraya alındı (gonder.py gönderir)
 - 10.10 19:05 · ✅ · 🧭 BTC 10.10 19:00 · $83,049 · sıraya alındı (gonder.py gönderir)
@@ -38,29 +39,28 @@ _Model eğitimi: 04.10.2026 · güncelleme: 11.10.2026 08:05 · ⚠️ Yatırım
 - 10.10 08:05 · ✅ · 🧭 BTC 10.10 08:00 · $82,687 · sıraya alındı (gonder.py gönderir)
 - 10.10 00:05 · ✅ · 🧭 BTC 10.10 00:00 · $82,514 · sıraya alındı (gonder.py gönderir)
 - 09.10 23:05 · ✅ · 🧭 BTC 09.10 23:00 · $82,337 · sıraya alındı (gonder.py gönderir)
-- 09.10 15:05 · ✅ · 🧭 BTC 09.10 15:00 · $83,247 · sıraya alındı (gonder.py gönderir)
 
-_Çalıştırma: 11.10 08:05 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 11.10 09:05 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
 
 | Coin | Fiyat | 1 saat | 4 saat | 8 saat | ⭐ | A sınıfı (eşik 0,85) | Tek başına açık · 🔇 BTC sessizken (isabet) | 🤝 BTC ile ortak açık (isabet) | Son 7 gün |
 |---|---|---|---|---|---|---|---|---|---|
-| ADA | $0.2474 | ⬇️ Zayıf<br>$0.2472 ($0.2456–$0.2491) | ⬇️ Zayıf<br>$0.2469 ($0.2434–$0.2504) | ⬇️ Zayıf<br>$0.2462 ($0.2413–$0.2518) | ✘ | 0.27 | ⭐ en güçlü %58 · 🔇 ⭐ en güçlü %61 | ⭐ en güçlü %62 · 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %58 | 2/2 |
-| APT | $0.8465 | ⬇️ Zayıf<br>$0.8469 ($0.8350–$0.8569) | ⬆️ Zayıf<br>$0.8435 ($0.8232–$0.8644) | ⬇️ Zayıf<br>$0.8413 ($0.8071–$0.8725) | ✘ | 0.43 | — | ⭐ en güçlü %59 · 4s Çok güçlü ↑ %59 | — |
-| ARB | $0.1952 | ⬇️ Güçlü<br>$0.1947 ($0.1931–$0.1974) | ⬇️ Zayıf<br>$0.1940 ($0.1894–$0.1982) | ⬇️ Güçlü<br>$0.1929 ($0.1878–$0.1984) | ✘ | 0.12 | — | 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %60 | — |
-| BNB | $748.41 | ⬇️ Zayıf<br>$748.66 ($746.71–$750.59) | ⬇️ Zayıf<br>$749.37 ($745.41–$753.59) | ⬇️ Güçlü<br>$750.76 ($743.52–$756.86) | ✘ | 0.19 | 4s Çok güçlü ↑ %59 · 🟢 A sınıfı %58 · 🔇 ⭐ en güçlü %61 | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %65 · 🟢 A sınıfı %64 | 8/13 |
-| DOGE | $0.08560 | ⬇️ Zayıf<br>$0.08559 ($0.08522–$0.08595) | ⬇️ Zayıf<br>$0.08553 ($0.08456–$0.08630) | ⬇️ Zayıf<br>$0.08528 ($0.08380–$0.08664) | ✘ | 0.33 | ⭐ en güçlü %60 · 🔇 ⭐ en güçlü %62 | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %59 | 1/3 |
-| DOT | $1.24 | ⬇️ Zayıf<br>$1.24 ($1.23–$1.25) | ⬇️ Zayıf<br>$1.24 ($1.21–$1.26) | ⬇️ Güçlü<br>$1.23 ($1.19–$1.27) | ✘ | 0.37 | ⭐ en güçlü %61 · 🔇 ⭐ en güçlü %58 | ⭐ en güçlü %67 · 4s Çok güçlü ↑ %59 | 1/1 |
-| ETH | $2,508 | ⬇️ Zayıf<br>$2,507 ($2,502–$2,513) | ⬇️ Güçlü<br>$2,508 ($2,494–$2,521) | ⬇️ Zayıf<br>$2,506 ($2,486–$2,526) | ✘ | 0.21 | 4s Çok güçlü ↑ %60 · 🟢 A sınıfı %58 · 🔇 ⭐ en güçlü %62 · 🔇 4s Çok güçlü ↑ %60 | ⭐ en güçlü %60 · 4s Çok güçlü ↑ %64 · 🟢 A sınıfı %61 | 1/1 |
-| FLOKI | $0.00002709 | ⬇️ Güçlü<br>$0.00002708 ($0.00002688–$0.00002726) | ⬇️ Çok güçlü<br>$0.00002703 ($0.00002666–$0.00002738) | ⬇️ Güçlü<br>$0.00002698 ($0.00002633–$0.00002757) | ✘ | 0.10 | — | 4s Çok güçlü ↑ %64 | — |
-| LINK | $12.94 | ⬇️ Zayıf<br>$12.94 ($12.88–$13.00) | ⬆️ Zayıf<br>$12.93 ($12.82–$13.07) | ⬇️ Güçlü<br>$12.89 ($12.71–$13.14) | ✘ | 0.47 | — | 🟢 A sınıfı %59 | — |
-| NEAR | $5.29 | ⬆️ Zayıf<br>$5.28 ($5.22–$5.35) | ⬇️ Zayıf<br>$5.27 ($5.14–$5.45) | ⬇️ Zayıf<br>$5.26 ($5.07–$5.44) | ✘ | 0.60 | — | ⭐ en güçlü %62 · 🟢 A sınıfı %59 | — |
-| OP | $0.1403 | ⬆️ Zayıf<br>$0.1402 ($0.1382–$0.1421) | ⬆️ Zayıf<br>$0.1405 ($0.1365–$0.1429) | ⬇️ Zayıf<br>$0.1398 ($0.1338–$0.1446) | ✘ | 0.66 | — | 🟢 A sınıfı %60 | — |
-| PEPE | $0.000004020 | ⬇️ Zayıf<br>$0.000004021 ($0.000003993–$0.000004051) | ⬇️ Zayıf<br>$0.000004013 ($0.000003974–$0.000004080) | ⬇️ Zayıf<br>$0.000004020 ($0.000003945–$0.000004128) | ✘ | 0.47 | — | ⭐ en güçlü %66 | — |
-| SHIB | $0.000005410 | ⬇️ Zayıf<br>$0.000005405 ($0.000005378–$0.000005433) | ⬇️ Zayıf<br>$0.000005402 ($0.000005345–$0.000005446) | ⬇️ Zayıf<br>$0.000005386 ($0.000005300–$0.000005476) | ✘ | 0.21 | ⭐ en güçlü %59 · 🔇 ⭐ en güçlü %60 | ⭐ en güçlü %61 | 2/2 |
-| SUI | $1.10 | ⬇️ Zayıf<br>$1.10 ($1.09–$1.11) | ⬇️ Zayıf<br>$1.10 ($1.08–$1.12) | ⬇️ Zayıf<br>$1.10 ($1.07–$1.13) | ✘ | 0.33 | — | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %61 | — |
+| ADA | $0.2469 | ⬆️ Zayıf<br>$0.2467 ($0.2450–$0.2485) | ⬆️ Zayıf<br>$0.2465 ($0.2430–$0.2500) | ⬇️ Zayıf<br>$0.2461 ($0.2409–$0.2516) | ✘ | 0.51 | ⭐ en güçlü %58 · 🔇 ⭐ en güçlü %61 | ⭐ en güçlü %62 · 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %58 | 2/2 |
+| APT | $0.8414 | ⬆️ Zayıf<br>$0.8416 ($0.8290–$0.8506) | ⬆️ Zayıf<br>$0.8395 ($0.8171–$0.8619) | ⬇️ Zayıf<br>$0.8374 ($0.8005–$0.8687) | ✘ | 0.47 | — | ⭐ en güçlü %59 · 4s Çok güçlü ↑ %59 | — |
+| ARB | $0.1925 | ⬆️ Zayıf<br>$0.1923 ($0.1907–$0.1944) | ⬇️ Zayıf<br>$0.1917 ($0.1872–$0.1964) | ⬇️ Zayıf<br>$0.1910 ($0.1859–$0.1962) | ✘ | 0.42 | — | 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %60 | — |
+| BNB | $747.05 | ⬆️ Zayıf<br>$747.12 ($745.44–$748.61) | ⬆️ Zayıf<br>$748.12 ($743.36–$752.48) | ⬆️ Zayıf<br>$749.41 ($741.99–$754.74) | ✘ | 0.77 | 4s Çok güçlü ↑ %59 · 🟢 A sınıfı %58 · 🔇 ⭐ en güçlü %61 | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %65 · 🟢 A sınıfı %64 | 8/13 |
+| DOGE | $0.08535 | ⬆️ Zayıf<br>$0.08532 ($0.08493–$0.08566) | ⬆️ Zayıf<br>$0.08526 ($0.08445–$0.08611) | ⬇️ Zayıf<br>$0.08504 ($0.08355–$0.08654) | ✘ | 0.53 | ⭐ en güçlü %60 · 🔇 ⭐ en güçlü %62 | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %59 | 1/3 |
+| DOT | $1.23 | ⬆️ Zayıf<br>$1.23 ($1.22–$1.24) | ⬇️ Zayıf<br>$1.23 ($1.20–$1.25) | ⬇️ Güçlü<br>$1.22 ($1.19–$1.26) | ✘ | 0.44 | ⭐ en güçlü %61 · 🔇 ⭐ en güçlü %58 | ⭐ en güçlü %67 · 4s Çok güçlü ↑ %59 | 1/1 |
+| ETH | $2,505 | ⬆️ Zayıf<br>$2,505 ($2,500–$2,511) | ⬆️ Zayıf<br>$2,506 ($2,493–$2,518) | ⬆️ Zayıf<br>$2,505 ($2,483–$2,522) | ✘ | 0.63 | 4s Çok güçlü ↑ %60 · 🟢 A sınıfı %58 · 🔇 ⭐ en güçlü %62 · 🔇 4s Çok güçlü ↑ %60 | ⭐ en güçlü %60 · 4s Çok güçlü ↑ %64 · 🟢 A sınıfı %61 | 1/1 |
+| FLOKI | $0.00002710 | ⬇️ Zayıf<br>$0.00002708 ($0.00002694–$0.00002726) | ⬇️ Güçlü<br>$0.00002702 ($0.00002666–$0.00002732) | ⬇️ Güçlü<br>$0.00002698 ($0.00002638–$0.00002750) | ✘ | 0.14 | — | 4s Çok güçlü ↑ %64 | — |
+| LINK | $12.90 | ⬆️ Zayıf<br>$12.91 ($12.85–$12.96) | ⬆️ Zayıf<br>$12.89 ($12.78–$13.04) | ⬇️ Güçlü<br>$12.87 ($12.70–$13.09) | ✘ | 0.62 | — | 🟢 A sınıfı %59 | — |
+| NEAR | $5.23 | ⬆️ Zayıf<br>$5.22 ($5.17–$5.28) | ⬆️ Zayıf<br>$5.21 ($5.10–$5.37) | ⬇️ Güçlü<br>$5.19 ($5.03–$5.37) | ✘ | 0.62 | — | ⭐ en güçlü %62 · 🟢 A sınıfı %59 | — |
+| OP | $0.1408 | ⬇️ Zayıf<br>$0.1406 ($0.1386–$0.1426) | ⬇️ Zayıf<br>$0.1409 ($0.1371–$0.1434) | ⬇️ Zayıf<br>$0.1402 ($0.1351–$0.1447) | ✘ | 0.51 | — | 🟢 A sınıfı %60 | — |
+| PEPE | $0.000004010 | ⬇️ Zayıf<br>$0.000004011 ($0.000003985–$0.000004037) | ⬆️ Zayıf<br>$0.000004008 ($0.000003968–$0.000004071) | ⬆️ Zayıf<br>$0.000004015 ($0.000003931–$0.000004116) | ✘ | 0.58 | — | ⭐ en güçlü %66 | — |
+| SHIB | $0.000005400 | ⬇️ Güçlü<br>$0.000005399 ($0.000005370–$0.000005423) | ⬇️ Zayıf<br>$0.000005399 ($0.000005338–$0.000005435) | ⬇️ Zayıf<br>$0.000005384 ($0.000005303–$0.000005466) | ✘ | 0.21 | ⭐ en güçlü %59 · 🔇 ⭐ en güçlü %60 | ⭐ en güçlü %61 | 2/2 |
+| SUI | $1.10 | ⬆️ Zayıf<br>$1.10 ($1.09–$1.11) | ⬇️ Zayıf<br>$1.10 ($1.08–$1.12) | ⬇️ Zayıf<br>$1.10 ($1.06–$1.12) | ✘ | 0.54 | — | ⭐ en güçlü %61 · 4s Çok güçlü ↑ %61 | — |
 
 Hücrelerde: yön · beklenen fiyat (%80 aralık).
 
@@ -83,20 +83,20 @@ Başlangıçtan (07.10.2026) beri sonuçlanan deneme işlemleri: **8/9 tuttu (%8
 
 💵 ABD onaylı: 1/1 tuttu (%100) · ort. net %+4.81 · toplam %+4.8 | onaysız: 6/7 tuttu (%86) · ort. net %+3.84 · toplam %+26.9
 
-Şu an: 💵 ABD satıyor (Coinbase primi z -2.5) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69)
+Şu an: 💵 ABD satıyor (Coinbase primi z -2.4) ⛔ ALMA — geçmişte bu durumda BTC ⭐ %52, 4/8 saat ↑ sinyalleri %51–56 tuttu (ABD alırken %58–69)
 
 | Coin | Fiyat | 24 saat | Açık deneme işlemi | 2024+ isabet · net % | 2026 isabet · net % (sinyal) |
 |---|---|---|---|---|---|
-| ADA | $0.2474 | ⬇️ Zayıf | — | %58 · +0.42 | %59 · -0.31 (46) |
-| BNB | $748.410 | ⬆️ Zayıf | — | %55 · +0.25 | %49 · -0.35 (63) |
-| BTC | $83,028 | ⬇️ Zayıf | — | %58 · +0.15 | %60 · +0.07 (58) |
-| DOGE | $0.08560 | ⬇️ Zayıf | — | %57 · +0.45 | %61 · +0.45 (49) |
-| DOT | $1.239 | ⬇️ Çok güçlü | — | %59 · +0.61 | %50 · -0.67 (30) |
-| ETH | $2,508 | ⬆️ Güçlü | — | %55 · +0.12 | %43 · -0.75 (47) |
-| LINK | $12.943 | ⬇️ Zayıf | — | %51 · +0.16 | %42 · -0.70 (50) |
-| NEAR | $5.285 | ⬇️ Zayıf | — | %52 · +1.16 | %58 · +1.20 (31) |
-| OP | $0.1403 | ⬇️ Güçlü | — | %50 · +0.23 | %33 · -1.16 (54) |
-| SHIB | $0.000005410 | ⬇️ Güçlü | — | %58 · +1.06 | %66 · +1.22 (47) |
+| ADA | $0.2469 | ⬇️ Zayıf | — | %58 · +0.42 | %59 · -0.31 (46) |
+| BNB | $747.050 | ⬆️ Güçlü | — | %55 · +0.25 | %49 · -0.35 (63) |
+| BTC | $83,055 | ⬇️ Zayıf | — | %58 · +0.15 | %60 · +0.07 (58) |
+| DOGE | $0.08535 | ⬇️ Zayıf | — | %57 · +0.45 | %61 · +0.45 (49) |
+| DOT | $1.230 | ⬇️ Güçlü | — | %59 · +0.61 | %50 · -0.67 (30) |
+| ETH | $2,505 | ⬆️ Güçlü | — | %55 · +0.12 | %43 · -0.75 (47) |
+| LINK | $12.903 | ⬇️ Zayıf | — | %51 · +0.16 | %42 · -0.70 (50) |
+| NEAR | $5.228 | ⬇️ Çok güçlü | — | %52 · +1.16 | %58 · +1.20 (31) |
+| OP | $0.1408 | ⬇️ Çok güçlü | — | %50 · +0.23 | %33 · -1.16 (54) |
+| SHIB | $0.000005400 | ⬇️ Güçlü | — | %58 · +1.06 | %66 · +1.22 (47) |
 
 _Araştırma (ufuk24): 10 coin, 2024+ isabet %55, işlem başı net +%0,46 (limit emir); 2024 %58, 2025 %55, 2026 %52 (net −%0,14). Canlıda 4–6 hafta izlenir._
 
@@ -108,10 +108,10 @@ _Araştırma (ufuk24): 10 coin, 2024+ isabet %55, işlem başı net +%0,46 (limi
 - 07.10 17:06 · ✅ · 🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — 07.10 17:00 · gönderildi
 
 ## ⛓️ Arz/Talep (günlük, ETH) — borsadan çıkan coin + stabil coin talebi
-Son değerlendirme: **10.10 09:06** (veri günü 09.10)
+Son değerlendirme: **11.10 09:06** (veri günü 10.10)
 
-- ETH: borsadan çıkış 7g z -1.9 · borsadaki miktar azalışı 30g z -2.7 · stabil coin 7g z -0.2 · stabil coin 30g z +0.7 → koşulu sağlanan kural: SAT-1 (bugün sinyal)
-- BTC (yalnız bilgi): borsadan çıkış 7g z +0.2 · borsadaki miktar azalışı 30g z +1.6 · stabil coin 7g z -0.2 · stabil coin 30g z +0.7
+- ETH: borsadan çıkış 7g z -2.1 · borsadaki miktar azalışı 30g z -2.7 · stabil coin 7g z -0.8 · stabil coin 30g z +0.6 → koşulu sağlanan kural: SAT-1 (koşul sürüyor, sinyal daha önce verildi)
+- BTC (yalnız bilgi): borsadan çıkış 7g z -0.2 · borsadaki miktar azalışı 30g z +1.5 · stabil coin 7g z -0.8 · stabil coin 30g z +0.6
 
 - Açık: SAT-1 SAT $2,495 → çıkış 17.10 09:00
 
@@ -134,20 +134,20 @@ Başlangıçtan (08.10.2026) beri sonuçlanan: **sonuçlanan işlem yok**
 
 | Coin | Kendi primi z | Eşik | Tut | Durum | Geçmiş 2024+ (isabet · işlem başı net) |
 |---|---|---|---|---|---|
-| DOGE | -1.67 | ≥ 3 | 24 s | — | %62 · +%2.26 (66) |
+| DOGE | -1.68 | ≥ 3 | 24 s | — | %62 · +%2.26 (66) |
 | XRP | -1.97 | ≥ 2 | 24 s | — | %56 · +%1.58 (131) |
-| ADA | -2.33 | ≥ 3 | 24 s | — | %60 · +%1.85 (77) |
-| ALGO | -0.08 | ≥ 3 | 24 s | — | %51 · +%1.43 (80) |
-| NEAR | -0.44 | ≥ 2 | 24 s | — | %53 · +%0.92 (275) |
-| ETH | -2.58 | ≥ 3 | 24 s | — | %59 · +%1.32 (39) |
-| CRV | -0.21 | ≥ 3 | 8 s | — | %56 · +%0.68 (159) |
-| AVAX | -2.11 | ≥ 3 | 4 s | — | %64 · +%0.65 (95) |
-| LINK | -1.35 | ≥ 2 | 8 s | — | %55 · +%0.34 (309) |
-| BTC | -2.47 | ≥ 2 | 24 s | — | %58 · +%0.56 (115) |
-| UNI | -1.27 | ≥ 2 | 4 s | — | %51 · +%0.26 (508) |
-| AAVE | -2.30 | ≥ 2 | 24 s | — | %54 · +%0.56 (285) |
-| FIL | -0.60 | ≥ 2 | 8 s | — | %53 · +%0.50 (356) |
-| SOL | -2.44 | ≥ 3 | 24 s | — | %51 · +%0.95 (41) |
-| INJ | -0.23 | ≥ 3 | 24 s | — | %53 · +%0.96 (92) |
+| ADA | -2.08 | ≥ 3 | 24 s | — | %60 · +%1.85 (77) |
+| ALGO | -0.60 | ≥ 3 | 24 s | — | %51 · +%1.43 (80) |
+| NEAR | +0.33 | ≥ 2 | 24 s | — | %53 · +%0.92 (275) |
+| ETH | -2.47 | ≥ 3 | 24 s | — | %59 · +%1.32 (39) |
+| CRV | -0.92 | ≥ 3 | 8 s | — | %56 · +%0.68 (159) |
+| AVAX | -1.64 | ≥ 3 | 4 s | — | %64 · +%0.65 (95) |
+| LINK | -2.10 | ≥ 2 | 8 s | — | %55 · +%0.34 (309) |
+| BTC | -2.37 | ≥ 2 | 24 s | — | %58 · +%0.56 (115) |
+| UNI | -1.26 | ≥ 2 | 4 s | — | %51 · +%0.26 (508) |
+| AAVE | -1.14 | ≥ 2 | 24 s | — | %54 · +%0.56 (285) |
+| FIL | +0.69 | ≥ 2 | 8 s | — | %53 · +%0.50 (356) |
+| SOL | -2.13 | ≥ 3 | 24 s | — | %51 · +%0.95 (41) |
+| INJ | -0.33 | ≥ 3 | 24 s | — | %53 · +%0.96 (92) |
 
 _prim_coin.py: 50 coin'de 441 denemenin 37'si geçti (tesadüfen ~7) · prim2.py: coin başına tek kural, gecikmesiz girişle ve 2026'da da tuttu. İsabet ~%54; kâr ortalamadan._
