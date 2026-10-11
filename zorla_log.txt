@@ -16,7 +16,7 @@ exit=0
 exit=0 süre=77 sn
 140
 === tahmin24.py NORMAL (126 geniş coin dahil, süre)
-exit=0 süre=42 sn
+exit=0 süre=44 sn
 === hata dosyası
 === kuyruk özeti (sınıf · öncelik · etiket)
 yedek · 2725 · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5
@@ -75,7 +75,7 @@ BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,825.1 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,967.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -83,7 +83,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,817.1 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,974.2 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -91,7 +91,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,806.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,990.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -99,7 +99,7 @@ Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt
 🔻 BTC KISA POZİSYON (SATIŞ) SİNYALİ — 🧭 BTC 11.10 20:00 · $83,916
 ABD güçlü satıyor: Coinbase primi z -2.5 (-11.9 baz puan)
 Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)
-💡 Vadelide LİMİT kısa (satış) $83,806.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
+💡 Vadelide LİMİT kısa (satış) $83,996.0 — 60 dk geçerli · çıkış 12.10 20:06: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · kâr-al / stop koyma · geçmiş ort. sonuç: fiyat %0,40 düştü
 Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).
 ⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.
 ──── GÖNDER ────
@@ -318,28 +318,28 @@ BTC 4s Çok güçlü ↑ ve aynı sa
 4 ve 8 saat bi
 Gönderildi: 7/24 (ana 0, yedek 24, panel 0, bilgi 0) · bugün giden sinyal: 14
 === panel sonu
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
 
 
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 14
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- 11.10 20:18 · 🔸 yedek · ₿ BTC 4 saat Çok güçlü ↑ (TEST) · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · ₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🧪 24 saat: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🧪 24 saat: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.7 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -2.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.0 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -1.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ETH (z -2.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ARB (z -2.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: FLOKI (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: NEAR (z -1.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: DOGE (z -1.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SUI (z -1.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
-- 11.10 20:18 · 🔸 yedek · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
-- 11.10 20:18 · 🔸 yedek · 🔇 DOT ⭐ en güçlü · isabet %58 · prim ⚠️ z -0.6 → gönderildi
-- 11.10 20:18 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
+- 11.10 20:28 · 🔸 yedek · ₿ BTC 4 saat Çok güçlü ↑ (TEST) · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · ₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · ₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🧪 24 saat: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🧪 24 saat: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.7 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -2.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.0 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -1.3 → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: ETH (z -2.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: BNB (z -2.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: ARB (z -2.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: ADA (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: FLOKI (z -2.0 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: NEAR (z -1.7 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: DOGE (z -1.3 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: SUI (z -1.2 ⛔) → gitmedi — ⛔ ABD satıyor (testte kaybettirdi)
+- 11.10 20:28 · 🔸 yedek · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
+- 11.10 20:28 · 🔸 yedek · 🔇 DOT ⭐ en güçlü · isabet %58 · prim ⚠️ z -0.6 → gönderildi
+- 11.10 20:28 · 🔸 yedek · 🤝 BTC ile ortak: SHIB (z -1.0) → gönderildi
