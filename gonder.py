@@ -1,7 +1,7 @@
 # gonder.py — SAATLİK İŞİN SON ADIMI: bu saatte sıraya alınan Telegram mesajlarından hangilerinin gideceğine karar verir ve ÖNCELİK SIRASIYLA gönderir.
-# Betikler TG_SIRALI=1 iken mesajları durum/tg_kuyruk.json'a yazar (ortak.tg_send). Her mesajın sınıfı var (11.10.2026, secim2.py R5 + secim4.py G3):
+# Betikler TG_SIRALI=1 iken mesajları durum/tg_kuyruk.json'a yazar (ortak.tg_send). Her mesajın sınıfı var (11.10.2026, secim2.py R5 · secim4.py):
 #   ana   → ✅ İŞLEM SİNYALİ, her zaman gider (en iyisi üstte, 🥇🥈🥉)
-#   yedek → yalnız o gün (TR) henüz hiç işlem sinyali gitmediyse, bu saatin en iyisi 🔸 YEDEK SİNYAL olarak gider (sessiz gün kalmasın); diğerleri yalnız panelde
+#   yedek → 🔸 YEDEK SİNYAL olarak her zaman gider (kullanıcı isteği), ana sinyallerin altında; ⛔ olanlar (ABD satıyor, öncelik ≥ 2000) GİTMEZ — testte kaybettirdi
 #   panel → hiç gitmez (yalnız panel) · bilgi → raporlar / özetler, her zaman gider
 # Kararlar son_durum.md'nin sonuna ve durum/gun_durum.json'a yazılır.
 import os, json, time
@@ -11,8 +11,9 @@ from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
 ADLAR = {"btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
-YEDEK_UST = ("🔸 YEDEK SİNYAL — bugün henüz işlem sinyali çıkmadı, günün ilk uygun sinyali bu.\n"
-             "Bu tür yedekler geçmişte ortalama ~%0 kazandırdı (isabet ~%55): küçük pozisyon aç ya da pas geç.")
+YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — seçilmiş sette değil: bu tür sinyaller geçmişte ortalama ~%0 kazandırdı (isabet ~%55).\n"
+             "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
+ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 def uyari():                                                                                   # bu saatte hata veren adım / coin varsa tek bir uyarı mesajı
     bozuk = [ADLAR.get(k, k) for k, v in (x.split("=", 1) for x in os.environ.get("ADIMLAR", "").split() if "=" in x) if v == "failure"]
     ayr = open(HATA_F, encoding="utf-8").read().strip().splitlines() if os.path.exists(HATA_F) else []
@@ -22,6 +23,8 @@ def uyari():                                                                    
 def gecikme(m):
     gec = time.time() - m["t"]
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
+def yolla(t):                                                                                 # Telegram sınırı: aynı sohbete art arda çok mesajda ~1 sn ara
+    ok = bool(tg_send(t)); time.sleep(1.0); return ok
 def main():
     uyari()
     simdi = pd.Timestamp.now(tz=DISPLAY_TZ); bugun = f"{simdi:%Y-%m-%d}"
@@ -40,22 +43,23 @@ def main():
     for i, m in enumerate(ana):
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n"
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: geçmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce)\n"
-                                     + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + "\n━━━━━━━━━━━━\n" + ust)
-        ok = bool(tg_send(gecikme(m) + ust + m["m"])); gonderilen += ok; karar.append(("✅ ana", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+                                     + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
     GD["giden"] += n
-    for j, m in enumerate(yedek):
-        if j == 0 and n == 0 and GD["giden"] == 0:
-            ust = YEDEK_UST + ("\n⛔ ABD bu sinyalin coin'ini satıyor — risk daha yüksek." if "⛔" in m["e"] else "") + "\n━━━━━━━━━━━━\n"
-            ok = bool(tg_send(gecikme(m) + ust + m["m"])); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi (günün ilk sinyali)" if ok else "GÖNDERİLEMEDİ"))
-        else: karar.append(("🔸 yedek", m["e"], "gitmedi — bu saat işlem sinyali var" if n else ("gitmedi — bugün sinyal zaten gitti" if j == 0 else "gitmedi — bu saatin daha iyi yedeği gitti")))
+    gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
+    for j, m in enumerate(gidecek):
+        ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+    for m in yedek:
+        if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)"))
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel"))
-    for m in bilgi: ok = bool(tg_send(m["m"])); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
-    print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden işlem sinyali: {GD['giden']}")
+    for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+    print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
     GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_ in karar])[-40:]
     os.makedirs(os.path.dirname(GUN_F), exist_ok=True); json.dump(GD, open(GUN_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if os.path.exists("son_durum.md"):                                                         # panel: Telegram kararları
         sat = [f"- {x['t']} · {x['s']} · {x['e']} → {x['k']}" for x in reversed(GD["log"][-20:])]
-        open("son_durum.md", "a", encoding="utf-8").write(f"\n\n## 📨 Telegram kararları (son 20) — bugün giden işlem sinyali: {GD['giden']}\n"
-            "_✅ ana = işlem sinyali (her zaman gider) · 🔸 yedek = yalnız o gün hiç sinyal gitmediyse en iyisi gider · panel = gönderilmez_\n" + ("\n".join(sat) if sat else "- (henüz yok)") + "\n")
+        open("son_durum.md", "a", encoding="utf-8").write(f"\n\n## 📨 Telegram kararları (son 20) — bugün giden sinyal: {GD['giden']}\n"
+            "_✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_\n" + ("\n".join(sat) if sat else "- (henüz yok)") + "\n")
     if os.path.exists(KUYRUK_F): os.remove(KUYRUK_F)
 if __name__ == "__main__": main()

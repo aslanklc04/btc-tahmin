@@ -146,7 +146,7 @@ jobs:
           key: pgecmis-${{ github.run_id }}
       - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
         if: always()
-        timeout-minutes: 3
+        timeout-minutes: 6
         run: python gonder.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}

@@ -185,7 +185,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
     """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için).
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
     oncelik: sira_puani() (küçük = önce) · etiket: sıralama listesindeki kısa ad.
-    sinif (secim2.py R5 + secim4.py G3, 11.10.2026): "ana" = seçilmiş işlem sinyali (her zaman gider) · "yedek" = yalnız o gün hiç sinyal gitmediyse en iyisi gider ·
+    sinif (secim2.py R5 + secim4.py G3, 11.10.2026): "ana" = seçilmiş işlem sinyali (her zaman gider) · "yedek" = 🔸 YEDEK olarak gider (⛔ olanlar hariç) ·
     "panel" = Telegram'a gitmez (yalnız panelde) · None = rapor/bilgi (her zaman gider)."""
     global TELEGRAM_CHAT_ID
     if os.environ.get("TG_SIRALI") == "1":
@@ -281,7 +281,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
 # Ana set: BTC saatlik/⭐/A ailesi ve coin tek başına sinyalleri YOK; 🤝 / 🔇 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken; 💵 ⛓️ 🧑 🔻 aynen.
 # Test: 2024+ haftada ~46 · isabet %58,6 · işlem başı net +%0,65 (bugünkü set +%0,28) · 2026 ~49/hf · %59,1 · +%0,59.
-# O gün (TR) hiç sinyal gitmediyse gelen ilk diğer sinyal 🔸 YEDEK olarak gider (sessiz gün ~%1): yedeklerin geçmişi isabet ~%55, net ~%0.
+# Setin dışındaki sinyaller 🔸 YEDEK olarak gider (⛔ ABD satıyor olanlar hariç): yedeklerin geçmişi isabet ~%55, net ~%0.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): bu set geçmişte işlem başı ort. +%0,6 kazandırdı (komisyon sonrası), isabet ~%59."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def fiyat_yaz(p):
