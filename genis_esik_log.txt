@@ -1,0 +1,90 @@
+# 🎯 Geniş liste: isabeti VE kârı yükselten kural var mı? — 11.10.2026 18:45
+Yeni coin: 126 · hacimce ilk 40: STRK, SOL, ZEC, XRP, UNI, WLD, TIA, MAGIC, ENA, QNT, RLC, ZK, FET, AVAX, TAO, INJ, AAVE, LTC, ATOM, BAT, FIL, ZRO, XLM, OGN, HBAR, ICP, BCH, ETHFI, SAND, MINA, ARPA, POL, CTSI, CAKE, SEI, W, ALGO, RAY, PYTH, LDO
+_hücre: sinyal · isabet · işlem başı net % · aynı saat tek olay isabeti · haftada mesaj saati — ✅ = ana setten iyi (isabet ve net)_
+```
+🤝 kendi primi z ≥ 0   · tüm yeni coin'ler 
+   2022-06→2023:  5325 · %59.2 · +0.256 · saat %62 · 7.6/hf ·
+   2024+: 15167 · %60.8 · +0.329 · saat %60 · 7.7/hf ·
+   2026:  3817 · %64.0 · +0.575 · saat %60 · 7.5/hf ·
+🤝 kendi primi z ≥ 0   · hacimce ilk 40    
+   2022-06→2023:  1869 · %56.7 · +0.141 · saat %61 · 5.9/hf ·
+   2024+:  4542 · %59.6 · +0.250 · saat %58 · 6.1/hf ·
+   2026:  1253 · %59.4 · +0.340 · saat %56 · 6.2/hf ·
+🤝 kendi primi z ≥ 0.5 · tüm yeni coin'ler 
+   2022-06→2023:  3236 · %59.5 · +0.274 · saat %61 · 6.7/hf ·
+   2024+:  9008 · %62.8 · +0.395 · saat %63 · 7.0/hf ·
+   2026:  2259 · %67.1 · +0.643 · saat %62 · 6.8/hf ✅
+🤝 kendi primi z ≥ 0.5 · hacimce ilk 40    
+   2022-06→2023:  1170 · %57.0 · +0.114 · saat %59 · 4.8/hf ·
+   2024+:  2743 · %61.0 · +0.314 · saat %60 · 5.0/hf ·
+   2026:   805 · %62.1 · +0.409 · saat %58 · 5.2/hf ·
+🤝 kendi primi z ≥ 1   · tüm yeni coin'ler 
+   2022-06→2023:  1707 · %59.5 · +0.251 · saat %61 · 5.5/hf ·
+   2024+:  4822 · %64.1 · +0.512 · saat %64 · 5.8/hf ·
+   2026:  1275 · %69.4 · +0.784 · saat %67 · 5.6/hf ✅
+🤝 kendi primi z ≥ 1   · hacimce ilk 40    
+   2022-06→2023:   616 · %56.7 · +0.078 · saat %58 · 3.4/hf ·
+   2024+:  1497 · %60.4 · +0.311 · saat %60 · 3.8/hf ·
+   2026:   459 · %62.1 · +0.459 · saat %60 · 3.9/hf ·
+🤝 kendi primi z ≥ 1.5 · tüm yeni coin'ler 
+   2022-06→2023:   818 · %60.3 · +0.239 · saat %60 · 3.9/hf ·
+   2024+:  2397 · %66.8 · +0.669 · saat %65 · 4.5/hf ✅
+   2026:   614 · %70.5 · +0.866 · saat %67 · 4.1/hf ✅
+🤝 kendi primi z ≥ 1.5 · hacimce ilk 40    
+   2022-06→2023:   290 · %57.6 · +0.080 · saat %56 · 2.0/hf ·
+   2024+:   718 · %61.6 · +0.288 · saat %62 · 2.4/hf ·
+   2026:   219 · %62.1 · +0.464 · saat %64 · 2.4/hf ·
+🤝 kendi primi z ≥ 2   · tüm yeni coin'ler 
+   2022-06→2023:   386 · %59.6 · +0.313 · saat %60 · 2.5/hf ·
+   2024+:  1131 · %69.8 · +0.875 · saat %67 · 3.1/hf ✅
+   2026:   290 · %73.4 · +0.958 · saat %70 · 2.7/hf ✅
+🤝 kendi primi z ≥ 2   · hacimce ilk 40    
+   2022-06→2023:   142 · %57.7 · +0.288 · saat %54 · 1.1/hf ·
+   2024+:   326 · %66.6 · +0.496 · saat %67 · 1.4/hf ·
+   2026:   106 · %66.0 · +0.759 · saat %70 · 1.6/hf ✅
+🧪 kendi primi z ≥ 0   · tüm yeni coin'ler 
+   2022-06→2023:  3636 · %56.7 · +0.666 · saat %56 · 26.8/hf ✅
+   2024+:  9082 · %55.5 · +0.776 · saat %53 · 33.5/hf ·
+   2026:  2607 · %53.5 · +0.685 · saat %52 · 39.7/hf ·
+🧪 kendi primi z ≥ 0   · hacimce ilk 40    
+   2022-06→2023:  1112 · %54.3 · +0.465 · saat %53 · 10.3/hf ·
+   2024+:  2686 · %55.7 · +0.901 · saat %54 · 13.5/hf ·
+   2026:   786 · %52.5 · +0.718 · saat %50 · 15.9/hf ·
+🧪 kendi primi z ≥ 0.5 · tüm yeni coin'ler 
+   2022-06→2023:  2258 · %56.9 · +0.716 · saat %56 · 17.7/hf ✅
+   2024+:  5330 · %57.3 · +1.038 · saat %54 · 21.8/hf ·
+   2026:  1492 · %56.0 · +0.920 · saat %53 · 25.0/hf ·
+🧪 kendi primi z ≥ 0.5 · hacimce ilk 40    
+   2022-06→2023:   720 · %55.7 · +0.601 · saat %54 · 7.0/hf ·
+   2024+:  1593 · %58.4 · +1.150 · saat %57 · 8.4/hf ·
+   2026:   453 · %55.2 · +0.858 · saat %52 · 9.7/hf ·
+🧪 kendi primi z ≥ 1   · tüm yeni coin'ler 
+   2022-06→2023:  1233 · %58.1 · +0.825 · saat %56 · 10.3/hf ✅
+   2024+:  2983 · %58.4 · +1.179 · saat %55 · 13.2/hf ·
+   2026:   809 · %56.9 · +1.016 · saat %54 · 15.0/hf ·
+🧪 kendi primi z ≥ 1   · hacimce ilk 40    
+   2022-06→2023:   408 · %57.1 · +0.515 · saat %54 · 4.0/hf ✅
+   2024+:   909 · %59.1 · +1.135 · saat %57 · 4.9/hf ✅
+   2026:   238 · %56.3 · +0.854 · saat %55 · 5.3/hf ·
+🧪 kendi primi z ≥ 1.5 · tüm yeni coin'ler ★ GEÇTİ
+   2022-06→2023:   615 · %58.7 · +0.724 · saat %55 · 5.3/hf ✅
+   2024+:  1578 · %59.6 · +1.232 · saat %58 · 7.4/hf ✅
+   2026:   383 · %59.8 · +1.197 · saat %57 · 7.6/hf ✅
+🧪 kendi primi z ≥ 1.5 · hacimce ilk 40    
+   2022-06→2023:   219 · %57.5 · +0.480 · saat %52 · 2.1/hf ✅
+   2024+:   507 · %58.8 · +1.101 · saat %58 · 2.8/hf ✅
+   2026:   105 · %56.2 · +0.628 · saat %57 · 2.5/hf ·
+🧪 kendi primi z ≥ 2   · tüm yeni coin'ler ★ GEÇTİ
+   2022-06→2023:   331 · %61.0 · +0.853 · saat %55 · 2.7/hf ✅
+   2024+:   819 · %60.1 · +1.465 · saat %57 · 3.9/hf ✅
+   2026:   189 · %61.9 · +1.566 · saat %57 · 3.9/hf ✅
+🧪 kendi primi z ≥ 2   · hacimce ilk 40    
+   2022-06→2023:   127 · %59.8 · +0.328 · saat %52 · 1.1/hf ·
+   2024+:   257 · %57.2 · +1.002 · saat %56 · 1.5/hf ·
+   2026:    42 · %47.6 · +0.642 · saat %45 · 1.1/hf ·
+```
+
+**Önceden yazılı karar:** geçen seçenekler: 🧪 z≥1.5 tüm yeni coin'ler · 🧪 z≥2 tüm yeni coin'ler
+- 🤝: hiçbir seçenek ana seti geçemedi → eklenmez
+- 🧪: seçilen → **z ≥ 1.5 · tüm yeni coin'ler** (2022–23'te 615 sinyal)
+exit=0
