@@ -1,17 +1,41 @@
-# 🔬 Koşul taraması — 11.10.2026 16:57
+# 🔬 Koşul taraması — 11.10.2026 17:54
 Veri: cb_BTC 38977, cb_ETH 38977, bn_BTC 38989, bn_ETH 38989, bs_BTC 38990, met_BTC 38977, met_ETH 38977, fon_BTC 4842, fon_ETH 4842, dvol_BTC 38990, dvol_ETH 38990, y_cme 1201, y_btcusd 1745, y_dxy 1199, y_tnx 1197, y_vix 1199, y_spx 1197, y_altin 1200, y_hyg 1197
-Piyasa göstergesi: 32 · 1 sn
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/kosul_tara.py", line 77, in <module>
-    B = pd.read_pickle(bul("ga/**/disa_BTCUSDT.pkl")); B.index = pd.DatetimeIndex(B.index).tz_convert("UTC")
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/pickle.py", line 220, in read_pickle
-    with get_handle(
-         ^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 776, in get_handle
-    ioargs = _get_filepath_or_buffer(
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 496, in _get_filepath_or_buffer
-    raise ValueError(msg)
-ValueError: Invalid file path or buffer object type: <class 'NoneType'>
-exit=1
+Piyasa göstergesi: 33 · 1 sn
+Sinyal: 243,552 · coin 141 · 🔸 yedek 104,712 · ✅ ana 104,375 · ⛔ 34,465 · 5 sn
+Koşul: 157 · hedef: 6 → test: 942 · 7 sn
+
+## Şans payı
+Gerçek veride geçen: **17** (zaman koşulları hariç; dahil 17) · plasebo (20 kez kaydırılmış): ortalama 4.7, %95'lik 9, en çok 10 → ✅ gerçek sonuç şanstan belirgin fazla
+
+## Grupların genel durumu (koşulsuz) — _sinyal · isabet · işlem başı net %_
+```
+✅ ana                              2022-06→2023:  29588 · %56.6 · +0.249 | 2024+:  74362 · %55.0 · +0.279 | 2026:  24121 · %54.2 · +0.294
+🔸 yedek (hepsi)                    2022-06→2023:  28234 · %54.0 · +0.110 | 2024+:  75924 · %51.3 · +0.012 | 2026:  22330 · %50.1 · +0.077
+🔸 yedek · BTC ailesi               2022-06→2023:    844 · %56.9 · +0.034 | 2024+:   1304 · %57.5 · +0.091 | 2026:    327 · %53.8 · +0.086
+🔸 yedek · coin tek                 2022-06→2023:   8171 · %56.8 · +0.181 | 2024+:  26144 · %51.3 · -0.051 | 2026:   6733 · %52.6 · +0.151
+🔸 yedek · 🤝🔇🧪 (prim −1…0)          2022-06→2023:  19219 · %52.8 · +0.083 | 2024+:  48476 · %51.1 · +0.044 | 2026:  15270 · %49.0 · +0.044
+⛔ (ABD satıyor)                    2022-06→2023:   8500 · %53.4 · +0.102 | 2024+:  25514 · %48.9 · -0.118 | 2026:   8063 · %43.8 · -0.219
+```
+
+## Geçen testler — _seçim | 2024+ | 2026 (sinyal · isabet · net) · alt = 2024+ haftalık blok %5 alt sınır_
+```
+ELE       ✅ ana                          VIX seviyesi z ≤ −2                                    326 · %46.0 · -0.54 |   157 · %45.9 · -0.11 |   157 · %45.9 · -0.11 · alt +nan
+YÜKSELT   ⛔ (ABD satıyor)                Fonlama oranı z ≥ 2                                    229 · %68.1 · +0.78 |   442 · %63.3 · +1.16 |    58 · %50.0 · +0.07 · alt +0.13
+YÜKSELT   🔸 yedek · 🤝🔇🧪 (prim −1…0)      Fonlama oranı z ≥ 2                                    623 · %61.8 · +0.89 |   999 · %66.9 · +1.11 |   161 · %61.5 · +0.80 · alt +0.72
+YÜKSELT   🔸 yedek (hepsi)                Fonlama oranı z ≥ 2                                   1007 · %58.9 · +0.58 |  1431 · %65.3 · +0.86 |   164 · %61.6 · +0.80 · alt +0.49
+YÜKSELT   ⛔ (ABD satıyor)                BTC Coinbase primi z ≥ 2                               117 · %63.2 · +0.65 |   299 · %57.9 · +0.70 |   137 · %49.6 · +0.11 · alt +0.32
+YÜKSELT   🔸 yedek · coin tek             ABD 10 yıl faiz 5 g z ≥ 2                              135 · %71.1 · +1.07 |   426 · %59.9 · +0.63 |   256 · %53.1 · +0.29 · alt +0.11
+YÜKSELT   🔸 yedek · 🤝🔇🧪 (prim −1…0)      S&P 500 5 g z ≤ −2                                     340 · %62.4 · +1.28 |  2259 · %57.9 · +0.54 |    38 · %57.9 · +1.10 · alt +0.08
+YÜKSELT   🔸 yedek · BTC ailesi           DVOL ETH (opsiyon korkusu) z ≥ 2                        41 · %63.4 · +0.57 |   114 · %60.5 · +0.43 |    31 · %58.1 · +0.30 · alt +0.19
+İYİLEŞTİR ✅ ana                          Coinbase BTC hacmi (24 s) z ≥ 2                        935 · %61.3 · +0.45 |  3350 · %61.4 · +1.30 |  1636 · %54.8 · +0.56 · alt +0.54
+İYİLEŞTİR ✅ ana                          BTC Coinbase primi z ≥ 2                              1221 · %60.9 · +0.41 |  4379 · %62.3 · +1.16 |  1360 · %55.0 · +0.46 · alt +0.67
+İYİLEŞTİR ✅ ana                          Fonlama oranı z ≥ 2                                   1248 · %59.6 · +0.52 |  1993 · %69.2 · +1.10 |   164 · %65.9 · +1.19 · alt +0.83
+İYİLEŞTİR ✅ ana                          Coin primi − BTC primi (fark) z ≤ −2                   401 · %62.8 · +0.57 |  1138 · %60.1 · +1.05 |   392 · %55.1 · +0.58 · alt +0.58
+İYİLEŞTİR ✅ ana                          Binance BTC ort. işlem büyüklüğü z ≥ 2                1112 · %66.2 · +0.89 |  3230 · %63.3 · +0.78 |  1558 · %59.4 · +0.57 · alt +0.51
+İYİLEŞTİR ✅ ana                          S&P 500 5 g z ≤ −2                                     629 · %64.4 · +0.99 |  3467 · %58.5 · +0.60 |    38 · %63.2 · +0.94 · alt +0.29
+İYİLEŞTİR ✅ ana                          Coin'ler arası ayrışma (24 s getiri yayılımı) z ≥ 1   5398 · %60.5 · +0.50 | 15464 · %58.6 · +0.58 |  5216 · %57.1 · +0.49 · alt +0.35
+İYİLEŞTİR ✅ ana                          Coin'ler arası ayrışma (24 s getiri yayılımı) z ≥ 2   2034 · %61.4 · +0.52 |  6402 · %58.7 · +0.55 |  1950 · %56.2 · +0.48 · alt +0.03
+İYİLEŞTİR ✅ ana                          DVOL BTC (opsiyon korkusu) z ≥ 1                      6597 · %60.6 · +0.52 | 17768 · %59.1 · +0.51 |  4457 · %58.2 · +0.51 · alt +0.28
+```
+_Süre: 28 sn_
+exit=0
