@@ -1,0 +1,42 @@
+name: Genis liste esik ve dilim testi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [genis_esik.py, .github/workflows/genis_esik.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/download-artifact@v4
+        with:
+          name: genis-evren
+          run-id: 38139240014
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'lerini indir (gh, sayfalamali)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l && ls ga/g-BTCUSDT
+      - run: |
+          ls ga | wc -l; set +e; timeout 2000 python -u genis_esik.py > genis_esik_log.txt 2>&1; echo "exit=$?" >> genis_esik_log.txt; tail -30 genis_esik_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add genis_esik_log.txt; for f in genis_esik_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Genis liste esik ve dilim testi sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
