@@ -1,0 +1,84 @@
+name: Genis coin modelleri (canli icin, modeller dalina)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/genis_model.yml]
+permissions:
+  contents: write
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - id: l
+        run: |
+          python3 - > liste.json <<'PY'
+          import csv, json
+          canli = set()
+          for f in ("canli/durum/coin_listesi.txt", "canli/durum/deneme24_liste.txt"):
+              canli |= {l.strip() for l in open(f) if l.strip()}
+          E = [r for r in csv.DictReader(open("genis_evren.csv")) if r["uygun"] == "True"]
+          print(json.dumps([r["sym"] for r in E if r["sym"] not in canli and r["sym"] != "BTCUSDT"][:140]))
+          PY
+          echo "coinler=$(cat liste.json)" >> "$GITHUB_OUTPUT"; python3 -c "import json; print(len(json.load(open('liste.json'))), 'coin')"
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main                    # canlıdaki eğitim kodu
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e
+          timeout 2400 python egit_coin.py ${{ matrix.sym }} > log.txt 2>&1; echo "coin exit=$?" >> log.txt
+          timeout 1500 python egit24.py ${{ matrix.sym }} >> log.txt 2>&1; echo "24s exit=$?" >> log.txt
+          tail -4 log.txt; ls -la durum/model_${{ matrix.sym }}.pkl.gz durum/model24_${{ matrix.sym }}.pkl.gz
+        env:
+          TELEGRAM_TOKEN: ""
+          TELEGRAM_CHAT_ID: ""
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gm-${{ matrix.sym }}
+          path: |
+            durum/model_${{ matrix.sym }}.pkl.gz
+            durum/model24_${{ matrix.sym }}.pkl.gz
+          retention-days: 30
+  topla:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: gm
+          pattern: gm-*
+          merge-multiple: true
+      - name: modeller dalina yaz (tek commit, eski surum silinir)
+        run: |
+          mkdir yeni && cd yeni && git init -q -b modeller
+          cp ../gm/*.pkl.gz . ; ls model_*.pkl.gz | sed 's/model_//; s/.pkl.gz//' > genis_liste.txt; ls model24_*.pkl.gz | sed 's/model24_//; s/.pkl.gz//' > genis24_liste.txt
+          printf "# modeller dalı — geniş coin modelleri (🤝 ve 🧪 için; genis_aile.py testiyle). Her ay yeniden eğitilir, dal tek commit olarak üzerine yazılır.\n" > README.md
+          wc -l genis_liste.txt genis24_liste.txt; du -sh .
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add -A && git commit -qm "Genis coin modelleri $(date -u +%Y-%m-%d)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" modeller
