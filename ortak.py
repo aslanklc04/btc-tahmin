@@ -181,18 +181,21 @@ def hata_kaydet(adim, ayrinti):                                                 
     try:
         os.makedirs(os.path.dirname(HATA_F), exist_ok=True); open(HATA_F, "a", encoding="utf-8").write(f"{adim}: {ayrinti}\n")
     except Exception: pass
-def tg_send(text, oncelik=None, etiket=None):
+def tg_send(text, oncelik=None, etiket=None, sinif=None):
     """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için).
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
-    oncelik: sira_puani() (küçük = önce) · yoksa rapor/bilgi sayılır, sinyallerden sonra gider. etiket: sıralama listesindeki kısa ad."""
+    oncelik: sira_puani() (küçük = önce) · etiket: sıralama listesindeki kısa ad.
+    sinif (secim2.py R5 + secim4.py G3, 11.10.2026): "ana" = seçilmiş işlem sinyali (her zaman gider) · "yedek" = yalnız o gün hiç sinyal gitmediyse en iyisi gider ·
+    "panel" = Telegram'a gitmez (yalnız panelde) · None = rapor/bilgi (her zaman gider)."""
     global TELEGRAM_CHAT_ID
     if os.environ.get("TG_SIRALI") == "1":
         try:
             q = json.load(open(KUYRUK_F, encoding="utf-8")) if os.path.exists(KUYRUK_F) else []
-            q.append(dict(o=float(oncelik) if oncelik is not None else 9999.0, e=etiket or text.split("\n")[0][:70], m=text, t=time.time(), s=len(q)))
+            q.append(dict(o=float(oncelik) if oncelik is not None else 9999.0, e=etiket or text.split("\n")[0][:70], m=text, t=time.time(), s=len(q), c=sinif or "bilgi"))
             os.makedirs(os.path.dirname(KUYRUK_F), exist_ok=True); json.dump(q, open(KUYRUK_F, "w", encoding="utf-8"), ensure_ascii=False)
             TG_LAST.update(ok=True, info="sıraya alındı (gonder.py gönderir)"); return True
         except Exception as e: print(f"⚠️ kuyruk yazılamadı, doğrudan gönderiliyor: {e}")
+    if sinif in ("yedek", "panel"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
     if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
     for deneme in range(2):
         try:
@@ -275,6 +278,12 @@ SIRA_TUR = {"⛓️": 1, "🧑": 1, "🤝": 2, "🔇": 3, "🪙": 4, "🧪": 5, 
 def sira_puani(tur, z=float("nan"), alma=False):
     g = SIRA_TUR.get(tur, 9) + (20 if alma else 0); zz = float(z) if z is not None and np.isfinite(z) else -1.0
     return g * 100 - max(-5.0, min(5.0, zz)) * 10
+# ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
+# Ana set: BTC saatlik/⭐/A ailesi ve coin tek başına sinyalleri YOK; 🤝 / 🔇 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken; 💵 ⛓️ 🧑 🔻 aynen.
+# Test: 2024+ haftada ~46 · isabet %58,6 · işlem başı net +%0,65 (bugünkü set +%0,28) · 2026 ~49/hf · %59,1 · +%0,59.
+# O gün (TR) hiç sinyal gitmediyse gelen ilk diğer sinyal 🔸 YEDEK olarak gider (sessiz gün ~%1): yedeklerin geçmişi isabet ~%55, net ~%0.
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): bu set geçmişte işlem başı ort. +%0,6 kazandırdı (komisyon sonrası), isabet ~%59."
+def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def fiyat_yaz(p):
     if p is None or not np.isfinite(p) or p <= 0: return "$?"
     if p >= 1000: return f"${p:,.0f}"
