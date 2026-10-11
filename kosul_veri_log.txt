@@ -1,0 +1,14 @@
+[   37 sn] Coinbase BTC-USD 38977
+[   71 sn] Coinbase ETH-USD 38977
+[  101 sn] Binance BTCUSDT 38989
+[  131 sn] Binance ETHUSDT 38989
+[  162 sn] Bitstamp 38990
+[  196 sn] metrik BTCUSDT 467579 satır
+[  229 sn] metrik ETHUSDT 467579 satır
+[  232 sn] fonlama BTCUSDT 4842
+[  234 sn] fonlama ETHUSDT 4842
+[  245 sn] DVOL BTC 38990
+[  255 sn] DVOL ETH 38990
+[  257 sn] Yahoo 1197
+[  257 sn] kaydedildi: cb_BTC 38977, cb_ETH 38977, bn_BTC 38989, bn_ETH 38989, bs_BTC 38990, met_BTC 38977, met_ETH 38977, fon_BTC 4842, fon_ETH 4842, dvol_BTC 38990, dvol_ETH 38990, y_cme 1201, y_btcusd 1745, y_dxy 1199, y_tnx 1197, y_vix 1199, y_spx 1197, y_altin 1200, y_hyg 1197
+exit=0
