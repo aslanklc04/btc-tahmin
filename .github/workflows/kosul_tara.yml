@@ -19,19 +19,10 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -q -r requirements.txt
-      - uses: actions/download-artifact@v4          # başka çalıştırmadan indirmede 100 sınırı → iki parça
-        with:
-          path: ga
-          pattern: g-[0-9A-O]*
-          run-id: 38139240014
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          path: ga
-          pattern: g-[P-Z]*
-          run-id: 38139240014
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: ls ga | wc -l; ls ga/g-BTCUSDT
+      - name: Genis tarama artifact'lerini indir (gh, sayfalamali)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l && ls ga/g-BTCUSDT
       - uses: actions/download-artifact@v4
         with:
           name: kosul-veri

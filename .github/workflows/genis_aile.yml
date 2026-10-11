@@ -24,18 +24,10 @@ jobs:
           ref: main
           path: canli
           sparse-checkout: durum
-      - uses: actions/download-artifact@v4
-        with:
-          path: ga
-          pattern: g-[0-9A-O]*
-          run-id: 38139240014
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          path: ga
-          pattern: g-[P-Z]*
-          run-id: 38139240014
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'lerini indir (gh, sayfalamali)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l && ls ga/g-BTCUSDT
       - run: |
           ls ga | wc -l; set +e; timeout 2000 python -u genis_aile.py > genis_aile_log.txt 2>&1; echo "exit=$?" >> genis_aile_log.txt; tail -30 genis_aile_log.txt
       - run: |
