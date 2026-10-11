@@ -120,20 +120,41 @@ import requests
 KEEP = Ez.aile.isin(["💵 ABD alıyor (tek başına)", "🔻 BTC kısa", "⛓️ ETH", "🧑 küçük yatırımcı"]).values
 nb = ~btc & ~tek; ANA = (nb & (z >= 0)) | KEEP; ANA &= ~(Ez.aile == "coin 🔇 sessiz").values; YED = ~ANA & (z > -1)
 KV = pd.read_pickle(f("**/kosul_veri.pkl")[0]); fb = KV["fon_BTC"].sort_index()
-out, a = [], pd.Timestamp("2022-03-01", tz="UTC")
+def _get(url, **p):
+    try: return requests.get(url, params=p, timeout=30).json()
+    except Exception as e: print(url, e); return None
+KAY = {}
+out, a = [], pd.Timestamp("2022-03-01", tz="UTC")                                                  # Gate (from/to)
 while a < pd.Timestamp.now(tz="UTC"):
-    b = a + pd.Timedelta(days=300)
-    try: out += requests.get("https://api.gateio.ws/api/v4/futures/usdt/funding_rate", params=dict(contract="BTC_USDT", limit=1000, **{"from": int(a.timestamp()), "to": int(b.timestamp())}), timeout=30).json()
-    except Exception as e: print("gate", e)
+    b = a + pd.Timedelta(days=300); j = _get("https://api.gateio.ws/api/v4/futures/usdt/funding_rate", contract="BTC_USDT", limit=1000, **{"from": int(a.timestamp()), "to": int(b.timestamp())})
+    if isinstance(j, list): out += [x for x in j if isinstance(x, dict) and "t" in x]
+    else: print("gate yanıt:", str(j)[:200])
     a = b
-G_ = pd.DataFrame(out).drop_duplicates("t"); gf = pd.Series(G_.r.astype(float).values, index=pd.to_datetime(G_.t.astype(int), unit="s", utc=True)).sort_index()
+if out: G_ = pd.DataFrame(out).drop_duplicates("t"); KAY["Gate"] = pd.Series(G_.r.astype(float).values, index=pd.to_datetime(G_.t.astype(int), unit="s", utc=True)).sort_index()
+out = []                                                                                            # MEXC (sayfalı, en yeniden geriye)
+for pn in range(1, 80):
+    j = _get("https://contract.mexc.com/api/v1/contract/funding_rate/history", symbol="BTC_USDT", page_num=pn, page_size=100)
+    rr = (j or {}).get("data", {}).get("resultList", []) if isinstance(j, dict) else []
+    if not rr: break
+    out += rr
+    if pd.to_datetime(rr[-1]["settleTime"], unit="ms", utc=True) < pd.Timestamp("2022-03-01", tz="UTC"): break
+if out: M_ = pd.DataFrame(out).drop_duplicates("settleTime"); KAY["MEXC"] = pd.Series(M_.fundingRate.astype(float).values, index=pd.to_datetime(M_.settleTime, unit="ms", utc=True)).sort_index()
+out, a = [], pd.Timestamp("2022-03-01", tz="UTC")                                                  # KuCoin (from/to, ms)
+while a < pd.Timestamp.now(tz="UTC"):
+    b = a + pd.Timedelta(days=30); j = _get("https://api-futures.kucoin.com/api/v1/contract/funding-rates", symbol="XBTUSDTM", **{"from": int(a.timestamp() * 1000), "to": int(b.timestamp() * 1000)})
+    if isinstance(j, dict) and isinstance(j.get("data"), list): out += j["data"]
+    a = b
+if out: K_ = pd.DataFrame(out).drop_duplicates("timepoint"); KAY["KuCoin"] = pd.Series(K_.fundingRate.astype(float).values, index=pd.to_datetime(K_.timepoint, unit="ms", utc=True)).sort_index()
 def zser(s): return (s - s.rolling(90, min_periods=30).mean()) / (s.rolling(90, min_periods=30).std() + 1e-12)
-ortak_ix = fb.index.intersection(gf.index)
-yaz(f"# 💸 Gate fonlaması Binance'in yerine — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\nGate: {len(gf)} ödeme ({gf.index[0]:%Y-%m-%d} → {gf.index[-1]:%Y-%m-%d %H:%M}) · "
-    f"aynı anlarda Gate ↔ Binance fonlama ilişkisi: {gf.reindex(ortak_ix).corr(fb.reindex(ortak_ix)):+.3f} · z ilişkisi: {zser(gf).reindex(ortak_ix).corr(zser(fb).reindex(ortak_ix)):+.3f}\n")
+yaz(f"# 💸 ABD dışı borsa fonlaması Binance'in yerine — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n")
+for k, v in KAY.items():
+    ix = v.index.round("h"); vv = pd.Series(v.values, index=ix); vv = vv[~vv.index.duplicated()]; ox = fb.index.round("h"); fbb = pd.Series(fb.values, index=ox); fbb = fbb[~fbb.index.duplicated()]
+    oi = vv.index.intersection(fbb.index)
+    yaz(f"- {k}: {len(v)} ödeme ({v.index[0]:%Y-%m-%d} → {v.index[-1]:%Y-%m-%d}) · Binance ile aynı anlarda ilişki {vv.reindex(oi).corr(fbb.reindex(oi)):+.3f} · z ilişkisi {zser(vv).reindex(oi).corr(zser(fbb).reindex(oi)):+.3f}")
 t_ = tz_.floor("h")
 def asof(s, zaman): s = s.dropna(); i = s.index.searchsorted(zaman, side="right") - 1; return np.where(i >= 0, s.values[np.clip(i, 0, None)], np.nan)
-KE = {"Binance anlık (canlıda yok, karşılaştırma)": asof(zser(fb), t_) >= 2, "Gate anlık (CANLIDA VAR)": asof(zser(gf), t_) >= 2}
+KE = {"Binance anlık (canlıda yok, karşılaştırma)": asof(zser(fb), t_) >= 2}
+for k, v in KAY.items(): KE[f"{k} anlık (CANLIDA VAR)"] = asof(zser(v), t_) >= 2
 KE = {k: np.nan_to_num(v, nan=0).astype(bool) for k, v in KE.items()}
 DN = (("2022-06→2023", (tz_ >= P0) & (tz_ < A24_)), ("2024+", tz_ >= A24_), ("2026", tz_ >= A26_))
 def ist(m): x = Ez[m]; return len(x), (100 * x.ok.mean() if len(x) else np.nan), (100 * x.net.mean() if len(x) else np.nan)
