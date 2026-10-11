@@ -1,7 +1,7 @@
-# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 14:58
-Olay: 56,802 · tip: 25 · 168 sn
+# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 16:17
+Olay: 56,802 · tip: 25 · 203 sn
 
-# 🔀 Coin primi vs BTC primi + sessiz günü olmayan sinyal seti — 11.10.2026 14:58
+# 🔀 Coin primi vs BTC primi + sessiz günü olmayan sinyal seti — 11.10.2026 16:17
 _Coin sinyalleri: 🤝 BTC ile ortak · 🔇 BTC sessizken · coin tek başına · 🧪 24 saat (BTC hariç). Hücre: haftada · isabet · işlem başı net % (komisyon sonrası) · alt = haftalık blok %5 alt sınır_
 
 ## 1) Coin ve BTC primi aynı yönde mi, zıt yönde mi?
@@ -148,4 +148,28 @@ G4: kademeli (R4 → 12:00'den sonra R0 → 18:00'den sonra her şey)
    ↳ her şey kademesi: 2022-06→2023:   0.1/hf · %42.9 · +0.053 | 2024+:   0.2/hf · %34.6 · -0.319 | 2026:   0.1/hf · %20.0 · -0.788
 ```
 
-_Süre: 169 sn_
+## 5) Yedek hangi saatlerde gelsin? (temel R5 · havuz: her şey · TR saati)
+_hücre: sessiz gün % · dolgu haftada · isabet · net · dolguların saat dağılımı (medyan)_
+```
+00:00–23:59  2022-06→2023: sessiz %0.7 · dolgu 4.6/hf · %57 · +0.041 · saat medyan 1 | 2024+: sessiz %1.3 · dolgu 4.9/hf · %55 · +0.033 · saat medyan 1 | 2026: sessiz %0.0 · dolgu 5.0/hf · %54 · +0.039 · saat medyan 1
+06:00–22:59  2022-06→2023: sessiz %0.9 · dolgu 2.0/hf · %55 · -0.138 · saat medyan 9 | 2024+: sessiz %2.0 · dolgu 2.2/hf · %49 · -0.009 · saat medyan 8 | 2026: sessiz %0.7 · dolgu 1.8/hf · %51 · -0.081 · saat medyan 7
+08:00–22:59  2022-06→2023: sessiz %1.2 · dolgu 1.8/hf · %58 · -0.202 · saat medyan 11 | 2024+: sessiz %2.2 · dolgu 1.8/hf · %49 · -0.045 · saat medyan 10 | 2026: sessiz %0.7 · dolgu 1.3/hf · %54 · -0.067 · saat medyan 9
+09:00–22:59  2022-06→2023: sessiz %1.4 · dolgu 1.7/hf · %57 · -0.209 · saat medyan 11 | 2024+: sessiz %2.5 · dolgu 1.7/hf · %47 · -0.074 · saat medyan 11 | 2026: sessiz %0.7 · dolgu 1.2/hf · %51 · +0.065 · saat medyan 10
+10:00–22:59  2022-06→2023: sessiz %1.6 · dolgu 1.6/hf · %60 · -0.142 · saat medyan 13 | 2024+: sessiz %2.9 · dolgu 1.5/hf · %48 · -0.106 · saat medyan 12 | 2026: sessiz %0.7 · dolgu 1.0/hf · %48 · +0.250 · saat medyan 12
+12:00–22:59  2022-06→2023: sessiz %1.7 · dolgu 1.5/hf · %59 · -0.050 · saat medyan 15 | 2024+: sessiz %3.5 · dolgu 1.3/hf · %55 · +0.167 · saat medyan 14 | 2026: sessiz %1.1 · dolgu 0.8/hf · %56 · +0.688 · saat medyan 14
+09:00–18:59  2022-06→2023: sessiz %3.8 · dolgu 1.5/hf · %54 · -0.289 · saat medyan 11 | 2024+: sessiz %3.5 · dolgu 1.6/hf · %47 · -0.079 · saat medyan 11 | 2026: sessiz %1.4 · dolgu 1.1/hf · %51 · +0.064 · saat medyan 10
+```
+Bugünkü kuralda (00–23) yedeklerin geldiği saat, 2024+: 00–05: %83 · 06–08: %7 · 09–11: %5 · 12–17: %4 · 18–23: %1
+
+Tüm yedek adayları (her şey havuzu, R5 dışı) saat dilimine göre, 2024+ / 2026:
+```
+00–05  2022-06→2023:  23.0/hf · %59.7 · +0.147 | 2024+:  31.5/hf · %57.7 · +0.168 | 2026:  38.5/hf · %53.4 · +0.022
+06–08  2022-06→2023:   7.4/hf · %58.4 · +0.094 | 2024+:  11.9/hf · %53.4 · +0.029 | 2026:  15.5/hf · %50.6 · -0.059
+09–11  2022-06→2023:   8.9/hf · %63.1 · +0.232 | 2024+:  10.7/hf · %51.5 · +0.060 | 2026:  11.1/hf · %39.3 · -0.208
+12–14  2022-06→2023:  10.9/hf · %55.0 · +0.097 | 2024+:  11.3/hf · %53.1 · +0.156 | 2026:   9.7/hf · %51.2 · -0.024
+15–17  2022-06→2023:  15.9/hf · %52.8 · +0.048 | 2024+:  14.3/hf · %54.7 · +0.090 | 2026:  12.6/hf · %55.1 · +0.125
+18–20  2022-06→2023:  21.8/hf · %54.3 · +0.050 | 2024+:  23.9/hf · %53.2 · -0.134 | 2026:  19.5/hf · %51.9 · -0.139
+21–23  2022-06→2023:  20.2/hf · %56.7 · +0.051 | 2024+:  21.5/hf · %57.6 · -0.001 | 2026:  19.3/hf · %59.1 · +0.216
+```
+
+_Süre: 204 sn_
