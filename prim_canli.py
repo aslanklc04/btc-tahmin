@@ -57,7 +57,7 @@ def calis():
         fire.sort(key=lambda x: -x[0])                                                         # primi en yüksek olan üstte
         tg(f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: primi en yüksek olan üstte.\n" + "\n".join(x[2] for x in fire)
            + "\n⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
-           oncelik=sira_puani("💵", fire[0][0]), etiket="💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f})" for x in fire))
+           oncelik=sira_puani("💵", fire[0][0]), etiket="💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f})" for x in fire), sinif="ana")
     # ---- sonuçlanan işlemler ----
     acik = [e for e in GP["log"] if "ok" not in e and now >= e["t"] + pd.Timedelta(hours=e["H"])]
     OO = {}

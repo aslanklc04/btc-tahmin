@@ -65,7 +65,7 @@ def calis():
                        f"1 BTC'den küçük cüzdanlardaki BTC 30 günde %{d30:+.2f} değişti (olağandışı düşüş, z {zn:+.1f}) · veri günü {son_gun:%d.%m}\n"
                        + "\n".join(sat) + f"\nÇıkış (ikisi için): {cikis:%d.%m %H:%M} ({GUN} gün tut)\n{BILGI}\n"
                        "⚠️ BTC ve ETH aynı bahis (birlikte hareket eder): ikisini birden alırsan toplam risk büyür. Ayda ~1 sinyal, bazen art arda haftalar. Veri yalnız 4 yıllık; canlıda izleniyor. Yatırım tavsiyesi değildir.",
-                       oncelik=sira_puani("🧑", ZK.get("BTC", float("nan"))), etiket=f"🧑 BTC / ETH AL — küçük yatırımcı kaçıyor (7 gün)")
+                       oncelik=sira_puani("🧑", ZK.get("BTC", float("nan"))), etiket=f"🧑 BTC / ETH AL — küçük yatırımcı kaçıyor (7 gün)", sinif="ana")
                 if not kuru: GK["gun"] = dun
             else: print(f"Dünün ({dun:%d.%m}) verisi henüz yok → sonraki saat yeniden bakılacak")
         except Exception: traceback.print_exc()

@@ -112,18 +112,18 @@ if TEST_ZORLA:
 if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours=8)):
     tg_send(f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
             + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + CBL + "\n" + HIZL + emir_satiri(8, a8_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC ⭐ en güçlü (8 s) · isabet %{a8_['acc']:.0f} · prim {cb_kisa(CBD)}"); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
+            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC ⭐ en güçlü (8 s) · isabet %{a8_['acc']:.0f} · prim {cb_kisa(CBD)}", sinif="yedek"); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
 if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None or t - G["last_acls"] >= pd.Timedelta(hours=4)):
     tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBL + "\n"
             + HIZL + "💡 " + giris_cikis(P_NOW, t + pd.Timedelta(hours=4, minutes=6), AC_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC 🟢 A sınıfı (4 s) · isabet %{AC_['acc']:.0f} · prim {cb_kisa(CBD)}"); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
+            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC 🟢 A sınıfı (4 s) · isabet %{AC_['acc']:.0f} · prim {cb_kisa(CBD)}", sinif="yedek"); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig) else head)
     yukari = [x for x in ORT_YENI if x[1] == 1]
     gc_ = "".join(f"💡 {CFG[H_]['ad']} {LEV[li_].split(' (')[0]} ↑ — " + giris_cikis(P_NOW, t + pd.Timedelta(hours=H_, minutes=6), gr_) + "\n" for H_, sg_, li_, gr_ in yukari if not (u4_yeni and H_ == 4 and li_ == 2))
     u4g = next((gr_ for H_, sg_, li_, gr_ in yukari if H_ == 4 and li_ == 2), None)
     tg_send(hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (CBL + "\n" + HIZL if any(x[1] == 1 and x[0] >= 4 for x in new_sig) else "") + (emir_satiri(4, u4g) + "\n" if u4_yeni else "") + gc_ + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿" if yukari else "ℹ️", CBZ, ALMA and bool(yukari)), etiket="₿ BTC " + " · ".join(lab_ for _, _, lab_ in new_sig) + (f" · prim {cb_kisa(CBD)}" if yukari else " (bilgi)"))
+            oncelik=sira_puani("₿" if yukari else "ℹ️", CBZ, ALMA and bool(yukari)), etiket="₿ BTC " + " · ".join(lab_ for _, _, lab_ in new_sig) + (f" · prim {cb_kisa(CBD)}" if yukari else " (bilgi)"), sinif="yedek" if yukari else "panel")
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 # ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
 KISA_BILDIRIM = True
@@ -134,7 +134,7 @@ if KISA_BILDIRIM and kisa_now and (G.get("last_kisa") is None or t - G["last_kis
             "Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)\n"
             f"💡 Vadelide LİMİT kısa (satış) ${P_NOW:,.1f} — 60 dk geçerli · çıkış {cik_k:%d.%m %H:%M}: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · {CIKIS_NOT} · geçmiş ort. sonuç: fiyat %0,40 düştü\n"
             "Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).\n⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.",
-            oncelik=sira_puani("🔻", -CBZ), etiket=f"🔻 BTC KISA (24 s) · ABD satıyor z {CBZ:+.1f}")
+            oncelik=sira_puani("🔻", -CBZ), etiket=f"🔻 BTC KISA (24 s) · ABD satıyor z {CBZ:+.1f}", sinif="ana")
     G["last_kisa"] = t; logsig("🔻 Coinbase kısa (24s)", 24, -1)
 kisa_md = (f"🔻 Kısa (satış) sinyali: **VAR** — ABD güçlü satıyor (prim z {CBZ:+.1f})" if kisa_now else f"🔻 Kısa (satış) sinyali: yok (eşik: Coinbase primi z ≤ −2; şu an {CBZ:+.1f})")
 if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_weekly") is None or t - G["last_weekly"] >= pd.Timedelta(days=6)):
@@ -145,11 +145,11 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
         body = "\n".join(f"• {k}: {sum(x['ok'] for x in v)}/{len(v)} tuttu (%{100*sum(x['ok'] for x in v)/len(v):.0f}) · ort. %{np.mean([x['ret'] for x in v]):+.2f}" for k, v in by.items())
         tot = sum(x["ok"] for x in wk_)
         cbo = cb_ozet([e_ for e_ in wk_ if e_.get("sg") == 1]); body += ("\n" + cbo if cbo else "")
-        tg_send(f"📊 HAFTALIK SONUÇ — son 7 gün\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
+        tg_send(f"📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün\nℹ️ BTC alış sinyalleri artık işlem sinyali olarak gönderilmiyor (yalnız yedek olabilir); 🔻 kısa gönderiliyor.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
     else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.")
     G["last_weekly"] = t
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):
-    tg_send(f"☀️ Günlük özet — {head}\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines)); G["last_daily"] = t
+    tg_send(f"☀️ Günlük özet — {head}\nℹ️ Bilgi mesajı, işlem sinyali değil. İşlem için yalnız ✅ İŞLEM SİNYALİ ve 🔸 YEDEK SİNYAL mesajlarına bak.\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines)); G["last_daily"] = t
 # ---- son_durum.md (GitHub'da okunabilir panel) ----
 star = (f"## ⭐ EN GÜÇLÜ SİNYAL VAR — 4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş: 4 saat sonra isabet **%{a4_['acc']:.1f}**, 8 saat sonra **%{a8_['acc']:.1f}** ({a4_['n']} olay)" + ("\n\n" + M.get("ALT_LINE", "") if M.get("ALT_LINE") else "")
         if agree else f"⭐ En güçlü sinyal şu an **yok** (4s: {'✔' if strong_up.get(4) else '✘'} · 8s: {'✔' if strong_up.get(8) else '✘'}). Geldiğinde geçmiş isabet 4s %{a4_['acc']:.1f}, 8s %{a8_['acc']:.1f}.")

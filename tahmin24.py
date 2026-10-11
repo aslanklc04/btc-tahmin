@@ -85,10 +85,13 @@ for sym, M in MODELS.items():
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
-    zmax_ = max((x[0] for x in fire if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in fire)
-    tg_send(f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGerçek para için değil, canlı takip (4–6 hafta). Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf. Sıra: kendi primi yüksek olan üstte.\n"
-            + "\n".join(x[2] for x in fire) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
-            oncelik=sira_puani("🧪", zmax_, hepsi_alma), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in fire))
+    for sinif_, grup in (("ana", [x for x in fire if ana_mi(x[0])]), ("yedek", [x for x in fire if not ana_mi(x[0])])):   # ✅ kendi primi ≥ 0 olanlar işlem sinyali
+        if not grup: continue
+        zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
+        bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" if sinif_ == "ana" else
+                f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGeçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: kendi primi yüksek olan üstte.\n")
+        tg_send(bas_ + "\n".join(x[2] for x in grup) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
+                oncelik=sira_puani("🧪", zmax_, hepsi_alma), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık deneme raporu (pazar 20:00) ----
 kap = [e for e in GS["log"] if "ok" in e]
 def ozet_onay(x):
