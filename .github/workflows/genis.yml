@@ -1,0 +1,103 @@
+name: Genis coin taramasi (200 coin)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/genis.yml]
+permissions:
+  contents: write
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    outputs:
+      coinler: ${{ steps.l.outputs.coinler }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q requests pandas
+      - id: l
+        run: echo "coinler=$(python genis_liste.py 200)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: genis-evren
+          path: genis_evren.csv
+          retention-days: 30
+  egit:
+    needs: liste
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 12          # saatlik canlı iş için koşucu boşluğu kalsın
+      matrix:
+        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: requirements.txt
+      - run: pip install -q -r canli/requirements.txt          # canlıdaki sürümlerle aynı
+      - name: Prim, coin modeli, 24 saat modeli
+        run: |
+          set +e
+          timeout 600 python genis_prim.py ${{ matrix.sym }} > log_${{ matrix.sym }}.txt 2>&1; echo "prim exit=$?" >> log_${{ matrix.sym }}.txt
+          DISA_AKTAR=1 timeout 2100 python egit_coin.py ${{ matrix.sym }} >> log_${{ matrix.sym }}.txt 2>&1; echo "coin exit=$?" >> log_${{ matrix.sym }}.txt
+          SADECE24=1 timeout 1500 python ufuk24.py ${{ matrix.sym }} >> log_${{ matrix.sym }}.txt 2>&1; echo "24s exit=$?" >> log_${{ matrix.sym }}.txt
+          tail -6 log_${{ matrix.sym }}.txt; ls -la disa_*.pkl disa24_*.pkl prim_*.pkl 2>/dev/null
+        env:
+          TELEGRAM_TOKEN: ""
+          TELEGRAM_CHAT_ID: ""
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g-${{ matrix.sym }}
+          path: |
+            disa_${{ matrix.sym }}.pkl
+            disa24_${{ matrix.sym }}.pkl
+            prim_${{ matrix.sym }}.pkl
+            log_${{ matrix.sym }}.txt
+          retention-days: 30
+  analiz:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/download-artifact@v4
+        with:
+          path: ga
+          pattern: g-*
+      - uses: actions/download-artifact@v4
+        with:
+          name: genis-evren
+      - run: |
+          set +e; timeout 2000 python -u genis_analiz.py > genis_log.txt 2>&1; echo "exit=$?" >> genis_log.txt; tail -40 genis_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add genis_log.txt genis_evren.csv; for f in genis_sonuc.md genis_coin.csv; do git add $f 2>/dev/null || true; done; git commit -m "Genis coin taramasi sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

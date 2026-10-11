@@ -9,6 +9,7 @@ from ortak import *
 SYM = sys.argv[1]; T0 = time.time()
 def log(*a): print(f"[{time.time()-T0:5.0f} sn] {SYM}:", *a, flush=True)
 HS = {8: [3, 5], 24: [3, 5], 72: [3, 5]}
+if os.environ.get("SADECE24"): HS = {24: [3, 5]}                                                   # genis.yml: yalnız 24 saat (canlıdaki 🧪 ile aynı)
 PRESET = {"ETHUSDT": "2020-01-01", "BNBUSDT": "2020-01-01", "DOGEUSDT": "2021-01-01", "BTCUSDT": "2020-01-01"}
 if os.environ.get("YEREL"):
     o = pd.read_pickle("/home/claude/lab2/data/o_1h.pkl")
