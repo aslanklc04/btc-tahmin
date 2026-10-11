@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# surekli yedek surumu testi
+# genis liste 🤝 z>=2 testi
 on:
   push:
     branches: [arastirma3]
