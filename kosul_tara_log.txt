@@ -1,0 +1,17 @@
+# 🔬 Koşul taraması — 11.10.2026 16:57
+Veri: cb_BTC 38977, cb_ETH 38977, bn_BTC 38989, bn_ETH 38989, bs_BTC 38990, met_BTC 38977, met_ETH 38977, fon_BTC 4842, fon_ETH 4842, dvol_BTC 38990, dvol_ETH 38990, y_cme 1201, y_btcusd 1745, y_dxy 1199, y_tnx 1197, y_vix 1199, y_spx 1197, y_altin 1200, y_hyg 1197
+Piyasa göstergesi: 32 · 1 sn
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/kosul_tara.py", line 77, in <module>
+    B = pd.read_pickle(bul("ga/**/disa_BTCUSDT.pkl")); B.index = pd.DatetimeIndex(B.index).tz_convert("UTC")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/pickle.py", line 220, in read_pickle
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 776, in get_handle
+    ioargs = _get_filepath_or_buffer(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 496, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+exit=1
