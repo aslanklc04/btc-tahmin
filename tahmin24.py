@@ -32,8 +32,10 @@ def anlik(sym, yedek):                                                          
     return yedek
 CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 ABD alıyor mu? (birlesim.py: 24 s sinyalde 2026 kaybını kâra çeviren filtre)
 MODELS = {}
-_Y24 = sorted(glob.glob("durum/model24_*.pkl.gz")); _V24 = {os.path.basename(x) for x in _Y24}    # 🌐 geniş liste (modeller dalı, genis_aile.py: 🧪 2024+ net +%0,78, 2026 +%0,69)
-GENIS24 = [x for x in sorted(glob.glob("modeller/model24_*.pkl.gz")) if os.path.basename(x) not in _V24]
+_Y24 = sorted(glob.glob("durum/model24_*.pkl.gz")); _V24 = {os.path.basename(x) for x in _Y24}
+# 🌐 GENİŞ LİSTE (modeller dalı, ~125 coin): yalnız coin'in KENDİ primi z ≥ 1,5 iken ✅ ana (genis_esik.py: isabet ve kârda ana seti 3 dönemde de geçti —
+#    %58,7 / %59,6 / %59,8 · +%0,72 / +%1,23 / +%1,20); altındakiler GÖNDERİLMEZ (yalnız panel) — kullanıcı şartı: isabeti/kârı düşüren coin eklenmez
+GENIS24 = [x for x in sorted(glob.glob("modeller/model24_*.pkl.gz")) if os.path.basename(x) not in _V24]; GENIS24_SET = {os.path.basename(x)[8:-7] for x in GENIS24}; GENIS_ESIK = 1.5
 for mf in _Y24 + GENIS24:
     try:
         with gzip.open(mf, "rb") as f: M = pickle.load(f)
@@ -71,9 +73,12 @@ for sym, M in MODELS.items():
         if os.environ.get("TEST_ZORLA") and len(fire) == 1: yeni = True
         if yeni:
             p_now = anlik(sym, price); CBO = CBD if NM == "BTC" else cb_prim(NM); ZC = cb_coin_z(NM, CBO, CBD)        # 💵 coin'in kendi Coinbase primi
-            GS["last"][sym] = t; GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
+            GS["last"][sym] = t
+            if sym in GENIS24_SET and not (CBO and np.isfinite(ZC) and ZC >= GENIS_ESIK): yeni = False   # 🌐 eşik altı: gönderilmez, kayda da girmez (yalnız panelde 🧪 işareti yok)
+        if yeni:
+            GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
             gr24_ = st24.get("gross", st24.get("net", np.nan) + 200 * FEE); hz_ = hiz_notu(ZC if CBO else float("nan"))
-            fire.append((ZC if CBO else float("nan"), NM, f"• {NM} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
+            fire.append((ZC if CBO else float("nan"), NM, f"• {NM}{' 🌐' if sym in GENIS24_SET else ''} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
                         + f" ({CIKIS_NOT})" + (f" · geçmiş ort. sonuç {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f}" if np.isfinite(gr24_) else "")
                         + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
                         + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
@@ -87,11 +92,15 @@ for sym, M in MODELS.items():
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
-    _ana = [x for x in fire if ana_mi(x[0])]                                                  # ✅ kendi primi ≥ 0 olanlar işlem sinyali (en fazla 10 satır/mesaj) · 🔸 yedekler coin başına ayrı
-    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", [x]) for x in fire if not ana_mi(x[0])]:
+    _g = lambda x: x[1] + "USDT" in GENIS24_SET
+    _ana = [x for x in fire if (np.isfinite(x[0]) and x[0] >= GENIS_ESIK) if _g(x)] + [x for x in fire if not _g(x) and ana_mi(x[0])]   # ✅ (en fazla 10 satır/mesaj)
+    _ana.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))
+    _yed = [x for x in fire if not _g(x) and not ana_mi(x[0])]                                # 🔸 yedek coin başına ayrı · geniş listenin eşik altı sinyalleri gönderilmez
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", [x]) for x in _yed]:
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
-        bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" if sinif_ == "ana" else
+        _gn = ("🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 1,5) gelir · testte isabet ~%60, işlem başı +%1,2\n" if any(_g(x) for x in grup) else "")
+        bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" + _gn if sinif_ == "ana" else
                 f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGeçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: kendi primi yüksek olan üstte.\n")
         tg_send(bas_ + "\n".join(x[2] for x in grup) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
                 oncelik=sira_puani("🧪", zmax_, hepsi_alma), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
