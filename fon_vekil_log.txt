@@ -1,14 +1,26 @@
-# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 19:11
-Olay: 56,211 · tip: 24 · 234 sn
+# 🎯 Haftada ~45 sinyal: isabet ve kâr için seçim — 11.10.2026 19:15
+Olay: 56,211 · tip: 24 · 155 sn
 
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/fon_vekil.py", line 129, in <module>
-    G_ = pd.DataFrame(out).drop_duplicates("t"); gf = pd.Series(G_.r.astype(float).values, index=pd.to_datetime(G_.t.astype(int), unit="s", utc=True)).sort_index()
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 7955, in drop_duplicates
-    result = self[-self.duplicated(subset, keep=keep)]
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 8085, in duplicated
-    raise KeyError(Index(diff))
-KeyError: Index(['t'], dtype='str')
-exit=1
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+gate yanıt: {'label': 'INVALID_PARAM_VALUE', 'message': 'from time exceeds 180-day limit'}
+# 💸 ABD dışı borsa fonlaması Binance'in yerine — 11.10.2026 19:16
+
+- MEXC: 1618 ödeme (2025-04-20 → 2026-10-11) · Binance ile aynı anlarda ilişki +0.944 · z ilişkisi +0.964
+- KuCoin: 5058 ödeme (2022-03-01 → 2026-10-11) · Binance ile aynı anlarda ilişki +0.444 · z ilişkisi +0.316
+_toplam sinyal · isabet · işlem başı net %_
+```
+Binance anlık (canlıda yok, karşılaştırma)
+   🔸 yedek → ana?: 2022-06→2023: 269 (3.3/hf) · %61.7 · +0.305 | 2024+: 385 (2.7/hf) · %67.5 · +0.526 | 2026: 23 (0.6/hf) · %73.9 · +0.633 · alt +0.25 → ✅ GEÇTİ
+   ✅ ana (bilgi):   2022-06→2023: 134 · %57.5 · +0.787 | 2024+: 226 · %65.0 · +1.200 | 2026: 16 · %68.8 · +0.636
+MEXC anlık (CANLIDA VAR)
+   🔸 yedek → ana?: 2022-06→2023: 0 (0.0/hf) · %nan · +nan | 2024+: 88 (0.6/hf) · %68.2 · +0.659 | 2026: 10 (0.2/hf) · %80.0 · +1.041 · alt +0.42 → ❌
+   ✅ ana (bilgi):   2022-06→2023: 0 · %nan · +nan | 2024+: 34 · %67.6 · +0.996 | 2026: 16 · %62.5 · +0.895
+KuCoin anlık (CANLIDA VAR)
+   🔸 yedek → ana?: 2022-06→2023: 168 (2.0/hf) · %72.0 · +0.719 | 2024+: 619 (4.3/hf) · %65.3 · +0.484 | 2026: 53 (1.3/hf) · %79.2 · +0.878 · alt +0.26 → ✅ GEÇTİ
+   ✅ ana (bilgi):   2022-06→2023: 44 · %63.6 · +2.692 | 2024+: 335 · %67.5 · +1.661 | 2026: 20 · %65.0 · +0.770
+```
+exit=0
