@@ -94,6 +94,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         now = {"star": cur[4] == (1, 2) and cur[8] == (1, 2), "u4": cur[4] == (1, 2), "acls": am >= 0.85}
         btc_ok = BTC_STRONG and BTC_T == t; btc_sessiz = BTC_QUIET and BTC_T == t
         if os.environ.get("TEST_ZORLA"): now = {"star": True, "u4": True, "acls": True}; btc_ok = True; G["last"] = {}; BTC_T = BTC_T if BTC_T is not None else t   # yalnız test
+        if os.environ.get("TEST_ZORLA") == "tek": btc_ok = False; btc_sessiz = True; BTC_T = t                                            # yalnız test: 🔇 / coin tek başına yolu
         # ---- sonuç takibi (coin'in kendi fiyatıyla) ----
         LOG = G.setdefault("log", [])
         for e_ in LOG:
@@ -153,7 +154,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
 if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                                        # 🤝 tek mesaj: bu saatte BTC güçlüyken gelen tüm coin sinyalleri
     tl0 = BTC_T.tz_convert(DISPLAY_TZ)
     ortak_msg.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                     # coin'in kendi primi yüksek olan üstte
-    for sinif_, grup in (("ana", [x for x in ortak_msg if ana_mi(x[0])]), ("yedek", [x for x in ortak_msg if not ana_mi(x[0])])):   # ✅ kendi primi ≥ 0 olanlar ayrı mesaj
+    for sinif_, grup in [("ana", [x for x in ortak_msg if ana_mi(x[0])])] + [("yedek", [x]) for x in ortak_msg if not ana_mi(x[0])]:   # ✅ kendi primi ≥ 0 olanlar tek mesaj · 🔸 yedekler coin başına ayrı (gonder.py en iyisini seçer)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(x[1] for x in grup)
