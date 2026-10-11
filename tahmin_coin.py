@@ -42,12 +42,16 @@ def tg_send(text, **kw):                                                        
     GC["_tglog"] = GC["_tglog"][-20:]; return ok
 now_ms = time.time() * 1000; rows_md, logs_all, kapali, ortak_msg = [], [], [], []
 JOBS = []                                                                                    # 1) modeller ve geçmiş (hızlı)
-for mf in sorted(glob.glob("durum/model_*.pkl.gz")):
+# 🌐 GENİŞ LİSTE (modeller dalı, genis_aile.py: ~125 coin'de 🤝 BTC ile ortak 2024+ isabet %61 · net +%0,33, 2026 %64 · +%0,58): yalnız 🤝, coin içi açma/kapama YOK (coin seçimi işe yaramadı)
+_YEREL = sorted(glob.glob("durum/model_*.pkl.gz")); _VAR = {os.path.basename(x) for x in _YEREL}
+_GENIS = [x for x in sorted(glob.glob("modeller/model_*.pkl.gz")) if os.path.basename(x) not in _VAR]
+GENIS_SET = {os.path.basename(x)[6:-7] for x in _GENIS}
+for mf in _YEREL + _GENIS:
     NM = os.path.basename(mf)[6:-7].replace("USDT", "")
     try:
         with gzip.open(mf, "rb") as f: M = pickle.load(f)
         SYM = M["sym"]
-        if not any(v["on"] for v in M["SIG"].values()) and SYM not in JOINT and SYM not in TEK: kapali.append(NM); continue   # açık sinyali yok: bu ay izlenmez
+        if SYM not in GENIS_SET and not any(v["on"] for v in M["SIG"].values()) and SYM not in JOINT and SYM not in TEK: kapali.append(NM); continue   # açık sinyali yok: bu ay izlenmez
         G = GC.get(SYM)
         if G is None or G.get("created") != M["created"]:                                    # yeni eğitim: tahmin geçmişi modelden, KAYITLAR korunur
             KEEP = {k: G[k] for k in ("log", "MIC_TAIL", "HHM_TAIL", "last") if G and k in G}
@@ -104,8 +108,8 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         G["log"] = [e_ for e_ in LOG if t - e_["t"] <= pd.Timedelta(days=60)]
         G.setdefault("last", {})
         yeni = lambda k: G["last"].get(k) is None or t - G["last"][k] >= pd.Timedelta(hours=SIG[k]["H"])
-        f_ortak = [k for k in ("star", "u4", "acls") if now[k] and btc_ok and k in JO and yeni(k)]
-        f_tek = [k for k in ("star", "u4", "acls") if now[k] and (SIG[k]["on"] or (k in TK and btc_sessiz)) and k not in f_ortak and yeni(k)]
+        f_ortak = [k for k in ("star", "u4", "acls") if now[k] and btc_ok and (k in JO or SYM in GENIS_SET) and yeni(k)]
+        f_tek = [] if SYM in GENIS_SET else [k for k in ("star", "u4", "acls") if now[k] and (SIG[k]["on"] or (k in TK and btc_sessiz)) and k not in f_ortak and yeni(k)]
         CBO = cb_prim(NM) if (f_ortak or f_tek) else None; ZC = cb_coin_z(NM, CBO, CBD)              # 💵 coin'in KENDİ Coinbase primi (yalnız sinyal varsa)
         tloc = t.tz_convert(DISPLAY_TZ); head = f"🧭 {NM} {tloc:%d.%m %H:%M} · {fmt(price)}"
         ufuk = " · ".join(f"{CFG[H]['ad']}: {'⬆️' if cur[H][0] == 1 else '⬇️'} {lvname(cur[H][1])}" for H in CFG)
@@ -113,7 +117,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         if f_ortak:                                                                          # 🤝 bu saatin ortak mesajında toplanır
             r4 = (f" → 4s beklenen {fmt(RNG[4][1])} (%80: {fmt(RNG[4][0])}–{fmt(RNG[4][2])})" if 4 in RNG else "")
             zo_ = cb_z(CBO); hz_ = hiz_notu(zo_)
-            ortak_msg.append((zo_, f"• {NM} {fmt(price)} — " + " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in f_ortak) + r4
+            ortak_msg.append((zo_, f"• {NM} {fmt(price)} — " + " · ".join((f"{AD[k]} %{JO[k]['isabet']:.0f}" if k in JO else AD[k]) for k in f_ortak) + (" · 🌐" if SYM in GENIS_SET else "") + r4
                              + f" · 💵 {NM}: {cb_kisa(CBO) if CBO else 'prim yok'}" + (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA" if np.isfinite(zo_) and zo_ <= -1 else ""))
                              + "\n   " + giris_cikis(price, t + pd.Timedelta(hours=4, minutes=6), SIG["u4"].get("gross_h")) + (f"\n   {hz_}" if hz_ else ""), NM))
             for k in f_ortak: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=4 if k == "star" else SIG[k]["H"], sg=1, p=price, cb=ZC))   # 🤝 isabeti 4 saatte ölçüldü
@@ -130,7 +134,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             btc_ = "BTC bu saatte de sinyal verdi" if (BTC_LAST is not None and BTC_LAST == t) else "BTC bu saatte sinyal vermedi"
             sessiz_ = (not SIG[k0]["on"]) or (k0 in TK and btc_sessiz); H0_ = SIG[k0]["H"] if SIG[k0]["on"] else 4
             gr0_ = SIG[k0].get("gross_h") if SIG[k0]["on"] else SIG["u4"].get("gross_h"); hz_ = hiz_notu(cb_z(CBO))
-            ana_ = bool(btc_sessiz and any(k in TK for k in f_tek) and ana_mi(cb_z(CBO)))           # ✅ yalnız 🔇 (BTC sessizken) türü + coin'in kendi primi ≥ 0; coin tek başına → 🔸 yedek
+            ana_ = False                                                                     # secim5.py T3: 🔇 de 🔸 yedek (2026 net +%0,17 < eşik +%0,20) · coin tek başına zaten yedek
             txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n" + (hz_ + "\n" if hz_ else "")
                    + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_) + "\n"
                    + ("⏱️ Gecikmeden hareket edin. " + ANA_NOT if ana_ else "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı."))
@@ -154,12 +158,13 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
 if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                                        # 🤝 tek mesaj: bu saatte BTC güçlüyken gelen tüm coin sinyalleri
     tl0 = BTC_T.tz_convert(DISPLAY_TZ)
     ortak_msg.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                     # coin'in kendi primi yüksek olan üstte
-    for sinif_, grup in [("ana", [x for x in ortak_msg if ana_mi(x[0])])] + [("yedek", [x]) for x in ortak_msg if not ana_mi(x[0])]:   # ✅ kendi primi ≥ 0 olanlar tek mesaj · 🔸 yedekler coin başına ayrı (gonder.py en iyisini seçer)
+    _ana = [x for x in ortak_msg if ana_mi(x[0])]                                             # ✅ kendi primi ≥ 0 olanlar: en fazla 10 satırlık mesajlar (Telegram sınırı) · 🔸 yedekler coin başına ayrı
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", [x]) for x in ortak_msg if not ana_mi(x[0])]:
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(x[1] for x in grup)
                 + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. "
-                + (ANA_NOT if sinif_ == "ana" else "Komisyon sonrası kâr kanıtlanmadı."),
+                + (ANA_NOT if sinif_ == "ana" else "Komisyon sonrası kâr kanıtlanmadı.") + ("\n🌐 = geniş liste coin'i (125 coin'de 🤝 testi: 2024+ isabet %61, 2026 %64)" if any(x[2] + "USDT" in GENIS_SET for x in grup) else ""),
                 oncelik=sira_puani("🤝", zmax_, hepsi_alma), etiket="🤝 BTC ile ortak: " + ", ".join(f"{x[2]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık altcoin raporu (pazar 20:00, BTC raporuyla aynı saatte) ----
 try:
