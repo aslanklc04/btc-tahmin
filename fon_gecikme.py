@@ -130,7 +130,7 @@ def zip1(url):
         if not str(d.iloc[0, 0]).isdigit(): d = d.iloc[1:]
         return d.iloc[:, :5].astype(float)
     except Exception: return None
-aylar = pd.date_range("2022-04-01", pd.Timestamp.now(tz="UTC").normalize() - pd.offsets.MonthBegin(1), freq="MS")
+aylar = pd.date_range(pd.Timestamp("2022-04-01", tz="UTC"), pd.Timestamp.now(tz="UTC").normalize() - pd.offsets.MonthBegin(1), freq="MS")
 gunler = pd.date_range(pd.Timestamp.now(tz="UTC").normalize().replace(day=1), pd.Timestamp.now(tz="UTC").normalize() - pd.Timedelta(days=1), freq="D")
 U = [f"https://data.binance.vision/data/futures/um/monthly/premiumIndexKlines/BTCUSDT/1h/BTCUSDT-1h-{a:%Y-%m}.zip" for a in aylar] + \
     [f"https://data.binance.vision/data/futures/um/daily/premiumIndexKlines/BTCUSDT/1h/BTCUSDT-1h-{g:%Y-%m-%d}.zip" for g in gunler]
