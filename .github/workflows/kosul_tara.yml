@@ -1,0 +1,50 @@
+name: Kosul taramasi (binlerce kosul)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kosul_tara.py, .github/workflows/kosul_tara.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Genis taramanin bitmesini bekle
+        timeout-minutes: 120
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while [ "$(gh api repos/${{ github.repository }}/actions/runs/38139240014 -q .status)" != "completed" ]; do sleep 60; done; echo bitti
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: ga
+          pattern: g-*
+          run-id: 38139240014
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: kosul-veri
+          run-id: 38143339924
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: desen-veri
+          run-id: 37872099202
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          set +e; timeout 9000 python -u kosul_tara.py > kosul_tara_log.txt 2>&1; echo "exit=$?" >> kosul_tara_log.txt; tail -40 kosul_tara_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add kosul_tara_log.txt; for f in kosul_tara_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Kosul taramasi sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
