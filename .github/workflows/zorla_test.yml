@@ -9,13 +9,15 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       TG_SIRALI: "1"
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: genis-coin
+      - name: modeller dali (sure olcumu)
+        run: T=$(date +%s); git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller && echo "modeller indirme: $(( $(date +%s) - T )) sn" && ls modeller | wc -l
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -44,6 +46,8 @@ jobs:
           echo "=== tahmin_coin.py"; TEST_ZORLA=1 timeout 400 python tahmin_coin.py > /tmp/c.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c.txt | head -20
           echo "=== tahmin_coin.py TEST_ZORLA=tek (BTC sessiz)"; TEST_ZORLA=tek timeout 400 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -20
           echo "=== tahmin24.py"; TEST_ZORLA=1 timeout 300 python tahmin24.py > /tmp/d.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d.txt | head -12
+          echo "=== tahmin_coin.py NORMAL (126 geniş coin dahil, süre)"; T=$(date +%s); timeout 900 python tahmin_coin.py > /tmp/c3.txt 2>&1; echo "exit=$? süre=$(( $(date +%s) - T )) sn"; grep -i "Traceback\|Error" -A3 /tmp/c3.txt | head -12; grep -c "^✅" /tmp/c3.txt
+          echo "=== tahmin24.py NORMAL (126 geniş coin dahil, süre)"; T=$(date +%s); timeout 900 python tahmin24.py > /tmp/d2.txt 2>&1; echo "exit=$? süre=$(( $(date +%s) - T )) sn"; grep -i "Traceback\|Error" -A3 /tmp/d2.txt | head -12
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
