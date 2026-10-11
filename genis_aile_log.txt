@@ -1,14 +1,35 @@
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/genis_aile.py", line 16, in <module>
-    B = pd.read_pickle(bul("ga/**/disa_BTCUSDT.pkl")); B.index = pd.DatetimeIndex(B.index).tz_convert("UTC")
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/pickle.py", line 220, in read_pickle
-    with get_handle(
-         ^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 776, in get_handle
-    ioargs = _get_filepath_or_buffer(
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/io/common.py", line 496, in _get_filepath_or_buffer
-    raise ValueError(msg)
-ValueError: Invalid file path or buffer object type: <class 'NoneType'>
-exit=1
+# 👪 Geniş tarama — aile düzeyinde (coin seçmeden) — 11.10.2026 17:54
+Yeni coin: 126 (2022–23 verisi olan: 90) · canlı: 15
+
+_sinyal · isabet · işlem başı net % (alt sınır) · aynı saat tek olay isabeti · haftada kaç ayrı saatte mesaj_
+```
+🤝 yeni coin'ler
+   2022-06→2023    5325 · %59.2 · +0.256 (alt +0.07) · saat-olayı %61.8 · mesaj saati/hf 7.6
+   2024+          15167 · %60.8 · +0.329 (alt +0.15) · saat-olayı %60.1 · mesaj saati/hf 7.7
+   2026            3817 · %64.0 · +0.575 (alt +0.41) · saat-olayı %59.9 · mesaj saati/hf 7.5
+🤝 canlı coin'ler
+   2022-06→2023     805 · %55.4 · +0.102 (alt -0.07) · saat-olayı %56.7 · mesaj saati/hf 4.0
+   2024+           1906 · %59.5 · +0.250 (alt +0.07) · saat-olayı %59.2 · mesaj saati/hf 4.3
+   2026             577 · %62.7 · +0.385 (alt +0.20) · saat-olayı %62.1 · mesaj saati/hf 4.7
+🔇 yeni coin'ler
+   2022-06→2023   21383 · %56.1 · +0.179 (alt +0.09) · saat-olayı %54.6 · mesaj saati/hf 78.7
+   2024+          52886 · %53.6 · +0.172 (alt +0.12) · saat-olayı %53.0 · mesaj saati/hf 82.7
+   2026           17261 · %53.4 · +0.219 (alt +0.15) · saat-olayı %52.4 · mesaj saati/hf 100.4
+🔇 canlı coin'ler
+   2022-06→2023    1885 · %58.7 · +0.189 (alt +0.10) · saat-olayı %56.5 · mesaj saati/hf 15.8
+   2024+           5279 · %52.3 · +0.101 (alt +0.03) · saat-olayı %51.3 · mesaj saati/hf 20.8
+   2026            1838 · %50.3 · +0.043 (alt -0.02) · saat-olayı %48.6 · mesaj saati/hf 26.7
+🧪 yeni coin'ler
+   2022-06→2023    3636 · %56.7 · +0.666 (alt +0.28) · saat-olayı %55.6 · mesaj saati/hf 26.8
+   2024+           9082 · %55.5 · +0.776 (alt +0.49) · saat-olayı %53.0 · mesaj saati/hf 33.5
+   2026            2607 · %53.5 · +0.685 (alt +0.30) · saat-olayı %51.8 · mesaj saati/hf 39.7
+🧪 canlı coin'ler
+   2022-06→2023     411 · %56.7 · +0.819 (alt +0.28) · saat-olayı %55.1 · mesaj saati/hf 4.1
+   2024+           1049 · %57.6 · +1.127 (alt +0.76) · saat-olayı %55.4 · mesaj saati/hf 5.7
+   2026             305 · %52.1 · +0.760 (alt +0.21) · saat-olayı %50.2 · mesaj saati/hf 6.2
+```
+**Önceden yazılı karar:**
+- 🤝: seçimde geçti → 2024+ isabet %60.8 · net +0.329 · 2026 net +0.575 → ✅ CANLIYA ADAY
+- 🔇: seçimde geçmedi
+- 🧪: seçimde geçti → 2024+ isabet %55.5 · net +0.776 · 2026 net +0.685 → ✅ CANLIYA ADAY
+exit=0
