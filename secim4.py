@@ -221,5 +221,29 @@ for ga, kd in GUN.items():
         for k_, ad in enumerate(("R4 kademesi", "R0 kademesi", "her şey kademesi")):
             yaz(f"   ↳ {ad}: " + " | ".join(f"{dn}: {oz(Ez[(sec == 2 + k_) & md], hf, False)}" for dn, md, hf in DN))
 yaz("```")
+# (5) YEDEK SAATİ: yedek yalnız [h0, h1] TR saatleri arasında gidebilsin (kullanıcı uyurken gelmesin). Havuz: her şey (G3). Ana sinyaller her saat gider.
+def sim_pen(base, pool, h0, h1):
+    out = np.zeros(len(Ez), np.int8); gun_ = None; gitti = False; b_ = base[ORD]; p_ = pool[ORD]
+    saat = ((tz_ + pd.Timedelta(hours=3)).hour.values)[ORD]; gn = (tz_ + pd.Timedelta(hours=3)).floor("D").values[ORD]
+    for j, i in enumerate(ORD):
+        if gn[j] != gun_: gun_ = gn[j]; gitti = False
+        if b_[j]: out[i] = 1; gitti = True; continue
+        if not gitti and p_[j] and h0 <= saat[j] <= h1: out[i] = 2; gitti = True
+    return out
+yaz("\n## 5) Yedek hangi saatlerde gelsin? (temel R5 · havuz: her şey · TR saati)\n_hücre: sessiz gün % · dolgu haftada · isabet · net · dolguların saat dağılımı (medyan)_\n```")
+for h0, h1 in ((0, 23), (6, 22), (8, 22), (9, 22), (10, 22), (12, 22), (9, 18)):
+    sec = sim_pen(R5b, HER, h0, h1); parca = []
+    for dn, md, hf in DN:
+        xd = Ez[(sec == 2) & md]; s_, _ = gun(sec, md, *GB[dn]); hh = (pd.DatetimeIndex(xd.t) + pd.Timedelta(hours=3)).hour
+        parca.append(f"{dn}: sessiz %{100*s_:.1f} · dolgu {len(xd)/hf:.1f}/hf · %{100*xd.ok.mean():.0f} · {100*xd.net.mean():+.3f} · saat medyan {np.median(hh) if len(hh) else float('nan'):.0f}")
+    yaz(f"{h0:02d}:00–{h1:02d}:59  " + " | ".join(parca))
+yaz("```")
+sec = sim_pen(R5b, HER, 0, 23); xd = Ez[(sec == 2) & (tz_ >= A24_)]; hh = (pd.DatetimeIndex(xd.t) + pd.Timedelta(hours=3)).hour
+yaz("Bugünkü kuralda (00–23) yedeklerin geldiği saat, 2024+: " + " · ".join(f"{a:02d}–{b:02d}: %{100*((hh >= a) & (hh <= b)).mean():.0f}" for a, b in ((0, 5), (6, 8), (9, 11), (12, 17), (18, 23))))
+yaz("\nTüm yedek adayları (her şey havuzu, R5 dışı) saat dilimine göre, 2024+ / 2026:\n```")
+X_ = Ez[HER & ~R5b]; hX = (pd.DatetimeIndex(X_.t) + pd.Timedelta(hours=3)).hour
+for a, b in ((0, 5), (6, 8), (9, 11), (12, 14), (15, 17), (18, 20), (21, 23)):
+    m_ = (hX >= a) & (hX <= b); yaz(f"{a:02d}–{b:02d}  " + " | ".join(f"{dn}: {oz(X_[m_ & md[HER & ~R5b]], hf, False)}" for dn, md, hf in DN))
+yaz("```")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("secim4_sonuc.md", "w").write("\n".join(L) + "\n")
