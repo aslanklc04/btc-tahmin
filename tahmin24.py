@@ -32,7 +32,9 @@ def anlik(sym, yedek):                                                          
     return yedek
 CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 ABD alıyor mu? (birlesim.py: 24 s sinyalde 2026 kaybını kâra çeviren filtre)
 MODELS = {}
-for mf in sorted(glob.glob("durum/model24_*.pkl.gz")):
+_Y24 = sorted(glob.glob("durum/model24_*.pkl.gz")); _V24 = {os.path.basename(x) for x in _Y24}    # 🌐 geniş liste (modeller dalı, genis_aile.py: 🧪 2024+ net +%0,78, 2026 +%0,69)
+GENIS24 = [x for x in sorted(glob.glob("modeller/model24_*.pkl.gz")) if os.path.basename(x) not in _V24]
+for mf in _Y24 + GENIS24:
     try:
         with gzip.open(mf, "rb") as f: M = pickle.load(f)
         MODELS[M["sym"]] = M
@@ -85,7 +87,8 @@ for sym, M in MODELS.items():
 if fire:
     tl0 = T_FIRE.tz_convert(DISPLAY_TZ)
     fire.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))                             # coin'in kendi primi yüksek olan üstte
-    for sinif_, grup in [("ana", [x for x in fire if ana_mi(x[0])])] + [("yedek", [x]) for x in fire if not ana_mi(x[0])]:   # ✅ kendi primi ≥ 0 olanlar işlem sinyali · 🔸 yedekler coin başına ayrı
+    _ana = [x for x in fire if ana_mi(x[0])]                                                  # ✅ kendi primi ≥ 0 olanlar işlem sinyali (en fazla 10 satır/mesaj) · 🔸 yedekler coin başına ayrı
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", [x]) for x in fire if not ana_mi(x[0])]:
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" if sinif_ == "ana" else

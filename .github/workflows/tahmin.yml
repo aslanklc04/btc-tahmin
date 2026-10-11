@@ -14,6 +14,13 @@ jobs:
       TG_SIRALI: "1"            # mesajlar kuyruğa; sondaki gonder.py öncelik sırasıyla (en iyi sinyal üstte) gönderir
     steps:
       - uses: actions/checkout@v4
+      - name: Genis coin modelleri (modeller dali; yoksa atlanir)
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: modeller
+          path: modeller
+          fetch-depth: 1
       - uses: actions/setup-python@v5
         id: py
         with:
@@ -53,7 +60,7 @@ jobs:
       - name: Altcoin sinyalleri (durum/coin_listesi.txt)
         id: coin
         continue-on-error: true
-        timeout-minutes: 6
+        timeout-minutes: 12
         run: python tahmin_coin.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -73,7 +80,7 @@ jobs:
       - name: 24 saat deneme sinyalleri (durum/model24_*.pkl.gz)
         id: d24
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: python tahmin24.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
