@@ -17,7 +17,8 @@ jobs:
         with:
           ref: genis-coin
       - name: modeller dali (sure olcumu)
-        run: T=$(date +%s); git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller && echo "modeller indirme: $(( $(date +%s) - T )) sn" && ls modeller | wc -l
+        run: |
+          T=$(date +%s); git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller; echo "modeller indirme $(( $(date +%s) - T )) sn"; ls modeller | wc -l
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
