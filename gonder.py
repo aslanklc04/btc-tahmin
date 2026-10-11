@@ -3,6 +3,7 @@
 #   ana   → ✅ İŞLEM SİNYALİ, her zaman gider (en iyisi üstte, 🥇🥈🥉)
 #   yedek → 🔸 YEDEK SİNYAL olarak her zaman gider (kullanıcı isteği), ana sinyallerin altında; ⛔ olanlar (ABD satıyor, öncelik ≥ 2000) GİTMEZ — testte kaybettirdi
 #           🔥 Binance BTC ort. işlem büyüklüğü z ≥ 2 iken (büyük oyuncular aktif) ⛔ olmayan yedekler ✅ ana olur (secim5.py T2: 2022–23 %66 · 2024+ %61 · 2026 net +%0,27)
+#           🔥 KuCoin BTC fonlaması z ≥ 2 iken de aynı (fon_vekil.py: %72 · %65 · %79, net +%0,72 · +%0,48 · +%0,88; Binance vadeli API ABD'den kapalı olduğu için KuCoin)
 #   panel → hiç gitmez (yalnız panel) · bilgi → raporlar / özetler, her zaman gider
 # Kararlar son_durum.md'nin sonuna ve durum/gun_durum.json'a yazılır.
 import os, json, time, requests, numpy as np
@@ -15,7 +16,18 @@ ADLAR = {"btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "�
 YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — seçilmiş sette değil: bu tür sinyaller geçmişte ortalama ~%0 kazandırdı (isabet ~%55).\n"
              "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
-TERFI_UST = "✅ İŞLEM SİNYALİ · 🔥 yedekten yükseldi — büyük oyuncular aktif (BTC ort. işlem büyüklüğü z {z:+.1f}): bu saatlerde yedekler geçmişte %61 tuttu, işlem başı +%0,4"
+TERFI_ISLEM = "🔥 yedekten yükseldi — büyük oyuncular aktif (BTC ort. işlem büyüklüğü z {z:+.1f}): bu saatlerde yedekler geçmişte %61 tuttu, işlem başı +%0,4"
+TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde yedekler geçmişte %65–79 tuttu, işlem başı +%0,5–0,9"
+def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
+    try:
+        now = int(time.time() * 1000); out = []
+        for k in (2, 1):
+            j = requests.get("https://api-futures.kucoin.com/api/v1/contract/funding-rates", params={"symbol": "XBTUSDTM", "from": now - k * 30 * 86400000, "to": now - (k - 1) * 30 * 86400000}, timeout=20).json()
+            out += j.get("data", []) if isinstance(j, dict) else []
+        d = pd.Series({int(x["timepoint"]): float(x["fundingRate"]) for x in out}).sort_index()
+        if len(d) < 30: print("fonlama: az veri", len(d)); return float("nan")
+        z = (d - d.rolling(90, min_periods=30).mean()) / (d.rolling(90, min_periods=30).std() + 1e-12); return float(z.iloc[-1])
+    except Exception as e: print("fonlama alınamadı:", e); return float("nan")
 def islem_z():                                                                                 # secim5.py T2: Binance BTC ortalama işlem büyüklüğü (24 s), son 720 saate göre z (≥ 2 → yedek ⛔ değilse ana olur)
     try:
         k = requests.get("https://data-api.binance.vision/api/v3/klines", params=dict(symbol="BTCUSDT", interval="1h", limit=1000), timeout=20).json()
@@ -49,13 +61,15 @@ def main():
     for m in q: m.setdefault("c", "ana" if m["o"] < 9000 else "bilgi")                         # eski biçim
     ana = sorted([m for m in q if m["c"] == "ana"], key=lambda m: (m["o"], m["s"])); yedek = sorted([m for m in q if m["c"] == "yedek"], key=lambda m: (m["o"], m["s"]))
     bilgi = sorted([m for m in q if m["c"] == "bilgi"], key=lambda m: m["s"]); panel = [m for m in q if m["c"] == "panel"]
-    IZ = islem_z() if yedek else float("nan"); terfi = [m for m in yedek if m["o"] < ALMA_ESIK] if np.isfinite(IZ) and IZ >= 2 else []
+    IZ = islem_z() if yedek else float("nan"); FZ = fon_z() if yedek else float("nan")
+    TERFI = TERFI_ISLEM.format(z=IZ) if np.isfinite(IZ) and IZ >= 2 else (TERFI_FON.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None)
+    terfi = [m for m in yedek if m["o"] < ALMA_ESIK] if TERFI else []
     if terfi:                                                                                  # 🔥 yedek → ana (asıl ana sinyallerin altında sıralanır)
         for m in terfi: m["terfi"] = True
         yedek = [m for m in yedek if not m.get("terfi")]; ana = ana + sorted(terfi, key=lambda m: (m["o"], m["s"]))
     n = len(ana); gonderilen = 0; karar = []
     for i, m in enumerate(ana):
-        ust = (TERFI_UST.format(z=IZ) if m.get("terfi") else "✅ İŞLEM SİNYALİ") + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n"
+        ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + (TERFI + "\n" if m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: geçmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + (" (🔥 yedekten)" if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))

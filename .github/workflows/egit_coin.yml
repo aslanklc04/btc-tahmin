@@ -10,6 +10,7 @@ on:
         default: ""
 permissions:
   contents: write
+  actions: read
 jobs:
   liste:
     runs-on: ubuntu-latest
@@ -20,7 +21,8 @@ jobs:
       - id: l
         run: |
           L="${{ inputs.test_liste }}"; [ -n "$L" ] || L=$(paste -sd, durum/coin_listesi.txt)
-          echo "coinler=$(python3 -c "import json,sys; print(json.dumps(['BTCUSDT'] + [x.strip() for x in sys.argv[1].split(',') if x.strip()]))" "$L")" >> "$GITHUB_OUTPUT"
+          G=""; [ -n "${{ inputs.test_liste }}" ] || G=$(cat durum/genis_liste.txt 2>/dev/null | paste -sd,)          # 🌐 geniş liste (modeller dalı) da eğitilir
+          echo "coinler=$(python3 -c "import json,sys; a=['BTCUSDT'] + [x.strip() for x in sys.argv[1].split(',') if x.strip()]; g=[x for x in sys.argv[2].split(',') if x and x not in a]; print(json.dumps([dict(sym=x, g=0) for x in a] + [dict(sym=x, g=1) for x in g]))" "$L" "$G")" >> "$GITHUB_OUTPUT"
   egit:
     needs: liste
     runs-on: ubuntu-latest
@@ -28,7 +30,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+        c: ${{ fromJSON(needs.liste.outputs.coinler) }}
+      max-parallel: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,18 +39,18 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python egit_coin.py ${{ matrix.sym }}
+      - run: python egit_coin.py ${{ matrix.c.sym }}
         env:
           DISA_AKTAR: "1"
-          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && matrix.sym != 'BTCUSDT' && secrets.TELEGRAM_TOKEN || '' }}
+          TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && matrix.c.sym != 'BTCUSDT' && matrix.c.g == 0 && secrets.TELEGRAM_TOKEN || '' }}
           TELEGRAM_CHAT_ID: ${{ github.ref_name == 'main' && secrets.TELEGRAM_CHAT_ID || '' }}
       - uses: actions/upload-artifact@v4
         with:
-          name: coin-${{ matrix.sym }}
+          name: coin-${{ matrix.c.sym }}
           path: |
-            durum/model_${{ matrix.sym }}.pkl.gz
-            durum/rapor_${{ matrix.sym }}.md
-            disa_${{ matrix.sym }}.pkl
+            durum/model_${{ matrix.c.sym }}.pkl.gz
+            durum/rapor_${{ matrix.c.sym }}.md
+            disa_${{ matrix.c.sym }}.pkl
           retention-days: 10
   ortak:
     needs: egit
@@ -61,9 +64,15 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
-      - uses: actions/download-artifact@v4
-        with:
-          path: art
+      - name: Egitim ciktilarini indir (gh, sayfalamali — 100+ coin)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download ${{ github.run_id }} -R ${{ github.repository }} -p "coin-*" -D art && ls art | wc -l
+      - name: 🌐 Genis liste modellerini modeller dalina yaz
+        if: inputs.test_liste == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./modeller_yaz.sh art model_
       - run: python ortak_analiz.py && python coin_sec.py
         env:
           TELEGRAM_TOKEN: ${{ github.ref_name == 'main' && secrets.TELEGRAM_TOKEN || '' }}
