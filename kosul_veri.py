@@ -4,7 +4,7 @@
 #  C Bitstamp BTC/USD saatlik (fiyat + hacim)                  D Binance vadeli metrikler (5 dk: açık pozisyon, uzun/kısa oranları, alıcı/satıcı oranı)
 #  E Binance vadeli fonlama oranı                               F Deribit DVOL (BTC, ETH opsiyon oynaklık endeksi) saatlik
 #  G Yahoo günlük: CME BTC vadeli, BTC-USD, dolar endeksi, ABD 10 yıl faiz, VIX, S&P 500, altın, yüksek getirili tahvil (HYG)
-import io, time, zipfile, threading, requests, numpy as np, pandas as pd
+import io, time, zipfile, threading, requests, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 T0 = time.time(); BAS = pd.Timestamp("2022-05-01", tz="UTC"); SON = pd.Timestamp.now(tz="UTC").floor("h")
 UA = {"User-Agent": "btc-tahmin-arastirma"}; V = {}

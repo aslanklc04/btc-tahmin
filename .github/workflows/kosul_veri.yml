@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: pip install -q -r requirements.txt
+      - run: pip install -q -r requirements.txt yfinance
       - run: |
           set +e; timeout 3000 python -u kosul_veri.py > kosul_veri_log.txt 2>&1; echo "exit=$?" >> kosul_veri_log.txt; tail -25 kosul_veri_log.txt
       - uses: actions/upload-artifact@v4
