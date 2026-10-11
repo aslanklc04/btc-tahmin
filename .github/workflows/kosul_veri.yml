@@ -1,0 +1,32 @@
+name: Kosul taramasi verisi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kosul_veri.py, .github/workflows/kosul_veri.yml]
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e; timeout 3000 python -u kosul_veri.py > kosul_veri_log.txt 2>&1; echo "exit=$?" >> kosul_veri_log.txt; tail -25 kosul_veri_log.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kosul-veri
+          path: kosul_veri.pkl
+          retention-days: 30
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add kosul_veri_log.txt; git commit -m "Kosul taramasi verisi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
