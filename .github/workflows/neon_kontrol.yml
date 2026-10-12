@@ -1,0 +1,25 @@
+name: Neon derinlik kontrolu
+on:
+  push:
+    branches: [arastirma3]
+    paths: [neon_kontrol_tetik.txt, .github/workflows/neon_kontrol.yml]
+permissions:
+  contents: write
+jobs:
+  bak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - run: |
+          U=https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech
+          { for k in 0 1; do H=$(date -u -d "-$k hour" +%Y%m%d%H); echo "== saat $H"; curl -s -m 90 "$U/saat?h=$H" | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin); print('ornek dosya:', d.get('ornek_dosya'))
+          for k,v in d.get('coins',{}).items(): print(k, f\"{v['n']} ornek · ort ±%1 {(v['bid1']+v['ask1'])/1e6:.2f} M\$ · en dusuk kapsam %{100*min(v['kb'],v['ka']):.2f}\")
+          "; done; } > neon_kontrol_log.txt 2>&1; cat neon_kontrol_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add neon_kontrol_log.txt; git commit -m "Neon derinlik kontrolu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
