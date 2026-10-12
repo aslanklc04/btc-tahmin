@@ -1,0 +1,27 @@
+name: Gate canli derinlik olcumu
+on:
+  push:
+    branches: [arastirma3]
+    paths: [gate_canli_mod.txt, gate_canli.py, .github/workflows/gate_canli.yml]
+permissions:
+  contents: write
+jobs:
+  olc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; M=$(cat gate_canli_mod.txt | tr -d '[:space:]'); timeout 1500 python -u gate_canli.py $M > gate_canli_log.txt 2>&1; echo "exit=$?" >> gate_canli_log.txt; tail -40 gate_canli_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add gate_canli_log.txt; for f in gate_canli_kayit.csv gate_canli_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Gate canli derinlik olcumu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
