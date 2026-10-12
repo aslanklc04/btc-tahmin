@@ -1,7 +1,7 @@
-# 🎚️ Kaldıraçlı işlem için model düzeni — 12.10.2026 07:57
+# 🎚️ Kaldıraçlı işlem için model düzeni — 12.10.2026 08:10
 Olay: 30,020 (140 coin) · dönem 2022-06 → 2026-09
 
-Vadeli verisi: 131 coin · vadelisi olmayan: AMP, BONK, FLOKI, GNO, OSMO, PEPE, QI, REQ, SHIB · 729 sn
+Vadeli verisi: 131 coin · vadelisi olmayan: AMP, BONK, FLOKI, GNO, OSMO, PEPE, QI, REQ, SHIB · 557 sn
 
 
 Vadeliyle hesaplanabilen olay: 28,708 / 30,020
@@ -67,17 +67,17 @@ türe göre + saat tavanı
    2024+          yıllık   +90.3% · en büyük düşüş % 12.6 · oran    7.1 · likide   55 · en kötü hafta  -24.0% · 8551 / 0
    2026 (Eyl.)    yıllık  +103.1% · en büyük düşüş %  3.0 · oran   34.3 · likide    0 · en kötü hafta   -2.2% · 2313 / 0
 sabit 5x + likidasyon öncesi stop + saat tavanı
-   2022-06→2023   yıllık   +70.5% · en büyük düşüş % 43.7 · oran    1.6 · likide   22 · en kötü hafta  -28.6% · 4007 / 0
-   2024+          yıllık  +127.0% · en büyük düşüş % 20.8 · oran    6.1 · likide   88 · en kötü hafta  -25.3% · 8551 / 0
-   2026 (Eyl.)    yıllık  +127.9% · en büyük düşüş % 20.6 · oran    6.2 · likide    2 · en kötü hafta   -9.9% · 2313 / 0
+   2022-06→2023   yıllık   +77.9% · en büyük düşüş % 38.0 · oran    2.1 · likide    0 · en kötü hafta  -23.9% · 4007 / 0
+   2024+          yıllık  +140.8% · en büyük düşüş % 16.2 · oran    8.7 · likide    0 · en kötü hafta  -18.4% · 8551 / 0
+   2026 (Eyl.)    yıllık  +129.4% · en büyük düşüş % 19.5 · oran    6.6 · likide    0 · en kötü hafta   -8.8% · 2313 / 0
 sabit 10x + likidasyon öncesi stop + saat tavanı
-   2022-06→2023   yıllık  +100.2% · en büyük düşüş % 81.9 · oran    1.2 · likide  108 · en kötü hafta  -44.2% · 3984 / 23
-   2024+          yıllık  +181.7% · en büyük düşüş % 24.4 · oran    7.4 · likide  337 · en kötü hafta  -27.1% · 8551 / 0
-   2026 (Eyl.)    yıllık  +199.7% · en büyük düşüş % 48.8 · oran    4.1 · likide   48 · en kötü hafta  -20.0% · 2313 / 0
+   2022-06→2023   yıllık  +137.4% · en büyük düşüş % 56.1 · oran    2.5 · likide    0 · en kötü hafta  -32.2% · 4007 / 0
+   2024+          yıllık  +238.2% · en büyük düşüş % 16.6 · oran   14.3 · likide    0 · en kötü hafta  -21.3% · 8551 / 0
+   2026 (Eyl.)    yıllık  +233.3% · en büyük düşüş % 35.4 · oran    6.6 · likide    0 · en kötü hafta  -12.3% · 2313 / 0
 ```
 
 ## Önceden yazılı karar
 - 2022–23'te seçilen düzen: **türe göre + saat tavanı** (oran 3.5, en büyük düşüş %18.1)
 - 2024+ ve 2026'da D0'dan (sabit 3x) iyi mi: ❌ hayır → bugünkü öneri (2–3x) kalır
 
-_Süre: 731 sn · olay 12,558_
+_Süre: 559 sn · olay 12,558_
