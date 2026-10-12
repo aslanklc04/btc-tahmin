@@ -147,7 +147,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
                    + ("⏱️ Gecikmeden hareket edin. " + ZIT_NOT.format(zc=zt_, zb=zb_) if ana_ else "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı."))
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
             if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔇" if sessiz_ else "🪙", ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)),
-                                      etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''} {NM} {AD[k0]} · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else "yedek")
+                                      etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''} {NM} {AD[k0]} · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else ("yedek" if np.isfinite(zt_) and zt_ >= 0 else "panel"))   # 12.10.2026: primsiz yedek gönderilmez
             for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"] if SIG[k]["on"] else 4, sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
@@ -168,7 +168,7 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
     _g = lambda x: x[2] + "USDT" in GENIS_SET                                                  # 🌐 geniş liste: yalnız kendi primi z ≥ 2 → ✅ ana; altı gönderilmez
     _ana = [x for x in ortak_msg if (_g(x) and np.isfinite(x[0]) and x[0] >= GENIS_ESIK_ORTAK) or (not _g(x) and ana_mi(x[0]))]   # en fazla 10 satırlık mesajlar
     _yed = [x for x in ortak_msg if not _g(x) and not ana_mi(x[0])]                           # 🔸 yedekler coin başına ayrı
-    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", [x]) for x in _yed]:
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(x[1] for x in grup)

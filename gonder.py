@@ -2,6 +2,7 @@
 # Betikler TG_SIRALI=1 iken mesajları durum/tg_kuyruk.json'a yazar (ortak.tg_send). Her mesajın sınıfı var (11.10.2026, secim2.py R5 · secim4.py):
 #   ana   → ✅ İŞLEM SİNYALİ, her zaman gider (en iyisi üstte, 🥇🥈🥉)
 #   yedek → 🔸 YEDEK SİNYAL olarak her zaman gider (kullanıcı isteği), ana sinyallerin altında; ⛔ olanlar (ABD satıyor, öncelik ≥ 2000) GİTMEZ — testte kaybettirdi
+#           12.10.2026'dan beri yedek yalnız coin'in kendi primi ≥ 0 olan 🔇 / 🪙 sinyalleri (BTC saatlik ve primsizler yalnız panel)
 #           (🔥 büyük işlem saati yükseltmesi 12.10.2026'da KALDIRILDI — ozet_tum.py: 2026'da %50 · +%0,18)
 #           🔥 KuCoin BTC fonlaması z ≥ 2 iken de aynı (fon_vekil.py: %72 · %65 · %79, net +%0,72 · +%0,48 · +%0,88; Binance vadeli API ABD'den kapalı olduğu için KuCoin)
 #   panel → hiç gitmez (yalnız panel) · bilgi → raporlar / özetler, her zaman gider
