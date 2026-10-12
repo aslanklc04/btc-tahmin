@@ -99,7 +99,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         now = {"star": cur[4] == (1, 2) and cur[8] == (1, 2), "u4": cur[4] == (1, 2), "acls": am >= 0.85}
         btc_ok = BTC_STRONG and BTC_T == t; btc_sessiz = BTC_QUIET and BTC_T == t
         if os.environ.get("TEST_ZORLA"): now = {"star": True, "u4": True, "acls": True}; btc_ok = True; G["last"] = {}; BTC_T = BTC_T if BTC_T is not None else t   # yalnız test
-        if os.environ.get("TEST_ZORLA") == "tek": btc_ok = False; btc_sessiz = True; BTC_T = t                                            # yalnız test: 🔇 / coin tek başına yolu
+        if os.environ.get("TEST_ZORLA") in ("tek", "zit"): btc_ok = False; btc_sessiz = True; BTC_T = t                                            # yalnız test: 🔇 / coin tek başına yolu
         # ---- sonuç takibi (coin'in kendi fiyatıyla) ----
         LOG = G.setdefault("log", [])
         for e_ in LOG:
@@ -137,13 +137,17 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             btc_ = "BTC bu saatte de sinyal verdi" if (BTC_LAST is not None and BTC_LAST == t) else "BTC bu saatte sinyal vermedi"
             sessiz_ = (not SIG[k0]["on"]) or (k0 in TK and btc_sessiz); H0_ = SIG[k0]["H"] if SIG[k0]["on"] else 4
             gr0_ = SIG[k0].get("gross_h") if SIG[k0]["on"] else SIG["u4"].get("gross_h"); hz_ = hiz_notu(cb_z(CBO))
-            ana_ = False                                                                     # secim5.py T3: 🔇 de 🔸 yedek (2026 net +%0,17 < eşik +%0,20) · coin tek başına zaten yedek
+            zt_ = cb_z(CBO)                                                                  # coin'in KENDİ primi (BTC'ye geri düşmeden)
+            zb_ = CBZ
+            if os.environ.get("TEST_ZORLA") == "zit": zt_, zb_ = 0.8, -0.5                          # yalnız test: 🔀 yolu
+            zit_ = bool(sessiz_ and np.isfinite(zt_) and zt_ > 0 and np.isfinite(zb_) and -1 < zb_ <= 0)   # 🔀 zit_aile.py: ABD coin'i alıyor, BTC'yi hafif satıyor
+            ana_ = zit_                                                                      # secim5 T3: 🔇 normalde 🔸 yedek · yalnız 🔀 durumunda ✅ ana (%70 · %67 · %85, net +0,52 · +0,80 · +1,00) · 🪙 tek başına yedek
             txt = (baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n" + (hz_ + "\n" if hz_ else "")
                    + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_) + "\n"
-                   + ("⏱️ Gecikmeden hareket edin. " + ANA_NOT if ana_ else "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı."))
+                   + ("⏱️ Gecikmeden hareket edin. " + ZIT_NOT.format(zc=zt_, zb=zb_) if ana_ else "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı."))
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
             if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔇" if sessiz_ else "🪙", ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)),
-                                      etiket=f"{'🔇' if sessiz_ else '🪙'} {NM} {AD[k0]} · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else "yedek")
+                                      etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''} {NM} {AD[k0]} · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else "yedek")
             for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"] if SIG[k]["on"] else 4, sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"

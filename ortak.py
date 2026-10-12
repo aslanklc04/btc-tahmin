@@ -279,11 +279,13 @@ def sira_puani(tur, z=float("nan"), alma=False):
     g = SIRA_TUR.get(tur, 9) + (20 if alma else 0); zz = float(z) if z is not None and np.isfinite(z) else -1.0
     return g * 100 - max(-5.0, min(5.0, zz)) * 10
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
-# Ana set: BTC saatlik/⭐/A ailesi, coin tek başına ve 🔇 (secim5 T3) YOK; 🤝 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken (🌐 geniş listeden 🧪 z ≥ 1,5 ve 🤝 z ≥ 2); 💵 ⛓️ 🧑 🔻 aynen.
+# Ana set: BTC saatlik/⭐/A ailesi ve coin tek başına YOK; 🔇 yalnız 🔀 coin'in kendi primi z > 0 VE −1 < BTC primi z ≤ 0 iken (zit_aile.py); 🤝 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken (🌐 geniş listeden 🧪 z ≥ 1,5 ve 🤝 z ≥ 2); 💵 ⛓️ 🧑 🔻 aynen.
 # Test: 2024+ haftada ~46 · isabet %58,6 · işlem başı net +%0,65 (bugünkü set +%0,28) · 2026 ~49/hf · %59,1 · +%0,59.
 # Setin dışındaki sinyaller 🔸 YEDEK olarak gider (⛔ ABD satıyor olanlar hariç): yedeklerin geçmişi isabet ~%55, net ~%0.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): bu set geçmişte işlem başı ort. +%0,6 kazandırdı (komisyon sonrası), isabet ~%59."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
+ZIT_NOT = ("✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z {zc:+.1f}) ama BTC'yi hafif satıyor (BTC primi z {zb:+.1f}), BTC de sessiz: "
+           "bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")
 def fiyat_yaz(p):
     if p is None or not np.isfinite(p) or p <= 0: return "$?"
     if p >= 1000: return f"${p:,.0f}"
