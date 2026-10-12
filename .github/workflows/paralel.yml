@@ -1,0 +1,58 @@
+name: Binance ve Coinbase paralel buyuk islem testi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [paralel.py, paralel_veri.py, .github/workflows/paralel.yml]
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        coin: [BTC, ETH, SOL, XRP, DOGE, ADA, LINK, AVAX]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e; timeout 6600 python -u paralel_veri.py ${{ matrix.coin }} > pv_${{ matrix.coin }}.txt 2>&1; echo "exit=$?" >> pv_${{ matrix.coin }}.txt; tail -5 pv_${{ matrix.coin }}.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paralel-${{ matrix.coin }}
+          path: |
+            paralel_${{ matrix.coin }}.pkl
+            pv_${{ matrix.coin }}.txt
+          retention-days: 30
+  test:
+    needs: veri
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: part
+          pattern: paralel-*
+      - run: |
+          set +e; mkdir -p paralel_log; cp part/*/pv_*.txt paralel_log/ 2>/dev/null; timeout 3000 python -u paralel.py > paralel_log.txt 2>&1; echo "exit=$?" >> paralel_log.txt; tail -40 paralel_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add paralel_log.txt paralel_log; for f in paralel_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Paralel islem sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
