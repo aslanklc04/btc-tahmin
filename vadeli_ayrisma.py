@@ -145,7 +145,7 @@ def intx(nm):
         rows += d; off += len(d)
         if len(d) < 100 or off > 40000: break
     if not rows: return nm, None
-    s = pd.Series([float(x["funding_rate"]) for x in rows], index=pd.to_datetime([x["event_time"] for x in rows], utc=True)).sort_index(); s = s[~s.index.duplicated()]
+    s = pd.Series([float(x["funding_rate"]) for x in rows], index=pd.to_datetime([x["event_time"] for x in rows], utc=True, format="ISO8601").floor("h")).sort_index(); s = s[~s.index.duplicated()]
     s.index = pd.DatetimeIndex(s.index).as_unit("ns"); return nm, s
 AYLAR = [d.strftime("%Y-%m") for d in pd.date_range("2023-06-01", "2026-09-01", freq="MS")]
 VADS = {"SHIB": "1000SHIBUSDT", "PEPE": "1000PEPEUSDT", "FLOKI": "1000FLOKIUSDT", "BONK": "1000BONKUSDT"}
