@@ -1,0 +1,80 @@
+name: Model gelistirme v36 (yeni girdili coin modeli vs mevcut)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [v36_coin.py, v36_analiz.py, .github/workflows/v36.yml]
+permissions:
+  contents: write
+jobs:
+  egit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 10          # saatlik canli is icin kosucu boslugu kalsin
+      matrix:
+        sym: [BTCUSDT, ETHUSDT, ADAUSDT, APTUSDT, ARBUSDT, BNBUSDT, DOGEUSDT, DOTUSDT, FLOKIUSDT, LINKUSDT, NEARUSDT, OPUSDT, PEPEUSDT, SHIBUSDT, SUIUSDT]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: requirements.txt
+      - run: pip install -q -r canli/requirements.txt
+      - name: Iki varyant egitim
+        run: |
+          set +e
+          timeout 8400 python -u v36_coin.py ${{ matrix.sym }} > log_${{ matrix.sym }}.txt 2>&1; echo "exit=$?" >> log_${{ matrix.sym }}.txt
+          tail -12 log_${{ matrix.sym }}.txt; ls -la v36_*.pkl 2>/dev/null
+        env:
+          TELEGRAM_TOKEN: ""
+          TELEGRAM_CHAT_ID: ""
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v36-${{ matrix.sym }}
+          path: |
+            v36_${{ matrix.sym }}.pkl
+            log_${{ matrix.sym }}.txt
+          retention-days: 30
+  analiz:
+    needs: egit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: |
+            durum
+            requirements.txt
+      - run: pip install -q -r canli/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+          pattern: v36-*
+      - run: |
+          set +e; mkdir -p v36_log; cp art/*/log_*.txt v36_log/ 2>/dev/null
+          python v36_analiz.py > v36_analiz_log.txt 2>&1; echo "exit=$?" >> v36_analiz_log.txt; tail -60 v36_analiz_log.txt
+          for f in v36_log/*.txt; do echo "== $f"; tail -4 $f; done
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add v36_analiz_log.txt v36_log; for f in v36_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Model gelistirme v36 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
