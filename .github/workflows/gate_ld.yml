@@ -1,0 +1,94 @@
+name: Likidite dipte Gate vadeli emir defteriyle
+on:
+  push:
+    branches: [arastirma3]
+    paths: [gate_ld.py, gate_derinlik.py, .github/workflows/gate_ld.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  indir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        coin: [BTC, ETH, ADA, APT, ARB, BNB, DOGE, DOT, FLOKI, LINK, NEAR, OP, PEPE, SHIB, SUI]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          set +e; timeout 8400 python -u gate_derinlik.py ${{ matrix.coin }} > gindir_${{ matrix.coin }}.txt 2>&1; echo "exit=$?" >> gindir_${{ matrix.coin }}.txt; tail -5 gindir_${{ matrix.coin }}.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gate-${{ matrix.coin }}
+          path: |
+            gate_${{ matrix.coin }}.pkl
+            gindir_${{ matrix.coin }}.txt
+          retention-days: 30
+  test:
+    needs: indir
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art1
+          pattern: coin-*
+          run-id: 37573562538
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art2
+          pattern: u24-*
+          run-id: 37618956269
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art3
+          name: prim-veri
+          run-id: 37771896586
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: sf-btc
+          run-id: 37801388956
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: derinlik-veri
+          run-id: 38246269028
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: gart
+          pattern: gate-*
+      - run: |
+          set +e; mkdir -p gate_log; cp gart/*/gindir_*.txt gate_log/ 2>/dev/null; timeout 7200 python -u gate_ld.py > gate_ld_log.txt 2>&1; echo "exit=$?" >> gate_ld_log.txt; tail -30 gate_ld_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add gate_ld_log.txt gate_log; for f in gate_ld_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Likidite dipte Gate sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
