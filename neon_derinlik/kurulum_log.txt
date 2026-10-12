@@ -1,3 +1,43 @@
 == Neon projeleri (ad · kimlik · bolge)
-proje yok / hata: {'request_id': '8873d694-4093-491f-8297-80a806709d30', 'code': '', 'message': 'org_id is required, you can find it on your organization settings page'}
-secilen proje: 
+binance vadeli · round-bread-18476082 · aws-eu-central-1
+secilen proje: round-bread-18476082
+neon cli: 8.3.5
+npm install cikis: 0
+== deploy
+→ Applying to branch production (br-still-union-baibtf1k) · project default
+Applied changes
+  + bucket derinlik
+  + function derinlik
+  + trigger:derinlik:dakika
+
+Function URLs
+  • derinlik: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/
+
+Utilized services: Postgres, Object Storage, Functions
+Skipped env pull (--no-env-pull). Run `neon env pull` to write this branch’s env vars (DATABASE_URL, …) into a local .env, or inject them at runtime with `neon-env run -- <your dev command>`.
+deploy cikis: 0
+== fonksiyon
+slug: derinlik
+invocation_url: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/
+  status: completed
+  status: completed
+== tetikleyiciler
+Trigger ID                                    Name    Type      Function Slug  Function Path  Schedule   Enabled  Inherited  Next Run At
+trigger-452674fa-3684-451c-8b1b-81a52484bc44  dakika  schedule  derinlik       /ornek         * * * * *  true     false      2026-10-12T16:07:00.000000Z
+== /dene (https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/)
+zaman 2026-10-12T16:06:57.683Z
+BTC ±%1 alis 40.12 M$ · satis 43.76 M$ · kapsam alis %0.16 satis %0.15 · seviye 1000
+ETH ±%1 alis 55.93 M$ · satis 74.60 M$ · kapsam alis %0.45 satis %0.43 · seviye 1000
+ADA ±%1 alis 3.99 M$ · satis 3.48 M$ · kapsam alis %41.55 satis %42.12 · seviye 1000
+APT ±%1 alis 0.93 M$ · satis 0.72 M$ · kapsam alis %16.02 satis %17.68 · seviye 1000
+ARB ±%1 alis 0.80 M$ · satis 0.93 M$ · kapsam alis %7.54 satis %7.77 · seviye 1000
+BNB ±%1 alis 7.22 M$ · satis 6.04 M$ · kapsam alis %1.42 satis %1.42 · seviye 1000
+DOGE ±%1 alis 7.46 M$ · satis 7.75 M$ · kapsam alis %11.77 satis %11.75 · seviye 1000
+DOT ±%1 alis 2.00 M$ · satis 1.48 M$ · kapsam alis %10.75 satis %12.22 · seviye 1000
+FLOKI ±%1 alis 0.31 M$ · satis 0.18 M$ · kapsam alis %99.96 satis %3647.89 · seviye 503
+LINK ±%1 alis 3.39 M$ · satis 3.14 M$ · kapsam alis %9.04 satis %9.57 · seviye 1000
+NEAR ±%1 alis 2.47 M$ · satis 2.76 M$ · kapsam alis %17.99 satis %18.51 · seviye 1000
+OP ±%1 alis 0.55 M$ · satis 0.53 M$ · kapsam alis %15.42 satis %24.53 · seviye 1000
+PEPE ±%1 alis 1.94 M$ · satis 2.52 M$ · kapsam alis %2.92 satis %3.12 · seviye 1000
+SHIB ±%1 alis 1.05 M$ · satis 1.00 M$ · kapsam alis %33.00 satis %35.91 · seviye 1000
+SUI ±%1 alis 2.93 M$ · satis 2.72 M$ · kapsam alis %9.35 satis %9.48 · seviye 1000
