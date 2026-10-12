@@ -1,0 +1,60 @@
+AAVE 1644 222 sn
+ADA 1644 244 sn
+ALGO 1644 267 sn
+APT 1443 289 sn
+ARB 1288 311 sn
+AVAX 1644 332 sn
+BNB 1644 353 sn
+BTC 1644 375 sn
+CRV 1644 396 sn
+DOGE 1644 418 sn
+DOT 1644 441 sn
+ETH 1644 464 sn
+FIL 1644 486 sn
+FLOKI 1244 508 sn
+INJ 1506 529 sn
+LINK 1644 551 sn
+NEAR 1643 572 sn
+OP 1583 595 sn
+PEPE 1245 616 sn
+SHIB 1644 638 sn
+SOL 1644 660 sn
+SUI 1246 681 sn
+UNI 1644 703 sn
+XRP 1644 724 sn
+# ⚖️ Binance uzun/kısa ↔ ABD (Coinbase primi) ayrışması — 12.10.2026 21:08
+Coin: 24 (AAVE, ADA, ALGO, APT, ARB, AVAX, BNB, BTC, CRV, DOGE, DOT, ETH, FIL, FLOKI, INJ, LINK, NEAR, OP, PEPE, SHIB, SOL, SUI, UNI, XRP) · 724 sn
+
+## 1) Tek başına sinyal (24 coin, tutma süresi yalnız 2022–23'ten seçilir ←)
+_haftada · isabet · işlem başı net % (sinyal) — 2022-06→2023 | 2024+ | 2026_
+```
+R1 Binance KALABALIK long + ABD satıyor      SAT  4 s   26.9/hf · %50.1 · +0.13 (2227) | 33.6/hf · %50.9 · +0.10 (4821) | 38.5/hf · %54.1 · +0.05 (1496)
+R1 Binance KALABALIK long + ABD satıyor      SAT  8 s   19.0/hf · %52.4 · +0.24 (1568) | 23.7/hf · %51.7 · +0.19 (3391) | 27.4/hf · %53.3 · +0.04 (1064)
+R1 Binance KALABALIK long + ABD satıyor      SAT 24 s ← 11.0/hf · %53.7 · +0.53 (911) | 13.8/hf · %53.0 · +0.18 (1983) | 15.4/hf · %54.0 · -0.05 (598)
+R2 Binance KALABALIK short + ABD alıyor      AL   4 s   31.8/hf · %49.8 · +0.26 (2631) | 41.4/hf · %49.9 · +0.19 (5933) | 41.2/hf · %47.1 · +0.05 (1600)
+R2 Binance KALABALIK short + ABD alıyor      AL   8 s   21.9/hf · %49.4 · +0.48 (1808) | 28.0/hf · %50.8 · +0.35 (4007) | 28.3/hf · %44.6 · +0.05 (1099)
+R2 Binance KALABALIK short + ABD alıyor      AL  24 s ← 11.9/hf · %51.7 · +1.13 (987) | 15.4/hf · %49.6 · +0.71 (2211) | 15.4/hf · %43.3 · +0.05 (598)
+R3 Binance BÜYÜK hesaplar long + ABD satıyor SAT  4 s ← 28.7/hf · %48.7 · -0.08 (2376) | 40.9/hf · %52.2 · +0.09 (5855) | 54.1/hf · %54.1 · +0.14 (2103)
+R3 Binance BÜYÜK hesaplar long + ABD satıyor SAT  8 s   20.6/hf · %49.3 · -0.18 (1703) | 28.3/hf · %52.5 · +0.13 (4053) | 37.5/hf · %54.9 · +0.18 (1456)
+R3 Binance BÜYÜK hesaplar long + ABD satıyor SAT 24 s   11.5/hf · %47.4 · -0.64 (954) | 15.8/hf · %54.0 · +0.19 (2258) | 20.2/hf · %56.6 · +0.35 (786)
+R4 Binance BÜYÜK hesaplar short + ABD alıyor AL   4 s   17.4/hf · %51.8 · +0.17 (1440) | 36.6/hf · %49.7 · +0.12 (5249) | 37.4/hf · %47.8 · +0.12 (1453)
+R4 Binance BÜYÜK hesaplar short + ABD alıyor AL   8 s   12.2/hf · %49.7 · +0.18 (1013) | 25.0/hf · %51.8 · +0.26 (3588) | 26.9/hf · %49.8 · +0.19 (1044)
+R4 Binance BÜYÜK hesaplar short + ABD alıyor AL  24 s ←  6.6/hf · %52.3 · +0.49 (549) | 13.8/hf · %51.9 · +0.56 (1978) | 15.5/hf · %52.3 · +0.38 (602)
+```
+
+## 2) Canlı ✅ ana sinyallere etkisi
+```
+✅ ana (hepsi)                                              %55.5 · +0.46 (3086) | %58.7 · +0.67 (5854) | %60.1 · +0.59 (1754)
+R1 Binance KALABALIK long + ABD satıyor      ✅ ana + koşul:    2 az | %40.0 · +4.30 (5) |    2 az
+R2 Binance KALABALIK short + ABD alıyor      ✅ ana + koşul: %55.7 · +0.93 (323) | %59.1 · +1.46 (472) | %50.7 · +0.62 (136)
+R3 Binance BÜYÜK hesaplar long + ABD satıyor ✅ ana + koşul:    1 az |    4 az |    0 az
+R4 Binance BÜYÜK hesaplar short + ABD alıyor ✅ ana + koşul: %60.4 · +0.70 (192) | %58.9 · +1.21 (450) | %55.1 · +0.54 (107)
+```
+
+**Gerçek veride geçen:** 0 · **plasebo (30 + 60 gün kaydırılmış):** 0
+
+## Önceden yazılı karar
+- Hiçbir kural geçmedi → eklenmez
+
+_Süre: 727 sn_
+exit=0
