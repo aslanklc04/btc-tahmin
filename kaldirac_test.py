@@ -250,8 +250,8 @@ def simule(X, Lv, f=0.02, tavan=None, stop=None):
         for q in range(i, j):
             L_ = Lv[q]
             if kullan + per > eq or eq <= 0: atla += 1; continue
-            if ma[q] <= -(1 / L_ - 0.005): p_ = -per; liq += 1
-            elif stop is not None and ma[q] <= -stop * (1 / L_ - 0.005): p_ = -per * stop - per * L_ * 0.0006
+            if stop is not None and ma[q] <= -stop * (1 / L_ - 0.005): p_ = -per * stop - per * L_ * 0.0006      # stop likidasyondan ÖNCE çalışır
+            elif ma[q] <= -(1 / L_ - 0.005): p_ = -per; liq += 1
             else: p_ = per * L_ * fn[q]
             heapq.heappush(ac, (en[q], q, per, p_)); kullan += per; n += 1
         i = j
