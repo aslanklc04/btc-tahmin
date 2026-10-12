@@ -1,0 +1,119 @@
+# ⚖️ Vadeli (kaldıraçlı) işlem kontrolü — 12.10.2026 07:36
+Olay: 30,020 (140 coin) · dönem 2022-06 → 2026-09
+
+Vadeli verisi: 131 coin · vadelisi olmayan: AMP, BONK, FLOKI, GNO, OSMO, PEPE, QI, REQ, SHIB · 568 sn
+
+## 1) Saatlik hareket: spot ↔ vadeli (2024-01 → 2026-09)
+_ilişki (1 = birebir) · aynı yön oranı · bir saat kaydırınca ilişki (öncü var mı) · fiyat farkı (vadeli/spot − 1): ortanca · %95 · %99 (mutlak) · fark > %0,5 olan saat oranı_
+```
+AAVE   ilişki 0.9996 · aynı yön %99.3 · kaydırınca -0.003 · fark %0.060 / %0.111 / %0.151 · >%0,5: %0.00
+ADA    ilişki 0.9994 · aynı yön %99.5 · kaydırınca +0.011 · fark %0.057 / %0.121 / %0.156 · >%0,5: %0.00
+ALGO   ilişki 0.9975 · aynı yön %99.2 · kaydırınca -0.011 · fark %0.080 / %0.193 / %0.243 · >%0,5: %0.01
+APT    ilişki 0.9974 · aynı yön %98.9 · kaydırınca -0.014 · fark %0.068 / %0.178 / %0.236 · >%0,5: %0.07
+ARB    ilişki 0.9990 · aynı yön %99.5 · kaydırınca +0.014 · fark %0.057 / %0.140 / %0.200 · >%0,5: %0.00
+AVAX   ilişki 0.9990 · aynı yön %99.3 · kaydırınca +0.002 · fark %0.056 / %0.123 / %0.157 · >%0,5: %0.00
+BNB    ilişki 0.9988 · aynı yön %98.8 · kaydırınca -0.009 · fark %0.049 / %0.107 / %0.157 · >%0,5: %0.01
+BTC    ilişki 0.9997 · aynı yön %98.9 · kaydırınca -0.010 · fark %0.045 / %0.070 / %0.102 · >%0,5: %0.00
+CRV    ilişki 0.9903 · aynı yön %97.9 · kaydırınca -0.006 · fark %0.113 / %0.353 / %0.512 · >%0,5: %1.15
+DOGE   ilişki 0.9998 · aynı yön %99.6 · kaydırınca -0.008 · fark %0.050 / %0.087 / %0.125 · >%0,5: %0.00
+DOT    ilişki 0.9985 · aynı yön %99.3 · kaydırınca -0.006 · fark %0.063 / %0.155 / %0.230 · >%0,5: %0.02
+ETH    ilişki 0.9998 · aynı yön %99.3 · kaydırınca +0.006 · fark %0.046 / %0.074 / %0.104 · >%0,5: %0.00
+FIL    ilişki 0.9983 · aynı yön %99.3 · kaydırınca +0.017 · fark %0.063 / %0.183 / %0.248 · >%0,5: %0.09
+INJ    ilişki 0.9973 · aynı yön %99.4 · kaydırınca -0.009 · fark %0.064 / %0.150 / %0.211 · >%0,5: %0.15
+LINK   ilişki 0.9986 · aynı yön %99.2 · kaydırınca -0.001 · fark %0.054 / %0.125 / %0.156 · >%0,5: %0.01
+NEAR   ilişki 0.9991 · aynı yön %99.5 · kaydırınca -0.012 · fark %0.063 / %0.145 / %0.193 · >%0,5: %0.00
+OP     ilişki 0.9982 · aynı yön %99.4 · kaydırınca +0.015 · fark %0.062 / %0.165 / %0.219 · >%0,5: %0.02
+SOL    ilişki 0.9997 · aynı yön %99.6 · kaydırınca -0.020 · fark %0.051 / %0.089 / %0.129 · >%0,5: %0.01
+SUI    ilişki 0.9997 · aynı yön %99.6 · kaydırınca -0.011 · fark %0.052 / %0.100 / %0.143 · >%0,5: %0.00
+UNI    ilişki 0.9996 · aynı yön %99.4 · kaydırınca +0.006 · fark %0.058 / %0.112 / %0.143 · >%0,5: %0.00
+XRP    ilişki 0.9997 · aynı yön %99.5 · kaydırınca -0.008 · fark %0.051 / %0.094 / %0.129 · >%0,5: %0.00
+```
+
+Vadeliyle hesaplanabilen olay: 28,708 / 30,020
+
+## 2) Sinyal bazında — spot (testlerdeki) ↔ vadeli
+_işlem başı %: spot net · vadeli net (limit emir) · vadeli net (piyasa emri) · ödenen fonlama · isabet spot → vadeli (limit)_
+```
+🤝 BTC ile birlikte (ana coin'ler)
+   2022-06→2023        1083 · +0.05 · +0.04 · -0.02 · fon 0.002 · %56→%56
+   2024+               2052 · +0.33 · +0.32 · +0.26 · fon 0.003 · %63→%62
+   2026 (Eyl. sonuna)   629 · +0.53 · +0.52 · +0.46 · fon 0.001 · %68→%67
+🧪 24 saat (ana 10 coin)
+   2022-06→2023         406 · +0.85 · +0.83 · +0.77 · fon 0.015 · %56→%56
+   2024+                662 · +0.97 · +0.95 · +0.89 · fon 0.021 · %60→%59
+   2026 (Eyl. sonuna)   171 · +0.09 · +0.08 · +0.02 · fon 0.007 · %50→%50
+🔇🔀 BTC sessiz + coin alınıyor
+   2022-06→2023          49 · +0.33 · +0.32 · +0.26 · fon -0.000 · %63→%61
+   2024+                105 · +0.86 · +0.85 · +0.79 · fon 0.001 · %69→%69
+   2026 (Eyl. sonuna)    20 · +1.11 · +1.10 · +1.04 · fon -0.001 · %90→%90
+💵 ABD güçlü alıyor
+   2022-06→2023        1398 · +0.56 · +0.56 · +0.50 · fon -0.011 · %54→%54
+   2024+               2610 · +0.71 · +0.68 · +0.62 · fon 0.013 · %54→%54
+   2026 (Eyl. sonuna)   783 · +0.62 · +0.61 · +0.55 · fon 0.002 · %54→%54
+⛓️ ETH arz/talep (7 gün)
+   2022-06→2023          33 · +2.65 · +2.56 · +2.50 · fon 0.097 · %64→%64
+   2024+                 72 · +2.62 · +2.49 · +2.43 · fon 0.129 · %58→%57
+   2026 (Eyl. sonuna)    18 · +2.43 · +2.40 · +2.34 · fon 0.037 · %61→%61
+🧑 küçük yatırımcı (7 gün)
+   2022-06→2023          22 · +4.27 · +4.12 · +4.06 · fon 0.152 · %73→%73
+   2024+                 56 · +3.54 · +3.37 · +3.31 · fon 0.176 · %66→%66
+   2026 (Eyl. sonuna)    16 · +2.96 · +2.88 · +2.82 · fon 0.080 · %69→%69
+🌐🤝 yeni coinler BTC ile birlikte
+   2022-06→2023         340 · +0.29 · +0.26 · +0.20 · fon -0.001 · %59→%57
+   2024+               1057 · +0.88 · +0.84 · +0.78 · fon -0.004 · %70→%68
+   2026 (Eyl. sonuna)   283 · +0.91 · +0.87 · +0.81 · fon -0.001 · %73→%73
+🌐🧪 yeni coinler 24 saat
+   2022-06→2023         539 · +0.73 · +0.80 · +0.74 · fon -0.032 · %58→%57
+   2024+               1465 · +1.29 · +1.25 · +1.19 · fon -0.014 · %60→%59
+   2026 (Eyl. sonuna)   358 · +1.25 · +1.18 · +1.12 · fon -0.022 · %61→%60
+🔥 fonlama yüksekken yükselen
+   2022-06→2023         137 · +0.71 · +0.71 · +0.65 · fon 0.009 · %72→%72
+   2024+                472 · +0.34 · +0.32 · +0.26 · fon 0.011 · %65→%64
+   2026 (Eyl. sonuna)    35 · +0.90 · +0.90 · +0.84 · fon -0.001 · %83→%83
+── ✅ ANA TOPLAM
+   2022-06→2023        4007 · +0.49 · +0.49 · +0.43 · fon -0.004 · %57→%56
+   2024+               8551 · +0.78 · +0.75 · +0.69 · fon 0.006 · %60→%60
+   2026 (Eyl. sonuna)  2313 · +0.73 · +0.70 · +0.64 · fon -0.001 · %62→%61
+🔸 yedek (karşılaştırma)
+   2022-06→2023        5999 · +0.05 · +0.04 · -0.02 · fon 0.002 · %56→%56
+   2024+              10151 · +0.04 · +0.04 · -0.02 · fon 0.003 · %55→%55
+   2026 (Eyl. sonuna)  2847 · +0.06 · +0.06 · -0.00 · fon 0.001 · %54→%54
+```
+
+## 3) Kaldıraç — ✅ ana sinyaller (vadeli, limit emir, fonlama dahil)
+_işlem içi en derin düşüş dağılımı ve kaldıraca göre: likide olan işlem oranı · marjine göre ortalama sonuç (likide = −%100)_
+```
+2022-06→2023       n  4007 · düşüş ≥%5: %10.8 · ≥%10: %2.4 · ≥%20: %0.5
+      2x: likide % 0.02 · marjine göre ort.  +0.99% · isabet %56
+      3x: likide % 0.02 · marjine göre ort.  +1.49% · isabet %56
+      5x: likide % 0.55 · marjine göre ort.  +2.22% · isabet %56
+     10x: likide % 2.70 · marjine göre ort.  +4.33% · isabet %56
+     20x: likide %13.40 · marjine göre ort.  +5.83% · isabet %54
+2024+              n  8551 · düşüş ≥%5: %12.7 · ≥%10: %3.5 · ≥%20: %0.9
+      2x: likide % 0.30 · marjine göre ort.  +1.31% · isabet %60
+      3x: likide % 0.42 · marjine göre ort.  +2.08% · isabet %60
+      5x: likide % 1.03 · marjine göre ort.  +3.39% · isabet %60
+     10x: likide % 3.94 · marjine göre ort.  +5.95% · isabet %59
+     20x: likide %14.89 · marjine göre ort.  +9.72% · isabet %57
+2026 (Eyl. sonuna) n  2313 · düşüş ≥%5: %8.3 · ≥%10: %1.8 · ≥%20: %0.1
+      2x: likide % 0.00 · marjine göre ort.  +1.41% · isabet %61
+      3x: likide % 0.00 · marjine göre ort.  +2.11% · isabet %61
+      5x: likide % 0.09 · marjine göre ort.  +3.47% · isabet %61
+     10x: likide % 2.08 · marjine göre ort.  +5.60% · isabet %61
+     20x: likide %10.12 · marjine göre ort. +10.45% · isabet %60
+```
+
+## Tür bazında en derin işlem içi düşüş (2024+, ✅ ana) — %90 / %99 / en kötü
+```
+🤝 BTC ile birlikte (ana coin'ler)        %  3.1 / %  9.0 / % 76.0  (n 2052)
+🧪 24 saat (ana 10 coin)                  %  7.7 / % 22.7 / % 74.5  (n 662)
+🔇🔀 BTC sessiz + coin alınıyor            %  4.7 / % 16.4 / % 16.7  (n 105)
+💵 ABD güçlü alıyor                       %  5.8 / % 15.9 / % 73.8  (n 2610)
+⛓️ ETH arz/talep (7 gün)                 %  9.0 / % 13.0 / % 15.5  (n 72)
+🧑 küçük yatırımcı (7 gün)                % 12.2 / % 20.4 / % 24.2  (n 56)
+🌐🤝 yeni coinler BTC ile birlikte         %  3.2 / %  9.6 / % 65.2  (n 1057)
+🌐🧪 yeni coinler 24 saat                  %  9.4 / % 36.1 / % 73.8  (n 1465)
+🔥 fonlama yüksekken yükselen             %  4.0 / % 19.6 / % 25.2  (n 472)
+```
+
+_Süre: 570 sn_
