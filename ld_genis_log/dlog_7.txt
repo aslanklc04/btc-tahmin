@@ -1,0 +1,16 @@
+ALT ALTUSDT gün: 979 45 sn
+AUDIO vadeli arşivde yok
+BNT BNTUSDT gün: 1147 96 sn
+CTSI CTSIUSDT gün: 1366 149 sn
+ETHFI ETHFIUSDT gün: 927 192 sn
+GRT GRTUSDT gün: 1367 243 sn
+JTO JTOUSDT gün: 1027 287 sn
+MANA MANAUSDT gün: 1364 340 sn
+POWR POWRUSDT gün: 1065 387 sn
+REQ vadeli arşivde yok
+SNX SNXUSDT gün: 1366 441 sn
+TIA TIAUSDT gün: 1063 488 sn
+WIF WIFUSDT gün: 986 534 sn
+ZRO ZROUSDT gün: 832 576 sn
+parça 7: 12/14 coin · 576 sn
+exit=0

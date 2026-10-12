@@ -1,0 +1,29 @@
+# 💧 Likidite dipte — geniş liste ve 💵 coin'leri — 12.10.2026 19:48
+Vadeli emir defteri arşivi olan coin: 118 · ✅ ana sinyal: 5,807 (💵 2,662 · 🌐🧪 2,101 · 🌐🤝 1,044) · 5 sn
+
+_sinyal sayısı · isabet · işlem başı net % — 2023 | 2024+ | 2026_
+```
+✅ ana (yeni coin'ler)                    1222 · %59.3 · +0.90 |  3993 · %58.9 · +0.86 |  1069 · %59.8 · +0.85
+✅ ana + 💧 LD                              272 · %73.2 · +1.87 |   550 · %68.5 · +2.28 |   113 · %69.0 · +1.11
+  🌐🤝                                      182 · %62.1 · +0.52 |   752 · %69.3 · +0.64 |   176 · %75.6 · +1.04
+  🌐🤝 + 💧                                   30 · %66.7 · +0.37 |    68 · %67.6 · +0.36 |    25 · %76.0 · +1.13
+  🌐🧪                                      439 · %62.4 · +1.24 |  1494 · %59.9 · +1.26 |   369 · %59.6 · +1.19
+  🌐🧪 + 💧                                  148 · %75.7 · +2.19 |   329 · %70.2 · +2.65 |    60 · %68.3 · +1.39
+  💵                                       601 · %56.2 · +0.76 |  1747 · %53.5 · +0.62 |   524 · %54.6 · +0.56
+  💵 + 💧                                    94 · %71.3 · +1.85 |   153 · %65.4 · +2.34 |    28 · %64.3 · +0.48
+dip/momentum dışı                        1056 · %58.1 · +0.80 |  3409 · %57.9 · +0.71 |   946 · %59.1 · +0.63
+dip/momentum dışı + 💧                     187 · %71.7 · +1.81 |   312 · %66.3 · +1.52 |    90 · %70.0 · +0.90
+```
+
+- **K0 ANA+:** ✅
+- **K1 plasebo (2024+, 40 kaydırma):** isabet farkı +9.7 (plasebo %95 +8.6) · net farkı +1.42 (plasebo %95 +0.81) → ✅
+- **K2 dipten bağımsızlık:** ✅
+- **K3 bootstrap (2024+ net farkı %90):** +0.51 … +2.32 → ✅
+- **K4 yaygınlık:** 18/23 coin → ✅ · AAVE 30 %73 vs %54 · ALGO 26 %77 vs %58 · ATOM 13 %69 vs %64 · AVAX 40 %57 vs %62 · COMP 13 %62 vs %49 · COTI 14 %50 vs %59 · CRV 22 %77 vs %55 · ENS 10 %90 vs %66 · ETC 12 %75 vs %64 · FIL 41 %73 vs %55 · GRT 15 %80 vs %79 · GTC 11 %55 vs %62 · ICP 13 %54 vs %49 · INJ 31 %74 vs %57 · LTC 12 %83 vs %69 · MANA 12 %67 vs %67 · SAND 13 %100 vs %63 · SKL 10 %70 vs %56 · SOL 22 %59 vs %56 · UNI 65 %60 vs %52 · XLM 15 %60 vs %62 · XRP 20 %90 vs %59 · ZRX 10 %60 vs %55
+
+## Önceden yazılı karar
+- ✅ **GEÇTİ** → 💧 bu 118 coin'e de genişletilir
+
+Coin listesi (arşivi olan): 1INCH, AAVE, ACH, AGLD, AI, ALGO, ALICE, ALT, ANKR, APE, API3, ARKM, ARPA, ATOM, AUCTION, AVAX, AXL, AXS, BAND, BAT, BCH, BICO, BLUR, BNT, BONK, C98, CAKE, CELR, CHZ, COMP, COTI, CRV, CTSI, CVC, CVX, DASH, DIA, EGLD, ENA, ENS, ETC, ETHFI, FET, FIDA, FIL, FLOW, G, GLM, GMT, GRT, GTC, HBAR, ICP, ILV, IMX, INJ, IO, JASMY, JTO, KAVA, KNC, KSM, LDO, LPT, LQTY, LTC, MAGIC, MANA, MASK, METIS, MINA, NMR, OGN, PENDLE, POL, POWR, PUNDIX, PYTH, QNT, RARE, RENDER, REZ, RLC, ROSE, RPL, RSR, SAND, SEI, SKL, SNX, SOL, SPELL, STRK, STX, SUPER, SUSHI, T, TAO, TIA, TNSR, TRB, TURBO, UMA, UNI, VET, VTHO, W, WIF, WLD, XLM, XRP, XTZ, YFI, ZEC, ZEN, ZK, ZRO, ZRX
+
+_Süre: 8 sn_
