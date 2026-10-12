@@ -2,6 +2,7 @@
 //   /ornek  (yalnız Neon zamanlayıcısı, dakikada bir): 15 coin'i ölçer → nesne deposuna ornek/YYYYMMDDHH/MM.json
 //   /saat?h=YYYYMMDDHH : o saatin (UTC) dakikalık ölçümlerinin ortalaması (canlı sistem her saat bunu okur)
 //   /dene   : şu anki ölçüm (yazmaz) — kurulum kontrolü
+//   /fonlama?c=BTC,ETH,... : her coin'in son 100 fonlama ödemesi (Binance USDT-M) — 💸 coin fonlaması için
 import { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
 
 const s3 = new S3Client({ forcePathStyle: true });
@@ -45,6 +46,21 @@ export default {
       return json({ ok: true, t: o.t });
     }
     if (u.pathname === '/dene') return json(await hepsi());
+    if (u.pathname === '/fonlama') {
+      const cs = (u.searchParams.get('c') ?? Object.keys(COINS).join(',')).split(',').map((x) => x.trim().toUpperCase()).filter(Boolean).slice(0, 60);
+      const r = await Promise.all(cs.map(async (nm) => {
+        for (const sym of [COINS[nm] ?? `${nm}USDT`, `1000${nm}USDT`]) {
+          try {
+            const q = await fetch(`https://fapi.binance.com/fapi/v1/fundingRate?symbol=${sym}&limit=100`);
+            if (!q.ok) continue;
+            const d: any[] = await q.json();
+            if (Array.isArray(d) && d.length) return [nm, d.map((x) => [x.fundingTime, +x.fundingRate])] as const;
+          } catch { /* sonraki sembol */ }
+        }
+        return [nm, null] as const;
+      }));
+      return json({ t: new Date().toISOString(), coins: Object.fromEntries(r) });
+    }
     if (u.pathname === '/saat') {
       const h = u.searchParams.get('h') ?? saatAnahtari(new Date(Date.now() - 3600_000));
       const ls = await s3.send(new ListObjectsV2Command({ Bucket: KOVA, Prefix: `ornek/${h}/` }));
@@ -62,6 +78,6 @@ export default {
       for (const z of Object.values(top)) { z.bid1 /= z.n; z.ask1 /= z.n; }
       return json({ saat: h, ornek_dosya: anah.length, coins: top });
     }
-    return json({ ok: true, yollar: ['/dene', '/saat?h=YYYYMMDDHH'] });
+    return json({ ok: true, yollar: ['/dene', '/saat?h=YYYYMMDDHH', '/fonlama?c=BTC,ETH'] });
   },
 };
