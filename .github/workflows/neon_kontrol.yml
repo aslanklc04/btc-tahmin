@@ -19,7 +19,11 @@ jobs:
           import json,sys
           d=json.load(sys.stdin); print('ornek dosya:', d.get('ornek_dosya'))
           for k,v in d.get('coins',{}).items(): print(k, f\"{v['n']} ornek · ort ±%1 {(v['bid1']+v['ask1'])/1e6:.2f} M\$ · en dusuk kapsam %{100*min(v['kb'],v['ka']):.2f}\")
-          "; done; } > neon_kontrol_log.txt 2>&1; cat neon_kontrol_log.txt
+          "; done; echo "== fonlama"; curl -s -m 90 "$U/fonlama?c=BTC,ETH,ADA,APT,ARB,BNB,DOGE,DOT,FLOKI,LINK,NEAR,OP,PEPE,SHIB,SUI,XRP,ALGO,CRV,AVAX,UNI,AAVE,FIL,SOL,INJ" | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          for k,v in d.get('coins',{}).items(): print(k, (f'{len(v)} odeme · son {v[-1][1]*100:+.4f}%' if v else 'YOK'))
+          "; } > neon_kontrol_log.txt 2>&1; cat neon_kontrol_log.txt
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
           git add neon_kontrol_log.txt; git commit -m "Neon derinlik kontrolu" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
