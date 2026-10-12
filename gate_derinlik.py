@@ -4,7 +4,7 @@
 import sys, io, zlib, time, requests, numpy as np, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 nm = sys.argv[1]; T0 = time.time(); S = requests.Session()
-SAAT = pd.date_range("2022-12-01", pd.Timestamp.now(tz="UTC").floor("D") - pd.Timedelta(days=2), freq="1h", tz="UTC")
+SAAT = pd.date_range(pd.Timestamp("2022-12-01", tz="UTC"), pd.Timestamp.now(tz="UTC").floor("D") - pd.Timedelta(days=2), freq="1h")
 def bir(t):
     url = f"https://download.gatedata.org/futures_usdt/orderbooks/{t:%Y%m}/{nm}_USDT-{t:%Y%m%d%H}.csv.gz"
     for boy in (131072, 1048576, 8388608):

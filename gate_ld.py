@@ -147,6 +147,7 @@ GD = {}
 for p in f("**/gate_*.pkl"):
     D = pd.read_pickle(p)
     if len(D) >= 2000: GD[os.path.basename(p)[5:-4]] = duz(D)
+if len(GD) < 5: yaz(f"**Gate verisi eksik: {len(GD)} coin — test yapılamadı**"); open("gate_ld_sonuc.md", "w").write("\n".join(L) + "\n"); raise SystemExit(1)
 DER = {k: duz(v) for k, v in pd.read_pickle(f("**/derinlik.pkl")[0]).items() if {"ask1", "bid1"} <= set(v.columns)}
 ZG = {nm: z720(np.log(D.ask1 + D.bid1)) for nm, D in GD.items()}; ZB = {nm: z720(np.log(D.ask1 + D.bid1)) for nm, D in DER.items()}
 LDG = {nm: (z <= -2).fillna(False) for nm, z in ZG.items()}; LDB = {nm: (z <= -2).fillna(False) for nm, z in ZB.items()}
