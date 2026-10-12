@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (BTC saatlik + primsiz yedek kapalı: canli-test dalı)
+# canli kuru test (🚀 momentum + 📉🔥 dip önceliği: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -43,11 +43,11 @@ jobs:
         run: |
           set +e
           {
-          for m in star acls fire; do echo "=== tahmin.py TEST_ZORLA=$m (panel olmalı)"; TEST_ZORLA=$m timeout 600 python tahmin.py > /tmp/t_$m.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/t_$m.txt | head -8; done
-          echo "=== tahmin_coin.py TEST_ZORLA=1 (🤝)"; TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c1.txt | head -8
-          echo "=== tahmin_coin.py TEST_ZORLA=tek (gerçek primler)"; TEST_ZORLA=tek timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -8
-          echo "=== tahmin_coin.py TEST_ZORLA=zit (prim +0,8)"; TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c3.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c3.txt | head -8
-          echo "=== tahmin24.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d.txt | head -8
+          echo "=== tahmin.py star, TEST_RZ=3 (🚀 → ana)"; TEST_RZ=3 TEST_ZORLA=star timeout 600 python tahmin.py > /tmp/t1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/t1.txt | head -8
+          echo "=== tahmin_coin.py TEST_ZORLA=1, TEST_RZ=3 (🤝 primsizler 🚀 ana)"; TEST_RZ=3 TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c1.txt | head -8
+          echo "=== tahmin_coin.py TEST_ZORLA=zit, TEST_RZ=-3 (📉🔥 öncelik)"; TEST_RZ=-3 TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -8
+          echo "=== tahmin24.py TEST_ZORLA=1, TEST_RZ=3"; TEST_RZ=3 TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d1.txt | head -8
+          echo "=== tahmin24.py NORMAL"; timeout 600 python tahmin24.py > /tmp/d2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d2.txt | head -8
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
