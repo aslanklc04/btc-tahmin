@@ -3,7 +3,7 @@
 //   /saat?h=YYYYMMDDHH : o saatin (UTC) dakikalık ölçümlerinin ortalaması (canlı sistem her saat bunu okur)
 //   /dene   : şu anki ölçüm (yazmaz) — kurulum kontrolü
 //   /fonlama?c=BTC,ETH,... : her coin'in son 100 fonlama ödemesi (Binance USDT-M) — 💸 coin fonlaması için
-import { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 
 const s3 = new S3Client({ forcePathStyle: true });
 const KOVA = 'derinlik';
@@ -11,6 +11,127 @@ const COINS: Record<string, string> = {
   BTC: 'BTCUSDT', ETH: 'ETHUSDT', ADA: 'ADAUSDT', APT: 'APTUSDT', ARB: 'ARBUSDT', BNB: 'BNBUSDT', DOGE: 'DOGEUSDT', DOT: 'DOTUSDT',
   FLOKI: '1000FLOKIUSDT', LINK: 'LINKUSDT', NEAR: 'NEARUSDT', OP: 'OPUSDT', PEPE: '1000PEPEUSDT', SHIB: '1000SHIBUSDT', SUI: 'SUIUSDT',
 };
+// 💧 geniş liste + 💵 coin'leri (ld_genis.py'de geçti, 118 coin): Binance ağırlık sınırı için dakikada yarısı (tek/çift dakika) ölçülür
+const EK: Record<string, string> = {
+  '1INCH': '1INCHUSDT',
+  ANKR: 'ANKRUSDT',
+  AXL: 'AXLUSDT',
+  C98: 'C98USDT',
+  CVX: 'CVXUSDT',
+  FIDA: 'FIDAUSDT',
+  HBAR: 'HBARUSDT',
+  KNC: 'KNCUSDT',
+  METIS: 'METISUSDT',
+  PYTH: 'PYTHUSDT',
+  RLC: 'RLCUSDT',
+  SPELL: 'SPELLUSDT',
+  TRB: 'TRBUSDT',
+  XLM: 'XLMUSDT',
+  AAVE: 'AAVEUSDT',
+  APE: 'APEUSDT',
+  AXS: 'AXSUSDT',
+  CAKE: 'CAKEUSDT',
+  DASH: 'DASHUSDT',
+  FIL: 'FILUSDT',
+  ICP: 'ICPUSDT',
+  KSM: 'KSMUSDT',
+  MINA: 'MINAUSDT',
+  ROSE: 'ROSEUSDT',
+  STRK: 'STRKUSDT',
+  TURBO: 'TURBOUSDT',
+  XRP: 'XRPUSDT',
+  ACH: 'ACHUSDT',
+  API3: 'API3USDT',
+  BAND: 'BANDUSDT',
+  CELR: 'CELRUSDT',
+  DIA: 'DIAUSDT',
+  FLOW: 'FLOWUSDT',
+  ILV: 'ILVUSDT',
+  LDO: 'LDOUSDT',
+  NMR: 'NMRUSDT',
+  QNT: 'QNTUSDT',
+  RPL: 'RPLUSDT',
+  STX: 'STXUSDT',
+  UMA: 'UMAUSDT',
+  XTZ: 'XTZUSDT',
+  AGLD: 'AGLDUSDT',
+  ARKM: 'ARKMUSDT',
+  BAT: 'BATUSDT',
+  CHZ: 'CHZUSDT',
+  EGLD: 'EGLDUSDT',
+  G: 'GUSDT',
+  IMX: 'IMXUSDT',
+  LPT: 'LPTUSDT',
+  OGN: 'OGNUSDT',
+  RSR: 'RSRUSDT',
+  SUPER: 'SUPERUSDT',
+  UNI: 'UNIUSDT',
+  YFI: 'YFIUSDT',
+  AI: 'AIUSDT',
+  ARPA: 'ARPAUSDT',
+  BCH: 'BCHUSDT',
+  COMP: 'COMPUSDT',
+  ENA: 'ENAUSDT',
+  GLM: 'GLMUSDT',
+  INJ: 'INJUSDT',
+  LQTY: 'LQTYUSDT',
+  RARE: 'RAREUSDT',
+  SAND: 'SANDUSDT',
+  SUSHI: 'SUSHIUSDT',
+  VET: 'VETUSDT',
+  ZEC: 'ZECUSDT',
+  ALGO: 'ALGOUSDT',
+  ATOM: 'ATOMUSDT',
+  BICO: 'BICOUSDT',
+  COTI: 'COTIUSDT',
+  ENS: 'ENSUSDT',
+  GMT: 'GMTUSDT',
+  IO: 'IOUSDT',
+  LTC: 'LTCUSDT',
+  PENDLE: 'PENDLEUSDT',
+  SEI: 'SEIUSDT',
+  T: 'TUSDT',
+  VTHO: 'VTHOUSDT',
+  ZEN: 'ZENUSDT',
+  ALICE: 'ALICEUSDT',
+  AUCTION: 'AUCTIONUSDT',
+  BLUR: 'BLURUSDT',
+  CRV: 'CRVUSDT',
+  ETC: 'ETCUSDT',
+  JASMY: 'JASMYUSDT',
+  MAGIC: 'MAGICUSDT',
+  POL: 'POLUSDT',
+  RENDER: 'RENDERUSDT',
+  SKL: 'SKLUSDT',
+  TAO: 'TAOUSDT',
+  W: 'WUSDT',
+  ZK: 'ZKUSDT',
+  ALT: 'ALTUSDT',
+  BNT: 'BNTUSDT',
+  CTSI: 'CTSIUSDT',
+  ETHFI: 'ETHFIUSDT',
+  GRT: 'GRTUSDT',
+  JTO: 'JTOUSDT',
+  MANA: 'MANAUSDT',
+  POWR: 'POWRUSDT',
+  SNX: 'SNXUSDT',
+  TIA: 'TIAUSDT',
+  WIF: 'WIFUSDT',
+  ZRO: 'ZROUSDT',
+  AVAX: 'AVAXUSDT',
+  BONK: '1000BONKUSDT',
+  CVC: 'CVCUSDT',
+  FET: 'FETUSDT',
+  GTC: 'GTCUSDT',
+  KAVA: 'KAVAUSDT',
+  MASK: 'MASKUSDT',
+  PUNDIX: 'PUNDIXUSDT',
+  REZ: 'REZUSDT',
+  SOL: 'SOLUSDT',
+  TNSR: 'TNSRUSDT',
+  WLD: 'WLDUSDT',
+  ZRX: 'ZRXUSDT',};
+const EK_AD = Object.keys(EK).sort();
 const json = (o: unknown, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { 'content-type': 'application/json' } });
 
 async function olc(sym: string) {
@@ -28,9 +149,10 @@ async function olc(sym: string) {
     return { bid1, ask1, mid, kb: 1 - b[b.length - 1][0] / mid, ka: a[a.length - 1][0] / mid - 1, n: b.length };
   } catch (e: any) { return { hata: String(e?.message ?? e).slice(0, 120) }; }
 }
-async function hepsi() {
+async function hepsi(ek: string[] = []) {
   const t = new Date();
-  const s = await Promise.all(Object.entries(COINS).map(async ([nm, sym]) => [nm, await olc(sym)] as const));
+  const liste: [string, string][] = [...Object.entries(COINS), ...ek.map((nm) => [nm, EK[nm]] as [string, string])];
+  const s = await Promise.all(liste.map(async ([nm, sym]) => [nm, await olc(sym)] as const));
   return { t: t.toISOString(), coins: Object.fromEntries(s) };
 }
 const saatAnahtari = (t: Date) => t.toISOString().slice(0, 13).replace(/[-T]/g, '');   // YYYYMMDDHH
@@ -40,12 +162,21 @@ export default {
     const u = new URL(req.url);
     if (u.pathname === '/ornek') {
       if (!req.headers.get('x-neon-trigger-invocation-id')) return json({ hata: 'yalnız zamanlayıcı' }, 403);
-      const o = await hepsi(); const t = new Date(o.t);
+      const dk = new Date().getUTCMinutes();
+      const o = await hepsi(EK_AD.filter((_, i) => i % 2 === dk % 2)); const t = new Date(o.t);
+      if (dk === 30) {                                                                       // 3 günden eski örnekleri sil (depo sınırı)
+        const eski = saatAnahtari(new Date(Date.now() - 72 * 3600_000));
+        try {
+          const ls = await s3.send(new ListObjectsV2Command({ Bucket: KOVA, Prefix: `ornek/${eski}/` }));
+          const ks = (ls.Contents ?? []).map((x) => ({ Key: x.Key! }));
+          if (ks.length) await s3.send(new DeleteObjectsCommand({ Bucket: KOVA, Delete: { Objects: ks } }));
+        } catch { /* sonraki saat tekrar */ }
+      }
       await s3.send(new PutObjectCommand({ Bucket: KOVA, Key: `ornek/${saatAnahtari(t)}/${String(t.getUTCMinutes()).padStart(2, '0')}.json`,
         Body: JSON.stringify(o), ContentType: 'application/json' }));
       return json({ ok: true, t: o.t });
     }
-    if (u.pathname === '/dene') return json(await hepsi());
+    if (u.pathname === '/dene') return json(await hepsi((u.searchParams.get('ek') ?? '').split(',').filter((x) => x in EK).slice(0, 40)));
     if (u.pathname === '/fonlama') {
       const cs = (u.searchParams.get('c') ?? Object.keys(COINS).join(',')).split(',').map((x) => x.trim().toUpperCase()).filter(Boolean).slice(0, 60);
       const r = await Promise.all(cs.map(async (nm) => {

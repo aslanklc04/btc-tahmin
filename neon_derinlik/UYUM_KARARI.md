@@ -9,3 +9,9 @@ NET UYUM = aşağıdakilerin HEPSİ (en az 24 ortak saat, coin başına ≥ 20 s
      ve LD bayrağı (z ≤ −2) uyuşmazlığı ≤ %2 saat
 Uyum varsa → 💧 canlıya (13 coin, ✅ ana sinyale 💧 işareti + öncelik; sinyal sayısı değişmez). Uymayan coin varsa o coin hariç tutulur.
 Uyum yoksa → bir gün daha veri toplanır; 3 günde yine yoksa kullanıcıya bildirilir.
+
+## Ek (12.10.2026 ~20:05 TR, karşılaştırma verisi görülmeden)
+ld_genis.py'de 💧 geniş liste + 💵 coin'lerinde de geçti (118 coin; K0–K4 hepsi ✅). Neon bu coin'leri 12.10 ~17:10 UTC'den itibaren
+dakikada yarısı olmak üzere (tek/çift dakika → saatte ~30 örnek) ölçmeye başladı. Bu coin'ler için de AYNI U1–U3 ölçütleri uygulanır
+(coin başına ≥ 20 ortak saat olunca; U1 "hiçbir coin < 0,75" şartı yerine: < 0,75 olan coin hariç tutulur). Uyan coin'lerde 💧 canlıya geçer.
+BTC ve ETH: 1000 seviye ±%1'i kapsamıyor → şimdilik hariç.
