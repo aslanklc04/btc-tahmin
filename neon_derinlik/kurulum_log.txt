@@ -1,1 +1,3 @@
-NEON_API_KEY gizli anahtari YOK (GitHub Secrets'a eklenmemis)
+== Neon projeleri (ad · kimlik · bolge)
+proje yok / hata: {'request_id': '8873d694-4093-491f-8297-80a806709d30', 'code': '', 'message': 'org_id is required, you can find it on your organization settings page'}
+secilen proje: 
