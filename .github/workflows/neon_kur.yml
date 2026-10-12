@@ -25,9 +25,9 @@ jobs:
           log() { echo "$@" | tee -a $LOG; }
           if [ -z "$NEON_API_KEY" ]; then log "NEON_API_KEY gizli anahtari YOK (GitHub Secrets'a eklenmemis)"; exit 0; fi
           log "== Neon projeleri (ad · kimlik · bolge)"
-          curl -s -H "Authorization: Bearer $NEON_API_KEY" -H "Accept: application/json" https://console.neon.tech/api/v2/projects > /tmp/p.json
+          curl -s -H "Authorization: Bearer $NEON_API_KEY" -H "Accept: application/json" "https://console.neon.tech/api/v2/projects?org_id=org-icy-pond-67091821" > /tmp/p.json
           python3 -c "import json;d=json.load(open('/tmp/p.json'));[print(p.get('name'),'·',p.get('id'),'·',p.get('region_id')) for p in d.get('projects',[])] or print('proje yok / hata:',str(d)[:200])" | tee -a $LOG
-          PID=$(python3 -c "import json;d=json.load(open('/tmp/p.json'));ps=[p for p in d.get('projects',[]) if 'binance' in p.get('name','').lower()] or d.get('projects',[]);print(ps[0]['id'] if ps else '')")
+          PID=round-bread-18476082
           log "secilen proje: $PID"
           [ -z "$PID" ] && exit 0
           npm install -g neon@latest > /tmp/npm1.txt 2>&1; log "neon cli: $(neon --version 2>&1 | head -1)"
