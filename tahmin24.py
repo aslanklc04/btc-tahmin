@@ -98,7 +98,7 @@ if fire:
     _mom = lambda x: (not _g(x)) and (not ana_mi(x[0])) and mom_mu(x[3])                       # 🚀 primsiz ama momentumlu → ✅ ana (teknik_tara C3a)
     _ana += [x for x in fire if _mom(x)]
     _yed = [x for x in fire if not _g(x) and not ana_mi(x[0]) and not _mom(x)]                # primsizler → panel · geniş listenin eşik altı sinyalleri gönderilmez
-    _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[2].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) else ""), 1))
+    _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[2].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💸 " if s_ == "ana" and fon_mu(x[1]) else ""), 1))
     for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
@@ -106,7 +106,7 @@ if fire:
         bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" + _gn if sinif_ == "ana" else
                 f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGeçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: kendi primi yüksek olan üstte.\n")
         tg_send(bas_ + "\n".join(_isr(x, sinif_) for x in grup) + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup)) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
-                oncelik=sira_puani("🧪", zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) for x in grup) else 0), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
+                oncelik=sira_puani("🧪", zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) and not _g(x) for x in grup) else 0) + (ONCELIK_FON if sinif_ == "ana" and any(fon_mu(x[1]) for x in grup) else 0), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık deneme raporu (pazar 20:00) ----
 kap = [e for e in GS["log"] if "ok" in e]
 def ozet_onay(x):

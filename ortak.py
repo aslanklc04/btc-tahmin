@@ -300,6 +300,34 @@ MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+
 DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %64–71 tuttu, işlem başı +%0,6–1,6."
 MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; testte bu durumdaki sinyaller %62–69 tuttu (işlem başı +%0,4–1,1), ABD alımı olmasa da ✅",
                "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; testte bu durumdaki ✅ sinyaller %64–71 tuttu (işlem başı +%0,6–1,6)"}
+# 💸 COİN'İN KENDİ FONLAMASI (teknik_tara.py C4b, 12.10.2026, plasebolu önceden yazılı karar — Binance'e o gün erişilemediği için bekledi):
+#   coin'in Binance USDT-M fonlaması son 90 ödemeye göre z ≥ 2 iken ✅ ana sinyaller %59 · %65 · %64, işlem başı +0,88 · +1,67 · +1,78 (ana %55,5 · %58,7 · %60,1)
+#   → yalnız ÖNE ALMA + 💸 işareti (sinyal sayısı değişmez). Veri: Neon Functions (Frankfurt) /fonlama ucu — ABD sunucusundan Binance vadeli kapalı.
+#   🌐 geniş listede 💸 / 📉🔥 / 🚀 denendi (genis_hepsi.py): geçmedi → bu işaretler yalnız ana 24 coin'de.
+FON_URL = "https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/fonlama"
+FON_COINS = "AAVE ADA ALGO APT ARB AVAX BNB BTC CRV DOGE DOT ETH FIL FLOKI INJ LINK NEAR OP PEPE SHIB SOL SUI UNI XRP".split()   # testteki 24 coin
+FON_ESIK, ONCELIK_FON = 2.0, -800
+_FONZ = None
+def fon_coin_z(nm):
+    """coin'in kendi Binance fonlaması z (son ödeme, son 90 ödemeye göre — teknik_tara ile aynı). Veri yoksa nan (işaret konmaz)."""
+    global _FONZ
+    if os.environ.get("TEST_FON"): return float(os.environ["TEST_FON"]) if nm in FON_COINS else float("nan")   # yalnız test
+    if nm not in FON_COINS: return float("nan")
+    if _FONZ is None:
+        _FONZ = {}
+        for k in range(2):
+            try:
+                d = requests.get(FON_URL, params={"c": ",".join(FON_COINS)}, timeout=25).json().get("coins", {})
+                for c, v in d.items():
+                    if not v or len(v) < 30: continue
+                    s = pd.Series([float(x[1]) for x in v]); zz = (s - s.rolling(90, min_periods=30).mean()) / (s.rolling(90, min_periods=30).std() + 1e-12)
+                    if np.isfinite(zz.iloc[-1]): _FONZ[c] = float(zz.iloc[-1])
+                break
+            except Exception: time.sleep(3)
+    return _FONZ.get(nm, float("nan"))
+def fon_mu(nm): z = fon_coin_z(nm); return bool(np.isfinite(z) and z >= FON_ESIK)
+FON_NOT = "💸 ÖNCELİKLİ: bu coin'in vadeli fonlaması çok yüksek (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %59–65 tuttu, işlem başı +%0,9–1,8."
+MOM_DIP_ACK["💸"] = "💸 = öncelikli: coin'in kendi vadeli fonlaması çok yüksek (z ≥ 2); testte bu durumdaki ✅ sinyaller %59–65 tuttu (işlem başı +%0,9–1,8)"
 ZIT_NOT = ("✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z {zc:+.1f}) ama BTC'yi hafif satıyor (BTC primi z {zb:+.1f}), BTC de sessiz: "
            "bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")
 def fiyat_yaz(p):
