@@ -1,0 +1,4 @@
+# 🧠 Model geliştirme (v36): yeni girdili coin modeli vs mevcut — 12.10.2026 05:28
+Coin: 0 ()
+
+**BTC sonucu yok — analiz yapılamadı**
