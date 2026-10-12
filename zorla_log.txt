@@ -1,15 +1,10 @@
-=== tahmin_coin.py TEST_ZORLA=zit (🔀 coin z +0,8 · BTC z −0,5)
+=== tahmin.py TEST_ZORLA=kisa (🔻 → panel olmalı)
 exit=0
-=== tahmin_coin.py TEST_ZORLA=tek (gerçek primler: BTC z şu an)
+=== tahmin_coin.py TEST_ZORLA=zit
 exit=0
-tek: yedek · 2322 · 🔇 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.2
-tek: yedek · 2315 · 🔇 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -1.5
-tek: yedek · 2330 · 🔇 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -3.0
-tek: yedek · 2314 · 🔇 DOT ⭐ en güçlü · isabet %58 · prim ⛔ z -1.4
-tek: yedek · 2325 · 🔇 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.5
-tek: yedek · 310 · 🔇 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0
 === hata dosyası
 === kuyruk özeti (sınıf · öncelik · etiket)
+panel · 775 · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5
 ana · 2322 · 🔇🔀 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.2
 ana · 2315 · 🔇🔀 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -1.5
 ana · 2330 · 🔇🔀 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -3.0
@@ -120,22 +115,22 @@ BTC bu saatte sinyal vermedi
 💵 DOGE: ABD SATIYOR (kendi Coinbase primi z -3.0) ⛔ ALMA — geçmişte bu durumda coin sinyalleri 2026'da %48 tuttu (ABD alırken %64) · BTC geneli: ⛔ z -2.5
 💡 Giriş (limit) $0.08692 → çıkış 12.10 12:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.14
 ⏱️ Gecikmeden hareket edin. ✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z +0.8) ama BTC'yi hafif satıyor (BTC primi z -0.5), BTC de sessiz: bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.
-Gönderildi: 6/6 (ana 6, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 6
+Gönderildi: 6/7 (ana 6, yedek 0, panel 1, bilgi 0) · bugün giden sinyal: 6
 === SENARYO 2: gün boş, yalnız yedekler → en iyi yedek gitmeli
-Gönderildi: 0/0 (ana 0, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 0
+Gönderildi: 0/1 (ana 0, yedek 0, panel 1, bilgi 0) · bugün giden sinyal: 0
 === SENARYO 3: aynı gün tekrar yedekler → gitmemeli
 Gönderildi: 0/0 (ana 0, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 0
 === panel sonu
 
-
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 6
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- 12.10 04:31 · ✅ ana · 🔇🔀 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -3.0 → gönderildi
-- 12.10 04:31 · ✅ ana · 🔇🔀 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.5 → gönderildi
-- 12.10 04:31 · ✅ ana · 🔇🔀 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.2 → gönderildi
-- 12.10 04:31 · ✅ ana · 🔇🔀 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -1.5 → gönderildi
-- 12.10 04:31 · ✅ ana · 🔇🔀 DOT ⭐ en güçlü · isabet %58 · prim ⛔ z -1.4 → gönderildi
-- 12.10 04:31 · ✅ ana · 🔇🔀 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
+- 12.10 04:54 · panel · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5 → gitmedi — yalnız panel
+- 12.10 04:54 · ✅ ana · 🔇🔀 DOGE ⭐ en güçlü · isabet %62 · prim ⛔ z -3.0 → gönderildi
+- 12.10 04:54 · ✅ ana · 🔇🔀 ETH ⭐ en güçlü · isabet %62 · prim ⛔ z -2.5 → gönderildi
+- 12.10 04:54 · ✅ ana · 🔇🔀 ADA ⭐ en güçlü · isabet %61 · prim ⛔ z -2.2 → gönderildi
+- 12.10 04:54 · ✅ ana · 🔇🔀 BNB ⭐ en güçlü · isabet %61 · prim ⛔ z -1.5 → gönderildi
+- 12.10 04:54 · ✅ ana · 🔇🔀 DOT ⭐ en güçlü · isabet %58 · prim ⛔ z -1.4 → gönderildi
+- 12.10 04:54 · ✅ ana · 🔇🔀 SHIB ⭐ en güçlü · isabet %60 · prim ⚠️ z -1.0 → gönderildi
 - 12.10 02:08 · panel · ₿ BTC 8 saat Güçlü ↓ (bilgi) → gitmedi — yalnız panel
 - 11.10 20:06 · ℹ️ bilgi · ⛓️📊 ARZ/TALEP (ETH) — HAFTALIK → gönderildi
 - 11.10 20:06 · ℹ️ bilgi · 🧪📊 24 SAAT DENEME — HAFTALIK → gönderildi
@@ -145,9 +140,9 @@ _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ o
 
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 0
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- (henüz yok)
+- 12.10 04:54 · panel · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5 → gitmedi — yalnız panel
 
 
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 0
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- (henüz yok)
+- 12.10 04:54 · panel · 🔻 BTC KISA (24 s) · ABD satıyor z -2.5 → gitmedi — yalnız panel
