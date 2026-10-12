@@ -90,6 +90,7 @@ pct_now = {H: float(rpct(fr_[H].iloc[-800:]).iloc[-1]) for H in CFG}; acls_m = f
 tloc = t.tz_convert(DISPLAY_TZ); head = f"🧭 BTC {tloc:%d.%m %H:%M} · ${price:,.0f}"; GECIK = "⏱️ Sinyal gelince gecikmeden hareket edin (testte beklemek sonucu kötüleştirdi)."
 P_NOW = float(mins.close.iloc[-1]) if mins is not None and len(mins) else price               # mesaj anındaki fiyat (limit emir için)
 CBD = cb_prim(); CBZ, CBL = cb_z(CBD), cb_satir(CBD)                                         # 💵 Coinbase primi: ABD alıyor mu? (birlesim.py)
+RZB = r24z(full.close.loc[:t]); MOMB = mom_mu(RZB); CBLM = CBL.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if MOMB else CBL                                            # 🚀 teknik_tara C3a: BTC son 24 saatte olağandışı yükseldiyse BTC sinyalleri ✅ ana
 def emir_satiri(H, ort=None):                                                              # limit_test.py: BTC ⭐ ve 4s Çok güçlü ↑'de limit emir iki dönemde de kârı artırdı
     cik = (t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ)
     bek = (f" · {CIKIS_NOT} · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}" if ort is not None and np.isfinite(ort) else f" · {CIKIS_NOT}")
@@ -110,20 +111,20 @@ if TEST_ZORLA:
     agree = TEST_ZORLA == "star"; acls_on = TEST_ZORLA == "acls"; G["last_star"] = G["last_acls"] = G["last_kisa"] = None
     if TEST_ZORLA == "fire": fire = True; new_sig = new_sig or [(4, 1, "4 saat Çok güçlü ↑ (TEST)")]; ORT_YENI = ORT_YENI or [(4, 1, 2, 0.12)]
 if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours=8)):
-    tg_send(f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
-            + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + CBL + "\n" + HIZL + emir_satiri(8, a8_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC ⭐ en güçlü (8 s) · isabet %{a8_['acc']:.0f} · prim {cb_kisa(CBD)}", sinif="panel"); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
+    tg_send((MOM_NOT.format(z=RZB) + "\n" if MOMB else "") + f"⭐ EN GÜÇLÜ SİNYAL — {head}\n4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş (canlı ölçüm): 4s isabet %{a4_['acc']:.1f} · 8s isabet %{a8_['acc']:.1f} · haftada ~{a4_['wk']:.1f}\n"
+            + (M.get("ALT_LINE", "") + "\n" if M.get("ALT_LINE") else "") + GECIK + "\n" + CBLM + "\n" + HIZL + emir_satiri(8, a8_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
+            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC ⭐ en güçlü (8 s) · isabet %{a8_['acc']:.0f} · prim {cb_kisa(CBD)}" + (" · 🚀" if MOMB else ""), sinif="ana" if MOMB else "panel"); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
 if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None or t - G["last_acls"] >= pd.Timedelta(hours=4)):
-    tg_send(f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBL + "\n"
+    tg_send((MOM_NOT.format(z=RZB) + "\n" if MOMB else "") + f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBLM + "\n"
             + HIZL + "💡 " + giris_cikis(P_NOW, t + pd.Timedelta(hours=4, minutes=6), AC_.get("gross")) + "\n" + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC 🟢 A sınıfı (4 s) · isabet %{AC_['acc']:.0f} · prim {cb_kisa(CBD)}", sinif="panel"); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
+            oncelik=sira_puani("₿", CBZ, ALMA), etiket=f"₿ BTC 🟢 A sınıfı (4 s) · isabet %{AC_['acc']:.0f} · prim {cb_kisa(CBD)}" + (" · 🚀" if MOMB else ""), sinif="ana" if MOMB else "panel"); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig) else head)
     yukari = [x for x in ORT_YENI if x[1] == 1]
     gc_ = "".join(f"💡 {CFG[H_]['ad']} {LEV[li_].split(' (')[0]} ↑ — " + giris_cikis(P_NOW, t + pd.Timedelta(hours=H_, minutes=6), gr_) + "\n" for H_, sg_, li_, gr_ in yukari if not (u4_yeni and H_ == 4 and li_ == 2))
     u4g = next((gr_ for H_, sg_, li_, gr_ in yukari if H_ == 4 and li_ == 2), None)
-    tg_send(hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (CBL + "\n" + HIZL if any(x[1] == 1 and x[0] >= 4 for x in new_sig) else "") + (emir_satiri(4, u4g) + "\n" if u4_yeni else "") + gc_ + "\n".join(lines + bar_tg),
-            oncelik=sira_puani("₿" if yukari else "ℹ️", CBZ, ALMA and bool(yukari)), etiket="₿ BTC " + " · ".join(lab_ for _, _, lab_ in new_sig) + (f" · prim {cb_kisa(CBD)}" if yukari else " (bilgi)"), sinif="panel")   # 12.10.2026: BTC ⭐ / A / saatlik sinyaller GÖNDERİLMEZ (ozet2.py: haftada ~28, isabet %53–57, kâr ~%0) — panelde
+    tg_send((MOM_NOT.format(z=RZB) + "\n" if MOMB and yukari else "") + hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (CBLM + "\n" + HIZL if any(x[1] == 1 and x[0] >= 4 for x in new_sig) else "") + (emir_satiri(4, u4g) + "\n" if u4_yeni else "") + gc_ + "\n".join(lines + bar_tg),
+            oncelik=sira_puani("₿" if yukari else "ℹ️", CBZ, ALMA and bool(yukari)), etiket="₿ BTC " + " · ".join(lab_ for _, _, lab_ in new_sig) + (f" · prim {cb_kisa(CBD)}" + (" · 🚀" if MOMB else "") if yukari else " (bilgi)"), sinif="ana" if MOMB and yukari else "panel")   # 12.10.2026: BTC ⭐ / A / saatlik sinyaller GÖNDERİLMEZ (ozet2.py: haftada ~28, isabet %53–57, kâr ~%0) — panelde
     for H_, sg_, lab_ in new_sig: logsig(lab_, H_, sg_)
 # ---- 🔻 KISA POZİSYON (SATIŞ) SİNYALİ: ABD güçlü satıyor (Coinbase primi z ≤ −2) → BTC 24 saat kısa (satis.py: net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46) ----
 KISA_BILDIRIM = True

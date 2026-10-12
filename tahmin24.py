@@ -52,7 +52,7 @@ for sym, M in MODELS.items():
     try:
         o = DATA.get(sym)
         if o is None or len(o) < 2500: rows_md.append(f"| {NM} | ⚠️ veri alınamadı | | | |"); continue
-        t = o.index[-1]; price = float(o.close.iloc[-1])
+        t = o.index[-1]; price = float(o.close.iloc[-1]); RZ = r24z(o.close)                   # 🚀 / 📉🔥 (teknik_tara C3)
         if now - t > pd.Timedelta(hours=3): rows_md.append(f"| {NM} | ⚠️ veri eski ({t:%d.%m %H:%M}) | | | |"); continue
         FA = features(o); new = FA.index[FA.index > M["PG"].index[-1]]
         if len(new): pg, pl = M["model"](FA.loc[new]); PG = pd.concat([M["PG"], pd.Series(pg, index=new)]); PL = pd.concat([M["PL"], pd.Series(pl, index=new)])
@@ -83,7 +83,7 @@ for sym, M in MODELS.items():
                         + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
                         + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
                         + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız"))))
-                        + (f"\n   {hz_}" if hz_ else "")))
+                        + (f"\n   {hz_}" if hz_ else ""), RZ))
         acik = [e for e in GS["log"] if e["sym"] == sym and "ok" not in e]
         rows_md.append(f"| {NM} | {fmt(price)} | {'⬆️' if sg == 1 else '⬇️'} {LEV[li].split(' (')[0]}{' · 🧪 SİNYAL' if yeni else ''} | "
                        + (f"giriş {fmt(acik[-1]['p'])} → çıkış {(acik[-1]['t'] + pd.Timedelta(hours=H)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}" if acik else "—")
@@ -95,15 +95,18 @@ if fire:
     _g = lambda x: x[1] + "USDT" in GENIS24_SET
     _ana = [x for x in fire if (np.isfinite(x[0]) and x[0] >= GENIS_ESIK) if _g(x)] + [x for x in fire if not _g(x) and ana_mi(x[0])]   # ✅ (en fazla 10 satır/mesaj)
     _ana.sort(key=lambda x: -(x[0] if np.isfinite(x[0]) else -9))
-    _yed = [x for x in fire if not _g(x) and not ana_mi(x[0])]                                # 🔸 yedek coin başına ayrı · geniş listenin eşik altı sinyalleri gönderilmez
+    _mom = lambda x: (not _g(x)) and (not ana_mi(x[0])) and mom_mu(x[3])                       # 🚀 primsiz ama momentumlu → ✅ ana (teknik_tara C3a)
+    _ana += [x for x in fire if _mom(x)]
+    _yed = [x for x in fire if not _g(x) and not ana_mi(x[0]) and not _mom(x)]                # primsizler → panel · geniş listenin eşik altı sinyalleri gönderilmez
+    _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[2].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) else ""), 1))
     for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         _gn = ("🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 1,5) gelir · testte isabet ~%60, işlem başı +%1,2\n" if any(_g(x) for x in grup) else "")
         bas_ = (f"🧪 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\n{ANA_NOT} Sıra: kendi primi yüksek olan üstte.\n" + _gn if sinif_ == "ana" else
                 f"🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — {tl0:%d.%m %H:%M}\nGeçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: kendi primi yüksek olan üstte.\n")
-        tg_send(bas_ + "\n".join(x[2] for x in grup) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
-                oncelik=sira_puani("🧪", zmax_, hepsi_alma), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
+        tg_send(bas_ + "\n".join(_isr(x, sinif_) for x in grup) + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup)) + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48\n💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.",
+                oncelik=sira_puani("🧪", zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) for x in grup) else 0), etiket="🧪 24 saat: " + ", ".join(f"{x[1]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık deneme raporu (pazar 20:00) ----
 kap = [e for e in GS["log"] if "ok" in e]
 def ozet_onay(x):

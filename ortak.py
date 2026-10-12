@@ -284,6 +284,22 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # Setin dışındaki sinyaller 🔸 YEDEK olarak gider (⛔ ABD satıyor olanlar hariç): yedeklerin geçmişi isabet ~%55, net ~%0.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): bu set geçmişte işlem başı ort. +%0,6 kazandırdı (komisyon sonrası), isabet ~%59."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
+# teknik_tara.py (12.10.2026, plasebolu, önceden yazılı karar): coin'in son 24 saatlik getirisi / (son 30 gün saatlik oynaklık × √24)
+#   C3a 🚀 z ≥ 2 → gönderilmeyen sinyaller (primsiz / ABD satarken / BTC saatlik) ✅ ana olur: %62 · %65 · %69, net +0,43 · +0,77 · +1,09
+#   C3b 📉🔥 z ≤ −2 → ✅ ana sinyal öne alınır: %64 · %67 · %71, net +0,58 · +1,58 · +1,21 (ana ortalaması %56 · %59 · %60)
+MOM_ESIK, DIP_ESIK, ONCELIK_DIP = 2.0, -2.0, -1000
+def r24z(close):
+    if os.environ.get("TEST_RZ"): return float(os.environ["TEST_RZ"])                         # yalnız test
+    try:
+        lr = np.log(pd.Series(close).astype(float)); sg = lr.diff().rolling(720, min_periods=168).std()
+        v = float(((lr - lr.shift(24)) / (sg * np.sqrt(24))).iloc[-1]); return v if np.isfinite(v) else float("nan")
+    except Exception: return float("nan")
+def mom_mu(rz): return bool(rz is not None and np.isfinite(rz) and rz >= MOM_ESIK)
+def dip_mi(rz): return bool(rz is not None and np.isfinite(rz) and rz <= DIP_ESIK)
+MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Testte bu durumda ABD alımı olmasa da sinyaller %62–69 tuttu, işlem başı +%0,4–1,1 → ✅ işlem sinyali."
+DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %64–71 tuttu, işlem başı +%0,6–1,6."
+MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; testte bu durumdaki sinyaller %62–69 tuttu (işlem başı +%0,4–1,1), ABD alımı olmasa da ✅",
+               "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; testte bu durumdaki ✅ sinyaller %64–71 tuttu (işlem başı +%0,6–1,6)"}
 ZIT_NOT = ("✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z {zc:+.1f}) ama BTC'yi hafif satıyor (BTC primi z {zb:+.1f}), BTC de sessiz: "
            "bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")
 def fiyat_yaz(p):
