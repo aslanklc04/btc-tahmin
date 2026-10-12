@@ -1,0 +1,1 @@
+NEON_API_KEY gizli anahtari YOK (GitHub Secrets'a eklenmemis)
