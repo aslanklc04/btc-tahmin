@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (🚀 momentum + 📉🔥 dip önceliği: canli-test dalı)
+# canli kuru test (🚀 momentum + 📉🔥 dip önceliği, 2. tur: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
