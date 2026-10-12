@@ -1,0 +1,14 @@
+[   96 sn] NEAR: 52,513 saat · 2020-10-14 → 2026-10-12 02:00
+[  225 sn] NEAR: Coinbase primi: coin 35850 saat · BTC 79889 saat
+[  225 sn] NEAR: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  242 sn] NEAR: 3,124,985 dakika · test 2021-11-01+
+[  284 sn] NEAR: mevcut 1s bitti
+[  333 sn] NEAR: mevcut 4s bitti
+[  404 sn] NEAR: mevcut 8s bitti
+[  478 sn] NEAR: mevcut AUC 2024+: 1s 0.5273 · 4s 0.5284 · 8s 0.5153 · 24s 0.4988
+[  528 sn] NEAR: yeni 1s bitti
+[  586 sn] NEAR: yeni 4s bitti
+[  678 sn] NEAR: yeni 8s bitti
+[  772 sn] NEAR: yeni AUC 2024+: 1s 0.5333 · 4s 0.5301 · 8s 0.5220 · 24s 0.5066
+[  772 sn] NEAR: kaydedildi · 12.9 dk
+exit=0

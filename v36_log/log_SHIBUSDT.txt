@@ -1,0 +1,14 @@
+[   91 sn] SHIB: 47,528 saat · 2021-05-10 → 2026-10-12 02:00
+[  217 sn] SHIB: Coinbase primi: coin 44392 saat · BTC 79889 saat
+[  217 sn] SHIB: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  235 sn] SHIB: 2,820,663 dakika · test 2022-06-01+
+[  272 sn] SHIB: mevcut 1s bitti
+[  317 sn] SHIB: mevcut 4s bitti
+[  381 sn] SHIB: mevcut 8s bitti
+[  447 sn] SHIB: mevcut AUC 2024+: 1s 0.5524 · 4s 0.5417 · 8s 0.5456 · 24s 0.5484
+[  494 sn] SHIB: yeni 1s bitti
+[  545 sn] SHIB: yeni 4s bitti
+[  628 sn] SHIB: yeni 8s bitti
+[  712 sn] SHIB: yeni AUC 2024+: 1s 0.5676 · 4s 0.5488 · 8s 0.5482 · 24s 0.5571
+[  712 sn] SHIB: kaydedildi · 11.9 dk
+exit=0

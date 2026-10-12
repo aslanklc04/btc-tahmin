@@ -1,0 +1,14 @@
+[  113 sn] PEPE: 30,128 saat · 2023-05-05 → 2026-10-12 02:00
+[  177 sn] PEPE: Coinbase primi: coin 16560 saat · BTC 79889 saat
+[  177 sn] PEPE: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  199 sn] PEPE: 1,769,928 dakika · test 2024-06-01+
+[  220 sn] PEPE: mevcut 1s bitti
+[  242 sn] PEPE: mevcut 4s bitti
+[  275 sn] PEPE: mevcut 8s bitti
+[  308 sn] PEPE: mevcut AUC 2024+: 1s 0.5526 · 4s 0.5308 · 8s 0.5139 · 24s 0.5271
+[  335 sn] PEPE: yeni 1s bitti
+[  360 sn] PEPE: yeni 4s bitti
+[  403 sn] PEPE: yeni 8s bitti
+[  448 sn] PEPE: yeni AUC 2024+: 1s 0.5623 · 4s 0.5354 · 8s 0.5182 · 24s 0.5148
+[  448 sn] PEPE: kaydedildi · 7.5 dk
+exit=0

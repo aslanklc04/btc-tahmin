@@ -1,0 +1,14 @@
+[  105 sn] ARB: 31,162 saat · 2023-03-23 → 2026-10-12 02:00
+[  171 sn] ARB: Coinbase primi: coin 30984 saat · BTC 79889 saat
+[  171 sn] ARB: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  190 sn] ARB: 1,857,760 dakika · test 2024-04-01+
+[  211 sn] ARB: mevcut 1s bitti
+[  235 sn] ARB: mevcut 4s bitti
+[  270 sn] ARB: mevcut 8s bitti
+[  306 sn] ARB: mevcut AUC 2024+: 1s 0.5279 · 4s 0.5254 · 8s 0.5236 · 24s 0.4976
+[  333 sn] ARB: yeni 1s bitti
+[  363 sn] ARB: yeni 4s bitti
+[  409 sn] ARB: yeni 8s bitti
+[  456 sn] ARB: yeni AUC 2024+: 1s 0.5431 · 4s 0.5285 · 8s 0.5249 · 24s 0.4967
+[  456 sn] ARB: kaydedildi · 7.6 dk
+exit=0

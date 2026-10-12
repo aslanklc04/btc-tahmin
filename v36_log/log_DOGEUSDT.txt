@@ -1,0 +1,14 @@
+[  124 sn] DOGE: 63,690 saat · 2019-07-05 → 2026-10-12 02:00
+[  208 sn] DOGE: Coinbase primi: coin 46765 saat · BTC 79889 saat
+[  208 sn] DOGE: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  233 sn] DOGE: 3,782,851 dakika · test 2021-01-01+
+[  277 sn] DOGE: mevcut 1s bitti
+[  335 sn] DOGE: mevcut 4s bitti
+[  426 sn] DOGE: mevcut 8s bitti
+[  515 sn] DOGE: mevcut AUC 2024+: 1s 0.5409 · 4s 0.5291 · 8s 0.5401 · 24s 0.5528
+[  567 sn] DOGE: yeni 1s bitti
+[  636 sn] DOGE: yeni 4s bitti
+[  748 sn] DOGE: yeni 8s bitti
+[  853 sn] DOGE: yeni AUC 2024+: 1s 0.5418 · 4s 0.5331 · 8s 0.5382 · 24s 0.5566
+[  853 sn] DOGE: kaydedildi · 14.2 dk
+exit=0

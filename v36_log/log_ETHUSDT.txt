@@ -1,0 +1,14 @@
+[  112 sn] ETH: 80,102 saat · 2017-08-17 → 2026-10-12 02:00
+[  236 sn] ETH: Coinbase primi: coin 79907 saat · BTC 79889 saat
+[  236 sn] ETH: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  261 sn] ETH: 4,783,919 dakika · test 2020-01-01+
+[  334 sn] ETH: mevcut 1s bitti
+[  438 sn] ETH: mevcut 4s bitti
+[  581 sn] ETH: mevcut 8s bitti
+[  724 sn] ETH: mevcut AUC 2024+: 1s 0.5515 · 4s 0.5417 · 8s 0.5338 · 24s 0.5344
+[  813 sn] ETH: yeni 1s bitti
+[  941 sn] ETH: yeni 4s bitti
+[ 1126 sn] ETH: yeni 8s bitti
+[ 1307 sn] ETH: yeni AUC 2024+: 1s 0.5539 · 4s 0.5439 · 8s 0.5283 · 24s 0.5506
+[ 1307 sn] ETH: kaydedildi · 21.8 dk
+exit=0

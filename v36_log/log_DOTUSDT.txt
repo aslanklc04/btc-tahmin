@@ -1,0 +1,14 @@
+[  118 sn] DOT: 53,863 saat · 2020-08-19 → 2026-10-12 02:00
+[  196 sn] DOT: Coinbase primi: coin 46453 saat · BTC 79889 saat
+[  196 sn] DOT: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  219 sn] DOT: 3,212,816 dakika · test 2021-09-01+
+[  261 sn] DOT: mevcut 1s bitti
+[  313 sn] DOT: mevcut 4s bitti
+[  394 sn] DOT: mevcut 8s bitti
+[  478 sn] DOT: mevcut AUC 2024+: 1s 0.5350 · 4s 0.5276 · 8s 0.5309 · 24s 0.5340
+[  531 sn] DOT: yeni 1s bitti
+[  598 sn] DOT: yeni 4s bitti
+[  705 sn] DOT: yeni 8s bitti
+[  812 sn] DOT: yeni AUC 2024+: 1s 0.5435 · 4s 0.5371 · 8s 0.5437 · 24s 0.5428
+[  812 sn] DOT: kaydedildi · 13.5 dk
+exit=0

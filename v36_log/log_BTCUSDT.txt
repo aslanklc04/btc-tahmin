@@ -1,0 +1,14 @@
+[   69 sn] BTC: 80,102 saat · 2017-08-17 → 2026-10-12 02:00
+[  128 sn] BTC: Coinbase primi: coin 79889 saat · BTC 79889 saat
+[  128 sn] BTC: yeni girdi: 11 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp
+[  159 sn] BTC: 4,783,918 dakika · test 2020-01-01+
+[  233 sn] BTC: mevcut 1s bitti
+[  341 sn] BTC: mevcut 4s bitti
+[  489 sn] BTC: mevcut 8s bitti
+[  635 sn] BTC: mevcut AUC 2024+: 1s 0.5496 · 4s 0.5546 · 8s 0.5277 · 24s 0.5380
+[  721 sn] BTC: yeni 1s bitti
+[  840 sn] BTC: yeni 4s bitti
+[ 1014 sn] BTC: yeni 8s bitti
+[ 1181 sn] BTC: yeni AUC 2024+: 1s 0.5505 · 4s 0.5546 · 8s 0.5298 · 24s 0.5585
+[ 1181 sn] BTC: kaydedildi · 19.7 dk
+exit=0

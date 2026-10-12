@@ -1,0 +1,14 @@
+[   78 sn] SUI: 30,182 saat · 2023-05-03 → 2026-10-12 02:00
+[  171 sn] SUI: Coinbase primi: coin 29630 saat · BTC 79889 saat
+[  171 sn] SUI: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  186 sn] SUI: 1,769,934 dakika · test 2024-06-01+
+[  205 sn] SUI: mevcut 1s bitti
+[  225 sn] SUI: mevcut 4s bitti
+[  259 sn] SUI: mevcut 8s bitti
+[  292 sn] SUI: mevcut AUC 2024+: 1s 0.5292 · 4s 0.5235 · 8s 0.5449 · 24s 0.5076
+[  315 sn] SUI: yeni 1s bitti
+[  341 sn] SUI: yeni 4s bitti
+[  383 sn] SUI: yeni 8s bitti
+[  425 sn] SUI: yeni AUC 2024+: 1s 0.5314 · 4s 0.5281 · 8s 0.5326 · 24s 0.5044
+[  425 sn] SUI: kaydedildi · 7.1 dk
+exit=0

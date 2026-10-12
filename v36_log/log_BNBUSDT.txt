@@ -1,0 +1,14 @@
+[  111 sn] BNB: 78,165 saat · 2017-11-06 → 2026-10-12 02:00
+[  231 sn] BNB: Coinbase primi: coin 8326 saat · BTC 79889 saat
+[  231 sn] BNB: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  253 sn] BNB: 4,653,299 dakika · test 2020-01-01+
+[  312 sn] BNB: mevcut 1s bitti
+[  399 sn] BNB: mevcut 4s bitti
+[  519 sn] BNB: mevcut 8s bitti
+[  636 sn] BNB: mevcut AUC 2024+: 1s 0.5343 · 4s 0.5317 · 8s 0.5289 · 24s 0.5167
+[  710 sn] BNB: yeni 1s bitti
+[  814 sn] BNB: yeni 4s bitti
+[  960 sn] BNB: yeni 8s bitti
+[ 1097 sn] BNB: yeni AUC 2024+: 1s 0.5377 · 4s 0.5311 · 8s 0.5219 · 24s 0.5291
+[ 1097 sn] BNB: kaydedildi · 18.3 dk
+exit=0

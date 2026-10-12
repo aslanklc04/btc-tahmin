@@ -1,0 +1,14 @@
+[  109 sn] ADA: 74,310 saat · 2018-04-17 → 2026-10-12 02:00
+[  229 sn] ADA: Coinbase primi: coin 48608 saat · BTC 79889 saat
+[  229 sn] ADA: yeni girdi: 18 — x_tb1, x_tb4, x_tb24, x_tb24z, x_ats24z, x_ats1, x_n24z, x_pz, x_pz_d4, x_pz_d24, x_pbp, x_bpz, x_btc_r1, x_btc_r4, x_btc_r24, x_rel24, x_rel72, x_btc_ats24z
+[  249 sn] ADA: 4,438,119 dakika · test 2020-01-01+
+[  309 sn] ADA: mevcut 1s bitti
+[  393 sn] ADA: mevcut 4s bitti
+[  513 sn] ADA: mevcut 8s bitti
+[  631 sn] ADA: mevcut AUC 2024+: 1s 0.5347 · 4s 0.5299 · 8s 0.5370 · 24s 0.5106
+[  703 sn] ADA: yeni 1s bitti
+[  802 sn] ADA: yeni 4s bitti
+[  944 sn] ADA: yeni 8s bitti
+[ 1089 sn] ADA: yeni AUC 2024+: 1s 0.5387 · 4s 0.5347 · 8s 0.5418 · 24s 0.5435
+[ 1089 sn] ADA: kaydedildi · 18.2 dk
+exit=0
