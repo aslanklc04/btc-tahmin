@@ -1,19 +1,44 @@
 == saat 2026101216
-ornek dosya: 5
-BTC 5 ornek · ort ±%1 96.53 M$ · en dusuk kapsam %0.15
-ETH 5 ornek · ort ±%1 129.77 M$ · en dusuk kapsam %0.43
-ADA 5 ornek · ort ±%1 7.43 M$ · en dusuk kapsam %41.53
-APT 5 ornek · ort ±%1 1.61 M$ · en dusuk kapsam %15.91
-ARB 5 ornek · ort ±%1 1.78 M$ · en dusuk kapsam %7.54
-BNB 5 ornek · ort ±%1 13.44 M$ · en dusuk kapsam %1.41
-DOGE 5 ornek · ort ±%1 15.12 M$ · en dusuk kapsam %11.75
-DOT 5 ornek · ort ±%1 3.08 M$ · en dusuk kapsam %10.37
-FLOKI 5 ornek · ort ±%1 0.49 M$ · en dusuk kapsam %99.96
-LINK 5 ornek · ort ±%1 6.95 M$ · en dusuk kapsam %9.03
-NEAR 5 ornek · ort ±%1 5.50 M$ · en dusuk kapsam %17.98
-OP 5 ornek · ort ±%1 1.17 M$ · en dusuk kapsam %15.09
-PEPE 5 ornek · ort ±%1 4.51 M$ · en dusuk kapsam %2.92
-SHIB 5 ornek · ort ±%1 2.05 M$ · en dusuk kapsam %33.00
-SUI 5 ornek · ort ±%1 6.10 M$ · en dusuk kapsam %9.32
+ornek dosya: 35
+BTC 35 ornek · ort ±%1 89.07 M$ · en dusuk kapsam %0.14
+ETH 35 ornek · ort ±%1 122.83 M$ · en dusuk kapsam %0.43
+ADA 35 ornek · ort ±%1 7.54 M$ · en dusuk kapsam %41.34
+APT 35 ornek · ort ±%1 1.65 M$ · en dusuk kapsam %15.51
+ARB 35 ornek · ort ±%1 1.70 M$ · en dusuk kapsam %7.48
+BNB 35 ornek · ort ±%1 13.27 M$ · en dusuk kapsam %1.41
+DOGE 35 ornek · ort ±%1 15.92 M$ · en dusuk kapsam %11.74
+DOT 35 ornek · ort ±%1 3.29 M$ · en dusuk kapsam %10.33
+FLOKI 35 ornek · ort ±%1 0.47 M$ · en dusuk kapsam %99.96
+LINK 35 ornek · ort ±%1 6.93 M$ · en dusuk kapsam %9.03
+NEAR 35 ornek · ort ±%1 6.02 M$ · en dusuk kapsam %17.98
+OP 35 ornek · ort ±%1 1.08 M$ · en dusuk kapsam %14.98
+PEPE 35 ornek · ort ±%1 4.34 M$ · en dusuk kapsam %2.91
+SHIB 35 ornek · ort ±%1 2.02 M$ · en dusuk kapsam %32.43
+SUI 35 ornek · ort ±%1 6.02 M$ · en dusuk kapsam %9.32
 == saat 2026101215
 ornek dosya: 0
+== fonlama
+BTC 100 odeme · son +0.0019%
+ETH 100 odeme · son +0.0017%
+ADA 100 odeme · son +0.0100%
+APT 100 odeme · son -0.0084%
+ARB 100 odeme · son +0.0032%
+BNB 100 odeme · son +0.0000%
+DOGE 100 odeme · son +0.0026%
+DOT 100 odeme · son +0.0100%
+FLOKI 100 odeme · son -0.0045%
+LINK 100 odeme · son +0.0036%
+NEAR 100 odeme · son +0.0032%
+OP 100 odeme · son -0.0025%
+PEPE 100 odeme · son +0.0100%
+SHIB 100 odeme · son -0.0002%
+SUI 100 odeme · son +0.0045%
+XRP 100 odeme · son +0.0013%
+ALGO 100 odeme · son +0.0100%
+CRV 100 odeme · son +0.0100%
+AVAX 100 odeme · son +0.0013%
+UNI 100 odeme · son +0.0022%
+AAVE 100 odeme · son +0.0047%
+FIL 100 odeme · son +0.0100%
+SOL 100 odeme · son +0.0048%
+INJ 100 odeme · son +0.0100%
