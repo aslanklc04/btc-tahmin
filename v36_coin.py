@@ -28,7 +28,7 @@ def kline(sym):                                                                 
         rows += dt; cur = dt[-1][0] + 3_600_000
         if len(dt) < 1000: break
     d = pd.DataFrame([x[:11] for x in rows], columns=["t", "open", "high", "low", "close", "volume", "ct", "qv", "n", "tbv", "tbq"]).astype(float)
-    d.index = (pd.to_datetime(d.t, unit="ms", utc=True) + pd.Timedelta(hours=1)).as_unit("ns"); d = d[d.index <= pd.Timestamp.now(tz="UTC")]
+    d.index = pd.DatetimeIndex(pd.to_datetime(d.t, unit="ms", utc=True) + pd.Timedelta(hours=1)).as_unit("ns"); d = d[d.index <= pd.Timestamp.now(tz="UTC")]
     return d[~d.index.duplicated()].sort_index()[["open", "high", "low", "close", "volume", "qv", "n", "tbq"]]
 def cb_gecmis(nm, o):                                                                              # canlıdaki ortak.cb_prim ile aynı tanım: p = log(Coinbase USD / Binance USDT), z = son 720 saat
     out, cur, end, s = [], max(o.index[0], BAS), pd.Timestamp.now(tz="UTC").floor("h"), requests.Session(); s.headers.update({"User-Agent": "btc-tahmin-arastirma"})
@@ -45,7 +45,7 @@ def cb_gecmis(nm, o):                                                           
         cur = nx; time.sleep(0.12)
     if not out: return None
     d = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
-    c_ = pd.Series(d.close.values.astype(float), index=(pd.to_datetime(d.t, unit="s", utc=True) + pd.Timedelta(hours=1)).as_unit("ns")).sort_index()
+    c_ = pd.Series(d.close.values.astype(float), index=pd.DatetimeIndex(pd.to_datetime(d.t, unit="s", utc=True) + pd.Timedelta(hours=1)).as_unit("ns")).sort_index()
     c_ = c_[~c_.index.duplicated()]
     p = np.log(c_.reindex(o.index) / o.close); p = p.where(p.abs() < 0.3)
     z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
