@@ -1,0 +1,53 @@
+name: Neon Binance vadeli derinlik kurulumu
+on:
+  push:
+    branches: [arastirma3]
+    paths: [neon_derinlik/**, .github/workflows/neon_kur.yml]
+permissions:
+  contents: write
+jobs:
+  kur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Kur ve dene
+        env:
+          NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+        run: |
+          set +e
+          cd neon_derinlik; LOG=kurulum_log.txt; : > $LOG
+          log() { echo "$@" | tee -a $LOG; }
+          if [ -z "$NEON_API_KEY" ]; then log "NEON_API_KEY gizli anahtari YOK (GitHub Secrets'a eklenmemis)"; exit 0; fi
+          log "== Neon projeleri (ad · kimlik · bolge)"
+          curl -s -H "Authorization: Bearer $NEON_API_KEY" -H "Accept: application/json" https://console.neon.tech/api/v2/projects > /tmp/p.json
+          python3 -c "import json;d=json.load(open('/tmp/p.json'));[print(p.get('name'),'·',p.get('id'),'·',p.get('region_id')) for p in d.get('projects',[])] or print('proje yok / hata:',str(d)[:200])" | tee -a $LOG
+          PID=$(python3 -c "import json;d=json.load(open('/tmp/p.json'));ps=[p for p in d.get('projects',[]) if 'binance' in p.get('name','').lower()] or d.get('projects',[]);print(ps[0]['id'] if ps else '')")
+          log "secilen proje: $PID"
+          [ -z "$PID" ] && exit 0
+          npm install -g neon@latest > /tmp/npm1.txt 2>&1; log "neon cli: $(neon --version 2>&1 | head -1)"
+          npm install > /tmp/npm2.txt 2>&1; log "npm install cikis: $?"
+          log "== deploy"; neon deploy --project-id "$PID" --yes --no-env-pull >> $LOG 2>&1; log "deploy cikis: $?"
+          log "== fonksiyon"; neon functions get derinlik --project-id "$PID" -o yaml > /tmp/f.yaml 2>&1; grep -E "status|invocation_url|slug" /tmp/f.yaml | tee -a $LOG
+          URL=$(grep -E "invocation_url" /tmp/f.yaml | head -1 | sed -E 's/.*invocation_url: *//; s/["'"'"']//g')
+          log "== tetikleyiciler"; neon triggers list --project-id "$PID" >> $LOG 2>&1
+          if [ -n "$URL" ]; then
+            sleep 20; log "== /dene ($URL)"; curl -s -m 60 "${URL%/}/dene" | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin); print('zaman', d.get('t'))
+          for k,v in d.get('coins',{}).items():
+              print(k, (f\"±%1 alis {v['bid1']/1e6:.2f} M\$ · satis {v['ask1']/1e6:.2f} M\$ · kapsam alis %{100*v['kb']:.2f} satis %{100*v['ka']:.2f} · seviye {v['n']}\" if 'bid1' in v else v))
+          " >> $LOG 2>&1
+          fi
+          python3 -c "import os;p='$LOG';s=open(p).read().replace(os.environ['NEON_API_KEY'],'***');open(p,'w').write(s)"
+          cat $LOG
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add neon_derinlik/kurulum_log.txt; git commit -m "Neon kurulum kaydi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
