@@ -1,0 +1,94 @@
+# 🧪 İsabet ve kâr için yeni teknikler — 12.10.2026 13:18
+Olay: ✅ ana 8,991 · 🔸 yedek 2,151 · gönderilmeyen 22,106
+
+Coin fonlaması: 24 coin · Kore primi: 15 coin (ADA, APT, ARB, AVAX, BTC, DOGE, DOT, ETH, LINK, NEAR, PEPE, SHIB, SOL, SUI, XRP) · 269 sn
+
+_haftada · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
+```
+✅ ANA (hepsi)                                  37.3/hf · %55.5 · +0.46 |  40.5/hf · %58.7 · +0.67 |  43.9/hf · %60.1 · +0.59
+🔸 YEDEK (hepsi)                                 9.1/hf · %60.5 · +0.23 |   9.6/hf · %56.5 · +0.10 |  11.7/hf · %53.8 · +0.04
+GÖNDERİLMEYEN (hepsi)                          87.3/hf · %56.3 · +0.06 | 101.5/hf · %54.9 · +0.02 |  97.8/hf · %52.1 · -0.01
+
+C1a 24 s modeli de yukarı
+  ✅ ana + koşul                                21.9/hf · %57.1 · +0.38 |  22.6/hf · %62.0 · +0.67 |  22.9/hf · %64.7 · +0.65
+  🔸 yedek + koşul                               8.2/hf · %61.3 · +0.22 |   8.2/hf · %55.9 · +0.10 |   7.9/hf · %51.7 · +0.01
+  gönderilmeyen + koşul                        73.9/hf · %55.9 · +0.07 |  85.6/hf · %55.3 · +0.03 |  76.7/hf · %52.7 · -0.02
+
+C1b 24 s modeli güçlü yukarı
+  ✅ ana + koşul                                16.1/hf · %57.6 · +0.41 |  15.3/hf · %62.8 · +0.79 |  15.1/hf · %62.9 · +0.56
+  🔸 yedek + koşul                               5.2/hf · %61.3 · +0.26 |   5.4/hf · %57.7 · +0.20 |   4.1/hf · %53.4 · +0.03
+  gönderilmeyen + koşul                        40.4/hf · %56.4 · +0.13 |  53.0/hf · %56.3 · +0.04 |  45.7/hf · %53.9 · -0.03
+
+C2a aynı saatte ≥ 5 coin sinyali
+  ✅ ana + koşul                                 7.6/hf · %60.2 · +0.53 |  12.9/hf · %64.2 · +0.60 |  13.6/hf · %69.6 · +0.62
+  🔸 yedek + koşul                               0.4/hf · %74.2 · +0.68 |   0.8/hf · %60.0 · -0.29 |   0.9/hf · %59.5 · +0.25
+  gönderilmeyen + koşul                        10.5/hf · %57.6 · +0.12 |  24.7/hf · %58.4 · +0.06 |  22.2/hf · %57.7 · +0.20
+
+C2b aynı saatte tek coin
+  ✅ ana + koşul                                 5.3/hf · %54.8 · +0.46 |   5.4/hf · %59.5 · +1.00 |   6.4/hf · %58.0 · +0.71
+  🔸 yedek + koşul                               5.3/hf · %59.5 · +0.18 |   4.2/hf · %60.2 · +0.24 |   5.0/hf · %59.7 · +0.07
+  gönderilmeyen + koşul                        22.2/hf · %55.3 · +0.00 |  21.2/hf · %54.4 · +0.01 |  21.9/hf · %50.1 · -0.12
+
+C3a son 24 s çok yükselmiş (z ≥ 2)
+  ✅ ana + koşul                                 1.8/hf · %57.2 · +0.94 |   1.7/hf · %51.6 · +1.24 |   2.1/hf · %57.6 · +1.83
+  🔸 yedek + koşul                               0.4/hf · %50.0 · +0.31 |   0.1/hf · %57.1 · +0.24 |   0.1/hf · %50.0 · +0.25
+  gönderilmeyen + koşul                         2.3/hf · %62.4 · +0.43 |   1.1/hf · %64.6 · +0.77 |   1.1/hf · %69.0 · +1.09
+
+C3b son 24 s çok düşmüş (z ≤ −2)
+  ✅ ana + koşul                                 2.8/hf · %64.2 · +0.58 |   3.5/hf · %67.1 · +1.58 |   3.0/hf · %71.1 · +1.21
+  🔸 yedek + koşul                               1.0/hf · %61.9 · +0.40 |   1.4/hf · %58.9 · +0.06 |   0.9/hf · %47.2 · -0.06
+  gönderilmeyen + koşul                         6.6/hf · %54.7 · +0.22 |   8.4/hf · %59.7 · +0.18 |   8.0/hf · %53.5 · -0.22
+
+C4a coin fonlaması düşük (z ≤ −1)
+  ✅ ana + koşul                                 4.7/hf · %56.6 · +0.27 |   6.6/hf · %62.8 · +0.82 |   8.2/hf · %65.2 · +0.60
+  🔸 yedek + koşul                               1.2/hf · %73.7 · +0.65 |   1.7/hf · %50.8 · -0.04 |   2.0/hf · %38.0 · -0.30
+  gönderilmeyen + koşul                        12.5/hf · %57.4 · +0.04 |  16.6/hf · %54.2 · +0.09 |  18.6/hf · %52.2 · +0.07
+
+C4b coin fonlaması çok yüksek (z ≥ 2)
+  ✅ ana + koşul                                 1.1/hf · %59.1 · +0.88 |   2.1/hf · %65.0 · +1.67 |   0.3/hf · %64.3 · +1.78
+  🔸 yedek + koşul                               0.5/hf · %52.5 · -0.08 |   0.4/hf · %62.1 · +0.68 |   0.4/hf · %53.3 · -0.02
+  gönderilmeyen + koşul                         2.5/hf · %64.4 · +0.46 |   2.1/hf · %64.4 · +0.29 |   0.7/hf · %65.5 · +0.19
+
+C6a coin'in Kore primi yüksek (z ≥ 1)
+  ✅ ana + koşul                                   0 az |   4.5/hf · %64.8 · +1.02 |   5.0/hf · %67.2 · +1.09
+  🔸 yedek + koşul                                 0 az |   1.5/hf · %56.5 · +0.33 |   1.6/hf · %56.5 · +0.19
+  gönderilmeyen + koşul                           0 az |  16.6/hf · %54.5 · +0.04 |  20.4/hf · %52.4 · +0.03
+
+C6b BTC'nin Kore primi yüksek (z ≥ 1)
+  ✅ ana + koşul                                   0 az |   5.2/hf · %57.4 · +0.41 |   8.1/hf · %60.6 · +0.72
+  🔸 yedek + koşul                                 0 az |   1.5/hf · %54.3 · +0.32 |   2.7/hf · %49.5 · +0.07
+  gönderilmeyen + koşul                           0 az |  17.3/hf · %54.5 · +0.03 |  23.4/hf · %51.4 · +0.02
+
+C7a BTC 50 g ortalamanın üstünde
+  ✅ ana + koşul                                22.0/hf · %57.8 · +0.63 |  27.3/hf · %58.7 · +0.67 |  27.8/hf · %59.7 · +0.53
+  🔸 yedek + koşul                               5.6/hf · %61.0 · +0.24 |   6.1/hf · %56.3 · +0.07 |   7.7/hf · %54.4 · +0.01
+  gönderilmeyen + koşul                        47.5/hf · %58.6 · +0.20 |  54.5/hf · %55.1 · +0.01 |  50.5/hf · %51.8 · +0.02
+
+C7b BTC 50 g ortalamanın altında
+  ✅ ana + koşul                                15.3/hf · %52.1 · +0.22 |  13.3/hf · %58.7 · +0.69 |  16.1/hf · %60.9 · +0.71
+  🔸 yedek + koşul                               3.5/hf · %59.7 · +0.21 |   3.5/hf · %56.8 · +0.16 |   4.0/hf · %52.8 · +0.09
+  gönderilmeyen + koşul                        39.8/hf · %53.5 · -0.11 |  47.0/hf · %54.6 · +0.05 |  47.4/hf · %52.3 · -0.05
+```
+
+**Gerçek veride geçen:** 3 · **plasebo (30 ve 60 gün kaydırılmış, iki deneme toplamı):** 1
+- GÖN+: C3a son 24 s çok yükselmiş (z ≥ 2)
+- ANA+: C3b son 24 s çok düşmüş (z ≤ −2)
+- ANA+: C4b coin fonlaması çok yüksek (z ≥ 2)
+
+## T5 — sinyal fiyatının altına limit emir (2 saatte dolmazsa işlem yok), ✅ ana sinyaller
+_dolan sinyal oranı · işlem başı net · haftalık toplam net (haftada sinyal × işlem başı)_
+```
+k = 0.0  %100 dolan · +0.46 · haftalık +17.1 | %100 dolan · +0.67 · haftalık +27.3 | %100 dolan · +0.59 · haftalık +26.1
+k = 0.5  % 65 dolan · +0.46 · haftalık +11.1 | % 65 dolan · +0.60 · haftalık +15.9 | % 61 dolan · +0.50 · haftalık +13.3
+k = 1.0  % 42 dolan · +0.57 · haftalık  +9.0 | % 42 dolan · +0.70 · haftalık +12.0 | % 37 dolan · +0.45 · haftalık  +7.4
+```
+
+## Önceden yazılı karar
+- GÖN+: **C3a son 24 s çok yükselmiş (z ≥ 2)**
+- ANA+: **C3b son 24 s çok düşmüş (z ≤ −2)**
+- ANA+: **C4b coin fonlaması çok yüksek (z ≥ 2)**
+- Plasebo kontrolü: gerçek 3 · plasebo ortalaması 0.5 → ✅ gerçek bulgu fazlası var
+- T5 giriş: ❌ geçmedi — giriş aynen (sinyal fiyatı)
+
+_Süre: 271 sn_
+exit=0
