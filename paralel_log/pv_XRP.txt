@@ -1,0 +1,4 @@
+XRP Binance 1 dk: 2324080 7 sn
+XRP Coinbase 1 dk: 1690637 781 sn
+XRP 5 dk çubuk: 464832 · Coinbase dolu oranı 0.728 781 sn
+exit=0

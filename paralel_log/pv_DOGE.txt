@@ -1,0 +1,4 @@
+DOGE Binance 1 dk: 2324080 8 sn
+DOGE Coinbase 1 dk: 2295112 784 sn
+DOGE 5 dk çubuk: 464832 · Coinbase dolu oranı 1.0 785 sn
+exit=0

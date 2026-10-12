@@ -1,0 +1,4 @@
+ADA Binance 1 dk: 2324080 8 sn
+ADA Coinbase 1 dk: 2271132 784 sn
+ADA 5 dk çubuk: 464832 · Coinbase dolu oranı 1.0 784 sn
+exit=0

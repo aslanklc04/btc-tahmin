@@ -1,0 +1,4 @@
+AVAX Binance 1 dk: 2324080 6 sn
+AVAX Coinbase 1 dk: 2022421 783 sn
+AVAX 5 dk çubuk: 464832 · Coinbase dolu oranı 1.0 783 sn
+exit=0

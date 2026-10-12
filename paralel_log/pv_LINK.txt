@@ -1,0 +1,4 @@
+LINK Binance 1 dk: 2324080 7 sn
+LINK Coinbase 1 dk: 2254834 783 sn
+LINK 5 dk çubuk: 464832 · Coinbase dolu oranı 1.0 783 sn
+exit=0

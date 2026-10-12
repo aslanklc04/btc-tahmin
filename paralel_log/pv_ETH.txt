@@ -1,0 +1,4 @@
+ETH Binance 1 dk: 2324080 6 sn
+ETH Coinbase 1 dk: 2322974 808 sn
+ETH 5 dk çubuk: 464832 · Coinbase dolu oranı 1.0 808 sn
+exit=0
