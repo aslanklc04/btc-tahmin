@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (🔀 kuralı: canli-test dalı)
+# canli kuru test (zayıf iki sinyal kapatıldı: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -43,14 +43,8 @@ jobs:
         run: |
           set +e
           {
-          echo "=== tahmin_coin.py TEST_ZORLA=zit (🔀 coin z +0,8 · BTC z −0,5)"; TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c.txt | head -20
-          cp durum/tg_kuyruk.json /tmp/q1.json
-          echo "=== tahmin_coin.py TEST_ZORLA=tek (gerçek primler: BTC z şu an)"; rm -f durum/tg_kuyruk.json; TEST_ZORLA=tek timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -20
-          python -c "
-          import json
-          for m in json.load(open('durum/tg_kuyruk.json')): print('tek:', m.get('c'), '·', round(m['o']), '·', m['e'])
-          "
-          cp /tmp/q1.json durum/tg_kuyruk.json
+          echo "=== tahmin.py TEST_ZORLA=kisa (🔻 → panel olmalı)"; TEST_ZORLA=kisa timeout 600 python tahmin.py > /tmp/t.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/t.txt | head -12
+          echo "=== tahmin_coin.py TEST_ZORLA=zit"; TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c.txt | head -12
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
