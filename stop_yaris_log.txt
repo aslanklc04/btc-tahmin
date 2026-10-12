@@ -1,0 +1,26 @@
+# 🛑 Önce stop mu, önce hedef mi? — 12.10.2026 20:51
+_σ = coin'in o anki saatlik oynaklığı × √(tutma süresi) · aynı saatte ikisi birden olursa STOP sayıldı (temkinli) · en kötü düşüş = tutma süresi içinde girişin en çok ne kadar altına indi_
+
+## 2022-06→2023
+| Grup | Sinyal | İsabet · net | ±1σ yarışında önce STOP | ±0,5σ'da önce STOP | En kötü düşüş medyan · %90 | −%1'e değdi | −%2'ye değdi | −%5'e değdi |
+|---|---|---|---|---|---|---|---|---|
+| ✅ ana (hepsi) | 3086 | %56 · +0.46 | %47 | %47 | %1.29 · %4.76 | %58 | %36 | %9 |
+| 🔀 (ana, BTC sessiz + coin alınıyor + BTC hafif satılıyor) | 67 | %70 · +0.52 | %49 | %43 | %0.79 · %2.50 | %45 | %19 | %3 |
+| 🔸 🔇 BTC sessiz + coin primi ≥ 0 (yedek) | 344 | %59 · +0.26 | %46 | %50 | %0.69 · %2.43 | %39 | %15 | %1 |
+
+## 2024+
+| Grup | Sinyal | İsabet · net | ±1σ yarışında önce STOP | ±0,5σ'da önce STOP | En kötü düşüş medyan · %90 | −%1'e değdi | −%2'ye değdi | −%5'e değdi |
+|---|---|---|---|---|---|---|---|---|
+| ✅ ana (hepsi) | 5854 | %59 · +0.67 | %44 | %46 | %1.34 · %5.24 | %58 | %36 | %11 |
+| 🔀 (ana, BTC sessiz + coin alınıyor + BTC hafif satılıyor) | 130 | %67 · +0.80 | %45 | %38 | %0.99 · %4.62 | %50 | %30 | %8 |
+| 🔸 🔇 BTC sessiz + coin primi ≥ 0 (yedek) | 500 | %60 · +0.25 | %54 | %50 | %1.02 · %4.09 | %51 | %29 | %7 |
+
+## 2026
+| Grup | Sinyal | İsabet · net | ±1σ yarışında önce STOP | ±0,5σ'da önce STOP | En kötü düşüş medyan · %90 | −%1'e değdi | −%2'ye değdi | −%5'e değdi |
+|---|---|---|---|---|---|---|---|---|
+| ✅ ana (hepsi) | 1754 | %60 · +0.59 | %41 | %41 | %1.01 · %4.13 | %51 | %28 | %6 |
+| 🔀 (ana, BTC sessiz + coin alınıyor + BTC hafif satılıyor) | 26 | %85 · +1.00 | %28 | %24 | %0.33 · %2.01 | %23 | %12 | %0 |
+| 🔸 🔇 BTC sessiz + coin primi ≥ 0 (yedek) | 114 | %53 · -0.02 | %50 | %54 | %0.77 · %2.41 | %39 | %12 | %2 |
+
+_Süre: 242 sn_
+exit=0
