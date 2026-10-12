@@ -1,6 +1,8 @@
 # alim_hizi.py — "ALIM EMİRLERİ HIZLI GELİYOR, SATIŞ EMİRLERİ ÇABUK ERİYOR" (yalnız test, kullanıcı fikri 12.10.2026).
 #   AH  alım hızı: son 1 saatteki agresif alış hacmi (taker buy, Binance spot) son 30 güne göre z ≥ 2 VE alıcı payı ≥ %55
 #   SE  satış eriyor: Binance vadeli emir defterinde fiyatın %1 üstündeki satış emirleri (notional) son 4 saatte olağandışı azaldı (z ≤ −2), %1 altındaki alış emirleri azalmadı (z > −1)
+#   LD  likidite dipte: fiyatın ±%1'indeki toplam emir derinliği son 30 güne göre olağandışı düşük (z ≤ −2)  [kullanıcı fikri]
+#   SB  satış tarafı boş: %1 üstündeki satış derinliği olağandışı düşük (z ≤ −2), alış derinliği normal (z > −1)  [kullanıcı fikri]
 #   AH+SE ikisi birden. Emir defteri arşivi 2023'ten → dönemler 2023 · 2024+ · 2026 (Eylül sonuna).
 # ÖNCEDEN YAZILI KARAR (12.10.2026, sonuçlar görülmeden):
 #   TEK BAŞINA AL: tutma süresi (4 / 8 / 24 s) yalnız 2023'ten seçilir; seçilen süre üç dönemde de ana set ölçütünü geçerse
@@ -178,16 +180,20 @@ for nm in COINS15:
     if parts:
         D = pd.concat(parts).sort_index(); D = D[~D.index.duplicated()]; D.index = pd.DatetimeIndex(D.index).as_unit("ns"); DER[nm] = D
     print(nm, "emir defteri gün:", len(parts), f"{time.time()-T0:.0f} sn", flush=True)
+pd.to_pickle(DER, "derinlik.pkl")
 yaz(f"Spot: {len(SP)} coin · emir defteri: {len(DER)} coin ({', '.join(f'{k}:{v.index[0]:%Y-%m}' for k, v in DER.items())}) · {time.time()-T0:.0f} sn\n")
 def z720(s): return (s - s.rolling(720, min_periods=168).mean()) / (s.rolling(720, min_periods=168).std() + 1e-12)
 KOS = {}
 for nm in COINS15:
     d = SP[nm]; ah = (z720(np.log(d.tbq + 1)) >= 2) & ((d.tbq / (d.qv + 1e-9)) >= 0.55)
-    se = pd.Series(False, index=d.index)
+    se = ld = sb = pd.Series(False, index=d.index)
     if nm in DER and {"ask1", "bid1"} <= set(DER[nm].columns):
         D = DER[nm].reindex(d.index); a4 = np.log(D.ask1).diff(4); b4 = np.log(D.bid1).diff(4)
         se = ((z720(a4) <= -2) & (z720(b4) > -1)).fillna(False)
-    KOS[nm] = pd.DataFrame({"AH alım hızı": ah.fillna(False), "SE satış emirleri eriyor": se, "AH+SE ikisi birden": (ah & se).fillna(False)})
+        ld = (z720(np.log(D.ask1 + D.bid1)) <= -2).fillna(False)
+        sb = ((z720(np.log(D.ask1)) <= -2) & (z720(np.log(D.bid1)) > -1)).fillna(False)
+    KOS[nm] = pd.DataFrame({"AH alım hızı": ah.fillna(False), "SE satış emirleri eriyor": se, "AH+SE ikisi birden": (ah & se).fillna(False),
+                            "LD likidite dipte": ld, "SB satış tarafı boş": sb})
 P23, A24x, A26x, SONx = pd.Timestamp("2023-01-01", tz="UTC"), pd.Timestamp("2024-01-01", tz="UTC"), pd.Timestamp("2026-01-01", tz="UTC"), pd.Timestamp("2026-10-01", tz="UTC")
 DNx = (("2023", P23, A24x), ("2024+", A24x, SONx), ("2026", A26x, SONx))
 BEN = {"2023": (55.9, 0.30), "2024+": (58.6, 0.647), "2026": (59.1, 0.589)}; MIN = {"2023": 30, "2024+": 30, "2026": 10}
