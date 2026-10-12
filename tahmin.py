@@ -134,7 +134,7 @@ if KISA_BILDIRIM and kisa_now and (G.get("last_kisa") is None or t - G["last_kis
             "Geçmiş (24 saat kısa, limit emir, fonlama dahil): işlem başı net 2018–23 +%0,41 · 2024+ +%0,36 · 2026 +%0,46 · haftada ~1 · isabet ~%51 (kazançlar kayıplardan büyük)\n"
             f"💡 Vadelide LİMİT kısa (satış) ${P_NOW:,.1f} — 60 dk geçerli · çıkış {cik_k:%d.%m %H:%M}: limit alışla kapat, 60 dk'da dolmazsa piyasa emriyle · {CIKIS_NOT} · geçmiş ort. sonuç: fiyat %0,40 düştü\n"
             "Bu anlarda coin'ler de genelde düştü (2024+ kısa kazancı ort. +%0,5; kanıt sınırda).\n⚠️ Kaldıraç düşük (2–3x), izole teminat; testte stop kullanılmadı.",
-            oncelik=sira_puani("🔻", -CBZ), etiket=f"🔻 BTC KISA (24 s) · ABD satıyor z {CBZ:+.1f}", sinif="ana")
+            oncelik=sira_puani("🔻", -CBZ), etiket=f"🔻 BTC KISA (24 s) · ABD satıyor z {CBZ:+.1f}", sinif="panel")   # 12.10.2026: GÖNDERİLMEZ (ozet_tum.py: isabet %52 · %49 · %40, 2024+ alt sınır < 0) — panelde izlenir
     G["last_kisa"] = t; logsig("🔻 Coinbase kısa (24s)", 24, -1)
 kisa_md = (f"🔻 Kısa (satış) sinyali: **VAR** — ABD güçlü satıyor (prim z {CBZ:+.1f})" if kisa_now else f"🔻 Kısa (satış) sinyali: yok (eşik: Coinbase primi z ≤ −2; şu an {CBZ:+.1f})")
 if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_weekly") is None or t - G["last_weekly"] >= pd.Timedelta(days=6)):
@@ -145,7 +145,7 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
         body = "\n".join(f"• {k}: {sum(x['ok'] for x in v)}/{len(v)} tuttu (%{100*sum(x['ok'] for x in v)/len(v):.0f}) · ort. %{np.mean([x['ret'] for x in v]):+.2f}" for k, v in by.items())
         tot = sum(x["ok"] for x in wk_)
         cbo = cb_ozet([e_ for e_ in wk_ if e_.get("sg") == 1]); body += ("\n" + cbo if cbo else "")
-        tg_send(f"📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün\nℹ️ BTC alış sinyalleri artık işlem sinyali olarak gönderilmiyor (yalnız yedek olabilir); 🔻 kısa gönderiliyor.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
+        tg_send(f"📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün\nℹ️ BTC alış sinyalleri artık işlem sinyali olarak gönderilmiyor (yalnız yedek olabilir); 🔻 kısa da artık gönderilmiyor (zayıf çıktı, yalnız panelde izleniyor).\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
     else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.")
     G["last_weekly"] = t
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):

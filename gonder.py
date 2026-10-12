@@ -2,7 +2,7 @@
 # Betikler TG_SIRALI=1 iken mesajları durum/tg_kuyruk.json'a yazar (ortak.tg_send). Her mesajın sınıfı var (11.10.2026, secim2.py R5 · secim4.py):
 #   ana   → ✅ İŞLEM SİNYALİ, her zaman gider (en iyisi üstte, 🥇🥈🥉)
 #   yedek → 🔸 YEDEK SİNYAL olarak her zaman gider (kullanıcı isteği), ana sinyallerin altında; ⛔ olanlar (ABD satıyor, öncelik ≥ 2000) GİTMEZ — testte kaybettirdi
-#           🔥 Binance BTC ort. işlem büyüklüğü z ≥ 2 iken (büyük oyuncular aktif) ⛔ olmayan yedekler ✅ ana olur (secim5.py T2: 2022–23 %66 · 2024+ %61 · 2026 net +%0,27)
+#           (🔥 büyük işlem saati yükseltmesi 12.10.2026'da KALDIRILDI — ozet_tum.py: 2026'da %50 · +%0,18)
 #           🔥 KuCoin BTC fonlaması z ≥ 2 iken de aynı (fon_vekil.py: %72 · %65 · %79, net +%0,72 · +%0,48 · +%0,88; Binance vadeli API ABD'den kapalı olduğu için KuCoin)
 #   panel → hiç gitmez (yalnız panel) · bilgi → raporlar / özetler, her zaman gider
 # Kararlar son_durum.md'nin sonuna ve durum/gun_durum.json'a yazılır.
@@ -61,8 +61,8 @@ def main():
     for m in q: m.setdefault("c", "ana" if m["o"] < 9000 else "bilgi")                         # eski biçim
     ana = sorted([m for m in q if m["c"] == "ana"], key=lambda m: (m["o"], m["s"])); yedek = sorted([m for m in q if m["c"] == "yedek"], key=lambda m: (m["o"], m["s"]))
     bilgi = sorted([m for m in q if m["c"] == "bilgi"], key=lambda m: m["s"]); panel = [m for m in q if m["c"] == "panel"]
-    IZ = islem_z() if yedek else float("nan"); FZ = fon_z() if yedek else float("nan")
-    TERFI = TERFI_ISLEM.format(z=IZ) if np.isfinite(IZ) and IZ >= 2 else (TERFI_FON.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None)
+    FZ = fon_z() if yedek else float("nan")
+    TERFI = TERFI_FON.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None                    # yalnız fonlama (büyük işlem saati kaldırıldı)
     terfi = [m for m in yedek if m["o"] < ALMA_ESIK] if TERFI else []
     if terfi:                                                                                  # 🔥 yedek → ana (asıl ana sinyallerin altında sıralanır)
         for m in terfi: m["terfi"] = True
