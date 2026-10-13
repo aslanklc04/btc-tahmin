@@ -1,6 +1,6 @@
 {
 "gun": "2026-10-13",
-"giden": 3,
+"giden": 4,
 "log": [
 {
 "t": "11.10 20:06",
@@ -204,6 +204,18 @@
 "t": "13.10 15:04",
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 18:05",
+"s": "✅ ana",
+"e": "💵 ABD güçlü alıyor: AAVE (z +2.0)",
+"k": "gönderildi"
+},
+{
+"t": "13.10 18:05",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
 }
 ]
