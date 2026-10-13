@@ -15,3 +15,11 @@ ld_genis.py'de 💧 geniş liste + 💵 coin'lerinde de geçti (118 coin; K0–K
 dakikada yarısı olmak üzere (tek/çift dakika → saatte ~30 örnek) ölçmeye başladı. Bu coin'ler için de AYNI U1–U3 ölçütleri uygulanır
 (coin başına ≥ 20 ortak saat olunca; U1 "hiçbir coin < 0,75" şartı yerine: < 0,75 olan coin hariç tutulur). Uyan coin'lerde 💧 canlıya geçer.
 BTC ve ETH: 1000 seviye ±%1'i kapsamıyor → şimdilik hariç.
+
+## Ek 2 (13.10.2026 ~13:10 TR, kullanıcı: "Likidite tekniği tam emin olmadan ekleme" — karşılaştırma verisi görülmeden)
+Otomatik canlıya geçiş KALDIRILDI. Ölçütler sıkılaştırıldı:
+  - Coin başına en az 72 ortak saat (≥ 3 gün; 20 yerine). U1–U3 aynı.
+  - U4 GÜN GÜN TUTARLILIK: U1–U3 ilk gün ve son gün ayrı ayrı da geçmeli (tek iyi günün şansı elenir).
+  - U5 💧 OLAYLARI: 3 günde arşivde 💧 (z ≤ −2) olan saatlerin ≥ %80'i Neon ölçümüyle de 💧 olmalı, Neon'un fazladan 💧 dediği saat ≤ %2.
+  - Neon kesintisi: 3 günde ≥ %95 dakika ölçülmüş olmalı.
+Hepsi geçse bile 💧 kendiliğinden canlıya EKLENMEZ: sonuç kullanıcıya gösterilir, kullanıcı onay verirse eklenir.
