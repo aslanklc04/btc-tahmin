@@ -1,0 +1,21 @@
+name: Sinyal anlik degerlendirme
+on:
+  push:
+    branches: [arastirma3]
+    paths: [degerlendir_simdi.py, .github/workflows/degerlendir_simdi.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - run: pip install -q requests pandas && python degerlendir_simdi.py
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add degerlendir_simdi.txt && git commit -m "Anlik degerlendirme" || exit 0
+          for i in 1 2 3; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 3; done
