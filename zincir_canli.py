@@ -94,7 +94,7 @@ def calis():
                         sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}\n   Geçmiş: {gec}")
                         if np.isfinite(p_now) and len(yon) == 1: GZ["log"].append(dict(t=t0, kural=ad, yon=y, gun=gun, p=p_now, veri=son_gun))
                     CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
-                    tg(f"{bas} — {tl:%d.%m %H:%M}\nVeri: {son_gun:%d.%m} günü (Coin Metrics + DefiLlama · test bu giriş saatiyle yapıldı: zincir3.py)\n"
+                    tg(("⏱ SÜRE: " + " · ".join(f"{k[0]} {k[3]} GÜN" for k in yeni) + " TUT (çıkış saatleri satırlarda)\n" if yon == {1} else "") + f"{bas} — {tl:%d.%m %H:%M}\nVeri: {son_gun:%d.%m} günü (Coin Metrics + DefiLlama · test bu giriş saatiyle yapıldı: zincir3.py)\n"
                        f"ETH ölçüleri: {zsatir(r)}\n💵 ETH Coinbase primi: {cb_kisa(CBE)} (bilgi)" + (f"\n{hz_}" if hz_ else "") + "\n\n" + "\n".join(sat) + f"\n\n{btc_satir}\n"
                        "⚠️ Seyrek, 3–7 gün süren işlemler; geçmiş örnek az (10–47). İşlem sürerken geçmişte en kötü ters hareket 2024+ %11–15, eski yıllarda %30'a kadar → kaldıraç en fazla 2x. Yatırım tavsiyesi değildir." + ("\n" + tut_notu(["⛓️"]) if yon == {1} else ""),
                        oncelik=sira_puani("⛓️", ZE if yon == {1} else (-ZE if np.isfinite(ZE) else ZE)) if len(yon) == 1 else sira_puani("ℹ️"),

@@ -61,7 +61,7 @@ def calis():
                         if np.isfinite(p_now): GK["log"].append(dict(t=t0, sym=nm, p=p_now, veri=son_gun, z=zn))
                         bek_ = f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}" if np.isfinite(gr_) else f" · {CIKIS_NOT}"
                         sat.append(f"• {nm}: limit ALIŞ {fmt(p_now) if np.isfinite(p_now) else '?'} · kaldıraç en fazla {kal}{bek_}\n   💵 {nm} Coinbase primi: {cb_kisa(CBK)} (bilgi)" + (f" · {hz_}" if hz_ else "") + f"\n   Geçmiş: {gec}")
-                    tg(f"🧑🟢 BTC / ETH AL — KÜÇÜK YATIRIMCI KAÇIYOR — {tl:%d.%m %H:%M}\n"
+                    tg(sure_basi(None, cikis, GUN) + f"🧑🟢 BTC / ETH AL — KÜÇÜK YATIRIMCI KAÇIYOR — {tl:%d.%m %H:%M}\n"
                        f"1 BTC'den küçük cüzdanlardaki BTC 30 günde %{d30:+.2f} değişti (olağandışı düşüş, z {zn:+.1f}) · veri günü {son_gun:%d.%m}\n"
                        + "\n".join(sat) + f"\nÇıkış (ikisi için): {cikis:%d.%m %H:%M} ({GUN} gün tut)\n{BILGI}\n" + tut_notu(["🧑"], GUN * 24) + "\n"
                        "⚠️ BTC ve ETH aynı bahis (birlikte hareket eder): ikisini birden alırsan toplam risk büyür. Ayda ~1 sinyal, bazen art arda haftalar. Veri yalnız 4 yıllık; canlıda izleniyor. Yatırım tavsiyesi değildir.",

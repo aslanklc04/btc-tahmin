@@ -380,3 +380,8 @@ def tut_notu(turler, H=None):
         if tur in ("⛓️", "🧑"): sat += " (örnek az)"
         out.append(sat)
     return "\n".join(out)
+
+def sure_basi(saat, cikis=None, gun=None):
+    """Her sinyal mesajının EN ÜSTÜ: ne kadar tutulacak ve çıkış saati (kullanıcı 13.10.2026: 'diğer tahminlerin süresini bilmiyorum')."""
+    s = f"{gun} GÜN" if gun else f"{saat} SAAT"
+    return f"⏱ SÜRE: {s} TUT" + (f" → çıkış {cikis:%d.%m %H:%M}" if cikis is not None else "") + "\n"
