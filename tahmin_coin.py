@@ -146,6 +146,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             txt = ((MOM_NOT.format(z=RZ) + "\n" if mom_ else "") + (DIP_NOT.format(z=RZ) + "\n" if ana_ and dip_mi(RZ) else "") + (FON_NOT.format(z=fon_coin_z(NM)) + "\n" if ana_ and fon_mu(NM) else "") + baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n" + (hz_ + "\n" if hz_ else "")
                    + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_) + "\n"
                    + ("⏱️ Gecikmeden hareket edin. " + ZIT_NOT.format(zc=zt_, zb=zb_) if zit_ else "⏱️ Gecikmeden hareket edin." if mom_ else "⏱️ Gecikmeden hareket edin. ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı."))
+            if ana_: txt += "\n" + tut_notu((["🔀"] if zit_ else []) + (["🚀"] if mom_ else []) + (["📉🔥"] if dip_mi(RZ) else []), H0_)
             if mom_: txt = txt.replace("⛔ ALMA", "⛔ ama 🚀 momentum")
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
             if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔇" if sessiz_ else "🪙", ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)) + (ONCELIK_DIP if ana_ and dip_mi(RZ) else 0) + (ONCELIK_FON if ana_ and fon_mu(NM) else 0),
@@ -180,7 +181,8 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
         tg_send(f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(_isr(x, sinif_) for x in grup)
                 + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. "
                 + (ANA_NOT if sinif_ == "ana" else "Komisyon sonrası kâr kanıtlanmadı.") + ("\n🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 2) gelir · testte isabet %70–73, işlem başı +%0,9" if any(_g(x) for x in grup) else "")
-                + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup)),
+                + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup))
+                + ("\n" + tut_notu((["🤝"] if any(not _g(x) for x in grup) else []) + (["🌐🤝"] if any(_g(x) for x in grup) else []) + [k_ for k_ in ("📉🔥", "🚀") if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup)], 4) if sinif_ == "ana" else ""),
                 oncelik=sira_puani("🤝", zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) and not _g(x) for x in grup) else 0) + (ONCELIK_FON if sinif_ == "ana" and any(fon_mu(x[2]) for x in grup) else 0), etiket="🤝 BTC ile ortak: " + ", ".join(f"{x[2]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık altcoin raporu (pazar 20:00, BTC raporuyla aynı saatte) ----
 try:

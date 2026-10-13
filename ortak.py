@@ -353,3 +353,30 @@ def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)"):
     c = f"{giris} {fiyat_yaz(p)} → çıkış {pd.Timestamp(cikis_t).tz_convert(DISPLAY_TZ):%d.%m %H:%M}'de {'sat' if yon > 0 else 'kapat'} ({CIKIS_NOT})"
     if ort is not None and np.isfinite(ort): c += f" · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}"
     return c
+
+# ---- ⏱ tutma süresi notu (tutma3.py, 13.10.2026: aynı ✅ ana sinyaller H / 2H / 3H saat tutulunca; isabet · işlem başı net %, 2024+ ve 2026) ----
+# Önceden yazılı karar: 3H'nin isabeti üç dönemde H − 2 puan içinde VE neti ≥ H ise "uzatılabilir"; yalnız 🚀 geçti, 💵 yalnız 2H'de geçti.
+TUT_TEST = {"🧪": ((58.9, 1.01, 50.8, 0.18), (56.1, 1.69, 51.9, 0.35)), "🌐🧪": ((59.5, 1.23, 59.6, 1.18), (56.2, 2.33, 52.8, 1.25)),
+            "🤝": ((62.7, 0.32, 68.4, 0.48), (60.0, 0.67, 57.7, 0.59)), "🌐🤝": ((69.0, 0.65, 75.7, 1.13), (68.4, 1.18, 73.5, 1.62)),
+            "🔀": ((63.9, 0.56, 81.2, 0.65), (61.9, 0.61, 62.5, 0.07)), "💵": ((54.0, 0.64, 53.8, 0.58), (54.1, 1.16, 50.9, 0.78)),
+            "📉🔥": ((67.1, 1.31, 72.1, 1.35), (65.6, 2.04, 66.7, 1.30)), "🚀": ((64.6, 0.77, 69.0, 1.09), (65.8, 1.25, 76.2, 2.66)),
+            "⛓️": ((57.5, 2.59, 57.9, 2.34), (58.9, 4.95, 52.6, 4.06)), "🧑": ((64.8, 3.61, 68.8, 2.96), (72.2, 11.16, 62.5, 7.92))}
+def _sure(h):
+    if h is None: return None
+    return f"{h // 24:.0f} gün" if h >= 48 and h % 24 == 0 else f"{h:.0f} saat"
+def tut_notu(turler, H=None):
+    """Her ✅ sinyal mesajına: tahmin süresi kadar tut + 3 katı tutmanın test sonucu (rakamlar tutma3.py'den, değiştirilmez)."""
+    out = []
+    for tur in dict.fromkeys(t for t in turler if t in TUT_TEST):
+        (h1, n1, h1b, n1b), (h3, n3, h3b, n3b) = TUT_TEST[tur]
+        s1 = _sure(H) or ("satırdaki süre" if tur == "💵" else "kuraldaki süre" if tur == "⛓️" else "süre"); s3 = f"3 katı ({_sure(3 * H)})" if H else "3 katı"
+        v = lambda x: f"{x:.2f}".replace(".", ",")
+        sat = (f"⏱ {tur} TUT: tahmin süresi kadar ({s1}) → çıkış saatinde sat, stop koyma. {s3} tutmak testte: isabet %{h1:.0f} → %{h3:.0f} (2026 %{h1b:.0f} → %{h3b:.0f}) · "
+               f"işlem başı kâr +%{v(n1)} → +%{v(n3)} (2026 +%{v(n1b)} → +%{v(n3b)})")
+        dus = "isabet düşüyor" if h3 < h1 - 0.5 else "2026'da isabet düşüyor"
+        if tur == "🚀": sat += " → isabet de kâr da artıyor: ✅ istersen 3 katına kadar tutabilirsin"
+        elif tur == "💵": sat += " → 2 katına kadar tutabilirsin (testte isabet %54, kâr +%0,88); 3 katında 2026 isabeti düşüyor"
+        else: sat += f" → kâr artıyor ama {dus}, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık"
+        if tur in ("⛓️", "🧑"): sat += " (örnek az)"
+        out.append(sat)
+    return "\n".join(out)

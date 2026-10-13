@@ -96,7 +96,7 @@ def calis():
                     CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
                     tg(f"{bas} — {tl:%d.%m %H:%M}\nVeri: {son_gun:%d.%m} günü (Coin Metrics + DefiLlama · test bu giriş saatiyle yapıldı: zincir3.py)\n"
                        f"ETH ölçüleri: {zsatir(r)}\n💵 ETH Coinbase primi: {cb_kisa(CBE)} (bilgi)" + (f"\n{hz_}" if hz_ else "") + "\n\n" + "\n".join(sat) + f"\n\n{btc_satir}\n"
-                       "⚠️ Seyrek, 3–7 gün süren işlemler; geçmiş örnek az (10–47). İşlem sürerken geçmişte en kötü ters hareket 2024+ %11–15, eski yıllarda %30'a kadar → kaldıraç en fazla 2x. Yatırım tavsiyesi değildir.",
+                       "⚠️ Seyrek, 3–7 gün süren işlemler; geçmiş örnek az (10–47). İşlem sürerken geçmişte en kötü ters hareket 2024+ %11–15, eski yıllarda %30'a kadar → kaldıraç en fazla 2x. Yatırım tavsiyesi değildir." + ("\n" + tut_notu(["⛓️"]) if yon == {1} else ""),
                        oncelik=sira_puani("⛓️", ZE if yon == {1} else (-ZE if np.isfinite(ZE) else ZE)) if len(yon) == 1 else sira_puani("ℹ️"),
                        etiket=f"⛓️ ETH arz/talep {'AL' if yon == {1} else ('SAT (kısa)' if yon == {-1} else 'çelişkili — işlem açma')} ({', '.join(k[0] for k in yeni)}, 3–7 gün)", sinif="ana" if len(yon) == 1 else None)
                 if not kuru: GZ["gun"] = dun
