@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/coin_gecmis.py", line 165, in <module>
+    E = pd.concat([C] + GV, ignore_index=True); E["t"] = utc(E.t); E = E[np.isfinite(E.net)].sort_values("t").reset_index(drop=True); E["ok"] = (E.net > 0).astype(float)
+                                                         ^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/coin_gecmis.py", line 143, in utc
+    def utc(ix): ix = pd.DatetimeIndex(ix); return (ix.tz_localize("UTC") if ix.tz is None else ix.tz_convert("UTC")).as_unit("ns")
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/datetimes.py", line 702, in __new__
+    dtarr = DatetimeArray._from_sequence_not_strict(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 381, in _from_sequence_not_strict
+    subarr, tz = _sequence_to_dt64(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2472, in _sequence_to_dt64
+    converted, inferred_tz = objects_to_datetime64(
+                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2623, in objects_to_datetime64
+    result, tz_parsed = tslib.array_to_datetime(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslib.pyx", line 259, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslib.pyx", line 473, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslib.pyx", line 355, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslibs/strptime.pyx", line 284, in pandas._libs.tslibs.strptime.DatetimeParseState.process_datetime
+ValueError: Tz-aware datetime.datetime cannot be converted to datetime64 unless utc=True
+exit=1
