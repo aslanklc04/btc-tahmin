@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (💸 coin fonlaması önceliği: canli-test dalı)
+# canli kuru test (⏱ tutma süresi notu: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -61,7 +61,7 @@ jobs:
           ADIMLAR="btc=success coin=failure d24=success" python -c "
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:1200]); return True
+              print('──── GÖNDER ────'); print(m[:5000]); return True
           gonder.tg_send = _g
           gonder.main()
           "
@@ -70,7 +70,7 @@ jobs:
           import json; q = json.load(open('/tmp/q.json')); json.dump([m for m in q if m.get('c') != 'ana'], open('durum/tg_kuyruk.json', 'w'))
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:1200]); return True
+              print('──── GÖNDER ────'); print(m[:5000]); return True
           gonder.tg_send = _g
           gonder.main()
           "
