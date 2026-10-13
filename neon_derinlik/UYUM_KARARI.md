@@ -19,7 +19,9 @@ BTC ve ETH: 1000 seviye ±%1'i kapsamıyor → şimdilik hariç.
 ## Ek 2 (13.10.2026 ~13:10 TR, kullanıcı: "Likidite tekniği tam emin olmadan ekleme" — karşılaştırma verisi görülmeden)
 Otomatik canlıya geçiş KALDIRILDI. Ölçütler sıkılaştırıldı:
   - Coin başına en az 72 ortak saat (≥ 3 gün; 20 yerine). U1–U3 aynı.
-  - U4 GÜN GÜN TUTARLILIK: U1–U3 ilk gün ve son gün ayrı ayrı da geçmeli (tek iyi günün şansı elenir).
-  - U5 💧 OLAYLARI: 3 günde arşivde 💧 (z ≤ −2) olan saatlerin ≥ %80'i Neon ölçümüyle de 💧 olmalı, Neon'un fazladan 💧 dediği saat ≤ %2.
-  - Neon kesintisi: 3 günde ≥ %95 dakika ölçülmüş olmalı.
+  - U4 GÜN GÜN TUTARLILIK: U2 ve U3 (tüm coin'lerin medyanı, LD uyuşmazlığı havuzda) ilk 24 ve son 24 ortak saatte ayrı ayrı da geçmeli
+    (tek iyi günün şansı elenir; tek günde korelasyon düşük oynaklık yüzünden anlamsız olduğundan U1 günlük aranmaz).
+  - U5 💧 OLAYLARI (tüm coin'ler havuzda): arşivde 💧 (z ≤ −2) olan saatlerin ≥ %80'i Neon ölçümüyle de 💧 olmalı, Neon'un fazladan 💧 dediği saat ≤ %2.
+    Arşivde 5'ten az 💧 saati varsa karar verilmez, veri toplanmaya devam edilir (en fazla 7 gün).
+  - Neon kesintisi: ortak saatlerde beklenen dakika örneklerinin ≥ %95'i ölçülmüş olmalı (ilk 15 coin dakikada bir = 60/saat, ek coin'ler 30/saat).
 Hepsi geçse bile 💧 kendiliğinden canlıya EKLENMEZ: sonuç kullanıcıya gösterilir, kullanıcı onay verirse eklenir.
