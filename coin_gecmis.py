@@ -162,7 +162,7 @@ for nm in sorted(GEN):
         mk = np.nan_to_num(((D.S24 > 0) & (D.C24 >= D.T10_24)).values).astype(bool) & D.T10_24.notna().values & (np.arange(n) + 25 < n)
         ev = events(mk, 24); t = D.index[ev]; zz = zs.reindex(t).values; m = zz >= 1.5
         GV.append(pd.DataFrame({"nm": nm, "t": t[m], "H": 24, "net": (c[ev + 24] / c[ev] - 1)[m] - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
-E = pd.concat([C] + GV, ignore_index=True); E["t"] = utc(E.t); E = E[np.isfinite(E.net)].sort_values("t").reset_index(drop=True); E["ok"] = (E.net > 0).astype(float)
+E = pd.concat([d.assign(t=utc(d.t)) for d in [C] + GV if len(d)], ignore_index=True); E["t"] = pd.to_datetime(E.t, utc=True).dt.as_unit("ns"); E = E[np.isfinite(E.net)].sort_values("t").reset_index(drop=True); E["ok"] = (E.net > 0).astype(float)
 E["dip"] = (E.rz <= -2) & ~E.nm.isin(GEN)
 E["th"] = np.where(E.dip, 68.0, np.where(E.z >= 3, 55.0, 60.0)); E["tn"] = np.where(E.dip, 1.2, np.where(E.z >= 3, 0.3, 0.6))
 yaz(f"# 🪙 Sıralamaya coin'in kendi geçmişi — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n✅ ana sinyal: {len(E):,} (çekirdek {int((E.kay == 'çekirdek').sum()):,} · 🌐 {int((E.kay == '🌐').sum()):,}) · coin: {E.nm.nunique()} · {time.time()-T0:.0f} sn\n")
