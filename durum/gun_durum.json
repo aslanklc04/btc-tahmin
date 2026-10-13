@@ -217,6 +217,24 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 21:05",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 21:05",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · isabet %58 · prim ⛔ z -4.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 21:05",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · isabet %58 · prim ⛔ z -1.8",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
