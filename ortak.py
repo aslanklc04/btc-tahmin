@@ -327,6 +327,13 @@ def fon_coin_z(nm):
     return _FONZ.get(nm, float("nan"))
 def fon_mu(nm): z = fon_coin_z(nm); return bool(np.isfinite(z) and z >= FON_ESIK)
 FON_NOT = "💸 ÖNCELİKLİ: bu coin'in vadeli fonlaması çok yüksek (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %59–65 tuttu, işlem başı +%0,9–1,8."
+def sira_anahtari(dip=False, fon=False, z=float("nan")):
+    """Mesaj içi sıra: önce TEST EDİLMİŞ isabet, sonra kâr, en son prim (merdiven.py: prim z ≥ 3'te 2026 isabeti %47 → geri)."""
+    h, n = 60.0, 0.6
+    if dip: h, n = 68.0, 1.2                                                                   # 📉🔥 %64–71
+    elif fon: h, n = 63.0, 1.4                                                                 # 💸 %59–65
+    elif np.isfinite(z) and z >= 3: h, n = 55.0, 0.3
+    return (-h, -n, -(z if np.isfinite(z) else -9))
 MOM_DIP_ACK["💸"] = "💸 = öncelikli: coin'in kendi vadeli fonlaması çok yüksek (z ≥ 2); testte bu durumdaki ✅ sinyaller %59–65 tuttu (işlem başı +%0,9–1,8)"
 ZIT_NOT = ("✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z {zc:+.1f}) ama BTC'yi hafif satıyor (BTC primi z {zb:+.1f}), BTC de sessiz: "
            "bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")

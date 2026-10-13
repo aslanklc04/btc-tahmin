@@ -171,7 +171,7 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
     _ana = [x for x in ortak_msg if (_g(x) and np.isfinite(x[0]) and x[0] >= GENIS_ESIK_ORTAK) or (not _g(x) and ana_mi(x[0]))]   # en fazla 10 satırlık mesajlar
     _mom = lambda x: (not _g(x)) and (not ana_mi(x[0])) and mom_mu(x[3])                       # 🚀 primsiz ama momentumlu → ✅ ana (teknik_tara C3a)
     _ana += [x for x in ortak_msg if _mom(x)]
-    _ana.sort(key=lambda x: (-(int(dip_mi(x[3]) and not _g(x)) + int(fon_mu(x[2]))), -(x[0] if np.isfinite(x[0]) else -9)))   # sıra: test edilmiş öncelik (📉🔥 · 💸) önce, sonra prim
+    _ana.sort(key=lambda x: sira_anahtari(dip_mi(x[3]) and not _g(x), fon_mu(x[2]), x[0]))   # sıra: test edilmiş isabet → kâr → prim
     _yed = [x for x in ortak_msg if not _g(x) and not ana_mi(x[0]) and not _mom(x)]           # primsizler → panel
     _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[1].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💸 " if s_ == "ana" and fon_mu(x[2]) else ""), 1))
     for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
