@@ -1,0 +1,10 @@
+13.10 22:43 TR
+BLUR  giriş 0.01569 · limit doldu mu (60 dk) evet · şimdi 0.01184 (-24.54%) · en yüksek +1.66% · en düşük -27.79% · çıkış 2026-10-14 00:06
+NEAR  giriş 5.356 · limit doldu mu (60 dk) evet · şimdi 5.007 (-6.52%) · en yüksek +0.86% · en düşük -8.70% · çıkış 2026-10-14 00:06
+VET   giriş 0.007166 · limit doldu mu (60 dk) evet · şimdi 0.007295 (+1.80%) · en yüksek +3.70% · en düşük -0.74% · çıkış 2026-10-14 04:06
+ZEN   giriş 6.015 · limit doldu mu (60 dk) evet · şimdi 6.196 (+3.01%) · en yüksek +6.13% · en düşük -1.11% · çıkış 2026-10-14 04:06
+NMR   giriş 12.34 · limit doldu mu (60 dk) evet · şimdi 12.58 (+1.94%) · en yüksek +3.16% · en düşük -1.62% · çıkış 2026-10-14 04:06
+LPT   giriş 1.635 · limit doldu mu (60 dk) evet · şimdi 1.713 (+4.77%) · en yüksek +8.32% · en düşük -0.73% · çıkış 2026-10-14 04:06
+SHIB  giriş 5.1e-06 · limit doldu mu (60 dk) evet · şimdi 5.21e-06 (+2.16%) · en yüksek +3.92% · en düşük -0.78% · çıkış 2026-10-14 04:06
+AAVE  giriş 159.12 · limit doldu mu (60 dk) evet · şimdi 160.92 (+1.13%) · en yüksek +1.97% · en düşük -0.78% · çıkış 2026-10-14 18:06
+BTC   giriş 83096.61 · limit doldu mu (60 dk) evet · şimdi 83226.07 (+0.16%) · en yüksek +1.29% · en düşük -2.48% · çıkış 
