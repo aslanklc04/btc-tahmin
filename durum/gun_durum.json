@@ -1,6 +1,6 @@
 {
 "gun": "2026-10-13",
-"giden": 2,
+"giden": 3,
 "log": [
 {
 "t": "11.10 20:06",
@@ -156,6 +156,30 @@
 "t": "13.10 03:05",
 "s": "panel",
 "e": "🧪 24 saat: ADA (z -3.2 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 04:05",
+"s": "✅ ana",
+"e": "🧪 24 saat: VET (z +4.5), ZEN (z +3.5), NMR (z +2.7), LPT (z +1.8), SHIB (z +1.7)",
+"k": "gönderildi"
+},
+{
+"t": "13.10 04:05",
+"s": "panel",
+"e": "🪙 DOGE ⭐ en güçlü · isabet %60 · prim ⛔ z -2.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 04:05",
+"s": "panel",
+"e": "🪙 DOT ⭐ en güçlü · isabet %61 · prim ⛔ z -1.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.10 04:05",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · isabet %58 · prim ⛔ z -2.1",
 "k": "gitmedi — yalnız panel"
 }
 ]
