@@ -1,0 +1,143 @@
+# 💧 Neon ↔ Binance arşivi uyumu — 13.10.2026 11:46
+Arşivde son saat: 2026-10-13 00:00:00+00:00 · arşivi gelen coin: 130 · 126 sn
+Neon saat: 8 · Neon verisi olan coin: 132
+
+```
+   coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık   sonuç
+  1INCH     7     NaN                NaN              NaN               NaN az saat
+   AAVE     7     NaN                NaN              NaN               NaN az saat
+    ACH     7     NaN                NaN              NaN               NaN az saat
+    ADA     8     NaN                NaN              NaN               NaN az saat
+   AGLD     7     NaN                NaN              NaN               NaN az saat
+   ALGO     7     NaN                NaN              NaN               NaN az saat
+  ALICE     7     NaN                NaN              NaN               NaN az saat
+    ALT     7     NaN                NaN              NaN               NaN az saat
+   ANKR     7     NaN                NaN              NaN               NaN az saat
+    APE     7     NaN                NaN              NaN               NaN az saat
+   API3     7     NaN                NaN              NaN               NaN az saat
+    APT     8     NaN                NaN              NaN               NaN az saat
+    ARB     8     NaN                NaN              NaN               NaN az saat
+   ARKM     7     NaN                NaN              NaN               NaN az saat
+   ARPA     7     NaN                NaN              NaN               NaN az saat
+   ATOM     7     NaN                NaN              NaN               NaN az saat
+AUCTION     7     NaN                NaN              NaN               NaN az saat
+   AVAX     7     NaN                NaN              NaN               NaN az saat
+    AXL     7     NaN                NaN              NaN               NaN az saat
+    AXS     7     NaN                NaN              NaN               NaN az saat
+   BAND     7     NaN                NaN              NaN               NaN az saat
+    BAT     7     NaN                NaN              NaN               NaN az saat
+    BCH     7     NaN                NaN              NaN               NaN az saat
+   BICO     7     NaN                NaN              NaN               NaN az saat
+   BLUR     7     NaN                NaN              NaN               NaN az saat
+    BNB     8     NaN                NaN              NaN               NaN az saat
+    BNT     7     NaN                NaN              NaN               NaN az saat
+   BONK     7     NaN                NaN              NaN               NaN az saat
+    C98     7     NaN                NaN              NaN               NaN az saat
+   CAKE     7     NaN                NaN              NaN               NaN az saat
+   CELR     7     NaN                NaN              NaN               NaN az saat
+    CHZ     7     NaN                NaN              NaN               NaN az saat
+   COMP     7     NaN                NaN              NaN               NaN az saat
+   COTI     7     NaN                NaN              NaN               NaN az saat
+    CRV     7     NaN                NaN              NaN               NaN az saat
+   CTSI     7     NaN                NaN              NaN               NaN az saat
+    CVC     7     NaN                NaN              NaN               NaN az saat
+    CVX     7     NaN                NaN              NaN               NaN az saat
+   DASH     7     NaN                NaN              NaN               NaN az saat
+    DIA     7     NaN                NaN              NaN               NaN az saat
+   DOGE     8     NaN                NaN              NaN               NaN az saat
+    DOT     8     NaN                NaN              NaN               NaN az saat
+   EGLD     7     NaN                NaN              NaN               NaN az saat
+    ENA     7     NaN                NaN              NaN               NaN az saat
+    ENS     7     NaN                NaN              NaN               NaN az saat
+    ETC     7     NaN                NaN              NaN               NaN az saat
+  ETHFI     7     NaN                NaN              NaN               NaN az saat
+    FET     7     NaN                NaN              NaN               NaN az saat
+   FIDA     7     NaN                NaN              NaN               NaN az saat
+    FIL     7     NaN                NaN              NaN               NaN az saat
+  FLOKI     8     NaN                NaN              NaN               NaN az saat
+   FLOW     7     NaN                NaN              NaN               NaN az saat
+      G     7     NaN                NaN              NaN               NaN az saat
+    GLM     7     NaN                NaN              NaN               NaN az saat
+    GMT     7     NaN                NaN              NaN               NaN az saat
+    GRT     7     NaN                NaN              NaN               NaN az saat
+    GTC     7     NaN                NaN              NaN               NaN az saat
+   HBAR     7     NaN                NaN              NaN               NaN az saat
+    ICP     7     NaN                NaN              NaN               NaN az saat
+    ILV     7     NaN                NaN              NaN               NaN az saat
+    IMX     7     NaN                NaN              NaN               NaN az saat
+    INJ     7     NaN                NaN              NaN               NaN az saat
+     IO     7     NaN                NaN              NaN               NaN az saat
+  JASMY     7     NaN                NaN              NaN               NaN az saat
+    JTO     7     NaN                NaN              NaN               NaN az saat
+   KAVA     7     NaN                NaN              NaN               NaN az saat
+    KNC     7     NaN                NaN              NaN               NaN az saat
+    KSM     7     NaN                NaN              NaN               NaN az saat
+    LDO     7     NaN                NaN              NaN               NaN az saat
+   LINK     8     NaN                NaN              NaN               NaN az saat
+    LPT     7     NaN                NaN              NaN               NaN az saat
+   LQTY     7     NaN                NaN              NaN               NaN az saat
+    LTC     7     NaN                NaN              NaN               NaN az saat
+  MAGIC     7     NaN                NaN              NaN               NaN az saat
+   MANA     7     NaN                NaN              NaN               NaN az saat
+   MASK     7     NaN                NaN              NaN               NaN az saat
+  METIS     7     NaN                NaN              NaN               NaN az saat
+   MINA     7     NaN                NaN              NaN               NaN az saat
+   NEAR     8     NaN                NaN              NaN               NaN az saat
+    NMR     7     NaN                NaN              NaN               NaN az saat
+    OGN     7     NaN                NaN              NaN               NaN az saat
+     OP     8     NaN                NaN              NaN               NaN az saat
+ PENDLE     7     NaN                NaN              NaN               NaN az saat
+   PEPE     8     NaN                NaN              NaN               NaN az saat
+    POL     7     NaN                NaN              NaN               NaN az saat
+   POWR     7     NaN                NaN              NaN               NaN az saat
+ PUNDIX     7     NaN                NaN              NaN               NaN az saat
+   PYTH     7     NaN                NaN              NaN               NaN az saat
+    QNT     7     NaN                NaN              NaN               NaN az saat
+   RARE     7     NaN                NaN              NaN               NaN az saat
+ RENDER     7     NaN                NaN              NaN               NaN az saat
+    REZ     7     NaN                NaN              NaN               NaN az saat
+    RLC     7     NaN                NaN              NaN               NaN az saat
+   ROSE     7     NaN                NaN              NaN               NaN az saat
+    RPL     7     NaN                NaN              NaN               NaN az saat
+    RSR     7     NaN                NaN              NaN               NaN az saat
+   SAND     7     NaN                NaN              NaN               NaN az saat
+    SEI     7     NaN                NaN              NaN               NaN az saat
+   SHIB     8     NaN                NaN              NaN               NaN az saat
+    SKL     7     NaN                NaN              NaN               NaN az saat
+    SNX     7     NaN                NaN              NaN               NaN az saat
+    SOL     7     NaN                NaN              NaN               NaN az saat
+  SPELL     7     NaN                NaN              NaN               NaN az saat
+   STRK     7     NaN                NaN              NaN               NaN az saat
+    STX     7     NaN                NaN              NaN               NaN az saat
+    SUI     8     NaN                NaN              NaN               NaN az saat
+  SUPER     7     NaN                NaN              NaN               NaN az saat
+  SUSHI     7     NaN                NaN              NaN               NaN az saat
+      T     7     NaN                NaN              NaN               NaN az saat
+    TAO     7     NaN                NaN              NaN               NaN az saat
+    TIA     7     NaN                NaN              NaN               NaN az saat
+   TNSR     7     NaN                NaN              NaN               NaN az saat
+    TRB     7     NaN                NaN              NaN               NaN az saat
+  TURBO     7     NaN                NaN              NaN               NaN az saat
+    UMA     7     NaN                NaN              NaN               NaN az saat
+    UNI     7     NaN                NaN              NaN               NaN az saat
+    VET     7     NaN                NaN              NaN               NaN az saat
+   VTHO     7     NaN                NaN              NaN               NaN az saat
+      W     7     NaN                NaN              NaN               NaN az saat
+    WIF     7     NaN                NaN              NaN               NaN az saat
+    WLD     7     NaN                NaN              NaN               NaN az saat
+    XLM     7     NaN                NaN              NaN               NaN az saat
+    XRP     7     NaN                NaN              NaN               NaN az saat
+    XTZ     7     NaN                NaN              NaN               NaN az saat
+    YFI     7     NaN                NaN              NaN               NaN az saat
+    ZEC     7     NaN                NaN              NaN               NaN az saat
+    ZEN     7     NaN                NaN              NaN               NaN az saat
+     ZK     7     NaN                NaN              NaN               NaN az saat
+    ZRO     7     NaN                NaN              NaN               NaN az saat
+    ZRX     7     NaN                NaN              NaN               NaN az saat
+```
+
+İlk 13 coin: 0 değerlendirildi · U1 korelasyon medyanı nan · U2 medyan nan · U3 z farkı medyanı nan · LD uyuşmazlık nan%
+
+## Karar (UYUM_KARARI.md)
+- İlk 13 coin: ❌ net değil
+- Uyan coin'ler (0): —
