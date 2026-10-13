@@ -54,7 +54,7 @@ def calis():
                         + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}\n"
                         f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))
     if fire:
-        fire.sort(key=lambda x: -x[0])                                                         # primi en yüksek olan üstte
+        fire.sort(key=lambda x: (-int(fon_mu(x[1])), -x[0]))                                                         # primi en yüksek olan üstte
         tg(f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: primi en yüksek olan üstte.\n" + "\n".join(x[2] for x in fire)
            + ("\n" + MOM_DIP_ACK["💸"] if any(fon_mu(x[1]) for x in fire) else "") + "\n⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
            oncelik=sira_puani("💵", fire[0][0]) + (ONCELIK_FON if any(fon_mu(x[1]) for x in fire) else 0), etiket="💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f})" for x in fire), sinif="ana")
