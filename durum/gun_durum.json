@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-14",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "11.10 20:06",
-"s": "ℹ️ bilgi",
-"e": "⛓️📊 ARZ/TALEP (ETH) — HAFTALIK",
-"k": "gönderildi"
-},
 {
 "t": "12.10 02:08",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "14.10 10:05",
 "s": "✅ ana",
 "e": "💵 ABD güçlü alıyor: CRV (z +3.2, 8 saat)",
+"k": "gönderildi"
+},
+{
+"t": "14.10 11:05",
+"s": "✅ ana",
+"e": "🧪 24 saat: MAGIC (z +1.9)",
 "k": "gönderildi"
 }
 ]
