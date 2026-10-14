@@ -285,7 +285,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
 #   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
 #   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panel = ⛔ (z ≤ −1) / primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
-ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %58 · %64 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,3–0,7 (komisyon sonrası; gozden.py, 14.10 seti)."
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %59 · %63 · %67 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,4–0,9 (komisyon sonrası; 14.10 seti, fon_ana.py)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 # teknik_tara.py (12.10.2026, plasebolu, önceden yazılı karar): coin'in son 24 saatlik getirisi / (son 30 gün saatlik oynaklık × √24)
 #   C3a 🚀 z ≥ 2 → gönderilmeyen sinyaller (primsiz / ABD satarken / BTC saatlik) ✅ ana olur: %62 · %65 · %69, net +0,43 · +0,77 · +1,09

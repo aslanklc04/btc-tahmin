@@ -19,7 +19,7 @@ YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — isabeti ana sinyal çizgisinin
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_ISLEM = "🔥 yedekten yükseldi — büyük oyuncular aktif (BTC ort. işlem büyüklüğü z {z:+.1f}): bu saatlerde yedekler geçmişte %61 tuttu, işlem başı +%0,4"
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9"
-FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde ✅ ana sinyaller testte %71 · %72 · %84 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,9–2,0 (normalde %57–61, +%0,5–0,8)"
+FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)"
 TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde 🔸 yedekler testte %60–77 tuttu (2022–23 · 2024+; kombin.py), işlem başı +%0,5–3,5"
 def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
     try:
