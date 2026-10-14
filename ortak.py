@@ -385,3 +385,7 @@ def sure_basi(saat, cikis=None, gun=None):
     """Her sinyal mesajının EN ÜSTÜ: ne kadar tutulacak ve çıkış saati (kullanıcı 13.10.2026: 'diğer tahminlerin süresini bilmiyorum')."""
     s = f"{gun} GÜN" if gun else f"{saat} SAAT"
     return f"⏱ SÜRE: {s} TUT" + (f" → çıkış {cikis:%d.%m %H:%M}" if cikis is not None else "") + "\n"
+
+# ---- 14.10.2026: ana çizgisi (isabet ≥ %55,9 · %58,6 · %59,1) altında kalan türler 🔸 yedeğe indi (kullanıcı onayı; tutma3.py rakamları) ----
+YEDEK_NOT_USD = "🔸 Yedek (14.10): 💵 isabeti %54 · %54 · %54 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; kâr (+%0,6) kazançların büyüklüğünden. BTC fonlaması çok yüksekken (🔥) ana olur."
+YEDEK_NOT_24 = "🔸 Yedek (14.10): ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; işlem başı +%0,2–1,0. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."

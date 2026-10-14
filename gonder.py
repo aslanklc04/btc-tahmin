@@ -14,7 +14,7 @@ from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
 ADLAR = {"btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
-YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — seçilmiş sette değil: bu tür sinyaller geçmişte ortalama ~%0 kazandırdı (isabet ~%55).\n"
+YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — isabeti ana sinyal çizgisinin (~%59) altında; bu türün test sonucu mesajın içinde yazıyor.\n"
              "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_ISLEM = "🔥 yedekten yükseldi — büyük oyuncular aktif (BTC ort. işlem büyüklüğü z {z:+.1f}): bu saatlerde yedekler geçmişte %61 tuttu, işlem başı +%0,4"
