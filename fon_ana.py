@@ -134,7 +134,10 @@ for nm, o in OH.items():
     m = nmv == nm
     if m.any(): lr = np.log(o.close); sg = lr.diff().rolling(720, min_periods=168).std(); RZ[m] = ((lr - lr.shift(24)) / (sg * np.sqrt(24))).reindex(tz_[m]).values
 MOM = GON & (RZ >= 2); ANA = ANA | MOM
-C = pd.DataFrame({"nm": nmv[ANA], "t": pd.DatetimeIndex(Ez.t.values[ANA]), "H": Ez.H.values[ANA], "net": Ez.net.values[ANA], "z": z[ANA], "rz": RZ[ANA], "kay": "çekirdek"})
+TURL = np.full(len(Ez), "", object)
+for k_, v_ in TUR.items(): TURL[(TURL == "") & v_] = k_
+TURL[(TURL == "") & MOM] = "🚀"
+C = pd.DataFrame({"tur": TURL[ANA], "nm": nmv[ANA], "t": pd.DatetimeIndex(Ez.t.values[ANA]), "H": Ez.H.values[ANA], "net": Ez.net.values[ANA], "z": z[ANA], "rz": RZ[ANA], "kay": "çekirdek"})
 # ---------------- 🌐 geniş liste (ld_genis.py ile aynı) ----------------
 bul = lambda p: (glob.glob(p, recursive=True) or [None])[0]
 def utc(ix): ix = pd.DatetimeIndex(ix); return (ix.tz_localize("UTC") if ix.tz is None else ix.tz_convert("UTC")).as_unit("ns")
@@ -152,13 +155,13 @@ for nm in sorted(GEN):
     if p:
         X = pd.read_pickle(p); X.index = utc(X.index); st_, u4_, ac_ = (X[k].fillna(False).astype(bool).values for k in ("star", "u4", "acls"))
         ev = events((st_ | u4_ | ac_) & X.y4.notna().values, 4); t = X.index[ev]; bu4 = Bg.u4.reindex(t).fillna(False).astype(bool).values; zz = zs.reindex(t).values
-        m = bu4 & (zz >= 2); GV.append(pd.DataFrame({"nm": nm, "t": t[m], "H": 4, "net": np.exp(X.y4.values[ev][m]) - 1 - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
+        m = bu4 & (zz >= 2); GV.append(pd.DataFrame({"tur": "🌐🤝", "nm": nm, "t": t[m], "H": 4, "net": np.exp(X.y4.values[ev][m]) - 1 - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
     p = bul(f"ga/**/disa24_{nm}USDT.pkl")
     if p:
         D = pd.read_pickle(p).astype("float64"); D.index = utc(D.index); D = D.reindex(pd.date_range(D.index[0], D.index[-1], freq="1h")); c = D.close.ffill(limit=3).values; n = len(D)
         mk = np.nan_to_num(((D.S24 > 0) & (D.C24 >= D.T10_24)).values).astype(bool) & D.T10_24.notna().values & (np.arange(n) + 25 < n)
         ev = events(mk, 24); t = D.index[ev]; zz = zs.reindex(t).values; m = zz >= 1.5
-        GV.append(pd.DataFrame({"nm": nm, "t": t[m], "H": 24, "net": (c[ev + 24] / c[ev] - 1)[m] - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
+        GV.append(pd.DataFrame({"tur": "🌐🧪", "nm": nm, "t": t[m], "H": 24, "net": (c[ev + 24] / c[ev] - 1)[m] - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
 E = pd.concat([d.assign(t=utc(d.t)) for d in [C] + GV if len(d)], ignore_index=True); E["t"] = pd.to_datetime(E.t, utc=True).dt.as_unit("ns"); E = E[np.isfinite(E.net)].sort_values("t").reset_index(drop=True); E["ok"] = (E.net > 0).astype(float)
 E["dip"] = (E.rz <= -2) & ~E.nm.isin(GEN)
 
@@ -211,6 +214,8 @@ yaz(f"- **K1 plasebo (2024+, 40 kaydırma):** isabet farkı {G1[0]:+.1f} (plaseb
 yaz(f"- **K2 dipten/momentumdan bağımsız:** {i(K2)}")
 yaz(f"- **K3 bootstrap (2024+ net farkı %90):** {100*lo_:+.2f} … {100*hi_:+.2f} → {i(K3)}")
 yaz(f"- **K4 yaygınlık:** {sum(a > b2 for _, _, a, b2 in sk)}/{len(sk)} coin → {i(K4)} · " + " · ".join(f"{nm} {n} %{a:.0f} vs %{b2:.0f}" for nm, n, a, b2 in sk))
+CUR = ~(np.isin(E.tur.values, ["💵", "🧪"]) & ~(E.rz.values <= -2))
+yaz("\n_Bilgi (14.10 sonrası ana seti: 💵 ve ana coin 🧪 yalnız 📉 dip iken):_\n```"); yaz(sat("✅ ana (14.10 seti)", st(A_ & CUR))); yaz(sat("✅ ana (14.10 seti) + 🔥", st(A_ & CUR & C0))); yaz("```")
 GEC = K0 and K1 and K2 and K3 and K4
 o = st(A_ & C0)
 yaz("\n## Önceden yazılı karar\n" + (f"- ✅ **GEÇTİ** → canlıda fonlama yüksek saatte ✅ ana mesajlara 🔥 işareti (isabet " + " · ".join(f"%{o[dn][1]:.0f}" for dn in o) + ", net " + " · ".join(f"+{o[dn][2]:.2f}" for dn in o) + ")" if GEC else "- ❌ geçmedi → eklenmez"))
