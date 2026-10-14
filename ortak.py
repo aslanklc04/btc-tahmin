@@ -186,7 +186,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
     oncelik: sira_puani() (küçük = önce) · etiket: sıralama listesindeki kısa ad.
     sinif (secim2.py R5 + secim4.py G3, 11.10.2026): "ana" = seçilmiş işlem sinyali (her zaman gider) · "yedek" = 🔸 YEDEK olarak gider (⛔ olanlar hariç) ·
-    "panel" = Telegram'a gitmez (yalnız panelde) · None = rapor/bilgi (her zaman gider)."""
+    "panel" = Telegram'a gitmez (yalnız panelde) · "panelf" = panel, ama 🔥 BTC fonlaması z ≥ 2 iken ✅ ana olur (gozden.py B, coin primi −1…0) · None = rapor/bilgi (her zaman gider)."""
     global TELEGRAM_CHAT_ID
     if os.environ.get("TG_SIRALI") == "1":
         try:
@@ -195,7 +195,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
             os.makedirs(os.path.dirname(KUYRUK_F), exist_ok=True); json.dump(q, open(KUYRUK_F, "w", encoding="utf-8"), ensure_ascii=False)
             TG_LAST.update(ok=True, info="sıraya alındı (gonder.py gönderir)"); return True
         except Exception as e: print(f"⚠️ kuyruk yazılamadı, doğrudan gönderiliyor: {e}")
-    if sinif in ("yedek", "panel"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
+    if sinif in ("yedek", "panel", "panelf"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
     if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
     for deneme in range(2):
         try:

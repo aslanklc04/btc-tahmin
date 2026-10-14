@@ -102,7 +102,7 @@ if fire:
     _cizgi = [x for x in _ana if not _g(x) and not _mom(x) and not dip_mi(x[3])]              # 14.10: ana coin 🧪 ana çizgisinin altında → 🔸 yedek (📉🔥 / 🚀 / 🌐 ana kalır)
     _ana = [x for x in _ana if x not in _cizgi]
     _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[2].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💸 " if s_ == "ana" and fon_mu(x[1]) else ""), 1))
-    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", _cizgi[i:i + 10]) for i in range(0, len(_cizgi), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", _cizgi[i:i + 10]) for i in range(0, len(_cizgi), 10)] + [("panelf" if np.isfinite(x[0]) and -1 < x[0] < 0 else "panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         _gn = ("🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 1,5) gelir · testte isabet ~%60, işlem başı +%1,2\n" if any(_g(x) for x in grup) else "")

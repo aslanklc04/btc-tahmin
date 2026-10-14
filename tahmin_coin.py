@@ -152,7 +152,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             if mom_: txt = txt.replace("⛔ ALMA", "⛔ ama 🚀 momentum")
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
             if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔀" if zit_ else ("🚀" if mom_ else ("🔇" if sessiz_ else "🪙")), ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)) + (ONCELIK_DIP if ana_ and dip_mi(RZ) else 0) + (ONCELIK_FON if ana_ and fon_mu(NM) else 0),
-                                      etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''}{'🚀' if mom_ else ''}{'📉🔥' if ana_ and dip_mi(RZ) else ''}{'💸' if ana_ and fon_mu(NM) else ''} {NM} {AD[k0]} · {H0_} saat · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else ("yedek" if np.isfinite(zt_) and zt_ >= 0 else "panel"))   # 12.10.2026: primsiz yedek gönderilmez
+                                      etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''}{'🚀' if mom_ else ''}{'📉🔥' if ana_ and dip_mi(RZ) else ''}{'💸' if ana_ and fon_mu(NM) else ''} {NM} {AD[k0]} · {H0_} saat · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else ("yedek" if np.isfinite(zt_) and zt_ >= 0 else ("panelf" if np.isfinite(zt_) and zt_ > -1 else "panel")))   # 12.10.2026: primsiz yedek gönderilmez
             for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=4 if zit_ else (SIG[k]["H"] if SIG[k]["on"] else 4), sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
@@ -177,7 +177,7 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
     _ana.sort(key=lambda x: sira_anahtari(dip_mi(x[3]) and not _g(x), fon_mu(x[2]), x[0]))   # sıra: test edilmiş isabet → kâr → prim
     _yed = [x for x in ortak_msg if not _g(x) and not ana_mi(x[0]) and not _mom(x)]           # primsizler → panel
     _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[1].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💸 " if s_ == "ana" and fon_mu(x[2]) else ""), 1))
-    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
+    for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("panelf" if np.isfinite(x[0]) and -1 < x[0] < 0 else "panel", [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(sure_basi(4, (BTC_T + pd.Timedelta(hours=4, minutes=6)).tz_convert(DISPLAY_TZ)) + f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(_isr(x, sinif_) for x in grup)
