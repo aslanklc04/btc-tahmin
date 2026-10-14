@@ -344,7 +344,7 @@ def fiyat_yaz(p):
 CIKIS_NOT = "kâr-al / stop koyma"                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
 def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
     if z is None or not np.isfinite(z) or z < 1: return ""
-    if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor (ilk 4 saatte belirgin) ve günlerce sürebiliyor — hemen gir, ERKEN ÇIKMA (testte 4 saatte çıkmak kârı ~%60 düşürdü)"
+    if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor (ilk saatlerde belirgin) ve günlerce sürebiliyor — hemen gir, süre dolmadan ÇIKMA (testte erken çıkmak kârı ~%60 düşürdü)"
     if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli, 1–3 güne yayılıyor — hemen gir, erken çıkma"
     return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma"
 def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)"):
