@@ -1,0 +1,37 @@
+# 🔎 Gözden kaçan adaylar — 14.10.2026 22:40
+Bugünkü ✅ ana (çekirdek coin'ler): 4,086 · panel (coin primi −1…0): 8,780 · 287 sn
+
+## A) ✅ ana sinyallere öncelik işareti
+_sinyal · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
+```
+✅ ana (bugünkü)                            1345 · %58.4 · +0.31 |  2701 · %63.5 · +0.70 |   781 · %68.6 · +0.68
+M1 BTC Coinbase primi z ≥ 2                  76 · %69.7 · +0.85 |   249 · %70.3 · +1.87 |   125 · %74.4 · +0.77
+M2 Coinbase BTC hacmi z ≥ 2                  66 · %65.2 · +0.90 |   174 · %76.4 · +2.83 |    61 · %77.0 · +2.29
+M3 Binance BTC ort. işlem büyüklüğü z ≥ 2    82 · %64.6 · +0.59 |   124 · %70.2 · +1.35 |    56 · %66.1 · +1.28
+M4 coin'ler arası ayrışma z ≥ 1             256 · %68.0 · +0.71 |   667 · %67.5 · +1.48 |   202 · %68.3 · +0.80
+M5 DVOL BTC z ≥ 1                           347 · %61.7 · +0.42 |   830 · %71.2 · +0.86 |   244 · %77.0 · +1.15
+M6 coin primi − BTC primi ≤ −2               14 · %57.1 · -0.00 |    24 · %70.8 · +1.53 |    19 · %68.4 · +0.30
+M7 S&P 500 5 gün z ≤ −2                      15 · %46.7 · -0.40 |    85 · %70.6 · +1.64 |     0 az
+```
+- **M1 BTC Coinbase primi z ≥ 2** — K0 ❌ · K1 plasebo ❌ (isabet +6.8 vs %95 +21.2; net +1.17 vs +1.85) · K2 dipten bağımsız ❌ · K3 ✅ (+0.36) · K4 ✅ (9/11)
+- **M2 Coinbase BTC hacmi z ≥ 2** — K0 ✅ · K1 plasebo ❌ (isabet +13.0 vs %95 +28.0; net +2.14 vs +2.26) · K2 dipten bağımsız ❌ · K3 ✅ (+1.29) · K4 ✅ (5/7)
+- **M3 Binance BTC ort. işlem büyüklüğü z ≥ 2** — K0 ❌ · K1 plasebo ❌ (isabet +6.7 vs %95 +17.0; net +0.65 vs +1.15) · K2 dipten bağımsız ❌ · K3 ❌ (-0.06) · K4 ✅ (4/6)
+- **M4 coin'ler arası ayrışma z ≥ 1** — K0 ❌ · K1 plasebo ❌ (isabet +4.0 vs %95 +6.3; net +0.78 vs +0.71) · K2 dipten bağımsız ❌ · K3 ❌ (-0.07) · K4 ✅ (12/18)
+- **M5 DVOL BTC z ≥ 1** — K0 ✅ · K1 plasebo ❌ (isabet +7.7 vs %95 +6.0; net +0.16 vs +0.63) · K2 dipten bağımsız ✅ · K3 ❌ (-0.51) · K4 ✅ (13/15)
+- **M6 coin primi − BTC primi ≤ −2** — K0 ❌ · K1 plasebo ❌ (isabet +7.4 vs %95 +17.9; net +0.84 vs +0.74) · K2 dipten bağımsız ❌ · K3 ❌ (-0.43) · K4 ❌ (0/0)
+- **M7 S&P 500 5 gün z ≤ −2** — K0 ❌ · K1 plasebo ❌ (isabet +7.1 vs %95 +12.5; net +0.95 vs +0.79) · K2 dipten bağımsız ❌ · K3 ❌ (-1.52) · K4 ✅ (2/3)
+
+## B) Panel (coin primi −1…0) → ana, 🔥 BTC fonlaması yüksekken
+```
+panel (coin primi −1…0) hepsi              1381 · %57.7 · +0.20 |  3193 · %57.8 · +0.09 |   913 · %58.1 · +0.16
++ 🔥 BTC fonlaması z ≥ 2                      44 · %77.3 · +1.87 |   205 · %70.7 · +0.76 |    33 · %84.8 · +1.09
+  (plasebo 30 gün)                            3 az |    57 · %40.4 · -0.45 |    10 · %20.0 · -0.98
+  (plasebo 60 gün)                            8 · %75.0 · +0.59 |    61 · %70.5 · +1.23 |     1 az
+```
+2024+ alt sınır +0.36
+
+## Önceden yazılı karar (canlıya kendiliğinden EKLENMEZ)
+- A) ❌ hiçbir işaret K0–K4'ün hepsini geçmedi
+- B) ✅ 🔥 fonlama yüksekken panel (coin primi −1…0) sinyalleri de ana olabilir
+
+_Süre: 293 sn_
