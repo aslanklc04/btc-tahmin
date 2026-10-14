@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (panelf 🔥: canli-test dalı)
+# canli kuru test (tutarlilik denetimi: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -49,6 +49,7 @@ jobs:
           "
           echo "=== tahmin_coin.py TEST_ZORLA=1, TEST_FON=2.5 (🤝 💸)"; TEST_FON=2.5 TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c1.txt | head -8
           echo "=== tahmin_coin.py TEST_ZORLA=zit, TEST_FON=2.5 (🔀 💸)"; TEST_FON=2.5 TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -8
+          echo "=== tahmin.py TEST_ZORLA=star TEST_RZ=2.5 (BTC 🚀)"; TEST_RZ=2.5 TEST_ZORLA=star timeout 400 python tahmin.py > /tmp/b1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/b1.txt | head -8
           echo "=== tahmin24.py TEST_ZORLA=1, TEST_FON=2.5"; TEST_FON=2.5 TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d1.txt | head -8
           echo "=== prim_canli.py kuru (gerçek fonlama)"; PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/p1.txt | head -8; grep -A12 "(kuru) Telegram" /tmp/p1.txt | head -14
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
