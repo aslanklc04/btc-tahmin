@@ -1,0 +1,39 @@
+name: Genis listede likidite ve dip
+on:
+  push:
+    branches: [arastirma3]
+    paths: [ld_dip2.py, .github/workflows/ld_dip2.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - name: Artifact'ler
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
+          gh run download 38278019690 -R ${{ github.repository }} -p "dparca-*" -D dart && ls dart | wc -l
+      - run: |
+          set +e; timeout 3000 python -u ld_dip2.py > ld_dip2_log.txt 2>&1; echo "exit=$?" >> ld_dip2_log.txt; tail -30 ld_dip2_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add ld_dip2_log.txt; for f in ld_dip2_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Genis likidite ve dip sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
