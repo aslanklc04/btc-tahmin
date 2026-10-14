@@ -274,15 +274,18 @@ def cb_coin_z(nm, d_own, d_btc):                                                
 #   ⛓️ ETH arz/talep AL %61 · +%2,5 (7 g) ve 🧑 küçük yatırımcı %66 · +%2,9 (7 g) → 🤝 BTC ile ortak %62 · +%0,23 (2026 %67) → 🔇 BTC sessizken %62 · +%0,29 →
 #   🪙 coin tek başına %59 · +%0,13 → 🧪 24 saat %56 · +%0,69 → 💵 ABD alıyor (tek başına) %54 · +%0,72 → ₿ BTC saatlik/⭐/A %58 · +%0,05 → 🔻 kısa %51 · +%0,36 → ℹ️ bilgi.
 # Aynı türde coin'in kendi Coinbase primi yüksek olan önce (merdiven: prim yükseldikçe isabet ve kâr artıyor). ⛔ (ABD satıyor) olanlar en sona.
-SIRA_TUR = {"⛓️": 1, "🧑": 1, "🤝": 2, "🔇": 3, "🪙": 4, "🧪": 5, "💵": 6, "₿": 7, "🔻": 8, "ℹ️": 9}
+# 14.10.2026: mesajlar arası sıra = test edilmiş isabet (2024+ · 2026, eşitlikte kâr; tutma3.py): 🌐🤝 %69·%76 · 🔀 %64·%81 · 🧑 %65·%69 (+3,6) · 🚀 %65·%69 · 🤝 %63·%68 ·
+#   🌐🧪 %60·%60 · ⛓️ %58·%58 | 🔸 yedekler: 🧪 %59·%51 · 💵 %54·%54 · 🔇/🪙 ~%55 (kâr ~0). 📉🔥 / 💸 ayrıca ONCELIK_DIP / ONCELIK_FON ile en üste.
+SIRA_TUR = {"🌐🤝": 1, "🔀": 2, "🧑": 3, "🚀": 4, "🤝": 5, "🌐🧪": 6, "⛓️": 7, "🧪": 8, "💵": 9, "🔇": 10, "🪙": 10, "₿": 11, "🔻": 12, "ℹ️": 13}
 def sira_puani(tur, z=float("nan"), alma=False):
-    g = SIRA_TUR.get(tur, 9) + (20 if alma else 0); zz = float(z) if z is not None and np.isfinite(z) else -1.0
+    g = SIRA_TUR.get(tur, 13) + (20 if alma else 0); zz = float(z) if z is not None and np.isfinite(z) else -1.0
+    if zz >= 3: zz = -0.5                                                                        # merdiven.py: prim z ≥ 3'te 2026 isabeti %47 → aynı türde geriye (sira_anahtari ile aynı)
     return g * 100 - max(-5.0, min(5.0, zz)) * 10
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
 # 12.10.2026: BTC saatlik/⭐/A hiç gönderilmez; 🔸 yedek yalnız coin'in KENDİ primi ≥ 0 iken (🔇 / 🪙), primsizler gönderilmez. Ana set: coin tek başına YOK; 🔇 yalnız 🔀 coin'in kendi primi z > 0 VE −1 < BTC primi z ≤ 0 iken (zit_aile.py); 🤝 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken (🌐 geniş listeden 🧪 z ≥ 1,5 ve 🤝 z ≥ 2); 💵 ⛓️ 🧑 aynen. 🔻 BTC kısa ve 🔥 büyük işlem yükseltmesi 12.10.2026'dan beri GÖNDERİLMEZ (ozet_tum.py: en zayıf ikisi).
 # Test: 2024+ haftada ~46 · isabet %58,6 · işlem başı net +%0,65 (bugünkü set +%0,28) · 2026 ~49/hf · %59,1 · +%0,59.
 # Setin dışındaki sinyaller 🔸 YEDEK olarak gider (⛔ ABD satıyor olanlar hariç): yedeklerin geçmişi isabet ~%55, net ~%0.
-ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): bu set geçmişte işlem başı ort. +%0,6 kazandırdı (komisyon sonrası), isabet ~%59."
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %57 · %60 · %61 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,5–0,8 (komisyon sonrası)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 # teknik_tara.py (12.10.2026, plasebolu, önceden yazılı karar): coin'in son 24 saatlik getirisi / (son 30 gün saatlik oynaklık × √24)
 #   C3a 🚀 z ≥ 2 → gönderilmeyen sinyaller (primsiz / ABD satarken / BTC saatlik) ✅ ana olur: %62 · %65 · %69, net +0,43 · +0,77 · +1,09
@@ -336,7 +339,7 @@ def sira_anahtari(dip=False, fon=False, z=float("nan")):
     return (-h, -n, -(z if np.isfinite(z) else -9))
 MOM_DIP_ACK["💸"] = "💸 = öncelikli: coin'in kendi vadeli fonlaması çok yüksek (z ≥ 2); testte bu durumdaki ✅ sinyaller %59–65 tuttu (işlem başı +%0,9–1,8)"
 ZIT_NOT = ("✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z {zc:+.1f}) ama BTC'yi hafif satıyor (BTC primi z {zb:+.1f}), BTC de sessiz: "
-           "bu durumdaki 🔇 sinyalleri geçmişte %67–85 tuttu, işlem başı ort. +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")
+           "bu durumdaki 🔇 sinyalleri geçmişte %70 · %66 · %82 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.")
 def fiyat_yaz(p):
     if p is None or not np.isfinite(p) or p <= 0: return "$?"
     if p >= 1000: return f"${p:,.0f}"
@@ -389,3 +392,4 @@ def sure_basi(saat, cikis=None, gun=None):
 # ---- 14.10.2026: ana çizgisi (isabet ≥ %55,9 · %58,6 · %59,1) altında kalan türler 🔸 yedeğe indi (kullanıcı onayı; tutma3.py rakamları) ----
 YEDEK_NOT_USD = "🔸 Yedek (14.10): 💵 isabeti %54 · %54 · %54 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; kâr (+%0,6) kazançların büyüklüğünden. BTC fonlaması çok yüksekken (🔥) ana olur."
 YEDEK_NOT_24 = "🔸 Yedek (14.10): ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; işlem başı +%0,2–1,0. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
+USD_DIP_NOT = "📉🔥 💵 + DİP → ✅ ANA (14.10): ABD alıyor VE coin son 24 saatte olağandışı düştü — testte %66 · %68 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8 · +%3,1 · +%2,0 (kombin.py)."

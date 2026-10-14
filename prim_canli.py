@@ -53,12 +53,21 @@ def calis():
             SURE_[r.coin] = int(r.saat); CIK_[r.coin] = cikis; fire.append((z, r.coin, f"• {'💸 ' if fon_mu(r.coin) else ''}{r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)"
                         + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}\n"
                         f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))
-    if fire:
-        _sb = sure_basi(SURE_[fire[0][1]], CIK_[fire[0][1]]) if len({SURE_[x[1]] for x in fire}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in fire) + " TUT (çıkış saatleri satırlarda)\n"
-        fire.sort(key=lambda x: sira_anahtari(False, fon_mu(x[1]), x[0]))                                                         # primi en yüksek olan üstte
-        tg(_sb + f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: primi en yüksek olan üstte.\n" + "\n".join(x[2] for x in fire)
-           + ("\n" + MOM_DIP_ACK["💸"] if any(fon_mu(x[1]) for x in fire) else "") + "\n" + tut_notu(["💵"]) + "\n" + YEDEK_NOT_USD + "\n⚠️ İsabet ~%55: kâr, kazançların kayıplardan büyük olmasından geliyor; tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
-           oncelik=sira_puani("💵", fire[0][0]) + (ONCELIK_FON if any(fon_mu(x[1]) for x in fire) else 0), etiket="💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f}, {SURE_[x[1]]} saat)" for x in fire), sinif="yedek")
+    def _rz(nm):                                                                               # 📉 dip: coin'in son 24 saatlik getirisi / oynaklık (r24z, canlı coin sinyalleriyle aynı)
+        try:
+            o = fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT"); return r24z(o.close)
+        except Exception as e: print(nm, "r24z alınamadı:", e); return float("nan")
+    RZC = {x[1]: _rz(x[1]) for x in fire}
+    for sinif_, grup in (("ana", [x for x in fire if dip_mi(RZC[x[1]])]), ("yedek", [x for x in fire if not dip_mi(RZC[x[1]])])):   # 14.10: 💵 + 📉 dip → ✅ ana (kombin.py)
+        if not grup: continue
+        _sb = sure_basi(SURE_[grup[0][1]], CIK_[grup[0][1]]) if len({SURE_[x[1]] for x in grup}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in grup) + " TUT (çıkış saatleri satırlarda)\n"
+        grup.sort(key=lambda x: sira_anahtari(sinif_ == "ana", fon_mu(x[1]), x[0]))                                                 # test edilmiş isabet → kâr → prim
+        satirlar = "\n".join((x[2].replace("• ", "• 📉🔥 ", 1) if sinif_ == "ana" else x[2]) for x in grup)
+        tg(_sb + f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: test edilmiş isabet, sonra prim.\n" + satirlar
+           + ("\n" + MOM_DIP_ACK["💸"] if any(fon_mu(x[1]) for x in grup) else "") + "\n" + tut_notu(["💵"] + (["📉🔥"] if sinif_ == "ana" else [])) + "\n" + (USD_DIP_NOT if sinif_ == "ana" else YEDEK_NOT_USD)
+           + "\n⚠️ Tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
+           oncelik=sira_puani("💵", grup[0][0]) + (ONCELIK_DIP if sinif_ == "ana" else 0) + (ONCELIK_FON if any(fon_mu(x[1]) for x in grup) else 0),
+           etiket=("📉🔥 " if sinif_ == "ana" else "") + "💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f}, {SURE_[x[1]]} saat)" for x in grup), sinif=sinif_)
     # ---- sonuçlanan işlemler ----
     acik = [e for e in GP["log"] if "ok" not in e and now >= e["t"] + pd.Timedelta(hours=e["H"])]
     OO = {}

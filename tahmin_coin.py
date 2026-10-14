@@ -141,6 +141,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             zb_ = CBZ
             if os.environ.get("TEST_ZORLA") == "zit": zt_, zb_ = 0.8, -0.5                          # yalnız test: 🔀 yolu
             zit_ = bool(sessiz_ and np.isfinite(zt_) and zt_ > 0 and np.isfinite(zb_) and -1 < zb_ <= 0)   # 🔀 zit_aile.py: ABD coin'i alıyor, BTC'yi hafif satıyor
+            if zit_: H0_, gr0_ = 4, SIG["u4"].get("gross_h")                                       # 14.10: 🔀 4 saatte test edildi (⭐ olsa da 4 saat)
             mom_ = (not zit_) and not (np.isfinite(zt_) and zt_ >= 0) and mom_mu(RZ)                  # 🚀 primsiz ama momentumlu → ✅ ana (teknik_tara C3a)
             ana_ = zit_ or mom_                                                              # secim5 T3: 🔇 normalde 🔸 yedek · yalnız 🔀 durumunda ✅ ana (%70 · %67 · %85, net +0,52 · +0,80 · +1,00) · 🪙 tek başına yedek
             txt = ((MOM_NOT.format(z=RZ) + "\n" if mom_ else "") + (DIP_NOT.format(z=RZ) + "\n" if ana_ and dip_mi(RZ) else "") + (FON_NOT.format(z=fon_coin_z(NM)) + "\n" if ana_ and fon_mu(NM) else "") + baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n" + (hz_ + "\n" if hz_ else "")
@@ -150,9 +151,9 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             txt = sure_basi(H0_, (t + pd.Timedelta(hours=H0_, minutes=6)).tz_convert(DISPLAY_TZ)) + txt
             if mom_: txt = txt.replace("⛔ ALMA", "⛔ ama 🚀 momentum")
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
-            if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔇" if sessiz_ else "🪙", ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)) + (ONCELIK_DIP if ana_ and dip_mi(RZ) else 0) + (ONCELIK_FON if ana_ and fon_mu(NM) else 0),
+            if COIN_BILDIRIM: tg_send(txt, oncelik=sira_puani("🔀" if zit_ else ("🚀" if mom_ else ("🔇" if sessiz_ else "🪙")), ZC, bool(np.isfinite(ZC) and ZC <= -1 and NM not in CB_BILGI)) + (ONCELIK_DIP if ana_ and dip_mi(RZ) else 0) + (ONCELIK_FON if ana_ and fon_mu(NM) else 0),
                                       etiket=f"{'🔇' if sessiz_ else '🪙'}{'🔀' if zit_ else ''}{'🚀' if mom_ else ''}{'📉🔥' if ana_ and dip_mi(RZ) else ''}{'💸' if ana_ and fon_mu(NM) else ''} {NM} {AD[k0]} · {H0_} saat · isabet %{isb_:.0f} · prim {cb_kisa(CBO) if CBO else 'yok'}", sinif="ana" if ana_ else ("yedek" if np.isfinite(zt_) and zt_ >= 0 else "panel"))   # 12.10.2026: primsiz yedek gönderilmez
-            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=SIG[k]["H"] if SIG[k]["on"] else 4, sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
+            for k in f_tek: G["last"][k] = t; G["log"].append(dict(t=t, tip=f"{NM} {AD[k]}" + (" 🔇" if btc_sessiz and k in TK else ""), H=4 if zit_ else (SIG[k]["H"] if SIG[k]["on"] else 4), sg=1, p=price, cb=ZC))   # yalnız 🔇: 4 saatte ölçüldü
         wk7 = [e_ for e_ in G["log"] if "ok" in e_ and t - e_["t"] <= pd.Timedelta(days=7)]; logs_all += G["log"]
         acik = " · ".join([f"{AD[k]} %{v['olcu']:.0f}" for k, v in SIG.items() if v["on"]] + [f"🔇 {AD[k]} %{TK[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in TK]) or "—"
         ort_ = " · ".join(f"{AD[k]} %{JO[k]['isabet']:.0f}" for k in ("star", "u4", "acls") if k in JO) or "—"
@@ -181,10 +182,10 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(sure_basi(4, (BTC_T + pd.Timedelta(hours=4, minutes=6)).tz_convert(DISPLAY_TZ)) + f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: kendi primi yüksek olan üstte:\n" + "\n".join(_isr(x, sinif_) for x in grup)
                 + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. "
-                + (ANA_NOT if sinif_ == "ana" else "Komisyon sonrası kâr kanıtlanmadı.") + ("\n🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 2) gelir · testte isabet %70–73, işlem başı +%0,9" if any(_g(x) for x in grup) else "")
+                + (ANA_NOT if sinif_ == "ana" else "Komisyon sonrası kâr kanıtlanmadı.") + ("\n🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 2) gelir · testte isabet %60 · %69 · %76 (2022–23 · 2024+ · 2026), işlem başı +%0,2–1,1" if any(_g(x) for x in grup) else "")
                 + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup))
                 + ("\n" + tut_notu((["🤝"] if any(not _g(x) for x in grup) else []) + (["🌐🤝"] if any(_g(x) for x in grup) else []) + [k_ for k_ in ("📉🔥", "🚀") if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup)], 4) if sinif_ == "ana" else ""),
-                oncelik=sira_puani("🤝", zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) and not _g(x) for x in grup) else 0) + (ONCELIK_FON if sinif_ == "ana" and any(fon_mu(x[2]) for x in grup) else 0), etiket="🤝 4 saat · BTC ile ortak: " + ", ".join(f"{x[2]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
+                oncelik=sira_puani("🌐🤝" if sinif_ == "ana" and any(_g(x) for x in grup) else ("🚀" if sinif_ == "ana" and all(_mom(x) for x in grup) else "🤝"), zmax_, hepsi_alma) + (ONCELIK_DIP if sinif_ == "ana" and any(dip_mi(x[3]) and not _g(x) for x in grup) else 0) + (ONCELIK_FON if sinif_ == "ana" and any(fon_mu(x[2]) for x in grup) else 0), etiket="🤝 4 saat · BTC ile ortak: " + ", ".join(f"{x[2]} ({'z ' + format(x[0], '+.1f') if np.isfinite(x[0]) else 'prim yok'}{' ⛔' if np.isfinite(x[0]) and x[0] <= -1 else ''})" for x in grup), sinif=sinif_)
 # ---- haftalık altcoin raporu (pazar 20:00, BTC raporuyla aynı saatte) ----
 try:
     tl_ = pd.Timestamp.now(tz=DISPLAY_TZ).floor("h")
