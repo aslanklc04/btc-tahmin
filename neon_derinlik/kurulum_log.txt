@@ -1,7 +1,7 @@
 == Neon projeleri (ad · kimlik · bolge)
 binance vadeli · round-bread-18476082 · aws-eu-central-1
 secilen proje: round-bread-18476082
-neon cli: 8.4.3
+neon cli: 8.4.4
 npm install cikis: 0
 == deploy
 → Applying to branch production (br-still-union-baibtf1k) · project default
@@ -21,21 +21,21 @@ invocation_url: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-
   status: completed
 == tetikleyiciler
 Trigger ID                                    Name    Type      Function Slug  Function Path  Schedule   Enabled  Inherited  Next Run At
-trigger-452674fa-3684-451c-8b1b-81a52484bc44  dakika  schedule  derinlik       /ornek         * * * * *  true     false      2026-10-13T19:42:00.000000Z
+trigger-452674fa-3684-451c-8b1b-81a52484bc44  dakika  schedule  derinlik       /ornek         * * * * *  true     false      2026-10-14T10:02:00.000000Z
 == /dene (https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/)
-zaman 2026-10-13T19:41:34.326Z
-BTC ±%1 alis 37.81 M$ · satis 43.39 M$ · kapsam alis %0.16 satis %0.15 · seviye 1000
-ETH ±%1 alis 53.75 M$ · satis 55.47 M$ · kapsam alis %0.45 satis %0.46 · seviye 1000
-ADA ±%1 alis 4.29 M$ · satis 3.68 M$ · kapsam alis %43.01 satis %42.97 · seviye 1000
-APT ±%1 alis 0.86 M$ · satis 0.63 M$ · kapsam alis %15.23 satis %20.29 · seviye 1000
-ARB ±%1 alis 1.07 M$ · satis 0.71 M$ · kapsam alis %7.89 satis %7.84 · seviye 1000
-BNB ±%1 alis 6.43 M$ · satis 6.59 M$ · kapsam alis %1.43 satis %1.44 · seviye 1000
-DOGE ±%1 alis 8.68 M$ · satis 8.82 M$ · kapsam alis %11.86 satis %11.83 · seviye 1000
-DOT ±%1 alis 2.11 M$ · satis 1.09 M$ · kapsam alis %11.28 satis %11.61 · seviye 1000
-FLOKI ±%1 alis 0.30 M$ · satis 0.18 M$ · kapsam alis %99.96 satis %3781.87 · seviye 497
-LINK ±%1 alis 3.87 M$ · satis 3.06 M$ · kapsam alis %9.51 satis %9.57 · seviye 1000
-NEAR ±%1 alis 3.20 M$ · satis 2.23 M$ · kapsam alis %20.19 satis %20.11 · seviye 1000
-OP ±%1 alis 0.74 M$ · satis 0.53 M$ · kapsam alis %9.84 satis %11.82 · seviye 1000
-PEPE ±%1 alis 2.67 M$ · satis 1.91 M$ · kapsam alis %3.03 satis %2.91 · seviye 1000
-SHIB ±%1 alis 1.30 M$ · satis 0.89 M$ · kapsam alis %26.98 satis %29.73 · seviye 1000
-SUI ±%1 alis 4.79 M$ · satis 3.37 M$ · kapsam alis %9.77 satis %9.70 · seviye 1000
+zaman 2026-10-14T10:01:36.586Z
+BTC ±%1 alis 55.44 M$ · satis 35.88 M$ · kapsam alis %0.14 satis %0.16 · seviye 1000
+ETH ±%1 alis 59.95 M$ · satis 53.27 M$ · kapsam alis %0.43 satis %0.45 · seviye 1000
+ADA ±%1 alis 4.27 M$ · satis 3.25 M$ · kapsam alis %43.71 satis %43.54 · seviye 1000
+APT ±%1 alis 0.81 M$ · satis 0.68 M$ · kapsam alis %17.21 satis %20.21 · seviye 1000
+ARB ±%1 alis 0.75 M$ · satis 0.62 M$ · kapsam alis %8.15 satis %8.15 · seviye 1000
+BNB ±%1 alis 5.97 M$ · satis 6.13 M$ · kapsam alis %1.43 satis %1.41 · seviye 1000
+DOGE ±%1 alis 7.42 M$ · satis 6.83 M$ · kapsam alis %11.91 satis %11.89 · seviye 1000
+DOT ±%1 alis 1.80 M$ · satis 1.24 M$ · kapsam alis %12.19 satis %11.81 · seviye 1000
+FLOKI ±%1 alis 0.27 M$ · satis 0.15 M$ · kapsam alis %99.96 satis %3827.66 · seviye 487
+LINK ±%1 alis 3.50 M$ · satis 2.32 M$ · kapsam alis %9.36 satis %9.62 · seviye 1000
+NEAR ±%1 alis 2.83 M$ · satis 2.58 M$ · kapsam alis %20.12 satis %20.08 · seviye 1000
+OP ±%1 alis 1.16 M$ · satis 0.87 M$ · kapsam alis %9.93 satis %10.94 · seviye 1000
+PEPE ±%1 alis 4.92 M$ · satis 2.87 M$ · kapsam alis %2.98 satis %2.93 · seviye 1000
+SHIB ±%1 alis 1.05 M$ · satis 0.83 M$ · kapsam alis %30.30 satis %28.33 · seviye 1000
+SUI ±%1 alis 3.36 M$ · satis 2.92 M$ · kapsam alis %9.91 satis %9.81 · seviye 1000
