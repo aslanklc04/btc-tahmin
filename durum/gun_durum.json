@@ -5,12 +5,6 @@
 {
 "t": "13.10 03:05",
 "s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -2.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "13.10 03:05",
-"s": "panel",
 "e": "🪙 BNB 4s Çok güçlü ↑ · isabet %59 · prim ⛔ z -1.7",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "15.10 01:05",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -2.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "15.10 02:05",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -2.0",
 "k": "gitmedi — yalnız panel"
 }
 ]
