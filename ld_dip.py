@@ -1,5 +1,5 @@
 # ld_dip.py — 💧 LİKİDİTE DİPTE + 📉 DİP birlikte, 💵 (ve diğer 🌐 olmayan) coin'lerde (kullanıcı isteği 14.10.2026; yalnız test).
-# 15 ana coin'de (ld_kontrol.py): ana %59 · %59 · %60 → 💧+📉 %87 · %78 · %73. Burada aynı ölçüm ld_genis.py olaylarında (118 coin), 📉 yalnız 🌐 olmayan coin'lerde (canlıdaki gibi).
+# 15 ana coin'de (ld_kontrol.py): ana %59 · %59 · %60 → 💧+📉 %87 · %78 · %73. Burada aynı ölçüm ld_genis.py olaylarında (118 coin), 💵'nin 9 coin'i (XRP, AAVE, SOL, ALGO, AVAX, CRV, FIL, INJ, UNI) geniş listede de var → 💵 olayları coin listesinden bağımsız ölçülür (14.10 düzeltme, sonuç görülmeden: ilk çalışmada 💵 olayları yanlışlıkla 🌐 diye dışlandı, 0 olay).
 # 📉 dip = coin'in son 24 saatlik getirisi kendi oynaklığına göre z ≤ −2 (canlıdaki dip_mi ile aynı).
 # ÖNCEDEN YAZILI KARAR (sonuçlar görülmeden): 💧 canlıya girdiğinde "💧 + 📉 birlikte" en üst öncelik olur, ancak 💵 coin'lerinde de
 #   💧+📉 isabeti ve neti hem yalnız 💧'den hem yalnız 📉'den yüksekse (2023 ve 2024+'da; 2026'da en az 10 sinyal varsa o da) — en az 10 / 10 sinyal.
@@ -75,7 +75,7 @@ def sat(ad, o): return f"{ad:34s}" + " | ".join(f"{o[dn][0]:5d} · %{o[dn][1]:4.
 L0 = ara(); DIP = np.nan_to_num(RZ, nan=0) <= -2; GN = np.isin(nmv, list(GEN)); A_ = np.isin(nmv, list(LDS))
 yaz(f"# 💧 + 📉 birlikte — 💵 ve 🌐 olmayan coin'ler — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n_sinyal sayısı · isabet · işlem başı net % — 2023 | 2024+ | 2026_\n")
 SON = {}
-for ad, g in (("💵 ABD alıyor", A_ & (E.aile.values == "💵") & ~GN), ("🌐 olmayan tüm ✅ ana", A_ & ~GN)):
+for ad, g in (("💵 ABD alıyor", A_ & (E.aile.values == "💵")), ("🌐🤝 / 🌐🧪 (bilgi)", A_ & (E.aile.values != "💵"))):
     yaz(f"**{ad}** (coin: {', '.join(sorted(set(nmv[g])))})\n```")
     o = {k: st(g & m) for k, m in (("hepsi", np.ones(len(E), bool)), ("💧", L0), ("📉", DIP), ("💧+📉", L0 & DIP))}
     for k, v in o.items(): yaz(sat(f"{ad[:2]} {k}", v))
