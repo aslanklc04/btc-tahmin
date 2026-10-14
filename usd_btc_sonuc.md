@@ -1,0 +1,20 @@
+# 💵 ABD alıyor × BTC geneli primi — 14.10.2026 18:44
+💵 sinyal: 4,043 · coin: AAVE, ADA, ALGO, AVAX, BTC, CRV, DOGE, ETH, FIL, INJ, LINK, NEAR, SOL, UNI, XRP · 170 sn
+
+_sinyal sayısı · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
+```
+💵 hepsi                        1398 · %53.9 · +0.56 |  2628 · %54.3 · +0.71 |   801 · %54.1 · +0.62
+💵 + BTC ⛔ (z ≤ −1)              114 · %54.4 · +1.48 |   190 · %56.8 · +1.28 |    80 · %66.2 · +1.75
+💵 + BTC −1 < z ≤ 0              258 · %55.4 · +0.28 |   336 · %59.2 · +0.92 |    80 · %60.0 · +0.86
+💵 + BTC 0 < z ≤ 1               435 · %50.1 · +0.44 |   730 · %53.0 · +0.46 |   269 · %55.4 · +0.36
+💵 + BTC z > 1                   591 · %56.0 · +0.59 |  1372 · %53.5 · +0.71 |   372 · %49.2 · +0.52
+💵 + BTC ⛔ değil (z > −1)       1284 · %53.9 · +0.48 |  2438 · %54.1 · +0.66 |   721 · %52.7 · +0.50
+```
+
+- **Üç dönemde zayıf (isabet ≤ −2 puan ve net düşük):** ❌
+- **Plasebo (2024+ isabet farkı +2.5, plasebo %5'lik -3.6):** ❌
+
+## Önceden yazılı karar
+- ❌ geçmedi → 💵'de BTC geneli ⛔ ayrımı yapılmaz
+
+_Süre: 170 sn_
