@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-14",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "11.10 20:06",
-"s": "ℹ️ bilgi",
-"e": "🧪📊 24 SAAT DENEME — HAFTALIK",
-"k": "gönderildi"
-},
 {
 "t": "11.10 20:06",
 "s": "ℹ️ bilgi",
@@ -240,6 +234,12 @@
 "t": "14.10 09:05",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 14.10 09:00 · $83,466",
+"k": "gönderildi"
+},
+{
+"t": "14.10 10:05",
+"s": "✅ ana",
+"e": "💵 ABD güçlü alıyor: CRV (z +3.2, 8 saat)",
 "k": "gönderildi"
 }
 ]
