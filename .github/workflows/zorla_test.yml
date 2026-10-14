@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (⏱ süre başlığı: canli-test dalı)
+# canli kuru test (cizgi alti → yedek: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
