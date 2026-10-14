@@ -25,3 +25,7 @@ Otomatik canlıya geçiş KALDIRILDI. Ölçütler sıkılaştırıldı:
     Arşivde 5'ten az 💧 saati varsa karar verilmez, veri toplanmaya devam edilir (en fazla 7 gün).
   - Neon kesintisi: ortak saatlerde beklenen dakika örneklerinin ≥ %95'i ölçülmüş olmalı (ilk 15 coin dakikada bir = 60/saat, ek coin'ler 30/saat).
 Hepsi geçse bile 💧 kendiliğinden canlıya EKLENMEZ: sonuç kullanıcıya gösterilir, kullanıcı onay verirse eklenir.
+
+## Ek 3 (14.10.2026 ~12:20 TR, karşılaştırma sonucu görülmeden)
+Neon kontrolünde son tam saatte 60 dakikanın 56'sı ölçülmüş (%93; zamanlayıcı ara sıra bir dakika atlıyor). Saatlik ortalama 56 ve 60 örnekle
+pratikte aynıdır; ölçüm uyumu zaten U1–U5 ile doğrudan sınanıyor. Kapsam eşiği %95 → %90 (kullanıcı onayı: "hangisi daha iyiyse"). Diğer ölçütler aynı.

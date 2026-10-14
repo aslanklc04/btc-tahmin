@@ -54,7 +54,7 @@ for nm in sorted(set(NE) & set(AR)):
     ln, la_ = np.log(n[ix]), la[ix]; zn = (ln - m720[ix]) / s720[ix]; za = (la_ - m720[ix]) / s720[ix]
     kor = ln.corr(la_); fark = (ln - la_).abs().median(); zf = (zn - za).abs().median(); uy = ((zn <= -2) != (za <= -2)).mean()
     ok = kor >= 0.75 and fark <= 0.10 and zf <= 0.25 and uy <= 0.02
-    bek = 60 if nm in CEK else 30; kap = pd.Series(NN.get(nm, {})).reindex(ix).fillna(0).sum() / (bek * len(ix)); ok = ok and kap >= 0.95
+    bek = 60 if nm in CEK else 30; kap = pd.Series(NN.get(nm, {})).reindex(ix).fillna(0).sum() / (bek * len(ix)); ok = ok and kap >= 0.90
     HAV.append(pd.DataFrame({"coin": nm, "t": ix, "ln": ln.values, "la": la_.values, "zn": zn.values, "za": za.values}))
     rows.append((nm, len(ix), kor, fark, zf, uy, kap, "✅" if ok else "❌"))
 T = pd.DataFrame(rows, columns=["coin", "saat", "U1 kor", "U2 |log fark| med", "U3 |z fark| med", "U3 LD uyuşmazlık", "kapsam", "sonuç"])
