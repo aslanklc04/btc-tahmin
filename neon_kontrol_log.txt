@@ -1,176 +1,293 @@
-== saat 2026101217
-ornek dosya: 7
-BTC 7 ornek · ort ±%1 82.88 M$ · en dusuk kapsam %0.15
-ETH 7 ornek · ort ±%1 142.09 M$ · en dusuk kapsam %0.42
-ADA 7 ornek · ort ±%1 7.71 M$ · en dusuk kapsam %41.70
-APT 7 ornek · ort ±%1 1.37 M$ · en dusuk kapsam %15.85
-ARB 7 ornek · ort ±%1 1.66 M$ · en dusuk kapsam %7.78
-BNB 7 ornek · ort ±%1 12.02 M$ · en dusuk kapsam %1.40
-DOGE 7 ornek · ort ±%1 16.41 M$ · en dusuk kapsam %11.82
-DOT 7 ornek · ort ±%1 2.87 M$ · en dusuk kapsam %10.93
-FLOKI 7 ornek · ort ±%1 0.46 M$ · en dusuk kapsam %99.96
-LINK 7 ornek · ort ±%1 5.59 M$ · en dusuk kapsam %9.21
-NEAR 7 ornek · ort ±%1 5.85 M$ · en dusuk kapsam %18.47
-OP 7 ornek · ort ±%1 0.99 M$ · en dusuk kapsam %14.82
-PEPE 7 ornek · ort ±%1 3.68 M$ · en dusuk kapsam %2.98
-SHIB 7 ornek · ort ±%1 1.84 M$ · en dusuk kapsam %33.98
-SUI 7 ornek · ort ±%1 5.62 M$ · en dusuk kapsam %9.53
-AAVE 4 ornek · ort ±%1 3.88 M$ · en dusuk kapsam %8.59
-AGLD 4 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.95
-ALGO 4 ornek · ort ±%1 0.57 M$ · en dusuk kapsam %15.70
-ALT 4 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.88
-APE 4 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %99.34
-ARKM 4 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.92
-ATOM 4 ornek · ort ±%1 0.74 M$ · en dusuk kapsam %99.94
-AVAX 4 ornek · ort ±%1 4.80 M$ · en dusuk kapsam %11.19
-AXS 4 ornek · ort ±%1 0.52 M$ · en dusuk kapsam %35.06
-BAT 4 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %12.90
-BICO 4 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.44
-BNT 4 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.97
-C98 4 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.43
-CELR 4 ornek · ort ±%1 0.04 M$ · en dusuk kapsam %99.97
-COMP 4 ornek · ort ±%1 0.27 M$ · en dusuk kapsam %99.96
-CRV 4 ornek · ort ±%1 1.27 M$ · en dusuk kapsam %51.98
-CVC 4 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.96
-DASH 4 ornek · ort ±%1 1.48 M$ · en dusuk kapsam %23.46
-EGLD 4 ornek · ort ±%1 0.27 M$ · en dusuk kapsam %99.97
-ENS 4 ornek · ort ±%1 0.42 M$ · en dusuk kapsam %99.84
-ETHFI 4 ornek · ort ±%1 0.74 M$ · en dusuk kapsam %31.36
-FIDA 4 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.51
-FLOW 4 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %97.07
-GLM 4 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.92
-GRT 4 ornek · ort ±%1 0.28 M$ · en dusuk kapsam %99.96
-HBAR 4 ornek · ort ±%1 3.68 M$ · en dusuk kapsam %18.35
-ILV 4 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.74
-INJ 4 ornek · ort ±%1 1.88 M$ · en dusuk kapsam %15.92
-JASMY 4 ornek · ort ±%1 0.28 M$ · en dusuk kapsam %99.80
-KAVA 4 ornek · ort ±%1 0.26 M$ · en dusuk kapsam %99.85
-KSM 4 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.98
-LPT 4 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %99.42
-LTC 4 ornek · ort ±%1 3.84 M$ · en dusuk kapsam %18.51
-MANA 4 ornek · ort ±%1 0.32 M$ · en dusuk kapsam %99.89
-METIS 4 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.97
-NMR 4 ornek · ort ±%1 0.42 M$ · en dusuk kapsam %23.24
-PENDLE 4 ornek · ort ±%1 0.55 M$ · en dusuk kapsam %13.85
-POWR 4 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.83
-PYTH 4 ornek · ort ±%1 0.83 M$ · en dusuk kapsam %19.51
-RARE 4 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.35
-REZ 4 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %99.97
-ROSE 4 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %98.82
-RSR 4 ornek · ort ±%1 0.47 M$ · en dusuk kapsam %48.72
-SEI 4 ornek · ort ±%1 1.36 M$ · en dusuk kapsam %22.10
-SNX 4 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.58
-SPELL 4 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %98.92
-STX 4 ornek · ort ±%1 0.33 M$ · en dusuk kapsam %78.50
-SUSHI 4 ornek · ort ±%1 0.38 M$ · en dusuk kapsam %99.96
-TAO 4 ornek · ort ±%1 2.53 M$ · en dusuk kapsam %5.00
-TNSR 4 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.97
-TURBO 4 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %99.90
-UNI 4 ornek · ort ±%1 3.96 M$ · en dusuk kapsam %14.17
-VTHO 4 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.99
-WIF 4 ornek · ort ±%1 1.14 M$ · en dusuk kapsam %99.95
-XLM 4 ornek · ort ±%1 3.70 M$ · en dusuk kapsam %8.30
-XTZ 4 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %98.39
-ZEC 4 ornek · ort ±%1 21.28 M$ · en dusuk kapsam %1.04
-ZK 4 ornek · ort ±%1 0.40 M$ · en dusuk kapsam %29.03
-ZRX 4 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %93.37
-1INCH 2 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.90
-ACH 2 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.83
-ALICE 2 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.58
-ANKR 2 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.98
-API3 2 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.68
-ARPA 2 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.99
-AUCTION 2 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.72
-AXL 2 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.98
-BAND 2 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.96
-BCH 2 ornek · ort ±%1 2.49 M$ · en dusuk kapsam %5.81
-BLUR 2 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.45
-BONK 2 ornek · ort ±%1 1.00 M$ · en dusuk kapsam %79.94
-CAKE 2 ornek · ort ±%1 0.53 M$ · en dusuk kapsam %10.94
-CHZ 2 ornek · ort ±%1 0.52 M$ · en dusuk kapsam %99.93
-COTI 2 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %63.30
-CTSI 2 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %97.01
-CVX 2 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.95
-DIA 2 ornek · ort ±%1 0.04 M$ · en dusuk kapsam %99.94
-ENA 2 ornek · ort ±%1 3.60 M$ · en dusuk kapsam %5.53
-ETC 2 ornek · ort ±%1 1.65 M$ · en dusuk kapsam %22.60
-FET 2 ornek · ort ±%1 0.96 M$ · en dusuk kapsam %64.79
-FIL 2 ornek · ort ±%1 2.61 M$ · en dusuk kapsam %9.77
-G 2 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %83.29
-GMT 2 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %98.80
-GTC 2 ornek · ort ±%1 0.25 M$ · en dusuk kapsam %4.87
-ICP 2 ornek · ort ±%1 0.89 M$ · en dusuk kapsam %36.72
-IMX 2 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %99.44
-IO 2 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.40
-JTO 2 ornek · ort ±%1 0.61 M$ · en dusuk kapsam %73.57
-KNC 2 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.92
-LDO 2 ornek · ort ±%1 0.94 M$ · en dusuk kapsam %38.96
-LQTY 2 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.96
-MAGIC 2 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %9.97
-MASK 2 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %97.88
-MINA 2 ornek · ort ±%1 0.53 M$ · en dusuk kapsam %35.05
-OGN 2 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %34.91
-POL 2 ornek · ort ±%1 0.69 M$ · en dusuk kapsam %18.09
-PUNDIX 2 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.91
-QNT 2 ornek · ort ±%1 1.11 M$ · en dusuk kapsam %6.06
-RENDER 2 ornek · ort ±%1 1.03 M$ · en dusuk kapsam %99.95
-RLC 2 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %11.39
-RPL 2 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.44
-SAND 2 ornek · ort ±%1 0.93 M$ · en dusuk kapsam %28.94
-SKL 2 ornek · ort ±%1 0.19 M$ · en dusuk kapsam %99.17
-SOL 2 ornek · ort ±%1 45.49 M$ · en dusuk kapsam %9.23
-STRK 2 ornek · ort ±%1 1.11 M$ · en dusuk kapsam %11.15
-SUPER 2 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.95
-T 2 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.82
-TIA 2 ornek · ort ±%1 0.62 M$ · en dusuk kapsam %26.11
-TRB 2 ornek · ort ±%1 0.21 M$ · en dusuk kapsam %99.99
-UMA 2 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %99.98
-VET 2 ornek · ort ±%1 0.32 M$ · en dusuk kapsam %99.99
-W 2 ornek · ort ±%1 0.33 M$ · en dusuk kapsam %6.37
-WLD 2 ornek · ort ±%1 3.95 M$ · en dusuk kapsam %21.00
-XRP 2 ornek · ort ±%1 29.16 M$ · en dusuk kapsam %7.33
-YFI 2 ornek · ort ±%1 0.19 M$ · en dusuk kapsam %99.96
-ZEN 2 ornek · ort ±%1 0.50 M$ · en dusuk kapsam %43.32
-ZRO 2 ornek · ort ±%1 0.59 M$ · en dusuk kapsam %7.70
-== saat 2026101216
-ornek dosya: 52
-BTC 52 ornek · ort ±%1 87.68 M$ · en dusuk kapsam %0.14
-ETH 52 ornek · ort ±%1 123.53 M$ · en dusuk kapsam %0.42
-ADA 52 ornek · ort ±%1 7.57 M$ · en dusuk kapsam %41.34
-APT 52 ornek · ort ±%1 1.63 M$ · en dusuk kapsam %15.16
-ARB 52 ornek · ort ±%1 1.72 M$ · en dusuk kapsam %7.42
-BNB 52 ornek · ort ±%1 13.26 M$ · en dusuk kapsam %1.40
-DOGE 52 ornek · ort ±%1 16.07 M$ · en dusuk kapsam %11.74
-DOT 52 ornek · ort ±%1 3.29 M$ · en dusuk kapsam %10.33
-FLOKI 52 ornek · ort ±%1 0.47 M$ · en dusuk kapsam %99.96
-LINK 52 ornek · ort ±%1 6.74 M$ · en dusuk kapsam %9.03
-NEAR 52 ornek · ort ±%1 6.20 M$ · en dusuk kapsam %17.98
-OP 52 ornek · ort ±%1 1.09 M$ · en dusuk kapsam %14.69
-PEPE 52 ornek · ort ±%1 4.19 M$ · en dusuk kapsam %2.91
-SHIB 52 ornek · ort ±%1 2.03 M$ · en dusuk kapsam %32.43
-SUI 52 ornek · ort ±%1 6.08 M$ · en dusuk kapsam %9.32
+== saat 2026101409
+ornek dosya: 53
+BTC 53 ornek · ort ±%1 85.37 M$ · en dusuk kapsam %0.14
+ETH 53 ornek · ort ±%1 126.80 M$ · en dusuk kapsam %0.42
+ADA 53 ornek · ort ±%1 7.46 M$ · en dusuk kapsam %43.37
+APT 53 ornek · ort ±%1 1.61 M$ · en dusuk kapsam %16.42
+ARB 53 ornek · ort ±%1 1.54 M$ · en dusuk kapsam %7.74
+BNB 53 ornek · ort ±%1 12.39 M$ · en dusuk kapsam %1.41
+DOGE 53 ornek · ort ±%1 15.89 M$ · en dusuk kapsam %11.84
+DOT 53 ornek · ort ±%1 3.22 M$ · en dusuk kapsam %11.26
+FLOKI 53 ornek · ort ±%1 0.42 M$ · en dusuk kapsam %99.96
+LINK 53 ornek · ort ±%1 6.27 M$ · en dusuk kapsam %9.23
+NEAR 53 ornek · ort ±%1 5.57 M$ · en dusuk kapsam %19.93
+OP 53 ornek · ort ±%1 1.79 M$ · en dusuk kapsam %9.18
+PEPE 53 ornek · ort ±%1 7.93 M$ · en dusuk kapsam %2.84
+SHIB 53 ornek · ort ±%1 1.94 M$ · en dusuk kapsam %27.95
+SUI 53 ornek · ort ±%1 6.52 M$ · en dusuk kapsam %9.70
+1INCH 25 ornek · ort ±%1 0.19 M$ · en dusuk kapsam %99.90
+ACH 25 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.83
+ALICE 25 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.56
+ANKR 25 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.98
+API3 25 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %99.67
+ARPA 25 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.99
+AUCTION 25 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.71
+AXL 25 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.98
+BAND 25 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.96
+BCH 25 ornek · ort ±%1 2.74 M$ · en dusuk kapsam %5.83
+BLUR 25 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %99.05
+BONK 25 ornek · ort ±%1 0.86 M$ · en dusuk kapsam %79.63
+CAKE 25 ornek · ort ±%1 0.63 M$ · en dusuk kapsam %7.74
+CHZ 25 ornek · ort ±%1 0.56 M$ · en dusuk kapsam %99.93
+COTI 25 ornek · ort ±%1 0.21 M$ · en dusuk kapsam %85.73
+CTSI 25 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %96.84
+CVX 25 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.95
+DIA 25 ornek · ort ±%1 0.05 M$ · en dusuk kapsam %99.94
+ENA 25 ornek · ort ±%1 3.41 M$ · en dusuk kapsam %5.64
+ETC 25 ornek · ort ±%1 1.88 M$ · en dusuk kapsam %23.25
+FET 25 ornek · ort ±%1 0.88 M$ · en dusuk kapsam %62.58
+FIL 25 ornek · ort ±%1 2.77 M$ · en dusuk kapsam %9.36
+G 25 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %92.88
+GMT 25 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %98.76
+GTC 25 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %8.04
+ICP 25 ornek · ort ±%1 1.28 M$ · en dusuk kapsam %45.05
+IMX 25 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.41
+IO 25 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.38
+JTO 25 ornek · ort ±%1 0.79 M$ · en dusuk kapsam %48.52
+KNC 25 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.92
+LDO 25 ornek · ort ±%1 0.78 M$ · en dusuk kapsam %36.50
+LQTY 25 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.95
+MAGIC 25 ornek · ort ±%1 0.24 M$ · en dusuk kapsam %11.93
+MASK 25 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %97.78
+MINA 25 ornek · ort ±%1 0.47 M$ · en dusuk kapsam %77.82
+OGN 25 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %38.41
+POL 25 ornek · ort ±%1 1.07 M$ · en dusuk kapsam %17.31
+PUNDIX 25 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.91
+QNT 25 ornek · ort ±%1 1.24 M$ · en dusuk kapsam %7.13
+RENDER 25 ornek · ort ±%1 1.38 M$ · en dusuk kapsam %99.95
+RLC 25 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %12.76
+RPL 25 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.42
+SAND 25 ornek · ort ±%1 1.06 M$ · en dusuk kapsam %39.19
+SKL 25 ornek · ort ±%1 0.25 M$ · en dusuk kapsam %99.12
+SOL 25 ornek · ort ±%1 49.86 M$ · en dusuk kapsam %9.31
+STRK 25 ornek · ort ±%1 1.39 M$ · en dusuk kapsam %13.46
+SUPER 25 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.95
+T 25 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.81
+TIA 25 ornek · ort ±%1 0.60 M$ · en dusuk kapsam %24.51
+TRB 25 ornek · ort ±%1 0.28 M$ · en dusuk kapsam %99.99
+UMA 25 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.98
+VET 25 ornek · ort ±%1 0.40 M$ · en dusuk kapsam %99.99
+W 25 ornek · ort ±%1 0.74 M$ · en dusuk kapsam %9.81
+WLD 25 ornek · ort ±%1 3.27 M$ · en dusuk kapsam %20.52
+XRP 25 ornek · ort ±%1 31.08 M$ · en dusuk kapsam %7.29
+YFI 25 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %99.96
+ZEN 25 ornek · ort ±%1 0.54 M$ · en dusuk kapsam %42.61
+ZRO 25 ornek · ort ±%1 0.51 M$ · en dusuk kapsam %8.09
+AAVE 28 ornek · ort ±%1 4.61 M$ · en dusuk kapsam %8.03
+AGLD 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.95
+ALGO 28 ornek · ort ±%1 0.55 M$ · en dusuk kapsam %13.38
+ALT 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.75
+APE 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %99.32
+ARKM 28 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.92
+ATOM 28 ornek · ort ±%1 0.68 M$ · en dusuk kapsam %97.15
+AVAX 28 ornek · ort ±%1 3.96 M$ · en dusuk kapsam %11.33
+AXS 28 ornek · ort ±%1 0.39 M$ · en dusuk kapsam %27.82
+BAT 28 ornek · ort ±%1 0.33 M$ · en dusuk kapsam %6.03
+BICO 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.41
+BNT 28 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.97
+C98 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.41
+CELR 28 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.97
+COMP 28 ornek · ort ±%1 0.30 M$ · en dusuk kapsam %99.56
+CRV 28 ornek · ort ±%1 1.37 M$ · en dusuk kapsam %55.12
+CVC 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.96
+DASH 28 ornek · ort ±%1 1.37 M$ · en dusuk kapsam %23.97
+EGLD 28 ornek · ort ±%1 0.42 M$ · en dusuk kapsam %99.97
+ENS 28 ornek · ort ±%1 0.49 M$ · en dusuk kapsam %99.83
+ETHFI 28 ornek · ort ±%1 0.74 M$ · en dusuk kapsam %29.99
+FIDA 28 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.49
+FLOW 28 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %96.91
+GLM 28 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.92
+GRT 28 ornek · ort ±%1 0.29 M$ · en dusuk kapsam %99.96
+HBAR 28 ornek · ort ±%1 3.75 M$ · en dusuk kapsam %17.34
+ILV 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.72
+INJ 28 ornek · ort ±%1 2.01 M$ · en dusuk kapsam %15.19
+JASMY 28 ornek · ort ±%1 0.28 M$ · en dusuk kapsam %99.79
+KAVA 28 ornek · ort ±%1 0.31 M$ · en dusuk kapsam %99.86
+KSM 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.98
+LPT 28 ornek · ort ±%1 0.24 M$ · en dusuk kapsam %99.42
+LTC 28 ornek · ort ±%1 4.16 M$ · en dusuk kapsam %19.44
+MANA 28 ornek · ort ±%1 0.36 M$ · en dusuk kapsam %99.89
+METIS 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.97
+NMR 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %27.98
+PENDLE 28 ornek · ort ±%1 0.50 M$ · en dusuk kapsam %11.69
+POWR 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.82
+PYTH 28 ornek · ort ±%1 1.01 M$ · en dusuk kapsam %21.52
+RARE 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.36
+REZ 28 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.97
+ROSE 28 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %98.79
+RSR 28 ornek · ort ±%1 0.38 M$ · en dusuk kapsam %77.44
+SEI 28 ornek · ort ±%1 1.43 M$ · en dusuk kapsam %22.20
+SNX 28 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %99.58
+SPELL 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %98.89
+STX 28 ornek · ort ±%1 0.36 M$ · en dusuk kapsam %37.99
+SUSHI 28 ornek · ort ±%1 0.33 M$ · en dusuk kapsam %99.96
+TAO 28 ornek · ort ±%1 3.00 M$ · en dusuk kapsam %5.05
+TNSR 28 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.97
+TURBO 28 ornek · ort ±%1 0.25 M$ · en dusuk kapsam %99.89
+UNI 28 ornek · ort ±%1 3.26 M$ · en dusuk kapsam %14.00
+VTHO 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.99
+WIF 28 ornek · ort ±%1 1.28 M$ · en dusuk kapsam %99.95
+XLM 28 ornek · ort ±%1 4.35 M$ · en dusuk kapsam %7.73
+XTZ 28 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %98.40
+ZEC 28 ornek · ort ±%1 14.00 M$ · en dusuk kapsam %0.98
+ZK 28 ornek · ort ±%1 0.38 M$ · en dusuk kapsam %18.60
+ZRX 28 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %93.18
+== saat 2026101408
+ornek dosya: 56
+BTC 56 ornek · ort ±%1 82.17 M$ · en dusuk kapsam %0.14
+ETH 56 ornek · ort ±%1 121.04 M$ · en dusuk kapsam %0.41
+ADA 56 ornek · ort ±%1 7.67 M$ · en dusuk kapsam %42.81
+APT 56 ornek · ort ±%1 1.55 M$ · en dusuk kapsam %15.63
+ARB 56 ornek · ort ±%1 1.55 M$ · en dusuk kapsam %7.59
+BNB 56 ornek · ort ±%1 12.60 M$ · en dusuk kapsam %1.40
+DOGE 56 ornek · ort ±%1 16.32 M$ · en dusuk kapsam %11.70
+DOT 56 ornek · ort ±%1 3.10 M$ · en dusuk kapsam %11.31
+FLOKI 56 ornek · ort ±%1 0.43 M$ · en dusuk kapsam %99.96
+LINK 56 ornek · ort ±%1 6.36 M$ · en dusuk kapsam %9.09
+NEAR 56 ornek · ort ±%1 5.44 M$ · en dusuk kapsam %19.56
+OP 56 ornek · ort ±%1 1.63 M$ · en dusuk kapsam %9.05
+PEPE 56 ornek · ort ±%1 6.38 M$ · en dusuk kapsam %2.82
+SHIB 56 ornek · ort ±%1 1.91 M$ · en dusuk kapsam %26.68
+SUI 56 ornek · ort ±%1 6.52 M$ · en dusuk kapsam %9.54
+1INCH 28 ornek · ort ±%1 0.18 M$ · en dusuk kapsam %99.90
+ACH 28 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.83
+ALICE 28 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.56
+ANKR 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.98
+API3 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.67
+ARPA 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.99
+AUCTION 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.72
+AXL 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.98
+BAND 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.96
+BCH 28 ornek · ort ±%1 2.75 M$ · en dusuk kapsam %5.27
+BLUR 28 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %99.05
+BONK 28 ornek · ort ±%1 0.83 M$ · en dusuk kapsam %96.26
+CAKE 28 ornek · ort ±%1 0.59 M$ · en dusuk kapsam %8.02
+CHZ 28 ornek · ort ±%1 0.58 M$ · en dusuk kapsam %99.93
+COTI 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %98.02
+CTSI 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %96.93
+CVX 28 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.95
+DIA 28 ornek · ort ±%1 0.04 M$ · en dusuk kapsam %99.94
+ENA 28 ornek · ort ±%1 3.33 M$ · en dusuk kapsam %5.47
+ETC 28 ornek · ort ±%1 1.95 M$ · en dusuk kapsam %21.84
+FET 28 ornek · ort ±%1 0.82 M$ · en dusuk kapsam %63.02
+FIL 28 ornek · ort ±%1 2.61 M$ · en dusuk kapsam %9.16
+G 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %90.35
+GMT 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %98.77
+GTC 28 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %7.84
+ICP 28 ornek · ort ±%1 1.23 M$ · en dusuk kapsam %42.58
+IMX 28 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %99.42
+IO 28 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.39
+JTO 28 ornek · ort ±%1 0.73 M$ · en dusuk kapsam %46.30
+KNC 28 ornek · ort ±%1 0.14 M$ · en dusuk kapsam %99.92
+LDO 28 ornek · ort ±%1 0.77 M$ · en dusuk kapsam %34.83
+LQTY 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.95
+MAGIC 28 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %11.86
+MASK 28 ornek · ort ±%1 0.17 M$ · en dusuk kapsam %97.80
+MINA 28 ornek · ort ±%1 0.47 M$ · en dusuk kapsam %76.18
+OGN 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %37.84
+POL 28 ornek · ort ±%1 1.02 M$ · en dusuk kapsam %16.61
+PUNDIX 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.91
+QNT 28 ornek · ort ±%1 1.20 M$ · en dusuk kapsam %6.96
+RENDER 28 ornek · ort ±%1 1.34 M$ · en dusuk kapsam %99.95
+RLC 28 ornek · ort ±%1 0.20 M$ · en dusuk kapsam %12.69
+RPL 28 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.42
+SAND 28 ornek · ort ±%1 1.05 M$ · en dusuk kapsam %33.53
+SKL 28 ornek · ort ±%1 0.26 M$ · en dusuk kapsam %99.15
+SOL 28 ornek · ort ±%1 49.92 M$ · en dusuk kapsam %9.20
+STRK 28 ornek · ort ±%1 1.08 M$ · en dusuk kapsam %12.97
+SUPER 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.95
+T 28 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %99.81
+TIA 28 ornek · ort ±%1 0.57 M$ · en dusuk kapsam %23.74
+TRB 28 ornek · ort ±%1 0.29 M$ · en dusuk kapsam %99.99
+UMA 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.98
+VET 28 ornek · ort ±%1 0.39 M$ · en dusuk kapsam %99.99
+W 28 ornek · ort ±%1 0.72 M$ · en dusuk kapsam %9.33
+WLD 28 ornek · ort ±%1 3.00 M$ · en dusuk kapsam %19.82
+XRP 28 ornek · ort ±%1 30.37 M$ · en dusuk kapsam %7.22
+YFI 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %99.96
+ZEN 28 ornek · ort ±%1 0.51 M$ · en dusuk kapsam %43.38
+ZRO 28 ornek · ort ±%1 0.49 M$ · en dusuk kapsam %8.08
+AAVE 28 ornek · ort ±%1 4.30 M$ · en dusuk kapsam %7.89
+AGLD 28 ornek · ort ±%1 0.13 M$ · en dusuk kapsam %99.95
+ALGO 28 ornek · ort ±%1 0.55 M$ · en dusuk kapsam %13.37
+ALT 28 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.76
+APE 28 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %99.33
+ARKM 28 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.92
+ATOM 28 ornek · ort ±%1 0.65 M$ · en dusuk kapsam %98.28
+AVAX 28 ornek · ort ±%1 3.96 M$ · en dusuk kapsam %10.95
+AXS 28 ornek · ort ±%1 0.36 M$ · en dusuk kapsam %25.98
+BAT 28 ornek · ort ±%1 0.30 M$ · en dusuk kapsam %6.19
+BICO 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.42
+BNT 28 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.97
+C98 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.42
+CELR 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.97
+COMP 28 ornek · ort ±%1 0.31 M$ · en dusuk kapsam %99.56
+CRV 28 ornek · ort ±%1 1.39 M$ · en dusuk kapsam %60.65
+CVC 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %99.96
+DASH 28 ornek · ort ±%1 1.37 M$ · en dusuk kapsam %23.63
+EGLD 28 ornek · ort ±%1 0.42 M$ · en dusuk kapsam %99.97
+ENS 28 ornek · ort ±%1 0.49 M$ · en dusuk kapsam %99.83
+ETHFI 28 ornek · ort ±%1 0.66 M$ · en dusuk kapsam %25.22
+FIDA 28 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.50
+FLOW 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %96.96
+GLM 28 ornek · ort ±%1 0.12 M$ · en dusuk kapsam %99.92
+GRT 28 ornek · ort ±%1 0.27 M$ · en dusuk kapsam %99.96
+HBAR 28 ornek · ort ±%1 3.65 M$ · en dusuk kapsam %17.31
+ILV 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.73
+INJ 28 ornek · ort ±%1 1.87 M$ · en dusuk kapsam %15.26
+JASMY 28 ornek · ort ±%1 0.27 M$ · en dusuk kapsam %99.79
+KAVA 28 ornek · ort ±%1 0.28 M$ · en dusuk kapsam %99.86
+KSM 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %99.98
+LPT 28 ornek · ort ±%1 0.26 M$ · en dusuk kapsam %99.43
+LTC 28 ornek · ort ±%1 4.03 M$ · en dusuk kapsam %19.01
+MANA 28 ornek · ort ±%1 0.35 M$ · en dusuk kapsam %99.89
+METIS 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.97
+NMR 28 ornek · ort ±%1 0.24 M$ · en dusuk kapsam %29.63
+PENDLE 28 ornek · ort ±%1 0.51 M$ · en dusuk kapsam %11.55
+POWR 28 ornek · ort ±%1 0.10 M$ · en dusuk kapsam %99.83
+PYTH 28 ornek · ort ±%1 1.00 M$ · en dusuk kapsam %19.33
+RARE 28 ornek · ort ±%1 0.08 M$ · en dusuk kapsam %99.36
+REZ 28 ornek · ort ±%1 0.15 M$ · en dusuk kapsam %99.97
+ROSE 28 ornek · ort ±%1 0.11 M$ · en dusuk kapsam %98.80
+RSR 28 ornek · ort ±%1 0.35 M$ · en dusuk kapsam %76.57
+SEI 28 ornek · ort ±%1 1.42 M$ · en dusuk kapsam %23.28
+SNX 28 ornek · ort ±%1 0.19 M$ · en dusuk kapsam %99.58
+SPELL 28 ornek · ort ±%1 0.09 M$ · en dusuk kapsam %98.90
+STX 28 ornek · ort ±%1 0.34 M$ · en dusuk kapsam %35.81
+SUSHI 28 ornek · ort ±%1 0.34 M$ · en dusuk kapsam %99.96
+TAO 28 ornek · ort ±%1 2.96 M$ · en dusuk kapsam %5.00
+TNSR 28 ornek · ort ±%1 0.06 M$ · en dusuk kapsam %99.97
+TURBO 28 ornek · ort ±%1 0.23 M$ · en dusuk kapsam %99.89
+UNI 28 ornek · ort ±%1 3.32 M$ · en dusuk kapsam %13.63
+VTHO 28 ornek · ort ±%1 0.07 M$ · en dusuk kapsam %99.99
+WIF 28 ornek · ort ±%1 1.22 M$ · en dusuk kapsam %99.95
+XLM 28 ornek · ort ±%1 4.30 M$ · en dusuk kapsam %7.71
+XTZ 28 ornek · ort ±%1 0.22 M$ · en dusuk kapsam %98.42
+ZEC 28 ornek · ort ±%1 13.71 M$ · en dusuk kapsam %0.97
+ZK 28 ornek · ort ±%1 0.34 M$ · en dusuk kapsam %14.28
+ZRX 28 ornek · ort ±%1 0.16 M$ · en dusuk kapsam %93.23
 == fonlama
-BTC 100 odeme · son +0.0019%
-ETH 100 odeme · son +0.0017%
-ADA 100 odeme · son +0.0100%
-APT 100 odeme · son -0.0084%
-ARB 100 odeme · son +0.0032%
-BNB 100 odeme · son +0.0000%
-DOGE 100 odeme · son +0.0026%
-DOT 100 odeme · son +0.0100%
-FLOKI 100 odeme · son -0.0045%
-LINK 100 odeme · son +0.0036%
-NEAR 100 odeme · son +0.0032%
-OP 100 odeme · son -0.0025%
-PEPE 100 odeme · son +0.0100%
-SHIB 100 odeme · son -0.0002%
-SUI 100 odeme · son +0.0045%
-XRP 100 odeme · son +0.0013%
-ALGO 100 odeme · son +0.0100%
-CRV 100 odeme · son +0.0100%
-AVAX 100 odeme · son +0.0013%
-UNI 100 odeme · son +0.0022%
-AAVE 100 odeme · son +0.0047%
-FIL 100 odeme · son +0.0100%
+BTC 100 odeme · son +0.0015%
+ETH 100 odeme · son +0.0018%
+ADA 100 odeme · son +0.0078%
+APT 100 odeme · son +0.0024%
+ARB 100 odeme · son +0.0035%
+BNB 100 odeme · son +0.0026%
+DOGE 100 odeme · son +0.0032%
+DOT 100 odeme · son -0.0008%
+FLOKI 100 odeme · son +0.0078%
+LINK 100 odeme · son -0.0032%
+NEAR 100 odeme · son +0.0055%
+OP 100 odeme · son +0.0069%
+PEPE 100 odeme · son +0.0036%
+SHIB 100 odeme · son -0.0052%
+SUI 100 odeme · son +0.0009%
+XRP 100 odeme · son +0.0022%
+ALGO 100 odeme · son -0.0002%
+CRV 100 odeme · son -0.0058%
+AVAX 100 odeme · son +0.0029%
+UNI 100 odeme · son +0.0100%
+AAVE 100 odeme · son +0.0016%
+FIL 100 odeme · son -0.0012%
 SOL 100 odeme · son +0.0048%
-INJ 100 odeme · son +0.0100%
+INJ 100 odeme · son +0.0036%
