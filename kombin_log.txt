@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/kombin.py", line 188, in <module>
+    RZ_ = kosullar()["K1 📉 dip"]
+          ^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/kombin.py", line 178, in kosullar
+    if nm in FON: fb[m] = asof(FON[nm], t[m])
+             ^^^
+NameError: name 'FON' is not defined. Did you mean: 'DON'?
+exit=1
