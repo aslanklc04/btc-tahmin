@@ -20,7 +20,7 @@ ALMA_ESIK = 2000                                                                
 TERFI_ISLEM = "🔥 yedekten yükseldi — büyük oyuncular aktif (BTC ort. işlem büyüklüğü z {z:+.1f}): bu saatlerde yedekler geçmişte %61 tuttu, işlem başı +%0,4"
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9"
 FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde ✅ ana sinyaller testte %71 · %72 · %84 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,9–2,0 (normalde %57–61, +%0,5–0,8)"
-TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde yedekler geçmişte %65–79 tuttu, işlem başı +%0,5–0,9"
+TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde 🔸 yedekler testte %60–77 tuttu (2022–23 · 2024+; kombin.py), işlem başı +%0,5–3,5"
 def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
     try:
         now = int(time.time() * 1000); out = []
@@ -78,7 +78,7 @@ def main():
     n = len(ana); gonderilen = 0; karar = []
     for i, m in enumerate(ana):
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_PANEL.format(z=FZ) if m.get("terfi") == "panel" else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
-        if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: geçmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce)\n"
+        if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 panelden)" if m.get("terfi") == "panel" else " (🔥 yedekten)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
     GD["giden"] += n

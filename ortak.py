@@ -282,10 +282,10 @@ def sira_puani(tur, z=float("nan"), alma=False):
     if zz >= 3: zz = -0.5                                                                        # merdiven.py: prim z ≥ 3'te 2026 isabeti %47 → aynı türde geriye (sira_anahtari ile aynı)
     return g * 100 - max(-5.0, min(5.0, zz)) * 10
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
-# 12.10.2026: BTC saatlik/⭐/A hiç gönderilmez; 🔸 yedek yalnız coin'in KENDİ primi ≥ 0 iken (🔇 / 🪙), primsizler gönderilmez. Ana set: coin tek başına YOK; 🔇 yalnız 🔀 coin'in kendi primi z > 0 VE −1 < BTC primi z ≤ 0 iken (zit_aile.py); 🤝 / 🧪 yalnız coin'in KENDİ Coinbase primi z ≥ 0 iken (🌐 geniş listeden 🧪 z ≥ 1,5 ve 🤝 z ≥ 2); 💵 ⛓️ 🧑 aynen. 🔻 BTC kısa ve 🔥 büyük işlem yükseltmesi 12.10.2026'dan beri GÖNDERİLMEZ (ozet_tum.py: en zayıf ikisi).
-# Test: 2024+ haftada ~46 · isabet %58,6 · işlem başı net +%0,65 (bugünkü set +%0,28) · 2026 ~49/hf · %59,1 · +%0,59.
-# Setin dışındaki sinyaller 🔸 YEDEK olarak gider (⛔ ABD satıyor olanlar hariç): yedeklerin geçmişi isabet ~%55, net ~%0.
-ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %57 · %60 · %61 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,5–0,8 (komisyon sonrası)."
+# Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
+#   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
+#   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panel = ⛔ (z ≤ −1) / primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %58 · %64 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,3–0,7 (komisyon sonrası; gozden.py, 14.10 seti)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 # teknik_tara.py (12.10.2026, plasebolu, önceden yazılı karar): coin'in son 24 saatlik getirisi / (son 30 gün saatlik oynaklık × √24)
 #   C3a 🚀 z ≥ 2 → gönderilmeyen sinyaller (primsiz / ABD satarken / BTC saatlik) ✅ ana olur: %62 · %65 · %69, net +0,43 · +0,77 · +1,09
@@ -300,9 +300,9 @@ def r24z(close):
 def mom_mu(rz): return bool(rz is not None and np.isfinite(rz) and rz >= MOM_ESIK)
 def dip_mi(rz): return bool(rz is not None and np.isfinite(rz) and rz <= DIP_ESIK)
 MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Testte bu durumda ABD alımı olmasa da sinyaller %62–69 tuttu, işlem başı +%0,4–1,1 → ✅ işlem sinyali."
-DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %64–71 tuttu, işlem başı +%0,6–1,6."
+DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %64–72 tuttu, işlem başı +%0,6–1,6."
 MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; testte bu durumdaki sinyaller %62–69 tuttu (işlem başı +%0,4–1,1), ABD alımı olmasa da ✅",
-               "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; testte bu durumdaki ✅ sinyaller %64–71 tuttu (işlem başı +%0,6–1,6)"}
+               "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; testte bu durumdaki ✅ sinyaller %64–72 tuttu (işlem başı +%0,6–1,6)"}
 # 💸 COİN'İN KENDİ FONLAMASI (teknik_tara.py C4b, 12.10.2026, plasebolu önceden yazılı karar — Binance'e o gün erişilemediği için bekledi):
 #   coin'in Binance USDT-M fonlaması son 90 ödemeye göre z ≥ 2 iken ✅ ana sinyaller %59 · %65 · %64, işlem başı +0,88 · +1,67 · +1,78 (ana %55,5 · %58,7 · %60,1)
 #   → yalnız ÖNE ALMA + 💸 işareti (sinyal sayısı değişmez). Veri: Neon Functions (Frankfurt) /fonlama ucu — ABD sunucusundan Binance vadeli kapalı.
@@ -333,7 +333,7 @@ FON_NOT = "💸 ÖNCELİKLİ: bu coin'in vadeli fonlaması çok yüksek (z {z:+.
 def sira_anahtari(dip=False, fon=False, z=float("nan")):
     """Mesaj içi sıra: önce TEST EDİLMİŞ isabet, sonra kâr, en son prim (merdiven.py: prim z ≥ 3'te 2026 isabeti %47 → geri)."""
     h, n = 60.0, 0.6
-    if dip: h, n = 68.0, 1.2                                                                   # 📉🔥 %64–71
+    if dip: h, n = 68.0, 1.2                                                                   # 📉🔥 %64–72
     elif fon: h, n = 63.0, 1.4                                                                 # 💸 %59–65
     elif np.isfinite(z) and z >= 3: h, n = 55.0, 0.3
     return (-h, -n, -(z if np.isfinite(z) else -9))
@@ -369,7 +369,7 @@ def _sure(h):
     return f"{h // 24:.0f} gün" if h >= 48 and h % 24 == 0 else f"{h:.0f} saat"
 def tut_notu(turler, H=None):
     """Her ✅ sinyal mesajına: tahmin süresi kadar tut + 3 katı tutmanın test sonucu (rakamlar tutma3.py'den, değiştirilmez)."""
-    out = []
+    out = [f"⏱ {t} TUT: tahmin süresi kadar ({_sure(H) or 'süre'}) → çıkış saatinde sat, stop koyma (uzatma testi bu tür için yapılmadı)" for t in dict.fromkeys(turler) if t not in TUT_TEST]
     for tur in dict.fromkeys(t for t in turler if t in TUT_TEST):
         (h1, n1, h1b, n1b), (h3, n3, h3b, n3b) = TUT_TEST[tur]
         s1 = _sure(H) or ("satırdaki süre" if tur == "💵" else "kuraldaki süre" if tur == "⛓️" else "süre"); s3 = f"3 katı ({_sure(3 * H)})" if H else "3 katı"
@@ -393,3 +393,4 @@ def sure_basi(saat, cikis=None, gun=None):
 YEDEK_NOT_USD = "🔸 Yedek (14.10): 💵 isabeti %54 · %54 · %54 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; kâr (+%0,6) kazançların büyüklüğünden. BTC fonlaması çok yüksekken (🔥) ana olur."
 YEDEK_NOT_24 = "🔸 Yedek (14.10): ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; işlem başı +%0,2–1,0. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
 USD_DIP_NOT = "📉🔥 💵 + DİP → ✅ ANA (14.10): ABD alıyor VE coin son 24 saatte olağandışı düştü — testte %66 · %68 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8 · +%3,1 · +%2,0 (kombin.py)."
+PANELF_NOT = "ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85)."
