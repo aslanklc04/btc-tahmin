@@ -270,10 +270,6 @@ def cb_satir_coin(nm, d_own, d_btc):
 def cb_coin_z(nm, d_own, d_btc):                                                             # kayıt için: coin'in kendi primi (yoksa BTC'ninki)
     z = cb_z(d_own); return z if np.isfinite(z) else cb_z(d_btc)
 # ---- 📋 MESAJ ÖNCELİK SIRASI: aynı saatte gelen sinyaller en iyisi üstte (gonder.py) ----
-# Tür sırası araştırmadaki 2024+ isabet · işlem başı net'e göre (merdiven.py, satis.py, zincir3.py, tipler3.py; ⛔ olanlar hariç):
-#   ⛓️ ETH arz/talep AL %61 · +%2,5 (7 g) ve 🧑 küçük yatırımcı %66 · +%2,9 (7 g) → 🤝 BTC ile ortak %62 · +%0,23 (2026 %67) → 🔇 BTC sessizken %62 · +%0,29 →
-#   🪙 coin tek başına %59 · +%0,13 → 🧪 24 saat %56 · +%0,69 → 💵 ABD alıyor (tek başına) %54 · +%0,72 → ₿ BTC saatlik/⭐/A %58 · +%0,05 → 🔻 kısa %51 · +%0,36 → ℹ️ bilgi.
-# Aynı türde coin'in kendi Coinbase primi yüksek olan önce (merdiven: prim yükseldikçe isabet ve kâr artıyor). ⛔ (ABD satıyor) olanlar en sona.
 # 14.10.2026: mesajlar arası sıra = test edilmiş isabet (2024+ · 2026, eşitlikte kâr; tutma3.py): 🌐🤝 %69·%76 · 🔀 %64·%81 · 🧑 %65·%69 (+3,6) · 🚀 %65·%69 · 🤝 %63·%68 ·
 #   🌐🧪 %60·%60 · ⛓️ %58·%58 | 🔸 yedekler: 🧪 %59·%51 · 💵 %54·%54 · 🔇/🪙 ~%55 (kâr ~0). 📉🔥 / 💸 ayrıca ONCELIK_DIP / ONCELIK_FON ile en üste.
 SIRA_TUR = {"🌐🤝": 1, "🔀": 2, "🧑": 3, "🚀": 4, "🤝": 5, "🌐🧪": 6, "⛓️": 7, "🧪": 8, "💵": 9, "🔇": 10, "🪙": 10, "₿": 11, "🔻": 12, "ℹ️": 13}
