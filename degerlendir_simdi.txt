@@ -1,10 +1,14 @@
-13.10 22:43 TR
-BLUR  giriş 0.01569 · limit doldu mu (60 dk) evet · şimdi 0.01184 (-24.54%) · en yüksek +1.66% · en düşük -27.79% · çıkış 2026-10-14 00:06
-NEAR  giriş 5.356 · limit doldu mu (60 dk) evet · şimdi 5.007 (-6.52%) · en yüksek +0.86% · en düşük -8.70% · çıkış 2026-10-14 00:06
-VET   giriş 0.007166 · limit doldu mu (60 dk) evet · şimdi 0.007295 (+1.80%) · en yüksek +3.70% · en düşük -0.74% · çıkış 2026-10-14 04:06
-ZEN   giriş 6.015 · limit doldu mu (60 dk) evet · şimdi 6.196 (+3.01%) · en yüksek +6.13% · en düşük -1.11% · çıkış 2026-10-14 04:06
-NMR   giriş 12.34 · limit doldu mu (60 dk) evet · şimdi 12.58 (+1.94%) · en yüksek +3.16% · en düşük -1.62% · çıkış 2026-10-14 04:06
-LPT   giriş 1.635 · limit doldu mu (60 dk) evet · şimdi 1.713 (+4.77%) · en yüksek +8.32% · en düşük -0.73% · çıkış 2026-10-14 04:06
-SHIB  giriş 5.1e-06 · limit doldu mu (60 dk) evet · şimdi 5.21e-06 (+2.16%) · en yüksek +3.92% · en düşük -0.78% · çıkış 2026-10-14 04:06
-AAVE  giriş 159.12 · limit doldu mu (60 dk) evet · şimdi 160.92 (+1.13%) · en yüksek +1.97% · en düşük -0.78% · çıkış 2026-10-14 18:06
-BTC   giriş 83096.61 · limit doldu mu (60 dk) evet · şimdi 83226.07 (+0.16%) · en yüksek +1.29% · en düşük -2.48% · çıkış 
+14.10 18:33 TR
+tur  coin       giris       cikis   durum  doldu    net  en_yuksek  en_dusuk   btc
+ 🧪🌐  BLUR 10-13 00:00 10-14 00:06 KAPANDI   True -24.83       1.66    -27.79  0.38
+  💵  NEAR 10-13 00:05 10-14 00:06 KAPANDI   True  -5.60       0.86     -8.70  0.54
+ 🧪🌐   VET 10-13 04:00 10-14 04:06 KAPANDI   True   2.74       4.02     -0.74  2.34
+ 🧪🌐   ZEN 10-13 04:00 10-14 04:06 KAPANDI   True   3.55       6.13     -1.11  2.34
+ 🧪🌐   NMR 10-13 04:00 10-14 04:06 KAPANDI   True   0.93       3.16     -1.62  2.34
+ 🧪🌐   LPT 10-13 04:00 10-14 04:06 KAPANDI   True   5.77       8.32     -0.73  2.34
+🧪📉🔥  SHIB 10-13 04:00 10-14 04:06 KAPANDI   True   1.92       3.92     -0.78  2.34
+  💵  AAVE 10-13 18:05 10-14 18:06 KAPANDI   True  -1.75       2.53     -2.32 -2.13
+  💵   CRV 10-14 10:04 10-14 18:06 KAPANDI   True  -2.94       1.28     -3.34 -1.98
+ 🧪🌐 MAGIC 10-14 11:00 10-15 11:06    AÇIK   True  -2.69       2.29     -5.38 -2.03
+  🧪  SHIB 10-14 17:00 10-15 17:06    AÇIK   True   0.36       0.60     -0.79 -0.53
+  💵   FIL 10-14 17:05 10-15 01:06    AÇIK   True  -1.61       0.14     -1.68 -0.42
