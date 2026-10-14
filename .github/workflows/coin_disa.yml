@@ -1,0 +1,36 @@
+name: Coin disa aktarim (arastirma girdisi yenileme)
+# 07.10 coin-* artifact'lerinin süresi doldu (7 gün) → canlı egit_coin.py ile aynı 20 sembol yeniden; saklama 30 gün.
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/coin_disa.yml]
+permissions:
+  contents: read
+jobs:
+  egit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        sym: [BTCUSDT, ETHUSDT, BNBUSDT, DOGEUSDT, SHIBUSDT, PEPEUSDT, FLOKIUSDT, BONKUSDT, WIFUSDT, NEARUSDT, AVAXUSDT, DOTUSDT, LINKUSDT, ADAUSDT, INJUSDT, FETUSDT, SUIUSDT, APTUSDT, ARBUSDT, OPUSDT]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python egit_coin.py ${{ matrix.sym }}
+        env:
+          DISA_AKTAR: "1"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coin-${{ matrix.sym }}
+          path: |
+            durum/model_${{ matrix.sym }}.pkl.gz
+            durum/rapor_${{ matrix.sym }}.md
+            disa_${{ matrix.sym }}.pkl
+          retention-days: 30
