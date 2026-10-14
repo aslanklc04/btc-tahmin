@@ -11,9 +11,9 @@ exit=0
 === hata dosyası
 === kuyruk özeti (sınıf · öncelik · etiket)
 ana · -695 · 🤝 4 saat · BTC ile ortak: SHIB (z +0.4), APT (z +0.0), CTSI (z +3.5)
-panel · 508 · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8)
-panel · 508 · 🤝 4 saat · BTC ile ortak: OP (z -0.8)
-panel · 509 · 🤝 4 saat · BTC ile ortak: ARB (z -0.9)
+panelf · 508 · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8)
+panelf · 508 · 🤝 4 saat · BTC ile ortak: OP (z -0.8)
+panelf · 509 · 🤝 4 saat · BTC ile ortak: ARB (z -0.9)
 panel · 2515 · 🤝 4 saat · BTC ile ortak: DOT (z -1.5 ⛔)
 panel · 2516 · 🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)
 panel · 2519 · 🤝 4 saat · BTC ile ortak: NEAR (z -1.9 ⛔)
@@ -178,28 +178,28 @@ Gönderildi: 0/14 (ana 0, yedek 0, panel 14, bilgi 0) · bugün giden sinyal: 0
 === SENARYO 3: aynı gün tekrar yedekler → gitmemeli
 Gönderildi: 0/0 (ana 0, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 0
 === panel sonu
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: NEAR (z -1.9 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: DOT (z -1.5 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ARB (z -0.9) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: OP (z -0.8) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: NEAR (z -1.9 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: DOT (z -1.5 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ARB (z -0.9) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: OP (z -0.8) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8) → gitmedi — yalnız panel
 
 
 ## 📨 Telegram kararları (son 20) — bugün giden sinyal: 0
 _✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_
-- 14.10 22:32 · panel · 🧪 24 saat: BNB (z -2.4 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🧪 24 saat: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: FLOKI (z -4.2 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: DOGE (z -2.7 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: SUI (z -2.5 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: BNB (z -2.4 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: LINK (z -2.2 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: NEAR (z -1.9 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: DOT (z -1.5 ⛔) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: ARB (z -0.9) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: OP (z -0.8) → gitmedi — yalnız panel
-- 14.10 22:32 · panel · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🧪 24 saat: BNB (z -2.4 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🧪 24 saat: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: FLOKI (z -4.2 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: DOGE (z -2.7 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: SUI (z -2.5 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: BNB (z -2.4 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: LINK (z -2.2 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ADA (z -1.9 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: NEAR (z -1.9 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: DOT (z -1.5 ⛔) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: ARB (z -0.9) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: OP (z -0.8) → gitmedi — yalnız panel
+- 14.10 22:49 · panel · 🤝 4 saat · BTC ile ortak: PEPE (z -0.8) → gitmedi — yalnız panel
