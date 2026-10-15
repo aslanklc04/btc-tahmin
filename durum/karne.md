@@ -1,4 +1,4 @@
-# 📒 Canlı karne — 15.10.2026 21:06
+# 📒 Canlı karne — 15.10.2026 23:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
