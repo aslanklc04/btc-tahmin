@@ -1,0 +1,31 @@
+# 🇰🇷 ABD satıyor ama Asya alıyor + dağınık ek sinyal — 15.10.2026 22:43
+_Upbit coin: 85 · aday 218 · 223 sn · çıta = ŞİMDİKİ ana (isabet VE net, her dönem)_
+
+_sinyal sayısı · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
+```
+ŞİMDİ ✅ ana                                    2392 (28.9/hf) · %58.9 · +0.40 |  5117 (35.2/hf) · %63.1 · +0.82 |  1377 (33.6/hf) · %67.2 · +0.90
+  havuz G1 🌐🤝 z 0…2 (Upbit'te olan)            2007 (24.3/hf) · %58.5 · +0.20 |  5319 (36.6/hf) · %59.9 · +0.26 |  1342 (32.7/hf) · %64.9 · +0.63
+  havuz G2 🌐🧪 z 0…1,5 (Upbit'te olan)          1576 (19.1/hf) · %55.5 · +0.63 |  4021 (27.6/hf) · %54.8 · +0.65 |  1237 (30.2/hf) · %52.3 · +0.49
+  havuz P1 coin primi < 0 (Upbit'te olan)      2013 (24.3/hf) · %57.4 · +0.20 |  5006 (34.4/hf) · %56.6 · +0.03 |  1153 (28.1/hf) · %54.7 · -0.01
+  havuz P2 BTC saatlik/⭐/A (Upbit'te olan)        0 ( 0.0/hf) · % nan · +nan |     0 ( 0.0/hf) · % nan · +nan |     0 ( 0.0/hf) · % nan · +nan
+  havuz S 🇰🇷 Asya alıyor 24 s (Upbit'te olan)  5159 (62.4/hf) · %49.7 · +0.10 | 15962 (109.8/hf) · %48.5 · +0.02 |  6009 (146.6/hf) · %48.0 · +0.01
+  havuz S 🇰🇷 Asya alıyor 8 s (Upbit'te olan)   7245 (87.6/hf) · %50.2 · +0.03 | 21994 (151.2/hf) · %49.4 · -0.00 |  8155 (198.9/hf) · %48.6 · +0.02
+  havuz Y1 💵 (Upbit'te olan)                   1291 (15.6/hf) · %54.0 · +0.57 |  2464 (16.9/hf) · %53.9 · +0.64 |   770 (18.8/hf) · %53.8 · +0.58
+  havuz Y2 🧪 ana coin (Upbit'te olan)           378 ( 4.6/hf) · %54.8 · +0.70 |   593 ( 4.1/hf) · %59.4 · +1.13 |   149 ( 3.6/hf) · %52.3 · +0.28
+  havuz Y3 🔇/🪙 (Upbit'te olan)                  755 ( 9.1/hf) · %60.5 · +0.23 |  1170 ( 8.0/hf) · %56.8 · +0.12 |   295 ( 7.2/hf) · %53.9 · +0.06
+  tüm havuz + A1 Asya primi ≥ 2               12685 (153.4/hf) · %50.0 · +0.05 | 38715 (266.2/hf) · %49.3 · +0.02 | 14308 (349.0/hf) · %48.5 · +0.02
+  tüm havuz + A2 Asya primi ≥ 1               13607 (164.5/hf) · %50.3 · +0.07 | 41215 (283.4/hf) · %49.8 · +0.05 | 15001 (365.9/hf) · %48.9 · +0.04
+  tüm havuz + A3 Asya hacmi ≥ 2                1577 (19.1/hf) · %47.1 · -0.14 |  3598 (24.7/hf) · %48.8 · +0.09 |  1151 (28.1/hf) · %45.0 · -0.40
+  tüm havuz + A4 ABD ⛔ + Asya ≥ 1              1548 (18.7/hf) · %48.4 · -0.10 |  4223 (29.0/hf) · %44.8 · -0.32 |  1524 (37.2/hf) · %41.8 · -0.68
+```
+
+Çıtayı geçen aday: 1 (plasebo ortalaması 0.5) · tüm ölçütleri geçen: 0
+```
+· G2 🌐🧪 z 0…1,5 + A2 Asya primi ≥ 1 + K4 BTC 4   53 ( 0.6/hf) · %66.0 · +1.76 |    95 ( 0.7/hf) · %69.5 · +2.08 |    19 ( 0.5/hf) · %68.4 · +2.27 | alt +1.14 · pl ✓✗ · yaygın 4 coin %75 · hafta %33 · yoğun %57
+```
+
+## Önceden yazılı karar
+- ❌ tüm ölçütleri geçen yok → eklenmez
+
+_Süre: 224 sn_
+exit=0
