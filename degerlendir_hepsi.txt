@@ -1,0 +1,49 @@
+15.10 14:39 TR · giriş = sinyal saati kapanışı, çıkış = süre sonu kapanışı (AÇIK = şimdiki fiyat) · maliyet %0,04
+    saat sinif  coin  sure yon                         tur   durum   net tuttu  en_iyi  en_kotu   btc
+14.10 10   ana   CRV     8   ↑                    💵 z +3.2 KAPANDI -2.08     ❌    0.63    -2.04 -1.75
+14.10 11   ana MAGIC    24   ↑                   🧪🌐 z +1.9 KAPANDI -4.91     ❌    3.63    -6.02 -2.44
+14.10 14 panel   BTC     8   ↓        ₿ 8s Güçlü ↓ (bilgi) KAPANDI  2.05     ✅    2.26     0.00 -2.09
+14.10 16 panel   ETH     4   ↑              🪙 A · ⛔ z -1.5 KAPANDI -1.17     ❌   -0.98    -1.89 -0.88
+14.10 16 panel   ETH    24   ↑                🧪 · ⛔ z -1.5    AÇIK -4.42     ❌   -0.98    -5.13 -2.05
+14.10 17   ana  SHIB    24   ↑                    🧪 z +0.4    AÇIK -1.62     ❌    1.19    -2.97 -1.56
+14.10 17   ana   FIL     8   ↑                    💵 z +5.0 KAPANDI -1.19     ❌   -0.80    -2.19 -0.66
+14.10 17 panel   BTC     1   ↑   ₿ 1s Çok güçlü ↑ · z +0.3 KAPANDI -0.46     ❌   -0.42    -0.42 -0.42
+14.10 17 panel   ETH     4   ↑          🔇 4s ÇG · ⛔ z -1.2 KAPANDI -0.87     ❌   -0.15    -0.91 -0.90
+14.10 18 panel   BTC     4   ↑              ₿ A · ⛔ z -2.8 KAPANDI -0.35     ❌    0.05    -0.47 -0.31
+14.10 18 panel   BTC    24   ↓             🔻 KISA · z -2.8    AÇIK  1.10     ✅    1.69    -0.05 -1.14
+14.10 19   ana   RPL    24   ↑                   🧪🌐 z +2.2    AÇIK -4.04     ❌    1.70    -4.30 -0.73
+14.10 19 yedek   BNB     4   ↑            🪙 4s ÇG · z +0.4 KAPANDI  0.09     ✅    0.50    -0.02  0.24
+14.10 19 panel   BTC     4   ↑ ₿ 1s ÇG + 4s G ⏰ · ⛔ z -1.9 KAPANDI  0.20     ✅    0.45    -0.07  0.24
+14.10 21 panel   BTC     1   ↑          ₿ 1s ÇG · ⛔ z -2.0 KAPANDI  0.13     ✅    0.17     0.17  0.17
+14.10 21 panel   ETH     4   ↑          🪙 4s ÇG · ⛔ z -2.0 KAPANDI -0.51     ❌   -0.01    -0.62  0.23
+15.10 00 panel   BTC     4   ↑             ₿ A · ⚠️ z -0.7 KAPANDI -0.20     ❌   -0.01    -0.16 -0.16
+15.10 00 panel   BNB     4   ↑              🪙 A · ⛔ z -1.6 KAPANDI  0.25     ✅    0.35     0.25 -0.16
+15.10 00 panel  DOGE     8   ↑              🪙 ⭐ · ⛔ z -1.3 KAPANDI -1.31     ❌    0.29    -2.37 -0.23
+15.10 01 panel   ETH     4   ↑              🪙 A · ⛔ z -2.2 KAPANDI -0.32     ❌    0.05    -0.28 -0.17
+15.10 02 panel   BTC     8   ↑           ₿ 8s G · ⛔ z -2.0 KAPANDI -0.98     ❌    0.03    -1.31 -0.94
+15.10 03 panel  DOGE    24   ↑                🧪 · ⛔ z -1.6    AÇIK -2.03     ❌   -0.26    -3.48 -0.78
+15.10 04 panel   BTC     4   ↑              ₿ A · ⛔ z -1.9 KAPANDI -0.11     ❌   -0.02    -0.89 -0.07
+15.10 05 panel   BTC     1   ↑           ₿ 1s G · ⛔ z -1.9 KAPANDI -0.16     ❌   -0.12    -0.12 -0.12
+15.10 05 panel   ETH     4   ↑          🪙 4s ÇG · ⛔ z -2.0 KAPANDI -2.69     ❌   -1.25    -2.65 -1.28
+15.10 06 yedek   FIL     8   ↑                   💵 z +13.6 KAPANDI -3.38     ❌   -1.01    -3.34 -0.61
+15.10 06 yedek   DOT     8   ↑                🔇 ⭐ · z +0.4 KAPANDI -1.39     ❌    0.00    -2.07 -0.61
+15.10 06 panel   ADA     8   ↑              🔇 ⭐ · ⛔ z -1.6 KAPANDI -0.58     ❌    0.67    -1.70 -0.61
+15.10 06 panel   BNB     4   ↑          🪙 4s ÇG · ⛔ z -2.6 KAPANDI -0.72     ❌    0.13    -1.18 -0.79
+15.10 06 panel  SHIB     8   ↑              🔇 ⭐ · ⛔ z -1.0 KAPANDI  0.16     ✅    0.81    -1.21 -0.61
+15.10 06 panel   ADA    24   ↑                🧪 · ⛔ z -1.6    AÇIK -0.58     ❌    0.67    -1.70 -0.61
+15.10 07 panel   BTC     4   ↑    ₿ 1s G + 4s G · ⛔ z -2.4 KAPANDI  0.72     ✅    0.83    -0.42  0.76
+15.10 07 panel  NEAR    24   ↑                🧪 · ⛔ z -1.1    AÇIK -1.93     ❌    2.15    -1.89  0.14
+15.10 09 panel   BTC     4   ↑              ₿ A · ⛔ z -2.0 KAPANDI  0.80     ✅    1.18     0.37  0.84
+15.10 09 panel  DOGE     8   ↑             🪙 ⭐ · ⚠️ z -0.8    AÇIK  1.50     ✅    1.71     0.85  0.56
+15.10 09 panel   BNB    24   ↑                🧪 · ⛔ z -1.3    AÇIK  0.98     ✅    1.31     0.51  0.56
+15.10 10 panel   BTC     1   ↑           ₿ 1s G · ⛔ z -2.1 KAPANDI  0.76     ✅    0.80     0.80  0.80
+15.10 10 panel   BNB     4   ↑          🪙 4s ÇG · ⛔ z -1.1 KAPANDI  0.47     ✅    0.80     0.51  0.19
+15.10 12 yedek   INJ    24   ↑                    💵 z +3.2    AÇIK -1.89     ❌   -0.44    -1.85 -0.41
+
+✅ ana (gönderildi)                     kapanan  3: 0 tuttu (%0) · ort net -2.73% · toplam -8.18%  | açık 2 (şu an ort -2.83%)
+🔸 yedek (gönderildi)                   kapanan  3: 1 tuttu (%33) · ort net -1.56% · toplam -4.68%  | açık 1 (şu an ort -1.89%)
+panel (gönderilmedi) hepsi             kapanan 23: 9 tuttu (%39) · ort net -0.21% · toplam -4.89%  | açık 7 (şu an ort -0.77%)
+  panel · prim ⛔ (z ≤ −1)              kapanan 20: 8 tuttu (%40) · ort net -0.31% · toplam -6.28%  | açık 5 (şu an ort -1.60%)
+  panel · ⛔ değil                      kapanan  3: 1 tuttu (%33) · ort net +0.46% · toplam +1.39%  | açık 2 (şu an ort +1.30%)
+  panel · BTC ⛔                        kapanan  9: 5 tuttu (%56) · ort net +0.11% · toplam +1.01%  | açık 0 (şu an ort +nan%)
+  panel · coin ⛔                       kapanan 11: 3 tuttu (%27) · ort net -0.66% · toplam -7.29%  | açık 5 (şu an ort -1.60%)
