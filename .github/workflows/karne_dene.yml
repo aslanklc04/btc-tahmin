@@ -16,8 +16,8 @@ jobs:
         with: {ref: arastirma3, path: a}
       - run: pip install -q -r m/requirements.txt
       - run: |
-          cp a/karne_dene/karne.py m/; cp a/karne_dene/karne_kayit.csv m/durum/
-          cd m && TG_SIRALI=1 python karne.py > ../a/karne_dene/cikti.txt 2>&1 || true
+          cp a/karne_dene/karne.py m/
+          cd m && TG_SIRALI=1 KARNE_ZORLA=1 python karne.py > ../a/karne_dene/cikti.txt 2>&1 || true
           cp durum/karne.md ../a/karne_dene/ 2>/dev/null; python -c "import json;[print(x['m']) for x in json.load(open('durum/tg_kuyruk.json'))]" > ../a/karne_dene/tg.txt 2>&1 || true
       - run: |
           cd a; git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
