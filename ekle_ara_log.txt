@@ -1,5 +1,5 @@
-# ➕ Ana sayısını artır, isabeti düşürme — 15.10.2026 20:46
-_çıta = ŞİMDİKİ ana set (her dönemde isabet VE net) · aday 252 · 192 sn_
+# ➕ Ana sayısını artır, isabeti düşürme — 15.10.2026 20:55
+_çıta = ŞİMDİKİ ana set (her dönemde isabet VE net) · aday 252 · 193 sn_
 
 _sinyal sayısı · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
 ```
@@ -40,5 +40,9 @@ G1 🌐🤝 z 0…2 + 🔥 (YENİ)                          103 · %74.8 · +0.8
 ```
 🔥 yeni eklenenler 32 farklı haftaya düşüyor (2022-06'dan beri ~227 hafta → haftaların %14'i) · o haftalarda ortalama 30.2 sinyal, en çok 94
 
-_Süre: 192 sn_
+## Ek sağlamlık (coin yaygınlığı + son 12 ay)
+- **G1 🌐🤝 z 0…2 + 🔥:** yaygınlık 42/49 coin → ✅ · son 12 ay: 147 sinyal · isabet %82 · net +1.24 → ✅ · ANKR 17 %94 vs %54 · FLOW 17 %76 vs %61 · ACH 14 %79 vs %59 · CHZ 14 %71 vs %55 · KSM 13 %85 vs %56 · MANA 13 %69 vs %61 · VET 13 %100 vs %56 · EGLD 12 %100 vs %61 · ETC 12 %83 vs %58 · ALICE 11 %91 vs %55 · ARPA 11 %73 vs %54 · C98 11 %64 vs %66 · CVC 11 %73 vs %67 · QNT 11 %55 vs %60 · ROSE 11 %100 vs %60
+- **P1 coin primi ⛔ + 🔥:** yaygınlık 7/7 coin → ✅ · son 12 ay: 73 sinyal · isabet %75 · net +0.92 → ✅ · ETH 59 %73 vs %55 · ADA 26 %65 vs %51 · DOGE 20 %90 vs %55 · BNB 12 %58 vs %47 · LINK 11 %73 vs %50 · NEAR 9 %100 vs %50 · SHIB 8 %88 vs %55
+
+_Süre: 194 sn_
 exit=0
