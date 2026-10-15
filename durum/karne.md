@@ -1,12 +1,12 @@
-# 📒 Canlı karne — 15.10.2026 23:05
+# 📒 Canlı karne — 16.10.2026 00:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 13 | %38 | -1.59% | -20.7% | 0 | %62 · %67 |
-| 🔸 yedek (gönderildi) | 3 | %33 | -1.56% | -4.7% | 3 | %56 · %53 |
-| panel (gönderilmedi) | 61 | %57 | 0.24% | 14.7% | 7 | — |
-| ↳ panel · prim ⛔ (filtre) | 48 | %58 | 0.22% | 10.8% | 6 | — |
+| 🔸 yedek (gönderildi) | 4 | %50 | 2.06% | 8.2% | 2 | %56 · %53 |
+| panel (gönderilmedi) | 62 | %58 | 0.32% | 19.5% | 6 | — |
+| ↳ panel · prim ⛔ (filtre) | 49 | %59 | 0.32% | 15.6% | 5 | — |
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
@@ -14,10 +14,10 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | ✅ ana | 🌐🧪 24 s geniş liste | 7 · %57 | 7 | %57 | -1.55% | -10.9% | %60 · %60 | ⚠️ orta |
 | ✅ ana | 💵 ABD alıyor | 4 · %0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🧪 24 s ana coin | 2 · %50 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
-| 🔸 yedek | 💵 ABD alıyor | 1 · %0 | 1 | %0 | -3.38% | -3.4% | %54 · %54 | ⏳ veri az |
+| 🔸 yedek | 💵 ABD alıyor | 2 · %50 | 2 | %50 | 4.77% | 9.5% | %54 · %54 | ⏳ veri az |
 | 🔸 yedek | 🔇/🪙 coin tek | 2 · %50 | 2 | %50 | -0.65% | -1.3% | %57 · %54 | ⏳ veri az |
 | panel | ₿ BTC saatlik / ⭐ / A | 27 · %59 | 27 | %59 | 0.32% | 8.7% | — | ✅ iyi |
-| panel | 🔇/🪙 coin tek | 29 · %55 | 29 | %55 | 0.35% | 10.1% | %57 · %54 | ✅ iyi · testle uyumlu |
+| panel | 🔇/🪙 coin tek | 30 · %57 | 30 | %57 | 0.50% | 14.9% | %57 · %54 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 3 · %67 | 3 | %67 | -0.03% | -0.1% | — | ⏳ veri az |
 | panel | 🧪 24 s ana coin | 2 · %50 | 2 | %50 | -1.98% | -4.0% | %59 · %51 | ⏳ veri az |
 
@@ -43,3 +43,4 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 14.10 19:00 | yedek | 🔇/🪙 | BNB | 4 s | +0.09% | ✅ |
 | 15.10 06:00 | yedek | 💵 | FIL | 8 s | -3.38% | ❌ |
 | 15.10 06:00 | yedek | 🔇/🪙 | DOT | 8 s | -1.39% | ❌ |
+| 15.10 16:00 | yedek | 💵 | FIL | 8 s | +12.91% | ✅ |

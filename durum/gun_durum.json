@@ -1,19 +1,7 @@
 {
-"gun": "2026-10-15",
-"giden": 5,
+"gun": "2026-10-16",
+"giden": 0,
 "log": [
-{
-"t": "14.10 18:05",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "14.10 19:05",
-"s": "✅ ana",
-"e": "🧪 24 saat: RPL (z +2.2)",
-"k": "gönderildi"
-},
 {
 "t": "14.10 19:05",
 "s": "🔸 yedek",
@@ -240,6 +228,18 @@
 "t": "15.10 19:05",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 00:05",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 00:05",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.9",
 "k": "gitmedi — yalnız panel"
 }
 ]
