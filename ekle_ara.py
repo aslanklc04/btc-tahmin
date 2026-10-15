@@ -270,5 +270,16 @@ if TAM and SANS:
     yaz("\n## Önceden yazılı karar\n" + (f"- ✅ **GEÇTİ** → {len(TAM)} kural; ana haftada +{ek['2026'][0] / HAFTA['2026']:.1f} (2026) / +{ek['2024+'][0] / HAFTA['2024+']:.1f} (2024+), isabet düşmüyor" if ok_ else "- ❌ birleşim ana seti düşürüyor → eklenmez"))
 else:
     yaz("\n## Önceden yazılı karar\n- ❌ " + ("tam geçen yok" if not TAM else f"şans kontrolü geçmedi (geçen {len(gecen)} < plasebo {n_pl:.1f} + 2)") + " → eklenmez")
+K0 = kosullar(0); FON = K0["K3 🔥 BTC fonlama"]
+yaz("\n## Bilgi: 🔥 ile gelenlerin ayrıntısı (canlıda zaten olan / yeni)\n```")
+P1 = AIL == "P1 coin primi < 0"
+for ad, m in (("P1 + 🔥 · coin primi −1…0 (CANLIDA VAR: panelf)", P1 & FON & (Zq > -1) & (Zq < 0)), ("P1 + 🔥 · coin primi ⛔ ≤ −1 (YENİ)", P1 & FON & (Zq <= -1)),
+              ("P1 + 🔥 · primsiz (YENİ)", P1 & FON & ~np.isfinite(Zq)), ("G1 🌐🤝 z 0…2 + 🔥 (YENİ)", (AIL == "G1 🌐🤝 z 0…2") & FON),
+              ("ŞİMDİ ana + 🔥 (bilgi)", ANA & FON)):
+    yaz(sat(ad, st(m)))
+yaz("```")
+hf = pd.Series(1, index=tq[FON & ~ANA]).groupby(tq[FON & ~ANA].floor("7D")).size()
+tum_hf = (tq.max() - P0x).days / 7
+yaz(f"🔥 yeni eklenenler {len(hf)} farklı haftaya düşüyor (2022-06'dan beri ~{tum_hf:.0f} hafta → haftaların %{100 * len(hf) / tum_hf:.0f}'i) · o haftalarda ortalama {hf.mean():.1f} sinyal, en çok {hf.max()}")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("ekle_ara_sonuc.md", "w").write("\n".join(L) + "\n")
