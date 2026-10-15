@@ -10,7 +10,7 @@ KAYIT_F, MD_F, DUR_F = "durum/karne_kayit.csv", "durum/karne.md", "durum/karne_d
 KOM, KARAR_T = 0.04, pd.Timestamp("2026-11-12", tz=DISPLAY_TZ)
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
 PA = pd.read_csv("durum/prim_acik.csv") if os.path.exists("durum/prim_acik.csv") else pd.DataFrame(columns=["coin", "esik", "saat"])
-TEST = {k: (v[0][0], v[0][2]) for k, v in TUT_TEST.items()} | {"🔇/🪙": (56.9, 53.7)}       # (isabet tüm test, 2026) — tutma3.py · kombin.py Y3
+TEST = {k: (v[0][0], v[0][2]) for k, v in TUT_TEST.items()} | {"🔇/🪙": (56.9, 53.7)} | {k + " 🔥": (74.0, 80.0) for k in ("🤝", "🧪", "🔇/🪙", "💵", "🔀")} | {"🌐🤝 🔥": (75.0, 81.0)}   # 🔥 yükselenler: ekle_ara.py / kombin.py       # (isabet tüm test, 2026) — tutma3.py · kombin.py Y3
 SINIF_TEST = {"ana": (61.9, 67.1), "yedek": (55.5, 53.3)}                                   # fon_ana.py 14.10 ana seti · kombin.py Y1–Y3 ağırlıklı
 COIN_RE = re.compile(r"([A-Z0-9]{2,12}) \((?:z ([+-]?[\d.]+)[^)]*|prim yok[^)]*)\)")
 def prim_saat(nm, z, sure):
@@ -58,7 +58,7 @@ def main():
     for r in K.itertuples():
         su = int(float(r.sure)) if r.sure else None; t0 = pd.Timestamp(r.t, tz=DISPLAY_TZ).floor("h").tz_convert("UTC")
         for nm, H, yon, tur, isr in coz(r.e, su):
-            rows.append(dict(t0=t0, sinif=sinif(r.s, r.k), terfi="🔥" in r.s, coin=nm, H=H, yon=yon, tur=tur, isr=isr,
+            rows.append(dict(t0=t0, sinif=sinif(r.s, r.k), terfi="🔥" in r.s, coin=nm, H=H, yon=yon, tur=tur + (" 🔥" if "🔥" in r.s else ""), isr=isr,   # 🔥 ile yükselenler ayrı satır
                              fz=float(r.fz) if r.fz else np.nan, prim_ret="⛔" in r.e))
     X = pd.DataFrame(rows)
     if X.empty: print("karne: çözülen sinyal yok"); return
@@ -111,7 +111,7 @@ def main():
             nt, p = notu(k, ts)
             if nt.startswith("❌ testin"): karar.append((tur, sn, n, h, a, ts[0]))
             hw = f"{len(kw)} · %{f(100 * (kw.net > 0).mean(), 0)}" if len(kw) else "0"
-            L.append(f"| {SN_AD[sn]} | {TUR_AD.get(tur, tur)} | {hw} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(k.net.sum(), 1)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {nt} |")
+            L.append(f"| {SN_AD[sn]} | {(TUR_AD.get(tur.replace(" 🔥", ""), tur) + (" · 🔥 yükseldi" if "🔥" in tur else ""))} | {hw} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(k.net.sum(), 1)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {nt} |")
             TN.append((sn, tur, n, h, a, len(kw), (100 * (kw.net > 0).mean() if len(kw) else np.nan), (kw.net.mean() if len(kw) else np.nan), ts, nt))
     L += ["", f"**Önceden yazılı karar (15.10.2026):** {KARAR_T:%d.%m.%Y} tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).",
           "_Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_"]
@@ -138,7 +138,7 @@ def main():
         son_sn = None
         for sn, tur, n, h, a, nw, hw, aw, ts, nt in TN:
             if sn != son_sn: tl.append(f"{SN_AD[sn]}:"); son_sn = sn
-            tl.append(f"• {TUR_AD.get(tur, tur)}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
+            tl.append(f"• {(TUR_AD.get(tur.replace(" 🔥", ""), tur) + (" · 🔥 yükseldi" if "🔥" in tur else ""))}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
         tl += ["", f"Karar günü {KARAR_T:%d.%m}: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi (sana sorulur)."]
         if len(Kp[Kp.sinif == "ana"]) < 40: tl.append("Az sinyal varken tek hafta sonucu yanıltıcıdır.")
         if yerel >= KARAR_T and ana_karar: tl.append("❌ ÖNERİ — ana'dan çıkarılması önerilen: " + ", ".join(t for t, *_ in ana_karar))

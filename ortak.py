@@ -280,7 +280,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
 # Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
 #   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
-#   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panel = ⛔ (z ≤ −1) / primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
+#   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) · panelg = 🌐 eşik altı 🤝 → ikisi de yalnız 🔥 iken ana (ekle_ara.py 15.10) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %59 · %63 · %67 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,4–0,9 (komisyon sonrası; 14.10 seti, fon_ana.py)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def panel_sinif(z):                                                                           # coin primi < 0 olan sinyal: −1…0 → panelf · ⛔ ≤ −1 → panelfx (ikisi de yalnız 🔥 iken ana) · primsiz → panel
