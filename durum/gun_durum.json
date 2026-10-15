@@ -3,18 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "13.10 15:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "13.10 18:05",
-"s": "✅ ana",
-"e": "💵 ABD güçlü alıyor: AAVE (z +2.0)",
-"k": "gönderildi"
-},
-{
 "t": "13.10 18:05",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
@@ -240,6 +228,18 @@
 "t": "15.10 06:06",
 "s": "panel",
 "e": "🧪 24 saat: ADA (z -1.6 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "15.10 07:05",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ · prim ⛔ z -2.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "15.10 07:05",
+"s": "panel",
+"e": "🧪 24 saat: NEAR (z -1.1 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ]
