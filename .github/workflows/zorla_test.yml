@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (💧 likidite: canli-test dalı)
+# canli kuru test (🔥 panelfx / panelg: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -43,52 +43,32 @@ jobs:
         run: |
           set +e
           {
-          echo "=== fonlama z (gerçek, Neon)"; python -c "
-          import ortak
-          print({c: round(ortak.fon_coin_z(c), 2) for c in ortak.FON_COINS})
-          "
-          echo "=== tahmin_coin.py TEST_ZORLA=1, TEST_FON=2.5 (🤝 💸)"; TEST_FON=2.5 TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c1.txt | head -8
-          echo "=== tahmin_coin.py TEST_ZORLA=zit, TEST_FON=2.5 (🔀 💸)"; TEST_FON=2.5 TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c2.txt | head -8
-          echo "=== tahmin.py TEST_ZORLA=star TEST_RZ=2.5 (BTC 🚀)"; TEST_RZ=2.5 TEST_ZORLA=star timeout 400 python tahmin.py > /tmp/b1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/b1.txt | head -8
-          echo "=== tahmin24.py TEST_ZORLA=1, TEST_FON=2.5"; TEST_FON=2.5 TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d1.txt | head -8
-          echo "=== prim_canli.py kuru (gerçek fonlama)"; PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/p1.txt | head -8; grep -A12 "(kuru) Telegram" /tmp/p1.txt | head -14
-          echo "=== likidite.py (LD_COINS ornek, gercek veri)"; LD_COINS=ADA,DOGE,NEAR,SHIB,AAVE,CRV,BLUR,SOL,XRP,FIL timeout 900 python likidite.py; echo "exit=$?"; cat durum/likidite_z.json; echo
-          echo "=== tahmin_coin.py TEST_ZORLA=1 TEST_LD=-2.5 (🤝 💧)"; TEST_LD=-2.5 TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c3.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/c3.txt | head -8
-          echo "=== tahmin24.py TEST_ZORLA=1 TEST_LD=-2.5"; TEST_LD=-2.5 TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d3.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/d3.txt | head -8
-          echo "=== prim_canli.py kuru TEST_LD=-2.5"; TEST_LD=-2.5 PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p3.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A3 /tmp/p3.txt | head -8; grep -A14 "(kuru) Telegram" /tmp/p3.txt | head -16
+          echo "=== tahmin_coin.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/c1.txt | head -12
+          echo "=== tahmin24.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/d1.txt | head -12
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
-          for m in json.load(open('durum/tg_kuyruk.json')): print(m.get('c'), '·', round(m['o']), '·', m['e'])
+          for m in json.load(open('durum/tg_kuyruk.json')): print(m.get('c'), '·', round(m['o']), '·', m['e'][:150])
           "
           cp durum/tg_kuyruk.json /tmp/q.json
-          echo "=== SENARYO 1: gün boş, tüm zorla sinyaller (altcoin adımı 'failure' gibi)"
-          ADIMLAR="btc=success coin=failure d24=success" python -c "
+          echo "=== SENARYO A: 🔥 YOK (TEST_FZ=0) → panelfx / panelg gitmemeli"
+          rm -f durum/gun_durum.json; TEST_FZ=0 python -c "
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:5000]); return True
+              print('──── GÖNDER ────'); print(m.split(chr(10))[0][:200]); return True
           gonder.tg_send = _g
           gonder.main()
           "
-          echo "=== SENARYO 2: gün boş, yalnız yedekler → en iyi yedek gitmeli"
-          rm -f durum/gun_durum.json; python -c "
-          import json; q = json.load(open('/tmp/q.json')); json.dump([m for m in q if m.get('c') != 'ana'], open('durum/tg_kuyruk.json', 'w'))
+          echo "=== SENARYO B: 🔥 VAR (TEST_FZ=2.5) → panelf / panelfx / panelg ✅ ana olmalı"
+          cp /tmp/q.json durum/tg_kuyruk.json; rm -f durum/gun_durum.json; TEST_FZ=2.5 python -c "
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:5000]); return True
+              print('──── GÖNDER ────'); print(m[:2500]); return True
           gonder.tg_send = _g
           gonder.main()
           "
-          echo "=== SENARYO 3: aynı gün tekrar yedekler → gitmemeli"
-          python -c "
-          import json; q = json.load(open('/tmp/q.json')); json.dump([m for m in q if m.get('c') == 'yedek'], open('durum/tg_kuyruk.json', 'w'))
-          import gonder
-          def _g(m):
-              print('──── GÖNDER ────'); print(m[:300]); return True
-          gonder.tg_send = _g
-          gonder.main()
-          "
-          echo "=== panel sonu"; tail -25 son_durum.md
+          echo "=== karne kaydı (son 25)"; tail -25 durum/karne_kayit.csv
+          echo "=== karne.py"; KARNE_ZORLA=0 timeout 200 python karne.py > /tmp/k.txt 2>&1; echo "exit=$?"; grep -i "Traceback" -A5 /tmp/k.txt | head; sed -n '/Tür notları/,/Önceden/p' durum/karne.md | head -30
           } > zorla_log.txt 2>&1
           cat zorla_log.txt | head -150
       - uses: actions/checkout@v4
