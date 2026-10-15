@@ -281,5 +281,18 @@ yaz("```")
 YN = FON & ((P1 & ~((Zq > -1) & (Zq < 0))) | (AIL == "G1 🌐🤝 z 0…2")); hf = pd.Series(1, index=tq[YN]).groupby(tq[YN].floor("7D")).size()
 tum_hf = (tq.max() - P0x).days / 7
 yaz(f"🔥 yeni eklenenler {len(hf)} farklı haftaya düşüyor (2022-06'dan beri ~{tum_hf:.0f} hafta → haftaların %{100 * len(hf) / tum_hf:.0f}'i) · o haftalarda ortalama {hf.mean():.1f} sinyal, en çok {hf.max()}")
+# EK SAĞLAMLIK (15.10, canlıya eklemeden önce, önceden yazılı): yeni iki kuralda ≥ 8 🔥 sinyali olan coin'lerin ≥ %60'ında 🔥 isabeti aynı havuzun 🔥'suz isabetinden yüksek (en az 5 coin)
+#   VE son 12 ay (2025-10 → bugün) ayrı bakıldığında isabet ≥ şimdiki ana (2026 %67) ya da en az 10 sinyal yoksa "veri az" (engel değil)
+yaz("\n## Ek sağlamlık (coin yaygınlığı + son 12 ay)")
+SON12 = tq >= tq.max() - pd.Timedelta(days=365)
+for ad, havuz in (("G1 🌐🤝 z 0…2", AIL == "G1 🌐🤝 z 0…2"), ("P1 coin primi ⛔", P1 & (Zq <= -1))):
+    sk = []
+    for nm in np.unique(nmq[havuz & FON]):
+        a_ = havuz & FON & (nmq == nm); b_ = havuz & ~FON & (nmq == nm) & (tq >= P0x)
+        if a_.sum() >= 8 and b_.sum() >= 8: sk.append((nm, int(a_.sum()), 100 * OK[a_].mean(), 100 * OK[b_].mean()))
+    oran = np.mean([x[2] > x[3] for x in sk]) if sk else np.nan; ky = len(sk) >= 5 and oran >= 0.6
+    s12 = havuz & FON & SON12; n12 = int(s12.sum()); h12 = 100 * OK[s12].mean() if n12 else np.nan
+    yaz(f"- **{ad} + 🔥:** yaygınlık {sum(x[2] > x[3] for x in sk)}/{len(sk)} coin → {'✅' if ky else '❌'} · son 12 ay: {n12} sinyal · isabet %{h12:.0f} · net {NET[s12].mean() if n12 else float('nan'):+.2f} → "
+        + ("veri az" if n12 < 10 else ("✅" if h12 >= 67 else "❌")) + " · " + " · ".join(f"{nm} {n} %{a:.0f} vs %{b2:.0f}" for nm, n, a, b2 in sorted(sk, key=lambda x: -x[1])[:15]))
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
 open("ekle_ara_sonuc.md", "w").write("\n".join(L) + "\n")
