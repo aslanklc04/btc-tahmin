@@ -278,7 +278,7 @@ for ad, m in (("P1 + 🔥 · coin primi −1…0 (CANLIDA VAR: panelf)", P1 & FO
               ("ŞİMDİ ana + 🔥 (bilgi)", ANA & FON)):
     yaz(sat(ad, st(m)))
 yaz("```")
-hf = pd.Series(1, index=tq[FON & ~ANA]).groupby(tq[FON & ~ANA].floor("7D")).size()
+YN = FON & ((P1 & ~((Zq > -1) & (Zq < 0))) | (AIL == "G1 🌐🤝 z 0…2")); hf = pd.Series(1, index=tq[YN]).groupby(tq[YN].floor("7D")).size()
 tum_hf = (tq.max() - P0x).days / 7
 yaz(f"🔥 yeni eklenenler {len(hf)} farklı haftaya düşüyor (2022-06'dan beri ~{tum_hf:.0f} hafta → haftaların %{100 * len(hf) / tum_hf:.0f}'i) · o haftalarda ortalama {hf.mean():.1f} sinyal, en çok {hf.max()}")
 yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
