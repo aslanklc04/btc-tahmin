@@ -1,0 +1,8 @@
+📒 CANLI KARNE — 15.10.2026 (kayıt 12.10'den beri)
+Ölçüm testlerle aynı: sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04.
+✅ Ana: 11 kapandı · isabet %45 · işlem başı -1.64% · toplam -18.1% (testte %62 · 2026 %67) · 2 açık
+🔸 Yedek: 3 kapandı · isabet %33 · işlem başı -1.56% · toplam -4.7% (testte %56 · 2026 %53) · 1 açık
+Panel (gönderilmedi): 54 kapandı · isabet %56 · işlem başı 0.23% · toplam 12.5% · 8 açık
+↳ ⛔ prim filtresinin engelledikleri: 44 kapandı · isabet %57 · toplam 9.7%
+Tür bazında (kapanan · isabet · işlem başı): 🌐🧪 ana: 6 · %67 · -1.79% | 💵 ana: 4 · %0 · -2.52% | 💵 yedek: 1 · %0 · -3.38% | 🔇/🪙 yedek: 2 · %50 · -0.65% | 🧪 ana: 1 · %100 · 2.73%
+Karar günü 12.11: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi. Az sinyal varken tek gün/hafta sonucu yanıltıcıdır.
