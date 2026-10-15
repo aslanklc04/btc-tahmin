@@ -1,147 +1,147 @@
-# 💧 Neon ↔ Binance arşivi uyumu — 15.10.2026 09:03
-Arşivde son saat: 2026-10-14 00:00:00+00:00 · arşivi gelen coin: 130 · 146 sn
+# 💧 Neon ↔ Binance arşivi uyumu — 15.10.2026 09:06
+Arşivde son saat: 2026-10-14 00:00:00+00:00 · arşivi gelen coin: 130 · 130 sn
 Neon saat: 32 · Neon verisi olan coin: 132
 
 ```
-   coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık  kapsam   sonuç
-  1INCH    31     NaN                NaN              NaN               NaN     NaN az saat
-   AAVE    31     NaN                NaN              NaN               NaN     NaN az saat
-    ACH    31     NaN                NaN              NaN               NaN     NaN az saat
-    ADA    32     NaN                NaN              NaN               NaN     NaN az saat
-   AGLD    31     NaN                NaN              NaN               NaN     NaN az saat
-   ALGO    31     NaN                NaN              NaN               NaN     NaN az saat
-  ALICE    31     NaN                NaN              NaN               NaN     NaN az saat
-    ALT    31     NaN                NaN              NaN               NaN     NaN az saat
-   ANKR    31     NaN                NaN              NaN               NaN     NaN az saat
-    APE    31     NaN                NaN              NaN               NaN     NaN az saat
-   API3    31     NaN                NaN              NaN               NaN     NaN az saat
-    APT    32     NaN                NaN              NaN               NaN     NaN az saat
-    ARB    32     NaN                NaN              NaN               NaN     NaN az saat
-   ARKM    31     NaN                NaN              NaN               NaN     NaN az saat
-   ARPA    31     NaN                NaN              NaN               NaN     NaN az saat
-   ATOM    31     NaN                NaN              NaN               NaN     NaN az saat
-AUCTION    31     NaN                NaN              NaN               NaN     NaN az saat
-   AVAX    31     NaN                NaN              NaN               NaN     NaN az saat
-    AXL    31     NaN                NaN              NaN               NaN     NaN az saat
-    AXS    31     NaN                NaN              NaN               NaN     NaN az saat
-   BAND    31     NaN                NaN              NaN               NaN     NaN az saat
-    BAT    31     NaN                NaN              NaN               NaN     NaN az saat
-    BCH    31     NaN                NaN              NaN               NaN     NaN az saat
-   BICO    31     NaN                NaN              NaN               NaN     NaN az saat
-   BLUR    31     NaN                NaN              NaN               NaN     NaN az saat
-    BNB    32     NaN                NaN              NaN               NaN     NaN az saat
-    BNT    31     NaN                NaN              NaN               NaN     NaN az saat
-   BONK    31     NaN                NaN              NaN               NaN     NaN az saat
-    C98    31     NaN                NaN              NaN               NaN     NaN az saat
-   CAKE    31     NaN                NaN              NaN               NaN     NaN az saat
-   CELR    31     NaN                NaN              NaN               NaN     NaN az saat
-    CHZ    31     NaN                NaN              NaN               NaN     NaN az saat
-   COMP    31     NaN                NaN              NaN               NaN     NaN az saat
-   COTI    31     NaN                NaN              NaN               NaN     NaN az saat
-    CRV    31     NaN                NaN              NaN               NaN     NaN az saat
-   CTSI    31     NaN                NaN              NaN               NaN     NaN az saat
-    CVC    31     NaN                NaN              NaN               NaN     NaN az saat
-    CVX    31     NaN                NaN              NaN               NaN     NaN az saat
-   DASH    31     NaN                NaN              NaN               NaN     NaN az saat
-    DIA    31     NaN                NaN              NaN               NaN     NaN az saat
-   DOGE    32     NaN                NaN              NaN               NaN     NaN az saat
-    DOT    32     NaN                NaN              NaN               NaN     NaN az saat
-   EGLD    31     NaN                NaN              NaN               NaN     NaN az saat
-    ENA    31     NaN                NaN              NaN               NaN     NaN az saat
-    ENS    31     NaN                NaN              NaN               NaN     NaN az saat
-    ETC    31     NaN                NaN              NaN               NaN     NaN az saat
-  ETHFI    31     NaN                NaN              NaN               NaN     NaN az saat
-    FET    31     NaN                NaN              NaN               NaN     NaN az saat
-   FIDA    31     NaN                NaN              NaN               NaN     NaN az saat
-    FIL    31     NaN                NaN              NaN               NaN     NaN az saat
-  FLOKI    32     NaN                NaN              NaN               NaN     NaN az saat
-   FLOW    31     NaN                NaN              NaN               NaN     NaN az saat
-      G    31     NaN                NaN              NaN               NaN     NaN az saat
-    GLM    31     NaN                NaN              NaN               NaN     NaN az saat
-    GMT    31     NaN                NaN              NaN               NaN     NaN az saat
-    GRT    31     NaN                NaN              NaN               NaN     NaN az saat
-    GTC    31     NaN                NaN              NaN               NaN     NaN az saat
-   HBAR    31     NaN                NaN              NaN               NaN     NaN az saat
-    ICP    31     NaN                NaN              NaN               NaN     NaN az saat
-    ILV    31     NaN                NaN              NaN               NaN     NaN az saat
-    IMX    31     NaN                NaN              NaN               NaN     NaN az saat
-    INJ    31     NaN                NaN              NaN               NaN     NaN az saat
-     IO    31     NaN                NaN              NaN               NaN     NaN az saat
-  JASMY    31     NaN                NaN              NaN               NaN     NaN az saat
-    JTO    31     NaN                NaN              NaN               NaN     NaN az saat
-   KAVA    31     NaN                NaN              NaN               NaN     NaN az saat
-    KNC    31     NaN                NaN              NaN               NaN     NaN az saat
-    KSM    31     NaN                NaN              NaN               NaN     NaN az saat
-    LDO    31     NaN                NaN              NaN               NaN     NaN az saat
-   LINK    32     NaN                NaN              NaN               NaN     NaN az saat
-    LPT    31     NaN                NaN              NaN               NaN     NaN az saat
-   LQTY    31     NaN                NaN              NaN               NaN     NaN az saat
-    LTC    31     NaN                NaN              NaN               NaN     NaN az saat
-  MAGIC    31     NaN                NaN              NaN               NaN     NaN az saat
-   MANA    31     NaN                NaN              NaN               NaN     NaN az saat
-   MASK    31     NaN                NaN              NaN               NaN     NaN az saat
-  METIS    31     NaN                NaN              NaN               NaN     NaN az saat
-   MINA    31     NaN                NaN              NaN               NaN     NaN az saat
-   NEAR    32     NaN                NaN              NaN               NaN     NaN az saat
-    NMR    31     NaN                NaN              NaN               NaN     NaN az saat
-    OGN    31     NaN                NaN              NaN               NaN     NaN az saat
-     OP    32     NaN                NaN              NaN               NaN     NaN az saat
- PENDLE    31     NaN                NaN              NaN               NaN     NaN az saat
-   PEPE    32     NaN                NaN              NaN               NaN     NaN az saat
-    POL    31     NaN                NaN              NaN               NaN     NaN az saat
-   POWR    31     NaN                NaN              NaN               NaN     NaN az saat
- PUNDIX    31     NaN                NaN              NaN               NaN     NaN az saat
-   PYTH    31     NaN                NaN              NaN               NaN     NaN az saat
-    QNT    31     NaN                NaN              NaN               NaN     NaN az saat
-   RARE    31     NaN                NaN              NaN               NaN     NaN az saat
- RENDER    31     NaN                NaN              NaN               NaN     NaN az saat
-    REZ    31     NaN                NaN              NaN               NaN     NaN az saat
-    RLC    31     NaN                NaN              NaN               NaN     NaN az saat
-   ROSE    31     NaN                NaN              NaN               NaN     NaN az saat
-    RPL    31     NaN                NaN              NaN               NaN     NaN az saat
-    RSR    31     NaN                NaN              NaN               NaN     NaN az saat
-   SAND    31     NaN                NaN              NaN               NaN     NaN az saat
-    SEI    31     NaN                NaN              NaN               NaN     NaN az saat
-   SHIB    32     NaN                NaN              NaN               NaN     NaN az saat
-    SKL    31     NaN                NaN              NaN               NaN     NaN az saat
-    SNX    31     NaN                NaN              NaN               NaN     NaN az saat
-    SOL    31     NaN                NaN              NaN               NaN     NaN az saat
-  SPELL    31     NaN                NaN              NaN               NaN     NaN az saat
-   STRK    31     NaN                NaN              NaN               NaN     NaN az saat
-    STX    31     NaN                NaN              NaN               NaN     NaN az saat
-    SUI    32     NaN                NaN              NaN               NaN     NaN az saat
-  SUPER    31     NaN                NaN              NaN               NaN     NaN az saat
-  SUSHI    31     NaN                NaN              NaN               NaN     NaN az saat
-      T    31     NaN                NaN              NaN               NaN     NaN az saat
-    TAO    31     NaN                NaN              NaN               NaN     NaN az saat
-    TIA    31     NaN                NaN              NaN               NaN     NaN az saat
-   TNSR    31     NaN                NaN              NaN               NaN     NaN az saat
-    TRB    31     NaN                NaN              NaN               NaN     NaN az saat
-  TURBO    31     NaN                NaN              NaN               NaN     NaN az saat
-    UMA    31     NaN                NaN              NaN               NaN     NaN az saat
-    UNI    31     NaN                NaN              NaN               NaN     NaN az saat
-    VET    31     NaN                NaN              NaN               NaN     NaN az saat
-   VTHO    31     NaN                NaN              NaN               NaN     NaN az saat
-      W    31     NaN                NaN              NaN               NaN     NaN az saat
-    WIF    31     NaN                NaN              NaN               NaN     NaN az saat
-    WLD    31     NaN                NaN              NaN               NaN     NaN az saat
-    XLM    31     NaN                NaN              NaN               NaN     NaN az saat
-    XRP    31     NaN                NaN              NaN               NaN     NaN az saat
-    XTZ    31     NaN                NaN              NaN               NaN     NaN az saat
-    YFI    31     NaN                NaN              NaN               NaN     NaN az saat
-    ZEC    31     NaN                NaN              NaN               NaN     NaN az saat
-    ZEN    31     NaN                NaN              NaN               NaN     NaN az saat
-     ZK    31     NaN                NaN              NaN               NaN     NaN az saat
-    ZRO    31     NaN                NaN              NaN               NaN     NaN az saat
-    ZRX    31     NaN                NaN              NaN               NaN     NaN az saat
+   coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık  kapsam sonuç
+  1INCH    31   0.998              0.004            0.024             0.000   0.957     ✅
+   AAVE    31   0.997              0.006            0.029             0.000   0.970     ✅
+    ACH    31   0.999              0.005            0.022             0.000   0.957     ✅
+    ADA    32   0.996              0.003            0.014             0.000   0.961     ✅
+   AGLD    31   0.999              0.002            0.009             0.000   0.970     ✅
+   ALGO    31   0.994              0.006            0.025             0.000   0.970     ✅
+  ALICE    31   0.995              0.005            0.016             0.000   0.957     ✅
+    ALT    31   0.991              0.009            0.050             0.000   0.970     ✅
+   ANKR    31   0.999              0.003            0.026             0.000   0.957     ✅
+    APE    31   0.996              0.005            0.021             0.000   0.970     ✅
+   API3    31   0.998              0.006            0.021             0.000   0.957     ✅
+    APT    32   0.996              0.002            0.015             0.000   0.961     ✅
+    ARB    32   0.972              0.011            0.065             0.000   0.961     ✅
+   ARKM    31   0.998              0.004            0.034             0.000   0.970     ✅
+   ARPA    31   0.999              0.006            0.024             0.000   0.957     ✅
+   ATOM    31   0.981              0.004            0.024             0.000   0.970     ✅
+AUCTION    31   1.000              0.002            0.011             0.000   0.957     ✅
+   AVAX    31   0.998              0.005            0.018             0.000   0.970     ✅
+    AXL    31   0.996              0.009            0.042             0.000   0.957     ✅
+    AXS    31   0.999              0.004            0.012             0.000   0.970     ✅
+   BAND    31   0.999              0.005            0.022             0.000   0.957     ✅
+    BAT    31   0.998              0.010            0.030             0.000   0.970     ✅
+    BCH    31   0.996              0.006            0.019             0.000   0.957     ✅
+   BICO    31   0.998              0.003            0.015             0.000   0.970     ✅
+   BLUR    31   0.999              0.007            0.032             0.032   0.957     ❌
+    BNB    32   0.999              0.003            0.023             0.000   0.961     ✅
+    BNT    31   0.999              0.002            0.010             0.000   0.970     ✅
+   BONK    31   0.993              0.003            0.033             0.000   0.957     ✅
+    C98    31   0.998              0.006            0.028             0.000   0.970     ✅
+   CAKE    31   0.993              0.005            0.032             0.000   0.957     ✅
+   CELR    31   1.000              0.002            0.005             0.000   0.970     ✅
+    CHZ    31   0.998              0.003            0.015             0.000   0.957     ✅
+   COMP    31   0.999              0.003            0.011             0.000   0.970     ✅
+   COTI    31   0.995              0.009            0.035             0.000   0.957     ✅
+    CRV    31   0.995              0.004            0.017             0.000   0.970     ✅
+   CTSI    31   0.993              0.009            0.028             0.000   0.957     ✅
+    CVC    31   0.997              0.004            0.010             0.000   0.970     ✅
+    CVX    31   0.998              0.005            0.033             0.000   0.957     ✅
+   DASH    31   0.998              0.002            0.014             0.000   0.970     ✅
+    DIA    31   0.999              0.007            0.032             0.000   0.957     ✅
+   DOGE    32   0.998              0.003            0.011             0.000   0.961     ✅
+    DOT    32   0.986              0.005            0.030             0.000   0.961     ✅
+   EGLD    31   0.997              0.011            0.066             0.000   0.970     ✅
+    ENA    31   0.995              0.010            0.043             0.000   0.957     ✅
+    ENS    31   0.996              0.003            0.025             0.000   0.970     ✅
+    ETC    31   0.996              0.004            0.025             0.000   0.957     ✅
+  ETHFI    31   0.989              0.004            0.017             0.000   0.970     ✅
+    FET    31   0.997              0.005            0.034             0.000   0.957     ✅
+   FIDA    31   1.000              0.004            0.016             0.000   0.970     ✅
+    FIL    31   0.998              0.009            0.036             0.000   0.957     ✅
+  FLOKI    32   0.998              0.002            0.023             0.000   0.961     ✅
+   FLOW    31   0.997              0.008            0.033             0.000   0.970     ✅
+      G    31   0.996              0.008            0.027             0.000   0.957     ✅
+    GLM    31   0.998              0.005            0.021             0.000   0.970     ✅
+    GMT    31   0.998              0.004            0.021             0.000   0.957     ✅
+    GRT    31   0.998              0.003            0.013             0.000   0.970     ✅
+    GTC    31   0.990              0.013            0.024             0.000   0.957     ✅
+   HBAR    31   0.975              0.006            0.013             0.000   0.970     ✅
+    ICP    31   0.999              0.003            0.012             0.000   0.957     ✅
+    ILV    31   0.999              0.003            0.015             0.000   0.970     ✅
+    IMX    31   0.998              0.004            0.028             0.000   0.957     ✅
+    INJ    31   0.976              0.007            0.021             0.000   0.970     ✅
+     IO    31   0.993              0.013            0.064             0.000   0.957     ✅
+  JASMY    31   0.997              0.008            0.032             0.000   0.969     ✅
+    JTO    31   0.984              0.008            0.041             0.000   0.957     ✅
+   KAVA    31   1.000              0.004            0.005             0.000   0.970     ✅
+    KNC    31   0.991              0.004            0.026             0.000   0.957     ✅
+    KSM    31   0.999              0.002            0.010             0.000   0.970     ✅
+    LDO    31   0.996              0.004            0.032             0.000   0.957     ✅
+   LINK    32   0.997              0.003            0.018             0.000   0.961     ✅
+    LPT    31   0.996              0.004            0.015             0.000   0.970     ✅
+   LQTY    31   0.999              0.005            0.023             0.000   0.957     ✅
+    LTC    31   0.997              0.004            0.029             0.000   0.970     ✅
+  MAGIC    31   0.998              0.010            0.032             0.000   0.957     ✅
+   MANA    31   0.986              0.010            0.026             0.000   0.970     ✅
+   MASK    31   0.996              0.006            0.026             0.000   0.957     ✅
+  METIS    31   0.995              0.007            0.031             0.000   0.968     ✅
+   MINA    31   0.993              0.007            0.011             0.000   0.957     ✅
+   NEAR    32   1.000              0.004            0.016             0.000   0.961     ✅
+    NMR    31   0.997              0.006            0.012             0.000   0.970     ✅
+    OGN    31   0.999              0.010            0.025             0.000   0.957     ✅
+     OP    32   0.998              0.003            0.016             0.000   0.961     ✅
+ PENDLE    31   0.993              0.005            0.035             0.032   0.969     ❌
+   PEPE    32   0.996              0.005            0.019             0.000   0.961     ✅
+    POL    31   0.995              0.007            0.047             0.000   0.957     ✅
+   POWR    31   0.999              0.004            0.013             0.000   0.970     ✅
+ PUNDIX    31   0.996              0.005            0.022             0.000   0.957     ✅
+   PYTH    31   0.985              0.007            0.037             0.000   0.970     ✅
+    QNT    31   0.996              0.004            0.004             0.000   0.957     ✅
+   RARE    31   0.999              0.003            0.008             0.000   0.970     ✅
+ RENDER    31   0.998              0.005            0.036             0.000   0.957     ✅
+    REZ    31   0.995              0.005            0.022             0.000   0.970     ✅
+    RLC    31   0.986              0.014            0.025             0.000   0.957     ✅
+   ROSE    31   0.998              0.006            0.020             0.000   0.969     ✅
+    RPL    31   0.999              0.004            0.018             0.000   0.957     ✅
+    RSR    31   0.996              0.006            0.016             0.000   0.969     ✅
+   SAND    31   0.996              0.003            0.009             0.000   0.956     ✅
+    SEI    31   0.993              0.003            0.017             0.000   0.969     ✅
+   SHIB    32   0.997              0.004            0.026             0.000   0.961     ✅
+    SKL    31   0.995              0.009            0.030             0.000   0.957     ✅
+    SNX    31   0.999              0.004            0.028             0.000   0.968     ✅
+    SOL    31   0.999              0.003            0.016             0.000   0.957     ✅
+  SPELL    31   0.999              0.003            0.015             0.000   0.969     ✅
+   STRK    31   1.000              0.007            0.018             0.000   0.957     ✅
+    STX    31   0.999              0.009            0.044             0.000   0.969     ✅
+    SUI    32   0.998              0.004            0.021             0.000   0.961     ✅
+  SUPER    31   0.997              0.006            0.012             0.000   0.957     ✅
+  SUSHI    31   0.995              0.005            0.030             0.000   0.969     ✅
+      T    31   0.998              0.006            0.015             0.000   0.957     ✅
+    TAO    31   0.999              0.003            0.012             0.032   0.969     ❌
+    TIA    31   0.998              0.006            0.026             0.000   0.957     ✅
+   TNSR    31   1.000              0.004            0.019             0.000   0.967     ✅
+    TRB    31   0.996              0.005            0.025             0.000   0.957     ✅
+  TURBO    31   0.984              0.009            0.042             0.000   0.969     ✅
+    UMA    31   0.998              0.005            0.015             0.000   0.957     ✅
+    UNI    31   0.999              0.005            0.028             0.000   0.968     ✅
+    VET    31   0.998              0.005            0.028             0.000   0.957     ✅
+   VTHO    31   0.999              0.005            0.017             0.000   0.968     ✅
+      W    31   0.999              0.008            0.024             0.000   0.957     ✅
+    WIF    31   0.994              0.003            0.016             0.000   0.968     ✅
+    WLD    31   0.998              0.006            0.023             0.000   0.957     ✅
+    XLM    31   0.995              0.004            0.039             0.000   0.969     ✅
+    XRP    31   0.993              0.003            0.016             0.000   0.957     ✅
+    XTZ    31   0.997              0.007            0.037             0.000   0.969     ✅
+    YFI    31   0.996              0.005            0.024             0.000   0.956     ✅
+    ZEC    31   0.999              0.005            0.021             0.000   0.969     ✅
+    ZEN    31   0.994              0.006            0.039             0.000   0.957     ✅
+     ZK    31   0.987              0.008            0.034             0.000   0.969     ✅
+    ZRO    31   0.985              0.019            0.095             0.000   0.956     ✅
+    ZRX    31   0.993              0.007            0.061             0.000   0.968     ✅
 ```
 
-İlk 13 coin: 0 değerlendirildi · U1 korelasyon medyanı nan · U2 medyan nan · U3 z farkı medyanı nan · LD uyuşmazlık nan%
+İlk 13 coin: 13 değerlendirildi · U1 korelasyon medyanı 0.997 · U2 medyan 0.003 · U3 z farkı medyanı 0.019 · LD uyuşmazlık 0.000%
 
-**U4 gün gün:** veri yok → ❌
-**U5 💧 olayları:** veri yok → ❌
+**U4 gün gün:** ilk 24 s: U2 0.005 · U3 0.023 · LD uyuşmazlık 0.10% ✅ · son 24 s: U2 0.005 · U3 0.024 · LD uyuşmazlık 0.06% ✅ → ✅
+**U5 💧 olayları:** arşivde 💧 saat 67 · Neon da yakaladı %100 · Neon fazladan 💧 %0.07 → ✅
 
 ## Karar (UYUM_KARARI.md)
-- İlk 13 coin: ❌ net değil
-- Uyan coin'ler (0): —
+- İlk 13 coin: ✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)
+- Uyan coin'ler (127): 1INCH, AAVE, ACH, ADA, AGLD, ALGO, ALICE, ALT, ANKR, APE, API3, APT, ARB, ARKM, ARPA, ATOM, AUCTION, AVAX, AXL, AXS, BAND, BAT, BCH, BICO, BNB, BNT, BONK, C98, CAKE, CELR, CHZ, COMP, COTI, CRV, CTSI, CVC, CVX, DASH, DIA, DOGE, DOT, EGLD, ENA, ENS, ETC, ETHFI, FET, FIDA, FIL, FLOKI, FLOW, G, GLM, GMT, GRT, GTC, HBAR, ICP, ILV, IMX, INJ, IO, JASMY, JTO, KAVA, KNC, KSM, LDO, LINK, LPT, LQTY, LTC, MAGIC, MANA, MASK, METIS, MINA, NEAR, NMR, OGN, OP, PEPE, POL, POWR, PUNDIX, PYTH, QNT, RARE, RENDER, REZ, RLC, ROSE, RPL, RSR, SAND, SEI, SHIB, SKL, SNX, SOL, SPELL, STRK, STX, SUI, SUPER, SUSHI, T, TIA, TNSR, TRB, TURBO, UMA, UNI, VET, VTHO, W, WIF, WLD, XLM, XRP, XTZ, YFI, ZEC, ZEN, ZK, ZRO, ZRX
 exit=0
