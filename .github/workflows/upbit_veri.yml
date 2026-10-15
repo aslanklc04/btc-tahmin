@@ -1,0 +1,22 @@
+name: Upbit veri
+on:
+  push:
+    branches: [arastirma3]
+    paths: [upbit_veri.py, .github/workflows/upbit_veri.yml]
+permissions:
+  contents: write
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q -r requirements.txt
+      - run: python -u upbit_veri.py | tee upbit_veri_log.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: upbit-veri, path: upbit_veri.pkl, retention-days: 30}
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add upbit_veri_log.txt && git commit -m "Upbit veri log" || exit 0
+          for i in 1 2 3; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 3; done
