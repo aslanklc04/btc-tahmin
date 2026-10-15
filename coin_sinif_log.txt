@@ -1,0 +1,52 @@
+# 🪙 Coin'e göre ana / yedek — 15.10.2026 20:20
+Sinyal: 14,789 (şimdi ✅ ana 7,564 · 🔸 yedek 7,225) · coin×tür hücresi: 309 · 245 sn
+
+_sinyal sayısı · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026 · ana çizgisi: %55,9 +0,30 | %58,6 +0,65 | %59,1 +0,59_
+```
+ŞİMDİ ✅ ana                                  2392 (28.9/hf) · %58.9 · +0.40 |  5117 (35.4/hf) · %63.1 · +0.82 |  1377 (34.3/hf) · %67.2 · +0.90
+ŞİMDİ 🔸 yedek                                2544 (30.8/hf) · %55.7 · +0.48 |  4649 (32.2/hf) · %55.5 · +0.53 |  1459 (36.3/hf) · %53.4 · +0.35
+```
+
+### V1 geçmiş ortalaması
+```
+⬆️ yükselen yedek (İYİ hücre)                 129 · %51.9 · +1.19 |   531 · %59.7 · +0.89 |   107 · %63.6 · +0.99
+   yükselmeyen yedek                         2415 · %55.9 · +0.44 |  4118 · %54.9 · +0.49 |  1352 · %52.6 · +0.30
+⬇️ inen ana (KÖTÜ hücre)                      625 · %55.8 · +0.20 |   194 · %71.6 · +1.18 |    48 · %79.2 · +1.64
+   kalan ana                                 1767 · %59.9 · +0.47 |  4923 · %62.7 · +0.80 |  1329 · %66.7 · +0.87
+YENİ ana = şimdi + yükselen                  2521 (30.5/hf) · %58.5 · +0.44 |  5648 (39.1/hf) · %62.7 · +0.82 |  1484 (37.0/hf) · %66.9 · +0.91
+YENİ ana = şimdi + yükselen − inen           1896 (22.9/hf) · %59.4 · +0.52 |  5454 (37.7/hf) · %62.4 · +0.81 |  1436 (35.8/hf) · %66.5 · +0.88
+```
+
+### V2 her dönemde iyi
+```
+⬆️ yükselen yedek (İYİ hücre)                  13 · %53.8 · -0.48 |    48 · %45.8 · -0.53 |     8 · %25.0 · -1.28
+   yükselmeyen yedek                         2531 · %55.7 · +0.48 |  4601 · %55.6 · +0.54 |  1451 · %53.5 · +0.36
+⬇️ inen ana (KÖTÜ hücre)                        4 · %100.0 · +1.51 |     0 · % nan · +nan |     0 · % nan · +nan
+   kalan ana                                 2388 · %58.8 · +0.40 |  5117 · %63.1 · +0.82 |  1377 · %67.2 · +0.90
+YENİ ana = şimdi + yükselen                  2405 (29.1/hf) · %58.8 · +0.39 |  5165 (35.7/hf) · %62.9 · +0.80 |  1385 (34.5/hf) · %66.9 · +0.89
+YENİ ana = şimdi + yükselen − inen           2401 (29.0/hf) · %58.8 · +0.39 |  5165 (35.7/hf) · %62.9 · +0.80 |  1385 (34.5/hf) · %66.9 · +0.89
+```
+
+## Ölçütler
+**V1 geçmiş ortalaması** — ⬆️ P: ana çizgisi ❌ · yükselmeyenden +3 puan ✅ · plasebo ✅ (2024+ %59.7 vs plasebo %95 %58.5)  |  ⬇️ D: kalan ana'dan düşük ❌ · yeni set gerilemiyor ❌ · plasebo ❌ (2024+ %71.6 vs plasebo %5 %58.1)
+**V2 her dönemde iyi** — ⬆️ P: ana çizgisi ❌ · yükselmeyenden +3 puan ❌ · plasebo ❌ (2024+ %45.8 vs plasebo %95 %65.4)  |  ⬇️ D: kalan ana'dan düşük ❌ · yeni set gerilemiyor ❌ · plasebo ❌ (2024+ %nan vs plasebo %5 %nan)
+
+## Karşılaştırma: geriye bakarak (HİLELİ — sonucu bilerek) seçilseydi
+```
+⬆️ yükselen yedek (hileli seçim)              284 · %62.7 · +1.10 |   471 · %63.1 · +0.93 |   121 · %62.8 · +0.91
+```
+_Hileli seçim aynı veriyi hem seçmek hem ölçmek için kullanır; canlıda bu mümkün değil. Asıl karar yukarıdaki hilesiz (ileriye dönük) sonuçla._
+
+## Bilgi: bugünkü tüm geçmişle V1 / V2 etiketi alan hücreler (yedek→İYİ · ana→KÖTÜ)
+- **V1 İYİ yedek hücre (5):** ADA 💵 (111, %61, +1.66), ADA 🧪 (144, %65, +1.03), AVAX 💵 (141, %62, +0.65), DOGE 🧪 (154, %68, +0.96), ETH 💵 (58, %64, +1.37)
+- **V1 KÖTÜ ana hücre (14):** 1INCH 🌐🧪 (20, %60, -0.49), API3 🌐🧪 (21, %48, -1.62), ATOM 🌐🤝 (20, %65, -0.57), AVAX 🌐🧪 (28, %50, +1.12), BNT 🌐🧪 (25, %48, +0.53), C98 🌐🧪 (20, %50, +0.52), COMP 🌐🧪 (28, %46, +0.38), ETC 🌐🧪 (38, %63, -0.15), IMX 🌐🧪 (25, %48, +1.22), MINA 🌐🧪 (30, %53, -0.33), NMR 🌐🧪 (23, %61, -0.98), RLC 🌐🧪 (32, %53, -0.56), SOL 🌐🧪 (35, %49, +1.12), XLM 🌐🤝 (26, %50, +0.25)
+- **V2 İYİ yedek hücre (0):** yok
+- **V2 KÖTÜ ana hücre (0):** yok
+
+## Önceden yazılı karar
+- V1 geçmiş ortalaması: ⬆️ yükseltme ❌ geçmedi · ⬇️ indirme ❌ geçmedi
+- V2 her dönemde iyi: ⬆️ yükseltme ❌ geçmedi · ⬇️ indirme ❌ geçmedi
+- → fikir canlıya girmez (coin'in kendi geçmişi ileriye dönük ayırt etmiyor)
+
+_Süre: 246 sn_
+exit=0
