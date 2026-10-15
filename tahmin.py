@@ -147,8 +147,8 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
         body = "\n".join(f"• {k}: {sum(x['ok'] for x in v)}/{len(v)} tuttu (%{100*sum(x['ok'] for x in v)/len(v):.0f}) · ort. %{np.mean([x['ret'] for x in v]):+.2f}" for k, v in by.items())
         tot = sum(x["ok"] for x in wk_)
         cbo = cb_ozet([e_ for e_ in wk_ if e_.get("sg") == 1]); body += ("\n" + cbo if cbo else "")
-        tg_send(f"📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün\nℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)")
-    else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.")
+        tg_send(f"📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün\nℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f})\n(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)", sinif="rapor")
+    else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.", sinif="rapor")
     G["last_weekly"] = t
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):
     tg_send(f"☀️ Günlük özet — {head}\nℹ️ Bilgi mesajı, işlem sinyali değil. İşlem için yalnız ✅ İŞLEM SİNYALİ ve 🔸 YEDEK SİNYAL mesajlarına bak.\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines)); G["last_daily"] = t

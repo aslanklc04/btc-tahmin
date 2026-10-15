@@ -199,8 +199,8 @@ try:
             oo = [x for x in wk_ if x["tip"].startswith("🤝")]; tt_ = [x for x in wk_ if not x["tip"].startswith("🤝")]
             ozet = (f"\n🤝 ortak: {sum(x['ok'] for x in oo)}/{len(oo)}" if oo else "") + (f" · tek başına: {sum(x['ok'] for x in tt_)}/{len(tt_)}" if tt_ else "")
             cbo = cb_ozet(wk_); ozet += ("\n" + cbo if cbo else "")
-            tot = sum(x["ok"] for x in wk_); tg_send(f"🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün\nℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f}){ozet}")
-        else: tg_send("🪙📊 ALTCOİN HAFTALIK SONUÇ — son 7 günde sonuçlanan altcoin sinyali yok.")
+            tot = sum(x["ok"] for x in wk_); tg_send(f"🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün\nℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.\n{body}\nToplam: {tot}/{len(wk_)} tuttu (%{100*tot/len(wk_):.0f}){ozet}", sinif="rapor")
+        else: tg_send("🪙📊 ALTCOİN HAFTALIK SONUÇ — son 7 günde sonuçlanan altcoin sinyali yok.", sinif="rapor")
         GC["_last_weekly"] = tl_
 except Exception: traceback.print_exc()
 # ---- panel: son_durum.md'ye altcoin bölümü ----

@@ -88,7 +88,7 @@ def calis():
             wk = [e for e in kap if now - e["t"] <= pd.Timedelta(days=8)]
             per = pd.DataFrame(wk).groupby("coin").agg(n=("ok", "size"), ok=("ok", "sum"), net=("net", "mean")) if wk else None
             tg(f"💵📊 ABD ALIYOR (kendi primi) — HAFTALIK\nSon 7 gün: {ozet(wk)}\nBaşlangıçtan ({GP['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: {ozet(kap)}"
-               + ("\n" + " · ".join(f"{c} {int(r_.ok)}/{int(r_.n)} ({r_.net:+.2f})" for c, r_ in per.iterrows()) if per is not None else "") + "\n(giriş: mesaj anındaki fiyat · çıkış: süre sonu · limit komisyon dahil)")
+               + ("\n" + " · ".join(f"{c} {int(r_.ok)}/{int(r_.n)} ({r_.net:+.2f})" for c, r_ in per.iterrows()) if per is not None else "") + "\n(giriş: mesaj anındaki fiyat · çıkış: süre sonu · limit komisyon dahil)", sinif="rapor")
             GP["last_weekly"] = tlh
     except Exception: traceback.print_exc()
     # ---- panel ----

@@ -13,6 +13,7 @@ import pandas as pd
 from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
+RAPOR_F = "durum/haftalik_rapor.md"
 KARNE_F = "durum/karne_kayit.csv"                                                             # 15.10.2026 canlı karne: her karar (bilgi hariç) kalıcı kayıt → karne.py sonucu ölçer
 ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
 YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — isabeti ana sinyal çizgisinin (~%59) altında; bu türün test sonucu mesajın içinde yazıyor.\n"
@@ -64,6 +65,7 @@ def main():
     for m in q: m.setdefault("c", "ana" if m["o"] < 9000 else "bilgi")                         # eski biçim
     ana = sorted([m for m in q if m["c"] == "ana"], key=lambda m: (m["o"], m["s"])); yedek = sorted([m for m in q if m["c"] == "yedek"], key=lambda m: (m["o"], m["s"]))
     bilgi = sorted([m for m in q if m["c"] == "bilgi"], key=lambda m: m["s"]); panel = [m for m in q if m["c"] in ("panel", "panelf")]
+    rapor = [m for m in q if m["c"] == "rapor"]                                               # 15.10: eski haftalık model raporları Telegram'a gitmez (yerine 📒 karne) → panele
     FZ = fon_z() if (yedek or ana or any(m["c"] == "panelf" for m in panel)) else float("nan")
     FON_ANA = FON_ANA_NOT.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None                # fon_ana.py: ✅ ana + BTC fonlaması z ≥ 2 → 🔥 (K0–K4 geçti)
     TERFI = TERFI_FON.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None                    # yalnız fonlama (büyük işlem saati kaldırıldı)
@@ -107,5 +109,12 @@ def main():
         sat = [f"- {x['t']} · {x['s']} · {x['e']} → {x['k']}" for x in reversed(GD["log"][-20:])]
         open("son_durum.md", "a", encoding="utf-8").write(f"\n\n## 📨 Telegram kararları (son 20) — bugün giden sinyal: {GD['giden']}\n"
             "_✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_\n" + ("\n".join(sat) if sat else "- (henüz yok)") + "\n")
+    if rapor:                                                                                  # son haftalık model raporları: durum/haftalik_rapor.md (en yenisi üstte, son 30)
+        try:
+            eski = open(RAPOR_F, encoding="utf-8").read().split("\n\n---\n\n") if os.path.exists(RAPOR_F) else []
+            yeni = [f"### {simdi:%d.%m.%Y %H:%M}\n" + m["m"] for m in rapor]
+            open(RAPOR_F, "w", encoding="utf-8").write("\n\n---\n\n".join((yeni + [x for x in eski if x.strip() and not x.startswith("# ")])[:30]))
+            if os.path.exists("son_durum.md"): open("son_durum.md", "a", encoding="utf-8").write("\n\n## 📊 Haftalık model raporları (Telegram'a gitmez — yerine 📒 karne)\n" + "\n\n".join("```\n" + m["m"] + "\n```" for m in rapor) + "\n")
+        except Exception as e: print("rapor yazılamadı:", e)
     if os.path.exists(KUYRUK_F): os.remove(KUYRUK_F)
 if __name__ == "__main__": main()

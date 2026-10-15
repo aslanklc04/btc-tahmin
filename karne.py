@@ -1,7 +1,7 @@
 # karne.py — CANLI KARNE (15.10.2026, kullanıcı isteği): gönderilen / gönderilmeyen her sinyalin GERÇEK sonucu ve testle karşılaştırma.
 # Kayıt: durum/karne_kayit.csv (gonder.py her saat yazar; 12–15.10 geçmişi git kayıtlarından). Sonuç: durum/karne.md + son_durum.md özeti.
 # Ölçüm testlerle aynı: giriş = sinyal saatinin kapanışı (Binance spot 1 s), çıkış = giriş + süre kapanışı, maliyet %0,04. Süresi dolmayan = açık (hesaba girmez).
-# Telegram: ilk karne bir kez + her PAZARTESİ TR 09:00 sonrası haftalık karne (bilgi mesajı).
+# Telegram: her PAZAR TR 20:00 sonrası tek haftalık karne — TÜM sinyaller (ana · yedek · panel) tür tür not (15.10: eski 5 haftalık model raporunun yerine; onlar panele yazılır).
 # ÖNCEDEN YAZILI KARAR (15.10.2026, sonuçlar görülmeden): 12.11.2026'dan itibaren ✅ ana olarak gönderilmiş bir türde ≥ 20 kapanan sinyal varsa
 #   canlı isabet testteki isabetin belirgin altında (tek yönlü binom p < 0,05) VE canlı işlem başı net < 0 → "❌ ana'dan çıkarma önerisi" (kullanıcıya sorulur).
 import os, re, json, math, numpy as np, pandas as pd
@@ -87,43 +87,62 @@ def main():
         n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn)
         L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
     n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — |")
-    L += ["", "## Tür bazında (gönderilen ✅ ana + 🔸 yedek)", "| Tür | Sınıf | Kapanan | İsabet | İşlem başı net | Testte isabet (tüm · 2026) | Durum |", "|---|---|---|---|---|---|---|"]
-    karar = []
-    for (tur, sn), g in X[X.sinif != "panel"].groupby(["tur", "sinif"]):
-        k = g[g.kap]; n = len(k); h = 100 * (k.net > 0).mean() if n else np.nan; ts = TEST.get(tur)
-        if n < 20: dur = f"⏳ veri az ({n}/20)"
-        elif ts is None: dur = "— test yok"
-        else:
+    hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN
+    def notu(k, ts):                                                                        # tür notu: ≥ 20 sinyal ve test varsa testle (binom), yoksa basit not
+        n = len(k)
+        if n < 5: return "⏳ veri az", None
+        h, a = 100 * (k.net > 0).mean(), k.net.mean()
+        if n >= 20 and ts is not None:
             p = binom_alt(int((k.net > 0).sum()), n, ts[0] / 100)
-            if p < 0.05 and k.net.mean() < 0: dur = f"❌ testin belirgin altında (p {p:.3f})"; karar.append((tur, sn, n, h, k.net.mean(), ts[0]))
-            elif h >= ts[0] - 5: dur = "✅ testle uyumlu"
-            else: dur = f"⚠️ testin altında, belirgin değil (p {p:.2f})"
-        L.append(f"| {tur} | {sn} | {n} | %{f(h, 0)} | {f(k.net.mean() if n else np.nan, 2)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {dur} |")
-    L += ["", f"**Önceden yazılı karar (15.10.2026):** {KARAR_T:%d.%m.%Y} tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur)."]
+            if p < 0.05 and a < 0: return f"❌ testin belirgin altında (p {p:.3f})", p
+            if h >= ts[0] - 5: return ("✅ iyi · testle uyumlu" if a > 0 else "⚠️ isabet testle uyumlu ama zararda"), p
+            return f"⚠️ testin altında, belirgin değil (p {p:.2f})", p
+        if h >= 55 and a > 0: return "✅ iyi", None
+        if h < 50 and a < 0: return "❌ kötü", None
+        return "⚠️ orta", None
+    SN_AD = {"ana": "✅ ana", "yedek": "🔸 yedek", "panel": "panel"}
+    TUR_AD = {"₿": "₿ BTC saatlik / ⭐ / A", "🚀": "🚀 BTC momentum", "🔻": "🔻 BTC kısa", "🔇/🪙": "🔇/🪙 coin tek", "🧪": "🧪 24 s ana coin", "🌐🧪": "🌐🧪 24 s geniş liste",
+              "🤝": "🤝 BTC ile ortak", "🌐🤝": "🌐🤝 ortak geniş liste", "💵": "💵 ABD alıyor", "🔀": "🔀 zıt yön", "🧑": "🧑 küçük yatırımcı", "⛓️": "⛓️ arz/talep"}
+    L += ["", "## Tür notları — TÜM sinyaller (ana · yedek · panel)", "| Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |", "|---|---|---|---|---|---|---|---|---|"]
+    karar, TN = [], []
+    for sn in ("ana", "yedek", "panel"):
+        for tur, g in X[X.sinif == sn].groupby("tur"):
+            k = g[g.kap]; kw = k[hafta_m[k.index]]; n = len(k); h = 100 * (k.net > 0).mean() if n else np.nan; a = k.net.mean() if n else np.nan; ts = TEST.get(tur)
+            nt, p = notu(k, ts)
+            if nt.startswith("❌ testin"): karar.append((tur, sn, n, h, a, ts[0]))
+            hw = f"{len(kw)} · %{f(100 * (kw.net > 0).mean(), 0)}" if len(kw) else "0"
+            L.append(f"| {SN_AD[sn]} | {TUR_AD.get(tur, tur)} | {hw} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(k.net.sum(), 1)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {nt} |")
+            TN.append((sn, tur, n, h, a, len(kw), (100 * (kw.net > 0).mean() if len(kw) else np.nan), (kw.net.mean() if len(kw) else np.nan), ts, nt))
+    L += ["", f"**Önceden yazılı karar (15.10.2026):** {KARAR_T:%d.%m.%Y} tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).",
+          "_Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_"]
     ana_karar = [x for x in karar if x[1] == "ana"]
     if yerel >= KARAR_T and ana_karar: L.append("- ❌ **ÖNERİ:** " + " · ".join(f"{t} ({n} sinyal, %{h:.0f} vs test %{ts:.0f}, net {a:+.2f}%)" for t, _, n, h, a, ts in ana_karar))
     L += ["", "## Son 25 kapanan (gönderilen)", "| Saat | Sınıf | Tür | Coin | Süre | Net | |", "|---|---|---|---|---|---|---|"]
     for r in Kp[Kp.sinif != "panel"].sort_values("t0").tail(25).itertuples():
         L.append(f"| {r.t0.tz_convert(DISPLAY_TZ):%d.%m %H:%M} | {r.sinif}{' 🔥' if r.terfi else ''} | {r.tur}{(' ' + r.isr) if r.isr else ''} | {r.coin} | {r.H} s | {r.net:+.2f}% | {'✅' if r.net > 0 else '❌'} |")
-    open(MD_F, "w", encoding="utf-8").write("\n".join(L) + "\n"); print("\n".join(L[:12]))
+    open(MD_F, "w", encoding="utf-8").write("\n".join(L) + "\n"); print("\n".join(L))
     if os.path.exists("son_durum.md"):
         open("son_durum.md", "a", encoding="utf-8").write("\n\n## 📒 Canlı karne (ayrıntı: durum/karne.md)\n" + "\n".join(L[2:9]) + "\n")
     try: D = json.load(open(DUR_F, encoding="utf-8"))
     except Exception: D = {}
     hafta = f"{yerel:%G-%V}"
-    if not D.get("ilk") or (yerel.weekday() == 0 and yerel.hour >= 9 and D.get("hafta") != hafta):
-        def sat(sn, ad):
-            n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn)
-            return f"{ad}: {n} kapandı · isabet %{f(h, 0)} · işlem başı {f(a, 2)}% · toplam {f(s, 1)}%" + (f" (testte %{ts[0]:.0f} · 2026 %{ts[1]:.0f})" if ts else "") + (f" · {o} açık" if o else "")
-        n_, h_, a_, s_, o_ = ozet((X.sinif == "panel") & X.prim_ret)
-        tl = [f"📒 CANLI KARNE — {yerel:%d.%m.%Y} ({X.t0.min().tz_convert(DISPLAY_TZ):%d.%m} tarihinden beri)", "Ölçüm testlerle aynı: sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04.",
-              sat("ana", "✅ Ana"), sat("yedek", "🔸 Yedek"), sat("panel", "Panel (gönderilmedi)"),
-              f"↳ ⛔ prim filtresinin engelledikleri: {n_} kapandı · isabet %{f(h_, 0)} · toplam {f(s_, 1)}%"]
-        tt = [f"{tur} {sn}: {len(g[g.kap])} · %{f(100 * (g[g.kap].net > 0).mean() if g.kap.any() else np.nan, 0)} · {f(g[g.kap].net.mean() if g.kap.any() else np.nan, 2)}%"
-              for (tur, sn), g in X[X.sinif != "panel"].groupby(["tur", "sinif"])]
-        if tt: tl.append("Tür bazında (kapanan · isabet · işlem başı): " + " | ".join(tt))
-        tl.append(f"Karar günü {KARAR_T:%d.%m}: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi." + (" Az sinyal varken tek gün/hafta sonucu yanıltıcıdır." if len(Kp[Kp.sinif == "ana"]) < 40 else ""))
+    if os.environ.get("KARNE_ZORLA") == "1" or (yerel.weekday() == 6 and yerel.hour >= 20 and D.get("hafta") != hafta):   # 15.10: PAZAR 20:00 — eski 5 haftalık rapor yerine tek mesaj
+        def sat(m, ad, ts=None):
+            n, h, a, s_, o = ozet(m); w = Kp[m & hafta_m]
+            return (f"{ad}: bu hafta {len(w)} kapandı" + (f" · %{100 * (w.net > 0).mean():.0f} · {w.net.mean():+.2f}%" if len(w) else "") +
+                    f" | başlangıçtan {n} · isabet %{f(h, 0)} · işlem başı {f(a, 2)}% · toplam {f(s_, 1)}%" + (f" (testte %{ts[0]:.0f})" if ts else ""))
+        tl = [f"📒 HAFTALIK KARNE — {yerel:%d.%m.%Y} · TÜM sinyaller ({X.t0.min().tz_convert(DISPLAY_TZ):%d.%m} tarihinden beri)",
+              "Ölçüm testlerle aynı: sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04. Süresi dolmayanlar sayılmaz.", "",
+              sat(X.sinif == "ana", "✅ Ana", SINIF_TEST["ana"]), sat(X.sinif == "yedek", "🔸 Yedek", SINIF_TEST["yedek"]), sat(X.sinif == "panel", "Panel (gönderilmedi)"),
+              sat((X.sinif == "panel") & X.prim_ret, "↳ ⛔ prim filtresinin engelledikleri"), "", "TÜR NOTLARI (başlangıçtan beri kapanan · isabet · işlem başı · bu hafta):"]
+        son_sn = None
+        for sn, tur, n, h, a, nw, hw, aw, ts, nt in TN:
+            if sn != son_sn: tl.append(f"{SN_AD[sn]}:"); son_sn = sn
+            tl.append(f"• {TUR_AD.get(tur, tur)}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
+        tl += ["", f"Karar günü {KARAR_T:%d.%m}: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi (sana sorulur)."]
+        if len(Kp[Kp.sinif == "ana"]) < 40: tl.append("Az sinyal varken tek hafta sonucu yanıltıcıdır.")
         if yerel >= KARAR_T and ana_karar: tl.append("❌ ÖNERİ — ana'dan çıkarılması önerilen: " + ", ".join(t for t, *_ in ana_karar))
+        tl.append("(Eski model raporları artık Telegram'a gitmiyor; panelde: durum/haftalik_rapor.md)")
         tg_send("\n".join(tl))
-        D.update(ilk=True, hafta=hafta if yerel.weekday() == 0 and yerel.hour >= 9 else D.get("hafta")); json.dump(D, open(DUR_F, "w", encoding="utf-8"))
+        if os.environ.get("KARNE_ZORLA") != "1": D.update(ilk=True, hafta=hafta); json.dump(D, open(DUR_F, "w", encoding="utf-8"))
 if __name__ == "__main__": main()
