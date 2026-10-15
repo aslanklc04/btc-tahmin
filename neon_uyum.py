@@ -1,6 +1,6 @@
 # neon_uyum.py — 💧 Neon (Frankfurt, dakikalık) ölçümü ↔ Binance arşivi (bookDepth ±1, saatlik ortalama) uyumu. Ölçütler: neon_derinlik/UYUM_KARARI.md (önceden yazıldı; Ek 2: ≥ 72 saat, U4, U5, kapsam).
 # Hizalama: Neon /saat?h=H → H:00–H:59 örnekleri; arşiv saatlik ortalaması t = tavan(saat) → aynı aralık arşivde t = H+1.
-import io, zipfile, time, json, requests, numpy as np, pandas as pd, re
+import io, os, zipfile, time, json, requests, numpy as np, pandas as pd, re
 from concurrent.futures import ThreadPoolExecutor
 T0 = time.time(); L = []
 def yaz(s=""): print(s, flush=True); L.append(s)
@@ -46,7 +46,8 @@ with ThreadPoolExecutor(6) as ex:
             NN.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v.get("n", 0)
 yaz(f"Neon saat: {len(saatler)} · Neon verisi olan coin: {len(NE)}\n")
 rows, HAV = [], []
-MINS = 72
+MINS = int(os.environ.get("NEON_ARA", "72"))                                                 # NEON_ARA: ara kontrol (karar değil)
+ARA = "NEON_ARA" in os.environ
 for nm in sorted(set(NE) & set(AR)):
     a = AR[nm]; la = np.log(a.where(a > 0)); m720, s720 = la.rolling(720, min_periods=168).mean().shift(1), la.rolling(720, min_periods=168).std().shift(1)
     n = pd.Series(NE[nm]).sort_index(); ix = n.index.intersection(a.index)
@@ -78,4 +79,6 @@ if len(HV):
 yaz(f"\n**U4 gün gün:** {u4s} → {'✅' if U4 else '❌'}\n**U5 💧 olayları:** {u5s} → {'✅' if U5 else '❌'}")
 NET = U1g and U4 and U5 and all(ilk13["sonuç"] == "✅") if len(ilk13) else False
 yaz(f"\n## Karar (UYUM_KARARI.md)\n- İlk 13 coin: {'✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)' if NET else '❌ net değil'}\n- Uyan coin'ler ({len(uyan)}): {', '.join(uyan) or '—'}")
-open("neon_derinlik/uyumlu_coinler.txt", "w").write("\n".join(uyan) + "\n"); open("neon_uyum_sonuc.md", "w").write("\n".join(L) + "\n")
+if ARA: L.insert(1, f"**ARA KONTROL (karar değil): coin başına en az {MINS} ortak saat; asıl karar ≥ 72 saatle 16.10'da.**")
+if not ARA: open("neon_derinlik/uyumlu_coinler.txt", "w").write("\n".join(uyan) + "\n")
+open("neon_uyum_ara_sonuc.md" if ARA else "neon_uyum_sonuc.md", "w").write("\n".join(L) + "\n")
