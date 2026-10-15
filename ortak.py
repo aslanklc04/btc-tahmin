@@ -326,10 +326,12 @@ def fon_coin_z(nm):
     return _FONZ.get(nm, float("nan"))
 def fon_mu(nm): z = fon_coin_z(nm); return bool(np.isfinite(z) and z >= FON_ESIK)
 FON_NOT = "💸 ÖNCELİKLİ: bu coin'in vadeli fonlaması çok yüksek (z {z:+.1f}). Testte bu durumdaki ✅ sinyaller %59–65 tuttu, işlem başı +%0,9–1,8."
-def sira_anahtari(dip=False, fon=False, z=float("nan")):
+def sira_anahtari(dip=False, fon=False, z=float("nan"), ld=False):
     """Mesaj içi sıra: önce TEST EDİLMİŞ isabet, sonra kâr, en son prim (merdiven.py: prim z ≥ 3'te 2026 isabeti %47 → geri)."""
     h, n = 60.0, 0.6
-    if dip: h, n = 68.0, 1.2                                                                   # 📉🔥 %64–72
+    if dip and ld: h, n = 78.0, 2.5                                                          # 💧📉🔥 ana coin'ler %87 · %78 · %73 (ld_kontrol.py)
+    elif ld: h, n = 71.0, 1.5                                                                # 💧 %69–73
+    elif dip: h, n = 68.0, 1.2                                                                   # 📉🔥 %64–72
     elif fon: h, n = 63.0, 1.4                                                                 # 💸 %59–65
     elif np.isfinite(z) and z >= 3: h, n = 55.0, 0.3
     return (-h, -n, -(z if np.isfinite(z) else -9))
@@ -390,3 +392,19 @@ YEDEK_NOT_USD = "🔸 Yedek (14.10): 💵 isabeti %54 · %54 · %54 (2022–23 �
 YEDEK_NOT_24 = "🔸 Yedek (14.10): ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; işlem başı +%0,2–1,0. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
 USD_DIP_NOT = "📉🔥 💵 + DİP → ✅ ANA (14.10): ABD alıyor VE coin son 24 saatte olağandışı düştü — testte %66 · %68 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8 · +%3,1 · +%2,0 (kombin.py)."
 PANELF_NOT = "ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85)."
+
+# ---- 💧 likidite dipte (ld_kontrol.py · ld_genis.py: K0–K4 geçti; neon_uyum.py: canlı ölçüm arşivle uyumlu) — likidite.py her saat durum/likidite_z.json yazar ----
+LD_ESIK, ONCELIK_LD = -2.0, -900
+_LDZ = None
+def ld_z(nm):
+    global _LDZ
+    if os.environ.get("TEST_LD"): return float(os.environ["TEST_LD"])                          # yalnız test
+    if _LDZ is None:
+        try:
+            d = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "durum", "likidite_z.json"))); t = pd.Timestamp(d["t"]) if d.get("t") else None
+            _LDZ = d.get("z", {}) if t is not None and pd.Timestamp.now(tz="UTC") - t <= pd.Timedelta(hours=3) else {}
+        except Exception: _LDZ = {}
+    v = _LDZ.get(nm); return float(v) if v is not None else float("nan")
+def ld_mu(nm): z = ld_z(nm); return bool(np.isfinite(z) and z <= LD_ESIK)
+MOM_DIP_ACK["💧"] = "💧 = likidite dipte: coin'in emir defteri kendi normaline göre çok ince (±%1 derinlik z ≤ −2); testte bu durumdaki ✅ sinyaller %69–73 tuttu (işlem başı +%1,0–2,3)"
+LD_DIP_NOT = "💧📉🔥 = likidite dipte VE dip birlikte (ana coin'ler): testte %87 · %78 · %73 tuttu (2023 · 2024+ · 2026), işlem başı +%2,2 · +%3,3 · +%1,7 — en üst öncelik"
