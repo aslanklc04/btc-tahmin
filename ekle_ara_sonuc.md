@@ -1,5 +1,5 @@
-# ➕ Ana sayısını artır, isabeti düşürme — 15.10.2026 20:41
-_çıta = ŞİMDİKİ ana set (her dönemde isabet VE net) · aday 252 · 243 sn_
+# ➕ Ana sayısını artır, isabeti düşürme — 15.10.2026 20:46
+_çıta = ŞİMDİKİ ana set (her dönemde isabet VE net) · aday 252 · 192 sn_
 
 _sinyal sayısı · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
 ```
@@ -30,4 +30,14 @@ YENİ ana = şimdi + eklenen                     2557 (30.9/hf) · %59.9 · +0.4
 ## Önceden yazılı karar
 - ✅ **GEÇTİ** → 4 kural; ana haftada +4.1 (2026) / +7.2 (2024+), isabet düşmüyor
 
-_Süre: 243 sn_
+## Bilgi: 🔥 ile gelenlerin ayrıntısı (canlıda zaten olan / yeni)
+```
+P1 + 🔥 · coin primi −1…0 (CANLIDA VAR: panelf)   40 · %77.5 · +1.99 |   198 · %70.2 · +0.70 |    33 · %84.8 · +1.09
+P1 + 🔥 · coin primi ⛔ ≤ −1 (YENİ)                22 · %72.7 · +1.50 |   148 · %75.7 · +1.54 |    33 · %75.8 · +1.11
+P1 + 🔥 · primsiz (YENİ)                           0 · % nan · +nan |     0 · % nan · +nan |     0 · % nan · +nan
+G1 🌐🤝 z 0…2 + 🔥 (YENİ)                          103 · %74.8 · +0.86 |   693 · %74.7 · +0.99 |   101 · %81.2 · +1.23
+ŞİMDİ ana + 🔥 (bilgi)                            67 · %71.6 · +0.88 |   341 · %75.1 · +2.06 |    29 · %86.2 · +2.01
+```
+🔥 yeni eklenenler 32 farklı haftaya düşüyor (2022-06'dan beri ~227 hafta → haftaların %14'i) · o haftalarda ortalama 30.2 sinyal, en çok 94
+
+_Süre: 192 sn_
