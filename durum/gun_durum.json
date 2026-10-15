@@ -5,12 +5,6 @@
 {
 "t": "13.10 03:05",
 "s": "panel",
-"e": "🪙 SHIB ⭐ en güçlü · isabet %59 · prim ⛔ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "13.10 03:05",
-"s": "panel",
 "e": "🧪 24 saat: ADA (z -3.2 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "15.10 03:04",
 "s": "panel",
 "e": "🧪 24 saat: DOGE (z -1.6 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "15.10 04:05",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.9",
 "k": "gitmedi — yalnız panel"
 }
 ]
