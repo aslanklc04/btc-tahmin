@@ -103,6 +103,7 @@ def main():
     SN_AD = {"ana": "✅ ana", "yedek": "🔸 yedek", "panel": "panel"}
     TUR_AD = {"₿": "₿ BTC saatlik / ⭐ / A", "🚀": "🚀 BTC momentum", "🔻": "🔻 BTC kısa", "🔇/🪙": "🔇/🪙 coin tek", "🧪": "🧪 24 s ana coin", "🌐🧪": "🌐🧪 24 s geniş liste",
               "🤝": "🤝 BTC ile ortak", "🌐🤝": "🌐🤝 ortak geniş liste", "💵": "💵 ABD alıyor", "🔀": "🔀 zıt yön", "🧑": "🧑 küçük yatırımcı", "⛓️": "⛓️ arz/talep"}
+    def tad(t_): return TUR_AD.get(t_.replace(" 🔥", ""), t_) + (" · 🔥 yükseldi" if "🔥" in t_ else "")
     L += ["", "## Tür notları — TÜM sinyaller (ana · yedek · panel)", "| Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |", "|---|---|---|---|---|---|---|---|---|"]
     karar, TN = [], []
     for sn in ("ana", "yedek", "panel"):
@@ -111,7 +112,7 @@ def main():
             nt, p = notu(k, ts)
             if nt.startswith("❌ testin"): karar.append((tur, sn, n, h, a, ts[0]))
             hw = f"{len(kw)} · %{f(100 * (kw.net > 0).mean(), 0)}" if len(kw) else "0"
-            L.append(f"| {SN_AD[sn]} | {(TUR_AD.get(tur.replace(" 🔥", ""), tur) + (" · 🔥 yükseldi" if "🔥" in tur else ""))} | {hw} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(k.net.sum(), 1)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {nt} |")
+            L.append(f"| {SN_AD[sn]} | {tad(tur)} | {hw} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(k.net.sum(), 1)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} | {nt} |")
             TN.append((sn, tur, n, h, a, len(kw), (100 * (kw.net > 0).mean() if len(kw) else np.nan), (kw.net.mean() if len(kw) else np.nan), ts, nt))
     L += ["", f"**Önceden yazılı karar (15.10.2026):** {KARAR_T:%d.%m.%Y} tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).",
           "_Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_"]
@@ -138,7 +139,7 @@ def main():
         son_sn = None
         for sn, tur, n, h, a, nw, hw, aw, ts, nt in TN:
             if sn != son_sn: tl.append(f"{SN_AD[sn]}:"); son_sn = sn
-            tl.append(f"• {(TUR_AD.get(tur.replace(" 🔥", ""), tur) + (" · 🔥 yükseldi" if "🔥" in tur else ""))}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
+            tl.append(f"• {tad(tur)}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
         tl += ["", f"Karar günü {KARAR_T:%d.%m}: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi (sana sorulur)."]
         if len(Kp[Kp.sinif == "ana"]) < 40: tl.append("Az sinyal varken tek hafta sonucu yanıltıcıdır.")
         if yerel >= KARAR_T and ana_karar: tl.append("❌ ÖNERİ — ana'dan çıkarılması önerilen: " + ", ".join(t for t, *_ in ana_karar))
