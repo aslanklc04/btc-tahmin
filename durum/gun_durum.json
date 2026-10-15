@@ -3,12 +3,6 @@
 "giden": 3,
 "log": [
 {
-"t": "14.10 10:05",
-"s": "✅ ana",
-"e": "💵 ABD güçlü alıyor: CRV (z +3.2, 8 saat)",
-"k": "gönderildi"
-},
-{
 "t": "14.10 11:05",
 "s": "✅ ana",
 "e": "🧪 24 saat: MAGIC (z +1.9)",
@@ -241,6 +235,12 @@
 "s": "🔸 yedek",
 "e": "💵 ABD güçlü alıyor: INJ (z +3.2, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "15.10 15:05",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.7",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
