@@ -168,7 +168,7 @@ jobs:
         with:
           path: durum/prim.pkl
           key: pgecmis-${{ github.run_id }}
-      - name: 📒 canli karne (gonderilen/gonderilmeyen sinyallerin gercek sonucu; pazartesi haftalik mesaj)
+      - name: 📒 canli karne (gonderilen/gonderilmeyen sinyallerin gercek sonucu; pazar 20:00 haftalik mesaj)
         id: karne
         if: always()
         continue-on-error: true
