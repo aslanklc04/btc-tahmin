@@ -168,6 +168,15 @@ jobs:
         with:
           path: durum/prim.pkl
           key: pgecmis-${{ github.run_id }}
+      - name: 📒 canli karne (gonderilen/gonderilmeyen sinyallerin gercek sonucu; pazartesi haftalik mesaj)
+        id: karne
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 4
+        run: python karne.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
         if: always()
         timeout-minutes: 6
@@ -175,13 +184,13 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }}"
+          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }} karne=${{ steps.karne.outcome }}"
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true
+          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json; do git add $f 2>/dev/null || true; done
           git commit -m "Saatlik durum" || echo "degisiklik yok"
           ok=0; for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && ok=1 && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
           [ $ok = 1 ] || { echo '::error::panel depoya gönderilemedi'; exit 1; }

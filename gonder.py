@@ -7,13 +7,14 @@
 #           🔥 KuCoin BTC fonlaması z ≥ 2 iken de aynı (fon_vekil.py: %72 · %65 · %79, net +%0,72 · +%0,48 · +%0,88; Binance vadeli API ABD'den kapalı olduğu için KuCoin)
 #   panel → hiç gitmez (yalnız panel) · bilgi → raporlar / özetler, her zaman gider
 # Kararlar son_durum.md'nin sonuna ve durum/gun_durum.json'a yazılır.
-import os, json, time, requests, numpy as np
+import os, re, csv, json, time, requests, numpy as np
 os.environ.pop("TG_SIRALI", None)                                                             # buradan doğrudan gönder
 import pandas as pd
 from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
-ADLAR = {"likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
+KARNE_F = "durum/karne_kayit.csv"                                                             # 15.10.2026 canlı karne: her karar (bilgi hariç) kalıcı kayıt → karne.py sonucu ölçer
+ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
 YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — isabeti ana sinyal çizgisinin (~%59) altında; bu türün test sonucu mesajın içinde yazıyor.\n"
              "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
@@ -79,18 +80,28 @@ def main():
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_PANEL.format(z=FZ) if m.get("terfi") == "panel" else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 panelden)" if m.get("terfi") == "panel" else " (🔥 yedekten)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 panelden)" if m.get("terfi") == "panel" else " (🔥 yedekten)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     for m in yedek:
-        if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)"))
-    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel"))
-    for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ"))
+        if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
+    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel", m))
+    for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
-    GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_ in karar])[-40:]
+    GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_, _ in karar])[-40:]
+    try:                                                                                       # canlı karne kaydı (bilgi hariç): saat · sınıf · etiket · karar · süre (mesajın ⏱ SÜRE satırı) · 🔥 fonlama z
+        yeni = not os.path.exists(KARNE_F)
+        with open(KARNE_F, "a", encoding="utf-8", newline="") as f:
+            w = csv.writer(f)
+            if yeni: w.writerow(["t", "s", "e", "k", "sure", "fz"])
+            for s_, e_, k_, m_ in karar:
+                if s_.startswith("ℹ️"): continue
+                g = re.search(r"⏱ SÜRE: (\d+) (SAAT|GÜN)", m_.get("m", "")); su = (int(g.group(1)) * (24 if g.group(2) == "GÜN" else 1)) if g else ""
+                w.writerow([f"{simdi:%Y-%m-%d %H:%M}", s_, e_, k_, su, f"{FZ:.2f}" if np.isfinite(FZ) else ""])
+    except Exception as e: print("karne kaydı yazılamadı:", e)
     os.makedirs(os.path.dirname(GUN_F), exist_ok=True); json.dump(GD, open(GUN_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if os.path.exists("son_durum.md"):                                                         # panel: Telegram kararları
         sat = [f"- {x['t']} · {x['s']} · {x['e']} → {x['k']}" for x in reversed(GD["log"][-20:])]
