@@ -77,8 +77,8 @@ if len(HV):
     na = int((HV.za <= -2).sum()); yak = ((HV.za <= -2) & (HV.zn <= -2)).sum() / max(na, 1); faz = ((HV.zn <= -2) & (HV.za > -2)).mean()
     U5 = na >= 5 and yak >= 0.80 and faz <= 0.02; u5s = f"arşivde 💧 saat {na} · Neon da yakaladı %{100*yak:.0f} · Neon fazladan 💧 %{100*faz:.2f}" + (" (5'ten az 💧 saati → karar yok)" if na < 5 else "")
 yaz(f"\n**U4 gün gün:** {u4s} → {'✅' if U4 else '❌'}\n**U5 💧 olayları:** {u5s} → {'✅' if U5 else '❌'}")
-NET = U1g and U4 and U5 and all(ilk13["sonuç"] == "✅") if len(ilk13) else False
-yaz(f"\n## Karar (UYUM_KARARI.md)\n- İlk 13 coin: {'✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)' if NET else '❌ net değil'}\n- Uyan coin'ler ({len(uyan)}): {', '.join(uyan) or '—'}")
+NET = U1g and U4 and U5 if len(ilk13) else False                                              # UYUM_KARARI.md: "uymayan coin varsa o coin hariç tutulur" (kullanıcı 15.10: geçenleri ekle, geçmeyenleri ekleme) — uymayan coin listeye girmez
+yaz(f"\n## Karar (UYUM_KARARI.md)\n- İlk 13 coin: {'✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)' if NET else '❌ net değil'}\n- Uyan coin'ler ({len(uyan)}): {', '.join(uyan) or '—'}\n- Uymayan (hariç): {', '.join(d[d['sonuç'] != '✅'].coin.tolist()) or '—'}")
 if ARA: L.insert(1, f"**ARA KONTROL (karar değil): coin başına en az {MINS} ortak saat; asıl karar ≥ 72 saatle 16.10'da.**")
 if not ARA: open("neon_derinlik/uyumlu_coinler.txt", "w").write("\n".join(uyan) + "\n")
 open("neon_uyum_ara_sonuc.md" if ARA else "neon_uyum_sonuc.md", "w").write("\n".join(L) + "\n")
