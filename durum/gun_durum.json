@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "15.10 16:06",
-"s": "panel",
-"e": "🪙 DOT ⭐ en güçlü · 8 saat · isabet %61 · prim ⛔ z -1.1",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 16:06",
 "s": "ℹ️ bilgi",
 "e": "📒 CANLI KARNE — 15.10.2026 (12.10 tarihinden beri)",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "16.10 22:06",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -2.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 23:05",
+"s": "panel",
+"e": "🔇 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⛔ z -2.7",
 "k": "gitmedi — yalnız panel"
 }
 ]
