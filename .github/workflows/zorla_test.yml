@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (🪙 bu coinde: canli-test dalı)
+# canli kuru test (tam sistem taraması 16.10: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -43,33 +43,48 @@ jobs:
         run: |
           set +e
           {
-          echo "=== tahmin_coin.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/c1.txt | head -12
-          echo "=== tahmin24.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/d1.txt | head -12
-          echo "=== prim_canli.py kuru"; PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p1.txt 2>&1; echo "exit=$?"; grep -i "Traceback" -A5 /tmp/p1.txt | head; grep -B2 -A14 "(kuru) Telegram" /tmp/p1.txt | head -40
+          hata() { grep -i "Traceback\|Error\|exception" -A6 "$1" | head -14; }
+          echo "=== tahmin.py (gerçek)"; timeout 600 python tahmin.py > /tmp/b.txt 2>&1; echo "exit=$?"; hata /tmp/b.txt
+          echo "=== likidite.py (liste boş → kapalı)"; timeout 300 python likidite.py > /tmp/l.txt 2>&1; echo "exit=$?"; hata /tmp/l.txt; cat durum/likidite_z.json; echo
+          echo "=== tahmin_coin.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; hata /tmp/c1.txt
+          echo "=== tahmin_coin.py TEST_ZORLA=zit"; TEST_ZORLA=zit timeout 600 python tahmin_coin.py > /tmp/c2.txt 2>&1; echo "exit=$?"; hata /tmp/c2.txt
+          echo "=== tahmin24.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; hata /tmp/d1.txt
+          echo "=== zincir_canli.py kuru"; ZINCIR_KURU=1 timeout 240 python zincir_canli.py > /tmp/z.txt 2>&1; echo "exit=$?"; hata /tmp/z.txt; tail -3 /tmp/z.txt
+          echo "=== kucuk_canli.py kuru"; KUCUK_KURU=1 timeout 180 python kucuk_canli.py > /tmp/k1.txt 2>&1; echo "exit=$?"; hata /tmp/k1.txt; tail -3 /tmp/k1.txt
+          echo "=== prim_canli.py kuru"; PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p1.txt 2>&1; echo "exit=$?"; hata /tmp/p1.txt
+          echo "=== karne.py"; timeout 240 python karne.py > /tmp/k.txt 2>&1; echo "exit=$?"; hata /tmp/k.txt; head -9 durum/karne.md
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
-          for m in json.load(open('durum/tg_kuyruk.json')): print(m.get('c'), '·', round(m['o']), '·', m['e'][:150])
+          for m in json.load(open('durum/tg_kuyruk.json')): print(m.get('c'), '·', round(m['o']), '·', m['e'][:140])
           "
           cp durum/tg_kuyruk.json /tmp/q.json
-          echo "=== SENARYO A: 🔥 YOK (TEST_FZ=0) → panelfx / panelg gitmemeli"
-          rm -f durum/gun_durum.json; TEST_FZ=0 python -c "
+          echo "=== SENARYO A: 🔥 YOK (TEST_FZ=0)"
+          rm -f durum/gun_durum.json; TEST_FZ=0 ADIMLAR="btc=success coin=success d24=success karne=success" python -c "
           import gonder
           def _g(m):
-              print('──── GÖNDER ────'); print(m.split(chr(10))[0][:200]); return True
+              print('──── GÖNDER ────'); print(m.split(chr(10))[0][:160]); return True
           gonder.tg_send = _g
           gonder.main()
           "
-          echo "=== SENARYO B: 🔥 VAR (TEST_FZ=2.5) → panelf / panelfx / panelg ✅ ana olmalı"
+          echo "=== SENARYO B: 🔥 VAR (TEST_FZ=2.5) — ilk 3 mesaj tam"
           cp /tmp/q.json durum/tg_kuyruk.json; rm -f durum/gun_durum.json; TEST_FZ=2.5 python -c "
           import gonder
+          n = [0]
           def _g(m):
-              print('──── GÖNDER ────'); print(m[:2500]); return True
+              n[0] += 1; print('──── GÖNDER ────'); print(m[:2500] if n[0] <= 3 else m.split(chr(10))[0][:160]); return True
           gonder.tg_send = _g
           gonder.main()
           "
-          echo "=== karne kaydı (son 25)"; tail -25 durum/karne_kayit.csv
-          echo "=== karne.py"; KARNE_ZORLA=0 timeout 200 python karne.py > /tmp/k.txt 2>&1; echo "exit=$?"; grep -i "Traceback" -A5 /tmp/k.txt | head; sed -n '/Tür notları/,/Önceden/p' durum/karne.md | head -30
+          echo "=== SENARYO C: hata uyarısı (karne=failure)"
+          echo "[]" > durum/tg_kuyruk.json; ADIMLAR="btc=success karne=failure" python -c "
+          import gonder
+          def _g(m):
+              print('──── GÖNDER ────'); print(m[:300]); return True
+          gonder.tg_send = _g
+          gonder.main()
+          "
+          echo "=== karne kaydı (son 8)"; tail -8 durum/karne_kayit.csv | cut -c1-160
           } > zorla_log.txt 2>&1
           cat zorla_log.txt | head -150
       - uses: actions/checkout@v4
