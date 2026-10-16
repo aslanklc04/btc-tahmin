@@ -1,5 +1,5 @@
 name: Zorla sinyal kuru test (canli kod, gonderilmez)
-# canli kuru test (🔥 panelfx / panelg: canli-test dalı)
+# canli kuru test (🪙 bu coinde: canli-test dalı)
 on:
   push:
     branches: [arastirma3]
@@ -45,6 +45,7 @@ jobs:
           {
           echo "=== tahmin_coin.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 600 python tahmin_coin.py > /tmp/c1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/c1.txt | head -12
           echo "=== tahmin24.py TEST_ZORLA=1"; TEST_ZORLA=1 timeout 400 python tahmin24.py > /tmp/d1.txt 2>&1; echo "exit=$?"; grep -i "Traceback\|Error" -A5 /tmp/d1.txt | head -12
+          echo "=== prim_canli.py kuru"; PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p1.txt 2>&1; echo "exit=$?"; grep -i "Traceback" -A5 /tmp/p1.txt | head; grep -B2 -A14 "(kuru) Telegram" /tmp/p1.txt | head -40
           echo "=== hata dosyası"; cat durum/adim_hata.txt 2>/dev/null
           echo "=== kuyruk özeti (sınıf · öncelik · etiket)"; python -c "
           import json
