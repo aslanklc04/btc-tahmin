@@ -148,6 +148,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
                    + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_) + "\n"
                    + ("⏱️ Gecikmeden hareket edin. " + ZIT_NOT.format(zc=zt_, zb=zb_) if zit_ else "⏱️ Gecikmeden hareket edin." if mom_ else "⏱️ Gecikmeden hareket edin. " + (PANELF_NOT if np.isfinite(zt_) and -1 < zt_ < 0 else "ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.")))
             txt += "\n" + tut_notu(((["🔀"] if zit_ else []) + (["🚀"] if mom_ else []) + (["📉🔥"] if dip_mi(RZ) else [])) if ana_ else ["🔇" if sessiz_ else "🪙"], H0_)
+            txt += coin_gecmis_satir(NM, "🔀" if zit_ else ("🚀" if mom_ else "🔇/🪙"))   # 16.10: 🪙 bu coinde (bilgi)
             txt = sure_basi(H0_, (t + pd.Timedelta(hours=H0_, minutes=6)).tz_convert(DISPLAY_TZ)) + txt
             if mom_: txt = txt.replace("⛔ ALMA", "⛔ ama 🚀 momentum")
             isb_ = TK[k0]["isabet"] if sessiz_ and k0 in TK else (s0.get("acc_h4") if k0 == "star" else s0.get("acc_h"))
@@ -178,11 +179,12 @@ if ortak_msg and COIN_BILDIRIM and BTC_T is not None:                           
     _yed = [x for x in ortak_msg if not _g(x) and not ana_mi(x[0]) and not _mom(x)]           # primsizler → panel
     _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[1].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💧 " if s_ == "ana" and ld_mu(x[2]) else "") + ("💸 " if s_ == "ana" and fon_mu(x[2]) else ""), 1))
     _galt = [x for x in ortak_msg if _g(x) and np.isfinite(x[0]) and 0 <= x[0] < GENIS_ESIK_ORTAK]   # 15.10 ekle_ara.py: 🌐 eşik altı 🤝 → yalnız 🔥 iken ✅ ana (%75 · %75 · %81)
+    _isr0 = _isr; _isr = lambda x, s_: satir_ekle(_isr0(x, s_), coin_gecmis_kisa(x[2], "🌐🤝" if _g(x) else "🤝"))   # 16.10: 🪙 bu coinde (bilgi)
     for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [(panel_sinif(x[0]), [x]) for x in _yed] + [("panelg", _galt[i:i + 10]) for i in range(0, len(_galt), 10)]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)
         if not grup: continue
         zmax_ = max((x[0] for x in grup if np.isfinite(x[0])), default=float("nan")); hepsi_alma = all(np.isfinite(x[0]) and x[0] <= -1 for x in grup)
         tg_send(sure_basi(4, (BTC_T + pd.Timedelta(hours=4, minutes=6)).tz_convert(DISPLAY_TZ)) + f"🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — {tl0:%d.%m %H:%M}\nBTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):\n" + "\n".join(_isr(x, sinif_) for x in grup)
-                + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. "
+                + ("\n" + COIN_GECMIS_NOT if any(coin_gecmis(x[2], "🌐🤝" if _g(x) else "🤝") for x in grup) else "") + "\n💵 BTC geneli: " + cb_kisa(CBD) + " · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)\n⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. "
                 + (ANA_NOT if sinif_ == "ana" else PANELF_NOT if sinif_ == "panelf" else PANELX_NOT if sinif_ == "panelfx" else PANELG_NOT if sinif_ == "panelg" else "Komisyon sonrası kâr kanıtlanmadı.") + ("" if sinif_ == "panelg" else "\n🌐 = geniş liste coin'i: yalnız ABD güçlü alıyorken (kendi primi z ≥ 2) gelir · testte isabet %60 · %69 · %76 (2022–23 · 2024+ · 2026), işlem başı +%0,2–1,1" if any(_g(x) for x in grup) else "")
                 + "".join("\n" + v for k_, v in MOM_DIP_ACK.items() if any(k_ in _isr(x, sinif_).split("—")[0] for x in grup))
                 + ("\n" + LD_DIP_NOT if sinif_ == "ana" and any(ld_mu(x[2]) and dip_mi(x[3]) and not _g(x) for x in grup) else "")

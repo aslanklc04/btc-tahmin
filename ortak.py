@@ -283,6 +283,23 @@ def sira_puani(tur, z=float("nan"), alma=False):
 #   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) · panelg = 🌐 eşik altı 🤝 → ikisi de yalnız 🔥 iken ana (ekle_ara.py 15.10) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %59 · %63 · %67 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,4–0,9 (komisyon sonrası; 14.10 seti, fon_ana.py)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
+# ---- 16.10.2026 kullanıcı isteği: "sinyal türünün o coinde geçmiş performansı" (yalnız BİLGİ satırı; coin_yil.py: coin geçmişi ileriyi göstermedi) ----
+CTG_F = "durum/coin_tur_gecmis.csv"; _CTG = None
+COIN_GECMIS_NOT = "🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti"
+def coin_gecmis(nm, tur):
+    global _CTG
+    if _CTG is None:
+        try: _CTG = {(r.coin, r.tur): (int(r.n), float(r.isabet), float(r.net)) for r in pd.read_csv(CTG_F).itertuples()}
+        except Exception: _CTG = {}
+    v = _CTG.get((nm, tur)); return v if v and v[0] >= 5 else None
+def coin_gecmis_kisa(nm, tur):
+    v = coin_gecmis(nm, tur); return f" · 🪙 bu coinde %{v[1]:.0f} ({v[0]} sinyal)" if v else ""
+def coin_gecmis_satir(nm, tur):
+    v = coin_gecmis(nm, tur)
+    return (f"\n🪙 Bu sinyal türü bu coinde geçmişte: %{v[1]:.0f} tuttu ({v[0]} sinyal, işlem başı {v[2]:+.1f}%) — bilgi; testte coin geçmişi ileriyi göstermedi, asıl ölçü türün isabeti" if v else "")
+def satir_ekle(line, ek):                                                                     # çok satırlı coin satırında ilk satırın sonuna ekler
+    if not ek: return line
+    i = line.find("\n"); return line + ek if i < 0 else line[:i] + ek + line[i:]
 def panel_sinif(z):                                                                           # coin primi < 0 olan sinyal: −1…0 → panelf · ⛔ ≤ −1 → panelfx (ikisi de yalnız 🔥 iken ana) · primsiz → panel
     if z is None or not np.isfinite(z): return "panel"
     return "panelf" if z > -1 else "panelfx"
