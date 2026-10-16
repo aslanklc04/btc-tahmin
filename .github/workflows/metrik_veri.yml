@@ -1,0 +1,34 @@
+name: Vadeli metrik verisi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [metrik_parca.py, .github/workflows/metrik_veri.yml]
+permissions:
+  contents: write
+jobs:
+  indir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        parca: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: canli, sparse-checkout: durum}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip}
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e; timeout 13800 python -u metrik_parca.py ${{ matrix.parca }} 10 > mlog_${{ matrix.parca }}.txt 2>&1; echo "exit=$?" >> mlog_${{ matrix.parca }}.txt; tail -5 mlog_${{ matrix.parca }}.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: metrik-${{ matrix.parca }}
+          path: |
+            metrik_parca${{ matrix.parca }}.pkl
+            mlog_${{ matrix.parca }}.txt
+          retention-days: 30
