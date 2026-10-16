@@ -1,0 +1,39 @@
+# ⛔ Prim filtresi yeniden — 16.10.2026 21:00
+
+## 1) TÜM VERİ (üç dönem)
+_sinyal · isabet · işlem başı net % — 2022-06→2023 | 2024+ | 2026_
+```
+✅ ŞİMDİKİ ANA                                  2392 · %58.9 · +0.40 |  5117 · %63.1 · +0.82 |  1377 · %67.2 · +0.90
+✅ şimdiki ana (🔥 dışı)                         2325 · %58.5 · +0.39 |  4776 · %62.2 · +0.73 |  1348 · %66.8 · +0.88
+⛔ coin primi ≤ −1 (🔥 dışı) — filtrenin engelle  677 · %56.1 · +0.14 |  2337 · %52.3 · -0.14 |   626 · %46.6 · -0.32
+⚠️ coin primi −1…0 (🔥 dışı)                    1320 · %57.0 · +0.13 |  2961 · %56.9 · +0.03 |   876 · %57.1 · +0.11
+P1 hepsi (coin primi < 0, 🔥 dışı)              1997 · %56.7 · +0.14 |  5298 · %54.9 · -0.05 |  1502 · %52.7 · -0.07
+P2 BTC sinyalleri · BTC primi ⛔ (🔥 dışı)        883 · %54.1 · -0.07 |  2257 · %50.9 · -0.08 |   630 · %44.8 · -0.21
+P2 BTC sinyalleri · BTC primi ⛔ değil          4005 · %55.7 · -0.00 |  6241 · %54.7 · +0.04 |  1622 · %52.3 · +0.04
+coin primi ⛔ + BTC primi ⛔ (🔥 dışı)             441 · %54.0 · +0.34 |  1822 · %53.1 · -0.14 |   472 · %45.3 · -0.38
+coin primi ⛔ + BTC primi ⛔ değil                236 · %60.2 · -0.22 |   515 · %49.5 · -0.17 |   154 · %50.6 · -0.14
+```
+
+## 2) YIL YIL (2026 ayrı)
+_2022-06→2023 | 2024 | 2025 | 2026_
+```
+✅ ŞİMDİKİ ANA                                2392 · %58.9 · +0.40 |  1811 · %66.7 · +1.25 |  1929 · %56.7 · +0.35 |  1377 · %67.2 · +0.90
+✅ şimdiki ana (🔥 dışı)                       2325 · %58.5 · +0.39 |  1567 · %65.6 · +1.11 |  1861 · %56.0 · +0.30 |  1348 · %66.8 · +0.88
+⛔ coin primi ≤ −1 (🔥 dışı) — filtrenin engel  677 · %56.1 · +0.14 |   906 · %54.5 · -0.29 |   805 · %54.3 · +0.16 |   626 · %46.6 · -0.32
+⚠️ coin primi −1…0 (🔥 dışı)                  1320 · %57.0 · +0.13 |  1007 · %59.1 · +0.20 |  1078 · %54.6 · -0.20 |   876 · %57.1 · +0.11
+P1 hepsi (coin primi < 0, 🔥 dışı)            1997 · %56.7 · +0.14 |  1913 · %56.9 · -0.03 |  1883 · %54.5 · -0.05 |  1502 · %52.7 · -0.07
+P2 BTC sinyalleri · BTC primi ⛔ (🔥 dışı)      883 · %54.1 · -0.07 |   950 · %54.8 · -0.04 |   677 · %51.0 · -0.01 |   630 · %44.8 · -0.21
+P2 BTC sinyalleri · BTC primi ⛔ değil        4005 · %55.7 · -0.00 |  2225 · %58.5 · +0.12 |  2394 · %52.8 · -0.02 |  1622 · %52.3 · +0.04
+coin primi ⛔ + BTC primi ⛔ (🔥 dışı)           441 · %54.0 · +0.34 |   786 · %55.0 · -0.26 |   564 · %57.1 · +0.25 |   472 · %45.3 · -0.38
+coin primi ⛔ + BTC primi ⛔ değil              236 · %60.2 · -0.22 |   120 · %51.7 · -0.45 |   241 · %47.7 · -0.05 |   154 · %50.6 · -0.14
+```
+
+## Önceden yazılı karar (🔥 dışı, üç dönemde şimdiki ana kadar iyi mi?)
+- ⛔ coin primi ≤ −1 (🔥 dışı) — filtrenin engellediği: ❌ geçmedi → filtre kalır
+- ⚠️ coin primi −1…0 (🔥 dışı): ❌ geçmedi → filtre kalır
+- P1 hepsi (coin primi < 0, 🔥 dışı): ❌ geçmedi → filtre kalır
+- P2 BTC sinyalleri · BTC primi ⛔ (🔥 dışı): ❌ geçmedi → filtre kalır
+- P2 BTC sinyalleri · BTC primi ⛔ değil: ❌ geçmedi → filtre kalır
+- coin primi ⛔ + BTC primi ⛔ (🔥 dışı): ❌ geçmedi → filtre kalır
+- coin primi ⛔ + BTC primi ⛔ değil: ❌ geçmedi → filtre kalır
+exit=0
