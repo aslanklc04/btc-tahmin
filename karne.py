@@ -11,7 +11,8 @@ KOM, KARAR_T = 0.04, pd.Timestamp("2026-11-12", tz=DISPLAY_TZ)
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
 PA = pd.read_csv("durum/prim_acik.csv") if os.path.exists("durum/prim_acik.csv") else pd.DataFrame(columns=["coin", "esik", "saat"])
 TEST = {k: (v[0][0], v[0][2]) for k, v in TUT_TEST.items()} | {"🔇/🪙": (56.9, 53.7)} | {k + " 🔥": (74.0, 80.0) for k in ("🤝", "🧪", "🔇/🪙", "💵", "🔀")} | {"🌐🤝 🔥": (75.0, 81.0)}   # 🔥 yükselenler: ekle_ara.py / kombin.py       # (isabet tüm test, 2026) — tutma3.py · kombin.py Y3
-SINIF_TEST = {"ana": (61.9, 67.1), "yedek": (55.5, 53.3)}                                   # fon_ana.py 14.10 ana seti · kombin.py Y1–Y3 ağırlıklı
+SINIF_TEST = {"ana": (61.9, 67.1), "yedek": (59.6, 64.8)}                                   # fon_ana.py 14.10 ana seti · 16.10: yedek = 🌐🤝 eşik altı (ekle_ara.py G1)
+TEST_Y = {"🌐🤝": (59.6, 64.8)}                                                                # yedekteki 🌐🤝 eşik altının kendi testi
 COIN_RE = re.compile(r"([A-Z0-9]{2,12}) \((?:z ([+-]?[\d.]+)[^)]*|prim yok[^)]*)\)")
 def prim_saat(nm, z, sure):
     r = PA[PA.coin == nm]
@@ -108,7 +109,7 @@ def main():
     karar, TN = [], []
     for sn in ("ana", "yedek", "panel"):
         for tur, g in X[X.sinif == sn].groupby("tur"):
-            k = g[g.kap]; kw = k[hafta_m[k.index]]; n = len(k); h = 100 * (k.net > 0).mean() if n else np.nan; a = k.net.mean() if n else np.nan; ts = TEST.get(tur)
+            k = g[g.kap]; kw = k[hafta_m[k.index]]; n = len(k); h = 100 * (k.net > 0).mean() if n else np.nan; a = k.net.mean() if n else np.nan; ts = TEST_Y.get(tur) if sn == "yedek" else TEST.get(tur)
             nt, p = notu(k, ts)
             if nt.startswith("❌ testin"): karar.append((tur, sn, n, h, a, ts[0]))
             hw = f"{len(kw)} · %{f(100 * (kw.net > 0).mean(), 0)}" if len(kw) else "0"

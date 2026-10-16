@@ -59,7 +59,7 @@ def calis():
         except Exception as e: print(nm, "r24z alınamadı:", e); return float("nan")
     RZC = {x[1]: _rz(x[1]) for x in fire}
     _ust = lambda x: dip_mi(RZC[x[1]])                                                        # 💵 + 📉 dip (kombin.py) → ✅ ana · 16.10: 💧 artık yedeği YÜKSELTMEZ (2026 %59 < ana %67; kullanıcı: yalnız işaret)
-    for sinif_, grup in (("ana", [x for x in fire if _ust(x)]), ("yedek", [x for x in fire if not _ust(x)])):   # 14.10: 💵 + 📉 dip → ✅ ana (kombin.py)
+    for sinif_, grup in (("ana", [x for x in fire if _ust(x)]), ("panely", [x for x in fire if not _ust(x)])):   # 14.10: 💵 + 📉 dip → ✅ ana (kombin.py)
         if not grup: continue
         _sb = sure_basi(SURE_[grup[0][1]], CIK_[grup[0][1]]) if len({SURE_[x[1]] for x in grup}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in grup) + " TUT (çıkış saatleri satırlarda)\n"
         grup.sort(key=lambda x: sira_anahtari(dip_mi(RZC[x[1]]), fon_mu(x[1]), x[0], ld_mu(x[1]) and not dip_mi(RZC[x[1]])))   # 💵'de 💧+📉 birlikte öncelik testi geçmedi                                                 # test edilmiş isabet → kâr → prim

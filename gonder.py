@@ -16,7 +16,7 @@ GUN_F = "durum/gun_durum.json"
 RAPOR_F = "durum/haftalik_rapor.md"
 KARNE_F = "durum/karne_kayit.csv"                                                             # 15.10.2026 canlı karne: her karar (bilgi hariç) kalıcı kayıt → karne.py sonucu ölçer
 ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
-YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — isabeti ana sinyal çizgisinin (~%59) altında; bu türün test sonucu mesajın içinde yazıyor.\n"
+YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — 🌐🤝 geniş liste eşik altı (coin primi 0…2): testte %59 · %60 · %65 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,2–0,6.\n"
              "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9"
@@ -24,7 +24,7 @@ FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde �
 TERFI_PANELX = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)"
 TERFI_PANELG = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)"
 TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde 🔸 yedekler testte %60–77 tuttu (2022–23 · 2024+; kombin.py), işlem başı +%0,5–3,5"
-TERFI_P = {"panelf": TERFI_PANEL, "panelfx": TERFI_PANELX, "panelg": TERFI_PANELG}                # 🔥 iken ✅ ana olan panel sınıfları
+TERFI_P = {"panelf": TERFI_PANEL, "panelfx": TERFI_PANELX, "panelg": TERFI_PANELG, "yedekg": TERFI_PANELG, "panely": TERFI_FON}                # 🔥 iken ✅ ana olan panel sınıfları
 def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
     if os.environ.get("TEST_FZ"): return float(os.environ["TEST_FZ"])                             # yalnız test
     try:
@@ -67,15 +67,15 @@ def main():
         try: q = json.load(open(KUYRUK_F, encoding="utf-8"))
         except Exception as e: print("Kuyruk okunamadı:", e); q = []
     for m in q: m.setdefault("c", "ana" if m["o"] < 9000 else "bilgi")                         # eski biçim
-    ana = sorted([m for m in q if m["c"] == "ana"], key=lambda m: (m["o"], m["s"])); yedek = sorted([m for m in q if m["c"] == "yedek"], key=lambda m: (m["o"], m["s"]))
-    bilgi = sorted([m for m in q if m["c"] == "bilgi"], key=lambda m: m["s"]); panel = [m for m in q if m["c"] in ("panel", "panelf", "panelfx", "panelg")]
+    ana = sorted([m for m in q if m["c"] == "ana"], key=lambda m: (m["o"], m["s"])); yedek = sorted([m for m in q if m["c"] in ("yedek", "yedekg")], key=lambda m: (m["o"], m["s"]))   # 16.10: yedek = yalnız 🌐🤝 eşik altı (yedekg)
+    bilgi = sorted([m for m in q if m["c"] == "bilgi"], key=lambda m: m["s"]); panel = [m for m in q if m["c"] in ("panel", "panelf", "panelfx", "panelg", "panely")]   # panely = 16.10'da panele inen eski yedekler (💵 / ana coin 🧪 / 🔇🪙)
     rapor = [m for m in q if m["c"] == "rapor"]                                               # 15.10: eski haftalık model raporları Telegram'a gitmez (yerine 📒 karne) → panele
     FZ = fon_z() if (yedek or ana or any(m["c"] in TERFI_P for m in panel)) else float("nan")
     FON_ANA = FON_ANA_NOT.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None                # fon_ana.py: ✅ ana + BTC fonlaması z ≥ 2 → 🔥 (K0–K4 geçti)
     TERFI = TERFI_FON.format(z=FZ) if np.isfinite(FZ) and FZ >= 2 else None                    # yalnız fonlama (büyük işlem saati kaldırıldı)
     terfi = [m for m in yedek if m["o"] < ALMA_ESIK] if TERFI else []
     if terfi:                                                                                  # 🔥 yedek → ana (asıl ana sinyallerin altında sıralanır)
-        for m in terfi: m["terfi"] = True
+        for m in terfi: m["terfi"] = m["c"] if m["c"] in TERFI_P else True
         yedek = [m for m in yedek if not m.get("terfi")]; ana = ana + sorted(terfi, key=lambda m: (m["o"], m["s"]))
     pterfi = [m for m in panel if m["c"] in TERFI_P] if TERFI else []                        # 14.10 gozden.py B: coin primi −1…0 + 🔥 → ✅ ana · 15.10 ekle_ara.py: ⛔ + 🔥 ve 🌐 eşik altı + 🔥 → ✅ ana
     if pterfi:
@@ -86,7 +86,7 @@ def main():
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 panelden)" if m.get("terfi") in TERFI_P else " (🔥 yedekten)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):

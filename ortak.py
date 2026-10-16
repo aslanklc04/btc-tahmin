@@ -186,7 +186,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
     oncelik: sira_puani() (küçük = önce) · etiket: sıralama listesindeki kısa ad.
     sinif (secim2.py R5 + secim4.py G3, 11.10.2026): "ana" = seçilmiş işlem sinyali (her zaman gider) · "yedek" = 🔸 YEDEK olarak gider (⛔ olanlar hariç) ·
-    "panel" = Telegram'a gitmez (yalnız panelde) · "panelf" = panel, ama 🔥 BTC fonlaması z ≥ 2 iken ✅ ana olur (gozden.py B, coin primi −1…0) · "panelfx" = aynı, coin primi ⛔ ≤ −1 · "panelg" = 🌐 eşik altı 🤝 (z 0…2), ikisi de yalnız 🔥 iken ana (ekle_ara.py 15.10) · "rapor" = eski haftalık model raporu, Telegram'a gitmez, panele yazılır (15.10: yerine 📒 karne) · None = rapor/bilgi (her zaman gider)."""
+    "panel" = Telegram'a gitmez (yalnız panelde) · "panelf" = panel, ama 🔥 BTC fonlaması z ≥ 2 iken ✅ ana olur (gozden.py B, coin primi −1…0) · "panelfx" = aynı, coin primi ⛔ ≤ −1 (yalnız 🔥 iken ana, ekle_ara.py 15.10) · 16.10: "yedekg" = 🌐 eşik altı 🤝 (z 0…2) → 🔸 YEDEK olarak gider, 🔥 iken ana · "panely" = eski yedekler (💵 / ana coin 🧪 / 🔇🪙) → panel, 🔥 iken ana · "rapor" = eski haftalık model raporu, Telegram'a gitmez, panele yazılır (15.10: yerine 📒 karne) · None = rapor/bilgi (her zaman gider)."""
     global TELEGRAM_CHAT_ID
     if os.environ.get("TG_SIRALI") == "1":
         try:
@@ -195,7 +195,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
             os.makedirs(os.path.dirname(KUYRUK_F), exist_ok=True); json.dump(q, open(KUYRUK_F, "w", encoding="utf-8"), ensure_ascii=False)
             TG_LAST.update(ok=True, info="sıraya alındı (gonder.py gönderir)"); return True
         except Exception as e: print(f"⚠️ kuyruk yazılamadı, doğrudan gönderiliyor: {e}")
-    if sinif in ("yedek", "panel", "panelf", "panelfx", "panelg", "rapor"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
+    if sinif in ("yedek", "yedekg", "panel", "panelf", "panelfx", "panelg", "panely", "rapor"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
     if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
     for deneme in range(2):
         try:
@@ -280,7 +280,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # ---- ✅ İŞLEM SİNYALİ / 🔸 YEDEK ayrımı (secim2.py R5 · secim4.py) ----
 # Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
 #   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
-#   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) · panelg = 🌐 eşik altı 🤝 → ikisi de yalnız 🔥 iken ana (ekle_ara.py 15.10) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
+#   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) → yalnız 🔥 iken ana (ekle_ara.py 15.10) · 16.10: yedekg = 🌐 eşik altı 🤝 → 🔸 yedek · panely = eski yedekler → panel (🔥 iken ana) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
 ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %59 · %63 · %67 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,4–0,9 (komisyon sonrası; 14.10 seti, fon_ana.py)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def panel_sinif(z):                                                                           # coin primi < 0 olan sinyal: −1…0 → panelf · ⛔ ≤ −1 → panelfx (ikisi de yalnız 🔥 iken ana) · primsiz → panel
@@ -391,12 +391,12 @@ def sure_basi(saat, cikis=None, gun=None):
     return f"⏱ SÜRE: {s} TUT" + (f" → çıkış {cikis:%d.%m %H:%M}" if cikis is not None else "") + "\n"
 
 # ---- 14.10.2026: ana çizgisi (isabet ≥ %55,9 · %58,6 · %59,1) altında kalan türler 🔸 yedeğe indi (kullanıcı onayı; tutma3.py rakamları) ----
-YEDEK_NOT_USD = "🔸 Yedek (14.10): 💵 isabeti %54 · %54 · %54 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; kâr (+%0,6) kazançların büyüklüğünden. BTC fonlaması çok yüksekken (🔥) ana olur."
-YEDEK_NOT_24 = "🔸 Yedek (14.10): ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — ana çizgisinin altında; işlem başı +%0,2–1,0. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
+YEDEK_NOT_USD = "ℹ️ 16.10: 💵 isabeti %54 · %54 · %54 (2022–23 · 2024+ · 2026) — panelde izlenir, gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur."
+YEDEK_NOT_24 = "ℹ️ 16.10: ana coin'lerde 🧪 isabeti %54 · %59 · %51 (2022–23 · 2024+ · 2026) — panelde izlenir, gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
 USD_DIP_NOT = "📉🔥 💵 + DİP → ✅ ANA (14.10): ABD alıyor VE coin son 24 saatte olağandışı düştü — testte %66 · %68 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8 · +%3,1 · +%2,0 (kombin.py)."
 PANELF_NOT = "ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85)."
 PANELX_NOT = "ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10)."
-PANELG_NOT = "ℹ️ 🌐 geniş liste, eşik altı (kendi primi 0…2): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %75 · %75 · %81, işlem başı +%0,9–1,2; ekle_ara.py 15.10)."
+PANELG_NOT = "🔸 🌐 geniş liste, eşik altı (kendi primi 0…2): 🔸 yedek — testte %59 · %60 · %65 tuttu, işlem başı +%0,2–0,6; 🔥 BTC fonlaması çok yüksekken ✅ ana olur (%75 · %75 · %81, ekle_ara.py)."
 
 # ---- 💧 likidite dipte (ld_kontrol.py · ld_genis.py: K0–K4 geçti; neon_uyum.py: canlı ölçüm arşivle uyumlu) — likidite.py her saat durum/likidite_z.json yazar ----
 LD_ESIK, ONCELIK_LD = -2.0, -900
