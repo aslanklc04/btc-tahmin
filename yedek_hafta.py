@@ -205,4 +205,14 @@ for ad, bas in (("2024+", pd.Timestamp("2024-01-01", tz="UTC")), ("2026", pd.Tim
         w = hafta(m); mm = m & m0
         yaz(f"{etk:34s} {w.mean():5.1f}  {w.median():6.0f}   %{100 * (w == 0).mean():4.0f}       %{100 * (w >= 1).mean():3.0f}   %{100 * (w >= 2).mean():3.0f}   %{100 * (w >= 3).mean():3.0f}   %{100 * OK[mm].mean() if mm.any() else float('nan'):.0f}")
     yaz("```")
+yaz("\n## Gün gün ✅ ana (14.10 seti + 🔥 yükselen; TR günü)\n```")
+for ad, bas in (("2024+", pd.Timestamp("2024-01-01", tz="UTC")), ("2026", pd.Timestamp("2026-01-01", tz="UTC"))):
+    m = (ANA_BAZ | UP_FON) & (tz_ >= bas); gt = tz_[m].tz_convert("Europe/Istanbul").floor("D")
+    G = pd.Series(1, index=gt).groupby(gt).size().reindex(pd.date_range(bas.tz_convert("Europe/Istanbul").floor("D"), tz_.max().tz_convert("Europe/Istanbul").floor("D"), freq="D"), fill_value=0)
+    seri = (G == 0).astype(int); uz = seri.groupby((seri != seri.shift()).cumsum()).sum().max()
+    yaz(f"{ad}: {len(G)} gün · ort {G.mean():.1f}/gün · medyan {G.median():.0f} · 0 olan gün %{100 * (G == 0).mean():.0f} · 1–3 %{100 * G.between(1, 3).mean():.0f} · 4–6 %{100 * G.between(4, 6).mean():.0f} · ≥7 %{100 * (G >= 7).mean():.0f} · en uzun sinyalsiz seri {uz} gün")
+    zb = RAW["BTC"].z.reindex(G.index.tz_convert("UTC") + pd.Timedelta(hours=12), method="nearest").values
+    for ad2, mm in (("BTC primi ⛔ (z ≤ −1) günleri", zb <= -1), ("diğer günler", zb > -1)):
+        g2 = G.values[mm]; yaz(f"   {ad2}: {len(g2)} gün · ort {g2.mean():.1f} · 0 olan gün %{100 * (g2 == 0).mean():.0f}")
+yaz("```")
 open("yedek_hafta_sonuc.md", "w").write("\n".join(L) + "\n")
