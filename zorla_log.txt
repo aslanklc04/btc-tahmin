@@ -1,9 +1,37 @@
+=== tahmin.py (gerçek)
+exit=0
+=== likidite.py (liste boş → kapalı)
+exit=0
+{"t": null, "z": {}}
 === tahmin_coin.py TEST_ZORLA=1
+exit=0
+=== tahmin_coin.py TEST_ZORLA=zit
 exit=0
 === tahmin24.py TEST_ZORLA=1
 exit=0
+=== zincir_canli.py kuru
+exit=0
+
+_Kurallar: AL-2 (7 g), AL-1 (7 g), AL-3 (3 g), SAT-1 (7 g) — zincir2.py'de ≤2023'te seçildi, 2024+'da doğrulandı; zincir3.py: TR 09:00 girişle de tuttu. Yılda ~25–30 sinyal beklenir._
+
+=== kucuk_canli.py kuru
+exit=0
+
+_tipler2.py: 53 denemelik taramada öne çıktı · tipler3.py: iki dönemde de anlamlı, fiyat etkisinden bağımsız, TR 15:00 girişle tuttu. Ayda ~1 sinyal. kucuk_coin.py: ETH de geçti (en kötü ara düşüş %24); diğer coin'ler yalnız bilgi._
+
 === prim_canli.py kuru
 exit=0
+=== karne.py
+exit=0
+# 📒 Canlı karne — 16.10.2026 17:44
+_Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
+
+| Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
+|---|---|---|---|---|---|---|
+| ✅ ana (gönderildi) | 13 | %38 | -1.59% | -20.7% | 0 | %62 · %67 |
+| 🔸 yedek (gönderildi) | 6 | %67 | 6.32% | 37.9% | 0 | %56 · %53 |
+| panel (gönderilmedi) | 76 | %59 | 0.62% | 46.8% | 2 | — |
+| ↳ panel · prim ⛔ (filtre) | 61 | %59 | 0.70% | 42.6% | 0 | — |
 === hata dosyası
 === kuyruk özeti (sınıf · öncelik · etiket)
 ana · 495 · 🤝 4 saat · BTC ile ortak: PEPE (z +0.5), APT (z -0.5), ETH (z -2.1 ⛔)
@@ -18,343 +46,165 @@ panelfx · 2515 · 🤝 4 saat · BTC ile ortak: ADA (z -1.5 ⛔)
 panelfx · 2517 · 🤝 4 saat · BTC ile ortak: DOT (z -1.7 ⛔)
 panelfx · 2520 · 🤝 4 saat · BTC ile ortak: BNB (z -2.0 ⛔)
 panelfx · 2525 · 🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔)
-panelg · 486 · 🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0), SAND (z
-panelg · 493 · 🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4), CVC (z +0
-panelg · 497 · 🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), POWR (z +0
-panelg · 499 · 🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), MASK (z +0.0), GTC (z +0.0)
+panelg · 486 · 🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0
+panelg · 493 · 🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4),
+panelg · 497 · 🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), 
+panelg · 499 · 🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), KNC (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), GTC (z +0.0)
+ana · 2215 · 🔇🔀 ADA ⭐ en güçlü · 4 saat · isabet %61 · prim ⛔ z -1.5
+ana · 2220 · 🔇🔀 BNB ⭐ en güçlü · 4 saat · isabet %61 · prim ⛔ z -2.0
+ana · 2225 · 🔇🔀 DOGE ⭐ en güçlü · 4 saat · isabet %62 · prim ⛔ z -2.5
+ana · 2217 · 🔇🔀 DOT ⭐ en güçlü · 4 saat · isabet %58 · prim ⛔ z -1.7
+ana · 2221 · 🔇🔀 ETH ⭐ en güçlü · 4 saat · isabet %62 · prim ⛔ z -2.1
+ana · 209 · 🔇🔀 SHIB ⭐ en güçlü · 4 saat · isabet %60 · prim ⚠️ z -0.9
 panelfx · 2815 · 🧪 24 saat: ADA (z -1.5 ⛔)
 panelfx · 2820 · 🧪 24 saat: BNB (z -2.0 ⛔)
-=== SENARYO A: 🔥 YOK (TEST_FZ=0) → panelfx / panelg gitmemeli
+=== SENARYO A: 🔥 YOK (TEST_FZ=0)
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ
-Gönderildi: 1/18 (ana 1, yedek 0, panel 17, bilgi 0) · bugün giden sinyal: 1
-=== SENARYO B: 🔥 VAR (TEST_FZ=2.5) → panelf / panelfx / panelg ✅ ana olmalı
+📋 BU SAAT 7 İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)
 ──── GÖNDER ────
-📋 BU SAAT 18 İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)
-1. 🤝 4 saat · BTC ile ortak: PEPE (z +0.5), APT (z -0.5), ETH (z -2.1 ⛔)
-2. 🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0), SAND (z +0.9), AMP (z +0.8)
-3. 🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4), CVC (z +0.4), AUCTION (z +0.4)
-4. 🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), POWR (z +0.1), AUDIO (z +0.1)
-5. 🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), MASK (z +0.0), GTC (z +0.0)
-6. 🤝 4 saat · BTC ile ortak: ARB (z -0.2)
-7. 🤝 4 saat · BTC ile ortak: SUI (z -0.2)
-8. 🤝 4 saat · BTC ile ortak: NEAR (z -0.4)
-9. 🤝 4 saat · BTC ile ortak: FLOKI (z -0.5)
-10. 🤝 4 saat · BTC ile ortak: SHIB (z -0.9)
-11. 🤝 4 saat · BTC ile ortak: OP (z -1.1 ⛔)
-12. 🤝 4 saat · BTC ile ortak: LINK (z -1.2 ⛔)
-13. 🤝 4 saat · BTC ile ortak: ADA (z -1.5 ⛔)
-14. 🤝 4 saat · BTC ile ortak: DOT (z -1.7 ⛔)
-15. 🤝 4 saat · BTC ile ortak: BNB (z -2.0 ⛔)
-16. 🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔)
-17. 🧪 24 saat: ADA (z -1.5 ⛔)
-18. 🧪 24 saat: BNB (z -2.0 ⛔)
+✅ İŞLEM SİNYALİ · 🥈 ÖNCELİK 2/7
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · 🥉 ÖNCELİK 3/7
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 4/7
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 5/7
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 6/7
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 7/7
+Gönderildi: 7/24 (ana 7, yedek 0, panel 17, bilgi 0) · bugün giden sinyal: 7
+=== SENARYO B: 🔥 VAR (TEST_FZ=2.5) — ilk 3 mesaj tam
+──── GÖNDER ────
+📋 BU SAAT 24 İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)
+1. 🔇🔀 SHIB ⭐ en güçlü · 4 saat · isabet %60 · prim ⚠️ z -0.9
+2. 🤝 4 saat · BTC ile ortak: PEPE (z +0.5), APT (z -0.5), ETH (z -2.1 ⛔)
+3. 🔇🔀 ADA ⭐ en güçlü · 4 saat · isabet %61 · prim ⛔ z -1.5
+4. 🔇🔀 DOT ⭐ en güçlü · 4 saat · isabet %58 · prim ⛔ z -1.7
+5. 🔇🔀 BNB ⭐ en güçlü · 4 saat · isabet %61 · prim ⛔ z -2.0
+6. 🔇🔀 ETH ⭐ en güçlü · 4 saat · isabet %62 · prim ⛔ z -2.1
+7. 🔇🔀 DOGE ⭐ en güçlü · 4 saat · isabet %62 · prim ⛔ z -2.5
+8. 🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0), SAND (z +0.9), AMP (z +0.8)
+9. 🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4), CVC (z +0.4), AUCTION (z +0.4)
+10. 🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), POWR (z +0.1), AUDIO (z +0.1)
+11. 🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), KNC (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), GTC (z +0.0)
+12. 🤝 4 saat · BTC ile ortak: ARB (z -0.2)
+13. 🤝 4 saat · BTC ile ortak: SUI (z -0.2)
+14. 🤝 4 saat · BTC ile ortak: NEAR (z -0.4)
+15. 🤝 4 saat · BTC ile ortak: FLOKI (z -0.5)
+16. 🤝 4 saat · BTC ile ortak: SHIB (z -0.9)
+17. 🤝 4 saat · BTC ile ortak: OP (z -1.1 ⛔)
+18. 🤝 4 saat · BTC ile ortak: LINK (z -1.2 ⛔)
+19. 🤝 4 saat · BTC ile ortak: ADA (z -1.5 ⛔)
+20. 🤝 4 saat · BTC ile ortak: DOT (z -1.7 ⛔)
+21. 🤝 4 saat · BTC ile ortak: BNB (z -2.0 ⛔)
+22. 🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔)
+23. 🧪 24 saat: ADA (z -1.5 ⛔)
+24. 🧪 24 saat: BNB (z -2.0 ⛔)
 ━━━━━━━━━━━━
-✅ İŞLEM SİNYALİ · 🥇 ÖNCELİK 1/18
+✅ İŞLEM SİNYALİ · 🥇 ÖNCELİK 1/24
+🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z +2.5): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)
+⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
+🪙 SHIB ⭐ EN GÜÇLÜ SİNYAL — 🧭 SHIB 16.10 17:00 · $0.000005140
+4 ve 8 saat birlikte 'Çok güçlü YUKARI' · geçmiş (2024+, canlı ölçüm): 4s isabet %59 · 8s %60 · haftada ~2.1
+🔇 BTC sessizken bu sinyalin geçmişi: %60
+1 saat: ⬇️ Zayıf
+   beklenen $0.000005136 · %80 aralık $0.000005096–$0.000005174
+4 saat: ⬇️ Güçlü
+   beklenen $0.000005132 · %80 aralık $0.000005064–$0.000005205
+8 saat: ⬇️ Zayıf
+   beklenen $0.000005130 · %80 aralık $0.000005049–$0.0000052
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · 🥈 ÖNCELİK 2/24
 🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z +2.5): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)
 ⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
 🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
 BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• PEPE $0.000004060 — ⭐ en güçlü %66 → 4s beklenen $0.000004057 (%80: $0.000003973–$0.000004147) · 💵 PEPE: ✅ z +0.5 · 🪙 bu coinde %74 (31 sinyal)
+• PEPE $0.000004060 — ⭐ en güçlü %66 → 4s beklenen $0.000004057 (%80: $0.000003973–$0.000004147) · 💵 PEPE: ✅ z +0.5
    Giriş (limit) $0.000004060 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.11
-• 🚀 APT $0.8737 — ⭐ en güçlü %59 · 4s Çok güçlü ↑ %59 → 4s beklenen $0.8730 (%80: $0.8471–$0.8962) · 💵 APT: ⚠️ z -0.5 · 🪙 bu coinde %56 (141 sinyal)
+• 🚀 APT $0.8737 — ⭐ en güçlü %59 · 4s Çok güçlü ↑ %59 → 4s beklenen $0.8730 (%80: $0.8471–$0.8962) · 💵 APT: ⚠️ z -0.5
    Giriş (limit) $0.8737 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.03
-• 🚀 ETH $2,459 — ⭐ en güçlü %60 · 4s Çok güçlü ↑ %64 · 🟢 A sınıfı %61 → 4s beklenen $2,45
-──── GÖNDER ────
-✅ İŞLEM SİNYALİ · 🥈 ÖNCELİK 2/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• XTZ $0.3164 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.3164 (%80: $0.3086–$0.3229) · 💵 XTZ: ✅ z +1.4 · 🪙 bu coinde %53 (15 sinyal)
-   Giriş (limit) $0.3164 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.20
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma
-• KSM $4.56 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $4.56 (%80: $4.48–$4.65) · 💵 KSM: ✅ z +1.3 · 🪙 bu coinde %75 (16 sinyal)
-   Giriş (limit) $4.560 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.05
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma
-• ALT $0.008050 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.008015 (%80: $0.007825–$0.008253) · 💵 ALT: ✅ z +1.3
-   Giriş (limit) $0.008050 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.02
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma
-• BLUR $0.01081 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.01091 (%80: $0.01048–$0.01135) · 💵 BLUR: ✅ z +1.2
-   Giriş (limit) $0.01081 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.05
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma
-• QI $0.002591 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.002596 (%80: $0.002527–$0.002652) · 💵 QI: ✅ z +1.1 · 🪙 bu coinde %43 (7 sinyal)
-   Giriş (limit) $0.002591 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.06
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma
-• JASMY $0.004780 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.004755 (%80: $0.004630–$0.004873) · 💵 JASMY: ✅ z +1.1 · 🪙 bu coinde %36 (11 sinyal)
-   Giriş (limit) $0.004780 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.14
-   🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıy
-──── GÖNDER ────
-✅ İŞLEM SİNYALİ · 🥉 ÖNCELİK 3/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• JTO $0.4803 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.4791 (%80: $0.4650–$0.4921) · 💵 JTO: ✅ z +0.7
-   Giriş (limit) $0.4803 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.12
-• RPL $1.65 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $1.65 (%80: $1.61–$1.69) · 💵 RPL: ✅ z +0.6 · 🪙 bu coinde %57 (7 sinyal)
-   Giriş (limit) $1.650 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.14
-• VTHO $0.0006370 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.0006359 (%80: $0.0006240–$0.0006476) · 💵 VTHO: ✅ z +0.5 · 🪙 bu coinde %80 (5 sinyal)
-   Giriş (limit) $0.0006370 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç −%0.01
-• CTSI $0.03251 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.03251 (%80: $0.03170–$0.03330) · 💵 CTSI: ✅ z +0.5 · 🪙 bu coinde %83 (12 sinyal)
-   Giriş (limit) $0.03251 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.12
-• PUNDIX $0.1053 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.1054 (%80: $0.1038–$0.1072) · 💵 PUNDIX: ✅ z +0.5 · 🪙 bu coinde %85 (13 sinyal)
-   Giriş (limit) $0.1053 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.24
-• RLC $0.8503 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.8551 (%80: $0.8232–$0.8902) · 💵 RLC: ✅ z +0.4 · 🪙 bu coinde %79 (14 sinyal)
-   Giriş (limit) $0.8503 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.24
-• CRV $0.3540 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.3528 (%80: $0.3422–$0.3616) · 💵 CRV: ✅ z +0.4 · 🪙 bu coinde %60 (10 sinyal)
-   Giriş (limit) $0.3540 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.17
-• T $0.005030 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.005033 (%80: $0.004944–$0.005114) · 💵 T: ✅ z +0.4 · 🪙 bu coinde %71 (7 sinyal)
-   Giriş (limit) $0.005030 → çıkış 16.10 21:06'de sat (
-──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 4/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• ZRO $2.17 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $2.17 (%80: $2.09–$2.25) · 💵 ZRO: ✅ z +0.3
-   Giriş (limit) $2.174 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.01
-• CELR $0.002767 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.002760 (%80: $0.002707–$0.002830) · 💵 CELR: ✅ z +0.3 · 🪙 bu coinde %64 (22 sinyal)
-   Giriş (limit) $0.002767 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.15
-• APE $0.1555 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.1549 (%80: $0.1496–$0.1614) · 💵 APE: ✅ z +0.3 · 🪙 bu coinde %88 (8 sinyal)
-   Giriş (limit) $0.1555 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.03
-• FLOW $0.03239 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.03240 (%80: $0.03147–$0.03308) · 💵 FLOW: ✅ z +0.3 · 🪙 bu coinde %64 (11 sinyal)
-   Giriş (limit) $0.03239 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.07
-• G $0.003850 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.003845 (%80: $0.003776–$0.003914) · 💵 G: ✅ z +0.2
-   Giriş (limit) $0.003850 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç −%0.10
-• STRK $0.07586 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.07529 (%80: $0.07175–$0.08006) · 💵 STRK: ✅ z +0.2
-   Giriş (limit) $0.07586 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.14
-• ARPA $0.01070 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.01068 (%80: $0.01050–$0.01087) · 💵 ARPA: ✅ z +0.2 · 🪙 bu coinde %80 (5 sinyal)
-   Giriş (limit) $0.01070 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.16
-• REQ $0.05260 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.05256 (%80: $0.05173–$0.05321) · 💵 REQ: ✅ z +0.1 · 🪙 bu coinde %83 (6 sinyal)
-   Giriş (limit) $0.05260 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.13
-• P
-──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 5/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• RSR $0.001959 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.001950 (%80: $0.001891–$0.002024) · 💵 RSR: ✅ z +0.1
-   Giriş (limit) $0.001959 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.14
-• GMT $0.007880 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.007865 (%80: $0.007716–$0.007998) · 💵 GMT: ✅ z +0.1 · 🪙 bu coinde %54 (11 sinyal)
-   Giriş (limit) $0.007880 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.08
-• AGLD $0.1806 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.1810 (%80: $0.1771–$0.1838) · 💵 AGLD: ✅ z +0.1 · 🪙 bu coinde %57 (7 sinyal)
-   Giriş (limit) $0.1806 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.34
-• BICO $0.01737 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.01735 (%80: $0.01696–$0.01775) · 💵 BICO: ✅ z +0.1 · 🪙 bu coinde %86 (7 sinyal)
-   Giriş (limit) $0.01737 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.28
-• TIA $0.7053 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.7002 (%80: $0.6659–$0.7427) · 💵 TIA: ✅ z +0.1
-   Giriş (limit) $0.7053 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç −%0.05
-• MASK $0.4320 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.4315 (%80: $0.4227–$0.4382) · 💵 MASK: ✅ z +0.0 · 🪙 bu coinde %83 (6 sinyal)
-   Giriş (limit) $0.4320 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.05
-• GTC $0.1916 — ⭐ en güçlü · 4s Çok güçlü ↑ · 🟢 A sınıfı · 🌐 → 4s beklenen $0.1912 (%80: $0.1829–$0.1978) · 💵 GTC: ✅ z +0.0 · 🪙 bu coinde %62 (8 sinyal)
-   Giriş (limit) $0.1916 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.23
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · 
-──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 6/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• ARB $0.1994 — 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %60 → 4s beklenen $0.1988 (%80: $0.1922–$0.2043) · 💵 ARB: ⚠️ z -0.2 · 🪙 bu coinde %63 (194 sinyal)
-   Giriş (limit) $0.1994 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.07
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
+• 🚀 ETH $2,459 — ⭐ en güçlü %60 · 4s Çok güçlü ↑ %64 · 🟢 A sınıfı %61 → 4s beklenen $2,458 (%80: $2,432–$2,480) · 💵 ETH: ⛔ z -2.1 ⛔ ama 🚀 momentum
+   Giriş (limit) $2,459 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.12
 💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85).
+⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0): ✅ ana sinyaller geçmişte %59 · %63 · %67 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,4–0,9 (komisyon sonrası; 14.10 seti, fon_ana.py).
+🚀 = momentum: coin son 24 saatte olağandışı yükseldi; testte bu durumdaki sinyaller %62–69 tuttu (işlem başı +%0,4–1,1), ABD alımı olmasa da ✅
 ⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+⏱ 🚀 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %65 → %66 (2026 %69 → %76) · işlem başı kâr +%0,77 → +%1,25 (2026 +%1,09 → +%2,66) → isabet de kâr da artıyor: ✅ istersen 3 katına kadar tutabilirsin
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 7/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9
+✅ İŞLEM SİNYALİ · 🥉 ÖNCELİK 3/24
+🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z +2.5): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)
 ⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• SUI $1.04 — ⭐ en güçlü %61 · 4s Çok güçlü ↑ %61 → 4s beklenen $1.04 (%80: $1.02–$1.07) · 💵 SUI: ⚠️ z -0.2 · 🪙 bu coinde %75 (118 sinyal)
-   Giriş (limit) $1.043 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.32
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+🪙 ADA ⭐ EN GÜÇLÜ SİNYAL — 🧭 ADA 16.10 17:00 · $0.2290
+4 ve 8 saat birlikte 'Çok güçlü YUKARI' · geçmiş (2024+, canlı ölçüm): 4s isabet %58 · 8s %54 · haftada ~2.1
+🔇 BTC sessizken bu sinyalin geçmişi: %61
+1 saat: ⬇️ Zayıf
+   beklenen $0.2289 · %80 aralık $0.2265–$0.2309
+4 saat: ⬇️ Zayıf
+   beklenen $0.2284 · %80 aralık $0.2246–$0.2328
+8 saat: ⬇️ Zayıf
+   beklenen $0.2287 · %80 aralık $0.2233–$0.2336
+BTC bu saatte sinyal vermedi
+💵 ADA: ABD SATIYOR (kendi Coinbase primi z -1.5) ⛔ ALMA — geçmişte bu durumda coin sinyalleri 2026'da %48 tuttu (ABD alırken %64) · BTC geneli: ⛔ z -2.3
+💡 Giriş (limit) $0.2290 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.07
+⏱️ Gecikmeden hareket edin. ✅ Seçilmiş sinyal — 🔀 ABD bu coin'i alıyor (kendi primi z +0.8) ama BTC'yi hafif satıyor (BTC primi z -0.5), BTC de sessiz: bu durumdaki 🔇 sinyalleri geçmişte %70 · %66 · %82 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,5–1,0 (komisyon sonrası). BTC sert satılırken (z ≤ −1) bu kural çalışmaz.
+⏱ 🔀 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %64 → %62 (2026 %81 → %62) · işlem başı kâr +%0,56 → +%0,61 (2026 +%0,65 → +%0,07) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 8/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• NEAR $5.25 — ⭐ en güçlü %62 · 🟢 A sınıfı %59 → 4s beklenen $5.24 (%80: $5.02–$5.42) · 💵 NEAR: ⚠️ z -0.4 · 🪙 bu coinde %59 (220 sinyal)
-   Giriş (limit) $5.252 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.10
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 4/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 9/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• FLOKI $0.00002448 — 4s Çok güçlü ↑ %64 → 4s beklenen $0.00002444 (%80: $0.00002399–$0.00002482) · 💵 FLOKI: ⚠️ z -0.5 · 🪙 bu coinde %67 (52 sinyal)
-   Giriş (limit) $0.00002448 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç −%0.04
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 5/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 10/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• SHIB $0.000005140 — ⭐ en güçlü %61 → 4s beklenen $0.000005132 (%80: $0.000005064–$0.000005205) · 💵 SHIB: ⚠️ z -0.9 · 🪙 bu coinde %65 (91 sinyal)
-   Giriş (limit) $0.000005140 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.18
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 6/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 11/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• OP $0.1428 — 🟢 A sınıfı %60 → 4s beklenen $0.1419 (%80: $0.1381–$0.1468) · 💵 OP: ⛔ z -1.1 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %63 (119 sinyal)
-   Giriş (limit) $0.1428 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç −%0.02
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 7/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 12/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• LINK $12.54 — 🟢 A sınıfı %59 → 4s beklenen $12.56 (%80: $12.30–$12.74) · 💵 LINK: ⛔ z -1.2 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %54 (246 sinyal)
-   Giriş (limit) $12.542 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.16
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 8/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 13/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• ADA $0.2290 — ⭐ en güçlü %62 · 4s Çok güçlü ↑ %62 · 🟢 A sınıfı %58 → 4s beklenen $0.2284 (%80: $0.2246–$0.2328) · 💵 ADA: ⛔ z -1.5 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %60 (632 sinyal)
-   Giriş (limit) $0.2290 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.07
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 9/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 14/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• DOT $1.17 — ⭐ en güçlü %67 · 4s Çok güçlü ↑ %59 → 4s beklenen $1.17 (%80: $1.14–$1.19) · 💵 DOT: ⛔ z -1.7 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %61 (333 sinyal)
-   Giriş (limit) $1.173 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.04
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 10/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 15/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• BNB $727.51 — ⭐ en güçlü %61 · 4s Çok güçlü ↑ %65 · 🟢 A sınıfı %64 → 4s beklenen $727.94 (%80: $722.09–$733.44) · 💵 BNB: ⛔ z -2.0 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %66 (108 sinyal)
-   Giriş (limit) $727.510 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.10
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 11/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 16/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 4 SAAT TUT → çıkış 16.10 21:06
-🤝 BTC GÜÇLÜYKEN COİN SİNYALLERİ — 16.10 17:00
-BTC 4s Çok güçlü ↑ ve aynı saatte bu coin'ler de güçlü (geçmiş 2024+, 4 saat sonra isabet) · sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye):
-• DOGE $0.08158 — ⭐ en güçlü %61 · 4s Çok güçlü ↑ %59 → 4s beklenen $0.08170 (%80: $0.08004–$0.08289) · 💵 DOGE: ⛔ z -2.5 ⛔ ama 🔥 fonlama çok yüksek · 🪙 bu coinde %58 (345 sinyal)
-   Giriş (limit) $0.08158 → çıkış 16.10 21:06'de sat (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.12
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · her satırda coin'in kendi Coinbase primi (⛔ = ABD o coin'i satıyor)
-⏱️ Gecikmeden hareket edin. ℹ️ Aynı anda gelen sinyaller birbirine bağlıdır: BTC dönerse çoğu birlikte döner. ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-⏱ 🤝 TUT: tahmin süresi kadar (4 saat) → çıkış saatinde sat, stop koyma. 3 katı (12 saat) tutmak testte: isabet %63 → %60 (2026 %68 → %58) · işlem başı kâr +%0,32 → +%0,67 (2026 +%0,48 → +%0,59) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 12/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 17/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 24 SAAT TUT → çıkış 17.10 17:06
-ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — 16.10 17:00
-Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye).
-• ADA $0.2301 — limit alış $0.2301 · çıkış 17.10 17:06 (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.46 · geçmiş 2024+ isabet %58, 2026 %59 · 🪙 bu coinde %65 (143 sinyal)
-   💵 ADA kendi Coinbase primi z -1.5 ⛔ ama 🔥 fonlama çok yüksek — ABD satıyor
-⏱ 🧪 TUT: tahmin süresi kadar (24 saat) → çıkış saatinde sat, stop koyma. 3 katı (3 gün) tutmak testte: isabet %59 → %56 (2026 %51 → %52) · işlem başı kâr +%1,01 → +%1,69 (2026 +%0,18 → +%0,35) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48
-💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 13/24
 ──── GÖNDER ────
-✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 18/18
-🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z +2.5): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)
-⏱ SÜRE: 24 SAAT TUT → çıkış 17.10 17:06
-ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10).
-🧪 DENEME · 24 SAAT ÇOK GÜÇLÜ ↑ — 16.10 17:00
-Geçmiş 2024+: isabet %55, işlem başı net +%0,46 — ama 2026'da zayıf; coin'in kendi primi < 0 olanlar daha zayıf. Sıra: test edilmiş isabet (📉🔥 / 💸 önce), sonra coin'in kendi primi (z ≥ 3 geriye).
-• BNB $730.530 — limit alış $730.530 · çıkış 17.10 17:06 (kâr-al / stop koyma) · geçmiş ort. sonuç +%0.29 · geçmiş 2024+ isabet %55, 2026 %49 · 🪙 bu coinde %45 (29 sinyal)
-   💵 BNB kendi Coinbase primi z -2.0 ⛔ ama 🔥 fonlama çok yüksek — ABD satıyor
-⏱ 🧪 TUT: tahmin süresi kadar (24 saat) → çıkış saatinde sat, stop koyma. 3 katı (3 gün) tutmak testte: isabet %59 → %56 (2026 %51 → %52) · işlem başı kâr +%1,01 → +%1,69 (2026 +%0,18 → +%0,35) → kâr artıyor ama isabet düşüyor, para 3 kat uzun bağlı kalır, kaldıraçta risk büyür → ÖNERİ: süre dolunca çık
-🪙 bu coinde = bu sinyal türünün o coin'deki geçmiş tutması (2022-06'dan beri, bilgi) · ⚠️ testte coin geçmişi ileriyi göstermedi (geçmişte iyi olan coin ertesi yıl ortalamaya döndü) — asıl ölçü türün isabeti
-💵 BTC geneli: ⛔ z -2.3 · 24 saatte onaylı (z > 0) sinyaller 2024+ %58 / 2026 %54 tuttu, ⛔ olanlar %48
-💡 Limit alış 60 dk geçerli; çıkış saatinde o anki fiyattan limit sat, 60 dk'da dolmazsa piyasa emriyle. Aynı anda gelen sinyaller birbirine bağlıdır.
-Gönderildi: 18/18 (ana 18, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 18
-=== karne kaydı (son 25)
-2026-10-16 17:25,panel,🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔),gitmedi — yalnız panel,4,0.00
-2026-10-16 17:25,panel,"🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0), SAND (z +0.9), AMP (z +0.8)",gitmedi — yalnız panel,4,0.00
-2026-10-16 17:25,panel,"🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4), CVC (z +0.4), AUCTION (z +0.4)",gitmedi — yalnız panel,4,0.00
-2026-10-16 17:25,panel,"🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), POWR (z +0.1), AUDIO (z +0.1)",gitmedi — yalnız panel,4,0.00
-2026-10-16 17:25,panel,"🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), MASK (z +0.0), GTC (z +0.0)",gitmedi — yalnız panel,4,0.00
-2026-10-16 17:25,panel,🧪 24 saat: ADA (z -1.5 ⛔),gitmedi — yalnız panel,24,0.00
-2026-10-16 17:25,panel,🧪 24 saat: BNB (z -2.0 ⛔),gitmedi — yalnız panel,24,0.00
-2026-10-16 17:25,✅ ana,"🤝 4 saat · BTC ile ortak: PEPE (z +0.5), APT (z -0.5), ETH (z -2.1 ⛔)",gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),"🤝 4 saat · BTC ile ortak: XTZ (z +1.4), KSM (z +1.3), ALT (z +1.3), BLUR (z +1.2), QI (z +1.1), JASMY (z +1.1), SPELL (z +1.0), KAVA (z +1.0), SAND (z +0.9), AMP (z +0.8)",gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),"🤝 4 saat · BTC ile ortak: JTO (z +0.7), RPL (z +0.6), VTHO (z +0.5), CTSI (z +0.5), PUNDIX (z +0.5), RLC (z +0.4), CRV (z +0.4), T (z +0.4), CVC (z +0.4), AUCTION (z +0.4)",gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),"🤝 4 saat · BTC ile ortak: ZRO (z +0.3), CELR (z +0.3), APE (z +0.3), FLOW (z +0.3), G (z +0.2), STRK (z +0.2), ARPA (z +0.2), REQ (z +0.1), POWR (z +0.1), AUDIO (z +0.1)",gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),"🤝 4 saat · BTC ile ortak: RSR (z +0.1), GMT (z +0.1), AGLD (z +0.1), BICO (z +0.1), TIA (z +0.1), MASK (z +0.0), GTC (z +0.0)",gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: ARB (z -0.2),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: SUI (z -0.2),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: NEAR (z -0.4),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: FLOKI (z -0.5),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: SHIB (z -0.9),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: OP (z -1.1 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: LINK (z -1.2 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: ADA (z -1.5 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: DOT (z -1.7 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: BNB (z -2.0 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔),gönderildi,4,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🧪 24 saat: ADA (z -1.5 ⛔),gönderildi,24,2.50
-2026-10-16 17:25,✅ ana (🔥 panelden),🧪 24 saat: BNB (z -2.0 ⛔),gönderildi,24,2.50
-=== karne.py
-exit=0
-## Tür notları — TÜM sinyaller (ana · yedek · panel)
-| Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
-|---|---|---|---|---|---|---|---|---|
-| ✅ ana | 🌐🤝 ortak geniş liste · 🔥 yükseldi | 0 | 0 | %— | —% | 0.0% | %75 · %81 | ⏳ veri az |
-| ✅ ana | 🌐🧪 24 s geniş liste | 7 · %57 | 7 | %57 | -1.55% | -10.9% | %60 · %60 | ⚠️ orta |
-| ✅ ana | 💵 ABD alıyor | 4 · %0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
-| ✅ ana | 🤝 BTC ile ortak | 0 | 0 | %— | —% | 0.0% | %63 · %68 | ⏳ veri az |
-| ✅ ana | 🤝 BTC ile ortak · 🔥 yükseldi | 0 | 0 | %— | —% | 0.0% | %74 · %80 | ⏳ veri az |
-| ✅ ana | 🧪 24 s ana coin | 2 · %50 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
-| ✅ ana | 🧪 24 s ana coin · 🔥 yükseldi | 0 | 0 | %— | —% | 0.0% | %74 · %80 | ⏳ veri az |
-| 🔸 yedek | 💵 ABD alıyor | 3 · %67 | 3 | %67 | 11.74% | 35.2% | %54 · %54 | ⏳ veri az |
-| 🔸 yedek | 🔇/🪙 coin tek | 3 · %67 | 3 | %67 | 0.89% | 2.7% | %57 · %54 | ⏳ veri az |
-| panel | ₿ BTC saatlik / ⭐ / A | 33 · %61 | 33 | %61 | 0.27% | 9.0% | — | ✅ iyi |
-| panel | 🌐🤝 ortak geniş liste | 0 | 0 | %— | —% | 0.0% | %69 · %76 | ⏳ veri az |
-| panel | 🔇/🪙 coin tek | 33 · %55 | 33 | %55 | 0.44% | 14.5% | %57 · %54 | ✅ iyi · testle uyumlu |
-| panel | 🔻 BTC kısa | 3 · %67 | 3 | %67 | -0.03% | -0.1% | — | ⏳ veri az |
-| panel | 🤝 BTC ile ortak | 0 | 0 | %— | —% | 0.0% | %63 · %68 | ⏳ veri az |
-| panel | 🧪 24 s ana coin | 7 · %71 | 7 | %71 | 3.33% | 23.3% | %59 · %51 | ✅ iyi |
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 14/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 15/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 16/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 17/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 18/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 19/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 20/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 21/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 22/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 23/24
+──── GÖNDER ────
+✅ İŞLEM SİNYALİ · ▫️ ÖNCELİK 24/24
+Gönderildi: 24/24 (ana 24, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 24
+=== SENARYO C: hata uyarısı (karne=failure)
+──── GÖNDER ────
+⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:
+Adım: 📒 canlı karne
 
-**Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
+(Düzeltilene kadar her saat tekrar eder.)
+Gönderildi: 0/0 (ana 0, yedek 0, panel 0, bilgi 0) · bugün giden sinyal: 24
+=== karne kaydı (son 8)
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: OP (z -1.1 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: LINK (z -1.2 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: ADA (z -1.5 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: DOT (z -1.7 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: BNB (z -2.0 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🤝 4 saat · BTC ile ortak: DOGE (z -2.5 ⛔),gönderildi,4,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🧪 24 saat: ADA (z -1.5 ⛔),gönderildi,24,2.50
+2026-10-16 17:44,✅ ana (🔥 panelden),🧪 24 saat: BNB (z -2.0 ⛔),gönderildi,24,2.50
