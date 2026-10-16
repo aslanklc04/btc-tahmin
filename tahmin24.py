@@ -99,7 +99,7 @@ if fire:
     _ana += [x for x in fire if _mom(x)]
     _ana.sort(key=lambda x: sira_anahtari(dip_mi(x[3]) and not _g(x), fon_mu(x[1]), x[0], ld_mu(x[1])))   # sıra: test edilmiş isabet → kâr → prim
     _yed = [x for x in fire if not _g(x) and not ana_mi(x[0]) and not _mom(x)]                # primsizler → panel · geniş listenin eşik altı sinyalleri gönderilmez
-    _cizgi = [x for x in _ana if not _g(x) and not _mom(x) and not dip_mi(x[3]) and not ld_mu(x[1])]   # 💧 olan da ana kalır              # 14.10: ana coin 🧪 ana çizgisinin altında → 🔸 yedek (📉🔥 / 🚀 / 🌐 ana kalır)
+    _cizgi = [x for x in _ana if not _g(x) and not _mom(x) and not dip_mi(x[3])]   # 16.10: 💧 ana coin 🧪'yi yükseltmez (2026 %59 < ana %67; kullanıcı: yalnız işaret)              # 14.10: ana coin 🧪 ana çizgisinin altında → 🔸 yedek (📉🔥 / 🚀 / 🌐 ana kalır)
     _ana = [x for x in _ana if x not in _cizgi]
     _isr = lambda x, s_: (lambda t_: t_.replace("⛔ ALMA", "⛔ ama 🚀 momentum") if _mom(x) else t_)(x[2].replace("• ", "• " + ("🚀 " if _mom(x) else "") + ("📉🔥 " if s_ == "ana" and dip_mi(x[3]) and not _g(x) else "") + ("💧 " if s_ == "ana" and ld_mu(x[1]) else "") + ("💸 " if s_ == "ana" and fon_mu(x[1]) else ""), 1))
     for sinif_, grup in [("ana", _ana[i:i + 10]) for i in range(0, len(_ana), 10)] + [("yedek", _cizgi[i:i + 10]) for i in range(0, len(_cizgi), 10)] + [(panel_sinif(x[0]), [x]) for x in _yed]:   # 12.10.2026: primi < 0 / yok → gönderilmez (panel)

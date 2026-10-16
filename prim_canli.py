@@ -58,17 +58,17 @@ def calis():
             o = fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT"); return r24z(o.close)
         except Exception as e: print(nm, "r24z alınamadı:", e); return float("nan")
     RZC = {x[1]: _rz(x[1]) for x in fire}
-    _ust = lambda x: dip_mi(RZC[x[1]]) or ld_mu(x[1])                                         # 💵 + 📉 dip (kombin.py) ya da 💵 + 💧 (ld_genis.py: %71 · %65 · %64) → ✅ ana
+    _ust = lambda x: dip_mi(RZC[x[1]])                                                        # 💵 + 📉 dip (kombin.py) → ✅ ana · 16.10: 💧 artık yedeği YÜKSELTMEZ (2026 %59 < ana %67; kullanıcı: yalnız işaret)
     for sinif_, grup in (("ana", [x for x in fire if _ust(x)]), ("yedek", [x for x in fire if not _ust(x)])):   # 14.10: 💵 + 📉 dip → ✅ ana (kombin.py)
         if not grup: continue
         _sb = sure_basi(SURE_[grup[0][1]], CIK_[grup[0][1]]) if len({SURE_[x[1]] for x in grup}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in grup) + " TUT (çıkış saatleri satırlarda)\n"
         grup.sort(key=lambda x: sira_anahtari(dip_mi(RZC[x[1]]), fon_mu(x[1]), x[0], ld_mu(x[1]) and not dip_mi(RZC[x[1]])))   # 💵'de 💧+📉 birlikte öncelik testi geçmedi                                                 # test edilmiş isabet → kâr → prim
-        satirlar = "\n".join(x[2].replace("• ", "• " + ("📉🔥 " if dip_mi(RZC[x[1]]) else "") + ("💧 " if ld_mu(x[1]) else ""), 1) for x in grup)
+        satirlar = "\n".join(x[2].replace("• ", "• " + ("📉🔥 " if dip_mi(RZC[x[1]]) else "") + ("💧 " if sinif_ == "ana" and ld_mu(x[1]) else ""), 1) for x in grup)
         tg(_sb + f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: test edilmiş isabet, sonra prim.\n" + satirlar
            + ("\n" + MOM_DIP_ACK["💸"] if any(fon_mu(x[1]) for x in grup) else "") + "\n" + tut_notu(["💵"] + (["📉🔥"] if any(dip_mi(RZC[x[1]]) for x in grup) else [])) + "\n" + ((USD_DIP_NOT + "\n" if any(dip_mi(RZC[x[1]]) for x in grup) else "") + (MOM_DIP_ACK["💧"] + "\n" if any(ld_mu(x[1]) for x in grup) else "") if sinif_ == "ana" else YEDEK_NOT_USD + "\n")
            + "⚠️ Tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
            oncelik=sira_puani("💵", grup[0][0]) + (min(ONCELIK_DIP if any(dip_mi(RZC[x[1]]) for x in grup) else 0, ONCELIK_LD if any(ld_mu(x[1]) for x in grup) else 0) if sinif_ == "ana" else 0) + (ONCELIK_FON if any(fon_mu(x[1]) for x in grup) else 0),
-           etiket=("📉🔥 " if any(dip_mi(RZC[x[1]]) for x in grup) else "") + ("💧 " if any(ld_mu(x[1]) for x in grup) else "") + "💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f}, {SURE_[x[1]]} saat)" for x in grup), sinif=sinif_)
+           etiket=("📉🔥 " if any(dip_mi(RZC[x[1]]) for x in grup) else "") + ("💧 " if sinif_ == "ana" and any(ld_mu(x[1]) for x in grup) else "") + "💵 ABD güçlü alıyor: " + ", ".join(f"{x[1]} (z {x[0]:+.1f}, {SURE_[x[1]]} saat)" for x in grup), sinif=sinif_)
     # ---- sonuçlanan işlemler ----
     acik = [e for e in GP["log"] if "ok" not in e and now >= e["t"] + pd.Timedelta(hours=e["H"])]
     OO = {}
