@@ -19,7 +19,7 @@ jobs:
           cache: pip
       - run: pip install -q -r requirements.txt
       - run: |
-          set +e; NEON_ARA=24 timeout 3000 python -u neon_uyum.py > neon_ara_log.txt 2>&1; echo "exit=$?" >> neon_ara_log.txt; tail -40 neon_ara_log.txt
+          set +e; NEON_ARA=60 timeout 3000 python -u neon_uyum.py > neon_ara_log.txt 2>&1; echo "exit=$?" >> neon_ara_log.txt; tail -40 neon_ara_log.txt
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
           git add neon_ara_log.txt; for f in neon_uyum_ara_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Neon ara kontrol sonucu" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
