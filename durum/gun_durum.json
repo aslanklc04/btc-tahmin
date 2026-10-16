@@ -3,78 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "15.10 04:05",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 05:05",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 05:05",
-"s": "panel",
-"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⛔ z -2.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 06:06",
-"s": "🔸 yedek",
-"e": "💵 ABD güçlü alıyor: FIL (z +13.6, 8 saat)",
-"k": "gönderildi"
-},
-{
-"t": "15.10 06:06",
-"s": "🔸 yedek",
-"e": "🔇 DOT ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.4",
-"k": "gönderildi"
-},
-{
-"t": "15.10 06:06",
-"s": "panel",
-"e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ⛔ z -1.6",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 06:06",
-"s": "panel",
-"e": "🪙 BNB 4s Çok güçlü ↑ · 4 saat · isabet %59 · prim ⛔ z -2.6",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 06:06",
-"s": "panel",
-"e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ⛔ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 06:06",
-"s": "panel",
-"e": "🧪 24 saat: ADA (z -1.6 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 07:05",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ · prim ⛔ z -2.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 07:05",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -1.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.10 09:05",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "15.10 09:05",
 "s": "panel",
 "e": "🪙 DOGE ⭐ en güçlü · 8 saat · isabet %60 · prim ⚠️ z -0.8",
@@ -240,6 +168,78 @@
 "t": "16.10 18:05",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: FLOKI (z -0.5)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: DOGE (z -1.2 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ARB (z -1.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: BNB (z -1.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: LINK (z -1.4 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.5 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ADA (z -1.7 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -2.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: 1INCH (z +1.8), G (z +1.3), BLUR (z +1.2), ARKM (z +0.9), QI (z +0.7), WLD (z +0.7), CAKE (z +0.7), KNC (z +0.6), QNT (z +0.5), ETC (z +0.4)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: UNI (z +0.3), FLOW (z +0.3), JASMY (z +0.2), STRK (z +0.2), ZK (z +0.2), GLM (z +0.2), GMT (z +0.1), BNT (z +0.1), TNSR (z +0.1), TRB (z +0.0)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.10 19:06",
+"s": "panel",
+"e": "🧪 24 saat: ETH (z -2.3 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ]
