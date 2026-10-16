@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 16.10.2026 11:05
+# 📒 Canlı karne — 16.10.2026 12:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 13 | %38 | -1.59% | -20.7% | 0 | %62 · %67 |
-| 🔸 yedek (gönderildi) | 5 | %60 | 2.44% | 12.2% | 1 | %56 · %53 |
-| panel (gönderilmedi) | 72 | %58 | 0.50% | 35.8% | 3 | — |
+| 🔸 yedek (gönderildi) | 6 | %67 | 6.32% | 37.9% | 0 | %56 · %53 |
+| panel (gönderilmedi) | 73 | %59 | 0.49% | 35.8% | 2 | — |
 | ↳ panel · prim ⛔ (filtre) | 58 | %59 | 0.55% | 31.6% | 1 | — |
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -14,9 +14,9 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | ✅ ana | 🌐🧪 24 s geniş liste | 7 · %57 | 7 | %57 | -1.55% | -10.9% | %60 · %60 | ⚠️ orta |
 | ✅ ana | 💵 ABD alıyor | 4 · %0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🧪 24 s ana coin | 2 · %50 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
-| 🔸 yedek | 💵 ABD alıyor | 2 · %50 | 2 | %50 | 4.77% | 9.5% | %54 · %54 | ⏳ veri az |
+| 🔸 yedek | 💵 ABD alıyor | 3 · %67 | 3 | %67 | 11.74% | 35.2% | %54 · %54 | ⏳ veri az |
 | 🔸 yedek | 🔇/🪙 coin tek | 3 · %67 | 3 | %67 | 0.89% | 2.7% | %57 · %54 | ⏳ veri az |
-| panel | ₿ BTC saatlik / ⭐ / A | 30 · %60 | 30 | %60 | 0.29% | 8.8% | — | ✅ iyi |
+| panel | ₿ BTC saatlik / ⭐ / A | 31 · %61 | 31 | %61 | 0.29% | 8.9% | — | ✅ iyi |
 | panel | 🔇/🪙 coin tek | 33 · %55 | 33 | %55 | 0.44% | 14.5% | %57 · %54 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 3 · %67 | 3 | %67 | -0.03% | -0.1% | — | ⏳ veri az |
 | panel | 🧪 24 s ana coin | 6 · %67 | 6 | %67 | 2.08% | 12.5% | %59 · %51 | ✅ iyi |
@@ -43,5 +43,6 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 14.10 19:00 | yedek | 🔇/🪙 | BNB | 4 s | +0.09% | ✅ |
 | 15.10 06:00 | yedek | 💵 | FIL | 8 s | -3.38% | ❌ |
 | 15.10 06:00 | yedek | 🔇/🪙 | DOT | 8 s | -1.39% | ❌ |
+| 15.10 12:00 | yedek | 💵 | INJ | 24 s | +25.69% | ✅ |
 | 15.10 16:00 | yedek | 💵 | FIL | 8 s | +12.91% | ✅ |
 | 15.10 17:00 | yedek | 🔇/🪙 | DOGE | 8 s | +3.98% | ✅ |
