@@ -63,8 +63,7 @@ def calis():
         if not grup: continue
         _sb = sure_basi(SURE_[grup[0][1]], CIK_[grup[0][1]]) if len({SURE_[x[1]] for x in grup}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in grup) + " TUT (çıkış saatleri satırlarda)\n"
         grup.sort(key=lambda x: sira_anahtari(dip_mi(RZC[x[1]]), fon_mu(x[1]), x[0], ld_mu(x[1]) and not dip_mi(RZC[x[1]])))   # 💵'de 💧+📉 birlikte öncelik testi geçmedi                                                 # test edilmiş isabet → kâr → prim
-        satirlar = "\n".join(satir_ekle(x[2].replace("• ", "• " + ("📉🔥 " if dip_mi(RZC[x[1]]) else "") + ("💧 " if sinif_ == "ana" and ld_mu(x[1]) else ""), 1), coin_gecmis_kisa(x[1], "💵")) for x in grup)
-        satirlar += ("\n" + COIN_GECMIS_NOT) if any(coin_gecmis(x[1], "💵") for x in grup) else ""   # 16.10: 🪙 bu coinde (bilgi)
+        satirlar = "\n".join(x[2].replace("• ", "• " + ("📉🔥 " if dip_mi(RZC[x[1]]) else "") + ("💧 " if sinif_ == "ana" and ld_mu(x[1]) else ""), 1) for x in grup)
         tg(_sb + f"💵🟢 ABD GÜÇLÜ ALIYOR → AL — {tl:%d.%m %H:%M}\nCoinbase'de bu coin(ler) için normalin çok üstünde prim ödeniyor (son 30 güne göre z ≥ eşik) · sıra: test edilmiş isabet, sonra prim.\n" + satirlar
            + ("\n" + MOM_DIP_ACK["💸"] if any(fon_mu(x[1]) for x in grup) else "") + "\n" + tut_notu(["💵"] + (["📉🔥"] if any(dip_mi(RZC[x[1]]) for x in grup) else [])) + "\n" + ((USD_DIP_NOT + "\n" if any(dip_mi(RZC[x[1]]) for x in grup) else "") + (MOM_DIP_ACK["💧"] + "\n" if any(ld_mu(x[1]) for x in grup) else "") if sinif_ == "ana" else YEDEK_NOT_USD + "\n")
            + "⚠️ Tek işleme büyük para koyma, kaldıraçsız ya da düşük kaldıraç. Yatırım tavsiyesi değildir.",
