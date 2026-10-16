@@ -121,7 +121,7 @@ def calis():
         tlh = tl.floor("h")
         if GZ["log"] and tlh.weekday() == 6 and tlh.hour >= 20 and (GZ.get("last_weekly") is None or tlh - GZ["last_weekly"] >= pd.Timedelta(days=6)):
             wk = [e for e in kap if now - e["t"] - pd.Timedelta(days=e["gun"]) <= pd.Timedelta(days=8)]
-            tg(f"⛓️📊 ARZ/TALEP (ETH) — HAFTALIK\nBu hafta kapanan: {ozet(wk)}\nBaşlangıçtan ({GZ['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: {ozet(kap)}\nAçık işlem: {len([e for e in GZ['log'] if 'ok' not in e])}")
+            tg(f"⛓️📊 ARZ/TALEP (ETH) — HAFTALIK\nBu hafta kapanan: {ozet(wk)}\nBaşlangıçtan ({GZ['start'].tz_convert(DISPLAY_TZ):%d.%m}) beri: {ozet(kap)}\nAçık işlem: {len([e for e in GZ['log'] if 'ok' not in e])}", sinif="rapor")
             GZ["last_weekly"] = tlh
     except Exception: traceback.print_exc()
     # ---- panel ----
