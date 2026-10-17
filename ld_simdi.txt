@@ -1,0 +1,9 @@
+=== likidite.py (kuru, tüm coin'ler, Sat Oct 17 09:13:01 UTC 2026)
+arşivden dolduruldu: 131 coin · 229 sn
+💧 son saat 2026-10-17 09:00:00+00:00 · z ≤ −2: BONK · Neon 9 saat · 237 sn
+exit=0
+son saat: 2026-10-17T09:00:00+00:00 · coin: 130
+💧 z ≤ −2 (likidite dipte): BONK -3.64
+yakın (−2 < z ≤ −1,5): CVC -1.96, VTHO -1.80, XTZ -1.75, BICO -1.56
+en düşük 10: BONK -3.64, CVC -1.96, VTHO -1.80, XTZ -1.75, BICO -1.56, ANKR -1.39, RARE -1.34, AXL -1.32, T -1.27, ATOM -1.22
+en yüksek 5: TRB +2.46, BAT +2.51, GMT +2.57, AAVE +2.95, ZRO +2.97
