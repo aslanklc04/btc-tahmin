@@ -1,0 +1,38 @@
+name: Likidite simdi (kuru, tum coinler)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/ld_simdi.yml]
+permissions:
+  contents: write
+jobs:
+  ld:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip}
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e
+          C=$(python -c "import pandas as pd; print(','.join(c for c in pd.read_csv('durum/likidite_semboller.csv').coin if c not in ('BTC','ETH')))")
+          { echo "=== likidite.py (kuru, tüm coin'ler, $(date -u))"; LD_COINS=$C timeout 1500 python likidite.py; echo "exit=$?"
+            python -c "
+          import json, math
+          d = json.load(open('durum/likidite_z.json')); z = {k: v for k, v in d['z'].items() if v is not None and not (isinstance(v, float) and math.isnan(v))}
+          print('son saat:', d['t'], '· coin:', len(z))
+          s = sorted(z.items(), key=lambda kv: kv[1])
+          print('💧 z ≤ −2 (likidite dipte):', ', '.join(f'{k} {v:+.2f}' for k, v in s if v <= -2) or 'yok')
+          print('yakın (−2 < z ≤ −1,5):', ', '.join(f'{k} {v:+.2f}' for k, v in s if -2 < v <= -1.5) or 'yok')
+          print('en düşük 10:', ', '.join(f'{k} {v:+.2f}' for k, v in s[:10]))
+          print('en yüksek 5:', ', '.join(f'{k} {v:+.2f}' for k, v in s[-5:]))
+          "; } > ld_simdi.txt 2>&1
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3, path: ar}
+      - run: |
+          cp ld_simdi.txt ar/ && cd ar
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add ld_simdi.txt && git commit -m "Likidite simdi" || exit 0
+          for i in 1 2 3; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 3; done
