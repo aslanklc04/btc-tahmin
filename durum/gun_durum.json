@@ -1,13 +1,7 @@
 {
-"gun": "2026-10-17",
-"giden": 7,
+"gun": "2026-10-18",
+"giden": 0,
 "log": [
-{
-"t": "16.10 22:06",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -2.1",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "16.10 23:05",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "17.10 20:07",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -1.8 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 00:05",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.1",
 "k": "gitmedi — yalnız panel"
 }
 ]
