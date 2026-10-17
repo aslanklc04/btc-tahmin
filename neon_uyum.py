@@ -44,7 +44,16 @@ with ThreadPoolExecutor(6) as ex:
         for nm, v in d.get("coins", {}).items():
             if v.get("n", 0) >= 10: NE.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v["bid1"] + v["ask1"]
             NN.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v.get("n", 0)
-yaz(f"Neon saat: {len(saatler)} · Neon verisi olan coin: {len(NE)}\n")
+KAYIT_F = "neon_derinlik/neon_saat_kayit.pkl"                                                # 17.10: Neon yalnız son 72 saati tutuyor, arşiv ~1,5 gün geride → ortak saat 72'ye ulaşamıyordu. Çekilen saatler kalıcı kaydedilir, birleştirilir.
+try:
+    ESKI = pd.read_pickle(KAYIT_F)
+    for nm, dd in ESKI.get("NE", {}).items():
+        for t_, v_ in dd.items(): NE.setdefault(nm, {}).setdefault(t_, v_)
+    for nm, dd in ESKI.get("NN", {}).items():
+        for t_, v_ in dd.items(): NN.setdefault(nm, {}).setdefault(t_, v_)
+except Exception as e: print("Neon kaydı yok/okunamadı:", e)
+pd.to_pickle({"NE": NE, "NN": NN}, KAYIT_F)
+yaz(f"Neon saat (istenen): {len(saatler)} · Neon verisi olan coin: {len(NE)} · kayıtla birlikte coin başına en çok {max((len(v) for v in NE.values()), default=0)} saat\n")
 rows, HAV = [], []
 MINS = int(os.environ.get("NEON_ARA", "72"))                                                 # NEON_ARA: ara kontrol (karar değil)
 ARA = "NEON_ARA" in os.environ

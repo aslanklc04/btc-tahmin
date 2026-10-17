@@ -21,5 +21,5 @@ jobs:
       - run: |
           set +e; timeout 3000 python -u neon_uyum.py > neon_uyum_log.txt 2>&1; echo "exit=$?" >> neon_uyum_log.txt; tail -40 neon_uyum_log.txt
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add neon_uyum_log.txt; for f in neon_uyum_sonuc.md neon_derinlik/uyumlu_coinler.txt; do git add $f 2>/dev/null || true; done; git commit -m "Neon arsiv uyumu sonucu" || exit 0
+          git add neon_uyum_log.txt; for f in neon_uyum_sonuc.md neon_derinlik/uyumlu_coinler.txt neon_derinlik/neon_saat_kayit.pkl; do git add $f 2>/dev/null || true; done; git commit -m "Neon arsiv uyumu sonucu" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
