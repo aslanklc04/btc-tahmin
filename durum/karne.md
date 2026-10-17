@@ -1,12 +1,12 @@
-# 📒 Canlı karne — 17.10.2026 18:05
+# 📒 Canlı karne — 17.10.2026 19:06
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 14 | %36 | -1.51% | -21.1% | 2 | %62 · %67 |
 | 🔸 yedek (gönderildi) | 15 | %80 | 3.27% | 49.1% | 8 | %60 · %65 |
-| panel (gönderilmedi) | 134 | %52 | 0.27% | 36.0% | 9 | — |
-| ↳ panel · prim ⛔ (filtre) | 83 | %54 | 0.48% | 39.8% | 7 | — |
+| panel (gönderilmedi) | 136 | %51 | 0.25% | 34.1% | 7 | — |
+| ↳ panel · prim ⛔ (filtre) | 85 | %53 | 0.45% | 37.9% | 5 | — |
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
@@ -22,8 +22,8 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | panel | 🌐🤝 ortak geniş liste | 29 · %48 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 🔇/🪙 coin tek | 37 · %57 | 37 | %57 | 0.41% | 15.2% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 4 · %75 | 4 | %75 | 0.09% | 0.4% | — | ⏳ veri az |
-| panel | 🤝 BTC ile ortak | 12 · %0 | 12 | %0 | -0.53% | -6.4% | %55 · %53 | ❌ kötü |
-| panel | 🧪 24 s ana coin | 7 · %71 | 7 | %71 | 3.33% | 23.3% | %55 · %53 | ✅ iyi |
+| panel | 🤝 BTC ile ortak | 13 · %0 | 13 | %0 | -0.57% | -7.4% | %55 · %53 | ❌ kötü |
+| panel | 🧪 24 s ana coin | 8 · %62 | 8 | %62 | 2.80% | 22.4% | %55 · %53 | ✅ iyi |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
