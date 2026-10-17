@@ -1,0 +1,36 @@
+name: Canli log dok
+on:
+  push:
+    branches: [arastirma3]
+    paths: [canli_dok.py, .github/workflows/canli_dok.yml]
+permissions:
+  contents: write
+jobs:
+  o:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip}
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis.pkl, key: gecmis-x, restore-keys: gecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis_coin.pkl, key: coingecmis-x, restore-keys: coingecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis24.pkl, key: d24gecmis-x, restore-keys: d24gecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/zincir.pkl, key: zgecmis-x, restore-keys: zgecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/kucuk.pkl, key: kgecmis-x, restore-keys: kgecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/prim.pkl, key: pgecmis-x, restore-keys: pgecmis-}
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3, path: ar}
+      - run: cp ar/canli_dok.py . && python canli_dok.py > /tmp/o.txt 2>&1; cat /tmp/o.txt; cp canli_coin_log.csv canli_btc_log.csv ar/ 2>/dev/null; cp /tmp/o.txt ar/canli_dok_log.txt
+      - run: |
+          cd ar; git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add canli_coin_log.csv canli_btc_log.csv canli_dok_log.txt 2>/dev/null; git commit -m "Canli log dok" || exit 0
+          for i in 1 2 3; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 3; done
