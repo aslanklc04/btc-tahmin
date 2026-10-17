@@ -1,6 +1,6 @@
-# 💧 Neon ↔ Binance arşivi uyumu — 17.10.2026 12:03
-Arşivde son saat: 2026-10-17 00:00:00+00:00 · arşivi gelen coin: 130 · 124 sn
-Neon saat: 104 · Neon verisi olan coin: 132
+# 💧 Neon ↔ Binance arşivi uyumu — 17.10.2026 12:07
+Arşivde son saat: 2026-10-17 00:00:00+00:00 · arşivi gelen coin: 130 · 132 sn
+Neon saat (istenen): 104 · Neon verisi olan coin: 132 · kayıtla birlikte coin başına en çok 64 saat
 
 ```
    coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık  kapsam   sonuç
