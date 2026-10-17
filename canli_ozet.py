@@ -3,7 +3,8 @@ import pandas as pd, numpy as np, os
 L = []
 def yaz(s=""): print(s); L.append(s)
 def bul(o, yol=""):
-    if isinstance(o, list) and o and isinstance(o[0], dict) and any("ok" in e for e in o): yield yol, o
+    if isinstance(o, list) and o and isinstance(o[0], dict) and any("ok" in e for e in o):
+        if "tglog" not in yol: yield yol, o                                                # Telegram gönderim günlüğü (ok = gönderildi) sinyal değil
     elif isinstance(o, dict):
         for k, v in o.items(): yield from bul(v, f"{yol}/{k}")
 KAY = {"durum/gecmis.pkl": "₿ BTC modeli", "durum/gecmis_coin.pkl": "🪙 altcoin modelleri (🤝/🔇/🪙 tüm sinyaller)", "durum/gecmis24.pkl": "🧪 24 saat",
@@ -19,6 +20,7 @@ for f, ad in KAY.items():
         for e in lst:
             if "ok" not in e: continue
             r = e.get("ret", e.get("net", np.nan))
+            if r is None or not np.isfinite(float(r)): continue                                   # sonucu (getiri) olmayan kayıt sinyal değil
             rows.append(dict(t=pd.Timestamp(e["t"]), tip=str(e.get("tip", yol)), ok=bool(e["ok"]), r=float(r) if r is not None else np.nan))
     if not rows: yaz(f"- **{ad}**: sonuçlanan yok"); continue
     D = pd.DataFrame(rows); bas = D.t.min()
