@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/denetim.py", line 227, in <module>
+    PR_ = [YED & FON & (np.nan_to_num(Zq, nan=0) > -1), P1 & FON & (Zq > -1) & (Zq < 0), P1 & FON & (Zq <= -1), (AIL == "G1 🌐🤝 z 0…2") & FON]
+           ~~~~^~~~~
+ValueError: operands could not be broadcast together with shapes (37116,) (60428,) 
+exit=1
