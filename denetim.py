@@ -224,6 +224,7 @@ def kosullar(kay=0):
             "K8 çifte onay": kayd(cift)}
 K0 = kosullar(0); FON = K0["K3 🔥 BTC fonlama"]; TUR = Q.tur.values.astype(str); DIP = (RZq <= -2) & ~np.isin(nmq, list(GEN))
 L.clear()
+P1 = AIL == "P1 coin primi < 0"; YED = np.isin(AIL, ["Y1 💵", "Y2 🧪 ana coin", "Y3 🔇/🪙"])
 PR_ = [YED & FON & (np.nan_to_num(Zq, nan=0) > -1), P1 & FON & (Zq > -1) & (Zq < 0), P1 & FON & (Zq <= -1), (AIL == "G1 🌐🤝 z 0…2") & FON]
 U = np.zeros(len(Q), bool)
 for m_ in PR_: U |= m_
