@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-18",
-"giden": 7,
+"giden": 8,
 "log": [
-{
-"t": "17.10 16:06",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.9",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "17.10 16:06",
 "s": "panel",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 16:06",
+"s": "✅ ana",
+"e": "🧪 24 saat: TURBO (z +2.2)",
+"k": "gönderildi"
 }
 ]
 }
