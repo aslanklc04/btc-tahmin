@@ -24,7 +24,7 @@ def kesin(nm):
     for k in (3, 2, 1):
         a, b = h0 - pd.Timedelta(hours=300 * k), h0 - pd.Timedelta(hours=300 * (k - 1))
         for _ in range(3):
-            r = s.get(f"https://api.exchange.coinbase.com/products/{nm}-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=(b + pd.Timedelta(hours=1)).isoformat()), timeout=20)
+            r = s.get(f"https://api.exchange.coinbase.com/products/{nm}-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
             if r.status_code == 200: out += r.json(); break
             time.sleep(1.5)
     d = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
