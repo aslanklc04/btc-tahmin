@@ -5,18 +5,6 @@
 {
 "t": "17.10 19:06",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: BNB (z -1.9 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "17.10 19:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -2.0 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "17.10 19:06",
-"s": "panel",
 "e": "🧪 24 saat: ETH (z -2.0 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +229,18 @@
 "s": "panel",
 "e": "🧪 24 saat: ETH (z -1.6 ⛔)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 20:05",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 20:05",
+"s": "ℹ️ bilgi",
+"e": "📒 HAFTALIK KARNE — 18.10.2026 · TÜM sinyaller (12.10 tarihinden beri)",
+"k": "gönderildi"
 }
 ]
 }
