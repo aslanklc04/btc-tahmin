@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "17.10 16:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: GLM (z +1.8), SUSHI (z +0.9), KNC (z +0.8), SPELL (z +0.6), INJ (z +0.3), VET (z +0.3), ROSE (z +0.3)",
-"k": "gönderildi"
-},
-{
-"t": "17.10 16:06",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.9",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 18.10 09:00 · $81,734",
 "k": "gönderildi"
+},
+{
+"t": "18.10 14:06",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
