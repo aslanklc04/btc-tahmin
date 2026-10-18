@@ -1,5 +1,6 @@
 # prim_duzelt_test.py — TEST (18.10.2026, önceden yazılı): prim-duzelt dalındaki yeni ortak.cb_prim (son saat = son gerçek işlem, eski saat yok)
 # canlıdaki gibi saat başından +3 dk'da okunur; eski cb_prim (main) ile birlikte. Kesin değer: +65 dk'da Coinbase mumlarıyla aynı saat (canlı yöntem).
+# 2. deneme (18.10 19:00): 1. denemede işlem seçimi hatası (sayfa sırası varsayımı) düzeltildi, şart aynı.
 # GEÇME ŞARTI (önceden): yeni yöntemde |z − kesin| ≤ 0,2 olan coin oranı ≥ %95 VE eski yöntemden kötü değil VE eski saatin z'si hiç kullanılmamış.
 import importlib.util, os, sys, time, json, numpy as np, pandas as pd
 def yukle(ad, yol):
@@ -14,7 +15,7 @@ while pd.Timestamp.now(tz="UTC") < h0 + pd.Timedelta(minutes=3): time.sleep(5)
 from concurrent.futures import ThreadPoolExecutor
 def oku(nm):
     t0 = time.time(); y = YENI.cb_prim(nm, path=f"/tmp/pd/y_{nm}.json"); ty = time.time() - t0; e = ESKI.cb_prim(nm, path=f"/tmp/pd/e_{nm}.json")
-    return nm, dict(z_yeni=YENI.cb_z(y), t_yeni=(y or {}).get("t"), kaynak=(y or {}).get("kaynak"), sn_yeni=round(ty, 1), z_eski=ESKI.cb_z(e), t_eski=(e or {}).get("t"))
+    return nm, dict(z_yeni=YENI.cb_z(y), t_yeni=(y or {}).get("t"), kaynak=(y or {}).get("kaynak"), islem=YENI.CB_SON_DEBUG.get(nm, {}).get("islem", "")[11:19], sayfa=f'{YENI.CB_SON_DEBUG.get(nm, {}).get("sayfa_ilk", "")[11:19]}→{YENI.CB_SON_DEBUG.get(nm, {}).get("sayfa_son", "")[11:19]}', sn_yeni=round(ty, 1), z_eski=ESKI.cb_z(e), t_eski=(e or {}).get("t"))
 with ThreadPoolExecutor(4) as ex: R = dict(ex.map(oku, C))
 print("+3 dk okundu", pd.Timestamp.now(tz="UTC"), flush=True)
 while pd.Timestamp.now(tz="UTC") < h0 + pd.Timedelta(minutes=65): time.sleep(10)
