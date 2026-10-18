@@ -1,0 +1,28 @@
+name: Prim gecikme
+on:
+  push:
+    branches: [arastirma3]
+    paths: [prim_gecikme.py, .github/workflows/prim_gecikme.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set +e; timeout 4800 python -u prim_gecikme.py > prim_gecikme_log.txt 2>&1; echo "exit=$?" >> prim_gecikme_log.txt; tail -30 prim_gecikme_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add prim_gecikme_log.txt; git add prim_gecikme_sonuc.md 2>/dev/null || true; git commit -m "Prim gecikme" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
+
