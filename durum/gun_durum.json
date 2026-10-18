@@ -5,12 +5,6 @@
 {
 "t": "17.10 15:06",
 "s": "panel",
-"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "17.10 15:06",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -2.0 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "18.10 05:06",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 06:05",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
 }
 ]
