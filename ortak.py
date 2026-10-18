@@ -212,6 +212,7 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
 # ---- 💵 Coinbase primi (ABD alıcıları) — araştırma: bosluklar2.py, cb_kontrol.py, birlesim.py ----
 # Prim = log(Coinbase BTC-USD / Binance BTCUSDT), son 30 güne göre z. Model ↑ sinyali z > 0 iken (ABD normalden fazla ödüyor) geçmişte belirgin daha isabetli/kârlı,
 # z ≤ −1 iken (ABD satıyor) sinyaller kaybettirdi. Aynı saatlik çalışmada tek kez hesaplanır (durum/cb_prim.json), diğer betikler dosyadan okur.
+CB_SON_DEBUG = {}
 def _cb_son_fiyat(s, nm, t):
     """t (saat kapanışı, UTC) anına kadarki SON GERÇEK İŞLEM fiyatı — Coinbase /trades (18.10.2026: mum API'si kapanan saatin mumunu ilk 5–40 dk
     eksik veriyor, az işlem gören coin'lerde z ±2 kayabiliyordu; prim_gecikme.py). Dönüş: (fiyat, 'ok') · (nan, 'islem_yok' = son 1 saatte işlem yok) · (nan, 'hata')."""
@@ -223,9 +224,10 @@ def _cb_son_fiyat(s, nm, t):
             if r.status_code != 200: return np.nan, "hata"
             tr = r.json()
             if not tr: return np.nan, "islem_yok"
-            for x in tr:                                                                     # en yeniden eskiye
-                tx = pd.Timestamp(x["time"])
-                if tx <= t: return (float(x["price"]), "ok") if tx > t0 else (np.nan, "islem_yok")
+            tx = pd.to_datetime([x["time"] for x in tr], utc=True, format="ISO8601"); px = np.array([float(x["price"]) for x in tr]); ok = tx <= t
+            if ok.any():                                                                     # sıra varsayımı yok: t'ye kadarki EN GEÇ işlem
+                i = int(np.argmax(np.where(ok, tx.asi8, np.iinfo(np.int64).min))); CB_SON_DEBUG[nm] = dict(islem=str(tx[i]), sayfa_ilk=str(tx[0]), sayfa_son=str(tx[-1]), n=len(tr))
+                return (px[i], "ok") if tx[i] > t0 else (np.nan, "islem_yok")
             after = r.headers.get("cb-after") or r.headers.get("CB-AFTER")
             if not after: return np.nan, "hata"
         return np.nan, "hata"
