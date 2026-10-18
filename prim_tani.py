@@ -22,12 +22,12 @@ def cb(nm, a, b):
     if not out: return None
     d = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
     d.index = pd.to_datetime(d.t, unit="s", utc=True) + pd.Timedelta(hours=1); return d.sort_index()
-K = pd.read_csv("canli/durum/karne_kayit.csv"); K = K[K.s != "panel"]; R = []
+K = pd.read_csv("canli/durum/karne_kayit.csv"); R = []   # 18.10 akşam: panel dahil (kaçırılan sinyaller)
 for _, r in K.iterrows():
     t = pd.Timestamp(r.t, tz=DISPLAY_TZ).floor("h").tz_convert("UTC")
-    for nm, zv in re.findall(r"([A-Z0-9]{2,10}) \(z ([+\-−]?\d+\.\d)", r.e): R.append((t, nm, float(zv.replace("−", "-")), r.s))
-    m = re.search(r"([A-Z0-9]{2,10}) .*?prim ✅ z ([+-]?\d+\.\d)", r.e)
-    if m: R.append((t, m.group(1), float(m.group(2)), r.s))
+    for nm, zv in re.findall(r"([A-Z0-9]{2,10}) \(z ([+\-−]?\d+\.\d)", r.e): R.append((t, nm, float(zv.replace("−", "-")), r.s + "|" + r.e[:2]))
+    m = re.search(r"([A-Z0-9]{2,10}) .*?prim (?:✅|⚠️|⛔) z ([+-]?\d+\.\d)", r.e)
+    if m: R.append((t, m.group(1), float(m.group(2)), r.s + "|" + r.e[:2]))
 R = pd.DataFrame(R, columns=["t", "nm", "z_mesaj", "s"])
 GEN = [l.strip()[:-4] for l in open("canli/durum/genis_liste.txt") if l.strip()]
 def veri(nm):
@@ -63,4 +63,14 @@ for nm, d in V.items():
 M = pd.DataFrame(rows).sort_values("mum_yok_yuzde", ascending=False)
 yaz(f"- {len(M)} coin · mum eksik saat oranı medyan %{M.mum_yok_yuzde.median():.1f} · > %5 olan coin: {int((M.mum_yok_yuzde > 5).sum())} · > %20: {int((M.mum_yok_yuzde > 20).sum())}")
 yaz("```"); yaz(M.head(40).to_string(index=False)); yaz("```")
+GS = set(GEN)
+def sinif(tur, nm, z):
+    if not np.isfinite(z): return "panel"
+    if tur.startswith("🤝"): return ("ana" if z >= 2 else "yedek" if z >= 0 else "panel") if nm in GS else ("ana" if z >= 0 else "panel")
+    if tur.startswith("🧪"): return ("ana" if z >= 1.5 else "-") if nm in GS else ("ana" if z >= 0 else "panel")
+    return "?"
+R["tur"] = R.s.str.split("|").str[1]; R["sinif_mesaj"] = [sinif(a, b, c) for a, b, c in zip(R.tur, R.nm, R.z_mesaj)]; R["sinif_dogru"] = [sinif(a, b, c) for a, b, c in zip(R.tur, R.nm, R.z0)]
+D = R[(R.sinif_mesaj != R.sinif_dogru) & (R.sinif_mesaj != "?")]
+yaz(f"\n## Sınıf değişimi (🤝 / 🧪, doğru prim ile): {len(D)} sinyal · gönderilip gönderilmemesi gereken: {int(D.sinif_mesaj.isin(['ana','yedek']).sum() - 0)} satırdan ana/yedek→panel {int((D.sinif_mesaj.isin(['ana','yedek']) & ~D.sinif_dogru.isin(['ana','yedek'])).sum())} · KAÇIRILAN (panel→ana/yedek) {int((~D.sinif_mesaj.isin(['ana','yedek']) & D.sinif_dogru.isin(['ana','yedek'])).sum())} · ana↔yedek {int((D.sinif_mesaj.isin(['ana','yedek']) & D.sinif_dogru.isin(['ana','yedek'])).sum())}")
+yaz("```"); yaz(D[["t", "nm", "tur", "z_mesaj", "z0", "sinif_mesaj", "sinif_dogru"]].to_string(index=False)); yaz("```")
 open("prim_tani_sonuc.md", "w").write("\n".join(L) + "\n")
