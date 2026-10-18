@@ -1,0 +1,43 @@
+name: Havuz model
+on:
+  push:
+    branches: [arastirma3]
+    paths: [havuz.py, .github/workflows/havuz.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art1
+          pattern: coin-*
+          run-id: 38550403442
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'leri
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
+      - run: |
+          set +e; timeout 20000 python -u havuz.py > havuz_log.txt 2>&1; echo "exit=$?" >> havuz_log.txt; tail -40 havuz_log.txt; free -g
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add havuz_log.txt; git add havuz_sonuc.md 2>/dev/null || true; git commit -m "Havuz model" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
