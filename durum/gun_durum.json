@@ -3,12 +3,6 @@
 "giden": 7,
 "log": [
 {
-"t": "17.10 13:06",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ✅ z +0.8",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "17.10 15:06",
 "s": "panel",
 "e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.0",
@@ -240,6 +234,12 @@
 "t": "18.10 01:07",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ADA (z -2.1 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 05:06",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.8",
 "k": "gitmedi — yalnız panel"
 }
 ]
