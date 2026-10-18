@@ -1,0 +1,64 @@
+# 🔬 Prim teşhisi — 18.10 16:22
+
+- 112 coin-sinyal · mesajdaki z = aynı saatin z'si (±0,2): 101 · farklı: 11
+- farklı olanlarda t saatinde Coinbase mumu YOK: 2 · var: 9 · en yakın eski saat (k≥1, ±0,2): 3
+```
+       t     nm  z_mesaj       s  mum_t  hacim_usd    z0    z1    z2    z3  en_yakin_k  fark
+14.10 19    RPL      2.2   ✅ ana   True      270.0  0.55 -1.87 -0.36 -0.23           0  1.65
+17.10 06    GNO      0.2 🔸 yedek  False        0.0   NaN  0.19 -0.03 -0.86           1  0.01
+17.10 16    GLM      1.8 🔸 yedek   True       43.0 -0.36   NaN  0.17 -0.35           2  1.63
+17.10 16    KNC      0.8 🔸 yedek   True      456.0 -0.78   NaN -1.34 -0.40           3  1.20
+17.10 19    BNT      1.1 🔸 yedek   True      159.0  0.64   NaN -0.91 -1.73           0  0.46
+17.10 19 PUNDIX      0.7 🔸 yedek   True       20.0  0.48   NaN -0.50 -0.01           0  0.22
+17.10 19   LQTY      0.4 🔸 yedek   True      207.0  0.63  0.51   NaN -0.27           1 -0.11
+17.10 20 PUNDIX      1.3 🔸 yedek   True      203.0  1.71  0.48   NaN -0.50           0 -0.41
+17.10 20   CELR      1.1 🔸 yedek   True      163.0 -0.59   NaN -1.04 -1.13           0  1.69
+17.10 20   ARKM      0.8 🔸 yedek   True     2706.0 -0.05 -0.33   NaN  1.51           3 -0.71
+17.10 20    C98      0.6 🔸 yedek  False        0.0   NaN  0.63  0.11 -0.18           1 -0.03
+```
+
+## Mum eksikliği: geniş liste + sinyal coin'leri, son 120 gün (canlıda 'eski z' riski)
+- 135 coin · mum eksik saat oranı medyan %1.5 · > %5 olan coin: 46 · > %20: 23
+```
+   coin  saat  mum_yok_yuzde  med_hacim_usd
+    REQ  2135           38.5          297.0
+   ARPA  2135           38.1          661.0
+ PUNDIX  2135           33.3          994.0
+   BAND  2135           33.0          305.0
+    KNC  2135           33.0         1174.0
+    C98  2135           30.3          521.0
+    GNO  2135           29.3          126.0
+    BNT  2135           29.3          211.0
+    RAD  2135           28.7          304.0
+   MASK  2135           27.1         1772.0
+   BLUR  2135           26.8          743.0
+      T  2135           25.7          694.0
+    CVC  2135           25.2          626.0
+   CELR  2135           25.2          430.0
+  AUDIO  2135           24.3          550.0
+    ALT  2135           23.9          227.0
+   KAVA  2135           23.4          507.0
+    UMA  2135           22.8          677.0
+    RPL  2135           22.2         1117.0
+   ARKM  2135           21.8          876.0
+    GMT  2135           21.7          605.0
+    GTC  2135           20.5         1840.0
+   POWR  2135           20.4         1346.0
+    RLC  2135           18.7          492.0
+AUCTION  2135           18.2          545.0
+   LQTY  2135           16.8          553.0
+    GLM  2135           15.8          864.0
+  ALICE  2135           15.8         2098.0
+   RARE  2135           15.7         2356.0
+    LPT  2135           15.1         1440.0
+   AGLD  2135           14.9         1271.0
+  1INCH  2135           13.7          751.0
+   CTSI  2135           12.6         1204.0
+   FIDA  2135           12.1          631.0
+   MINA  2135           10.7         2085.0
+    RAY  2135           10.6         3599.0
+    OGN  2135           10.5          916.0
+   API3  2135           10.3         1887.0
+      G  2135           10.2          696.0
+   OSMO  2135            9.9          539.0
+```
