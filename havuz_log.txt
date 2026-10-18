@@ -1,27 +1,69 @@
-# 🧠 Havuz model + BTC'den bağımsız hedef — 18.10.2026 23:31
+# 🧠 Havuz model + BTC'den bağımsız hedef — 18.10.2026 23:43
 aday coin 140 · karşılaştırma dosyası (disa) 141
-veri: 140 coin · 9 dk
-satır 5,800,655 · girdi 48 · 9 dk
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2870, in _infer_tz_from_endpoints
-    inferred_tz = timezones.infer_tzinfo(start, end)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "pandas/_libs/tslibs/timezones.pyx", line 488, in pandas._libs.tslibs.timezones.infer_tzinfo
-AssertionError: Inputs must both have the same timezone, None != UTC
+veri: 140 coin · 10 dk
+satır 5,800,655 · girdi 48 · 10 dk
+2023-11 eğitildi (450,604 satır) · 11 dk
+2023-12 eğitildi (456,277 satır) · 11 dk
+2024-01 eğitildi (461,662 satır) · 11 dk
+2024-02 eğitildi (466,689 satır) · 11 dk
+2024-03 eğitildi (471,100 satır) · 11 dk
+2024-04 eğitildi (475,948 satır) · 11 dk
+2024-05 eğitildi (480,933 satır) · 11 dk
+2024-06 eğitildi (486,753 satır) · 12 dk
+2024-07 eğitildi (492,549 satır) · 12 dk
+2024-08 eğitildi (498,589 satır) · 12 dk
+2024-09 eğitildi (505,031 satır) · 12 dk
+2024-10 eğitildi (511,511 satır) · 12 dk
+2024-11 eğitildi (518,409 satır) · 12 dk
+2024-12 eğitildi (525,139 satır) · 12 dk
+2025-01 eğitildi (531,978 satır) · 12 dk
+2025-02 eğitildi (538,731 satır) · 13 dk
+2025-03 eğitildi (544,704 satır) · 13 dk
+2025-04 eğitildi (551,200 satır) · 13 dk
+2025-05 eğitildi (557,172 satır) · 13 dk
+2025-06 eğitildi (563,001 satır) · 13 dk
+2025-07 eğitildi (568,079 satır) · 13 dk
+2025-08 eğitildi (573,287 satır) · 13 dk
+2025-09 eğitildi (578,163 satır) · 13 dk
+2025-10 eğitildi (582,559 satır) · 13 dk
+2025-11 eğitildi (587,023 satır) · 14 dk
+2025-12 eğitildi (591,336 satır) · 14 dk
+2026-01 eğitildi (595,563 satır) · 14 dk
+2026-02 eğitildi (599,387 satır) · 14 dk
+2026-03 eğitildi (602,555 satır) · 14 dk
+2026-04 eğitildi (605,668 satır) · 14 dk
+2026-05 eğitildi (608,008 satır) · 14 dk
+2026-06 eğitildi (609,623 satır) · 14 dk
+2026-07 eğitildi (610,883 satır) · 14 dk
+2026-08 eğitildi (611,908 satır) · 14 dk
+2026-09 eğitildi (612,532 satır) · 15 dk
+2026-10 eğitildi (612,892 satır) · 15 dk
 
-The above exception was the direct cause of the following exception:
+## AUC (tüm saatler, yürüyen test)
+```
+2024: havuz (A) yön AUC 0.5359 · (B) BTC'yi geçme AUC 0.5436 · (A)'nın BTC'yi geçme AUC 0.5387
+2025: havuz (A) yön AUC 0.5171 · (B) BTC'yi geçme AUC 0.5184 · (A)'nın BTC'yi geçme AUC 0.5126
+2026: havuz (A) yön AUC 0.5097 · (B) BTC'yi geçme AUC 0.5196 · (A)'nın BTC'yi geçme AUC 0.5143
+```
 
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/havuz.py", line 44, in <module>
-    AYLAR = pd.date_range("2023-11-01", tt.max(), freq="MS", tz="UTC")
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/datetimes.py", line 1491, in date_range
-    dtarr = DatetimeArray._generate_range(
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 461, in _generate_range
-    tz = _infer_tz_from_endpoints(start, end, tz)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2873, in _infer_tz_from_endpoints
-    raise TypeError(
-TypeError: Start and end cannot both be tz-aware with different timezones
-exit=1
+## Sinyaller (140 ortak coin · 2024-01 → 14.10.2026) — sayı · isabet · ort. getiri %
+```
+[hepsi]
+  ŞİMDİ  2024:  26262 · %58.0 (BTC'yi geçti %55.7) · +0.22 | 2025:  30463 · %51.4 (BTC'yi geçti %50.9) · -0.09 | 2026:  24345 · %52.7 (BTC'yi geçti %53.2) · +0.16
+  A      2024:  47145 · %53.6 (BTC'yi geçti %52.4) · +0.11 | 2025:  45585 · %50.9 (BTC'yi geçti %50.3) · -0.10 | 2026:  28852 · %49.1 (BTC'yi geçti %53.0) · +0.04
+  B      2024:  41373 · %56.2 (BTC'yi geçti %55.4) · +0.15 | 2025:  42164 · %51.3 (BTC'yi geçti %51.6) · -0.06 | 2026:  31414 · %48.2 (BTC'yi geçti %51.4) · +0.02
+[BTC 4s ÇG saatinde]
+  ŞİMDİ  2024:   5880 · %63.2 (BTC'yi geçti %59.1) · +0.35 | 2025:   6155 · %52.4 (BTC'yi geçti %49.7) · -0.28 | 2026:   3817 · %63.3 (BTC'yi geçti %60.5) · +0.58
+  A      2024:  12036 · %52.0 (BTC'yi geçti %51.1) · +0.04 | 2025:  10881 · %51.1 (BTC'yi geçti %48.6) · -0.29 | 2026:   3389 · %61.0 (BTC'yi geçti %61.8) · +0.50
+  B      2024:  12421 · %56.0 (BTC'yi geçti %55.1) · +0.08 | 2025:   8931 · %48.0 (BTC'yi geçti %48.9) · -0.26 | 2026:   3257 · %63.5 (BTC'yi geçti %62.1) · +0.62
+[BTC düşen 4 saatte]
+  ŞİMDİ  2024:  10856 · %28.3 (BTC'yi geçti %45.7) · -1.43 | 2025:  14433 · %24.0 (BTC'yi geçti %38.2) · -1.57 | 2026:  11199 · %30.1 (BTC'yi geçti %49.1) · -0.72
+  A      2024:  19988 · %24.7 (BTC'yi geçti %44.7) · -1.36 | 2025:  22570 · %25.9 (BTC'yi geçti %38.8) · -1.53 | 2026:  14387 · %27.8 (BTC'yi geçti %49.7) · -0.82
+  B      2024:  18028 · %29.3 (BTC'yi geçti %47.7) · -1.36 | 2025:  21555 · %26.1 (BTC'yi geçti %40.0) · -1.46 | 2026:  16380 · %27.9 (BTC'yi geçti %46.6) · -0.80
+```
+
+## Önceden yazılı karar
+- (A) havuz model: ❌ geçmedi
+- (B) BTC'den bağımsız hedef: ❌ geçmedi
+_süre 15 dk_
+exit=0
