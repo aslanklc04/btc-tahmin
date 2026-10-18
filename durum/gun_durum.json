@@ -5,18 +5,6 @@
 {
 "t": "17.10 19:06",
 "s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "17.10 19:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.4 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "17.10 19:06",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: BNB (z -1.9 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +228,18 @@
 "t": "18.10 18:07",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 19:06",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "18.10 19:06",
+"s": "panel",
+"e": "🧪 24 saat: ETH (z -1.6 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ]

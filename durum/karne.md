@@ -1,12 +1,12 @@
-# 📒 Canlı karne — 18.10.2026 18:06
+# 📒 Canlı karne — 18.10.2026 19:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 29 | %62 | -0.41% | -11.8% | 2 | %62 · %67 |
-| 🔸 yedek (gönderildi) | 81 | %83 | 1.33% | 108.1% | 0 | %60 · %65 |
-| panel (gönderilmedi) | 164 | %55 | 0.29% | 46.9% | 3 | — |
-| ↳ panel · prim ⛔ (filtre) | 108 | %58 | 0.45% | 48.9% | 2 | — |
+| ✅ ana (gönderildi) | 29 | %62 | -0.41% | -11.8% | 3 | %62 · %67 |
+| 🔸 yedek (gönderildi) | 81 | %83 | 1.33% | 108.1% | 12 | %60 · %65 |
+| panel (gönderilmedi) | 165 | %55 | 0.28% | 45.6% | 4 | — |
+| ↳ panel · prim ⛔ (filtre) | 109 | %58 | 0.44% | 47.6% | 3 | — |
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
@@ -24,7 +24,7 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | panel | 🔇/🪙 coin tek | 40 · %57 | 40 | %57 | 0.35% | 14.0% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 5 · %80 | 5 | %80 | 0.08% | 0.4% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 30 · %47 | 30 | %47 | 0.19% | 5.7% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.22) |
-| panel | 🧪 24 s ana coin | 9 · %67 | 9 | %67 | 2.52% | 22.7% | %55 · %53 | ✅ iyi |
+| panel | 🧪 24 s ana coin | 10 · %60 | 10 | %60 | 2.14% | 21.4% | %55 · %53 | ✅ iyi |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
