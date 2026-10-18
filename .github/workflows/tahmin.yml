@@ -194,3 +194,16 @@ jobs:
           git commit -m "Saatlik durum" || echo "degisiklik yok"
           ok=0; for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && ok=1 && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
           [ $ok = 1 ] || { echo '::error::panel depoya gönderilemedi'; exit 1; }
+      - name: 💵 prim yeniden kontrol (Coinbase verisi kesinlesince; sinif dustuyse ⚠️ DUZELTME mesaji)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 25
+        run: |
+          python prim_kontrol.py
+          [ -f durum/iptal_kayit.csv ] || exit 0
+          git add durum/iptal_kayit.csv; git commit -m "Prim kontrol" || exit 0
+          for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && break; sleep 5; done
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KONTROL_DK: "15"
