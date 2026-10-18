@@ -212,12 +212,30 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
 # ---- 💵 Coinbase primi (ABD alıcıları) — araştırma: bosluklar2.py, cb_kontrol.py, birlesim.py ----
 # Prim = log(Coinbase BTC-USD / Binance BTCUSDT), son 30 güne göre z. Model ↑ sinyali z > 0 iken (ABD normalden fazla ödüyor) geçmişte belirgin daha isabetli/kârlı,
 # z ≤ −1 iken (ABD satıyor) sinyaller kaybettirdi. Aynı saatlik çalışmada tek kez hesaplanır (durum/cb_prim.json), diğer betikler dosyadan okur.
+def _cb_son_fiyat(s, nm, t):
+    """t (saat kapanışı, UTC) anına kadarki SON GERÇEK İŞLEM fiyatı — Coinbase /trades (18.10.2026: mum API'si kapanan saatin mumunu ilk 5–40 dk
+    eksik veriyor, az işlem gören coin'lerde z ±2 kayabiliyordu; prim_gecikme.py). Dönüş: (fiyat, 'ok') · (nan, 'islem_yok' = son 1 saatte işlem yok) · (nan, 'hata')."""
+    try:
+        after, t0 = None, t - pd.Timedelta(hours=1)
+        for _ in range(15):
+            r = s.get(f"https://api.exchange.coinbase.com/products/{nm}-USD/trades", params=dict(limit=1000, **({"after": after} if after else {})), timeout=20)
+            if r.status_code != 200: time.sleep(1); r = s.get(r.url, timeout=20)
+            if r.status_code != 200: return np.nan, "hata"
+            tr = r.json()
+            if not tr: return np.nan, "islem_yok"
+            for x in tr:                                                                     # en yeniden eskiye
+                tx = pd.Timestamp(x["time"])
+                if tx <= t: return (float(x["price"]), "ok") if tx > t0 else (np.nan, "islem_yok")
+            after = r.headers.get("cb-after") or r.headers.get("CB-AFTER")
+            if not after: return np.nan, "hata"
+        return np.nan, "hata"
+    except Exception: return np.nan, "hata"
 def cb_prim(nm="BTC", path=None):
     import json
     path = path or ("durum/cb_prim.json" if nm == "BTC" else f"durum/cb_prim_{nm}.json")
     try:
         d = json.load(open(path))
-        if time.time() - d["hesap"] < 1800: return d
+        if time.time() - d["hesap"] < 1800 and pd.Timestamp(d["t"]) == pd.Timestamp.now(tz="UTC").floor("h"): return d   # yalnız bu saatin hesabı
     except Exception: pass
     try:
         now = pd.Timestamp.now(tz="UTC").floor("h"); out = []; s = requests.Session(); s.headers.update({"User-Agent": "btc-tahmin"})
@@ -232,11 +250,14 @@ def cb_prim(nm="BTC", path=None):
         cb = pd.Series(cb.close.values.astype(float), index=pd.to_datetime(cb.t, unit="s", utc=True) + pd.Timedelta(hours=1)).sort_index()
         if len(out) < 200: return None
         bn = fetch_1h((now - pd.Timedelta(hours=920)).timestamp() * 1000, time.time() * 1000, sym=f"{nm}USDT").close
-        p = np.log(cb / bn.reindex(cb.index)).dropna(); p = p[p.index <= bn.index[-1]]
+        tb = bn.index[-1]; fs, du = _cb_son_fiyat(s, nm, tb)                                # son saat: mum yerine son gerçek işlem (mum ilk dakikalarda eksik)
+        if du == "ok": cb.loc[tb] = fs; cb = cb.sort_index()
+        elif du == "islem_yok": cb = cb[cb.index != tb]                                          # o saatte işlem yok → testteki gibi prim yok
+        p = np.log(cb / bn.reindex(cb.index)).dropna(); p = p[p.index <= tb]
         z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
-        if len(z) == 0 or pd.Timestamp.now(tz="UTC") - z.index[-1] > pd.Timedelta(hours=3) or not np.isfinite(z.iloc[-1]):   # eksik/eski veri: prim yok say (eski z ile sinyal verme)
-            print(f"⚠️ {nm} Coinbase primi eski ya da eksik (son {z.index[-1] if len(z) else '—'}) — kullanılmadı"); return None
-        d = dict(z=float(z.iloc[-1]), bp=float(p.iloc[-1] * 1e4), t=str(z.index[-1]), hesap=time.time())
+        if len(z) == 0 or z.index[-1] != tb or not np.isfinite(z.iloc[-1]):                      # 18.10: yalnız SON saatin primi (testte o saat yoksa sinyal yok; eskiden 3 saate kadar eski z kullanılıyordu)
+            print(f"⚠️ {nm} Coinbase primi bu saat yok (son {z.index[-1] if len(z) else '—'} · işlem: {du}) — kullanılmadı"); return None
+        d = dict(z=float(z.iloc[-1]), bp=float(p.iloc[-1] * 1e4), t=str(z.index[-1]), hesap=time.time(), kaynak=du)
         os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(d, open(path, "w")); return d
     except Exception as e:
         print(f"⚠️ {nm} Coinbase primi alınamadı:", str(e)[:200]); return None
