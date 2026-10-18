@@ -41,7 +41,7 @@ def egit(X, yb):
     return lgb.LGBMClassifier(n_estimators=600, learning_rate=0.03, num_leaves=15, min_child_samples=300, subsample=0.7, subsample_freq=1, colsample_bytree=0.5,
                               reg_lambda=10, verbose=-1, n_jobs=4).fit(X.iloc[:k], yb.iloc[:k], eval_set=[(X.iloc[k:], yb.iloc[k:])], callbacks=[lgb.early_stopping(50, verbose=False)])
 PA, PX = np.full(len(D), np.nan, "float32"), np.full(len(D), np.nan, "float32")
-AYLAR = pd.date_range("2023-11-01", tt.max(), freq="MS", tz="UTC")
+AYLAR = pd.date_range(pd.Timestamp("2023-11-01", tz="UTC"), tt.max(), freq="MS")
 for i, ms in enumerate(AYLAR):
     me = AYLAR[i + 1] if i + 1 < len(AYLAR) else tt.max() + pd.Timedelta(hours=1)
     trm = (tt < ms - pd.Timedelta(hours=4)) & (tt >= ms - pd.Timedelta(days=730)) & (tt.hour % 4 == 0) & D.y.notna().values & D.yx.notna().values
