@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 19.10.2026 00:04
+# 📒 Canlı karne — 19.10.2026 01:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 30 | %60 | -0.43% | -13.0% | 9 | %62 · %67 |
+| ✅ ana (gönderildi) | 31 | %58 | -0.53% | -16.3% | 8 | %62 · %67 |
 | 🔸 yedek (gönderildi) | 93 | %74 | 1.08% | 100.8% | 44 | %60 · %65 |
 | panel (gönderilmedi) | 171 | %55 | 0.26% | 44.6% | 14 | — |
 | ↳ panel · prim ⛔ (filtre) | 114 | %57 | 0.40% | 45.8% | 8 | — |
@@ -12,7 +12,7 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 8 · %100 | 8 | %100 | 1.13% | 9.0% | %69 · %76 | ✅ iyi |
-| ✅ ana | 🌐🧪 24 s geniş liste | 7 · %57 | 7 | %57 | -1.55% | -10.9% | %60 · %60 | ⚠️ orta |
+| ✅ ana | 🌐🧪 24 s geniş liste | 8 · %50 | 8 | %50 | -1.78% | -14.2% | %60 · %60 | ⚠️ orta |
 | ✅ ana | 💵 ABD alıyor | 4 · %0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 9 · %56 | 9 | %56 | -0.15% | -1.4% | %63 · %68 | ⚠️ orta |
 | ✅ ana | 🧪 24 s ana coin | 2 · %50 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
@@ -33,8 +33,8 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
 | 18.10 01:00 | ana | 🌐🤝 | RARE | 4 s | +1.72% | ✅ |
-| 18.10 01:00 | ana | 🤝 | ARB | 4 s | +1.52% | ✅ |
 | 18.10 01:00 | ana | 🤝 | DOT | 4 s | +0.50% | ✅ |
+| 18.10 01:00 | ana | 🌐🧪 | KSM | 24 s | -3.33% | ❌ |
 | 18.10 01:00 | yedek | 🌐🤝 | ATOM | 4 s | +1.15% | ✅ |
 | 18.10 01:00 | yedek | 🌐🤝 | SUPER | 4 s | +2.92% | ✅ |
 | 18.10 01:00 | yedek | 🌐🤝 | DASH | 4 s | +1.15% | ✅ |
@@ -43,7 +43,7 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 18.10 01:00 | yedek | 🌐🤝 | ZRX | 4 s | +1.17% | ✅ |
 | 18.10 01:00 | yedek | 🌐🤝 | CHZ | 4 s | +1.12% | ✅ |
 | 18.10 01:00 | yedek | 🌐🤝 | METIS | 4 s | +0.48% | ✅ |
-| 18.10 01:00 | ana | 🤝 | OP | 4 s | +0.04% | ✅ |
+| 18.10 01:00 | ana | 🤝 | ARB | 4 s | +1.52% | ✅ |
 | 18.10 18:00 | yedek | 🌐🤝 | STX | 4 s | -0.40% | ❌ |
 | 18.10 18:00 | yedek | 🌐🤝 | STRK | 4 s | -2.27% | ❌ |
 | 18.10 18:00 | yedek | 🌐🤝 | ATOM | 4 s | -0.82% | ❌ |
