@@ -1,147 +1,147 @@
-# 💧 Neon ↔ Binance arşivi uyumu — 17.10.2026 12:07
-Arşivde son saat: 2026-10-17 00:00:00+00:00 · arşivi gelen coin: 130 · 132 sn
-Neon saat (istenen): 104 · Neon verisi olan coin: 132 · kayıtla birlikte coin başına en çok 64 saat
+# 💧 Neon ↔ Binance arşivi uyumu — 18.10.2026 12:03
+Arşivde son saat: 2026-10-18 00:00:00+00:00 · arşivi gelen coin: 130 · 150 sn
+Neon saat (istenen): 128 · Neon verisi olan coin: 132 · kayıtla birlikte coin başına en çok 88 saat
 
 ```
-   coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık  kapsam   sonuç
-  1INCH    64     NaN                NaN              NaN               NaN     NaN az saat
-   AAVE    64     NaN                NaN              NaN               NaN     NaN az saat
-    ACH    64     NaN                NaN              NaN               NaN     NaN az saat
-    ADA    64     NaN                NaN              NaN               NaN     NaN az saat
-   AGLD    64     NaN                NaN              NaN               NaN     NaN az saat
-   ALGO    64     NaN                NaN              NaN               NaN     NaN az saat
-  ALICE    64     NaN                NaN              NaN               NaN     NaN az saat
-    ALT    64     NaN                NaN              NaN               NaN     NaN az saat
-   ANKR    64     NaN                NaN              NaN               NaN     NaN az saat
-    APE    64     NaN                NaN              NaN               NaN     NaN az saat
-   API3    64     NaN                NaN              NaN               NaN     NaN az saat
-    APT    64     NaN                NaN              NaN               NaN     NaN az saat
-    ARB    64     NaN                NaN              NaN               NaN     NaN az saat
-   ARKM    64     NaN                NaN              NaN               NaN     NaN az saat
-   ARPA    64     NaN                NaN              NaN               NaN     NaN az saat
-   ATOM    64     NaN                NaN              NaN               NaN     NaN az saat
-AUCTION    64     NaN                NaN              NaN               NaN     NaN az saat
-   AVAX    64     NaN                NaN              NaN               NaN     NaN az saat
-    AXL    64     NaN                NaN              NaN               NaN     NaN az saat
-    AXS    64     NaN                NaN              NaN               NaN     NaN az saat
-   BAND    64     NaN                NaN              NaN               NaN     NaN az saat
-    BAT    64     NaN                NaN              NaN               NaN     NaN az saat
-    BCH    64     NaN                NaN              NaN               NaN     NaN az saat
-   BICO    64     NaN                NaN              NaN               NaN     NaN az saat
-   BLUR    64     NaN                NaN              NaN               NaN     NaN az saat
-    BNB    64     NaN                NaN              NaN               NaN     NaN az saat
-    BNT    64     NaN                NaN              NaN               NaN     NaN az saat
-   BONK    64     NaN                NaN              NaN               NaN     NaN az saat
-    C98    64     NaN                NaN              NaN               NaN     NaN az saat
-   CAKE    64     NaN                NaN              NaN               NaN     NaN az saat
-   CELR    64     NaN                NaN              NaN               NaN     NaN az saat
-    CHZ    64     NaN                NaN              NaN               NaN     NaN az saat
-   COMP    64     NaN                NaN              NaN               NaN     NaN az saat
-   COTI    64     NaN                NaN              NaN               NaN     NaN az saat
-    CRV    64     NaN                NaN              NaN               NaN     NaN az saat
-   CTSI    64     NaN                NaN              NaN               NaN     NaN az saat
-    CVC    64     NaN                NaN              NaN               NaN     NaN az saat
-    CVX    64     NaN                NaN              NaN               NaN     NaN az saat
-   DASH    64     NaN                NaN              NaN               NaN     NaN az saat
-    DIA    64     NaN                NaN              NaN               NaN     NaN az saat
-   DOGE    64     NaN                NaN              NaN               NaN     NaN az saat
-    DOT    64     NaN                NaN              NaN               NaN     NaN az saat
-   EGLD    64     NaN                NaN              NaN               NaN     NaN az saat
-    ENA    64     NaN                NaN              NaN               NaN     NaN az saat
-    ENS    64     NaN                NaN              NaN               NaN     NaN az saat
-    ETC    64     NaN                NaN              NaN               NaN     NaN az saat
-  ETHFI    64     NaN                NaN              NaN               NaN     NaN az saat
-    FET    64     NaN                NaN              NaN               NaN     NaN az saat
-   FIDA    64     NaN                NaN              NaN               NaN     NaN az saat
-    FIL    64     NaN                NaN              NaN               NaN     NaN az saat
-  FLOKI    64     NaN                NaN              NaN               NaN     NaN az saat
-   FLOW    64     NaN                NaN              NaN               NaN     NaN az saat
-      G    64     NaN                NaN              NaN               NaN     NaN az saat
-    GLM    64     NaN                NaN              NaN               NaN     NaN az saat
-    GMT    64     NaN                NaN              NaN               NaN     NaN az saat
-    GRT    64     NaN                NaN              NaN               NaN     NaN az saat
-    GTC    64     NaN                NaN              NaN               NaN     NaN az saat
-   HBAR    64     NaN                NaN              NaN               NaN     NaN az saat
-    ICP    64     NaN                NaN              NaN               NaN     NaN az saat
-    ILV    64     NaN                NaN              NaN               NaN     NaN az saat
-    IMX    64     NaN                NaN              NaN               NaN     NaN az saat
-    INJ    64     NaN                NaN              NaN               NaN     NaN az saat
-     IO    64     NaN                NaN              NaN               NaN     NaN az saat
-  JASMY    64     NaN                NaN              NaN               NaN     NaN az saat
-    JTO    64     NaN                NaN              NaN               NaN     NaN az saat
-   KAVA    64     NaN                NaN              NaN               NaN     NaN az saat
-    KNC    64     NaN                NaN              NaN               NaN     NaN az saat
-    KSM    64     NaN                NaN              NaN               NaN     NaN az saat
-    LDO    64     NaN                NaN              NaN               NaN     NaN az saat
-   LINK    64     NaN                NaN              NaN               NaN     NaN az saat
-    LPT    64     NaN                NaN              NaN               NaN     NaN az saat
-   LQTY    64     NaN                NaN              NaN               NaN     NaN az saat
-    LTC    64     NaN                NaN              NaN               NaN     NaN az saat
-  MAGIC    64     NaN                NaN              NaN               NaN     NaN az saat
-   MANA    64     NaN                NaN              NaN               NaN     NaN az saat
-   MASK    64     NaN                NaN              NaN               NaN     NaN az saat
-  METIS    64     NaN                NaN              NaN               NaN     NaN az saat
-   MINA    64     NaN                NaN              NaN               NaN     NaN az saat
-   NEAR    64     NaN                NaN              NaN               NaN     NaN az saat
-    NMR    64     NaN                NaN              NaN               NaN     NaN az saat
-    OGN    64     NaN                NaN              NaN               NaN     NaN az saat
-     OP    64     NaN                NaN              NaN               NaN     NaN az saat
- PENDLE    64     NaN                NaN              NaN               NaN     NaN az saat
-   PEPE    64     NaN                NaN              NaN               NaN     NaN az saat
-    POL    64     NaN                NaN              NaN               NaN     NaN az saat
-   POWR    64     NaN                NaN              NaN               NaN     NaN az saat
- PUNDIX    64     NaN                NaN              NaN               NaN     NaN az saat
-   PYTH    64     NaN                NaN              NaN               NaN     NaN az saat
-    QNT    64     NaN                NaN              NaN               NaN     NaN az saat
-   RARE    64     NaN                NaN              NaN               NaN     NaN az saat
- RENDER    64     NaN                NaN              NaN               NaN     NaN az saat
-    REZ    64     NaN                NaN              NaN               NaN     NaN az saat
-    RLC    64     NaN                NaN              NaN               NaN     NaN az saat
-   ROSE    64     NaN                NaN              NaN               NaN     NaN az saat
-    RPL    64     NaN                NaN              NaN               NaN     NaN az saat
-    RSR    64     NaN                NaN              NaN               NaN     NaN az saat
-   SAND    64     NaN                NaN              NaN               NaN     NaN az saat
-    SEI    64     NaN                NaN              NaN               NaN     NaN az saat
-   SHIB    64     NaN                NaN              NaN               NaN     NaN az saat
-    SKL    64     NaN                NaN              NaN               NaN     NaN az saat
-    SNX    64     NaN                NaN              NaN               NaN     NaN az saat
-    SOL    64     NaN                NaN              NaN               NaN     NaN az saat
-  SPELL    64     NaN                NaN              NaN               NaN     NaN az saat
-   STRK    64     NaN                NaN              NaN               NaN     NaN az saat
-    STX    64     NaN                NaN              NaN               NaN     NaN az saat
-    SUI    64     NaN                NaN              NaN               NaN     NaN az saat
-  SUPER    64     NaN                NaN              NaN               NaN     NaN az saat
-  SUSHI    64     NaN                NaN              NaN               NaN     NaN az saat
-      T    64     NaN                NaN              NaN               NaN     NaN az saat
-    TAO    64     NaN                NaN              NaN               NaN     NaN az saat
-    TIA    64     NaN                NaN              NaN               NaN     NaN az saat
-   TNSR    64     NaN                NaN              NaN               NaN     NaN az saat
-    TRB    64     NaN                NaN              NaN               NaN     NaN az saat
-  TURBO    64     NaN                NaN              NaN               NaN     NaN az saat
-    UMA    64     NaN                NaN              NaN               NaN     NaN az saat
-    UNI    64     NaN                NaN              NaN               NaN     NaN az saat
-    VET    64     NaN                NaN              NaN               NaN     NaN az saat
-   VTHO    64     NaN                NaN              NaN               NaN     NaN az saat
-      W    64     NaN                NaN              NaN               NaN     NaN az saat
-    WIF    64     NaN                NaN              NaN               NaN     NaN az saat
-    WLD    64     NaN                NaN              NaN               NaN     NaN az saat
-    XLM    64     NaN                NaN              NaN               NaN     NaN az saat
-    XRP    64     NaN                NaN              NaN               NaN     NaN az saat
-    XTZ    64     NaN                NaN              NaN               NaN     NaN az saat
-    YFI    64     NaN                NaN              NaN               NaN     NaN az saat
-    ZEC    64     NaN                NaN              NaN               NaN     NaN az saat
-    ZEN    64     NaN                NaN              NaN               NaN     NaN az saat
-     ZK    64     NaN                NaN              NaN               NaN     NaN az saat
-    ZRO    64     NaN                NaN              NaN               NaN     NaN az saat
-    ZRX    64     NaN                NaN              NaN               NaN     NaN az saat
+   coin  saat  U1 kor  U2 |log fark| med  U3 |z fark| med  U3 LD uyuşmazlık  kapsam sonuç
+  1INCH    88   0.999              0.003            0.015             0.000   0.966     ✅
+   AAVE    88   0.999              0.004            0.016             0.000   0.969     ✅
+    ACH    88   1.000              0.003            0.013             0.000   0.966     ✅
+    ADA    88   0.999              0.002            0.011             0.000   0.967     ✅
+   AGLD    88   1.000              0.003            0.012             0.000   0.969     ✅
+   ALGO    88   0.996              0.005            0.019             0.000   0.969     ✅
+  ALICE    88   0.997              0.004            0.013             0.000   0.966     ✅
+    ALT    88   0.985              0.008            0.040             0.000   0.969     ✅
+   ANKR    88   0.999              0.002            0.020             0.011   0.966     ✅
+    APE    88   0.997              0.006            0.029             0.000   0.969     ✅
+   API3    88   0.998              0.005            0.018             0.000   0.966     ✅
+    APT    88   0.999              0.002            0.016             0.000   0.967     ✅
+    ARB    88   1.000              0.003            0.018             0.023   0.967     ❌
+   ARKM    88   0.998              0.003            0.027             0.000   0.969     ✅
+   ARPA    88   1.000              0.003            0.010             0.000   0.966     ✅
+   ATOM    88   0.998              0.004            0.033             0.023   0.969     ❌
+AUCTION    88   0.999              0.002            0.012             0.000   0.966     ✅
+   AVAX    88   0.999              0.005            0.018             0.000   0.969     ✅
+    AXL    88   0.998              0.007            0.038             0.000   0.966     ✅
+    AXS    88   0.999              0.004            0.012             0.000   0.969     ✅
+   BAND    88   1.000              0.004            0.016             0.000   0.966     ✅
+    BAT    88   0.997              0.010            0.025             0.000   0.969     ✅
+    BCH    88   0.999              0.003            0.009             0.000   0.966     ✅
+   BICO    88   1.000              0.002            0.009             0.023   0.969     ❌
+   BLUR    88   0.999              0.005            0.025             0.000   0.966     ✅
+    BNB    88   0.999              0.001            0.010             0.000   0.967     ✅
+    BNT    88   0.999              0.003            0.012             0.000   0.969     ✅
+   BONK    88   1.000              0.004            0.036             0.011   0.966     ✅
+    C98    88   0.998              0.005            0.026             0.000   0.969     ✅
+   CAKE    88   0.998              0.003            0.020             0.000   0.966     ✅
+   CELR    88   0.997              0.003            0.007             0.000   0.969     ✅
+    CHZ    88   0.997              0.003            0.024             0.000   0.966     ✅
+   COMP    88   0.998              0.003            0.012             0.000   0.969     ✅
+   COTI    88   0.999              0.005            0.020             0.000   0.966     ✅
+    CRV    88   0.998              0.004            0.017             0.000   0.969     ✅
+   CTSI    88   0.999              0.006            0.020             0.000   0.966     ✅
+    CVC    88   0.999              0.002            0.007             0.011   0.969     ✅
+    CVX    88   0.995              0.004            0.029             0.000   0.966     ✅
+   DASH    88   0.996              0.002            0.015             0.000   0.969     ✅
+    DIA    88   0.998              0.007            0.034             0.011   0.966     ✅
+   DOGE    88   0.997              0.002            0.011             0.000   0.967     ✅
+    DOT    88   0.996              0.004            0.025             0.000   0.967     ✅
+   EGLD    88   0.987              0.007            0.045             0.000   0.969     ✅
+    ENA    88   0.999              0.005            0.023             0.000   0.966     ✅
+    ENS    88   0.993              0.004            0.039             0.000   0.969     ✅
+    ETC    88   0.999              0.003            0.022             0.000   0.966     ✅
+  ETHFI    88   0.998              0.004            0.021             0.000   0.969     ✅
+    FET    88   0.999              0.003            0.022             0.000   0.966     ✅
+   FIDA    88   0.999              0.003            0.012             0.000   0.969     ✅
+    FIL    88   0.997              0.005            0.018             0.000   0.966     ✅
+  FLOKI    88   0.999              0.002            0.028             0.000   0.967     ✅
+   FLOW    88   0.997              0.006            0.026             0.000   0.969     ✅
+      G    88   0.998              0.004            0.014             0.000   0.966     ✅
+    GLM    88   0.999              0.003            0.014             0.000   0.969     ✅
+    GMT    88   1.000              0.003            0.014             0.000   0.966     ✅
+    GRT    88   0.999              0.003            0.012             0.000   0.969     ✅
+    GTC    88   0.998              0.011            0.019             0.000   0.966     ✅
+   HBAR    88   0.997              0.005            0.012             0.000   0.969     ✅
+    ICP    88   0.999              0.003            0.010             0.000   0.966     ✅
+    ILV    88   0.999              0.003            0.016             0.000   0.968     ✅
+    IMX    88   0.998              0.004            0.032             0.000   0.966     ✅
+    INJ    88   0.997              0.006            0.019             0.000   0.969     ✅
+     IO    88   0.997              0.005            0.026             0.000   0.966     ✅
+  JASMY    88   0.999              0.004            0.018             0.000   0.969     ✅
+    JTO    88   0.995              0.006            0.027             0.000   0.966     ✅
+   KAVA    88   1.000              0.002            0.003             0.000   0.969     ✅
+    KNC    88   0.992              0.002            0.018             0.000   0.966     ✅
+    KSM    88   0.999              0.003            0.012             0.000   0.969     ✅
+    LDO    88   0.997              0.004            0.035             0.000   0.966     ✅
+   LINK    88   0.998              0.002            0.014             0.000   0.967     ✅
+    LPT    88   0.999              0.003            0.009             0.000   0.969     ✅
+   LQTY    88   0.999              0.005            0.022             0.000   0.966     ✅
+    LTC    88   0.997              0.004            0.028             0.000   0.969     ✅
+  MAGIC    88   0.998              0.005            0.014             0.000   0.966     ✅
+   MANA    88   0.998              0.006            0.015             0.000   0.969     ✅
+   MASK    88   0.998              0.004            0.018             0.000   0.966     ✅
+  METIS    88   0.997              0.010            0.046             0.000   0.969     ✅
+   MINA    88   0.998              0.005            0.008             0.000   0.966     ✅
+   NEAR    88   1.000              0.004            0.016             0.000   0.967     ✅
+    NMR    88   0.999              0.004            0.008             0.000   0.969     ✅
+    OGN    88   0.999              0.008            0.018             0.000   0.966     ✅
+     OP    88   0.999              0.004            0.018             0.000   0.967     ✅
+ PENDLE    88   0.993              0.006            0.042             0.000   0.969     ✅
+   PEPE    88   0.998              0.004            0.014             0.000   0.967     ✅
+    POL    88   0.998              0.003            0.017             0.000   0.966     ✅
+   POWR    88   0.999              0.003            0.015             0.000   0.968     ✅
+ PUNDIX    88   0.999              0.004            0.019             0.000   0.966     ✅
+   PYTH    88   0.990              0.007            0.020             0.000   0.969     ✅
+    QNT    88   0.998              0.005            0.005             0.000   0.966     ✅
+   RARE    88   0.999              0.004            0.011             0.000   0.969     ✅
+ RENDER    88   0.997              0.003            0.018             0.000   0.966     ✅
+    REZ    88   0.994              0.005            0.026             0.000   0.969     ✅
+    RLC    88   0.997              0.006            0.009             0.000   0.966     ✅
+   ROSE    88   0.999              0.005            0.019             0.000   0.969     ✅
+    RPL    88   1.000              0.003            0.013             0.000   0.966     ✅
+    RSR    88   0.998              0.007            0.015             0.000   0.969     ✅
+   SAND    88   0.998              0.003            0.007             0.000   0.966     ✅
+    SEI    88   0.999              0.004            0.019             0.000   0.969     ✅
+   SHIB    88   1.000              0.002            0.011             0.000   0.967     ✅
+    SKL    88   0.998              0.007            0.021             0.000   0.966     ✅
+    SNX    88   0.999              0.003            0.017             0.000   0.969     ✅
+    SOL    88   0.999              0.003            0.016             0.000   0.966     ✅
+  SPELL    88   0.995              0.006            0.026             0.000   0.969     ✅
+   STRK    88   0.998              0.007            0.015             0.000   0.966     ✅
+    STX    88   0.997              0.008            0.038             0.000   0.969     ✅
+    SUI    88   0.999              0.004            0.018             0.000   0.967     ✅
+  SUPER    88   0.997              0.005            0.010             0.000   0.966     ✅
+  SUSHI    88   0.997              0.005            0.032             0.000   0.969     ✅
+      T    88   0.999              0.003            0.006             0.000   0.966     ✅
+    TAO    88   1.000              0.004            0.013             0.000   0.969     ✅
+    TIA    88   0.997              0.011            0.043             0.000   0.966     ✅
+   TNSR    88   0.998              0.004            0.018             0.000   0.969     ✅
+    TRB    88   0.999              0.003            0.020             0.000   0.966     ✅
+  TURBO    88   0.995              0.007            0.038             0.000   0.969     ✅
+    UMA    88   0.998              0.003            0.009             0.000   0.966     ✅
+    UNI    88   0.998              0.004            0.023             0.000   0.969     ✅
+    VET    88   0.997              0.003            0.022             0.000   0.966     ✅
+   VTHO    88   0.999              0.006            0.014             0.023   0.969     ❌
+      W    88   0.996              0.009            0.016             0.000   0.966     ✅
+    WIF    88   0.998              0.002            0.015             0.000   0.969     ✅
+    WLD    88   0.999              0.003            0.014             0.000   0.966     ✅
+    XLM    88   0.997              0.002            0.029             0.000   0.969     ✅
+    XRP    88   0.999              0.002            0.012             0.000   0.966     ✅
+    XTZ    88   0.998              0.005            0.029             0.000   0.969     ✅
+    YFI    88   0.999              0.003            0.015             0.000   0.966     ✅
+    ZEC    88   0.999              0.006            0.030             0.000   0.969     ✅
+    ZEN    88   0.998              0.004            0.027             0.000   0.966     ✅
+     ZK    88   0.998              0.007            0.028             0.000   0.969     ✅
+    ZRO    88   0.999              0.019            0.092             0.000   0.966     ✅
+    ZRX    88   0.995              0.005            0.049             0.000   0.969     ✅
 ```
 
-İlk 13 coin: 0 değerlendirildi · U1 korelasyon medyanı nan · U2 medyan nan · U3 z farkı medyanı nan · LD uyuşmazlık nan%
+İlk 13 coin: 13 değerlendirildi · U1 korelasyon medyanı 0.999 · U2 medyan 0.002 · U3 z farkı medyanı 0.016 · LD uyuşmazlık 0.175%
 
-**U4 gün gün:** veri yok → ❌
-**U5 💧 olayları:** veri yok → ❌
+**U4 gün gün:** ilk 24 s: U2 0.005 · U3 0.022 · LD uyuşmazlık 0.06% ✅ · son 24 s: U2 0.003 · U3 0.014 · LD uyuşmazlık 0.16% ✅ → ✅
+**U5 💧 olayları:** arşivde 💧 saat 249 · Neon da yakaladı %99 · Neon fazladan 💧 %0.08 → ✅
 
 ## Karar (UYUM_KARARI.md)
-- İlk 13 coin: ❌ net değil
-- Uyan coin'ler (0): —
-- Uymayan (hariç): —
+- İlk 13 coin: ✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)
+- Uyan coin'ler (126): 1INCH, AAVE, ACH, ADA, AGLD, ALGO, ALICE, ALT, ANKR, APE, API3, APT, ARKM, ARPA, AUCTION, AVAX, AXL, AXS, BAND, BAT, BCH, BLUR, BNB, BNT, BONK, C98, CAKE, CELR, CHZ, COMP, COTI, CRV, CTSI, CVC, CVX, DASH, DIA, DOGE, DOT, EGLD, ENA, ENS, ETC, ETHFI, FET, FIDA, FIL, FLOKI, FLOW, G, GLM, GMT, GRT, GTC, HBAR, ICP, ILV, IMX, INJ, IO, JASMY, JTO, KAVA, KNC, KSM, LDO, LINK, LPT, LQTY, LTC, MAGIC, MANA, MASK, METIS, MINA, NEAR, NMR, OGN, OP, PENDLE, PEPE, POL, POWR, PUNDIX, PYTH, QNT, RARE, RENDER, REZ, RLC, ROSE, RPL, RSR, SAND, SEI, SHIB, SKL, SNX, SOL, SPELL, STRK, STX, SUI, SUPER, SUSHI, T, TAO, TIA, TNSR, TRB, TURBO, UMA, UNI, VET, W, WIF, WLD, XLM, XRP, XTZ, YFI, ZEC, ZEN, ZK, ZRO, ZRX
+- Uymayan (hariç): ARB, ATOM, BICO, VTHO
