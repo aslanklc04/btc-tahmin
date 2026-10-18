@@ -226,7 +226,7 @@ def _cb_son_fiyat(s, nm, t):
             if not tr: return np.nan, "islem_yok"
             tx = pd.to_datetime([x["time"] for x in tr], utc=True, format="ISO8601"); px = np.array([float(x["price"]) for x in tr]); ok = tx <= t
             if ok.any():                                                                     # sıra varsayımı yok: t'ye kadarki EN GEÇ işlem
-                i = int(np.argmax(np.where(ok, tx.asi8, np.iinfo(np.int64).min))); CB_SON_DEBUG[nm] = dict(islem=str(tx[i]), sayfa_ilk=str(tx[0]), sayfa_son=str(tx[-1]), n=len(tr))
+                i = int(np.argmax(np.where(ok, tx.astype("int64").to_numpy(), np.iinfo(np.int64).min))); CB_SON_DEBUG[nm] = dict(islem=str(tx[i]), sayfa_ilk=str(tx[0]), sayfa_son=str(tx[-1]), n=len(tr))
                 return (px[i], "ok") if tx[i] > t0 else (np.nan, "islem_yok")
             after = r.headers.get("cb-after") or r.headers.get("CB-AFTER")
             if not after: return np.nan, "hata"
