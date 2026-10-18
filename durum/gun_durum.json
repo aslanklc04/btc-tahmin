@@ -3,12 +3,6 @@
 "giden": 11,
 "log": [
 {
-"t": "17.10 19:06",
-"s": "panel",
-"e": "🧪 24 saat: ETH (z -2.0 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "17.10 20:07",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: ZRX (z +1.9), FET (z +1.7), PUNDIX (z +1.3), PYTH (z +1.1), CELR (z +1.1), XTZ (z +1.1), ARPA (z +0.9), ARKM (z +0.8), C98 (z +0.6), QNT (z +0.6)",
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "📒 HAFTALIK KARNE — 18.10.2026 · TÜM sinyaller (12.10 tarihinden beri)",
 "k": "gönderildi"
+},
+{
+"t": "18.10 22:06",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
