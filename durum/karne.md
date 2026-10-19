@@ -1,12 +1,12 @@
-# 📒 Canlı karne — 19.10.2026 18:05
+# 📒 Canlı karne — 19.10.2026 19:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 39 | %67 | 0.49% | 19.2% | 0 | %62 · %67 |
 | 🔸 yedek (gönderildi) | 137 | %82 | 2.02% | 277.2% | 0 | %60 · %65 |
-| panel (gönderilmedi) | 188 | %58 | 0.51% | 96.5% | 3 | — |
-| ↳ panel · prim ⛔ (filtre) | 122 | %60 | 0.59% | 72.4% | 1 | — |
+| panel (gönderilmedi) | 189 | %58 | 0.51% | 97.1% | 2 | — |
+| ↳ panel · prim ⛔ (filtre) | 123 | %60 | 0.59% | 72.9% | 0 | — |
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
@@ -25,7 +25,7 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | panel | 🔇/🪙 coin tek | 42 · %57 | 42 | %57 | 0.33% | 14.0% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 6 · %83 | 6 | %83 | 0.20% | 1.2% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 41 · %59 | 41 | %59 | 1.28% | 52.4% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 10 · %60 | 10 | %60 | 2.14% | 21.4% | %55 · %53 | ✅ iyi |
+| panel | 🧪 24 s ana coin | 11 · %64 | 11 | %64 | 2.00% | 22.0% | %55 · %53 | ✅ iyi |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
