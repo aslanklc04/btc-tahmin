@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "18.10 05:06",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.8",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "18.10 06:05",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
@@ -240,6 +234,12 @@
 "t": "19.10 10:06",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: FIL (z +2.3, 8 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "19.10 17:06",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.3",
 "k": "gitmedi — yalnız panel"
 }
 ]
