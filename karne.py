@@ -59,7 +59,9 @@ def main():
     rows = []
     for r in K.itertuples():
         su = int(float(r.sure)) if r.sure else None; t0 = pd.Timestamp(r.t, tz=DISPLAY_TZ).floor("h").tz_convert("UTC")
+        IM = dict(x.split(":", 1) for x in str(getattr(r, "isr", "") or "").split("|") if ":" in x)   # 19.10: mesajdaki coin işaretleri
         for nm, H, yon, tur, isr in coz(r.e, su):
+            isr = "".join(m for m in ("📉🔥", "💧", "💸", "🚀") if m in isr + IM.get(nm, ""))
             rows.append(dict(t0=t0, sinif=sinif(r.s, r.k), terfi="🔥" in r.s, coin=nm, H=H, yon=yon, tur=tur + (" 🔥" if "🔥" in r.s else ""), isr=isr,   # 🔥 ile yükselenler ayrı satır
                              fz=float(r.fz) if r.fz else np.nan, prim_ret="⛔" in r.e))
     X = pd.DataFrame(rows)
@@ -119,6 +121,13 @@ def main():
     L += ["", f"**Önceden yazılı karar (15.10.2026):** {KARAR_T:%d.%m.%Y} tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).",
           "_Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_"]
     ana_karar = [x for x in karar if x[1] == "ana"]
+    ISR_TEST = {"📉🔥": (66.9, 71.4), "💧": (68.5, 69.0), "💸": (65.0, 64.0), "🚀": (64.6, 69.0)}   # ana içinde (2024+ · 2026): ozet_tablo · ld_genis · teknik_tara C4b · ozet_tablo
+    ISR_SAT = []
+    for mk, ts in ISR_TEST.items():
+        m = (X.sinif == "ana") & X.isr.str.contains(mk, regex=False); k = Kp[m[Kp.index]]; a_ = X[m & ~X.kap]
+        if len(k) or len(a_): ISR_SAT.append((mk, len(k), 100 * (k.net > 0).mean() if len(k) else np.nan, k.net.mean() if len(k) else np.nan, len(a_), ts))
+    L += ["", "## İşaretli ✅ ana sinyaller (19.10'dan beri ayrı kayıt; 13.10 SHIB 📉🔥 elle eklendi)", "| İşaret | Kapanan | İsabet | İşlem başı net | Açık | Testte (2024+ · 2026) |", "|---|---|---|---|---|---|"]
+    L += [f"| {mk} | {n} | %{f(h, 0)} | {f(a, 2)}% | {o} | %{ts[0]:.0f} · %{ts[1]:.0f} |" for mk, n, h, a, o, ts in ISR_SAT] or ["| — | henüz işaretli ana sinyal yok | | | | |"]
     if yerel >= KARAR_T and ana_karar: L.append("- ❌ **ÖNERİ:** " + " · ".join(f"{t} ({n} sinyal, %{h:.0f} vs test %{ts:.0f}, net {a:+.2f}%)" for t, _, n, h, a, ts in ana_karar))
     L += ["", "## Son 25 kapanan (gönderilen)", "| Saat | Sınıf | Tür | Coin | Süre | Net | |", "|---|---|---|---|---|---|---|"]
     for r in Kp[Kp.sinif != "panel"].sort_values("t0").tail(25).itertuples():
@@ -142,6 +151,7 @@ def main():
         for sn, tur, n, h, a, nw, hw, aw, ts, nt in TN:
             if sn != son_sn: tl.append(f"{SN_AD[sn]}:"); son_sn = sn
             tl.append(f"• {tad(tur)}: {n} · %{f(h, 0)} · {f(a, 2)}% · hafta {nw}" + (f" (%{hw:.0f})" if nw else "") + (f" · test %{ts[0]:.0f}" if ts else "") + f" → {nt}")
+        if ISR_SAT: tl += ["", "İŞARETLİ ANA SİNYALLER:"] + [f"• {mk}: {n} kapandı · %{f(h, 0)} · {f(a, 2)}%" + (f" · açık {o}" if o else "") + f" · test %{ts[1]:.0f}" for mk, n, h, a, o, ts in ISR_SAT]
         tl += ["", f"Karar günü {KARAR_T:%d.%m}: ana türünde ≥ 20 kapanan sinyal ve canlı isabet testin belirgin altında + zarar → çıkarma önerisi (sana sorulur)."]
         if len(Kp[Kp.sinif == "ana"]) < 40: tl.append("Az sinyal varken tek hafta sonucu yanıltıcıdır.")
         if yerel >= KARAR_T and ana_karar: tl.append("❌ ÖNERİ — ana'dan çıkarılması önerilen: " + ", ".join(t for t, *_ in ana_karar))
