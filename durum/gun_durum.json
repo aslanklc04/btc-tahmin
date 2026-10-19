@@ -3,18 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "18.10 01:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: NEAR (z -2.0 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 01:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ADA (z -2.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "18.10 05:06",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.8",
@@ -241,6 +229,18 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 19.10 09:00 · $82,756",
 "k": "gönderildi"
+},
+{
+"t": "19.10 10:06",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "19.10 10:06",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: FIL (z +2.3, 8 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
