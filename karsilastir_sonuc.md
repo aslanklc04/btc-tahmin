@@ -1,0 +1,16 @@
+# ⚖️ Hangisi daha iyi? — 19.10.2026 11:13
+_komisyon dahil · saat = aynı saatte gelen tüm sinyallere toplam 1 birim para (eşit bölünmüş) · veri sonu 10.10.2026_
+
+```
+set                                yıl   sinyal/hf  isabet net/işlem | saat/hf saat isabet saat net | hafta top eksi hafta en kötü hf istikrar
+1) şimdiki ana (🔥 dahil)           2024       46.9   67.1%     +1.20 |    14.8       63.0%    +1.04 |    +15.18        19%     -54.52     0.46
+1) şimdiki ana (🔥 dahil)           2025       45.8   60.3%     +0.51 |    14.6       56.8%    +0.71 |    +10.47        35%     -92.42     0.31
+1) şimdiki ana (🔥 dahil)           2026       38.6   68.5%     +0.92 |    14.1       62.6%    +0.74 |    +10.30        22%     -33.97     0.49
+2) v35 BTC sinyalleri (⭐/A/1-4-8 s) 2024       64.4   57.7%     +0.07 |    33.5       56.1%    +0.03 |     +1.05        28%     -27.66     0.12
+2) v35 BTC sinyalleri (⭐/A/1-4-8 s) 2025       61.4   52.6%     -0.02 |    32.2       51.6%    -0.02 |     -0.66        53%     -19.21    -0.10
+2) v35 BTC sinyalleri (⭐/A/1-4-8 s) 2026       57.3   50.6%     -0.03 |    31.8       50.3%    -0.03 |     -1.03        51%     -23.34    -0.18
+3) ikisi birlikte                  2024      111.3   61.7%     +0.55 |    40.6       57.7%    +0.34 |    +13.49        26%     -47.08     0.41
+3) ikisi birlikte                  2025      107.2   55.9%     +0.21 |    38.7       52.6%    +0.22 |     +8.52        42%     -62.25     0.29
+3) ikisi birlikte                  2026       95.8   57.8%     +0.36 |    38.5       53.1%    +0.16 |     +6.09        41%     -32.40     0.32
+```
+_istikrar = haftalık ortalama kazanç / haftalık oynaklık (yüksek = daha düzenli) · hafta top = saat başı 1 birimle haftalık toplam getiri (%)_
