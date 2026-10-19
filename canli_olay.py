@@ -1,4 +1,4 @@
-# canli_olay.py — DENETİM (18.10.2026, yalnız bilgi): canlıda GÖNDERİLEN her ana/yedek sinyalin gerçek sonucu, olay (saat) bazında + o pencerede BTC ne yaptı.
+# canli_olay.py — DENETİM (18.10.2026, yalnız bilgi): canlıda GÖNDERİLEN her ana/yedek sinyalin gerçek sonucu, olay (saat) bazında + o pencerede BTC ne yaptı. 
 # karne.py ile aynı ölçüm (sinyal saati kapanışı → süre sonu kapanışı, %0,04). Main kökünden çalışır.
 import numpy as np, pandas as pd
 from karne import coz, sinif, KAYIT_F
