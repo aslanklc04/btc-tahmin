@@ -55,6 +55,9 @@ def gecikme(m):
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
 def yolla(t):                                                                                 # Telegram sınırı: aynı sohbete art arda çok mesajda ~1 sn ara
     ok = bool(tg_send(t)); time.sleep(1.0); return ok
+ISARET_RE = re.compile(r"^• ((?:(?:🚀|📉🔥|💧|💸) )+)([A-Z0-9]{2,12})", re.M)
+def isaretler(metin):                                                                         # 19.10.2026: coin satırlarındaki işaretler (📉🔥 💧 💸 🚀) karneye ayrı kayıt → "COIN:📉🔥💧|…"
+    return "|".join(f"{c}:{m.replace(' ', '')}" for m, c in ISARET_RE.findall(metin or ""))
 def kalabalik(ana):                                                                            # 19.10.2026 yontem3.py Y3 (önceden yazılı, üç dönem + plasebo geçti): aynı saatte ≥ 4 adet
     """4 saatlik ✅ ana coin sinyali varsa primi en yüksek 3'ü öne çıkar (paranın tamamı bu 3'e). Dönüş: mesaj satırı ya da ''."""
     S = []
@@ -119,13 +122,15 @@ def main():
     GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_, _ in karar])[-40:]
     try:                                                                                       # canlı karne kaydı (bilgi hariç): saat · sınıf · etiket · karar · süre (mesajın ⏱ SÜRE satırı) · 🔥 fonlama z
         yeni = not os.path.exists(KARNE_F)
+        if not yeni and "isr" not in open(KARNE_F, encoding="utf-8").readline():          # eski başlık → isr sütunu eklenir (bir kez)
+            _k = pd.read_csv(KARNE_F, dtype=str).fillna(""); _k["isr"] = ""; _k.to_csv(KARNE_F, index=False)
         with open(KARNE_F, "a", encoding="utf-8", newline="") as f:
             w = csv.writer(f)
-            if yeni: w.writerow(["t", "s", "e", "k", "sure", "fz"])
+            if yeni: w.writerow(["t", "s", "e", "k", "sure", "fz", "isr"])
             for s_, e_, k_, m_ in karar:
                 if s_.startswith("ℹ️"): continue
                 g = re.search(r"⏱ SÜRE: (\d+) (SAAT|GÜN)", m_.get("m", "")); su = (int(g.group(1)) * (24 if g.group(2) == "GÜN" else 1)) if g else ""
-                w.writerow([f"{simdi:%Y-%m-%d %H:%M}", s_, e_, k_, su, f"{FZ:.2f}" if np.isfinite(FZ) else ""])
+                w.writerow([f"{simdi:%Y-%m-%d %H:%M}", s_, e_, k_, su, f"{FZ:.2f}" if np.isfinite(FZ) else "", isaretler(m_.get("m", ""))])
     except Exception as e: print("karne kaydı yazılamadı:", e)
     os.makedirs(os.path.dirname(GUN_F), exist_ok=True); json.dump(GD, open(GUN_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if os.path.exists("son_durum.md"):                                                         # panel: Telegram kararları
