@@ -1,0 +1,103 @@
+# 📅 Yüksek isabetli sinyaller ne sıklıkta, ne zaman çıktı? — 19.10.2026 21:55
+_2022-06 → 10.10.2026 · sinyal sayısı (coin-sinyal) · ayrı gün · isabet_
+
+## 🌐🤝 geniş liste ortak — toplam 1074 sinyal · isabet %67
+```
+2022:   104 sinyal ·  36 ayrı gün ·  7 ayda · isabet %56
+2023:   186 sinyal ·  86 ayrı gün · 12 ayda · isabet %62
+2024:   291 sinyal · 103 ayrı gün · 12 ayda · isabet %69
+2025:   312 sinyal ·  88 ayrı gün · 12 ayda · isabet %65
+2026:   181 sinyal ·  63 ayrı gün ·  9 ayda · isabet %76
+aylar: 53 ayın 52'inde çıktı · en yoğun 3 ay (2026-08, 2024-02, 2024-11) toplamın %17'i
+haftalar: 228 haftanın %73'inde en az 1 sinyal · en uzun sinyalsiz dönem 4 hafta
+aylık dağılım: 22-06:21 22-07:25 22-08:4 22-09:2 22-10:10 22-11:23 22-12:19 23-01:28 23-02:9 23-03:4 23-04:10 23-05:3 23-06:16 23-07:15 23-08:2 23-09:26 23-10:39 23-11:21 23-12:13 24-01:4 24-02:60 24-03:11 24-04:8 24-05:13 24-06:17 24-07:9 24-08:32 24-09:24 24-10:29 24-11:56 24-12:28 25-01:17 25-02:23 25-03:13 25-04:31 25-05:51 25-06:13 25-07:33 25-08:18 25-09:32 25-10:31 25-11:20 25-12:30 26-01:26 26-02:20 26-03:8 26-04:10 26-05:20 26-06:12 26-07:12 26-08:65 26-09:8
+```
+## 🔥 yükselenler (fonlama) — toplam 1473 sinyal · isabet %73
+```
+2022:     0
+2023:   210 sinyal ·  15 ayrı gün ·  3 ayda · isabet %74
+2024:   632 sinyal ·  43 ayrı gün · 11 ayda · isabet %68
+2025:   454 sinyal ·  18 ayrı gün ·  9 ayda · isabet %76
+2026:   177 sinyal ·  11 ayrı gün ·  6 ayda · isabet %79
+aylar: 53 ayın 29'inde çıktı · en yoğun 3 ay (2024-02, 2024-03, 2025-07) toplamın %33'i
+haftalar: 228 haftanın %19'inde en az 1 sinyal · en uzun sinyalsiz dönem 73 hafta
+aylık dağılım: 23-10:106 23-11:2 23-12:102 24-01:1 24-02:194 24-03:162 24-05:77 24-06:1 24-07:8 24-08:59 24-09:25 24-10:3 24-11:60 24-12:42 25-01:50 25-02:2 25-03:81 25-04:42 25-05:42 25-07:124 25-08:13 25-10:1 25-11:99 26-01:13 26-03:22 26-04:19 26-05:115 26-07:1 26-10:7
+```
+## 🔀 BTC sessiz + coin primi — toplam 198 sinyal · isabet %68
+```
+2022:    13 sinyal ·   9 ayrı gün ·  5 ayda · isabet %62
+2023:    54 sinyal ·  33 ayrı gün · 12 ayda · isabet %72
+2024:    47 sinyal ·  27 ayrı gün · 11 ayda · isabet %64
+2025:    57 sinyal ·  29 ayrı gün · 11 ayda · isabet %61
+2026:    27 sinyal ·  18 ayrı gün ·  8 ayda · isabet %81
+aylar: 53 ayın 47'inde çıktı · en yoğun 3 ay (2025-05, 2023-11, 2023-06) toplamın %19'i
+haftalar: 228 haftanın %36'inde en az 1 sinyal · en uzun sinyalsiz dönem 9 hafta
+aylık dağılım: 22-06:2 22-08:2 22-09:3 22-10:5 22-11:1 23-01:4 23-02:4 23-03:7 23-04:7 23-05:2 23-06:7 23-07:2 23-08:4 23-09:3 23-10:1 23-11:12 23-12:1 24-02:3 24-03:2 24-04:7 24-05:6 24-06:5 24-07:4 24-08:5 24-09:3 24-10:4 24-11:1 24-12:7 25-01:3 25-02:7 25-03:5 25-04:6 25-05:18 25-06:4 25-07:3 25-08:2 25-09:4 25-11:1 25-12:4 26-01:7 26-02:4 26-04:1 26-05:2 26-06:3 26-07:3 26-09:4 26-10:3
+```
+## 🚀 momentum — toplam 347 sinyal · isabet %63
+```
+2022:    20 sinyal ·   7 ayrı gün ·  5 ayda · isabet %40
+2023:   169 sinyal ·  28 ayrı gün · 11 ayda · isabet %65
+2024:    76 sinyal ·  15 ayrı gün ·  7 ayda · isabet %67
+2025:    40 sinyal ·  14 ayrı gün ·  9 ayda · isabet %55
+2026:    42 sinyal ·  12 ayrı gün ·  5 ayda · isabet %69
+aylar: 53 ayın 37'inde çıktı · en yoğun 3 ay (2023-10, 2023-01, 2026-08) toplamın %38'i
+haftalar: 228 haftanın %21'inde en az 1 sinyal · en uzun sinyalsiz dönem 23 hafta
+aylık dağılım: 22-07:1 22-08:1 22-10:10 22-11:1 22-12:7 23-01:43 23-02:4 23-03:3 23-04:1 23-06:14 23-07:3 23-08:12 23-09:1 23-10:63 23-11:6 23-12:19 24-01:17 24-02:24 24-03:5 24-04:1 24-05:17 24-11:11 24-12:1 25-03:4 25-04:2 25-05:11 25-07:15 25-08:1 25-09:1 25-10:4 25-11:1 25-12:1 26-01:1 26-04:3 26-05:2 26-08:27 26-09:9
+```
+## 🧪 + 📉 dip — toplam 110 sinyal · isabet %71
+```
+2022:     5 sinyal ·   5 ayrı gün ·  4 ayda · isabet %80
+2023:    22 sinyal ·  11 ayrı gün ·  6 ayda · isabet %77
+2024:    40 sinyal ·  19 ayrı gün ·  9 ayda · isabet %68
+2025:    25 sinyal ·  13 ayrı gün ·  8 ayda · isabet %76
+2026:    18 sinyal ·  10 ayrı gün ·  4 ayda · isabet %61
+aylar: 53 ayın 31'inde çıktı · en yoğun 3 ay (2023-03, 2024-07, 2024-06) toplamın %25'i
+haftalar: 228 haftanın %18'inde en az 1 sinyal · en uzun sinyalsiz dönem 17 hafta
+aylık dağılım: 22-06:1 22-10:1 22-11:1 22-12:2 23-03:9 23-05:1 23-06:5 23-08:5 23-10:1 23-11:1 24-01:4 24-03:1 24-04:4 24-06:9 24-07:9 24-08:6 24-10:3 24-11:3 24-12:1 25-01:1 25-02:5 25-04:1 25-05:1 25-06:5 25-09:3 25-10:8 25-11:1 26-01:7 26-02:4 26-06:6 26-07:1
+```
+## 💵 + 📉 dip — toplam 90 sinyal · isabet %69
+```
+2022:    12 sinyal ·   8 ayrı gün ·  5 ayda · isabet %42
+2023:    23 sinyal ·  10 ayrı gün ·  5 ayda · isabet %83
+2024:    25 sinyal ·  12 ayrı gün ·  8 ayda · isabet %80
+2025:    24 sinyal ·   8 ayrı gün ·  8 ayda · isabet %54
+2026:     6 sinyal ·   5 ayrı gün ·  4 ayda · isabet %83
+aylar: 53 ayın 30'inde çıktı · en yoğun 3 ay (2023-06, 2023-03, 2023-08) toplamın %22'i
+haftalar: 228 haftanın %15'inde en az 1 sinyal · en uzun sinyalsiz dönem 21 hafta
+aylık dağılım: 22-08:1 22-09:1 22-10:2 22-11:5 22-12:3 23-02:1 23-03:7 23-06:7 23-08:6 23-10:2 24-01:3 24-03:2 24-04:6 24-06:2 24-07:4 24-08:5 24-11:1 24-12:2 25-02:6 25-03:1 25-05:2 25-06:2 25-08:1 25-09:6 25-10:5 25-12:1 26-01:2 26-02:2 26-03:1 26-08:1
+```
+## 🧑 küçük yatırımcı — toplam 78 sinyal · isabet %68
+```
+2022:     0
+2023:    22 sinyal ·  11 ayrı gün ·  4 ayda · isabet %73
+2024:    28 sinyal ·  14 ayrı gün ·  6 ayda · isabet %71
+2025:    12 sinyal ·   6 ayrı gün ·  5 ayda · isabet %50
+2026:    16 sinyal ·   8 ayrı gün ·  3 ayda · isabet %69
+aylar: 53 ayın 18'inde çıktı · en yoğun 3 ay (2026-08, 2024-11, 2023-10) toplamın %33'i
+haftalar: 228 haftanın %17'inde en az 1 sinyal · en uzun sinyalsiz dönem 32 hafta
+aylık dağılım: 23-01:6 23-06:6 23-07:2 23-10:8 24-01:4 24-02:6 24-07:2 24-10:4 24-11:8 24-12:4 25-05:2 25-06:2 25-07:4 25-10:2 25-11:2 26-04:2 26-05:4 26-08:10
+```
+## ⛓️ ETH arz/talep — toplam 109 sinyal · isabet %60
+```
+2022:     5 sinyal ·   4 ayrı gün ·  3 ayda · isabet %60
+2023:    28 sinyal ·  26 ayrı gün ·  9 ayda · isabet %64
+2024:    31 sinyal ·  30 ayrı gün ·  7 ayda · isabet %55
+2025:    24 sinyal ·  22 ayrı gün ·  7 ayda · isabet %62
+2026:    21 sinyal ·  21 ayrı gün ·  5 ayda · isabet %57
+aylar: 53 ayın 31'inde çıktı · en yoğun 3 ay (2025-08, 2024-11, 2026-09) toplamın %23'i
+haftalar: 228 haftanın %31'inde en az 1 sinyal · en uzun sinyalsiz dönem 19 hafta
+aylık dağılım: 22-07:1 22-08:2 22-11:2 23-01:2 23-03:3 23-05:1 23-06:6 23-08:3 23-09:2 23-10:2 23-11:5 23-12:4 24-01:3 24-02:4 24-03:5 24-04:3 24-08:5 24-11:9 24-12:2 25-02:1 25-04:1 25-05:3 25-07:5 25-08:10 25-09:3 25-10:1 26-01:3 26-02:1 26-03:5 26-08:6 26-09:6
+```
+## ↳ ana içinde 📉 dip işaretli — toplam 592 sinyal · isabet %66
+```
+2022:    87 sinyal ·  20 ayrı gün ·  7 ayda · isabet %54
+2023:    97 sinyal ·  22 ayrı gün ·  9 ayda · isabet %73
+2024:   149 sinyal ·  33 ayrı gün · 10 ayda · isabet %64
+2025:   147 sinyal ·  33 ayrı gün · 12 ayda · isabet %67
+2026:   112 sinyal ·  24 ayrı gün · 10 ayda · isabet %71
+aylar: 53 ayın 48'inde çıktı · en yoğun 3 ay (2025-09, 2023-03, 2026-01) toplamın %17'i
+haftalar: 228 haftanın %36'inde en az 1 sinyal · en uzun sinyalsiz dönem 9 hafta
+aylık dağılım: 22-06:9 22-07:9 22-08:4 22-09:8 22-10:10 22-11:18 22-12:29 23-01:5 23-02:3 23-03:33 23-05:1 23-06:24 23-08:17 23-09:3 23-10:4 23-11:7 24-01:7 24-03:12 24-04:13 24-06:25 24-07:28 24-08:25 24-09:3 24-10:11 24-11:19 24-12:6 25-01:13 25-02:17 25-03:5 25-04:5 25-05:17 25-06:9 25-07:1 25-08:6 25-09:38 25-10:16 25-11:2 25-12:18 26-01:30 26-02:23 26-03:1 26-04:7 26-05:5 26-06:23 26-07:5 26-08:14 26-09:3 26-10:1
+```
+exit=0
