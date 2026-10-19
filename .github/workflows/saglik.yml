@@ -1,0 +1,50 @@
+name: Saglik taramasi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [saglik.py, .github/workflows/saglik.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+          path: a3
+      - run: git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller; ls modeller | wc -l
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis.pkl
+          key: gecmis-x
+          restore-keys: gecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-x
+          restore-keys: coingecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/derinlik_saat.pkl
+          key: ldgecmis-x
+          restore-keys: ldgecmis-
+      - run: |
+          cp a3/saglik.py .
+          set +e; timeout 1800 python -u saglik.py > a3/saglik_log.txt 2>&1; echo "exit=$?" >> a3/saglik_log.txt; tail -50 a3/saglik_log.txt
+          cp saglik_sonuc.md a3/ 2>/dev/null || true
+      - run: |
+          cd a3
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add saglik_log.txt; git add saglik_sonuc.md 2>/dev/null || true; git commit -m "Saglik taramasi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
