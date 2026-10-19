@@ -1,4 +1,4 @@
-name: Karne isaret testi
+name: Karne isaret testi (2)
 on:
   push:
     branches: [arastirma3]
@@ -17,7 +17,10 @@ jobs:
           cache: pip
       - run: pip install -q -r requirements.txt
       - run: |
-          python karne.py > /tmp/k.txt 2>&1; echo "exit=$?"; grep -n "İşaretli" -A6 durum/karne.md; head -8 durum/karne.md; tail -5 /tmp/k.txt
+          set -e
+          python karne.py > /tmp/k.txt 2>&1
+          grep -A4 "İşaretli" durum/karne.md
+          grep -A4 "İşaretli" durum/karne.md | grep -q "📉🔥 | 1 |"
           echo "=== gonder kuru (isr sütunu yazılıyor mu)"
           python - <<'PY'
           import json, time, os
@@ -25,4 +28,4 @@ jobs:
           json.dump(q,open("durum/tg_kuyruk.json","w")); os.environ["TEST_FZ"]="0"
           import gonder; gonder.tg_send=lambda m,**k: True; gonder.main()
           PY
-          tail -2 durum/karne_kayit.csv
+          tail -1 durum/karne_kayit.csv | grep -q 'SHIB:📉🔥|LDO:💧' && echo ISR_OK
