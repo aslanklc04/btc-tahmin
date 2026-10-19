@@ -55,6 +55,23 @@ def gecikme(m):
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
 def yolla(t):                                                                                 # Telegram sınırı: aynı sohbete art arda çok mesajda ~1 sn ara
     ok = bool(tg_send(t)); time.sleep(1.0); return ok
+def kalabalik(ana):                                                                            # 19.10.2026 yontem3.py Y3 (önceden yazılı, üç dönem + plasebo geçti): aynı saatte ≥ 4 adet
+    """4 saatlik ✅ ana coin sinyali varsa primi en yüksek 3'ü öne çıkar (paranın tamamı bu 3'e). Dönüş: mesaj satırı ya da ''."""
+    S = []
+    for m in ana:
+        g = re.search(r"⏱ SÜRE: (\d+) SAAT", m.get("m", ""))
+        if not g or int(g.group(1)) != 4: continue
+        e = m.get("e", "")
+        x = re.findall(r"([A-Z0-9]{2,12}) \((?:z ([+-]?[\d.]+)|prim yok)", e.split(":", 1)[-1]) if ":" in e else []
+        if not x:
+            h = re.match(r"^\S+ ([A-Z0-9]{2,12}) .*?prim \S+ z ([+-]?[\d.]+)", e); x = [(h.group(1), h.group(2))] if h else []
+        S += [(c, float(z) if z else float("-inf")) for c, z in x]
+    S = list(dict(S).items())                                                               # aynı coin bir kez
+    if len(S) < 4: return ""
+    ust = sorted(S, key=lambda x: -x[1])[:3]
+    return (f"🎯 KALABALIK SAAT — {len(S)} adet 4 saatlik ana sinyal: parayı hepsine bölmek yerine primi en yüksek 3'üne koy → "
+            + ", ".join(f"{c} (z {z:+.1f})" if np.isfinite(z) else c for c, z in ust)
+            + "\n   testte saat başı kâr hepsine bölmeye göre +%0,19→0,24 · +%0,40→0,47 · +%0,65→0,70 (2022–23 · 2024–25 · 2026), isabet aynı; rastgele 3 coin bu farkı vermedi. Diğerleri de geçerli ana sinyal.\n")
 def main():
     uyari()
     simdi = pd.Timestamp.now(tz=DISPLAY_TZ); bugun = f"{simdi:%Y-%m-%d}"
@@ -82,10 +99,12 @@ def main():
         for m in pterfi: m["terfi"] = m["c"]; m["m"] = m["m"].replace("⛔ ALMA", "⛔ ama 🔥 fonlama çok yüksek")
         panel = [m for m in panel if not m.get("terfi")]; ana = ana + sorted(pterfi, key=lambda m: (m["o"], m["s"]))
     n = len(ana); gonderilen = 0; karar = []
+    KAL = kalabalik(ana)
     for i, m in enumerate(ana):
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
+        if i == 0 and KAL: ust = KAL + "━━━━━━━━━━━━\n" + ust if n < 2 else ust.replace("━━━━━━━━━━━━\n", KAL + "━━━━━━━━━━━━\n", 1)
         ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
