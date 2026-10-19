@@ -1,7 +1,7 @@
-# Canlı olaylar — 18.10 11:08
+# Canlı olaylar — 19.10 11:55
 
-## ana: 29 kapanan sinyal · %62 · ort net -0.41 → 10 ayrı saat (olay)
-   olay bazında: 2/10 saat kârda · olay ortalaması -2.14
+## ana: 38 kapanan sinyal · %66 · ort net +0.50 → 12 ayrı saat (olay)
+   olay bazında: 3/12 saat kârda · olay ortalaması -1.48
 ```
     saat tur  n  tuttu  ort_net   btc  H
 13.10 00  🌐🧪  1      0   -21.57  0.38 24
@@ -17,10 +17,14 @@
 16.10 21   🤝  1      0    -0.46  0.57  4
 17.10 16   🤝  2      0    -1.84 -0.32  4
 18.10 01  🌐🤝  8      8     1.13  0.64  4
+18.10 01  🌐🧪  1      0    -3.33  0.10 24
 18.10 01   🤝  5      5     0.79  0.64  4
+18.10 18   🤝  1      0    -1.17  0.11  4
+18.10 23  🌐🤝  5      5     5.00  1.53  4
+18.10 23   🤝  2      2     5.12  1.53  4
 ```
-## yedek: 81 kapanan sinyal · %83 · ort net +1.33 → 12 ayrı saat (olay)
-   olay bazında: 9/12 saat kârda · olay ortalaması +3.86
+## yedek: 137 kapanan sinyal · %82 · ort net +2.02 → 14 ayrı saat (olay)
+   olay bazında: 10/14 saat kârda · olay ortalaması +3.55
 ```
     saat tur  n  tuttu  ort_net   btc  H
 14.10 19 🔇/🪙  1      1     0.09  0.24  4
@@ -36,6 +40,8 @@
 17.10 19  🌐🤝  8      7     0.74  0.30  4
 17.10 20  🌐🤝 16     15     1.82  0.49  4
 18.10 01  🌐🤝 34     32     0.94  0.64  4
+18.10 18  🌐🤝 12      2    -0.61  0.11  4
+18.10 23  🌐🤝 44     44     4.01  1.53  4
 ```
 ## Tüm gönderilen satırlar
 ```
@@ -116,7 +122,7 @@
 18.10 01   ana   🤝      OP  4  True   0.04    1.49    -0.16  0.64
 18.10 01   ana   🤝     ARB  4  True   1.52    2.51     0.06  0.64
 18.10 01   ana   🤝     DOT  4  True   0.50    1.54    -0.09  0.64
-18.10 01   ana  🌐🧪     KSM 24 False  -1.21    1.41    -1.64  0.67
+18.10 01   ana  🌐🧪     KSM 24  True  -3.33    1.41    -4.69  0.10
 18.10 01 yedek  🌐🤝    ATOM  4  True   1.15    1.90     0.12  0.64
 18.10 01 yedek  🌐🤝   SUPER  4  True   2.92    3.65     0.05  0.64
 18.10 01 yedek  🌐🤝    DASH  4  True   1.15    2.19     0.17  0.64
@@ -151,17 +157,83 @@
 18.10 01 yedek  🌐🤝     FET  4  True   1.82    3.08     0.00  0.64
 18.10 01 yedek  🌐🤝   ETHFI  4  True   1.25    2.90     0.02  0.64
 18.10 01 yedek  🌐🤝     GRT  4  True   1.13    2.39    -0.04  0.64
+18.10 16   ana  🌐🧪   TURBO 24 False   0.91    1.91    -3.94  0.90
+18.10 18   ana   🤝      OP  4  True  -1.17    0.40    -1.46  0.11
+18.10 18 yedek  🌐🤝     SEI  4  True  -0.22    0.83    -0.27  0.11
+18.10 18 yedek  🌐🤝     RLC  4  True   0.61    2.03    -0.79  0.11
+18.10 18 yedek  🌐🤝     OGN  4  True  -0.65    1.05    -2.66  0.11
+18.10 18 yedek  🌐🤝    MANA  4  True  -0.04    0.72    -0.48  0.11
+18.10 18 yedek  🌐🤝     ENS  4  True  -0.60    0.56    -0.93  0.11
+18.10 18 yedek  🌐🤝    VTHO  4  True  -0.68    0.32    -1.44  0.11
+18.10 18 yedek  🌐🤝    PYTH  4  True   0.30    1.76    -0.93  0.11
+18.10 18 yedek  🌐🤝    ATOM  4  True  -0.82    0.36    -1.02  0.11
+18.10 18 yedek  🌐🤝    STRK  4  True  -2.27    2.37    -3.48  0.11
+18.10 18 yedek  🌐🤝     STX  4  True  -0.40    0.87    -1.01  0.11
+18.10 18 yedek  🌐🤝     NMR  4  True  -1.62    0.53    -1.76  0.11
+18.10 18 yedek  🌐🤝     JTO  4  True  -0.88    0.47    -1.03  0.11
+18.10 23   ana  🌐🤝    RARE  4  True   4.32    4.52     0.00  1.53
+18.10 23   ana  🌐🤝   SUSHI  4  True   4.94    5.02    -0.05  1.53
+18.10 23   ana  🌐🤝   TURBO  4  True   4.42    4.46     0.00  1.53
+18.10 23   ana  🌐🤝     WLD  4  True   5.69    6.05    -1.34  1.53
+18.10 23   ana   🤝    SHIB  4  True   3.70    3.74    -0.21  1.53
+18.10 23   ana   🤝     DOT  4  True   6.54    6.96     0.00  1.53
+18.10 23   ana  🌐🤝     JTO  4  True   5.62    5.90    -0.38  1.53
+18.10 23 yedek  🌐🤝    MANA  4  True   4.53    4.70     0.00  1.53
+18.10 23 yedek  🌐🤝   SPELL  4  True   3.55    3.71     0.12  1.53
+18.10 23 yedek  🌐🤝     DIA  4  True   4.72    4.82    -0.20  1.53
+18.10 23 yedek  🌐🤝    ANKR  4  True   3.53    3.83     0.00  1.53
+18.10 23 yedek  🌐🤝     GLM  4  True   3.93    4.06    -0.09  1.53
+18.10 23 yedek  🌐🤝    PYTH  4  True   2.78    3.97    -1.90  1.53
+18.10 23 yedek  🌐🤝     ILV  4  True   4.07    4.43    -0.32  1.53
+18.10 23 yedek  🌐🤝    FIDA  4  True   4.89    5.22    -0.06  1.53
+18.10 23 yedek  🌐🤝    CELR  4  True   2.69    2.85    -0.85  1.53
+18.10 23 yedek  🌐🤝     LPT  4  True   3.65    3.94    -0.70  1.53
+18.10 23 yedek  🌐🤝     SEI  4  True   5.50    6.12    -0.14  1.53
+18.10 23 yedek  🌐🤝    CAKE  4  True   3.80    3.89    -0.05  1.53
+18.10 23 yedek  🌐🤝    TNSR  4  True   3.60    3.97    -0.66  1.53
+18.10 23 yedek  🌐🤝    ROSE  4  True   5.85    6.32     0.00  1.53
+18.10 23 yedek  🌐🤝     SKL  4  True   2.76    3.26    -0.23  1.53
+18.10 23 yedek  🌐🤝     FET  4  True   5.24    5.73    -0.72  1.53
+18.10 23 yedek  🌐🤝     SNX  4  True   4.30    4.34    -0.30  1.53
+18.10 23 yedek  🌐🤝     FIL  4  True   4.60    4.96    -0.02  1.53
+18.10 23 yedek  🌐🤝    LQTY  4  True   3.48    3.52     0.00  1.53
+18.10 23 yedek  🌐🤝     ENS  4  True   4.36    4.40     0.19  1.53
+18.10 23 yedek  🌐🤝    POWR  4  True   3.66    3.70     0.00  1.53
+18.10 23 yedek  🌐🤝     POL  4  True   3.76    3.83    -0.44  1.53
+18.10 23 yedek  🌐🤝    EGLD  4  True   4.54    4.58    -0.29  1.53
+18.10 23 yedek  🌐🤝    SAND  4  True   3.88    4.61    -0.65  1.53
+18.10 23 yedek  🌐🤝   SUPER  4  True   2.69    2.84    -1.06  1.53
+18.10 23 yedek  🌐🤝  PUNDIX  4  True   5.20    5.24    -0.11  1.53
+18.10 23 yedek  🌐🤝    ARKM  4  True   3.96    4.00    -1.00  1.53
+18.10 23 yedek  🌐🤝     UMA  4  True   3.56    3.88     0.00  1.53
+18.10 23 yedek  🌐🤝     BNT  4  True   3.06    3.10     0.17  1.53
+18.10 23 yedek  🌐🤝     ZRX  4  True   3.88    4.02    -0.10  1.53
+18.10 23 yedek  🌐🤝    BONK  4  True   4.22    4.61    -0.71  1.53
+18.10 23 yedek  🌐🤝    BLUR  4  True   3.73    4.09    -0.75  1.53
+18.10 23 yedek  🌐🤝   METIS  4  True   5.47    6.06    -1.38  1.53
+18.10 23 yedek  🌐🤝    KAVA  4  True   0.09    0.36    -0.87  1.53
+18.10 23 yedek  🌐🤝   JASMY  4  True   4.75    4.79    -0.23  1.53
+18.10 23 yedek  🌐🤝    ALGO  4  True   4.28    4.50    -0.09  1.53
+18.10 23 yedek  🌐🤝      ZK  4  True   6.51    6.76    -0.36  1.53
+18.10 23 yedek  🌐🤝     C98  4  True   5.12    5.23    -0.28  1.53
+18.10 23 yedek  🌐🤝    STRK  4  True   1.97    3.10    -1.57  1.53
+18.10 23 yedek  🌐🤝    CTSI  4  True   3.90    4.00    -0.41  1.53
+18.10 23 yedek  🌐🤝     XTZ  4  True   5.31    5.56    -0.10  1.53
+18.10 23 yedek  🌐🤝    DASH  4  True   5.65    6.01    -0.30  1.53
+18.10 23 yedek  🌐🤝     ETC  4  True   3.71    3.88    -0.13  1.53
+18.10 23 yedek  🌐🤝     RLC  4  True   1.71    1.88    -0.14  1.53
 ```
 
-## panel: 161 kapanan · %55 · ort +0.30
+## panel: 185 kapanan · %57 · ort +0.53
 ```
      size  <lambda_0>  mean
 tur                        
-₿      50       60.00  0.22
+₿      56       58.93  0.20
 🌐🤝     29       48.28 -0.22
-🔇/🪙    38       57.89  0.40
-🔻       5       60.00  0.08
-🤝      30       46.67  0.19
-🧪       9       66.67  2.52
+💵       1      100.00  4.46
+🔇/🪙    42       57.14  0.33
+🔻       6       66.67  0.20
+🤝      41       58.54  1.28
+🧪      10       60.00  2.14
 ```
 exit=0
