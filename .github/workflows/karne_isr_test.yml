@@ -1,0 +1,28 @@
+name: Karne isaret testi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/karne_isr_test.yml]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: karne-isr
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          python karne.py > /tmp/k.txt 2>&1; echo "exit=$?"; grep -n "İşaretli" -A6 durum/karne.md; head -8 durum/karne.md; tail -5 /tmp/k.txt
+          echo "=== gonder kuru (isr sütunu yazılıyor mu)"
+          python - <<'PY'
+          import json, time, os
+          q=[dict(c="ana",o=500,s=1,t=time.time(),e="🧪 24 saat: SHIB (z +1.7)",m="⏱ SÜRE: 24 SAAT TUT\n• 📉🔥 SHIB $0.0000051 — limit\n• 💧 LDO $0.38")]
+          json.dump(q,open("durum/tg_kuyruk.json","w")); os.environ["TEST_FZ"]="0"
+          import gonder; gonder.tg_send=lambda m,**k: True; gonder.main()
+          PY
+          tail -2 durum/karne_kayit.csv
