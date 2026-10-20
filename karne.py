@@ -13,7 +13,7 @@ PA = pd.read_csv("durum/prim_acik.csv") if os.path.exists("durum/prim_acik.csv")
 TEST = {k: (v[0][0], v[0][2]) for k, v in TUT_TEST.items()} | {"🔇/🪙": (56.9, 53.7)} | {k + " 🔥": (74.0, 80.0) for k in ("🤝", "🧪", "🔇/🪙", "💵", "🔀")} | {"🌐🤝 🔥": (75.0, 81.0)}   # 🔥 yükselenler: ekle_ara.py / kombin.py       # (isabet tüm test, 2026) — tutma3.py · kombin.py Y3
 SINIF_TEST = {"ana": (61.9, 67.1), "yedek": (59.6, 64.8)}                                   # fon_ana.py 14.10 ana seti · 16.10: yedek = 🌐🤝 eşik altı (ekle_ara.py G1)
 TEST_Y = {"🌐🤝": (59.6, 64.8)}                                                                # yedekteki 🌐🤝 eşik altının kendi testi
-TEST_P = {"🌐🤝": (59.6, 64.8), "🤝": (55.4, 52.7), "🔇/🪙": (55.4, 52.7), "🧪": (55.4, 52.7)}   # 17.10: panel türleri kendi testleriyle (🌐 eşik altı G1 · coin primi < 0 P1, filtre_kontrol.py) — ana testiyle değil
+TEST_P = {"📆": (68.0, 57.0), "🌐🤝": (59.6, 64.8), "🤝": (55.4, 52.7), "🔇/🪙": (55.4, 52.7), "🧪": (55.4, 52.7)}   # 17.10: panel türleri kendi testleriyle (🌐 eşik altı G1 · coin primi < 0 P1, filtre_kontrol.py) — ana testiyle değil
 COIN_RE = re.compile(r"([A-Z0-9]{2,12}) \((?:z ([+-]?[\d.]+)[^)]*|prim yok[^)]*)\)")
 def prim_saat(nm, z, sure):
     r = PA[PA.coin == nm]
@@ -24,6 +24,7 @@ def coz(e, sure):
     """etiket → [(coin, süre saat, yön, tür, işaret)]"""
     isr = "".join(k for k in ("📉🔥", "💧", "💸") if k in e.split(":")[0].split("·")[0])
     if e.startswith("🔻"): return [("BTC", 24, -1, "🔻", "")]
+    if e.startswith("📆"): return [("BTC", 168, 1, "📆", "")]                                    # 20.10: D10 BTC günlük (panel, izleme)
     if e.startswith("🧑"): return [(c, sure or 168, 1, "🧑", "") for c in ("BTC", "ETH")]
     if e.startswith("⛓️"):
         if "çelişkili" in e: return []
@@ -106,7 +107,7 @@ def main():
         return "⚠️ orta", None
     SN_AD = {"ana": "✅ ana", "yedek": "🔸 yedek", "panel": "panel"}
     TUR_AD = {"₿": "₿ BTC saatlik / ⭐ / A", "🚀": "🚀 BTC momentum", "🔻": "🔻 BTC kısa", "🔇/🪙": "🔇/🪙 coin tek", "🧪": "🧪 24 s ana coin", "🌐🧪": "🌐🧪 24 s geniş liste",
-              "🤝": "🤝 BTC ile ortak", "🌐🤝": "🌐🤝 ortak geniş liste", "💵": "💵 ABD alıyor", "🔀": "🔀 zıt yön", "🧑": "🧑 küçük yatırımcı", "⛓️": "⛓️ arz/talep"}
+              "🤝": "🤝 BTC ile ortak", "🌐🤝": "🌐🤝 ortak geniş liste", "💵": "💵 ABD alıyor", "🔀": "🔀 zıt yön", "🧑": "🧑 küçük yatırımcı", "⛓️": "⛓️ arz/talep", "📆": "📆 D10 BTC günlük (trend + ABD alıyor, izleme)"}
     def tad(t_): return TUR_AD.get(t_.replace(" 🔥", ""), t_) + (" · 🔥 yükseldi" if "🔥" in t_ else "")
     L += ["", "## Tür notları — TÜM sinyaller (ana · yedek · panel)", "| Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |", "|---|---|---|---|---|---|---|---|---|"]
     karar, TN = [], []
