@@ -1,4 +1,4 @@
-# canli_olay.py — DENETİM (18.10.2026, yalnız bilgi): canlıda GÖNDERİLEN her ana/yedek sinyalin gerçek sonucu, olay (saat) bazında + o pencerede BTC ne yaptı. 
+# canli_olay.py — DENETİM (18.10.2026, yalnız bilgi): canlıda GÖNDERİLEN her ana/yedek sinyalin gerçek sonucu, olay (saat) bazında + o pencerede BTC ne yaptı.  
 # karne.py ile aynı ölçüm (sinyal saati kapanışı → süre sonu kapanışı, %0,04). Main kökünden çalışır.
 import numpy as np, pandas as pd
 from karne import coz, sinif, KAYIT_F
@@ -33,4 +33,5 @@ for sn in ("ana", "yedek"):
 yaz("## Tüm gönderilen satırlar\n```"); yaz(Y[Y.sinif != "panel"].to_string(index=False)); yaz("```")
 P_ = Y[(Y.sinif == "panel") & Y.kap]; yaz(f"\n## panel: {len(P_)} kapanan · %{100 * (P_.net > 0).mean():.0f} · ort {P_.net.mean():+.2f}")
 yaz("```"); yaz(P_.groupby("tur").net.agg(["size", lambda v: 100 * (v > 0).mean(), "mean"]).round(2).to_string()); yaz("```")
+yaz("## TUM_SON: 19.10 12:00'den beri tüm satırlar (panel dahil)\n```"); yaz(Y[pd.to_datetime(Y.saat, format="%d.%m %H") >= pd.Timestamp("1900-10-19 12:00")].to_string(index=False)); yaz("```")
 open("canli_olay_sonuc.md", "w").write("\n".join(L) + "\n")
