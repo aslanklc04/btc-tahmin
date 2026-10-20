@@ -1,0 +1,44 @@
+# 📆 Günlük sinyal taraması — 20.10.2026 22:35
+10 coin · günlük veri 2017-09 → 20.10.2026 · prim 10 coin · 11 dk
+
+```
+kural                                                          grup     | seçim 2018–21 n·isabet·net | doğrulama 2022–25 n·isabet·net (alt) | 2026 n·isabet·net | sonuç
+D1a 3 günde sert düşüş (z ≤ −2) + bugün yeşil → 3 gün          BTC      |    4 %  25  -6.04 |    6 %  33  -2.73 (-8.19) |   0 % nan   +nan | —
+D1a 3 günde sert düşüş (z ≤ −2) + bugün yeşil → 3 gün          ETH      |    9 %  11 -12.28 |    6 %  33  -1.95 (-4.96) |   1 %   0 -22.20 | —
+D1a 3 günde sert düşüş (z ≤ −2) + bugün yeşil → 3 gün          10 coin  |   42 %  26  -8.95 |   47 %  40  -2.86 (-5.65) |   8 %  50  -4.45 | —
+D1b aynı → 7 gün                                               BTC      |    4 %  50  +0.85 |    6 %  33  -1.40 (-5.15) |   0 % nan   +nan | —
+D1b aynı → 7 gün                                               ETH      |    8 %  25  -8.33 |    6 %  33  -1.18 (-5.11) |   1 %   0 -10.35 | —
+D1b aynı → 7 gün                                               10 coin  |   39 %  46  -3.99 |   46 %  33  -2.32 (-4.75) |   7 %  57  +0.26 | —
+D2 ABD 3 gün üst üste alıyor (prim z ≥ 1) → 7 gün              BTC      |    0 % nan   +nan |   32 %  50  +1.80 (-0.44) |  10 %  50  +0.71 | —
+D2 ABD 3 gün üst üste alıyor (prim z ≥ 1) → 7 gün              ETH      |    0 % nan   +nan |   36 %  61  +3.40 (+1.01) |  11 %  73  +1.76 | —
+D2 ABD 3 gün üst üste alıyor (prim z ≥ 1) → 7 gün              10 coin  |    0 % nan   +nan |  254 %  53  +2.94 (+0.30) | 101 %  51  +0.24 | —
+D3a fonlama çok düşük (KuCoin z ≤ −2, açığa satan çok) → 3 gün BTC      |    0 % nan   +nan |   31 %  52  +1.04 (-0.50) |   8 %  38  +0.33 | —
+D3a fonlama çok düşük (KuCoin z ≤ −2, açığa satan çok) → 3 gün ETH      |    0 % nan   +nan |   31 %  52  +0.03 (-1.73) |   8 %  50  +0.76 | —
+D3a fonlama çok düşük (KuCoin z ≤ −2, açığa satan çok) → 3 gün 10 coin  |    0 % nan   +nan |  310 %  54  +0.85 (-0.76) |  80 %  39  +0.41 | —
+D3b aynı → 7 gün                                               BTC      |    0 % nan   +nan |   23 %  30  -0.33 (-3.58) |   7 %  29  -1.28 | —
+D3b aynı → 7 gün                                               ETH      |    0 % nan   +nan |   23 %  30  -1.84 (-5.18) |   7 %  29  -2.15 | —
+D3b aynı → 7 gün                                               10 coin  |    0 % nan   +nan |  230 %  37  -1.34 (-4.84) |  70 %  29  -2.35 | —
+D5 sıkışma (bant genişliği en dar %10) + 20 gün ortalama üstü  BTC      |   34 %  47  -0.75 |   30 %  37  -2.55 (-5.34) |   5 %  40  +3.77 | —
+D5 sıkışma (bant genişliği en dar %10) + 20 gün ortalama üstü  ETH      |   26 %  42  -0.32 |   17 %  47  -1.69 (-6.86) |   9 %  44  +3.69 | —
+D5 sıkışma (bant genişliği en dar %10) + 20 gün ortalama üstü  10 coin  |  175 %  47  +0.56 |  240 %  48  +0.10 (-2.16) |  75 %  48  +2.02 | —
+D7a yükseliş trendinde (200 g ort. üstü) %10+ düşüş + ilk yeşi BTC      |   37 %  51  -1.03 |   19 %  84  +4.64 (+2.16) |   0 % nan   +nan | —
+D7a yükseliş trendinde (200 g ort. üstü) %10+ düşüş + ilk yeşi ETH      |   49 %  43  -2.97 |   32 %  56  +1.29 (-1.15) |   1 %   0  -2.62 | —
+D7a yükseliş trendinde (200 g ort. üstü) %10+ düşüş + ilk yeşi 10 coin  |  382 %  45  -1.22 |  347 %  48  -0.62 (-2.30) |   7 %  29  -2.07 | —
+D7b aynı → 14 gün                                              BTC      |   23 %  48  -4.06 |   14 %  64  +3.76 (-0.79) |   0 % nan   +nan | —
+D7b aynı → 14 gün                                              ETH      |   28 %  36  -6.35 |   23 %  57  +1.13 (-3.62) |   0 % nan   +nan | —
+D7b aynı → 14 gün                                              10 coin  |  234 %  42  -2.08 |  228 %  40  -1.71 (-4.12) |   2 % 100 +18.08 | —
+D8 7 günde sert düşüş (z ≤ −2) + ABD alıyor (prim ≥ 0) → 7 gün BTC      |    0 % nan   +nan |    4 %  50  +2.13 (+nan) |   0 % nan   +nan | —
+D8 7 günde sert düşüş (z ≤ −2) + ABD alıyor (prim ≥ 0) → 7 gün ETH      |    0 % nan   +nan |    4 %  50  +1.68 (+nan) |   0 % nan   +nan | —
+D8 7 günde sert düşüş (z ≤ −2) + ABD alıyor (prim ≥ 0) → 7 gün 10 coin  |    0 % nan   +nan |   42 %  62  +3.35 (-1.55) |   3 % 100 +14.76 | —
+D9 ETH/BTC 7 günde sert ↑ (z ≥ 2) → bu coin 7 gün (alt sezonu) BTC      |   16 %  38  -4.17 |   13 %  46  +0.44 (-2.62) |   3 %  67  +3.69 | —
+D9 ETH/BTC 7 günde sert ↑ (z ≥ 2) → bu coin 7 gün (alt sezonu) ETH      |   16 %  50  -1.82 |   13 %  62  +0.60 (-3.66) |   3 %  67  +1.60 | —
+D9 ETH/BTC 7 günde sert ↑ (z ≥ 2) → bu coin 7 gün (alt sezonu) 10 coin  |  116 %  41  -1.11 |  130 %  54  +2.70 (-2.46) |  30 %  43  +1.58 | —
+D10 trendde (200 g üstü) + ABD alıyor (prim z ≥ 1) → 7 gün     BTC      |    0 % nan   +nan |   37 %  68  +3.74 (+1.66) |   7 %  57  +1.88 | —
+D10 trendde (200 g üstü) + ABD alıyor (prim z ≥ 1) → 7 gün     ETH      |    0 % nan   +nan |   28 %  57  +3.19 (+0.79) |   7 %  43  +0.40 | —
+D10 trendde (200 g üstü) + ABD alıyor (prim z ≥ 1) → 7 gün     10 coin  |    0 % nan   +nan |  243 %  58  +4.52 (+1.90) |  55 %  42  -0.35 | —
+```
+
+## Plasebo (20 kaydırma): geçen ortalama 0.1 · %95'lik 0.1 · en çok 1
+
+**Karar (önceden yazılı, %65):** ❌ şartı geçen yok ya da şanstan ayırt edilemiyor (gerçek 0, plasebo %95 0.1)
+exit=0
