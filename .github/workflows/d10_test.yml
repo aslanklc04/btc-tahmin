@@ -1,0 +1,26 @@
+name: D10 kuru test
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/d10_test.yml]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d10-test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: |
+          set -e
+          D10_KURU=1 python d10_canli.py | tee /tmp/d.txt
+          grep -q "📆 D10" /tmp/d.txt
+          python -c "
+          from karne import coz; r=coz('📆 D10 BTC 7 gün (168 saat) · trend + ABD alıyor · prim z +1.2', None); print(r); assert r==[('BTC',168,1,'📆','')]"
+          python karne.py > /dev/null
+          echo D10_OK
