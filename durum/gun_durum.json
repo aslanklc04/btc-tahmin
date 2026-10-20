@@ -1,25 +1,7 @@
 {
 "gun": "2026-10-20",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "18.10 14:06",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 16:06",
-"s": "✅ ana",
-"e": "🧪 24 saat: TURBO (z +2.2)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 17:06",
-"s": "panel",
-"e": "🔇 ETH ⭐ en güçlü · 4 saat · isabet %62 · prim ⛔ z -1.6",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "18.10 18:07",
 "s": "✅ ana",
@@ -240,6 +222,24 @@
 "t": "20.10 03:06",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.10 04:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: SKL (z +0.6)",
+"k": "gönderildi"
+},
+{
+"t": "20.10 04:06",
+"s": "panel",
+"e": "₿ BTC 4 saat Çok güçlü ↑ · 8 saat Güçlü ↑ · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.10 04:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ]
