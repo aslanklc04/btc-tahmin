@@ -1,0 +1,43 @@
+name: K5 filtre
+on:
+  push:
+    branches: [arastirma3]
+    paths: [k5_filtre.py, .github/workflows/k5_filtre.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art3
+          name: prim-veri
+          run-id: 37771896586
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'leri (BTC 4s guclu saatleri)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
+      - run: |
+          set +e; timeout 17000 python -u k5_filtre.py > k5_filtre_log.txt 2>&1; echo "exit=$?" >> k5_filtre_log.txt; tail -40 k5_filtre_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add k5_filtre_log.txt; git add k5_filtre_sonuc.md 2>/dev/null || true; git commit -m "K5 filtre" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
