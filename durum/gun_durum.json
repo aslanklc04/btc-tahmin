@@ -4,24 +4,6 @@
 "log": [
 {
 "t": "18.10 18:07",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: OP (z +0.3)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 18:07",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: SEI (z +1.3), RLC (z +1.1), OGN (z +0.8), MANA (z +0.8), ENS (z +0.6), VTHO (z +0.4), PYTH (z +0.3), ATOM (z +0.3), STRK (z +0.2), STX (z +0.1)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 18:07",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: NMR (z +0.1), JTO (z +0.1)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 18:07",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.8",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +223,24 @@
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.10 09:06",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.10 09:06",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.10 09:06",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 20.10 09:00 · $81,724",
+"k": "gönderildi"
 }
 ]
 }
