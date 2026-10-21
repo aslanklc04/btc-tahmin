@@ -115,7 +115,7 @@ def main():
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + karal_sil(m["m"])); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1   # 21.10 akşam kullanıcı: 🔸 yedekte de 🎯 kâr-al (tur_karne.py: isabet %59→%66 · %57→%63 · %64→%70); karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     for m in yedek:
         if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel", m))
