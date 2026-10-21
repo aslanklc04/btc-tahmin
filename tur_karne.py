@@ -1,5 +1,6 @@
 # tur_karne.py — 21.10.2026 (kullanıcı: "son düzeltmelerle isabet ve kâr ne oldu, sinyal türü ve koşula göre"): karal.py'nin aynısı, TÜR ve KOŞUL kırılımı · yalnız test
 # Şimdiki kural: ✅ ana → 🎯 kâr-al +0,75σ (değmezse süre sonu) · 🔸 yedek (🌐🤝 eşik altı) → süre sonu. Her ikisi de karşılaştırma için iki yöntemle gösterilir.
+# 21.10.2026 16:50: yeniden (önceki ikinci çalışmanın sonucu çakışma yüzünden yazılamadı)
 import os, glob, gzip, json, pickle, time, numpy as np, pandas as pd
 from ortak import *
 T0 = time.time(); L = []
