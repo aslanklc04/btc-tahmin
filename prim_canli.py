@@ -38,6 +38,9 @@ def calis():
     now = pd.Timestamp.now(tz="UTC"); tl = now.tz_convert(DISPLAY_TZ)
     with ThreadPoolExecutor(4) as ex: CB = dict(zip(LS.coin, ex.map(lambda c: cb_prim(c), LS.coin)))
     fire, SURE_, CIK_ = [], {}, {}
+    def _kar(nm, p, H):                                                                        # 🎯 kâr-al satırı (son 40 günlük saatlik kapanış)
+        try: return karal_satir(p, fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT").close, H)
+        except Exception: return ""
     for _, r in LS.iterrows():
         d = CB.get(r.coin); z = cb_z(d)
         if not np.isfinite(z): GP["son"][r.coin] = dict(z=np.nan, bp=np.nan, hesap=now); continue
@@ -51,7 +54,7 @@ def calis():
             cikis = (t + pd.Timedelta(hours=int(r.saat), minutes=6)).tz_convert(DISPLAY_TZ)
             gr_ = float(r.net) + 200 * FEE; hz_ = hiz_notu(z)
             SURE_[r.coin] = int(r.saat); CIK_[r.coin] = cikis; fire.append((z, r.coin, f"• {'💸 ' if fon_mu(r.coin) else ''}{r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)"
-                        + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}\n"
+                        + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}" + _kar(r.coin, p, int(r.saat)) + "\n"
                         f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))
     def _rz(nm):                                                                               # 📉 dip: coin'in son 24 saatlik getirisi / oynaklık (r24z, canlı coin sinyalleriyle aynı)
         try:

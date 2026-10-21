@@ -5,7 +5,7 @@
 # ÖNCEDEN YAZILI KARAR (15.10.2026, sonuçlar görülmeden): 12.11.2026'dan itibaren ✅ ana olarak gönderilmiş bir türde ≥ 20 kapanan sinyal varsa
 #   canlı isabet testteki isabetin belirgin altında (tek yönlü binom p < 0,05) VE canlı işlem başı net < 0 → "❌ ana'dan çıkarma önerisi" (kullanıcıya sorulur).
 import os, re, json, math, numpy as np, pandas as pd
-from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST
+from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST, KARAL_K
 KAYIT_F, MD_F, DUR_F = "durum/karne_kayit.csv", "durum/karne.md", "durum/karne_durum.json"
 KOM, KARAR_T = 0.04, pd.Timestamp("2026-11-12", tz=DISPLAY_TZ)
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
@@ -68,17 +68,23 @@ def main():
     X = pd.DataFrame(rows)
     if X.empty: print("karne: çözülen sinyal yok"); return
     X = X.drop_duplicates(["t0", "coin", "H", "yon", "tur"]).reset_index(drop=True)          # aynı saatte aynı sinyal iki kez (yeniden çalışma) → tek
-    now = pd.Timestamp.now(tz="UTC"); bas = X.t0.min() - pd.Timedelta(hours=2); P = {}
+    now = pd.Timestamp.now(tz="UTC"); bas = X.t0.min() - pd.Timedelta(days=32); P, PH = {}, {}   # 21.10: 32 gün önceden (🎯 kâr-al σ için 720 saat)
     for nm in X.coin.unique():
-        try: P[nm] = fetch_1h(bas.value // 10**6, now.value // 10**6, sym=nm + "USDT").close
+        try: _o = fetch_1h(bas.value // 10**6, now.value // 10**6, sym=nm + "USDT"); P[nm], PH[nm] = _o.close, _o.high
         except Exception as e: print("karne fiyat yok:", nm, e)
-    net, kap = [], []
+    net, kap, ntp, ktp = [], [], [], []
     for r in X.itertuples():
         c = P.get(r.coin); t1 = r.t0 + pd.Timedelta(hours=int(r.H))
-        if c is None or r.t0 not in c.index: net.append(np.nan); kap.append(False); continue
+        if c is None or r.t0 not in c.index: net.append(np.nan); kap.append(False); ntp.append(np.nan); ktp.append(False); continue
         k_ = t1 in c.index; p1 = c[t1] if k_ else c.iloc[-1]
         net.append(r.yon * 100 * (p1 / c[r.t0] - 1) - KOM); kap.append(k_)
-    X["net"], X["kap"] = net, kap
+        # 🎯 kâr-al +0,75σ (karal.py ile aynı): süre içinde saatlik YÜKSEK hedefe değerse hedeften çık · yalnız AL sinyalleri
+        sg = np.log(c[c.index <= r.t0]).diff().dropna().iloc[-720:]
+        hd = c[r.t0] * (1 + KARAL_K * sg.std() * np.sqrt(int(r.H))) if r.yon > 0 and len(sg) >= 168 else np.nan
+        w = PH[r.coin][(PH[r.coin].index > r.t0) & (PH[r.coin].index <= t1)]
+        if np.isfinite(hd) and (w >= hd).any(): ntp.append(100 * (hd / c[r.t0] - 1) - KOM); ktp.append(True)
+        else: ntp.append(net[-1]); ktp.append(k_)
+    X["net"], X["kap"], X["net_tp"], X["kap_tp"] = net, kap, ntp, ktp
     X = X[np.isfinite(X.net)]; Kp = X[X.kap]
     yerel = now.tz_convert(DISPLAY_TZ)
     def ozet(m):
@@ -87,11 +93,14 @@ def main():
     f = lambda v, d=1: "—" if not np.isfinite(v) else f"{v:.{d}f}"
     L = [f"# 📒 Canlı karne — {yerel:%d.%m.%Y %H:%M}",
          f"_Kayıt: {X.t0.min().tz_convert(DISPLAY_TZ):%d.%m %H:%M} → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_\n",
-         "| Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | Testte isabet (tüm · 2026) |", "|---|---|---|---|---|---|---|"]
+         "| Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |", "|---|---|---|---|---|---|---|---|"]
+    def ozet_tp(m):
+        k = X[m & X.kap_tp]; return len(k), (100 * (k.net_tp > 0).mean() if len(k) else np.nan), (k.net_tp.mean() if len(k) else np.nan)
     for sn, ad in (("ana", "✅ ana (gönderildi)"), ("yedek", "🔸 yedek (gönderildi)"), ("panel", "panel (gönderilmedi)")):
-        n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn)
-        L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
-    n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — |")
+        n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn); nt_, ht_, at_ = ozet_tp(X.sinif == sn)
+        L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
+    n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — | — |")
+    L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır._")
     hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN
     def notu(k, ts):                                                                        # tür notu: ≥ 20 sinyal ve test varsa testle (binom), yoksa basit not
         n = len(k)
@@ -142,8 +151,10 @@ def main():
     if os.environ.get("KARNE_ZORLA") == "1" or (yerel.weekday() == 6 and yerel.hour >= 20 and D.get("hafta") != hafta):   # 15.10: PAZAR 20:00 — eski 5 haftalık rapor yerine tek mesaj
         def sat(m, ad, ts=None):
             n, h, a, s_, o = ozet(m); w = Kp[m & hafta_m]
+            nt_, ht_, at_ = ozet_tp(m)
             return (f"{ad}: bu hafta {len(w)} kapandı" + (f" · %{100 * (w.net > 0).mean():.0f} · {w.net.mean():+.2f}%" if len(w) else "") +
-                    f" | başlangıçtan {n} · isabet %{f(h, 0)} · işlem başı {f(a, 2)}% · toplam {f(s_, 1)}%" + (f" (testte %{ts[0]:.0f})" if ts else ""))
+                    f" | başlangıçtan {n} · isabet %{f(h, 0)} · işlem başı {f(a, 2)}% · toplam {f(s_, 1)}%" + (f" (testte %{ts[0]:.0f})" if ts else "")
+                    + (f" · 🎯 kâr-al ile %{f(ht_, 0)} · {f(at_, 2)}%" if nt_ else ""))
         tl = [f"📒 HAFTALIK KARNE — {yerel:%d.%m.%Y} · TÜM sinyaller ({X.t0.min().tz_convert(DISPLAY_TZ):%d.%m} tarihinden beri)",
               "Ölçüm testlerle aynı: sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04. Süresi dolmayanlar sayılmaz.", "",
               sat(X.sinif == "ana", "✅ Ana", SINIF_TEST["ana"]), sat(X.sinif == "yedek", "🔸 Yedek", SINIF_TEST["yedek"]), sat(X.sinif == "panel", "Panel (gönderilmedi)"),

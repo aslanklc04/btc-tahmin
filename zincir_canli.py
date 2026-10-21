@@ -91,7 +91,9 @@ def calis():
                         cikis = (t0 + pd.Timedelta(days=gun, minutes=6)).tz_convert(DISPLAY_TZ)
                         gr_ = NET_2024.get(ad, np.nan) + 200 * FEE
                         bek_ = f" · {CIKIS_NOT}" + (f" · geçmiş ort. sonuç: fiyat %{gr_:.2f} {'yükseldi' if y > 0 else 'düştü'}" if np.isfinite(gr_) else "")
-                        sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}\n   Geçmiş: {gec}")
+                        try: kar_ = karal_satir(p_now, fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym="ETHUSDT").close, gun * 24) if y > 0 else ""
+                        except Exception: kar_ = ""
+                        sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}{kar_}\n   Geçmiş: {gec}")
                         if np.isfinite(p_now) and len(yon) == 1: GZ["log"].append(dict(t=t0, kural=ad, yon=y, gun=gun, p=p_now, veri=son_gun))
                     CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
                     tg(("⏱ SÜRE: " + " · ".join(f"{k[0]} {k[3]} GÜN" for k in yeni) + " TUT (çıkış saatleri satırlarda)\n" if yon == {1} else "") + f"{bas} — {tl:%d.%m %H:%M}\nVeri: {son_gun:%d.%m} günü (Coin Metrics + DefiLlama · test bu giriş saatiyle yapıldı: zincir3.py)\n"

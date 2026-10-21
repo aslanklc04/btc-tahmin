@@ -81,6 +81,7 @@ for sym, M in MODELS.items():
             fire.append((ZC if CBO else float("nan"), NM, f"• {NM}{' 🌐' if sym in GENIS24_SET else ''} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
                         + f" ({CIKIS_NOT})" + (f" · geçmiş ort. sonuç {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f}" if np.isfinite(gr24_) else "")
                         + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")
+                        + karal_satir(p_now, o.close, H)
                         + (f"\n   💵 {NM} kendi Coinbase primi z {ZC:+.1f}" if CBO else (f"\n   💵 {NM} için prim yok · BTC geneli z {ZC:+.1f}" if np.isfinite(ZC) else f"\n   💵 prim alınamadı"))
                         + ("" if not np.isfinite(ZC) else (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA — ABD satıyor" if ZC <= -1 else (" ✅ onaylı" if ZC > 0 else " ⚠️ onaysız"))))
                         + (f"\n   {hz_}" if hz_ else ""), RZ))

@@ -346,16 +346,30 @@ def fiyat_yaz(p):
     if p >= 1000: return f"${p:,.0f}"
     if p >= 1: return f"${p:,.3f}"
     return f"${p:.{min(12, 3 - int(np.floor(np.log10(p))))}f}"
-CIKIS_NOT = "kâr-al / stop koyma"                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
+CIKIS_NOT = "stop koyma"                                                                      # 21.10: 🎯 kâr-al hedefi ayrı satırda (karal.py); zarar-kes yok
+KARAL_K = 0.75                                                                                # karal.py 20.10.2026: ✅ ana + kâr-al +0,75σ → isabet %69 · %71 · %74, saat bazında %66 · %67 · %70 (2022–23 · 2024–25 · 2026)
+def karal_fiyat(p, kapanis, H):
+    """🎯 kâr-al hedefi = giriş × (1 + 0,75 · σ · √H) · σ = son 720 saatlik saatlik log getiri oynaklığı (karal.py ile aynı). Hesaplanamazsa nan."""
+    try:
+        c = pd.Series(kapanis).astype(float).dropna(); r = np.log(c).diff().dropna().iloc[-720:]
+        if len(r) < 168 or not np.isfinite(p) or p <= 0: return float("nan")
+        return float(p * (1 + KARAL_K * r.std() * np.sqrt(H)))
+    except Exception: return float("nan")
+def karal_satir(p, kapanis, H, girinti="   "):
+    h = karal_fiyat(p, kapanis, H)
+    if not np.isfinite(h): return ""
+    return (f"\n{girinti}🎯 Kâr-al {fiyat_yaz(h)} (+%{100 * (h / p - 1):.1f}): önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · "
+            f"testte ✅ ana isabet %69–74 (yalnız süre sonunda satış %60–68), işlem başı kâr biraz daha az")                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
 def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
     if z is None or not np.isfinite(z) or z < 1: return ""
     if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor (ilk saatlerde belirgin) ve günlerce sürebiliyor — hemen gir, süre dolmadan ÇIKMA (testte erken çıkmak kârı ~%60 düşürdü)"
     if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli, 1–3 güne yayılıyor — hemen gir, erken çıkma"
     return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma"
-def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)"):
+def giris_cikis(p, cikis_t, ort, yon=1, giris="Giriş (limit)", kapanis=None, H=None):
     """p: giriş fiyatı · cikis_t: çıkış zamanı (UTC) · ort: geçmişte bu sinyalin ortalama BRÜT getirisi % (yön dahil, komisyon öncesi)."""
     c = f"{giris} {fiyat_yaz(p)} → çıkış {pd.Timestamp(cikis_t).tz_convert(DISPLAY_TZ):%d.%m %H:%M}'de {'sat' if yon > 0 else 'kapat'} ({CIKIS_NOT})"
     if ort is not None and np.isfinite(ort): c += f" · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}"
+    if kapanis is not None and H and yon > 0: c += karal_satir(p, kapanis, H)
     return c
 
 # ---- ⏱ tutma süresi notu (tutma3.py, 13.10.2026: aynı ✅ ana sinyaller H / 2H / 3H saat tutulunca; isabet · işlem başı net %, 2024+ ve 2026) ----
