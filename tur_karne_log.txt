@@ -1,4 +1,4 @@
-# 📊 Tür ve koşula göre isabet / kâr (son düzeltmelerle) — 21.10.2026 16:40
+# 📊 Tür ve koşula göre isabet / kâr (son düzeltmelerle) — 21.10.2026 16:55
 _Hücre: sinyal sayısı · isabet süre sonu→kâr-al · işlem başı net % süre sonu→kâr-al · saat bazında isabet (✅ ana: kâr-al ile · 🔸 yedek: süre sonu ile = ŞİMDİKİ kural)._
 _Şimdiki kural: ✅ ana = 🎯 kâr-al +0,75σ · 🔸 yedek = süre sonu. Maliyet %0,04. Yürüyen test (canlıyla aynı modeller ve eşikler)._
 
@@ -47,5 +47,13 @@ K5 coin primi ≥ 1                        |  941 · % 58→% 67 · +0.25→+0.2
 K6 BTC ⛔                                 |  419 · % 57→% 66 · +0.10→+0.13 · saat % 60 | 1419 · % 54→% 59 · -0.65→-0.52 · saat % 55 |  464 · % 58→% 63 · +0.23→+0.20 · saat % 48
 K7 BTC −1…0                              |  818 · % 62→% 68 · +0.35→+0.17 · saat % 67 | 1904 · % 53→% 59 · -0.02→-0.10 · saat % 55 |  403 · % 72→% 74 · +1.08→+0.67 · saat % 60
 K8 çifte onay                            |  238 · % 55→% 69 · +0.34→+0.43 · saat % 60 |  337 · % 58→% 65 · +0.26→+0.15 · saat % 54 |   93 · % 73→% 84 · +0.99→+0.67 · saat % 72
+```
+
+## Sinyalli gün oranı (Türkiye günü; en az 1 sinyal)
+```
+2023: ✅ ana: %68 gün sinyalli (248/365) · en uzun sinyalsiz 15 gün | ✅ ana veya 🔸 yedek: %73 gün sinyalli (268/365) · en uzun sinyalsiz 9 gün
+2024: ✅ ana: %66 gün sinyalli (241/366) · en uzun sinyalsiz 10 gün | ✅ ana veya 🔸 yedek: %72 gün sinyalli (262/366) · en uzun sinyalsiz 6 gün
+2025: ✅ ana: %70 gün sinyalli (257/365) · en uzun sinyalsiz 9 gün | ✅ ana veya 🔸 yedek: %75 gün sinyalli (274/365) · en uzun sinyalsiz 8 gün
+2026: ✅ ana: %77 gün sinyalli (218/283) · en uzun sinyalsiz 5 gün | ✅ ana veya 🔸 yedek: %79 gün sinyalli (224/283) · en uzun sinyalsiz 5 gün
 ```
 exit=0
