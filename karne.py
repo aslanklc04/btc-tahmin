@@ -80,7 +80,7 @@ def main():
         net.append(r.yon * 100 * (p1 / c[r.t0] - 1) - KOM); kap.append(k_)
         # 🎯 kâr-al +0,75σ (karal.py ile aynı): süre içinde saatlik YÜKSEK hedefe değerse hedeften çık · yalnız AL sinyalleri
         sg = np.log(c[c.index <= r.t0]).diff().dropna().iloc[-720:]
-        hd = c[r.t0] * (1 + KARAL_K * sg.std() * np.sqrt(int(r.H))) if r.yon > 0 and len(sg) >= 168 else np.nan
+        hd = c[r.t0] * (1 + KARAL_K * sg.std() * np.sqrt(int(r.H))) if r.yon > 0 and len(sg) >= 168 and r.tur not in ("⛓️", "🧑") else np.nan   # 21.10: ⛓️ / 🧑 mesajında 🎯 yok
         w = PH[r.coin][(PH[r.coin].index > r.t0) & (PH[r.coin].index <= t1)]
         if np.isfinite(hd) and (w >= hd).any(): ntp.append(100 * (hd / c[r.t0] - 1) - KOM); ktp.append(True)
         else: ntp.append(net[-1]); ktp.append(k_)

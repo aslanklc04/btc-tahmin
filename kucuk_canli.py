@@ -60,8 +60,7 @@ def calis():
                         p_now = anlik(sym); CBK = cb_prim(nm); ZK[nm] = cb_z(CBK); gr_ = NET_2024.get(nm, np.nan) + 200 * FEE; hz_ = hiz_notu(ZK[nm])
                         if np.isfinite(p_now): GK["log"].append(dict(t=t0, sym=nm, p=p_now, veri=son_gun, z=zn))
                         bek_ = f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}" if np.isfinite(gr_) else f" · {CIKIS_NOT}"
-                        try: bek_ += karal_satir(p_now, fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym=sym).close, GUN * 24)
-                        except Exception: pass
+                        # 21.10.2026 kullanıcı: 🧑'de 🎯 kâr-al yok (tur_karne.py: net +3,77→+1,84) → süre sonunda sat
                         sat.append(f"• {nm}: limit ALIŞ {fmt(p_now) if np.isfinite(p_now) else '?'} · kaldıraç en fazla {kal}{bek_}\n   💵 {nm} Coinbase primi: {cb_kisa(CBK)} (bilgi)" + (f" · {hz_}" if hz_ else "") + f"\n   Geçmiş: {gec}")
                     tg(sure_basi(None, cikis, GUN) + f"🧑🟢 BTC / ETH AL — KÜÇÜK YATIRIMCI KAÇIYOR — {tl:%d.%m %H:%M}\n"
                        f"1 BTC'den küçük cüzdanlardaki BTC 30 günde %{d30:+.2f} değişti (olağandışı düşüş, z {zn:+.1f}) · veri günü {son_gun:%d.%m}\n"

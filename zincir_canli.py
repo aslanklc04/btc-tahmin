@@ -91,8 +91,7 @@ def calis():
                         cikis = (t0 + pd.Timedelta(days=gun, minutes=6)).tz_convert(DISPLAY_TZ)
                         gr_ = NET_2024.get(ad, np.nan) + 200 * FEE
                         bek_ = f" · {CIKIS_NOT}" + (f" · geçmiş ort. sonuç: fiyat %{gr_:.2f} {'yükseldi' if y > 0 else 'düştü'}" if np.isfinite(gr_) else "")
-                        try: kar_ = karal_satir(p_now, fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym="ETHUSDT").close, gun * 24) if y > 0 else ""
-                        except Exception: kar_ = ""
+                        kar_ = ""                                                                   # 21.10.2026 kullanıcı: ⛓️'de 🎯 kâr-al yok (tur_karne.py: isabet %58→%62, net +2,69→+1,22) → süre sonunda sat
                         sat.append(f"• {ad}: {acik}\n   {'Limit ALIŞ' if y > 0 else 'Limit SATIŞ (kısa)'} {fmt(p_now)} · çıkış {cikis:%d.%m %H:%M} ({gun} gün tut){bek_}{kar_}\n   Geçmiş: {gec}")
                         if np.isfinite(p_now) and len(yon) == 1: GZ["log"].append(dict(t=t0, kural=ad, yon=y, gun=gun, p=p_now, veri=son_gun))
                     CBE = cb_prim("ETH"); ZE = cb_z(CBE); hz_ = hiz_notu(ZE) if yon == {1} else ""
