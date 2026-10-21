@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "18.10 20:05",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 20:05",
 "s": "ℹ️ bilgi",
 "e": "📒 HAFTALIK KARNE — 18.10.2026 · TÜM sinyaller (12.10 tarihinden beri)",
 "k": "gönderildi"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 21.10 09:00 · $82,672",
 "k": "gönderildi"
+},
+{
+"t": "21.10 17:07",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ]
 }
