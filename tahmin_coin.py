@@ -120,7 +120,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             zo_ = cb_z(CBO); hz_ = hiz_notu(zo_)
             ortak_msg.append((zo_, f"• {NM} {fmt(price)} — " + " · ".join((f"{AD[k]} %{JO[k]['isabet']:.0f}" if k in JO else AD[k]) for k in f_ortak) + (" · 🌐" if SYM in GENIS_SET else "") + r4
                              + f" · 💵 {NM}: {cb_kisa(CBO) if CBO else 'prim yok'}" + (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA" if np.isfinite(zo_) and zo_ <= -1 else ""))
-                             + "\n   " + giris_cikis(price, t + pd.Timedelta(hours=4, minutes=6), SIG["u4"].get("gross_h")) + (f"\n   {hz_}" if hz_ else ""), NM, RZ))
+                             + "\n   " + giris_cikis(price, t + pd.Timedelta(hours=4, minutes=6), SIG["u4"].get("gross_h"), kapanis=full.close, H=4) + (f"\n   {hz_}" if hz_ else ""), NM, RZ))
             for k in f_ortak:
                 G["last"][k] = t
                 if SYM not in GENIS_SET or (np.isfinite(zo_) and zo_ >= GENIS_ESIK_ORTAK): G["log"].append(dict(t=t, tip=f"🤝 {NM} {AD[k]}", H=4 if k == "star" else SIG[k]["H"], sg=1, p=price, cb=ZC))   # 🤝 isabeti 4 saatte ölçüldü
@@ -145,7 +145,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             mom_ = (not zit_) and not (np.isfinite(zt_) and zt_ >= 0) and mom_mu(RZ)                  # 🚀 primsiz ama momentumlu → ✅ ana (teknik_tara C3a)
             ana_ = zit_ or mom_                                                              # secim5 T3: 🔇 normalde 🔸 yedek · yalnız 🔀 durumunda ✅ ana (%70 · %67 · %85, net +0,52 · +0,80 · +1,00) · 🪙 tek başına yedek
             txt = ((MOM_NOT.format(z=RZ) + "\n" if mom_ else "") + (DIP_NOT.format(z=RZ) + "\n" if ana_ and dip_mi(RZ) else "") + (FON_NOT.format(z=fon_coin_z(NM)) + "\n" if ana_ and fon_mu(NM) else "") + (MOM_DIP_ACK["💧"] + "\n" if ana_ and ld_mu(NM) else "") + (LD_DIP_NOT + "\n" if ana_ and ld_mu(NM) and dip_mi(RZ) else "") + baslik + ("\nBu saatte ayrıca: " + " · ".join(ek) if ek else "") + f"\n{ufuk_tg}\n{btc_}\n{cb_satir_coin(NM, CBO, CBD)}\n" + (hz_ + "\n" if hz_ else "")
-                   + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_) + "\n"
+                   + "💡 " + giris_cikis(price, t + pd.Timedelta(hours=H0_, minutes=6), gr0_, kapanis=full.close, H=H0_) + "\n"
                    + ("⏱️ Gecikmeden hareket edin. " + ZIT_NOT.format(zc=zt_, zb=zb_) if zit_ else "⏱️ Gecikmeden hareket edin." if mom_ else "⏱️ Gecikmeden hareket edin. " + (PANELF_NOT if np.isfinite(zt_) and -1 < zt_ < 0 else "ℹ️ İsabet testinden geçti; komisyon sonrası kâr kanıtlanmadı.")))
             txt += "\n" + tut_notu(((["🔀"] if zit_ else []) + (["🚀"] if mom_ else []) + (["📉🔥"] if dip_mi(RZ) else [])) if ana_ else ["🔇" if sessiz_ else "🪙"], H0_)
             txt = sure_basi(H0_, (t + pd.Timedelta(hours=H0_, minutes=6)).tz_convert(DISPLAY_TZ)) + txt

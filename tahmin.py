@@ -116,12 +116,12 @@ if agree and (G["last_star"] is None or t - G["last_star"] >= pd.Timedelta(hours
             oncelik=sira_puani("🚀" if MOMB else "₿", CBZ, ALMA), etiket=f"₿ BTC ⭐ en güçlü (8 s) · isabet %{a8_['acc']:.0f} · prim {cb_kisa(CBD)}" + (" · 🚀" if MOMB else ""), sinif="ana" if MOMB else "panel"); G["last_star"] = t; fire = False; logsig("⭐ en güçlü (8s)", 8, 1)
 if acls_on and A_SINIFI_BILDIRIM and not agree and (G.get("last_acls") is None or t - G["last_acls"] >= pd.Timedelta(hours=4)):
     tg_send((sure_basi(4, (t + pd.Timedelta(hours=4, minutes=6)).tz_convert(DISPLAY_TZ)) if MOMB else "") + (MOM_NOT.format(z=RZB) + "\n" if MOMB else "") + f"🟢 A SINIFI SİNYAL — {head}\n1s+4s+8s birlikte güçlü yukarı (ortalama yüzdelik {acls_m:.2f})\nGeçmiş (canlı ölçüm): 4 saat sonra isabet %{AC_['acc']:.1f} · haftada ~{AC_['wk']:.0f}\n" + GECIK + "\n" + CBLM + "\n"
-            + HIZL + "💡 " + giris_cikis(P_NOW, t + pd.Timedelta(hours=4, minutes=6), AC_.get("gross")) + "\n" + "\n".join(lines + bar_tg) + ("\n" + tut_notu(["🚀"], 4) if MOMB else ""),
+            + HIZL + "💡 " + giris_cikis(P_NOW, t + pd.Timedelta(hours=4, minutes=6), AC_.get("gross"), kapanis=full.close, H=4) + "\n" + "\n".join(lines + bar_tg) + ("\n" + tut_notu(["🚀"], 4) if MOMB else ""),
             oncelik=sira_puani("🚀" if MOMB else "₿", CBZ, ALMA), etiket=f"₿ BTC 🟢 A sınıfı (4 s) · isabet %{AC_['acc']:.0f} · prim {cb_kisa(CBD)}" + (" · 🚀" if MOMB else ""), sinif="ana" if MOMB else "panel"); G["last_acls"] = t; fire = False; logsig("🟢 A sınıfı (4s)", 4, 1)
 if fire:
     hdr = (f"🟢 4 SAAT GÜÇLÜ (⏰ iyi saat dilimi) — {head}\nGeçmiş (canlı ölçüm): isabet %{IYI.get('acc', float('nan')):.1f} · haftada ~{IYI.get('wk', 0):.0f}" if iyi_now and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig) else head)
     yukari = [x for x in ORT_YENI if x[1] == 1]
-    gc_ = "".join(f"💡 {CFG[H_]['ad']} {LEV[li_].split(' (')[0]} ↑ — " + giris_cikis(P_NOW, t + pd.Timedelta(hours=H_, minutes=6), gr_) + "\n" for H_, sg_, li_, gr_ in yukari if not (u4_yeni and H_ == 4 and li_ == 2))
+    gc_ = "".join(f"💡 {CFG[H_]['ad']} {LEV[li_].split(' (')[0]} ↑ — " + giris_cikis(P_NOW, t + pd.Timedelta(hours=H_, minutes=6), gr_, kapanis=full.close, H=H_) + "\n" for H_, sg_, li_, gr_ in yukari if not (u4_yeni and H_ == 4 and li_ == 2))
     u4g = next((gr_ for H_, sg_, li_, gr_ in yukari if H_ == 4 and li_ == 2), None)
     _hs = sorted({H_ for H_, sg_, li_, gr_ in yukari})
     tg_send((("⏱ SÜRE: " + " · ".join(f"{CFG[H_]['ad']} sinyali {H_} SAAT" for H_ in _hs) + " TUT (çıkış saatleri 💡 satırlarında)\n") if MOMB and yukari else "") + (MOM_NOT.format(z=RZB) + "\n" if MOMB and yukari else "") + hdr + "\n" + (GECIK + "\n" if any(x[1] == 1 for x in new_sig) else "") + (CBLM + "\n" + HIZL if any(x[1] == 1 and x[0] >= 4 for x in new_sig) else "") + (emir_satiri(4, u4g) + "\n" if u4_yeni else "") + gc_ + "\n".join(lines + bar_tg) + ("\n" + tut_notu(["🚀"]) if MOMB and yukari else ""),
