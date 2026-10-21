@@ -1,0 +1,49 @@
+name: Sessizlik teshisi
+on:
+  push:
+    branches: [arastirma3]
+    paths: [sessizlik.py, .github/workflows/sessizlik.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+          path: a3
+      - name: modeller dali
+        run: git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller; ls modeller | wc -l
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis.pkl
+          key: gecmis-x
+          restore-keys: gecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-x
+          restore-keys: coingecmis-
+      - run: |
+          ls -la durum/gecmis.pkl durum/gecmis_coin.pkl
+          cp a3/sessizlik.py a3/canli_kopya.py .
+          set +e; python -u sessizlik.py > a3/sessizlik_log.txt 2>&1; echo "exit=$?" >> a3/sessizlik_log.txt; tail -30 a3/sessizlik_log.txt
+          cp sessizlik_sonuc.md a3/ 2>/dev/null || true
+          timeout 3000 python -u canli_kopya.py > a3/canli_kopya_log.txt 2>&1; echo "exit=$?" >> a3/canli_kopya_log.txt; tail -40 a3/canli_kopya_log.txt
+          cp canli_kopya_sonuc.md a3/ 2>/dev/null || true
+      - run: |
+          cd a3
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add sessizlik_log.txt canli_kopya_log.txt; git add sessizlik_sonuc.md canli_kopya_sonuc.md 2>/dev/null || true; git commit -m "Sessizlik teshisi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
