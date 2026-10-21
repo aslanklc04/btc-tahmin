@@ -1,0 +1,190 @@
+# 🌑🔑 BTC düşerken yükselenlerin sırrı (Kore + vadeli) — 21.10.2026 19:08
+fiyat verisi: 140 coin · 11 dk
+fonlama verisi: 136 coin (aylık arşiv 2026-09 sonuna kadar; Ekim 2026'da boş) · 18 dk
+Coinbase prim verisi: 149 coin
+vadeli metrik: 135 coin · Upbit: 86 coin (BTC var)
+
+Karanlık saat oranı (t anında bilinen): KA son 4 s %10.1 · KB son 24 s %11.8 · KC son 7 g %12.6 · birleşim %25.0
+özellikler: 140 coin × 50,873 saat × 39 özellik · 18 dk
+panel satırı: 2,182,552 · 18 dk
+
+## 1. BTC sonradan düştüğünde coin'lerin ne kadarı yükseldi? (BTC ileri H saat z ≤ −1; isabet = maliyet sonrası > 0)
+```
+H= 4 s: BTC düşen pencere 3,888 saat · coin yükselme oranı 2021 %7 · 2022 %6 · 2023 %9 · 2024 %9 · 2025 %8 · 2026 %9 · ≥ +%5 yükselen coin-saat 2,853 (%0.6)
+H= 8 s: BTC düşen pencere 5,466 saat · coin yükselme oranı 2021 %8 · 2022 %5 · 2023 %10 · 2024 %9 · 2025 %7 · 2026 %9 · ≥ +%5 yükselen coin-saat 7,291 (%1.1)
+H=24 s: BTC düşen pencere 6,015 saat · coin yükselme oranı 2021 %9 · 2022 %6 · 2023 %9 · 2024 %9 · 2025 %8 · 2026 %10 · ≥ +%5 yükselen coin-saat 16,459 (%2.3)
+```
+_Normalde (tüm saatler) coin'lerin yarısı yükselir; BTC düşerken bu oran çok düşer — yükselenler azınlık._
+
+## 2. Yükselenler ÖNCEDEN (t anında) neye benziyordu? — BTC'nin sonradan 24 s düştüğü pencereler, özelliğin en düşük %10 / en yüksek %10 diliminde yükselme oranı
+Dilim eşikleri 2021–23'ten. Tutarlı = iki dönemde de aynı yön ve fark ≥ 3 puan.
+```
+özellik                               | 2022–23: genel  alt%10 üst%10 | 2024+: genel  alt%10 üst%10 | tutarlı
+24 s hacim z                          | %   8  %    3 %   15  | %   9  %    5 %   17  | ✅
+BTC korelasyonu (30 g)                | %   8  %   14 %    3  | %   9  %   15 %    5  | ✅
+BTC'ye göre 24 s güç z                | %   8  %    7 %   17  | %   9  %   13 %   14  | 
+BTC'ye göre 7 g güç z                 | %   8  %    5 %   15  | %   9  %    8 %   15  | ✅
+işlem sayısı z                        | %   8  %    3 %   12  | %   9  %    5 %   15  | ✅
+saatlik hacim z                       | %   8  %    4 %   12  | %   9  %    5 %   15  | ✅
+7 g getiri sırası                     | %   8  %    6 %   14  | %   9  %    9 %   15  | ✅
+oynaklık oranı 24 s / 30 g            | %   8  %    5 %   13  | %   9  %    6 %   12  | ✅
+Kore 24 s hacim z                     | %   7  %    3 %   10  | %   9  %    5 %   15  | ✅
+30 g dibe uzaklık                     | %   8  %    7 %   14  | %   9  %   11 %   17  | ✅
+hacim z sırası                        | %   8  %    7 %   13  | %   9  %    7 %   14  | ✅
+Kore saatlik hacim z                  | %   7  %    4 %   10  | %   9  %    5 %   13  | ✅
+tüm hesaplar long/short z             | %   8  %   11 %    5  | %   9  %   11 %    9  | 
+vadeli alıcı oranı z (24 s)           | %   8  %   10 %    4  | %   9  %   14 %    5  | ✅
+fonlama oranı                         | %   8  %   13 %    7  | %   9  %   13 %    8  | ✅
+24 s getiri sırası (coin'ler arası)   | %   8  %    8 %   13  | %   9  %   10 %   13  | ✅
+BTC'ye göre güç sırası                | %   8  %    8 %   13  | %   9  %   10 %   13  | ✅
+BTC'ye göre 4 s güç z                 | %   8  %    9 %   14  | %   9  %   13 %   12  | 
+90 g zirveye uzaklık                  | %   8  %   10 %   15  | %   9  %   12 %   15  | 
+coin yaşı                             | %   8  %    9 %   13  | %   9  %   12 %    8  | 
+30 g zirveye uzaklık                  | %   8  %   10 %   13  | %   9  %   14 %   14  | 
+büyük hesaplar long/short z           | %   9  %   12 %    9  | %   9  %   10 %   11  | 
+Coinbase prim z                       | %   8  %    7 %   10  | %   9  %    8 %   10  | 
+son 7 g getiri z                      | %   8  %   12 %   15  | %   9  %    9 %   16  | 
+son 24 s getiri z                     | %   8  %   13 %   12  | %   9  %   13 %   12  | 
+alıcı oranı z (24 s)                  | %   8  %    5 %    7  | %   9  %    8 %    8  | 
+açık pozisyon 24 s z                  | %   8  %   12 %   10  | %   9  %   12 %   11  | 
+prim z 24 s değişim                   | %   8  %    9 %   10  | %   9  %    9 %    9  | 
+açık pozisyon 4 s z                   | %   8  %   11 %    9  | %   9  %   12 %   10  | 
+fonlama z                             | %   8  %   11 %   10  | %   9  %   10 %   11  | 
+son 1 s getiri z                      | %   8  %    9 %   10  | %   9  %   12 %   11  | 
+Kore primi z                          | %   7  %    8 %    7  | %   8  %    8 %    9  | 
+alıcı oranı (24 s)                    | %   8  %    6 %    7  | %   9  %    8 %    8  | 
+Kore hacim payı z                     | %   7  %    7 %    7  | %   8  %    6 %   11  | 
+BTC betası (30 g)                     | %   8  %    9 %    9  | %   9  %   13 %   10  | 
+işlem büyüklüğü (30 g)                | %   8  %    7 %    6  | %   9  %    9 %    8  | 
+son 4 s getiri z                      | %   8  %   11 %   10  | %   9  %   13 %   10  | 
+alıcı oranı (1 s)                     | %   8  %    6 %    7  | %   9  %    8 %    8  | 
+Kore primi 24 s değişim               | %   7  %    8 %    8  | %   8  %    8 %    8  | 
+```
+
+## 3. Pencere İÇİNDE ne oldu? (BTC 24 s düşerken) — yükselen vs düşen coin'ler, medyan / oran
+```
+24 s içinde en yüksek saatlik hacim z : yükselen +2.303 · düşen +1.822
+24 s alıcı oranı                      : yükselen +0.500 · düşen +0.483
+Coinbase prim z değişimi              : yükselen -0.072 · düşen -0.006
+fonlama değişimi                      : yükselen +0.000 · düşen +0.000
+24 s içinde en yüksek KORE saatlik hacim z: yükselen +0.892 · düşen +0.872
+Kore primi z değişimi                 : yükselen -0.159 · düşen +0.002
+açık pozisyon değişimi (log)          : yükselen +0.037 · düşen -0.069
+tüm hesaplar long/short değişimi (log): yükselen -0.035 · düşen +0.003
+2022–23 yükselen : pencerede hacim patlaması (z ≥ 3) %33 · ≥ +%5 olan %28.8
+2022–23 düşen    : pencerede hacim patlaması (z ≥ 3) %13 · ≥ +%5 olan %0.0
+2024+ yükselen : pencerede hacim patlaması (z ≥ 3) %24 · ≥ +%5 olan %23.9
+2024+ düşen    : pencerede hacim patlaması (z ≥ 3) %12 · ≥ +%5 olan %0.0
+≥ +%5 yükselenler: Kore hacim patlaması (z ≥ 3) %8 (Upbit'te olanlar arasında: %14) · düşenlerde %3
+≥ +%5 yükselenler: açık pozisyon artışı medyan +0.175 · düşenlerde -0.069 · Kore primi değişimi -0.12 · düşenlerde +0.00
+≥ +%5 yükselenler (16,459): hacim patlaması %53 · alıcı oranı medyan 0.505 · prim z değişimi medyan -0.08
+```
+
+## 4. Aynı coin'ler tekrar ediyor mu? (BTC 24 s düşerken coin'in yükselme oranı, 2022–23 → 2024+)
+```
+115 coin · sıra korelasyonu (Spearman) +0.42
+2022–23'te en dirençli 12 coin → 2024+:
+  ARKM     %31 → %11
+  WLD      %24 → %11
+  TRB      %19 → %9
+  KNC      %18 → %9
+  PENDLE   %15 → %11
+  INJ      %14 → %9
+  RAD      %14 → %14
+  GLM      %14 → %13
+  LQTY     %14 → %10
+  OSMO     %13 → %7
+  GMT      %13 → %9
+  OP       %13 → %10
+  (2024+ tüm coin ortalaması %8; bu 12'nin ortalaması %10)
+```
+betimleme bitti · 18 dk
+
+## 5. Kurallar (t anında bilinen karanlık durum) — seçimden geçen aday 196 · üç şartı da geçen 0 · 19 dk
+```
+   durum H  kural                                                                 | seçim 2022–23: n isabet net saat gün | doğrulama 2024–25 | 2026
+   KB 24s son 7 g getiri z ≤ -1.93 + 30 g zirveye uzaklık ≤ -0.58               |   672 %  66 +3.88 saat% 57 gün% 56 |   886 %  80 +7.28 saat% 64 gün% 63 |   172 %  71 +3.04 saat% 62 gün% 68
+   KC 24s son 24 s getiri z ≤ -2.06 + son 7 g getiri z ≤ -2.31                  |   695 %  69 +3.13 saat% 68 gün% 76 |   755 %  79 +6.28 saat% 65 gün% 72 |   238 %  67 +2.68 saat% 52 gün% 65
+   KB 24s 30 g zirveye uzaklık ≤ -0.58 + son 24 s getiri z ≤ -2.42              |   463 %  64 +3.59 saat% 63 gün% 68 |   747 %  76 +7.36 saat% 65 gün% 58 |   147 %  85 +6.15 saat% 68 gün% 71
+   KB 24s son 7 g getiri z ≤ -1.93 + son 24 s getiri z ≤ -2.42                  |   899 %  69 +2.80 saat% 62 gün% 76 |  1038 %  75 +5.82 saat% 66 gün% 57 |   348 %  63 +2.53 saat% 51 gün% 62
+   KC 24s son 7 g getiri z ≤ -2.31 + fonlama z ≤ -2.49                          |   369 %  66 +2.48 saat% 66 gün% 73 |   307 %  74 +5.90 saat% 70 gün% 68 |    56 %  64 +2.30 saat% 67 gün% 67
+   KC 24s son 7 g getiri z ≤ -2.31 + son 4 s getiri z ≤ -1.5                    |   993 %  63 +1.58 saat% 59 gün% 66 |  1012 %  74 +5.08 saat% 61 gün% 69 |   356 %  69 +1.75 saat% 54 gün% 66
+   KA 24s son 7 g getiri z ≤ -1.73 + açık pozisyon 24 s z ≤ -1.74               |   595 %  66 +1.21 saat% 62 gün% 74 |  1121 %  74 +4.88 saat% 68 gün% 69 |   293 %  62 +1.63 saat% 64 gün% 73
+   KB 24s 30 g zirveye uzaklık ≤ -0.58 + BTC'ye göre 7 g güç z ≤ -0.904         |   423 %  68 +4.37 saat% 54 gün% 53 |  1185 %  72 +5.00 saat% 58 gün% 63 |    78 %  68 +4.03 saat% 64 gün% 60
+   KC 24s son 7 g getiri z ≤ -2.31                                              |  1510 %  59 +1.32 saat% 56 gün% 60 |  1308 %  71 +4.57 saat% 58 gün% 71 |   511 %  62 +1.30 saat% 50 gün% 48
+   KB 24s son 24 s getiri z ≤ -2.42 + 90 g zirveye uzaklık ≤ -1.15              |   296 %  61 +3.47 saat% 60 gün% 67 |   332 %  71 +5.52 saat% 60 gün% 65 |    46 %  91 +6.68 saat% 86 gün% 91
+   KB 24s son 7 g getiri z ≤ -1.93 + BTC betası (30 g) ≥ 1.63                   |   303 %  72 +5.24 saat% 68 gün% 71 |   701 %  71 +4.62 saat% 63 gün% 61 |    99 %  64 +1.30 saat% 62 gün% 71
+   KB 24s son 7 g getiri z ≤ -1.93 + 90 g zirveye uzaklık ≤ -1.15               |   478 %  64 +4.22 saat% 59 gün% 69 |   341 %  71 +5.20 saat% 60 gün% 66 |    50 %  72 +4.33 saat% 61 gün% 56
+   KB 24s 30 g zirveye uzaklık ≤ -0.58 + son 1 s getiri z ≤ -1.62               |   996 %  61 +1.38 saat% 61 gün% 69 |  1466 %  71 +4.19 saat% 60 gün% 62 |   293 %  63 +1.59 saat% 61 gün% 63
+   KB 24s son 7 g getiri z ≤ -1.93 + son 1 s getiri z ≤ -1.62                   |  1295 %  65 +1.59 saat% 58 gün% 63 |  1660 %  70 +3.71 saat% 63 gün% 67 |   613 %  64 +1.16 saat% 56 gün% 69
+   KB 24s 30 g zirveye uzaklık ≤ -0.58 + 90 g zirveye uzaklık ≤ -1.15           |   949 %  69 +3.95 saat% 63 gün% 63 |   623 %  70 +3.42 saat% 59 gün% 61 |   126 %  56 +2.46 saat% 53 gün% 43
+   KB 24s son 7 g getiri z ≤ -1.93 + BTC'ye göre 7 g güç z ≤ -0.904             |   854 %  67 +2.34 saat% 54 gün% 59 |  1842 %  69 +4.02 saat% 61 gün% 67 |   308 %  61 +0.90 saat% 58 gün% 59
+   KB 24s son 7 g getiri z ≤ -1.93 + coin yaşı ≥ 10                             |   112 %  82 +1.65 saat% 72 gün%100 |  1576 %  69 +3.70 saat% 63 gün% 68 |   700 %  58 +0.57 saat% 52 gün% 57
+   KA 24s son 7 g getiri z ≤ -1.73 + son 1 s getiri z ≤ -2.26                   |  1472 %  63 +0.85 saat% 60 gün% 61 |  2310 %  69 +2.68 saat% 61 gün% 65 |   735 %  62 +1.19 saat% 59 gün% 63
+   KB 24s son 7 g getiri z ≤ -1.93                                              |  1746 %  67 +2.23 saat% 59 gün% 66 |  2382 %  69 +3.58 saat% 62 gün% 66 |   827 %  59 +0.74 saat% 53 gün% 59
+   KB 24s 30 g zirveye uzaklık ≤ -0.58 + BTC betası (30 g) ≥ 1.63               |   634 %  71 +3.84 saat% 56 gün% 57 |  1450 %  69 +3.30 saat% 57 gün% 66 |    75 %  52 +0.27 saat% 55 gün% 47
+   KB 24s BTC betası (30 g) ≥ 1.63 + 90 g zirveye uzaklık ≤ -1.15               |   408 %  64 +3.88 saat% 61 gün% 68 |   544 %  69 +2.49 saat% 59 gün% 57 |    25 %  44 -0.48 saat% 47 gün% 38
+   KA 24s son 7 g getiri z ≤ -1.73 + açık pozisyon 4 s z ≤ -2.24                |   683 %  68 +1.64 saat% 59 gün% 71 |  1321 %  68 +3.27 saat% 65 gün% 67 |   347 %  59 +1.30 saat% 62 gün% 68
+   KC 24s son 24 s getiri z ≤ -2.06 + fonlama z ≤ -2.49                         |   608 %  64 +0.49 saat% 65 gün% 69 |   545 %  68 +3.76 saat% 64 gün% 63 |   156 %  50 +0.22 saat% 50 gün% 71
+   KB  8s son 7 g getiri z ≤ -1.93 + açık pozisyon 4 s z ≤ -1.58                |   919 %  60 +0.54 saat% 59 gün% 78 |  1538 %  67 +2.01 saat% 68 gün% 72 |   496 %  66 +1.40 saat% 57 gün% 69
+   KA 24s son 7 g getiri z ≤ -1.73 + son 4 s getiri z ≤ -2.63                   |  1277 %  62 +0.63 saat% 58 gün% 57 |  1783 %  67 +2.76 saat% 66 gün% 67 |   515 %  62 +1.85 saat% 61 gün% 64
+   KA 24s son 7 g getiri z ≤ -1.73 + son 24 s getiri z ≤ -1.98                  |  1261 %  67 +1.90 saat% 60 gün% 68 |  1672 %  67 +3.25 saat% 62 gün% 63 |   485 %  58 +1.33 saat% 58 gün% 62
+   KB 24s 30 g zirveye uzaklık ≤ -0.58                                          |  1936 %  66 +2.54 saat% 57 gün% 62 |  2719 %  66 +3.10 saat% 58 gün% 62 |   731 %  65 +1.52 saat% 56 gün% 52
+   KB  8s son 7 g getiri z ≤ -1.93 + coin yaşı ≥ 10                             |   223 %  70 +0.61 saat% 57 gün% 86 |  2724 %  66 +1.30 saat% 65 gün% 72 |  1387 %  53 +0.26 saat% 52 gün% 60
+   KB  8s son 7 g getiri z ≤ -1.93                                              |  3462 %  60 +0.51 saat% 58 gün% 66 |  4143 %  66 +1.31 saat% 61 gün% 73 |  1608 %  54 +0.34 saat% 53 gün% 60
+   KB  8s E2 kopuş + Kore primi                                                 |   128 %  45 -0.79 saat% 47 gün% 50 |   252 %  65 +1.48 saat% 57 gün% 52 |   144 %  43 -0.23 saat% 45 gün% 38
+   KB 24s son 24 s getiri z ≤ -2.42 + BTC'ye göre 7 g güç z ≤ -0.904            |   742 %  66 +1.64 saat% 64 gün% 70 |  1677 %  65 +3.28 saat% 57 gün% 58 |   204 %  72 +2.44 saat% 67 gün% 74
+   KC 24s son 24 s getiri z ≤ -2.06 + son 4 s getiri z ≤ -1.5                   |  1628 %  63 +0.73 saat% 65 gün% 73 |  2376 %  65 +2.92 saat% 60 gün% 64 |   851 %  54 +0.77 saat% 44 gün% 63
+   KA 24s son 7 g getiri z ≤ -1.73                                              |  2684 %  62 +0.78 saat% 58 gün% 62 |  4059 %  65 +2.40 saat% 60 gün% 63 |  1458 %  61 +0.62 saat% 58 gün% 63
+   KC 24s son 4 s getiri z ≤ -1.5 + fonlama z ≤ -2.49                           |   689 %  62 +0.17 saat% 57 gün% 63 |   847 %  64 +3.92 saat% 59 gün% 66 |   303 %  45 -0.73 saat% 41 gün% 43
+   KB 24s BTC'ye göre 7 g güç z ≤ -0.904 + son 1 s getiri z ≤ -1.62             |  1467 %  65 +1.45 saat% 57 gün% 69 |  3139 %  63 +2.04 saat% 57 gün% 68 |   553 %  63 +1.57 saat% 57 gün% 60
+   KA  4s Coinbase prim z ≥ 1.26 + son 7 g getiri z ≤ -1.73                     |  1132 %  64 +0.94 saat% 63 gün% 74 |  1989 %  63 +0.89 saat% 55 gün% 66 |   634 %  59 +0.29 saat% 61 gün% 72
+   KA  8s açık pozisyon 4 s z ≤ -2.24 + son 7 g getiri z ≤ -1.73                |   831 %  62 +0.86 saat% 60 gün% 75 |  1550 %  63 +1.04 saat% 60 gün% 62 |   392 %  60 +0.96 saat% 59 gün% 66
+   KC 24s son 24 s getiri z ≤ -2.06                                             |  2028 %  61 +0.78 saat% 64 gün% 70 |  2857 %  63 +2.60 saat% 61 gün% 64 |  1044 %  53 +0.67 saat% 52 gün% 64
+   KA  8s BTC'ye göre 4 s güç z ≤ -1.2 + Coinbase prim z ≥ 1.26                 |  1461 %  60 +0.32 saat% 61 gün% 70 |  2500 %  62 +1.13 saat% 60 gün% 63 |   887 %  65 +0.96 saat% 57 gün% 62
+   KC  8s E2 kopuş + Kore primi                                                 |   126 %  41 -0.93 saat% 43 gün% 47 |   207 %  62 +1.34 saat% 53 gün% 47 |   168 %  42 -0.39 saat% 43 gün% 37
+```
+
+Önceden sabit erken yakalama kuralları (E1–E4):
+```
+   KA  4s E1 kopuş + Kore hacim patlaması                                       |    76 %  32 -1.15 saat% 29 gün% 32 |   140 %  47 +0.44 saat% 48 gün% 49 |    42 %  31 -2.22 saat% 27 gün% 26
+   KA  4s E2 kopuş + Kore primi                                                 |   130 %  37 -1.18 saat% 38 gün% 33 |   242 %  55 +0.19 saat% 45 gün% 43 |   126 %  43 -0.29 saat% 43 gün% 44
+   KA  4s E3 short sıkışması                                                    |   100 %  35 -0.93 saat% 35 gün% 37 |   213 %  41 +0.42 saat% 43 gün% 42 |   123 %  39 +0.27 saat% 40 gün% 36
+   KA  4s E4 hacimli kopuş                                                      |    21 %  33 -1.97 saat% 33 gün% 35 |    31 %  55 +1.83 saat% 50 gün% 52 |    30 %  33 +0.51 saat% 33 gün% 36
+   KA  8s E1 kopuş + Kore hacim patlaması                                       |    75 %  37 -1.26 saat% 36 gün% 37 |   137 %  50 +1.33 saat% 52 gün% 53 |    41 %  24 -3.82 saat% 19 gün% 16
+   KA  8s E2 kopuş + Kore primi                                                 |   129 %  42 -0.68 saat% 45 gün% 43 |   239 %  56 +0.83 saat% 47 gün% 46 |   125 %  37 -0.81 saat% 37 gün% 36
+   KA  8s E3 short sıkışması                                                    |    99 %  41 -0.53 saat% 43 gün% 43 |   202 %  44 +1.19 saat% 45 gün% 48 |   115 %  36 -0.85 saat% 33 gün% 30
+   KA  8s E4 hacimli kopuş                                                      |    21 %  43 -1.78 saat% 43 gün% 40 |    31 %  45 +0.44 saat% 35 gün% 36 |    30 %  27 -0.09 saat% 27 gün% 25
+   KA 24s E1 kopuş + Kore hacim patlaması                                       |    74 %  34 -2.63 saat% 32 gün% 34 |   128 %  47 +0.21 saat% 52 gün% 49 |    40 %  22 -5.54 saat% 22 gün% 19
+   KA 24s E2 kopuş + Kore primi                                                 |   125 %  41 -1.17 saat% 42 gün% 42 |   236 %  48 +0.06 saat% 43 gün% 35 |   122 %  31 -2.29 saat% 33 gün% 36
+   KA 24s E3 short sıkışması                                                    |    95 %  35 -0.90 saat% 35 gün% 33 |   179 %  43 +2.69 saat% 44 gün% 46 |   109 %  31 -2.17 saat% 32 gün% 30
+   KA 24s E4 hacimli kopuş                                                      |    20 %  30 -3.85 saat% 30 gün% 30 |    31 %  29 -3.65 saat% 23 gün% 24 |    30 %  33 -1.54 saat% 33 gün% 32
+   KB  4s E1 kopuş + Kore hacim patlaması                                       |    66 %  26 -1.25 saat% 26 gün% 24 |   100 %  47 -0.45 saat% 44 gün% 42 |    36 %  36 -1.44 saat% 32 gün% 27
+   KB  4s E2 kopuş + Kore primi                                                 |   135 %  43 -0.97 saat% 45 gün% 42 |   255 %  54 +0.41 saat% 45 gün% 48 |   147 %  48 +0.01 saat% 46 gün% 42
+   KB  4s E3 short sıkışması                                                    |   177 %  41 -0.44 saat% 42 gün% 32 |   312 %  44 +0.45 saat% 46 gün% 39 |   167 %  41 +0.21 saat% 39 gün% 38
+   KB  4s E4 hacimli kopuş                                                      |    21 %  24 -0.45 saat% 24 gün% 31 |    19 %  68 +2.41 saat% 60 gün% 64 |    26 %  50 +1.29 saat% 57 gün% 57
+   KB  8s E1 kopuş + Kore hacim patlaması                                       |    62 %  27 -2.23 saat% 28 gün% 27 |    92 %  52 -0.40 saat% 50 gün% 48 |    35 %  40 -1.95 saat% 36 gün% 32
+   KB  8s E2 kopuş + Kore primi                                                 |   128 %  45 -0.79 saat% 47 gün% 50 |   252 %  65 +1.48 saat% 57 gün% 52 |   144 %  43 -0.23 saat% 45 gün% 38
+   KB  8s E3 short sıkışması                                                    |   152 %  49 +0.26 saat% 47 gün% 42 |   265 %  48 +1.26 saat% 47 gün% 45 |   146 %  37 -0.21 saat% 36 gün% 36
+   KB  8s E4 hacimli kopuş                                                      |    21 %  33 -1.00 saat% 33 gün% 31 |    19 %  79 +2.03 saat% 73 gün% 71 |    26 %  50 +0.92 saat% 57 gün% 57
+   KB 24s E1 kopuş + Kore hacim patlaması                                       |    59 %  34 -1.88 saat% 35 gün% 35 |    86 %  51 +1.24 saat% 49 gün% 46 |    33 %  36 -3.38 saat% 32 gün% 32
+   KB 24s E2 kopuş + Kore primi                                                 |   120 %  48 -1.17 saat% 51 gün% 58 |   247 %  57 +0.85 saat% 57 gün% 44 |   133 %  35 -1.46 saat% 38 gün% 35
+   KB 24s E3 short sıkışması                                                    |   135 %  48 +0.09 saat% 51 gün% 53 |   225 %  49 +3.12 saat% 50 gün% 49 |   127 %  27 -1.15 saat% 27 gün% 30
+   KB 24s E4 hacimli kopuş                                                      |    21 %  19 -2.88 saat% 19 gün% 19 |    19 %  42 -2.53 saat% 33 gün% 36 |    25 %  40 -0.51 saat% 43 gün% 48
+   KC  4s E1 kopuş + Kore hacim patlaması                                       |    70 %  33 -1.63 saat% 34 gün% 29 |    84 %  48 +0.66 saat% 38 gün% 51 |    46 %  33 -1.63 saat% 34 gün% 35
+   KC  4s E2 kopuş + Kore primi                                                 |   131 %  44 -1.12 saat% 46 gün% 45 |   210 %  53 +0.27 saat% 43 gün% 41 |   172 %  48 +0.06 saat% 46 gün% 47
+   KC  4s E3 short sıkışması                                                    |   358 %  36 -0.42 saat% 37 gün% 29 |   615 %  47 +0.67 saat% 47 gün% 43 |   242 %  36 -0.96 saat% 35 gün% 40
+   KC  4s E4 hacimli kopuş                                                      |    22 %  23 -2.61 saat% 23 gün% 31 |    25 %  56 +0.29 saat% 48 gün% 56 |    15 %  40 +0.35 saat% 40 gün% 38
+   KC  8s E1 kopuş + Kore hacim patlaması                                       |    65 %  35 -2.52 saat% 34 gün% 29 |    79 %  57 +1.38 saat% 52 gün% 49 |    39 %  44 -1.74 saat% 44 gün% 41
+   KC  8s E2 kopuş + Kore primi                                                 |   126 %  41 -0.93 saat% 43 gün% 47 |   207 %  62 +1.34 saat% 53 gün% 47 |   168 %  42 -0.39 saat% 43 gün% 37
+   KC  8s E3 short sıkışması                                                    |   310 %  44 -0.18 saat% 41 gün% 33 |   516 %  49 +0.96 saat% 48 gün% 47 |   197 %  37 -1.02 saat% 36 gün% 38
+   KC  8s E4 hacimli kopuş                                                      |    22 %  32 -1.95 saat% 32 gün% 31 |    25 %  56 -0.25 saat% 48 gün% 50 |    15 %  47 +0.64 saat% 47 gün% 38
+   KC 24s E1 kopuş + Kore hacim patlaması                                       |    59 %  37 -2.45 saat% 38 gün% 43 |    75 %  49 +0.87 saat% 45 gün% 47 |    32 %  34 -3.12 saat% 34 gün% 29
+   KC 24s E2 kopuş + Kore primi                                                 |   112 %  43 -1.10 saat% 45 gün% 56 |   201 %  54 +0.52 saat% 56 gün% 51 |   150 %  37 -1.41 saat% 40 gün% 39
+   KC 24s E3 short sıkışması                                                    |   252 %  42 -0.10 saat% 44 gün% 43 |   424 %  58 +2.37 saat% 52 gün% 56 |   153 %  36 -1.31 saat% 37 gün% 42
+   KC 24s E4 hacimli kopuş                                                      |    22 %  27 -4.47 saat% 27 gün% 25 |    25 %  36 -2.52 saat% 29 gün% 33 |    15 %  27 -1.94 saat% 27 gün% 15
+```
+
+Plasebo (20 kaydırma) geçen kural sayısı: ortalama 0.0 · %95 0.0 · gerçek 0 → ❌ plasebodan ayırt edilemiyor — kural önerilmez
+
+Bitti · 26 dk
