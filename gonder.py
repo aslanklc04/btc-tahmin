@@ -50,6 +50,8 @@ def uyari():                                                                    
     if os.path.exists(HATA_F): os.remove(HATA_F)
     if bozuk or ayr:
         tg_send("⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:\n" + (f"Adım: {', '.join(bozuk)}\n" if bozuk else "") + "\n".join(ayr[:8]) + "\n(Düzeltilene kadar her saat tekrar eder.)")
+KARAL_RE = re.compile(r"\n[ \t]*🎯 Kâr-al[^\n]*")
+def karal_sil(t): return KARAL_RE.sub("", t)                                                    # 21.10.2026 kullanıcı: 🔸 yedekte 🎯 kâr-al yok, tahmin süresi kadar tut (karne: yedekte kâr-al neti yarıya indiriyor)
 def gecikme(m):
     gec = time.time() - m["t"]
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
@@ -113,7 +115,7 @@ def main():
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        ok = yolla(gecikme(m) + ust + karal_sil(m["m"])); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     for m in yedek:
         if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel", m))
