@@ -1,4 +1,4 @@
-# 📒 Canlı karne — 21.10.2026 13:05
+# 📒 Canlı karne — 21.10.2026 14:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
@@ -7,7 +7,7 @@ _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapan�
 | 🔸 yedek (gönderildi) | 138 | %82 | 2.01% | 277.2% | 0 | 138 · %82 · 0.99% | %60 · %65 |
 | panel (gönderilmedi) | 200 | %57 | 0.50% | 99.6% | 1 | 200 · %59 · 0.19% | — |
 | ↳ panel · prim ⛔ (filtre) | 130 | %59 | 0.56% | 72.3% | 0 | — | — |
-_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır._
+_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. 🔸 yedek mesajlarında hedef YOK (21.10 kararı: yedek tahmin süresi kadar tutulur); yedek satırı yalnız karşılaştırma için._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
