@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "18.10 20:05",
-"s": "ℹ️ bilgi",
-"e": "📒 HAFTALIK KARNE — 18.10.2026 · TÜM sinyaller (12.10 tarihinden beri)",
-"k": "gönderildi"
-},
-{
 "t": "18.10 22:06",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
@@ -240,6 +234,12 @@
 "t": "21.10 17:07",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.10 21:08",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: CRV (z +3.4, 8 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ]
