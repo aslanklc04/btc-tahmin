@@ -1,0 +1,55 @@
+name: Karanlik taraf 2
+on:
+  push:
+    branches: [arastirma3]
+    paths: [karanlik2.py, .github/workflows/karanlik2.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: art3
+          name: prim-veri
+          run-id: 37771896586
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: mt
+          pattern: metrik-*
+          run-id: 38879846493
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: up
+          name: upbit-veri
+          run-id: 38790244456
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'leri (BTC 4s guclu saatleri)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
+      - run: |
+          set +e; timeout 17000 python -u karanlik2.py > karanlik2_log.txt 2>&1; echo "exit=$?" >> karanlik2_log.txt; tail -40 karanlik2_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add karanlik2_log.txt; git add karanlik2_sonuc.md 2>/dev/null || true; git commit -m "Karanlik taraf 2" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
