@@ -1,0 +1,51 @@
+name: Karal kuru test
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/karal_test.yml]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      TG_SIRALI: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: karal
+      - run: git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis.pkl
+          key: gecmis-x
+          restore-keys: gecmis-
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/gecmis_coin.pkl
+          key: coingecmis-x
+          restore-keys: coingecmis-
+      - run: |
+          set -e
+          python -c "
+          import numpy as np, pandas as pd
+          from ortak import karal_satir, giris_cikis
+          c = pd.Series(100*np.exp(np.cumsum(np.random.default_rng(1).normal(0,0.01,1000))))
+          s = karal_satir(float(c.iloc[-1]), c, 4); print(s); assert '🎯 Kâr-al' in s
+          g = giris_cikis(float(c.iloc[-1]), pd.Timestamp('2026-10-21 10:00', tz='UTC'), 0.2, kapanis=c, H=4); print(g); assert 'stop koyma' in g and '🎯' in g
+          g2 = giris_cikis(float(c.iloc[-1]), pd.Timestamp('2026-10-21 10:00', tz='UTC'), 0.2); assert '🎯' not in g2"
+          rm -f durum/tg_kuyruk.json
+          TEST_ZORLA=1 timeout 900 python tahmin_coin.py > /tmp/c.txt 2>&1 || (tail -30 /tmp/c.txt; exit 1)
+          TEST_ZORLA=1 timeout 600 python tahmin24.py > /tmp/d.txt 2>&1 || (tail -30 /tmp/d.txt; exit 1)
+          python -c "
+          import json; q = json.load(open('durum/tg_kuyruk.json')); n = sum('🎯 Kâr-al' in m['m'] for m in q); print(len(q), 'mesaj ·', n, 'tanesinde 🎯'); assert n >= 2
+          m = [x for x in q if '🎯 Kâr-al' in x['m']][0]['m']; print(m[:1500])"
+          PRIM_KURU=1 timeout 300 python prim_canli.py > /tmp/p.txt 2>&1 || (tail -30 /tmp/p.txt; exit 1)
+          timeout 400 python karne.py > /tmp/k.txt 2>&1 || (tail -30 /tmp/k.txt; exit 1)
+          grep -q "🎯 kâr-al ile" durum/karne.md
+          head -9 durum/karne.md
+          echo KARAL_OK
