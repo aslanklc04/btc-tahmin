@@ -1,4 +1,4 @@
-# 🔍 Canlı = test denetimi — 18.10.2026 11:07
+# 🔍 Canlı = test denetimi — 21.10.2026 14:07
 
 ## 1) Sızıntı testi (veri t anında kesilince sonuç aynı mı?)
 - BTC: en büyük fark — özellikler 0.0e+00 · saat içi 0.0e+00 · yol 0.0e+00 · sinyal/eşik 0.0e+00 · z 0.0e+00 → ✅ sızıntı yok
@@ -7,7 +7,7 @@
 - LDO: en büyük fark — özellikler 0.0e+00 · saat içi 0.0e+00 · yol 0.0e+00 · sinyal/eşik 0.0e+00 · z 0.0e+00 → ✅ sızıntı yok
 
 ## 3) Gönderilen sinyallerde coin primi z: mesajdaki ↔ araştırma yöntemi (aynı saat, taze veri)
-- 111 coin-sinyal · |fark| ortalama 0.11 · |fark| > 0,5 olan 5 · eşik tarafı değişen (mesaj ≥ 0 ama araştırma < 0 ya da tersi): 6 · ≥ 2 tarafı değişen: 1
+- 177 coin-sinyal · |fark| ortalama 0.09 · |fark| > 0,5 olan 6 · eşik tarafı değişen (mesaj ≥ 0 ama araştırma < 0 ya da tersi): 7 · ≥ 2 tarafı değişen: 1
 ```
        t      nm  z_mesaj       s                            tur  z_arastirma  z_canli_yeniden  fark
 13.10 00    BLUR      1.6   ✅ ana                      🧪 24 saat         1.56             1.59  0.04
@@ -121,58 +121,124 @@
 18.10 01     FET      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.10             0.10  0.00
 18.10 01   ETHFI      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.07             0.07  0.03
 18.10 01     GRT      0.0 🔸 yedek       🤝 4 saat · BTC ile ortak         0.04             0.04 -0.04
+18.10 16   TURBO      2.2   ✅ ana                      🧪 24 saat         2.21             2.21 -0.01
+18.10 18      OP      0.3   ✅ ana       🤝 4 saat · BTC ile ortak         0.26             0.26  0.04
+18.10 18     SEI      1.3 🔸 yedek       🤝 4 saat · BTC ile ortak         1.34             1.34 -0.04
+18.10 18     RLC      1.1 🔸 yedek       🤝 4 saat · BTC ile ortak         1.02             1.05  0.08
+18.10 18     OGN      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.75             0.76  0.05
+18.10 18    MANA      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.76             0.76  0.04
+18.10 18     ENS      0.6 🔸 yedek       🤝 4 saat · BTC ile ortak         0.63             0.63 -0.03
+18.10 18    VTHO      0.4 🔸 yedek       🤝 4 saat · BTC ile ortak         0.44             0.44 -0.04
+18.10 18    PYTH      0.3 🔸 yedek       🤝 4 saat · BTC ile ortak         0.35             0.35 -0.05
+18.10 18    ATOM      0.3 🔸 yedek       🤝 4 saat · BTC ile ortak         0.31             0.31 -0.01
+18.10 18    STRK      0.2 🔸 yedek       🤝 4 saat · BTC ile ortak         0.15             0.15  0.05
+18.10 18     STX      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.11             0.11 -0.01
+18.10 18     NMR      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.09             0.09  0.01
+18.10 18     JTO      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.07             0.07  0.03
+18.10 23    RARE      2.9   ✅ ana       🤝 4 saat · BTC ile ortak         2.90             2.90  0.00
+18.10 23   SUSHI      2.8   ✅ ana       🤝 4 saat · BTC ile ortak         2.75             2.75  0.05
+18.10 23   TURBO      2.4   ✅ ana       🤝 4 saat · BTC ile ortak         2.37             2.37  0.03
+18.10 23     WLD      2.4   ✅ ana       🤝 4 saat · BTC ile ortak         2.35             2.35  0.05
+18.10 23    SHIB      0.4   ✅ ana       🤝 4 saat · BTC ile ortak         0.42             0.42 -0.02
+18.10 23     DOT      0.2   ✅ ana       🤝 4 saat · BTC ile ortak         0.18             0.18  0.02
+18.10 23     JTO      3.5   ✅ ana       🤝 4 saat · BTC ile ortak         3.54             3.54 -0.04
+18.10 23    MANA      1.9 🔸 yedek       🤝 4 saat · BTC ile ortak         1.93             1.93 -0.03
+18.10 23   SPELL      1.6 🔸 yedek       🤝 4 saat · BTC ile ortak         0.23             0.23  1.37
+18.10 23     DIA      1.4 🔸 yedek       🤝 4 saat · BTC ile ortak         1.42             1.42 -0.02
+18.10 23    ANKR      1.4 🔸 yedek       🤝 4 saat · BTC ile ortak         1.37             1.38  0.03
+18.10 23     GLM      1.3 🔸 yedek       🤝 4 saat · BTC ile ortak         1.30             1.32  0.00
+18.10 23    PYTH      1.3 🔸 yedek       🤝 4 saat · BTC ile ortak         1.31             1.31 -0.01
+18.10 23     ILV      1.3 🔸 yedek       🤝 4 saat · BTC ile ortak         1.27             1.27  0.03
+18.10 23    FIDA      1.2 🔸 yedek       🤝 4 saat · BTC ile ortak         1.19             1.21  0.01
+18.10 23    CELR      1.2 🔸 yedek       🤝 4 saat · BTC ile ortak         1.27             1.15 -0.07
+18.10 23     LPT      1.0 🔸 yedek       🤝 4 saat · BTC ile ortak         1.01             1.03 -0.01
+18.10 23     SEI      1.0 🔸 yedek       🤝 4 saat · BTC ile ortak         1.01             1.01 -0.01
+18.10 23    CAKE      1.0 🔸 yedek       🤝 4 saat · BTC ile ortak         1.01             1.01 -0.01
+18.10 23    TNSR      1.0 🔸 yedek       🤝 4 saat · BTC ile ortak         0.99             0.99  0.01
+18.10 23    ROSE      0.9 🔸 yedek       🤝 4 saat · BTC ile ortak         0.91             0.91 -0.01
+18.10 23     SKL      0.9 🔸 yedek       🤝 4 saat · BTC ile ortak         0.91             0.91 -0.01
+18.10 23     FET      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.83             0.83 -0.03
+18.10 23     SNX      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.81             0.81 -0.01
+18.10 23     FIL      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.81             0.81 -0.01
+18.10 23    LQTY      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.77             0.80  0.03
+18.10 23     ENS      0.8 🔸 yedek       🤝 4 saat · BTC ile ortak         0.80             0.79  0.00
+18.10 23    POWR      0.7 🔸 yedek       🤝 4 saat · BTC ile ortak         0.78             0.74 -0.08
+18.10 23     POL      0.7 🔸 yedek       🤝 4 saat · BTC ile ortak         0.73             0.73 -0.03
+18.10 23    EGLD      0.7 🔸 yedek       🤝 4 saat · BTC ile ortak         0.72             0.71 -0.02
+18.10 23    SAND      0.6 🔸 yedek       🤝 4 saat · BTC ile ortak         0.64             0.64 -0.04
+18.10 23   SUPER      0.6 🔸 yedek       🤝 4 saat · BTC ile ortak         0.62             0.62 -0.02
+18.10 23  PUNDIX      0.5 🔸 yedek       🤝 4 saat · BTC ile ortak         0.77             0.54 -0.27
+18.10 23    ARKM      0.5 🔸 yedek       🤝 4 saat · BTC ile ortak         0.51             0.53 -0.01
+18.10 23     UMA      0.5 🔸 yedek       🤝 4 saat · BTC ile ortak         0.52             0.53 -0.02
+18.10 23     BNT      0.5 🔸 yedek       🤝 4 saat · BTC ile ortak         0.56             0.45 -0.06
+18.10 23     ZRX      0.4 🔸 yedek       🤝 4 saat · BTC ile ortak         0.41             0.41 -0.01
+18.10 23    BONK      0.4 🔸 yedek       🤝 4 saat · BTC ile ortak         0.39             0.39  0.01
+18.10 23    BLUR      0.3 🔸 yedek       🤝 4 saat · BTC ile ortak         0.30             0.30  0.00
+18.10 23   METIS      0.3 🔸 yedek       🤝 4 saat · BTC ile ortak         0.29             0.28  0.01
+18.10 23    KAVA      0.3 🔸 yedek       🤝 4 saat · BTC ile ortak         0.33             0.28 -0.03
+18.10 23   JASMY      0.2 🔸 yedek       🤝 4 saat · BTC ile ortak         0.25             0.25 -0.05
+18.10 23    ALGO      0.2 🔸 yedek       🤝 4 saat · BTC ile ortak         0.22             0.22 -0.02
+18.10 23      ZK      0.2 🔸 yedek       🤝 4 saat · BTC ile ortak         0.21             0.21 -0.01
+18.10 23     C98      0.2 🔸 yedek       🤝 4 saat · BTC ile ortak         0.21             0.21 -0.01
+18.10 23    STRK      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.11             0.11 -0.01
+18.10 23    CTSI      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak        -0.11            -0.10  0.21
+18.10 23     XTZ      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.07             0.07  0.03
+18.10 23    DASH      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.07             0.07  0.03
+18.10 23     ETC      0.1 🔸 yedek       🤝 4 saat · BTC ile ortak         0.06             0.06  0.04
+18.10 23     RLC      0.0 🔸 yedek       🤝 4 saat · BTC ile ortak         0.02             0.05 -0.02
+20.10 04     SKL      0.6 🔸 yedek       🤝 4 saat · BTC ile ortak         0.62             0.62 -0.02
 ```
 
 ## 2) Canlı kopya: canlının kaydettiği tahmin ↔ aynı modelle taze veriden yeniden hesap (son 7 gün)
 - BTC modeli 04.10 17:40 · canlı geçmişi aynı modelden mi: ✅
 - canlı önbellekte 140 coin
 - yeniden hesaplanan: 141 coin · atlanan 0: 
-- 1 saat: 22761 tahmin · olasılık farkı ort 7.4e-07 · en büyük 2.6e-03 · 'Çok güçlü ↑' saat: canlı 1541 / yeniden 1541 · farklı 0
-- 4 saat: 22761 tahmin · olasılık farkı ort 2.2e-05 · en büyük 1.5e-02 · 'Çok güçlü ↑' saat: canlı 1659 / yeniden 1660 · farklı 1
-- 8 saat: 22761 tahmin · olasılık farkı ort 1.3e-06 · en büyük 3.1e-03 · 'Çok güçlü ↑' saat: canlı 1556 / yeniden 1556 · farklı 0
+- 1 saat: 23688 tahmin · olasılık farkı ort 4.2e-07 · en büyük 2.7e-03 · 'Çok güçlü ↑' saat: canlı 1116 / yeniden 1116 · farklı 0
+- 4 saat: 23688 tahmin · olasılık farkı ort 1.3e-04 · en büyük 2.9e-02 · 'Çok güçlü ↑' saat: canlı 1485 / yeniden 1489 · farklı 22
+- 8 saat: 23688 tahmin · olasılık farkı ort 6.1e-07 · en büyük 2.5e-03 · 'Çok güçlü ↑' saat: canlı 1570 / yeniden 1570 · farklı 0
 ```
-  coin  H   n     dmax     dort  u_canli  u_yeni  u_fark  saatler
-   ARB  4 168 0.010662 0.000385        4       5       1 15.10 04
-   DOT  4 168 0.014600 0.000516       18      18       0         
-    OP  4 168 0.010758 0.000292        1       1       0         
-   ADA  4 168 0.009148 0.000292       14      14       0         
-  NEAR  4 168 0.008468 0.000318       20      20       0         
-   BTC  4 168 0.007992 0.000313       10      10       0         
-  LINK  4 168 0.007562 0.000165        7       7       0         
- FLOKI  4 168 0.006264 0.000070       22      22       0         
-   BNB  4 168 0.005933 0.000170       18      18       0         
-   ZRX  4 161 0.004210 0.000013       10      10       0         
-  PEPE  4 168 0.003822 0.000113        3       3       0         
-  SHIB  4 168 0.003285 0.000125       11      11       0         
-   APT  4 168 0.003223 0.000069       15      15       0         
- METIS  8 161 0.003051 0.000012        7       7       0         
-   ZEC  4 161 0.003027 0.000010       25      25       0         
-   ENS  1 161 0.002555 0.000009       15      15       0         
-   ETH  8 168 0.002547 0.000010       38      38       0         
-   SUI  4 168 0.002134 0.000024       13      13       0         
-   CVC  8 160 0.002069 0.000006       20      20       0         
-  SHIB  1 168 0.001958 0.000006       10      10       0         
-   CRV  8 161 0.001805 0.000006        9       9       0         
-  FIDA  8 160 0.001625 0.000007        4       4       0         
-  DOGE  4 168 0.001484 0.000040       15      15       0         
-  MASK  8 160 0.001310 0.000004       21      21       0         
-   AXS  1 161 0.001288 0.000004        7       7       0         
-   FET  8 161 0.001186 0.000004       25      25       0         
-  CTSI  8 161 0.001146 0.000006        0       0       0         
-  DASH  4 161 0.001102 0.000004       11      11       0         
-   ETH  4 168 0.000685 0.000019       24      24       0         
-   ARB  1 168 0.000396 0.000001       15      15       0         
-    AI  1 160 0.000371 0.000002       10      10       0         
-   XLM  1 161 0.000104 0.000001        9       9       0         
-RENDER  8 161 0.000022 0.000006        0       0       0         
-   AMP  4 161 0.000018 0.000004        1       1       0         
-RENDER  4 161 0.000017 0.000004        9       9       0         
-   REQ  8 160 0.000016 0.000004        7       7       0         
-   JTO  8 161 0.000015 0.000002        9       9       0         
-   CHZ  4 160 0.000015 0.000003        3       3       0         
- SPELL  8 160 0.000013 0.000003       10      10       0         
-  TNSR  8 160 0.000013 0.000003       12      12       0         
+ coin  H   n     dmax     dort  u_canli  u_yeni  u_fark                    saatler
+ TNSR  4 168 0.029185 0.001192       19      22       3 14.10 21 14.10 22 15.10 02
+  RLC  4 168 0.006821 0.000251       28      26       2          16.10 16 16.10 23
+  SNX  4 168 0.003879 0.000194        1       3       2          15.10 03 15.10 04
+  ALT  4 168 0.018504 0.000085       16      15       1                   15.10 05
+  FET  4 168 0.011494 0.000402        8       9       1                   15.10 03
+  RPL  4 168 0.011358 0.000276       21      20       1                   14.10 15
+ MASK  4 168 0.009683 0.000323        9      10       1                   14.10 19
+  ZRX  4 168 0.008810 0.000368       12      13       1                   14.10 15
+ LQTY  4 168 0.008473 0.000112       23      24       1                   14.10 20
+  NMR  4 168 0.006297 0.000066        5       6       1                   14.10 18
+  TAO  4 168 0.006080 0.000259        7       6       1                   15.10 01
+ FIDA  4 168 0.006014 0.000267        6       7       1                   15.10 06
+ STRK  4 168 0.005754 0.000223       48      49       1                   14.10 19
+ AAVE  4 168 0.005110 0.000038       14      15       1                   14.10 19
+  CRV  4 168 0.003612 0.000037        8       7       1                   15.10 04
+ BICO  4 168 0.003502 0.000113       10       9       1                   16.10 19
+  RAY  4 168 0.003436 0.000119       26      25       1                   16.10 03
+  XLM  4 168 0.002742 0.000087        8       7       1                   16.10 16
+    W  4 168 0.017023 0.000813       30      30       0                           
+  REZ  4 168 0.016708 0.000106       31      31       0                           
+  ICP  4 168 0.016195 0.000498        6       6       0                           
+ ROSE  4 168 0.014990 0.000660       17      17       0                           
+   IO  4 168 0.014081 0.000754        0       0       0                           
+  JTO  4 168 0.011735 0.000268        8       8       0                           
+ MINA  4 168 0.008902 0.000348        0       0       0                           
+ BONK  4 168 0.008831 0.000048        3       3       0                           
+  KSM  4 168 0.008443 0.000218        7       7       0                           
+  ADA  4 168 0.007927 0.000246        6       6       0                           
+METIS  4 168 0.007280 0.000299       16      16       0                           
+  CVC  4 168 0.007258 0.000319        2       2       0                           
+ ANKR  4 168 0.006958 0.000336        8       8       0                           
+JASMY  4 168 0.006886 0.000093        8       8       0                           
+  GRT  4 168 0.006455 0.000322        6       6       0                           
+ MANA  4 168 0.006434 0.000348        5       5       0                           
+  GMT  4 168 0.006343 0.000223       11      11       0                           
+  LTC  4 168 0.006170 0.000145       22      22       0                           
+  TIA  4 168 0.006053 0.000029       18      18       0                           
+ POWR  4 168 0.006044 0.000271       13      13       0                           
+  FIL  4 168 0.005988 0.000227       11      11       0                           
+ ARKM  4 168 0.005842 0.000149       10      10       0                           
 ```
 
-_süre 8 dk_
+_süre 10 dk_
 exit=0
