@@ -287,4 +287,15 @@ yaz("```")
 yaz("\n## 🔸 yedek içinde koşula göre (süre sonu kuralı)\n```")
 for ad, km in K0.items(): satir(ad, G1Y & km, "sure")
 yaz("```")
+
+yaz("\n## Sinyalli gün oranı (Türkiye günü; en az 1 sinyal)\n```")
+gun = tq.tz_convert("Europe/Istanbul").floor("D")
+for y_ in (2023, 2024, 2025, 2026):
+    tumg = pd.date_range(pd.Timestamp(f"{y_}-01-01", tz="Europe/Istanbul"), min(pd.Timestamp(f"{y_}-12-31", tz="Europe/Istanbul"), gun.max()), freq="D"); o = []
+    for ad, m in (("✅ ana", ANAF), ("✅ ana veya 🔸 yedek", ANAF | G1Y)):
+        g = pd.DatetimeIndex(sorted(set(gun[m & (tq.year == y_)])))
+        bos = pd.Series(1, index=tumg).drop(g, errors="ignore"); ara = (bos.index.to_series().diff() != pd.Timedelta(days=1)).cumsum(); en = int(bos.groupby(ara).size().max()) if len(bos) else 0
+        o.append(f"{ad}: %{100 * len(g) / len(tumg):.0f} gün sinyalli ({len(g)}/{len(tumg)}) · en uzun sinyalsiz {en} gün")
+    yaz(f"{y_}: " + " | ".join(o))
+yaz("```")
 open("tur_karne_sonuc.md", "w").write("\n".join(L) + "\n")
