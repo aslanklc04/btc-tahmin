@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "18.10 19:06",
-"s": "panel",
-"e": "🧪 24 saat: ETH (z -1.6 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "18.10 20:05",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.10 09:07",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 21.10 09:00 · $82,672",
+"k": "gönderildi"
 }
 ]
 }
