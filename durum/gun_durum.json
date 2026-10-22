@@ -3,12 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "19.10 01:07",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: AAVE (z +2.4, 24 saat), UNI (z +2.2, 4 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "19.10 02:05",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
@@ -240,6 +234,12 @@
 "t": "22.10 20:07",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 21:07",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.6",
 "k": "gitmedi — yalnız panel"
 }
 ],
