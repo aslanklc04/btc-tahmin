@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "18.10 23:08",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: BONK (z +0.4), BLUR (z +0.3), METIS (z +0.3), KAVA (z +0.3), JASMY (z +0.2), ALGO (z +0.2), ZK (z +0.2), C98 (z +0.2), STRK (z +0.1), CTSI (z +0.1)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 23:08",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: XTZ (z +0.1), DASH (z +0.1), ETC (z +0.1), RLC (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 23:08",
 "s": "panel",
 "e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.6",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +228,18 @@
 "t": "22.10 07:07",
 "s": "✅ ana",
 "e": "🧪 24 saat: WIF (z +1.8)",
+"k": "gönderildi"
+},
+{
+"t": "22.10 09:08",
+"s": "panel",
+"e": "🧪 24 saat: SHIB (z -2.2 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 09:08",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 22.10 09:00 · $82,816",
 "k": "gönderildi"
 }
 ]
