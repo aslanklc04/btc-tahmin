@@ -73,6 +73,7 @@ def calis():
     if kuru or (tl.hour >= 9 and GZ["gun"] != dun):
         try:
             SC = stabil(); D = {a: cm(a) for a in ("eth", "btc")}
+            tazelik_yaz("⛓️ ETH zincir verisi (Coin Metrics)", D["eth"].index[-1]); tazelik_yaz("⛓️ stabil coin verisi (DefiLlama)", SC.index[-1])
             ZZ = {a: olcu(D[a], SC) for a in D}; Z = ZZ["eth"]; son_gun = Z.dropna().index[-1]
             print(f"Coin Metrics son gün: ETH {D['eth'].index[-1]:%d.%m} · BTC {D['btc'].index[-1]:%d.%m} · ölçülerin son tam günü {son_gun:%d.%m} · stabil coin son {SC.index[-1]:%d.%m} ({SC.iloc[-1]/1e9:,.0f} milyar $)")
             if son_gun >= dun or kuru:

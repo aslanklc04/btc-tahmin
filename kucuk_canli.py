@@ -47,7 +47,7 @@ def calis():
     # ---- günlük değerlendirme ----
     if kuru or (tl.hour >= 15 and GK["gun"] != dun):
         try:
-            s = veri(); z = olcu(s); son_gun = z.dropna().index[-1]
+            s = veri(); tazelik_yaz("🧑 küçük yatırımcı verisi (bitcoin-data.com)", s.index[-1]); z = olcu(s); son_gun = z.dropna().index[-1]
             print(f"bitcoin-data.com son gün {s.index[-1]:%d.%m} · küçük cüzdan BTC {s.iloc[-1]:,.0f} · z {z.dropna().iloc[-1]:+.2f}")
             if son_gun >= dun or kuru:
                 ev = z.index[events((z <= ESIK).fillna(False).values, GUN)]; zn = float(z.loc[son_gun])

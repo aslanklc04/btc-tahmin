@@ -360,6 +360,23 @@ def karal_satir(p, kapanis, H, girinti="   "):
     if not np.isfinite(h): return ""
     return (f"\n{girinti}🎯 Kâr-al {fiyat_yaz(h)} (+%{100 * (h / p - 1):.1f}): önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · "
             f"testte ✅ ana isabet %69–74 (yalnız süre sonunda satış %60–68), işlem başı kâr biraz daha az")                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
+TAZE_F = "durum/kaynak_tazelik.json"                                                         # 22.10.2026: dış veri kaynağı tazeliği (🧑 bitcoin-data.com 18.10'da durdu, 4 gün fark edilmedi)
+def tazelik_yaz(kaynak, son):
+    """Kaynağın son veri gününü kaydeder (kucuk_canli / zincir_canli her veri çekişinde)."""
+    try:
+        d = json.load(open(TAZE_F, encoding="utf-8")) if os.path.exists(TAZE_F) else {}
+        d[kaynak] = dict(son=pd.Timestamp(son).strftime("%Y-%m-%d"), kontrol=pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d %H:%M"))
+        os.makedirs(os.path.dirname(TAZE_F), exist_ok=True); json.dump(d, open(TAZE_F, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    except Exception as e: print("tazelik yazılamadı:", e)
+def tazelik_uyari(esik=2):
+    """Son veri günü bugünden esik günden eskiyse uyarı satırları (normal gecikme 1 gün)."""
+    try: d = json.load(open(TAZE_F, encoding="utf-8")) if os.path.exists(TAZE_F) else {}
+    except Exception: return []
+    bugun = pd.Timestamp.now(tz="UTC").normalize(); out = []
+    for k, v in d.items():
+        g = (bugun - pd.Timestamp(v["son"], tz="UTC")).days
+        if g > esik: out.append(f"⚠️ {k}: {g} gündür yeni veri yok (son veri {pd.Timestamp(v['son']):%d.%m}) → bu sinyal türü şu an çalışamıyor")
+    return out
 def hiz_notu(z, karal=False):                                                                 # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
     """karal=True: mesajda 🎯 kâr-al satırı var → "erken çıkma" yerine "🎯 hedef dışında erken çıkma" (22.10.2026: iki talimat çelişmesin)."""
     if z is None or not np.isfinite(z) or z < 1: return ""

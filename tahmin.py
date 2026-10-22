@@ -151,7 +151,7 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
     else: tg_send("📊 HAFTALIK SONUÇ — son 7 günde sonuçlanan sinyal yok.", sinif="rapor")
     G["last_weekly"] = t
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):
-    tg_send(f"☀️ Günlük özet — {head}\nℹ️ Bilgi mesajı, işlem sinyali değil. İşlem için yalnız ✅ İŞLEM SİNYALİ ve 🔸 YEDEK SİNYAL mesajlarına bak.\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines)); G["last_daily"] = t
+    tg_send(f"☀️ Günlük özet — {head}\nℹ️ Bilgi mesajı, işlem sinyali değil. İşlem için yalnız ✅ İŞLEM SİNYALİ ve 🔸 YEDEK SİNYAL mesajlarına bak.\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines) + "".join("\n" + u for u in tazelik_uyari())); G["last_daily"] = t
 # ---- son_durum.md (GitHub'da okunabilir panel) ----
 star = (f"## ⭐ EN GÜÇLÜ SİNYAL VAR — 4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş: 4 saat sonra isabet **%{a4_['acc']:.1f}**, 8 saat sonra **%{a8_['acc']:.1f}** ({a4_['n']} olay)" + ("\n\n" + M.get("ALT_LINE", "") if M.get("ALT_LINE") else "")
         if agree else f"⭐ En güçlü sinyal şu an **yok** (4s: {'✔' if strong_up.get(4) else '✘'} · 8s: {'✔' if strong_up.get(8) else '✘'}). Geldiğinde geçmiş isabet 4s %{a4_['acc']:.1f}, 8s %{a8_['acc']:.1f}.")
@@ -167,6 +167,7 @@ md = (f"# 🧭 BTC çok ufuklu tahmin (v35) — {tloc:%d.%m.%Y %H:%M} kapanış�
 tl = G.get("tglog", [])[-10:]
 md += "\n## 📨 Telegram günlüğü (son 10 gönderim)\n" + ("\n".join(f"- {x['t'].tz_convert(DISPLAY_TZ):%d.%m %H:%M} · {'✅' if x['ok'] else '❌'} · {x['tip']} · {x['info']}" for x in reversed(tl)) if tl else "- (henüz gönderim yok)") + "\n"
 md += f"\n_Çalıştırma: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m %H:%M} · token {'VAR' if _ortak.TELEGRAM_TOKEN else 'YOK'} · sohbet kimliği {'VAR' if _ortak.TELEGRAM_CHAT_ID else 'YOK'}_\n"
+TZU = tazelik_uyari(); md = md.replace("\n\n", "\n\n" + "  \n".join(TZU) + "\n\n", 1) if TZU else md   # 22.10: bayat veri kaynağı uyarısı panelin üstünde
 open("son_durum.md", "w").write(md)
 for d_ in ("PG", "PL", "BPG", "BPL"):
     for k in G[d_]: G[d_][k] = G[d_][k][G[d_][k].index >= G[d_][k].index[-1] - pd.Timedelta(days=70)]
