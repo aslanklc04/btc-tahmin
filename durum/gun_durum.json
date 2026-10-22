@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "18.10 23:08",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: RARE (z +2.9), SUSHI (z +2.8), TURBO (z +2.4), WLD (z +2.4), SHIB (z +0.4), DOT (z +0.2), JTO (z +3.5)",
-"k": "gönderildi"
-},
-{
-"t": "18.10 23:08",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: MANA (z +1.9), SPELL (z +1.6), DIA (z +1.4), ANKR (z +1.4), GLM (z +1.3), PYTH (z +1.3), ILV (z +1.3), FIDA (z +1.2), CELR (z +1.2), LPT (z +1.0)",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "22.10 03:07",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 05:07",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.5",
 "k": "gitmedi — yalnız panel"
 }
 ]
