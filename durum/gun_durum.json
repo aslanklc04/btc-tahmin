@@ -1,19 +1,7 @@
 {
 "gun": "2026-10-22",
-"giden": 1,
+"giden": 3,
 "log": [
-{
-"t": "18.10 23:08",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ARB (z -0.9)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 23:08",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ADA (z -1.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "18.10 23:08",
 "s": "panel",
@@ -241,7 +229,19 @@
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.6",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 18:07",
+"s": "✅ ana",
+"e": "🧪 24 saat: RPL (z +1.6)",
+"k": "gönderildi"
+},
+{
+"t": "22.10 18:07",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: FIL (z +4.9, 8 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
