@@ -181,6 +181,20 @@ def hata_kaydet(adim, ayrinti):                                                 
     try:
         os.makedirs(os.path.dirname(HATA_F), exist_ok=True); open(HATA_F, "a", encoding="utf-8").write(f"{adim}: {ayrinti}\n")
     except Exception: pass
+def mesaj_parcala(text, n=3900):
+    """22.10.2026 denetim: Telegram 4096 karakterden uzununu reddeder; eskiden metin 4000'de KESİLİYORDU (10 coin'lik 🤝 mesajlarında son coin'ler kayboluyordu).
+    Artık coin satırlarının (\n• ) arasından bölünür; her parça ≤ n karakter, sonrakiler "↪️ devam" başlığıyla."""
+    if len(text) <= n: return [text]
+    bloklar = re.split(r"(?=\n• )", text); parca, cur = [], ""
+    for b in bloklar:
+        while len(b) > n:                                                                   # tek blok bile uzunsa satır satır, gerekirse sert kes
+            i = b.rfind("\n", 0, n); i = i if i > 0 else n
+            if cur: parca.append(cur); cur = ""
+            parca.append(b[:i]); b = b[i:]
+        if len(cur) + len(b) > n: parca.append(cur); cur = b.lstrip("\n")
+        else: cur += b
+    if cur: parca.append(cur)
+    N = len(parca); return [p if i == 0 else f"↪️ devam ({i + 1}/{N}) — önceki mesajın devamı\n" + p for i, p in enumerate(parca)]
 def tg_send(text, oncelik=None, etiket=None, sinif=None):
     """Telegram'a gönderir; başarısızsa bir kez daha dener. Sonuç TG_LAST'e yazılır (teşhis için).
     TG_SIRALI=1 ise (saatlik iş) mesaj hemen gitmez: kuyruğa yazılır, işin sonunda gonder.py öncelik sırasıyla (en iyisi üstte) gönderir.
@@ -197,18 +211,24 @@ def tg_send(text, oncelik=None, etiket=None, sinif=None):
         except Exception as e: print(f"⚠️ kuyruk yazılamadı, doğrudan gönderiliyor: {e}")
     if sinif in ("yedek", "yedekg", "panel", "panelf", "panelfx", "panelg", "panely", "rapor"): TG_LAST.update(ok=True, info=f"{sinif}: doğrudan gönderilmez (yalnız saatlik işte gonder.py karar verir)"); return True
     if not TELEGRAM_TOKEN: TG_LAST.update(ok=False, info="TELEGRAM_TOKEN boş (gizli ayar gelmedi)"); print("(Telegram token yok — mesaj gönderilmedi)"); return False
-    for deneme in range(2):
-        try:
-            if not TELEGRAM_CHAT_ID:
-                up = requests.get(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates", timeout=15).json().get("result", [])
-                if up: TELEGRAM_CHAT_ID = str(up[-1].get("message", up[-1].get("channel_post", {})).get("chat", {}).get("id", ""))
-            r = requests.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data=dict(chat_id=TELEGRAM_CHAT_ID, text=text[:4000]), timeout=20)
-            if r.status_code == 200: TG_LAST.update(ok=True, info="gönderildi"); return True
-            TG_LAST.update(ok=False, info=f"HTTP {r.status_code}: {r.text[:200]}"); print("⚠️ Telegram hatası:", r.text[:300])
-        except Exception as e:
-            TG_LAST.update(ok=False, info=f"istisna: {type(e).__name__}: {str(e)[:160]}"); print(f"⚠️ Telegram hatası: {str(e)[:200]}")
-        time.sleep(3)
-    return False
+    hepsi = True
+    for pi, parca in enumerate(mesaj_parcala(text)):
+        if pi: time.sleep(1.0)
+        ok_ = False
+        for deneme in range(2):
+            try:
+                if not TELEGRAM_CHAT_ID:
+                    up = requests.get(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates", timeout=15).json().get("result", [])
+                    if up: TELEGRAM_CHAT_ID = str(up[-1].get("message", up[-1].get("channel_post", {})).get("chat", {}).get("id", ""))
+                r = requests.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data=dict(chat_id=TELEGRAM_CHAT_ID, text=parca[:4096]), timeout=20)
+                if r.status_code == 200: TG_LAST.update(ok=True, info="gönderildi"); ok_ = True; break
+                TG_LAST.update(ok=False, info=f"HTTP {r.status_code}: {r.text[:200]}"); print("⚠️ Telegram hatası:", r.text[:300])
+            except Exception as e:
+                TG_LAST.update(ok=False, info=f"istisna: {type(e).__name__}: {str(e)[:160]}"); print(f"⚠️ Telegram hatası: {str(e)[:200]}")
+            time.sleep(3)
+        hepsi &= ok_
+    if not hepsi: TG_LAST.update(ok=False, info="parçalardan biri gönderilemedi")
+    return hepsi
 # ---- 💵 Coinbase primi (ABD alıcıları) — araştırma: bosluklar2.py, cb_kontrol.py, birlesim.py ----
 # Prim = log(Coinbase BTC-USD / Binance BTCUSDT), son 30 güne göre z. Model ↑ sinyali z > 0 iken (ABD normalden fazla ödüyor) geçmişte belirgin daha isabetli/kârlı,
 # z ≤ −1 iken (ABD satıyor) sinyaller kaybettirdi. Aynı saatlik çalışmada tek kez hesaplanır (durum/cb_prim.json), diğer betikler dosyadan okur.
