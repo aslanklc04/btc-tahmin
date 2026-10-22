@@ -106,7 +106,7 @@ def main():
         n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn); nt_, ht_, at_ = ozet_tp(X.sinif == sn)
         L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
     n, h, a, s, o = ozet((X.sinif == "yedek") & X.pden); nt_, ht_, at_ = ozet_tp((X.sinif == "yedek") & X.pden)
-    L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %59–64 (kâr-al ile) |")
+    L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %61–63 (kâr-al ile) |")
     n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — | — |")
     L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. 21.10 akşamdan beri 🔸 yedek mesajlarında da hedef var; ⛓️ ETH ve 🧑 küçük yatırımcıda yok (süre sonunda sat)._")
     hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN
