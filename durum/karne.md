@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 22.10.2026 21:05
+# 📒 Canlı karne — 22.10.2026 22:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 39 | %67 | 0.49% | 19.2% | 2 | 39 · %69 · 0.61% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 138 | %82 | 2.01% | 277.2% | 2 | 138 · %82 · 0.99% | %60 · %65 |
-| panel (gönderilmedi) | 212 | %55 | 0.45% | 95.4% | 5 | 212 · %57 · 0.17% | — |
+| panel (gönderilmedi) | 212 | %55 | 0.45% | 95.4% | 6 | 212 · %57 · 0.17% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 0 | %— | —% | 0.0% | 2 | 0 · %— · —% | %59–64 (kâr-al ile) |
 | ↳ panel · prim ⛔ (filtre) | 132 | %58 | 0.54% | 71.4% | 4 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. 21.10 akşamdan beri 🔸 yedek mesajlarında da hedef var; ⛓️ ETH ve 🧑 küçük yatırımcıda yok (süre sonunda sat)._
