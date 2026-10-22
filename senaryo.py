@@ -1,18 +1,6 @@
-# senaryo.py — KULLANICI SENARYOSU (13.10.2026): "satıcılar küçük ve bireysel, piyasadan satış az ve küçük; alıcılar kurumsal + bireysel, alış emirleri yüklü" → ne olur?
-# Yalnız test; canlıya dokunmaz. Senaryonun ölçülebilir parçaları (her coin kendi geçmişine göre, son 30 gün = 720 saat z):
-#   S1 DEFTER DENGESİZ   : Binance vadeli defterinde fiyatın %1 altındaki alış derinliği / %1 üstündeki satış derinliği → log oran z ≥ 2 (alış kalın, satış ince)
-#   S2 PİYASA SATIŞI AZ  : Binance spot son 4 saatte piyasa emriyle satışın (taker sell) hacme payı z ≤ −2
-#   S3 BÜYÜK ALIR KÜÇÜK SATAR: vadeli büyük hesapların pozisyon long/short oranı ile tüm hesapların long/short oranı farkı (log) z ≥ 2
-#   S4 BÜYÜK İŞLEMLİ ALIM: spot son 4 saat ortalama işlem büyüklüğü z ≥ 2 VE piyasa satışı payı z ≤ −1
-#   S5 SENARYONUN TAMAMI : defter dengesiz z ≥ 1 VE piyasa satışı payı z ≤ −1 VE büyük−küçük farkı z ≥ 1
-# Kullanım: ✅ ana sinyallere ÖNCELİK işareti (sinyal sayısı düşmez). Taban: emir defteri arşivi olan 15 coin'in ✅ ana sinyalleri (🚀 dahil), dönemler 2023 · 2024+ · 2026.
-# ÖNCEDEN YAZILI KARAR (sonuçlar görülmeden; 💧 LD ile aynı ölçütler) — her S için:
-#   K0 ANA+: üç dönemde isabet ≥ taban +2 puan VE net ≥ taban +0,10 (en az 30 / 30 / 10 sinyal)
-#   K1 40 kaydırmalı plasebo (30–400 gün): 2024+ isabet ve net farkı plasebo %95'lik değerinin üstünde
-#   K2 dipten bağımsızlık (|24 s z| < 2): üç dönemde +2 puan ve +0,10 (20 / 20 / 10; 2026 < 10 ise yalnız 2023 ve 2024+)
-#   K3 haftalık blok bootstrap 2024+ net farkı %90 alt sınırı > 0 · K4 ≥ 10 sinyalli coin'lerin ≥ %60'ında daha isabetli (en az 3 coin)
-#   K5 💧'den bağımsızlık: 💧 LD olmayan ana sinyallerde de K2 ile aynı ölçüt (aynı şeyi ölçüyorsa ayrı işaret gereksiz)
-#   → K0–K5 hepsi geçerse canlıya öncelik işareti olarak önerilir. 5 varyant denendiği için bir tanesinin tesadüfen geçmesi K1–K4 ile ayrıca elenir.
+# senaryo.py — 22.10.2026 (kullanıcı: "filtreleri anaya + yedeğe + panelden'e uygularsak ne olur · yalnız yedek + panel · yalnız panel"); yalnız hesap, canlıya dokunmaz.
+# Senaryolar (yedek_filtre.py ile aynı veri ve hesap): hedef 0,75σ (şimdiki) / 0,5σ · filtre: 🔸 yedek → K8 çifte onay · 📋 panelden → aynı saatte ✅ ana VAR ya da BTC primi −1…0.
+# 📋 panelden her senaryoda günde en fazla 2 (günün ilk iki saati). ✅ anaya filtre yok (aranmadı).
 import os, glob, gzip, json, pickle, time, numpy as np, pandas as pd
 from ortak import *
 T0 = time.time(); L = []
@@ -138,102 +126,220 @@ RZ = np.full(len(Ez), np.nan)
 for nm, o in OH.items():
     m = nmv == nm
     if m.any(): lr = np.log(o.close); sg = lr.diff().rolling(720, min_periods=168).std(); RZ[m] = ((lr - lr.shift(24)) / (sg * np.sqrt(24))).reindex(tz_[m]).values
-MOM = GON & (RZ >= 2); ANA = ANA | MOM; GON = GON & ~MOM
-# ---------------- veri: emir defteri (arşiv), spot mum (taker), vadeli metrikler ----------------
-import io, zipfile, requests
+MOM = GON & (RZ >= 2); ANA = ANA | MOM
+TURL = np.full(len(Ez), "", object)
+for k_, v_ in TUR.items(): TURL[(TURL == "") & v_] = k_
+TURL[(TURL == "") & MOM] = "🚀"
+C = pd.DataFrame({"tur": TURL[ANA], "nm": nmv[ANA], "t": pd.DatetimeIndex(Ez.t.values[ANA]), "H": Ez.H.values[ANA], "net": Ez.net.values[ANA], "z": z[ANA], "rz": RZ[ANA], "kay": "çekirdek"})
+Y3m = YED & ~MOM; Y3 = pd.DataFrame({"tur": "🔇/🪙", "nm": nmv[Y3m], "t": pd.DatetimeIndex(Ez.t.values[Y3m]), "H": Ez.H.values[Y3m], "net": Ez.net.values[Y3m], "z": z[Y3m], "rz": RZ[Y3m], "kay": "çekirdek"})
+# ---------------- 🌐 geniş liste (ld_genis.py ile aynı) ----------------
+bul = lambda p: (glob.glob(p, recursive=True) or [None])[0]
+def utc(ix): ix = pd.DatetimeIndex(ix); return (ix.tz_localize("UTC") if ix.tz is None else ix.tz_convert("UTC")).as_unit("ns")
+GEN = {l.strip()[:-4] for l in open("canli/durum/genis_liste.txt") if l.strip()}
+Bg = pd.read_pickle(bul("ga/**/disa_BTCUSDT.pkl")); Bg.index = utc(Bg.index); GV = []
+def prim(nm):
+    p = bul(f"ga/**/prim_{nm}USDT.pkl")
+    if not p: return None
+    d = pd.read_pickle(p).astype("float64"); d.index = utc(d.index); d = d[~d.index.duplicated()].sort_index(); return d
+for nm in sorted(GEN):
+    PR = prim(nm)
+    if PR is None: continue
+    zs = PR.z; lr = np.log(PR.c); sg = lr.diff().rolling(720, min_periods=168).std(); rzs = (lr - lr.shift(24)) / (sg * np.sqrt(24))
+    p = bul(f"ga/**/disa_{nm}USDT.pkl")
+    if p:
+        X = pd.read_pickle(p); X.index = utc(X.index); st_, u4_, ac_ = (X[k].fillna(False).astype(bool).values for k in ("star", "u4", "acls"))
+        ev = events((st_ | u4_ | ac_) & X.y4.notna().values, 4); t = X.index[ev]; bu4 = Bg.u4.reindex(t).fillna(False).astype(bool).values; zz = zs.reindex(t).values
+        m = bu4 & (zz >= 2); GV.append(pd.DataFrame({"tur": "🌐🤝", "nm": nm, "t": t[m], "H": 4, "net": np.exp(X.y4.values[ev][m]) - 1 - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
+    p = bul(f"ga/**/disa24_{nm}USDT.pkl")
+    if p:
+        D = pd.read_pickle(p).astype("float64"); D.index = utc(D.index); D = D.reindex(pd.date_range(D.index[0], D.index[-1], freq="1h")); c = D.close.ffill(limit=3).values; n = len(D)
+        mk = np.nan_to_num(((D.S24 > 0) & (D.C24 >= D.T10_24)).values).astype(bool) & D.T10_24.notna().values & (np.arange(n) + 25 < n)
+        ev = events(mk, 24); t = D.index[ev]; zz = zs.reindex(t).values; m = zz >= 1.5
+        GV.append(pd.DataFrame({"tur": "🌐🧪", "nm": nm, "t": t[m], "H": 24, "net": (c[ev + 24] / c[ev] - 1)[m] - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values, "kay": "🌐"}))
+E = pd.concat([d.assign(t=utc(d.t)) for d in [C, Y3] + GV if len(d)], ignore_index=True); E["t"] = pd.to_datetime(E.t, utc=True).dt.as_unit("ns"); E = E[np.isfinite(E.net)].sort_values("t").reset_index(drop=True); E["ok"] = (E.net > 0).astype(float)
+E["dip"] = (E.rz <= -2) & ~E.nm.isin(GEN)
+
+# ---------------- KuCoin BTC fonlaması (canlıyla aynı) ----------------
+import requests
+out, a = [], pd.Timestamp("2022-03-01", tz="UTC")
+while a < pd.Timestamp.now(tz="UTC"):
+    b = a + pd.Timedelta(days=30)
+    for k in range(4):
+        try: j = requests.get("https://api-futures.kucoin.com/api/v1/contract/funding-rates", params={"symbol": "XBTUSDTM", "from": int(a.timestamp() * 1000), "to": int(b.timestamp() * 1000)}, timeout=30).json(); break
+        except Exception: j = None; time.sleep(2 + 2 * k)
+    if isinstance(j, dict) and isinstance(j.get("data"), list): out += j["data"]
+    a = b
+K_ = pd.DataFrame(out).drop_duplicates("timepoint"); FK = pd.Series(K_.fundingRate.astype(float).values, index=pd.to_datetime(K_.timepoint.astype("int64"), unit="ms", utc=True)).sort_index()
+FZ = (FK - FK.rolling(90, min_periods=30).mean()) / (FK.rolling(90, min_periods=30).std() + 1e-12); FZ = FZ.dropna()
+def asof(zaman):
+    zaman = pd.DatetimeIndex(zaman).as_unit("ns"); fi = FZ.index.as_unit("ns"); i = fi.searchsorted(zaman, side="right") - 1
+    return np.where(i >= 0, FZ.values[np.clip(i, 0, None)], np.nan)
+
+# ======================= ADAY HAVUZU =======================
+YED_CUR = ((E.tur.isin(["💵", "🧪"]) & ~E.dip) | (E.tur == "🔇/🪙")).values
+A_ = E[~YED_CUR].assign(aile="ANA"); Y_ = E[YED_CUR].copy()
+Y_["aile"] = np.select([Y_.tur == "💵", Y_.tur == "🧪"], ["Y1 💵", "Y2 🧪 ana coin"], default="Y3 🔇/🪙")
+Pm = GON & ~MOM
+P_ = pd.DataFrame({"aile": np.where(ail[Pm] == BTC_A, "P2 BTC saatlik/⭐/A", "P1 coin primi < 0"), "tur": "P", "nm": nmv[Pm], "t": utc(pd.DatetimeIndex(Ez.t.values[Pm])), "H": Ez.H.values[Pm], "net": Ez.net.values[Pm], "z": z[Pm], "rz": RZ[Pm]})
+GL = []
+for nm in sorted(GEN):
+    PR = prim(nm)
+    if PR is None: continue
+    zs = PR.z; lr = np.log(PR.c); sg = lr.diff().rolling(720, min_periods=168).std(); rzs = (lr - lr.shift(24)) / (sg * np.sqrt(24))
+    p = bul(f"ga/**/disa_{nm}USDT.pkl")
+    if p:
+        X = pd.read_pickle(p); X.index = utc(X.index); st_, u4_, ac_ = (X[k].fillna(False).astype(bool).values for k in ("star", "u4", "acls"))
+        ev = events((st_ | u4_ | ac_) & X.y4.notna().values, 4); t = X.index[ev]; bu4 = Bg.u4.reindex(t).fillna(False).astype(bool).values; zz = zs.reindex(t).values
+        m = bu4 & (zz >= 0) & (zz < 2); GL.append(pd.DataFrame({"aile": "G1 🌐🤝 z 0…2", "tur": "G", "nm": nm, "t": t[m], "H": 4, "net": np.exp(X.y4.values[ev][m]) - 1 - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values}))
+    p = bul(f"ga/**/disa24_{nm}USDT.pkl")
+    if p:
+        D = pd.read_pickle(p).astype("float64"); D.index = utc(D.index); D = D.reindex(pd.date_range(D.index[0], D.index[-1], freq="1h")); c = D.close.ffill(limit=3).values; n = len(D)
+        mk = np.nan_to_num(((D.S24 > 0) & (D.C24 >= D.T10_24)).values).astype(bool) & D.T10_24.notna().values & (np.arange(n) + 25 < n)
+        ev = events(mk, 24); t = D.index[ev]; zz = zs.reindex(t).values; m = (zz >= 0) & (zz < 1.5)
+        GL.append(pd.DataFrame({"aile": "G2 🌐🧪 z 0…1,5", "tur": "G", "nm": nm, "t": t[m], "H": 24, "net": (c[ev + 24] / c[ev] - 1)[m] - 0.0004, "z": zz[m], "rz": rzs.reindex(t[m]).values}))
+Q = pd.concat([A_, Y_, P_] + [g.assign(t=utc(g.t)) for g in GL if len(g)], ignore_index=True)
+Q["t"] = pd.to_datetime(Q.t, utc=True).dt.as_unit("ns"); Q = Q[np.isfinite(Q.net.astype(float))].reset_index(drop=True); Q["net"] = Q.net.astype(float)
+tq = pd.DatetimeIndex(Q.t); OK = (Q.net.values > 0); NET = 100 * Q.net.values; AIL = Q.aile.values; nmq = Q.nm.values
+ANA = AIL == "ANA"
+P0x, A24x, A26x = pd.Timestamp("2022-06-01", tz="UTC"), pd.Timestamp("2024-01-01", tz="UTC"), pd.Timestamp("2026-01-01", tz="UTC")
+D3 = (("2022-06→2023", (tq >= P0x) & (tq < A24x)), ("2024+", tq >= A24x), ("2026", tq >= A26x)); m24 = tq >= A24x
+MIN = {"2022-06→2023": 30, "2024+": 30, "2026": 10}; HAFTA = {"2022-06→2023": (A24x - P0x).days / 7, "2024+": (tq.max() - A24x).days / 7, "2026": (tq.max() - A26x).days / 7}
+def st(m): return {dn: (int((m & md).sum()), 100 * OK[m & md].mean() if (m & md).any() else np.nan, NET[m & md].mean() if (m & md).any() else np.nan) for dn, md in D3}
+def sat(ad, o, hf=False): return f"{ad[:46]:46s}" + " | ".join(f"{o[dn][0]:5d}{(' (' + format(o[dn][0] / HAFTA[dn], '4.1f') + '/hf)') if hf else ''} · %{o[dn][1]:4.1f} · {o[dn][2]:+.2f}" for dn in o)
+OA = st(ANA)
+# ---- koşullar (kay = plasebo kaydırma, gün) ----
+RZq = Q.rz.values.astype(float); Zq = Q.z.values.astype(float)
+BU4 = Bg.u4.fillna(False).astype(bool); ZB = RAW["BTC"].z
+key = pd.Series(nmq).astype(str) + "|" + pd.Series(tq.floor("h").astype(str)); fam = pd.Series(AIL).where(AIL != "ANA", pd.Series(Q.tur.values).astype(str))
+cift = (pd.DataFrame({"k": key, "f": fam}).groupby("k").f.transform("nunique") >= 2).values
+def kosullar(kay=0):
+    sh = pd.Timedelta(days=kay); tt = tq - sh
+    def kayd(v):                                                                            # olay-özelliği koşulunu kaydır: aynı coin'in kay gün önceki değeri yerine dizinin kendisi kaydırılır
+        if kay == 0: return v
+        s = pd.Series(v, index=tq); out = np.zeros(len(v), bool)
+        for nm in np.unique(nmq):
+            m = nmq == nm; si = s[m]; si = si[~si.index.duplicated()].sort_index(); out[m] = si.reindex(tq[m] - sh, method="nearest", tolerance=pd.Timedelta(days=3)).fillna(False).values.astype(bool)
+        return out
+    return {"K1 📉 dip": kayd(RZq <= -2), "K2 🚀 momentum": kayd(RZq >= 2), "K3 🔥 BTC fonlama": np.nan_to_num(asof(tt), nan=-9) >= 2,
+            "K4 BTC 4s ÇG ↑": BU4.reindex(tt).fillna(False).values.astype(bool), "K5 coin primi ≥ 1": kayd(np.nan_to_num(Zq, nan=-9) >= 1),
+            "K6 BTC ⛔": np.nan_to_num(ZB.reindex(tt).values, nan=9) <= -1, "K7 BTC −1…0": (lambda zb: (zb > -1) & (zb <= 0))(np.nan_to_num(ZB.reindex(tt).values, nan=9)),
+            "K8 çifte onay": kayd(cift)}
+K0 = kosullar(0); FON = K0["K3 🔥 BTC fonlama"]; TUR = Q.tur.values.astype(str); DIP = (RZq <= -2) & ~np.isin(nmq, list(GEN))
+L.clear()
+# ÖNCEDEN YAZILI ŞART: hedef = giriş × (1 + k·σ), σ = coin'in son 720 saatlik saatlik oynaklığı × √süre (giriş anında bilinir); süre içinde saatlik YÜKSEK hedefe değerse
+#   hedeften (limit) çıkılır, değmezse süre sonu kapanışından. Bir k ancak ÜÇ dönemde de (2022-06→2023 · 2024–25 · 2026) isabet ≥ %65 VE saat bazında isabet ≥ %60
+#   VE işlem başı net > 0 ise "%65 şartını sağlıyor" sayılır. Kâr kaybı ayrıca raporlanır (karar kullanıcıya).
+P1 = AIL == "P1 coin primi < 0"; YED = np.isin(AIL, ["Y1 💵", "Y2 🧪 ana coin", "Y3 🔇/🪙"])
+PR_ = [YED & FON & (np.nan_to_num(Zq, nan=0) > -1), P1 & FON & (Zq > -1) & (Zq < 0), P1 & FON & (Zq <= -1), (AIL == "G1 🌐🤝 z 0…2") & FON]
+U = np.zeros(len(Q), bool)
+for m_ in PR_: U |= m_
+ANAF = ANA | U; HQ = Q.H.values.astype(int)
+G1Y = (AIL == "G1 🌐🤝 z 0…2") & ~FON; PY = np.isin(AIL, ["Y1 💵", "Y2 🧪 ana coin", "Y3 🔇/🪙"]) & ~FON; HES = ANAF | G1Y | PY
 from concurrent.futures import ThreadPoolExecutor
-def z720(s): return (s - s.rolling(720, min_periods=168).mean()) / (s.rolling(720, min_periods=168).std() + 1e-12)
-DER = pd.read_pickle(f("**/derinlik.pkl")[0]); DCO = sorted(k for k, v in DER.items() if {"ask1", "bid1"} <= set(v.columns))
-def kline(sym):
-    rows, cur, end = [], int(pd.Timestamp("2022-04-01", tz="UTC").timestamp() * 1000), time.time() * 1000
-    while cur < end:
-        dt = None
-        for k in range(6):
-            try: r = requests.get("https://data-api.binance.vision/api/v3/klines", params=dict(symbol=sym, interval="1h", startTime=cur, limit=1000), timeout=20); r.raise_for_status(); dt = r.json(); break
-            except Exception: time.sleep(2 + 2 * k)
-        if not dt: break
-        rows += dt; cur = dt[-1][0] + 3_600_000
-        if len(dt) < 1000: break
-    d = pd.DataFrame([x[:11] for x in rows], columns=["t", "o", "h", "l", "c", "v", "ct", "qv", "n", "tbv", "tbq"]).astype(float)
-    d.index = pd.DatetimeIndex(pd.to_datetime(d.t, unit="ms", utc=True) + pd.Timedelta(hours=1)).as_unit("ns"); return d[~d.index.duplicated()].sort_index()
-with ThreadPoolExecutor(8) as ex: SP = {k: v for k, v in zip(DCO, ex.map(lambda c: kline(c + "USDT"), DCO)) if len(v) > 2000}
-VADS = {"SHIB": "1000SHIBUSDT", "PEPE": "1000PEPEUSDT", "FLOKI": "1000FLOKIUSDT"}; SS = requests.Session()
-def gunm(arg):
-    sym, g = arg
-    for k in range(3):
-        try:
-            r = SS.get(f"https://data.binance.vision/data/futures/um/daily/metrics/{sym}/{sym}-metrics-{g}.zip", timeout=40)
-            if r.status_code == 404: return None
-            if r.status_code != 200: time.sleep(1 + k); continue
-            z_ = zipfile.ZipFile(io.BytesIO(r.content)); d = pd.read_csv(z_.open(z_.namelist()[0]))
-            d["t"] = pd.to_datetime(d.create_time, utc=True).dt.ceil("h")
-            return d.groupby("t")[["count_long_short_ratio", "sum_toptrader_long_short_ratio"]].last()
-        except Exception: time.sleep(1 + k)
-    return None
-GUNLER = [d.strftime("%Y-%m-%d") for d in pd.date_range("2022-10-01", "2026-10-10", freq="D")]; MET = {}
-for nm in DCO:
-    sym = VADS.get(nm, nm + "USDT")
-    with ThreadPoolExecutor(24) as ex: parts = [p for p in ex.map(gunm, [(sym, g) for g in GUNLER]) if p is not None and len(p)]
-    if parts:
-        D = pd.concat(parts).sort_index(); D = D[~D.index.duplicated()]; D.index = pd.DatetimeIndex(D.index).as_unit("ns"); MET[nm] = D.reindex(pd.date_range(D.index.min(), D.index.max(), freq="1h"))
-    print(nm, "metrik gün:", len(parts), f"{time.time()-T0:.0f} sn", flush=True)
-KS, LDS = {}, {}
-for nm in DCO:
-    if nm not in SP: continue
-    d = SP[nm]; ix = d.index; Dd = DER[nm].reindex(ix)
-    qv4 = d.qv.rolling(4).sum(); sat4 = (d.qv - d.tbq).rolling(4).sum() / (qv4 + 1e-9); zs = z720(sat4)
-    zi = z720(np.log(Dd.bid1 / Dd.ask1)); za = z720(np.log(qv4 / (d.n.rolling(4).sum() + 1e-9)))
-    if nm in MET: M = MET[nm].reindex(ix); zd = z720(np.log(M.sum_toptrader_long_short_ratio) - np.log(M.count_long_short_ratio))
-    else: zd = pd.Series(np.nan, index=ix)
-    KS[nm] = pd.DataFrame({"S1 defter dengesiz (alış kalın, satış ince)": zi >= 2, "S2 piyasa satışı az": zs <= -2, "S3 büyük alır, küçük satar (vadeli hesaplar)": zd >= 2,
-                           "S4 büyük işlemli alım": (za >= 2) & (zs <= -1), "S5 senaryonun tamamı": (zi >= 1) & (zs <= -1) & (zd >= 1)}).fillna(False)
-    LDS[nm] = (z720(np.log(Dd.ask1 + Dd.bid1)) <= -2).fillna(False)
-tz_, nmv = pd.DatetimeIndex(Ez.t), Ez.nm.values; OK, NET = Ez.ok.values, Ez.net.values
-def ara(kol, kay=0, S=None):
-    v = np.zeros(len(Ez), bool)
-    for nm in KS:
-        m = nmv == nm
-        if m.any():
-            s = (S or LDS)[nm] if kol is None else KS[nm][kol]
-            v[m] = s.reindex(tz_[m] - pd.Timedelta(hours=kay)).fillna(False).values.astype(bool)
-    return v
-P23 = pd.Timestamp("2023-01-01", tz="UTC"); m24 = tz_ >= A24_
-D3 = (("2023", (tz_ >= P23) & (tz_ < A24_)), ("2024+", m24), ("2026", tz_ >= A26_))
-def st(m): return {dn: (int((m & md).sum()), 100 * OK[m & md].mean() if (m & md).any() else np.nan, 100 * NET[m & md].mean() if (m & md).any() else np.nan) for dn, md in D3}
-def sat(ad, o): return f"{ad[:46]:46s}" + " | ".join(f"{o[dn][0]:5d} · %{o[dn][1]:4.1f} · {o[dn][2]:+.2f}" for dn in o)
-def ustun(oc, ob, mins, gevsek=False):
-    ks = [dn for dn in oc if not (gevsek and dn == "2026" and oc[dn][0] < mins[dn])]
-    return len(ks) >= 2 and all(oc[dn][0] >= mins[dn] for dn in ks) and all(oc[dn][1] >= ob[dn][1] + 2 and oc[dn][2] >= ob[dn][2] + 0.10 for dn in ks)
-A_ = ANA & np.isin(nmv, list(KS)); NOR = np.isfinite(RZ) & (np.abs(RZ) < 2); LD0 = ara(None); OA = st(A_)
-yaz(f"# 🏦 Senaryo: küçük satıcı / büyük alıcı / ince satış defteri — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}\n"
-    f"Coin: {len(KS)} ({', '.join(KS)}) · vadeli metrik: {len(MET)} coin · ✅ ana sinyal (bu coin'ler, 🚀 dahil): {A_.sum():,} · {time.time()-T0:.0f} sn\n")
-yaz("_sinyal sayısı · isabet · işlem başı net % — 2023 | 2024+ | 2026_\n```"); yaz(sat("✅ ana (taban)", OA)); yaz(sat("✅ ana + 💧 LD (karşılaştırma)", st(A_ & LD0)))
-SONUC = []
-for kol in next(iter(KS.values())).columns:
-    c = ara(kol); oc = st(A_ & c); yaz(sat(kol, oc))
-    K0 = ustun(oc, OA, {"2023": 30, "2024+": 30, "2026": 10})
-    def fark(cc): a = A_ & m24; b = a & cc; return (100 * (OK[b].mean() - OK[a].mean()), 100 * (NET[b].mean() - NET[a].mean())) if b.sum() >= 10 else (np.nan, np.nan)
-    G1 = fark(c); PLS = np.array([fark(ara(kol, int(g * 24))) for g in np.linspace(30, 400, 40)])
-    p95h, p95n = (np.nanpercentile(PLS[:, i], 95) if np.isfinite(PLS[:, i]).any() else np.nan for i in (0, 1))
-    K1 = bool(G1[0] > p95h and G1[1] > p95n)
-    K2 = ustun(st(A_ & NOR & c), st(A_ & NOR), {"2023": 20, "2024+": 20, "2026": 10}, gevsek=True)
-    b = A_ & c & m24; lo_, hi_ = wboot(NET[b] - NET[A_ & m24].mean(), tz_[b]) if b.sum() >= 5 else (np.nan, np.nan); K3 = bool(lo_ > 0)
-    sk = []
-    for nm in KS:
-        mc = (nmv == nm) & A_ & (tz_ >= P23); mb = mc & c
-        if mb.sum() >= 10: sk.append((nm, int(mb.sum()), 100 * OK[mb].mean(), 100 * OK[mc].mean()))
-    K4 = len(sk) >= 3 and np.mean([a > b2 for _, _, a, b2 in sk]) >= 0.6
-    K5 = ustun(st(A_ & ~LD0 & c), st(A_ & ~LD0), {"2023": 20, "2024+": 20, "2026": 10}, gevsek=True)
-    ort = (c & LD0)[A_].sum() / max(c[A_].sum(), 1)
-    SONUC.append((kol, K0, K1, K2, K3, K4, K5, G1, p95h, p95n, lo_, hi_, sk, ort, st(A_ & ~LD0 & c)))
-yaz("```\n_💧 olmayan ana sinyallerde (K5 için):_\n```"); yaz(sat("✅ ana, 💧 yok (taban)", st(A_ & ~LD0)))
-for r in SONUC: yaz(sat(r[0] + " (💧 yok)", r[14]))
-yaz("```\n## Ölçütler")
-for kol, K0, K1, K2, K3, K4, K5, G1, p95h, p95n, lo_, hi_, sk, ort, _ in SONUC:
-    i = lambda x: "✅" if x else "❌"
-    yaz(f"**{kol}** — K0 {i(K0)} · K1 plasebo {i(K1)} (isabet {G1[0]:+.1f} vs %95 {p95h:+.1f}; net {G1[1]:+.2f} vs {p95n:+.2f}) · K2 dipten bağımsız {i(K2)} · "
-        f"K3 bootstrap {i(K3)} ({100*lo_:+.2f} … {100*hi_:+.2f}) · K4 yaygınlık {i(K4)} ({sum(a > b2 for _, _, a, b2 in sk)}/{len(sk)}) · K5 💧'den bağımsız {i(K5)} · sinyallerinin %{100*ort:.0f}'i aynı anda 💧")
-GEC = [r[0] for r in SONUC if all(r[1:7])]
-yaz("\n## Önceden yazılı karar\n" + (f"- ✅ GEÇTİ: {', '.join(GEC)} → canlıya öncelik işareti önerilir" if GEC else "- ❌ Hiçbiri tüm ölçütleri geçmedi → eklenmez"))
-yaz(f"\n_Süre: {time.time()-T0:.0f} sn_")
+NM = sorted(set(nmq[HES]))
+def ohl(nm):
+    try: o = fetch_1h(pd.Timestamp("2022-05-01", tz="UTC").timestamp() * 1000, time.time() * 1000, sym=f"{nm}USDT"); o.index = utc(o.index); return nm, o[["high", "close"]].astype(float)
+    except Exception as e: return nm, None
+with ThreadPoolExecutor(8) as ex: OHL = {k: v for k, v in ex.map(ohl, NM) if v is not None}
+KS = [None, 0.5, 0.75]; NET_K = {k: np.full(len(Q), np.nan) for k in KS}; F_ = 0.0004
+for nm in NM:
+    o = OHL.get(nm)
+    if o is None: continue
+    ii = np.where(HES & (nmq == nm))[0]; c = o.close.values; h = o.high.values; sg = np.log(o.close).diff().rolling(720, min_periods=168).std().values
+    pos = o.index.searchsorted(tq[ii])
+    for j, p in zip(ii, pos):
+        H = HQ[j]
+        if p >= len(o) or o.index[p] != tq[j] or p + H >= len(o) or not np.isfinite(sg[p]): continue
+        e0 = c[p]; NET_K[None][j] = c[p + H] / e0 - 1 - F_
+        for k in KS[1:]:
+            hedef = e0 * (1 + k * sg[p] * np.sqrt(H)); w = np.where(h[p + 1:p + H + 1] >= hedef)[0]
+            NET_K[k][j] = (hedef / e0 - 1 - F_) if len(w) else (c[p + H] / e0 - 1 - F_)
+DON = (("2022-06→2023", (tq >= P0x) & (tq < A24x)), ("2024–25", (tq >= A24x) & (tq < A26x)), ("2026", tq >= A26x)); SELm = DON[0][1]
+GUNTR = np.asarray(tq.tz_convert("Europe/Istanbul").floor("D")); SAAT = np.asarray(tq.floor("h"))
+def hucre(m, k):
+    m = m & np.isfinite(NET_K[k])
+    if m.sum() == 0: return dict(n=0, hit=np.nan, net=np.nan, saat=np.nan, gun=np.nan)
+    r = NET_K[k][m]; g = pd.Series(r).groupby(SAAT[m]).mean(); d = pd.Series(r).groupby(GUNTR[m]).mean()
+    return dict(n=int(m.sum()), hit=100 * (r > 0).mean(), net=100 * r.mean(), saat=100 * (g > 0).mean(), gun=100 * (d > 0).mean())
+# ---- yeni koşul dizileri (satır bazında, t anında bilinen) ----
+TRh = tq.tz_convert("Europe/Istanbul").hour.values; TRd = tq.tz_convert("Europe/Istanbul").dayofweek.values
+ZBq = np.nan_to_num(RAW["BTC"].z.reindex(tq).values, nan=-9)
+bcl = np.log(RAW["BTC"].c); bsg = bcl.diff().rolling(720, min_periods=168).std(); B24 = ((bcl - bcl.shift(24)) / (bsg * np.sqrt(24))).reindex(tq).values
+R7 = np.full(len(Q), np.nan)
+for nm, o in OHL.items():
+    m = nmq == nm
+    if m.any(): lr = np.log(o.close); sg = lr.diff().rolling(720, min_periods=168).std(); R7[m] = ((lr - lr.shift(168)) / (sg * np.sqrt(168))).reindex(tq[m]).values
+FAM = {"🔸 yedek (🌐🤝 eşik altı)": G1Y, "📋 panelden (hepsi)": PY, "  ↳ 💵 ABD alıyor": PY & (AIL == "Y1 💵"), "  ↳ 🧪 24 s ana coin": PY & (AIL == "Y2 🧪 ana coin"), "  ↳ 🔇/🪙 coin tek": PY & (AIL == "Y3 🔇/🪙")}
+anasaat = set(SAAT[ANAF])
+def kalab(fm):
+    c = pd.Series(1, index=np.where(fm)[0]).groupby(SAAT[fm]).transform("size"); out = np.zeros(len(Q)); out[c.index] = c.values; return out
+KOS = {k: v for k, v in K0.items() if not k.startswith("K3") and not k.startswith("K4")}
+KOS.update({"K6' BTC ⛔ değil": ~K0["K6 BTC ⛔"], "N1 BTC primi > 0": ZBq > 0, "N2 coin primi ≥ 0,5": np.nan_to_num(Zq, nan=-9) >= 0.5,
+            "N3a TR 09–17": (TRh >= 9) & (TRh < 17), "N3b TR 17–01": (TRh >= 17) | (TRh < 1), "N3c TR 01–09": (TRh >= 1) & (TRh < 9),
+            "N4a hafta içi": TRd < 5, "N4b hafta sonu": TRd >= 5, "N5a coin 24 s düşmüş": np.nan_to_num(RZq, nan=9) <= 0, "N5b coin 24 s yükselmiş": np.nan_to_num(RZq, nan=-9) > 0,
+            "N6a BTC 24 s düşmüş": np.nan_to_num(B24, nan=9) <= 0, "N6b BTC 24 s yükselmiş": np.nan_to_num(B24, nan=-9) > 0,
+            "N7a coin 7 g düşmüş": np.nan_to_num(R7, nan=9) <= 0, "N7b coin 7 g yükselmiş": np.nan_to_num(R7, nan=-9) > 0,
+            "N9a aynı saatte ✅ ana var": np.isin(SAAT, list(anasaat)), "N9b aynı saatte ✅ ana yok": ~np.isin(SAAT, list(anasaat))})
+def ara(KK, plas=False):
+    res = []
+    for fad, fm in FAM.items():
+        kb = kalab(fm)
+        if plas: idx_ = ordr[fad]; kb[idx_] = np.roll(kb[idx_], int(rg.integers(len(idx_) // 10, 9 * len(idx_) // 10)))
+        K_ = dict(KK); K_["N8a kalabalık saat (≥ 4)"] = kb >= 4; K_["N8b sakin saat (≤ 2)"] = (kb >= 1) & (kb <= 2)
+        for k in (0.75, 0.5):
+            taban = hucre(fm & SELm, k)["hit"]; tek = []
+            for kad, km in K_.items():
+                s_ = hucre(fm & km & SELm, k)
+                if s_["n"] >= 30 and s_["hit"] >= 63 and s_["hit"] >= taban + 3: tek.append((s_["hit"], kad, km))
+            tek.sort(key=lambda x: -x[0]); C = [(b, c) for a, b, c in tek]
+            for a in range(min(5, len(tek))):
+                for b in range(a + 1, min(5, len(tek))):
+                    m2 = tek[a][2] & tek[b][2]; s_ = hucre(fm & m2 & SELm, k)
+                    if s_["n"] >= 30 and s_["hit"] >= 63 and s_["hit"] >= taban + 3: C.append((tek[a][1] + " + " + tek[b][1], m2))
+            for kad, km in C:
+                a_, b_, c_ = (hucre(fm & km & dm, k) for _, dm in DON)
+                gec = b_["n"] >= 30 and c_["n"] >= 10 and all(x["hit"] >= 65 and x["saat"] >= 65 and x["gun"] >= 65 and x["net"] > 0 for x in (b_, c_))
+                res.append(dict(aile=fad, k=k, kural=kad, a=a_, b=b_, c=c_, gec=gec, pay=(fm & km).sum() / max(fm.sum(), 1)))
+    return res
+yaz(f"# 🔎 Yedek ve panelden sinyallerin isabetini artırma araması — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
+yaz("_Hücre: n · isabet · net % · saat % · gün % (hepsi kâr-al ile). Şart: 2024–25 ve 2026'da isabet, saat, gün ≥ %65 ve net > 0._\n")
+yaz("## Aileler (filtresiz)\n```")
+f_ = lambda x: f"{x['n']:>5} · %{x['hit']:3.0f} · {x['net']:+5.2f} · saat %{x['saat']:3.0f} · gün %{x['gun']:3.0f}" if x["n"] else f"{'—':^44s}"
+yaz(f"{'aile':34s} {'k':5s} | " + " | ".join(f"{dn:^44s}" for dn, _ in DON))
+for fad, fm in FAM.items():
+    for k in (None, 0.75, 0.5): yaz(f"{fad:34s} {('süre' if k is None else str(k) + 'σ'):5s} | " + " | ".join(f_(hucre(fm & dm, k)) for _, dm in DON))
+yaz("```")
+def g2(m):
+    ii = np.where(m & np.isfinite(NET_K[0.75]))[0]
+    if len(ii) == 0: return m & False
+    df = pd.DataFrame({"i": ii, "g": GUNTR[ii], "t": tq[ii], "z": -np.nan_to_num(Zq[ii], nan=-9)}).sort_values(["g", "t", "z"])
+    out = np.zeros(len(m), bool); out[df.groupby("g").head(2).i.values] = True; return out
+YF = G1Y & K0["K8 çifte onay"]; PF = PY & (KOS["N9a aynı saatte ✅ ana var"] | K0["K7 BTC −1…0"])
+SEN = {"A şimdiki (hepsi 0,75σ)": [(ANAF, 0.75), (G1Y, 0.75), (g2(PY), 0.75)],
+       "B1 yalnız panelden 0,5σ": [(ANAF, 0.75), (G1Y, 0.75), (g2(PY), 0.5)],
+       "B2 yalnız panelden 0,5σ + filtre": [(ANAF, 0.75), (G1Y, 0.75), (g2(PF), 0.5)],
+       "C1 yedek + panelden 0,5σ": [(ANAF, 0.75), (G1Y, 0.5), (g2(PY), 0.5)],
+       "C2 yedek + panelden 0,5σ + filtre": [(ANAF, 0.75), (YF, 0.5), (g2(PF), 0.5)],
+       "D1 hepsi 0,5σ": [(ANAF, 0.5), (G1Y, 0.5), (g2(PY), 0.5)],
+       "D2 hepsi 0,5σ + yedek/panelden filtre": [(ANAF, 0.5), (YF, 0.5), (g2(PF), 0.5)]}
+HAF = {dn: max(((tq[dm].max() - tq[dm].min()).days + 1) / 7, 1) for dn, dm in DON}
+def tum(parca, dm):
+    r = np.concatenate([NET_K[k][m & dm & np.isfinite(NET_K[k])] for m, k in parca]); idx = np.concatenate([np.where(m & dm & np.isfinite(NET_K[k]))[0] for m, k in parca])
+    g = pd.Series(r).groupby(SAAT[idx]).mean(); d = pd.Series(r).groupby(GUNTR[idx]).mean()
+    gunler = pd.date_range(pd.Timestamp(GUNTR[dm].min()), pd.Timestamp(GUNTR[dm].max()), freq="D")
+    return len(r), 100 * (r > 0).mean(), 100 * r.mean(), 100 * (g > 0).mean(), 100 * (d > 0).mean(), 100 * len(set(GUNTR[idx])) / len(gunler), 100 * r.sum()
+yaz(f"# 🧮 Senaryolar — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
+yaz("_Her satır: haftada sinyal · sinyalli gün % · isabet % · saat bazında % · gün bazında % · işlem başı net % · haftalık toplam net % (her sinyale eşit para; toplam = sinyallerin net % toplamı / hafta)._\n")
+for dn, dm in DON:
+    yaz(f"## {dn}\n```\n{'senaryo':40s} hf.sinyal  sinyalli gün  isabet  saat   gün   işlem başı  haftalık toplam")
+    for ad, parca in SEN.items():
+        n, h, a, s_, d_, sg, top = tum(parca, dm)
+        yaz(f"{ad:40s} {n / HAF[dn]:7.1f}   %{sg:5.0f}      %{h:4.0f}  %{s_:4.0f}  %{d_:4.0f}   {a:+6.2f}      {top / HAF[dn]:+7.1f}")
+    yaz("```\n_Sınıf sınıf (n · isabet · net):_\n```")
+    for ad, parca in SEN.items():
+        o = []
+        for (m, k), sn in zip(parca, ("ana", "yedek", "panelden")):
+            x = hucre(m & dm, k); o.append(f"{sn} {k}σ: {x['n'] / HAF[dn]:4.1f}/hf %{x['hit']:3.0f} {x['net']:+.2f}" if x["n"] else f"{sn}: —")
+        yaz(f"{ad:40s} " + " | ".join(o))
+    yaz("```")
 open("senaryo_sonuc.md", "w").write("\n".join(L) + "\n")

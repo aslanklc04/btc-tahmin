@@ -1,4 +1,4 @@
-name: Kucuk satici buyuk alici senaryosu
+name: Senaryo
 on:
   push:
     branches: [arastirma3]
@@ -9,7 +9,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 170
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,7 +28,7 @@ jobs:
         with:
           path: art1
           pattern: coin-*
-          run-id: 37573562538
+          run-id: 38550403442
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/download-artifact@v4
         with:
@@ -40,22 +40,21 @@ jobs:
         with:
           path: art3
           name: prim-veri
-          run-id: 37771896586
+          run-id: 39794193473
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/download-artifact@v4
         with:
           name: sf-btc
           run-id: 37801388956
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          name: derinlik-veri
-          run-id: 38246269028
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Genis tarama artifact'leri
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
       - run: |
-          set +e; timeout 7800 python -u senaryo.py > senaryo_log.txt 2>&1; echo "exit=$?" >> senaryo_log.txt; tail -30 senaryo_log.txt
+          set +e; timeout 6000 python -u senaryo.py > senaryo_log.txt 2>&1; echo "exit=$?" >> senaryo_log.txt; tail -30 senaryo_log.txt
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add senaryo_log.txt; for f in senaryo_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Senaryo sonucu" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
+          git add senaryo_log.txt; for f in senaryo_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Karal" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
