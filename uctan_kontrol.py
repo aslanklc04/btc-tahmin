@@ -11,7 +11,6 @@ SINYAL = ("ana", "yedek", "yedekg", "panely", "panelf", "panelfx", "panelg", "pa
 for m in q:
     t, e = m["m"], m["e"]
     if re.search(r"\bnan\b|\$\?|\bNone\b|\binf\b", t): s(f"bozuk değer ({m['c']}): {e[:60]} → " + "; ".join(re.findall(r".{0,40}(?:\bnan\b|\$\?|\bNone\b|\binf\b).{0,20}", t))[:200])
-    if len(t) > 3300: s(f"mesaj çok uzun ({len(t)} karakter, Telegram 4096'da keser; gonder başlıkları da eklenir): {e[:60]}")
     if m["c"] in SINYAL:
         g = re.search(r"⏱ SÜRE: (\d+) (SAAT|GÜN)", t); su = (int(g.group(1)) * (24 if g.group(2) == "GÜN" else 1)) if g else ""
         try: r = karne.coz(e, su)
@@ -39,7 +38,11 @@ for fz in ("0.5", "2.5"):
         elif "✅ İŞLEM SİNYALİ" in bas: tur, beklenen = "ana", "testte ✅ ana isabet"
         else: tur, beklenen = "bilgi", None
         say[tur] += 1
-        if len(x) > 4096: s(f"[{fz}] gönderilecek metin {len(x)} karakter > 4096 (sonu kesilir): {x[:80]!r}")
+        P = ortak.mesaj_parcala(x)
+        if any(len(p) > 4096 for p in P): s(f"[{fz}] parça 4096'dan uzun: {x[:80]!r}")
+        if len(P) > 1: b(f"[{fz}] {len(x)} karakterlik mesaj {len(P)} parçaya bölünecek")
+        kay = [c for c in re.findall(r"\n• ([^\n]{0,25})", x) if not any(c in p for p in P)]
+        if kay: s(f"[{fz}] bölmede kaybolan coin satırı: {kay[:3]}")
         for l in x.split("\n"):
             if "🎯 Kâr-al" in l:
                 if beklenen and beklenen not in l: s(f"[🔥 z={fz}] {tur} mesajında yanlış 🎯 hedefi: {l.strip()[:120]}")
