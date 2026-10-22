@@ -77,7 +77,7 @@ for sym, M in MODELS.items():
             if sym in GENIS24_SET and not (CBO and np.isfinite(ZC) and ZC >= GENIS_ESIK): yeni = False   # 🌐 eşik altı: gönderilmez, kayda da girmez (yalnız panelde 🧪 işareti yok)
         if yeni:
             GS["log"].append(dict(t=t, sym=sym, p=p_now, cb=ZC)); T_FIRE = t
-            gr24_ = st24.get("gross", st24.get("net", np.nan) + 200 * FEE); hz_ = hiz_notu(ZC if CBO else float("nan"))
+            gr24_ = st24.get("gross", st24.get("net", np.nan) + 200 * FEE); hz_ = hiz_notu(ZC if CBO else float("nan"), karal=True)
             fire.append((ZC if CBO else float("nan"), NM, f"• {NM}{' 🌐' if sym in GENIS24_SET else ''} {fmt(p_now)} — limit alış {fmt(p_now)} · çıkış {(t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ):%d.%m %H:%M}"
                         + f" ({CIKIS_NOT})" + (f" · geçmiş ort. sonuç {'+' if gr24_ >= 0 else '−'}%{abs(gr24_):.2f}" if np.isfinite(gr24_) else "")
                         + f" · geçmiş 2024+ isabet %{st24['acc']:.0f}" + (f", {now.year} %{s26['acc']:.0f}" if s26 else "")

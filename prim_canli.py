@@ -52,7 +52,7 @@ def calis():
             p = anlik(f"{r.coin}USDT"); GP["last"][r.coin] = t
             if np.isfinite(p): GP["log"].append(dict(t=t, coin=r.coin, p=p, H=int(r.saat), z=z))
             cikis = (t + pd.Timedelta(hours=int(r.saat), minutes=6)).tz_convert(DISPLAY_TZ)
-            gr_ = float(r.net) + 200 * FEE; hz_ = hiz_notu(z)
+            gr_ = float(r.net) + 200 * FEE; hz_ = hiz_notu(z, karal=True)
             SURE_[r.coin] = int(r.saat); CIK_[r.coin] = cikis; fire.append((z, r.coin, f"• {'💸 ' if fon_mu(r.coin) else ''}{r.coin}: kendi primi z {z:+.1f} ({d['bp']:+.1f} baz puan) · limit ALIŞ {fmt(p)} · çıkış {cikis:%d.%m %H:%M} ({int(r.saat)} saat)"
                         + f" · {CIKIS_NOT} · geçmiş ort. sonuç +%{gr_:.2f}" + _kar(r.coin, p, int(r.saat)) + "\n"
                         f"   Geçmiş 2024+: {int(r.n)} işlem, isabet %{r.isabet:.0f}, işlem başı +%{r.net:.2f} · 2026: {int(r.n26)} işlem, %{r.isabet26:.0f}, +%{r.net26:.2f}" + (f"\n   {hz_}" if hz_ else "")))

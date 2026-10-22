@@ -360,8 +360,13 @@ def karal_satir(p, kapanis, H, girinti="   "):
     if not np.isfinite(h): return ""
     return (f"\n{girinti}🎯 Kâr-al {fiyat_yaz(h)} (+%{100 * (h / p - 1):.1f}): önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · "
             f"testte ✅ ana isabet %69–74 (yalnız süre sonunda satış %60–68), işlem başı kâr biraz daha az")                                                             # cikis.py: 9 sinyal türünde 19 çıkış stratejisi — kâr-al, zarar-kes, iz süren stop hiçbirinde süre dolunca satmayı geçmedi
-def hiz_notu(z):                                                                              # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
+def hiz_notu(z, karal=False):                                                                 # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
+    """karal=True: mesajda 🎯 kâr-al satırı var → "erken çıkma" yerine "🎯 hedef dışında erken çıkma" (22.10.2026: iki talimat çelişmesin)."""
     if z is None or not np.isfinite(z) or z < 1: return ""
+    if karal:
+        if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor ve günlerce sürebiliyor — hemen gir; 🎯 hedefe değmedikçe süre dolmadan çıkma"
+        if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli — hemen gir; 🎯 hedefe değmedikçe erken çıkma"
+        return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş — 🎯 hedefe değmedikçe erken çıkma"
     if z >= 3: return "⚡ Prim çok yüksek (z ≥ 3): yükseliş hızlı başlıyor (ilk saatlerde belirgin) ve günlerce sürebiliyor — hemen gir, süre dolmadan ÇIKMA (testte erken çıkmak kârı ~%60 düşürdü)"
     if z >= 2: return "⏩ Prim yüksek (z 2–3): yükseliş kademeli, 1–3 güne yayılıyor — hemen gir, erken çıkma"
     return "🐢 Prim normalin üstünde (z 1–2): yükseliş yavaş, günlere yayılıyor — erken çıkma"

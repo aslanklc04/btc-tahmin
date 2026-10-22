@@ -117,7 +117,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
         ufuk_tg = "\n".join(f"{CFG[H]['ad']}: {'⬆️' if cur[H][0] == 1 else '⬇️'} {lvname(cur[H][1])}" + (f"\n   beklenen {fmt(RNG[H][1])} · %80 aralık {fmt(RNG[H][0])}–{fmt(RNG[H][2])}" if H in RNG else "") for H in CFG)
         if f_ortak:                                                                          # 🤝 bu saatin ortak mesajında toplanır
             r4 = (f" → 4s beklenen {fmt(RNG[4][1])} (%80: {fmt(RNG[4][0])}–{fmt(RNG[4][2])})" if 4 in RNG else "")
-            zo_ = cb_z(CBO); hz_ = hiz_notu(zo_)
+            zo_ = cb_z(CBO); hz_ = hiz_notu(zo_, karal=True)
             ortak_msg.append((zo_, f"• {NM} {fmt(price)} — " + " · ".join((f"{AD[k]} %{JO[k]['isabet']:.0f}" if k in JO else AD[k]) for k in f_ortak) + (" · 🌐" if SYM in GENIS_SET else "") + r4
                              + f" · 💵 {NM}: {cb_kisa(CBO) if CBO else 'prim yok'}" + (" (yalnız bilgi)" if NM in CB_BILGI else (" ⛔ ALMA" if np.isfinite(zo_) and zo_ <= -1 else ""))
                              + "\n   " + giris_cikis(price, t + pd.Timedelta(hours=4, minutes=6), SIG["u4"].get("gross_h"), kapanis=full.close, H=4) + (f"\n   {hz_}" if hz_ else ""), NM, RZ))
@@ -136,7 +136,7 @@ for (NM, SYM, M, G, _), (full, mins) in zip(JOBS, DATA):                        
             ek = [AD[k] for k in f_tek[1:]]
             btc_ = "BTC bu saatte de sinyal verdi" if (BTC_LAST is not None and BTC_LAST == t) else "BTC bu saatte sinyal vermedi"
             sessiz_ = (not SIG[k0]["on"]) or (k0 in TK and btc_sessiz); H0_ = SIG[k0]["H"] if SIG[k0]["on"] else 4
-            gr0_ = SIG[k0].get("gross_h") if SIG[k0]["on"] else SIG["u4"].get("gross_h"); hz_ = hiz_notu(cb_z(CBO))
+            gr0_ = SIG[k0].get("gross_h") if SIG[k0]["on"] else SIG["u4"].get("gross_h"); hz_ = hiz_notu(cb_z(CBO), karal=True)
             zt_ = cb_z(CBO)                                                                  # coin'in KENDİ primi (BTC'ye geri düşmeden)
             zb_ = CBZ
             if os.environ.get("TEST_ZORLA") == "zit": zt_, zb_ = 0.8, -0.5                          # yalnız test: 🔀 yolu

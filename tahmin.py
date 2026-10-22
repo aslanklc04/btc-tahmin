@@ -96,7 +96,7 @@ def emir_satiri(H, ort=None):                                                   
     bek = (f" · {CIKIS_NOT} · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}" if ort is not None and np.isfinite(ort) else f" · {CIKIS_NOT}")
     return (f"💡 Emir önerisi: LİMİT alış ${P_NOW:,.1f} (şu anki fiyat) — 60 dk geçerli, dolmazsa işleme girme.\n"
             f"   Çıkış {cik:%d.%m %H:%M}: o anki fiyattan LİMİT satış — 60 dk'da dolmazsa piyasa emriyle sat. (Testte işlem başı kârı ~%0,05 artırdı.){bek}")
-HIZ = hiz_notu(CBZ); HIZL = (HIZ + "\n") if HIZ else ""; ALMA = bool(np.isfinite(CBZ) and CBZ <= -1)
+HIZ = hiz_notu(CBZ, karal=True); HIZL = (HIZ + "\n") if HIZ else ""; ALMA = bool(np.isfinite(CBZ) and CBZ <= -1)
 u4_yeni = bool(strong_up.get(4)) and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig)
 # ---- sinyal sonuç takibi (haftalık rapor için) ----
 LOG = G.setdefault("log", [])
