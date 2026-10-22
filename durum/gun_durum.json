@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "20.10 09:06",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "20.10 09:06",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 20.10 09:00 · $81,724",
 "k": "gönderildi"
@@ -241,6 +235,12 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: INJ (z +4.1, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "23.10 02:07",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
