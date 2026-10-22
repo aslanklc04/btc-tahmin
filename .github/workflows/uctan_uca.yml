@@ -1,0 +1,65 @@
+name: Uctan uca kuru denetim
+on:
+  push:
+    branches: [arastirma3]
+    paths: [uctan_kontrol.py, .github/workflows/uctan_uca.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      TG_SIRALI: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+          path: a3
+      - run: git clone -q --depth 1 -b modeller https://github.com/${{ github.repository }}.git modeller
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis.pkl, key: gecmis-x, restore-keys: gecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis_coin.pkl, key: coingecmis-x, restore-keys: coingecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/gecmis24.pkl, key: d24gecmis-x, restore-keys: d24gecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/derinlik_saat.pkl, key: ldgecmis-x, restore-keys: ldgecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/zincir.pkl, key: zgecmis-x, restore-keys: zgecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/kucuk.pkl, key: kgecmis-x, restore-keys: kgecmis-}
+      - uses: actions/cache/restore@v4
+        with: {path: durum/prim.pkl, key: pgecmis-x, restore-keys: pgecmis-}
+      - run: |
+          set +e; mkdir -p log; rm -f durum/tg_kuyruk.json; H=0
+          run() { ad=$1; shift; env "$@" > log/$ad.txt 2>&1; k=$?; echo "$ad çıkış=$k" | tee -a log/adimlar.txt; [ $k = 0 ] || { H=1; tail -25 log/$ad.txt; }; }
+          run tahmin_star TEST_ZORLA=star timeout 900 python tahmin.py
+          run likidite timeout 600 python likidite.py
+          run coin_ortak TEST_ZORLA=1 timeout 900 python tahmin_coin.py
+          run coin_tek TEST_ZORLA=tek timeout 900 python tahmin_coin.py
+          run coin_zit TEST_ZORLA=zit timeout 900 python tahmin_coin.py
+          run d24 TEST_ZORLA=1 timeout 600 python tahmin24.py
+          run zincir ZINCIR_KURU=1 timeout 300 python zincir_canli.py
+          run kucuk KUCUK_KURU=1 timeout 300 python kucuk_canli.py
+          run d10 D10_KURU=1 timeout 300 python d10_canli.py
+          run prim PRIM_KURU=1 timeout 300 python prim_canli.py
+          run karne timeout 400 python karne.py
+          cp a3/uctan_kontrol.py .; python uctan_kontrol.py 2>&1 | tee log/kontrol.txt
+          grep -h -iE "traceback|error|hata|⚠️" log/*.txt | grep -v "^ℹ️" | sort | uniq -c | sort -rn | head -40 > log/uyarilar.txt
+          cp uctan_sonuc.md a3/ ; { echo; echo "## Adımlar"; cat log/adimlar.txt; echo '```'; cat log/uyarilar.txt; echo '```'; } >> a3/uctan_sonuc.md
+          for f in log/*.txt; do echo "=== $f"; tail -8 $f; done > a3/uctan_log.txt
+          echo "H=$H"
+      - run: |
+          cd a3
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add uctan_sonuc.md uctan_log.txt; git commit -m "Uctan uca denetim" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
