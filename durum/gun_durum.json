@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-23",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "20.10 09:06",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.6",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "20.10 09:06",
 "s": "panel",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: OP (z -1.5 ⛔)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.10 01:07",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: INJ (z +4.1, 24 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
