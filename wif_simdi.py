@@ -3,7 +3,7 @@ import requests, pandas as pd
 o = []
 for s in ("WIFUSDT", "BTCUSDT"):
     x = requests.get("https://data-api.binance.vision/api/v3/klines", params=dict(symbol=s, interval="1h", startTime=int(pd.Timestamp("2026-10-22 03:00", tz="UTC").timestamp() * 1000), limit=40), timeout=20).json()
-    d = pd.DataFrame([r[:5] for r in x], columns=["t", "a", "y", "d", "k"]).astype(float); d.index = pd.to_datetime(d.t, unit="ms", utc=True).tz_convert("Europe/Istanbul") + pd.Timedelta(hours=1)
+    d = pd.DataFrame([r[:5] for r in x], columns=["t", "a", "y", "d", "k"]).astype(float); d.index = pd.DatetimeIndex(pd.to_datetime(d.t, unit="ms", utc=True)).tz_convert("Europe/Istanbul") + pd.Timedelta(hours=1)
     o.append(f"## {s} (saat = mum kapanışı, TR)")
     o += [f"{t:%d.%m %H:%M} açılış {r.a:.6g} · en yüksek {r.y:.6g} · en düşük {r.d:.6g} · kapanış {r.k:.6g}" for t, r in d.iterrows()]
     if s == "WIFUSDT":
