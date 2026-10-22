@@ -63,7 +63,7 @@ def main():
         IM = dict(x.split(":", 1) for x in str(getattr(r, "isr", "") or "").split("|") if ":" in x)   # 19.10: mesajdaki coin işaretleri
         for nm, H, yon, tur, isr in coz(r.e, su):
             isr = "".join(m for m in ("📉🔥", "💧", "💸", "🚀") if m in isr + IM.get(nm, ""))
-            rows.append(dict(t0=t0, sinif=sinif(r.s, r.k), terfi="🔥" in r.s, coin=nm, H=H, yon=yon, tur=tur + (" 🔥" if "🔥" in r.s else ""), isr=isr,   # 🔥 ile yükselenler ayrı satır
+            rows.append(dict(t0=t0, sinif=sinif(r.s, r.k), terfi="🔥" in r.s, pden="📋" in r.s, coin=nm, H=H, yon=yon, tur=tur + (" 🔥" if "🔥" in r.s else ""), isr=isr,   # 🔥 ile yükselenler ayrı satır
                              fz=float(r.fz) if r.fz else np.nan, prim_ret="⛔" in r.e))
     X = pd.DataFrame(rows)
     if X.empty: print("karne: çözülen sinyal yok"); return
@@ -86,6 +86,12 @@ def main():
         else: ntp.append(net[-1]); ktp.append(k_)
     X["net"], X["kap"], X["net_tp"], X["kap_tp"] = net, kap, ntp, ktp
     X = X[np.isfinite(X.net)]; Kp = X[X.kap]
+    try:                                                                                   # 22.10.2026 önceden yazılı durdurma: 📋 panelden yedek 30 kapanışta (🎯 kâr-al ile) isabet < %55 ya da net < 0 → durur
+        _p = X[(X.sinif == "yedek") & X.pden & X.kap_tp]
+        if len(_p) >= 30 and not os.path.exists("durum/panelden_dur.json") and ((_p.net_tp > 0).mean() < 0.55 or _p.net_tp.mean() < 0):
+            json.dump(dict(tarih=f"{now:%Y-%m-%d %H:%M}", n=int(len(_p)), isabet=round(100 * float((_p.net_tp > 0).mean()), 1), net=round(float(_p.net_tp.mean()), 3)), open("durum/panelden_dur.json", "w"))
+            tg_send(f"📋 PANELDEN YEDEKLER DURDURULDU (önceden yazılı kural): {len(_p)} sinyal kapandı · isabet %{100 * (_p.net_tp > 0).mean():.0f} · işlem başı {_p.net_tp.mean():+.2f}% → 💵 / 🧪 ana coin / 🔇🪙 yeniden yalnız panelde.")
+    except Exception as e: print("panelden kuralı:", e)
     yerel = now.tz_convert(DISPLAY_TZ)
     def ozet(m):
         k = Kp[m]; a = X[m & ~X.kap]
@@ -99,6 +105,8 @@ def main():
     for sn, ad in (("ana", "✅ ana (gönderildi)"), ("yedek", "🔸 yedek (gönderildi)"), ("panel", "panel (gönderilmedi)")):
         n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn); nt_, ht_, at_ = ozet_tp(X.sinif == sn)
         L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
+    n, h, a, s, o = ozet((X.sinif == "yedek") & X.pden); nt_, ht_, at_ = ozet_tp((X.sinif == "yedek") & X.pden)
+    L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %59–64 (kâr-al ile) |")
     n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — | — |")
     L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. 21.10 akşamdan beri 🔸 yedek mesajlarında da hedef var; ⛓️ ETH ve 🧑 küçük yatırımcıda yok (süre sonunda sat)._")
     hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN

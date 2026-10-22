@@ -18,6 +18,9 @@ KARNE_F = "durum/karne_kayit.csv"                                               
 ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
 YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — 🌐🤝 geniş liste eşik altı (coin primi 0…2): testte %59 · %60 · %65 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,2–0,6.\n"
              "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
+PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD alıyor / 🧪 24 s ana coin / 🔇🪙 coin tek türleri: testte 🎯 kâr-al ile %59–64 tuttu (2022–26), işlem başı +%0,1–0,5.\n"
+                "Küçük miktar, kaldıraçsız; istersen pas geç. Günde en fazla 2 gelir. 30 sinyal kapandığında canlı isabet %55'in altında ya da işlem başı kâr eksideyse kendiliğinden durur.")
+PANELDEN_GUN, PANELDEN_DUR_F = 2, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9"
 FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)"
@@ -82,7 +85,8 @@ def main():
     simdi = pd.Timestamp.now(tz=DISPLAY_TZ); bugun = f"{simdi:%Y-%m-%d}"
     try: GD = json.load(open(GUN_F, encoding="utf-8"))
     except Exception: GD = {}
-    if GD.get("gun") != bugun: GD.update(gun=bugun, giden=0)
+    if GD.get("gun") != bugun: GD.update(gun=bugun, giden=0, panelden=0)
+    GD.setdefault("panelden", 0)
     GD.setdefault("log", [])
     if not os.path.exists(KUYRUK_F): print("Kuyruk boş — gönderilecek mesaj yok"); q = []
     else:
@@ -115,10 +119,17 @@ def main():
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1   # 21.10 akşam kullanıcı: 🔸 yedekte de 🎯 kâr-al (tur_karne.py: isabet %59→%66 · %57→%63 · %64→%70); karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
     for m in yedek:
         if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
-    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel", m))
+    pden = sorted([m for m in panel if m["c"] == "panely" and m["o"] < ALMA_ESIK], key=lambda m: (m["o"], m["s"]))   # 22.10: 📋 panelden → 🔸 yedek (günde ≤ 2, ⛔ hariç)
+    if pden and not os.path.exists(PANELDEN_DUR_F):
+        hak = max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)
+        for j, m in enumerate(gid_):
+            ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
+            ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        panel = [m for m in panel if m not in gid_]
+    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü 2 hak doldu)" if m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
     for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
     GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_, _ in karar])[-40:]
