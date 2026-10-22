@@ -1,0 +1,74 @@
+# 🔎 Yedek ve panelden sinyallerin isabetini artırma araması — 22.10.2026 17:56
+_Hücre: n · isabet · net % · saat % · gün % (hepsi kâr-al ile). Şart: 2024–25 ve 2026'da isabet, saat, gün ≥ %65 ve net > 0._
+
+## Aileler (filtresiz)
+```
+aile                               k     |                 2022-06→2023                 |                   2024–25                    |                     2026                    
+🔸 yedek (🌐🤝 eşik altı)             süre  |  3468 · % 59 · +0.24 · saat % 62 · gün % 68 |  6762 · % 57 · +0.05 · saat % 56 · gün % 65 |  2251 · % 64 · +0.57 · saat % 57 · gün % 71
+🔸 yedek (🌐🤝 eşik altı)             0.75σ |  3468 · % 66 · +0.20 · saat % 67 · gün % 72 |  6762 · % 63 · +0.02 · saat % 63 · gün % 71 |  2251 · % 70 · +0.40 · saat % 64 · gün % 75
+🔸 yedek (🌐🤝 eşik altı)             0.5σ  |  3468 · % 74 · +0.20 · saat % 72 · gün % 74 |  6762 · % 71 · +0.05 · saat % 70 · gün % 77 |  2251 · % 76 · +0.32 · saat % 70 · gün % 84
+📋 panelden (hepsi)                 süre  |  2459 · % 55 · +0.44 · saat % 54 · gün % 59 |  2926 · % 56 · +0.52 · saat % 55 · gün % 58 |  1435 · % 54 · +0.37 · saat % 54 · gün % 54
+📋 panelden (hepsi)                 0.75σ |  2459 · % 63 · +0.31 · saat % 62 · gün % 65 |  2926 · % 62 · +0.27 · saat % 61 · gün % 63 |  1435 · % 61 · +0.25 · saat % 61 · gün % 66
+📋 panelden (hepsi)                 0.5σ  |  2459 · % 70 · +0.24 · saat % 68 · gün % 67 |  2926 · % 70 · +0.25 · saat % 68 · gün % 68 |  1435 · % 69 · +0.19 · saat % 68 · gün % 71
+  ↳ 💵 ABD alıyor                   süre  |  1313 · % 53 · +0.54 · saat % 53 · gün % 54 |  1617 · % 53 · +0.57 · saat % 53 · gün % 54 |   776 · % 54 · +0.61 · saat % 55 · gün % 56
+  ↳ 💵 ABD alıyor                   0.75σ |  1313 · % 61 · +0.40 · saat % 61 · gün % 61 |  1617 · % 60 · +0.26 · saat % 59 · gün % 59 |   776 · % 62 · +0.42 · saat % 63 · gün % 67
+  ↳ 💵 ABD alıyor                   0.5σ  |  1313 · % 69 · +0.34 · saat % 68 · gün % 65 |  1617 · % 67 · +0.24 · saat % 66 · gün % 64 |   776 · % 70 · +0.33 · saat % 70 · gün % 71
+  ↳ 🧪 24 s ana coin                süre  |   413 · % 53 · +0.50 · saat % 52 · gün % 59 |   452 · % 62 · +1.20 · saat % 60 · gün % 62 |   189 · % 51 · +0.18 · saat % 49 · gün % 49
+  ↳ 🧪 24 s ana coin                0.75σ |   413 · % 59 · +0.17 · saat % 58 · gün % 61 |   452 · % 67 · +0.70 · saat % 66 · gün % 68 |   189 · % 59 · +0.09 · saat % 56 · gün % 57
+  ↳ 🧪 24 s ana coin                0.5σ  |   413 · % 66 · +0.08 · saat % 65 · gün % 67 |   452 · % 75 · +0.63 · saat % 73 · gün % 73 |   189 · % 66 · -0.01 · saat % 63 · gün % 64
+  ↳ 🔇/🪙 coin tek                   süre  |   733 · % 60 · +0.22 · saat % 60 · gün % 66 |   857 · % 57 · +0.08 · saat % 58 · gün % 62 |   470 · % 54 · +0.05 · saat % 55 · gün % 61
+  ↳ 🔇/🪙 coin tek                   0.75σ |   733 · % 67 · +0.21 · saat % 67 · gün % 70 |   857 · % 64 · +0.07 · saat % 64 · gün % 66 |   470 · % 59 · +0.04 · saat % 60 · gün % 66
+  ↳ 🔇/🪙 coin tek                   0.5σ  |   733 · % 72 · +0.14 · saat % 71 · gün % 73 |   857 · % 73 · +0.07 · saat % 72 · gün % 70 |   470 · % 67 · +0.06 · saat % 67 · gün % 70
+```
+
+## Filtreler — seçimden geçen 52 · üç şartı da geçen 19
+```
+   aile                         k     filtre                                                 pay |                 2022-06→2023                 |                   2024–25                    |                     2026                    
+✅ ↳ 💵 ABD alıyor               0.5σ  N8a kalabalık saat (≥ 4)                             %   6 |    67 · % 88 · +0.87 · saat % 85 · gün % 89 |   105 · % 82 · +0.50 · saat % 82 · gün % 81 |    53 · % 85 · +1.01 · saat %100 · gün %100
+✅ 🔸 yedek (🌐🤝 eşik altı)       0.75σ N3c TR 01–09 + K8 çifte onay                         %   1 |    35 · % 71 · +0.55 · saat % 74 · gün % 73 |    79 · % 77 · +0.54 · saat % 71 · gün % 72 |    30 · % 90 · +0.91 · saat % 87 · gün % 85
+✅ 🔸 yedek (🌐🤝 eşik altı)       0.5σ  N3a TR 09–17 + K8 çifte onay                         %   1 |    45 · % 82 · +0.53 · saat % 79 · gün % 83 |    48 · % 77 · +0.37 · saat % 68 · gün % 69 |    28 · % 79 · +0.17 · saat % 81 · gün % 79
+✅ 📋 panelden (hepsi)           0.5σ  N8a kalabalık saat (≥ 4)                             %  11 |   222 · % 78 · +0.46 · saat % 71 · gün % 74 |   351 · % 77 · +0.29 · saat % 76 · gün % 75 |   150 · % 76 · +0.37 · saat % 80 · gün % 81
+✅ ↳ 💵 ABD alıyor               0.5σ  K1 📉 dip                                             %   4 |    43 · % 88 · +1.20 · saat % 85 · gün % 82 |    78 · % 77 · +0.10 · saat % 69 · gün % 67 |    10 · % 90 · +0.94 · saat % 90 · gün % 90
+✅ 📋 panelden (hepsi)           0.5σ  N9a aynı saatte ✅ ana var                            %  22 |   521 · % 73 · +0.32 · saat % 71 · gün % 71 |   742 · % 74 · +0.29 · saat % 73 · gün % 74 |   228 · % 76 · +0.32 · saat % 74 · gün % 75
+✅ ↳ 💵 ABD alıyor               0.75σ N8a kalabalık saat (≥ 4)                             %   6 |    67 · % 82 · +1.14 · saat % 85 · gün % 89 |   105 · % 73 · +0.59 · saat % 77 · gün % 81 |    53 · % 77 · +1.09 · saat %100 · gün %100
+✅ 🔸 yedek (🌐🤝 eşik altı)       0.5σ  K8 çifte onay                                        %   5 |   238 · % 78 · +0.37 · saat % 76 · gün % 78 |   337 · % 73 · +0.14 · saat % 69 · gün % 71 |    93 · % 87 · +0.44 · saat % 83 · gün % 81
+✅ ↳ 💵 ABD alıyor               0.5σ  K2 🚀 momentum                                        %   7 |    99 · % 83 · +0.40 · saat % 81 · gün % 78 |   116 · % 72 · +0.12 · saat % 72 · gün % 70 |    55 · % 82 · +0.67 · saat % 79 · gün % 75
+✅ 📋 panelden (hepsi)           0.75σ K1 📉 dip                                             %   6 |   125 · % 74 · +0.72 · saat % 73 · gün % 80 |   247 · % 72 · +0.01 · saat % 68 · gün % 69 |    48 · % 75 · +0.33 · saat % 80 · gün % 86
+✅ ↳ 💵 ABD alıyor               0.5σ  K6 BTC ⛔                                             %   8 |   104 · % 75 · +0.75 · saat % 75 · gün % 72 |   100 · % 72 · +0.13 · saat % 71 · gün % 68 |    82 · % 73 · +0.61 · saat % 73 · gün % 73
+✅ ↳ 💵 ABD alıyor               0.5σ  N9a aynı saatte ✅ ana var                            %  16 |   195 · % 79 · +0.60 · saat % 77 · gün % 75 |   292 · % 72 · +0.24 · saat % 71 · gün % 70 |    90 · % 72 · +0.35 · saat % 73 · gün % 70
+✅ 📋 panelden (hepsi)           0.5σ  K2 🚀 momentum                                        %   5 |   151 · % 83 · +0.47 · saat % 81 · gün % 80 |   129 · % 71 · +0.05 · saat % 71 · gün % 70 |    74 · % 82 · +0.53 · saat % 81 · gün % 76
+✅ 📋 panelden (hepsi)           0.5σ  K7 BTC −1…0                                          %  14 |   374 · % 74 · +0.38 · saat % 72 · gün % 71 |   409 · % 71 · +0.35 · saat % 69 · gün % 69 |   154 · % 77 · +0.27 · saat % 75 · gün % 78
+✅ ↳ 💵 ABD alıyor               0.5σ  K7 BTC −1…0                                          %  15 |   241 · % 73 · +0.42 · saat % 72 · gün % 70 |   230 · % 71 · +0.35 · saat % 71 · gün % 71 |    74 · % 78 · +0.49 · saat % 80 · gün % 78
+✅ 📋 panelden (hepsi)           0.75σ N8a kalabalık saat (≥ 4)                             %  11 |   222 · % 73 · +0.71 · saat % 71 · gün % 76 |   351 · % 70 · +0.46 · saat % 74 · gün % 70 |   150 · % 67 · +0.46 · saat % 80 · gün % 81
+✅ ↳ 💵 ABD alıyor               0.5σ  N6a BTC 24 s düşmüş                                  %  41 |   534 · % 73 · +0.50 · saat % 72 · gün % 72 |   615 · % 70 · +0.27 · saat % 68 · gün % 66 |   347 · % 71 · +0.37 · saat % 71 · gün % 72
+✅ ↳ 💵 ABD alıyor               0.5σ  N3b TR 17–01                                         %  39 |   478 · % 73 · +0.52 · saat % 72 · gün % 73 |   682 · % 69 · +0.34 · saat % 69 · gün % 69 |   301 · % 70 · +0.25 · saat % 70 · gün % 68
+✅ ↳ 🧪 24 s ana coin            0.75σ K7 BTC −1…0                                          %  19 |    75 · % 64 · +0.52 · saat % 62 · gün % 64 |    96 · % 67 · +0.84 · saat % 66 · gün % 66 |    28 · % 71 · +0.01 · saat % 74 · gün % 77
+   ↳ 🔇/🪙 coin tek               0.5σ  K1 📉 dip                                             %  14 |    82 · % 80 · +0.22 · saat % 79 · gün % 81 |   169 · % 78 · -0.21 · saat % 78 · gün % 81 |    38 · % 84 · +0.18 · saat % 79 · gün % 82
+   📋 panelden (hepsi)           0.5σ  K1 📉 dip                                             %   6 |   125 · % 83 · +0.56 · saat % 80 · gün % 89 |   247 · % 78 · -0.11 · saat % 75 · gün % 78 |    48 · % 85 · +0.34 · saat % 86 · gün % 91
+   ↳ 🔇/🪙 coin tek               0.5σ  K6 BTC ⛔                                             %   5 |    32 · % 81 · -0.31 · saat % 81 · gün % 86 |    49 · % 76 · -0.21 · saat % 78 · gün % 74 |    23 · % 74 · +0.21 · saat % 70 · gün % 69
+   ↳ 🧪 24 s ana coin            0.5σ  K7 BTC −1…0                                          %  19 |    75 · % 75 · +0.43 · saat % 71 · gün % 71 |    96 · % 75 · +0.59 · saat % 73 · gün % 70 |    28 · % 75 · -0.25 · saat % 74 · gün % 77
+   ↳ 🔇/🪙 coin tek               0.5σ  N3a TR 09–17                                         %  24 |   210 · % 78 · +0.31 · saat % 77 · gün % 77 |   217 · % 73 · +0.19 · saat % 71 · gün % 71 |    59 · % 61 · -0.04 · saat % 53 · gün % 54
+   ↳ 💵 ABD alıyor               0.75σ K1 📉 dip                                             %   4 |    43 · % 74 · +1.28 · saat % 71 · gün % 77 |    78 · % 73 · +0.38 · saat % 62 · gün % 62 |    10 · % 90 · +1.42 · saat % 90 · gün % 90
+   🔸 yedek (🌐🤝 eşik altı)       0.5σ  N3a TR 09–17                                         %  18 |   612 · % 79 · +0.32 · saat % 76 · gün % 77 |  1183 · % 73 · +0.31 · saat % 70 · gün % 75 |   411 · % 68 · +0.16 · saat % 63 · gün % 67
+   📋 panelden (hepsi)           0.75σ K1 📉 dip + N9a aynı saatte ✅ ana var                 %   3 |    59 · % 78 · +0.98 · saat % 74 · gün % 76 |   123 · % 72 · -0.02 · saat % 63 · gün % 59 |    25 · % 88 · +1.01 · saat % 94 · gün % 93
+   ↳ 🔇/🪙 coin tek               0.75σ K1 📉 dip                                             %  14 |    82 · % 74 · +0.42 · saat % 74 · gün % 78 |   169 · % 72 · -0.16 · saat % 69 · gün % 74 |    38 · % 71 · +0.05 · saat % 72 · gün % 76
+   📋 panelden (hepsi)           0.5σ  K6 BTC ⛔                                             %   7 |   166 · % 74 · +0.42 · saat % 76 · gün % 75 |   178 · % 71 · -0.02 · saat % 71 · gün % 65 |   119 · % 71 · +0.33 · saat % 71 · gün % 68
+   ↳ 🔇/🪙 coin tek               0.75σ K1 📉 dip + N7a coin 7 g düşmüş                       %  12 |    69 · % 75 · +0.39 · saat % 73 · gün % 78 |   143 · % 71 · -0.29 · saat % 68 · gün % 78 |    29 · % 69 · -0.12 · saat % 73 · gün % 79
+   ↳ 💵 ABD alıyor               0.5σ  K8 çifte onay                                        %   3 |    56 · % 84 · +0.86 · saat % 81 · gün % 80 |    46 · % 70 · -0.34 · saat % 68 · gün % 67 |    16 · % 62 · +0.05 · saat % 60 · gün % 62
+   🔸 yedek (🌐🤝 eşik altı)       0.75σ N3c TR 01–09                                         %  26 |   767 · % 72 · +0.21 · saat % 72 · gün % 75 |  1523 · % 69 · +0.36 · saat % 63 · gün % 70 |   887 · % 70 · +0.38 · saat % 70 · gün % 78
+   📋 panelden (hepsi)           0.75σ K8 çifte onay                                        %   9 |   246 · % 66 · +0.41 · saat % 65 · gün % 72 |   277 · % 68 · +0.56 · saat % 71 · gün % 75 |    74 · % 50 · -0.01 · saat % 50 · gün % 53
+   🔸 yedek (🌐🤝 eşik altı)       0.75σ K1 📉 dip                                             %   7 |   264 · % 70 · +0.14 · saat % 65 · gün % 62 |   486 · % 68 · -0.20 · saat % 70 · gün % 74 |   159 · % 78 · +0.59 · saat % 73 · gün % 72
+   ↳ 🔇/🪙 coin tek               0.75σ K6 BTC ⛔                                             %   5 |    32 · % 75 · -0.14 · saat % 74 · gün % 79 |    49 · % 67 · -0.48 · saat % 68 · gün % 65 |    23 · % 65 · +0.21 · saat % 60 · gün % 62
+   ↳ 🔇/🪙 coin tek               0.5σ  K7 BTC −1…0                                          %  10 |    58 · % 76 · +0.12 · saat % 73 · gün % 74 |    83 · % 66 · +0.09 · saat % 64 · gün % 62 |    52 · % 75 · +0.22 · saat % 68 · gün % 71
+   📋 panelden (hepsi)           0.75σ N9a aynı saatte ✅ ana var                            %  22 |   521 · % 67 · +0.51 · saat % 68 · gün % 70 |   742 · % 66 · +0.33 · saat % 68 · gün % 70 |   228 · % 64 · +0.40 · saat % 65 · gün % 69
+   ↳ 💵 ABD alıyor               0.5σ  K8 çifte onay + N9a aynı saatte ✅ ana var            %   3 |    47 · % 89 · +1.08 · saat % 88 · gün % 88 |    41 · % 66 · -0.54 · saat % 65 · gün % 63 |    13 · % 62 · -0.05 · saat % 58 · gün % 58
+   ↳ 🔇/🪙 coin tek               0.75σ N7a coin 7 g düşmüş                                  %  45 |   287 · % 72 · +0.25 · saat % 70 · gün % 73 |   465 · % 66 · -0.06 · saat % 64 · gün % 64 |   174 · % 65 · +0.09 · saat % 63 · gün % 66
+   🔸 yedek (🌐🤝 eşik altı)       0.75σ K8 çifte onay                                        %   5 |   238 · % 69 · +0.43 · saat % 69 · gün % 70 |   337 · % 65 · +0.15 · saat % 60 · gün % 62 |    93 · % 84 · +0.67 · saat % 78 · gün % 77
+   📋 panelden (hepsi)           0.75σ N8a kalabalık saat (≥ 4) + N9a aynı saatte ✅ ana var %   5 |   108 · % 75 · +0.92 · saat % 71 · gün % 79 |   199 · % 65 · +0.18 · saat % 69 · gün % 67 |    64 · % 62 · +0.25 · saat % 67 · gün % 73
+   ↳ 💵 ABD alıyor               0.75σ N9a aynı saatte ✅ ana var                            %  16 |   195 · % 74 · +0.87 · saat % 73 · gün % 74 |   292 · % 65 · +0.33 · saat % 65 · gün % 65 |    90 · % 60 · +0.44 · saat % 61 · gün % 63
+   ↳ 🔇/🪙 coin tek               0.75σ K8 çifte onay                                        %   7 |    46 · % 72 · +0.03 · saat % 70 · gün % 71 |    85 · % 65 · +0.04 · saat % 67 · gün % 66 |    22 · % 41 · -0.21 · saat % 46 · gün % 42
+   ↳ 💵 ABD alıyor               0.75σ K6 BTC ⛔                                             %   8 |   104 · % 68 · +1.02 · saat % 68 · gün % 63 |   100 · % 64 · +0.24 · saat % 63 · gün % 59 |    82 · % 67 · +0.76 · saat % 67 · gün % 67
+   ↳ 💵 ABD alıyor               0.75σ K2 🚀 momentum                                        %   7 |    99 · % 72 · +0.33 · saat % 70 · gün % 66 |   116 · % 64 · +0.25 · saat % 63 · gün % 63 |    55 · % 69 · +0.64 · saat % 67 · gün % 61
+```
+
+Plasebo (20 dairesel kaydırma) geçen: ortalama 7.0 · %95 13.1 · gerçek 19 → ✅ gerçek plasebodan büyük
