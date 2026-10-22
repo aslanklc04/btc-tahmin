@@ -1,5 +1,5 @@
 # saglik.py — SİSTEM SAĞLIK TARAMASI (19.10.2026, kullanıcı: "baştan sona tara, hata/bozukluk/tutarsızlık var mı, Neon dahil"). Main kökünden çalışır, hiçbir şey göndermez.
-# 21.10.2026: yeniden çalıştırıldı (kullanıcı: "GitHub / cron / Neon ile ilgili sorun var mı")
+# 22.10.2026 gece: tam denetim için yeniden çalıştırıldı
 import os, glob, gzip, json, pickle, time, subprocess, py_compile, numpy as np, pandas as pd
 import ortak as O
 L = []; SORUN = []

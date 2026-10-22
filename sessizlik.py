@@ -1,4 +1,5 @@
 # sessizlik.py — TEŞHİS (21.10.2026, kullanıcı: "dünden beri sinyal gelmiyor, modelde hata var mı?"; yalnız bilgi, canlıya dokunmaz)
+# 22.10.2026 gece: tam denetim
 # Canlının kendi önbelleğinden (durum/gecmis.pkl + gecmis_coin.pkl, actions cache) son 72 saat, saat saat:
 #   BTC 1/4/8 s yön + güç (Çok güçlü = son 30 günün en güçlü %10'u) · ⭐ · A sınıfı · coin'lerde 4 s Çok güçlü ↑ sayısı (BTC ile aynı saatte = 🤝 adayı)
 #   + her coin'in önbelleği bu saate kadar güncel mi (güncel değilse o coin sessizce düşmüş demektir).
