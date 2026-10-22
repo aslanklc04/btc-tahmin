@@ -3,24 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "18.10 23:08",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 23:08",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: NEAR (z -2.3 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "18.10 23:08",
-"s": "panel",
-"e": "🧪 24 saat: OP (z -0.6)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "19.10 01:07",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: AAVE (z +2.4, 24 saat), UNI (z +2.2, 4 saat)",
@@ -240,6 +222,24 @@
 "t": "22.10 19:07",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -1.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 20:07",
+"s": "panel",
+"e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⛔ z -1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 20:07",
+"s": "panel",
+"e": "🔇 DOGE ⭐ en güçlü · 8 saat · isabet %62 · prim ⚠️ z -0.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 20:07",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
