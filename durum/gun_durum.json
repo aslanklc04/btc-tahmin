@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-22",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "18.10 23:08",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: POWR (z +0.7), POL (z +0.7), EGLD (z +0.7), SAND (z +0.6), SUPER (z +0.6), PUNDIX (z +0.5), ARKM (z +0.5), UMA (z +0.5), BNT (z +0.5), ZRX (z +0.4)",
-"k": "gönderildi"
-},
 {
 "t": "18.10 23:08",
 "s": "🔸 yedek",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🔇 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⚠️ z -0.5",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "22.10 07:07",
+"s": "✅ ana",
+"e": "🧪 24 saat: WIF (z +1.8)",
+"k": "gönderildi"
 }
 ]
 }
