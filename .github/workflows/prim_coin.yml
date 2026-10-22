@@ -31,7 +31,7 @@ jobs:
         with:
           name: prim-veri
           path: prim_veri.pkl
-          retention-days: 14
+          retention-days: 60
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
