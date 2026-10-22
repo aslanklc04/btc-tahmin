@@ -5,7 +5,7 @@
 # ÖNCEDEN YAZILI KARAR (15.10.2026, sonuçlar görülmeden): 12.11.2026'dan itibaren ✅ ana olarak gönderilmiş bir türde ≥ 20 kapanan sinyal varsa
 #   canlı isabet testteki isabetin belirgin altında (tek yönlü binom p < 0,05) VE canlı işlem başı net < 0 → "❌ ana'dan çıkarma önerisi" (kullanıcıya sorulur).
 import os, re, json, math, numpy as np, pandas as pd
-from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST, KARAL_K
+from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST, KARAL_K, KARAL_K_YEDEK, KARAL_K_PANEL
 KAYIT_F, MD_F, DUR_F = "durum/karne_kayit.csv", "durum/karne.md", "durum/karne_durum.json"
 KOM, KARAR_T = 0.04, pd.Timestamp("2026-11-12", tz=DISPLAY_TZ)
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
@@ -80,7 +80,8 @@ def main():
         net.append(r.yon * 100 * (p1 / c[r.t0] - 1) - KOM); kap.append(k_)
         # 🎯 kâr-al +0,75σ (karal.py ile aynı): süre içinde saatlik YÜKSEK hedefe değerse hedeften çık · yalnız AL sinyalleri
         sg = np.log(c[c.index <= r.t0]).diff().dropna().iloc[-720:]
-        hd = c[r.t0] * (1 + KARAL_K * sg.std() * np.sqrt(int(r.H))) if r.yon > 0 and len(sg) >= 168 and r.tur not in ("⛓️", "🧑") else np.nan   # 21.10: ⛓️ / 🧑 mesajında 🎯 yok
+        kk_ = KARAL_K_PANEL if r.pden else (KARAL_K_YEDEK if r.sinif == "yedek" else KARAL_K)   # 22.10: 🔸 yedek 0,50σ · 📋 panelden 0,45σ · ✅ ana ve panel 0,75σ
+        hd = c[r.t0] * (1 + kk_ * sg.std() * np.sqrt(int(r.H))) if r.yon > 0 and len(sg) >= 168 and r.tur not in ("⛓️", "🧑") else np.nan   # 21.10: ⛓️ / 🧑 mesajında 🎯 yok
         w = PH[r.coin][(PH[r.coin].index > r.t0) & (PH[r.coin].index <= t1)]
         if np.isfinite(hd) and (w >= hd).any(): ntp.append(100 * (hd / c[r.t0] - 1) - KOM); ktp.append(True)
         else: ntp.append(net[-1]); ktp.append(k_)
@@ -108,7 +109,7 @@ def main():
     n, h, a, s, o = ozet((X.sinif == "yedek") & X.pden); nt_, ht_, at_ = ozet_tp((X.sinif == "yedek") & X.pden)
     L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %61–63 (kâr-al ile) |")
     n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — | — |")
-    L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. 21.10 akşamdan beri 🔸 yedek mesajlarında da hedef var; ⛓️ ETH ve 🧑 küçük yatırımcıda yok (süre sonunda sat)._")
+    L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._")
     hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN
     def notu(k, ts):                                                                        # tür notu: ≥ 20 sinyal ve test varsa testle (binom), yoksa basit not
         n = len(k)

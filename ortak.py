@@ -1,5 +1,5 @@
 # ortak.py — v32 modelinin GitHub Actions sürümü için ortak parçalar (egit.py ve tahmin.py kullanır)
-import os, io, json, time, zipfile, warnings, requests, numpy as np, pandas as pd
+import os, io, re, json, time, zipfile, warnings, requests, numpy as np, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 warnings.filterwarnings("ignore"); pd.set_option("display.width", 220)
 SPOT_FEE, DISPLAY_TZ = 0.001, "Europe/Istanbul"
@@ -355,6 +355,16 @@ def karal_fiyat(p, kapanis, H):
         if len(r) < 168 or not np.isfinite(p) or p <= 0: return float("nan")
         return float(p * (1 + KARAL_K * r.std() * np.sqrt(H)))
     except Exception: return float("nan")
+KARAL_K_YEDEK, KARAL_K_PANEL = 0.50, 0.45                                                       # 22.10.2026 kullanıcı onayı (esik70.py): 🔸 yedek / 📋 panelden isabeti üç dönemde ≥ %70 tutan en uzak hedef
+KARAL_RE2 = re.compile(r"🎯 Kâr-al \$([0-9.,]+) \(\+%([0-9.]+)\): önce buraya değerse orada sat \(limit emir\), değmezse çıkış saatinde sat · [^\n]*")
+def karal_degistir(metin, k, not_):
+    """Mesajdaki 🎯 satırlarını k katsayısına çevirir (üretici 0,75σ yazar; gonder.py yedek / panelden olarak gönderirken çağırır)."""
+    def f(m):
+        try:
+            X = float(m.group(1).replace(",", "")); pct = float(m.group(2)); p = X / (1 + pct / 100); yp = pct * k / KARAL_K
+            return f"🎯 Kâr-al {fiyat_yaz(p * (1 + yp / 100))} (+%{yp:.1f}): önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · {not_}"
+        except Exception: return m.group(0)
+    return KARAL_RE2.sub(f, metin)
 def karal_satir(p, kapanis, H, girinti="   "):
     h = karal_fiyat(p, kapanis, H)
     if not np.isfinite(h): return ""
