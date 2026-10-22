@@ -1,0 +1,173 @@
+# 🔎 Yedek ve panelden sinyallerin isabetini artırma araması — 22.10.2026 22:42
+_Hücre: n · isabet · net % · saat % · gün % (hepsi kâr-al ile). Şart: 2024–25 ve 2026'da isabet, saat, gün ≥ %65 ve net > 0._
+
+## Aileler (filtresiz)
+```
+aile                               k     |                 2022-06→2023                 |                   2024–25                    |                     2026                    
+🔸 yedek (🌐🤝 eşik altı)             süre  |  3468 · % 59 · +0.24 · saat % 62 · gün % 68 |  6762 · % 57 · +0.05 · saat % 56 · gün % 65 |  2251 · % 64 · +0.57 · saat % 57 · gün % 71
+🔸 yedek (🌐🤝 eşik altı)             0.75σ |  3468 · % 66 · +0.20 · saat % 67 · gün % 72 |  6762 · % 63 · +0.02 · saat % 63 · gün % 71 |  2251 · % 70 · +0.40 · saat % 64 · gün % 75
+🔸 yedek (🌐🤝 eşik altı)             0.5σ  |  3468 · % 74 · +0.20 · saat % 72 · gün % 74 |  6762 · % 71 · +0.05 · saat % 70 · gün % 77 |  2251 · % 76 · +0.32 · saat % 70 · gün % 84
+📋 panelden (hepsi)                 süre  |  2459 · % 55 · +0.44 · saat % 54 · gün % 59 |  2926 · % 56 · +0.52 · saat % 55 · gün % 58 |  1435 · % 54 · +0.37 · saat % 54 · gün % 54
+📋 panelden (hepsi)                 0.75σ |  2459 · % 63 · +0.31 · saat % 62 · gün % 65 |  2926 · % 62 · +0.27 · saat % 61 · gün % 63 |  1435 · % 61 · +0.25 · saat % 61 · gün % 66
+📋 panelden (hepsi)                 0.5σ  |  2459 · % 70 · +0.24 · saat % 68 · gün % 67 |  2926 · % 70 · +0.25 · saat % 68 · gün % 68 |  1435 · % 69 · +0.19 · saat % 68 · gün % 71
+  ↳ 💵 ABD alıyor                   süre  |  1313 · % 53 · +0.54 · saat % 53 · gün % 54 |  1617 · % 53 · +0.57 · saat % 53 · gün % 54 |   776 · % 54 · +0.61 · saat % 55 · gün % 56
+  ↳ 💵 ABD alıyor                   0.75σ |  1313 · % 61 · +0.40 · saat % 61 · gün % 61 |  1617 · % 60 · +0.26 · saat % 59 · gün % 59 |   776 · % 62 · +0.42 · saat % 63 · gün % 67
+  ↳ 💵 ABD alıyor                   0.5σ  |  1313 · % 69 · +0.34 · saat % 68 · gün % 65 |  1617 · % 67 · +0.24 · saat % 66 · gün % 64 |   776 · % 70 · +0.33 · saat % 70 · gün % 71
+  ↳ 🧪 24 s ana coin                süre  |   413 · % 53 · +0.50 · saat % 52 · gün % 59 |   452 · % 62 · +1.20 · saat % 60 · gün % 62 |   189 · % 51 · +0.18 · saat % 49 · gün % 49
+  ↳ 🧪 24 s ana coin                0.75σ |   413 · % 59 · +0.17 · saat % 58 · gün % 61 |   452 · % 67 · +0.70 · saat % 66 · gün % 68 |   189 · % 59 · +0.09 · saat % 56 · gün % 57
+  ↳ 🧪 24 s ana coin                0.5σ  |   413 · % 66 · +0.08 · saat % 65 · gün % 67 |   452 · % 75 · +0.63 · saat % 73 · gün % 73 |   189 · % 66 · -0.01 · saat % 63 · gün % 64
+  ↳ 🔇/🪙 coin tek                   süre  |   733 · % 60 · +0.22 · saat % 60 · gün % 66 |   857 · % 57 · +0.08 · saat % 58 · gün % 62 |   470 · % 54 · +0.05 · saat % 55 · gün % 61
+  ↳ 🔇/🪙 coin tek                   0.75σ |   733 · % 67 · +0.21 · saat % 67 · gün % 70 |   857 · % 64 · +0.07 · saat % 64 · gün % 66 |   470 · % 59 · +0.04 · saat % 60 · gün % 66
+  ↳ 🔇/🪙 coin tek                   0.5σ  |   733 · % 72 · +0.14 · saat % 71 · gün % 73 |   857 · % 73 · +0.07 · saat % 72 · gün % 70 |   470 · % 67 · +0.06 · saat % 67 · gün % 70
+```
+## Sınıf sınıf hedef taraması (📋 panelden SINIRSIZ) — n/hf · isabet · saat · gün · işlem başı net · haftalık toplam
+```
+🔸 yedek                  0.75σ    |  41.9/hf % 66 s% 67 g% 72 +0.20 Σ  +8.3 |  64.8/hf % 63 s% 63 g% 71 +0.02 Σ  +1.2 |  53.6/hf % 70 s% 64 g% 75 +0.40 Σ +21.7
+🔸 yedek                  0.70σ    |  41.9/hf % 67 s% 67 g% 71 +0.20 Σ  +8.5 |  64.8/hf % 64 s% 64 g% 72 +0.02 Σ  +1.2 |  53.6/hf % 70 s% 65 g% 77 +0.38 Σ +20.5
+🔸 yedek                  0.65σ    |  41.9/hf % 69 s% 68 g% 72 +0.20 Σ  +8.6 |  64.8/hf % 65 s% 65 g% 73 +0.02 Σ  +1.3 |  53.6/hf % 71 s% 66 g% 80 +0.37 Σ +20.0
+🔸 yedek                  0.60σ    |  41.9/hf % 70 s% 68 g% 72 +0.19 Σ  +8.1 |  64.8/hf % 67 s% 65 g% 74 +0.02 Σ  +1.4 |  53.6/hf % 73 s% 68 g% 81 +0.36 Σ +19.1
+🔸 yedek                  0.55σ    |  41.9/hf % 72 s% 69 g% 74 +0.19 Σ  +7.9 |  64.8/hf % 69 s% 67 g% 76 +0.03 Σ  +2.0 |  53.6/hf % 74 s% 68 g% 82 +0.34 Σ +18.0
+🔸 yedek                  0.50σ ✅ |  41.9/hf % 74 s% 72 g% 74 +0.20 Σ  +8.2 |  64.8/hf % 71 s% 70 g% 77 +0.05 Σ  +3.0 |  53.6/hf % 76 s% 70 g% 84 +0.32 Σ +17.1
+🔸 yedek                  0.45σ ✅ |  41.9/hf % 76 s% 74 g% 76 +0.20 Σ  +8.3 |  64.8/hf % 73 s% 71 g% 79 +0.04 Σ  +2.5 |  53.6/hf % 78 s% 71 g% 84 +0.29 Σ +15.6
+🔸 yedek                  0.40σ ✅ |  41.9/hf % 79 s% 75 g% 76 +0.19 Σ  +8.1 |  64.8/hf % 76 s% 73 g% 81 +0.04 Σ  +2.7 |  53.6/hf % 79 s% 72 g% 82 +0.26 Σ +14.1
+🔸 yedek                  0.35σ ✅ |  41.9/hf % 82 s% 76 g% 78 +0.20 Σ  +8.5 |  64.8/hf % 79 s% 76 g% 82 +0.04 Σ  +2.6 |  53.6/hf % 81 s% 73 g% 84 +0.23 Σ +12.4
+🔸 yedek                  0.30σ ✅ |  41.9/hf % 85 s% 79 g% 79 +0.19 Σ  +8.2 |  64.8/hf % 82 s% 78 g% 83 +0.03 Σ  +1.8 |  53.6/hf % 84 s% 75 g% 82 +0.20 Σ +10.7
+→ 🔸 yedek: isabeti üç dönemde de ≥ %70 tutan EN UZAK hedef: 0.5σ
+📋 panelden (sınırsız)    0.75σ    |  29.7/hf % 63 s% 62 g% 65 +0.31 Σ  +9.2 |  28.0/hf % 62 s% 61 g% 63 +0.27 Σ  +7.7 |  34.2/hf % 61 s% 61 g% 66 +0.25 Σ  +8.7
+📋 panelden (sınırsız)    0.70σ    |  29.7/hf % 63 s% 63 g% 66 +0.30 Σ  +9.0 |  28.0/hf % 63 s% 62 g% 62 +0.25 Σ  +7.0 |  34.2/hf % 62 s% 62 g% 68 +0.25 Σ  +8.4
+📋 panelden (sınırsız)    0.65σ    |  29.7/hf % 65 s% 64 g% 65 +0.29 Σ  +8.6 |  28.0/hf % 64 s% 63 g% 63 +0.23 Σ  +6.4 |  34.2/hf % 64 s% 64 g% 70 +0.25 Σ  +8.5
+📋 panelden (sınırsız)    0.60σ    |  29.7/hf % 66 s% 65 g% 67 +0.27 Σ  +8.1 |  28.0/hf % 65 s% 64 g% 64 +0.22 Σ  +6.1 |  34.2/hf % 64 s% 65 g% 71 +0.22 Σ  +7.5
+📋 panelden (sınırsız)    0.55σ    |  29.7/hf % 68 s% 66 g% 66 +0.26 Σ  +7.7 |  28.0/hf % 68 s% 66 g% 66 +0.24 Σ  +6.9 |  34.2/hf % 66 s% 66 g% 71 +0.21 Σ  +7.3
+📋 panelden (sınırsız)    0.50σ    |  29.7/hf % 70 s% 68 g% 67 +0.24 Σ  +7.1 |  28.0/hf % 70 s% 68 g% 68 +0.25 Σ  +7.0 |  34.2/hf % 69 s% 68 g% 71 +0.19 Σ  +6.7
+📋 panelden (sınırsız)    0.45σ ✅ |  29.7/hf % 72 s% 70 g% 69 +0.22 Σ  +6.6 |  28.0/hf % 72 s% 70 g% 67 +0.23 Σ  +6.4 |  34.2/hf % 72 s% 71 g% 72 +0.21 Σ  +7.0
+📋 panelden (sınırsız)    0.40σ ✅ |  29.7/hf % 74 s% 72 g% 69 +0.20 Σ  +6.0 |  28.0/hf % 74 s% 72 g% 68 +0.20 Σ  +5.6 |  34.2/hf % 74 s% 73 g% 72 +0.17 Σ  +5.9
+📋 panelden (sınırsız)    0.35σ ✅ |  29.7/hf % 76 s% 75 g% 71 +0.19 Σ  +5.7 |  28.0/hf % 77 s% 75 g% 71 +0.19 Σ  +5.2 |  34.2/hf % 76 s% 75 g% 73 +0.15 Σ  +5.2
+📋 panelden (sınırsız)    0.30σ ✅ |  29.7/hf % 79 s% 78 g% 73 +0.16 Σ  +4.8 |  28.0/hf % 80 s% 78 g% 72 +0.16 Σ  +4.6 |  34.2/hf % 79 s% 78 g% 74 +0.12 Σ  +4.2
+→ 📋 panelden (sınırsız): isabeti üç dönemde de ≥ %70 tutan EN UZAK hedef: 0.45σ
+```
+# 🧮 Senaryolar — 22.10.2026 22:42
+_Her satır: haftada sinyal · sinyalli gün % · isabet % · saat bazında % · gün bazında % · işlem başı net % · haftalık toplam net % (her sinyale eşit para; toplam = sinyallerin net % toplamı / hafta)._
+
+## 2022-06→2023
+```
+senaryo                                  hf.sinyal  sinyalli gün  isabet  saat   gün   işlem başı  haftalık toplam
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız)   103.1   %   91      %  66  %  63  %  70    +0.29        +30.2
+ana 0,75 · yedek 0.6 · panelden 0.5        103.1   %   91      %  70  %  67  %  73    +0.27        +27.8
+ana 0,75 · yedek 0.6 · panelden 0.45       103.1   %   91      %  70  %  69  %  73    +0.26        +27.3
+ana 0,75 · yedek 0.6 · panelden 0.4        103.1   %   91      %  71  %  70  %  74    +0.26        +26.7
+ana 0,75 · yedek 0.6 · panelden 0.35       103.1   %   91      %  72  %  71  %  74    +0.26        +26.4
+ana 0,75 · yedek 0.55 · panelden 0.5       103.1   %   91      %  70  %  67  %  73    +0.27        +27.6
+ana 0,75 · yedek 0.55 · panelden 0.45      103.1   %   91      %  71  %  69  %  73    +0.26        +27.1
+ana 0,75 · yedek 0.55 · panelden 0.4       103.1   %   91      %  72  %  70  %  74    +0.26        +26.5
+ana 0,75 · yedek 0.55 · panelden 0.35      103.1   %   91      %  72  %  71  %  74    +0.25        +26.2
+ana 0,75 · yedek 0.5 · panelden 0.5        103.1   %   91      %  71  %  68  %  73    +0.27        +27.9
+ana 0,75 · yedek 0.5 · panelden 0.45       103.1   %   91      %  72  %  69  %  74    +0.27        +27.4
+ana 0,75 · yedek 0.5 · panelden 0.4        103.1   %   91      %  73  %  70  %  74    +0.26        +26.8
+ana 0,75 · yedek 0.5 · panelden 0.35       103.1   %   91      %  73  %  72  %  75    +0.26        +26.6
+ana 0,75 · yedek 0.45 · panelden 0.5       103.1   %   91      %  72  %  68  %  73    +0.27        +28.0
+ana 0,75 · yedek 0.45 · panelden 0.45      103.1   %   91      %  73  %  69  %  73    +0.27        +27.5
+ana 0,75 · yedek 0.45 · panelden 0.4       103.1   %   91      %  74  %  70  %  74    +0.26        +27.0
+ana 0,75 · yedek 0.45 · panelden 0.35      103.1   %   91      %  74  %  72  %  74    +0.26        +26.7
+```
+_Sınıf sınıf (n · isabet · net):_
+```
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız) ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.75σ: 41.9/hf % 66 +0.20 | panelden 0.75σ: 29.7/hf % 63 +0.31
+ana 0,75 · yedek 0.6 · panelden 0.5      ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.6σ: 41.9/hf % 70 +0.19 | panelden 0.5σ: 29.7/hf % 70 +0.24
+ana 0,75 · yedek 0.6 · panelden 0.45     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.6σ: 41.9/hf % 70 +0.19 | panelden 0.45σ: 29.7/hf % 72 +0.22
+ana 0,75 · yedek 0.6 · panelden 0.4      ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.6σ: 41.9/hf % 70 +0.19 | panelden 0.4σ: 29.7/hf % 74 +0.20
+ana 0,75 · yedek 0.6 · panelden 0.35     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.6σ: 41.9/hf % 70 +0.19 | panelden 0.35σ: 29.7/hf % 76 +0.19
+ana 0,75 · yedek 0.55 · panelden 0.5     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.55σ: 41.9/hf % 72 +0.19 | panelden 0.5σ: 29.7/hf % 70 +0.24
+ana 0,75 · yedek 0.55 · panelden 0.45    ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.55σ: 41.9/hf % 72 +0.19 | panelden 0.45σ: 29.7/hf % 72 +0.22
+ana 0,75 · yedek 0.55 · panelden 0.4     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.55σ: 41.9/hf % 72 +0.19 | panelden 0.4σ: 29.7/hf % 74 +0.20
+ana 0,75 · yedek 0.55 · panelden 0.35    ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.55σ: 41.9/hf % 72 +0.19 | panelden 0.35σ: 29.7/hf % 76 +0.19
+ana 0,75 · yedek 0.5 · panelden 0.5      ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.5σ: 41.9/hf % 74 +0.20 | panelden 0.5σ: 29.7/hf % 70 +0.24
+ana 0,75 · yedek 0.5 · panelden 0.45     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.5σ: 41.9/hf % 74 +0.20 | panelden 0.45σ: 29.7/hf % 72 +0.22
+ana 0,75 · yedek 0.5 · panelden 0.4      ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.5σ: 41.9/hf % 74 +0.20 | panelden 0.4σ: 29.7/hf % 74 +0.20
+ana 0,75 · yedek 0.5 · panelden 0.35     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.5σ: 41.9/hf % 74 +0.20 | panelden 0.35σ: 29.7/hf % 76 +0.19
+ana 0,75 · yedek 0.45 · panelden 0.5     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.45σ: 41.9/hf % 76 +0.20 | panelden 0.5σ: 29.7/hf % 70 +0.24
+ana 0,75 · yedek 0.45 · panelden 0.45    ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.45σ: 41.9/hf % 76 +0.20 | panelden 0.45σ: 29.7/hf % 72 +0.22
+ana 0,75 · yedek 0.45 · panelden 0.4     ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.45σ: 41.9/hf % 76 +0.20 | panelden 0.4σ: 29.7/hf % 74 +0.20
+ana 0,75 · yedek 0.45 · panelden 0.35    ana 0.75σ: 31.4/hf % 69 +0.40 | yedek 0.45σ: 41.9/hf % 76 +0.20 | panelden 0.35σ: 29.7/hf % 76 +0.19
+```
+## 2024–25
+```
+senaryo                                  hf.sinyal  sinyalli gün  isabet  saat   gün   işlem başı  haftalık toplam
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız)   139.0   %   89      %  65  %  63  %  72    +0.24        +33.2
+ana 0,75 · yedek 0.6 · panelden 0.5        139.0   %   89      %  69  %  67  %  74    +0.24        +32.7
+ana 0,75 · yedek 0.6 · panelden 0.45       139.0   %   89      %  69  %  68  %  74    +0.23        +32.1
+ana 0,75 · yedek 0.6 · panelden 0.4        139.0   %   89      %  70  %  69  %  74    +0.23        +31.3
+ana 0,75 · yedek 0.6 · panelden 0.35       139.0   %   89      %  70  %  70  %  74    +0.22        +30.9
+ana 0,75 · yedek 0.55 · panelden 0.5       139.0   %   89      %  70  %  67  %  75    +0.24        +33.3
+ana 0,75 · yedek 0.55 · panelden 0.45      139.0   %   89      %  70  %  68  %  75    +0.24        +32.7
+ana 0,75 · yedek 0.55 · panelden 0.4       139.0   %   89      %  71  %  69  %  74    +0.23        +31.9
+ana 0,75 · yedek 0.55 · panelden 0.35      139.0   %   89      %  71  %  71  %  74    +0.23        +31.5
+ana 0,75 · yedek 0.5 · panelden 0.5        139.0   %   89      %  71  %  68  %  75    +0.25        +34.3
+ana 0,75 · yedek 0.5 · panelden 0.45       139.0   %   89      %  71  %  69  %  75    +0.24        +33.7
+ana 0,75 · yedek 0.5 · panelden 0.4        139.0   %   89      %  72  %  70  %  75    +0.24        +32.9
+ana 0,75 · yedek 0.5 · panelden 0.35       139.0   %   89      %  72  %  71  %  75    +0.23        +32.5
+ana 0,75 · yedek 0.45 · panelden 0.5       139.0   %   89      %  72  %  68  %  75    +0.24        +33.8
+ana 0,75 · yedek 0.45 · panelden 0.45      139.0   %   89      %  72  %  69  %  75    +0.24        +33.2
+ana 0,75 · yedek 0.45 · panelden 0.4       139.0   %   89      %  73  %  70  %  75    +0.23        +32.4
+ana 0,75 · yedek 0.45 · panelden 0.35      139.0   %   89      %  73  %  71  %  75    +0.23        +32.0
+```
+_Sınıf sınıf (n · isabet · net):_
+```
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız) ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.75σ: 64.8/hf % 63 +0.02 | panelden 0.75σ: 28.0/hf % 62 +0.27
+ana 0,75 · yedek 0.6 · panelden 0.5      ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.6σ: 64.8/hf % 67 +0.02 | panelden 0.5σ: 28.0/hf % 70 +0.25
+ana 0,75 · yedek 0.6 · panelden 0.45     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.6σ: 64.8/hf % 67 +0.02 | panelden 0.45σ: 28.0/hf % 72 +0.23
+ana 0,75 · yedek 0.6 · panelden 0.4      ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.6σ: 64.8/hf % 67 +0.02 | panelden 0.4σ: 28.0/hf % 74 +0.20
+ana 0,75 · yedek 0.6 · panelden 0.35     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.6σ: 64.8/hf % 67 +0.02 | panelden 0.35σ: 28.0/hf % 77 +0.19
+ana 0,75 · yedek 0.55 · panelden 0.5     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.55σ: 64.8/hf % 69 +0.03 | panelden 0.5σ: 28.0/hf % 70 +0.25
+ana 0,75 · yedek 0.55 · panelden 0.45    ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.55σ: 64.8/hf % 69 +0.03 | panelden 0.45σ: 28.0/hf % 72 +0.23
+ana 0,75 · yedek 0.55 · panelden 0.4     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.55σ: 64.8/hf % 69 +0.03 | panelden 0.4σ: 28.0/hf % 74 +0.20
+ana 0,75 · yedek 0.55 · panelden 0.35    ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.55σ: 64.8/hf % 69 +0.03 | panelden 0.35σ: 28.0/hf % 77 +0.19
+ana 0,75 · yedek 0.5 · panelden 0.5      ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.5σ: 64.8/hf % 71 +0.05 | panelden 0.5σ: 28.0/hf % 70 +0.25
+ana 0,75 · yedek 0.5 · panelden 0.45     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.5σ: 64.8/hf % 71 +0.05 | panelden 0.45σ: 28.0/hf % 72 +0.23
+ana 0,75 · yedek 0.5 · panelden 0.4      ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.5σ: 64.8/hf % 71 +0.05 | panelden 0.4σ: 28.0/hf % 74 +0.20
+ana 0,75 · yedek 0.5 · panelden 0.35     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.5σ: 64.8/hf % 71 +0.05 | panelden 0.35σ: 28.0/hf % 77 +0.19
+ana 0,75 · yedek 0.45 · panelden 0.5     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.45σ: 64.8/hf % 73 +0.04 | panelden 0.5σ: 28.0/hf % 70 +0.25
+ana 0,75 · yedek 0.45 · panelden 0.45    ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.45σ: 64.8/hf % 73 +0.04 | panelden 0.45σ: 28.0/hf % 72 +0.23
+ana 0,75 · yedek 0.45 · panelden 0.4     ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.45σ: 64.8/hf % 73 +0.04 | panelden 0.4σ: 28.0/hf % 74 +0.20
+ana 0,75 · yedek 0.45 · panelden 0.35    ana 0.75σ: 46.2/hf % 71 +0.53 | yedek 0.45σ: 64.8/hf % 73 +0.04 | panelden 0.35σ: 28.0/hf % 77 +0.19
+```
+## 2026
+```
+senaryo                                  hf.sinyal  sinyalli gün  isabet  saat   gün   işlem başı  haftalık toplam
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız)   124.8   %   94      %  69  %  63  %  74    +0.43        +53.9
+ana 0,75 · yedek 0.6 · panelden 0.5        124.8   %   94      %  72  %  68  %  76    +0.39        +49.3
+ana 0,75 · yedek 0.6 · panelden 0.45       124.8   %   94      %  73  %  70  %  75    +0.40        +49.7
+ana 0,75 · yedek 0.6 · panelden 0.4        124.8   %   94      %  73  %  71  %  77    +0.39        +48.5
+ana 0,75 · yedek 0.6 · panelden 0.35       124.8   %   94      %  74  %  72  %  77    +0.38        +47.8
+ana 0,75 · yedek 0.55 · panelden 0.5       124.8   %   94      %  72  %  68  %  76    +0.39        +48.1
+ana 0,75 · yedek 0.55 · panelden 0.45      124.8   %   94      %  73  %  70  %  75    +0.39        +48.5
+ana 0,75 · yedek 0.55 · panelden 0.4       124.8   %   94      %  74  %  71  %  77    +0.38        +47.4
+ana 0,75 · yedek 0.55 · panelden 0.35      124.8   %   94      %  75  %  72  %  77    +0.37        +46.7
+ana 0,75 · yedek 0.5 · panelden 0.5        124.8   %   94      %  73  %  68  %  75    +0.38        +47.3
+ana 0,75 · yedek 0.5 · panelden 0.45       124.8   %   94      %  74  %  70  %  75    +0.38        +47.7
+ana 0,75 · yedek 0.5 · panelden 0.4        124.8   %   94      %  75  %  71  %  76    +0.37        +46.5
+ana 0,75 · yedek 0.5 · panelden 0.35       124.8   %   94      %  75  %  72  %  77    +0.37        +45.8
+ana 0,75 · yedek 0.45 · panelden 0.5       124.8   %   94      %  74  %  68  %  75    +0.37        +45.7
+ana 0,75 · yedek 0.45 · panelden 0.45      124.8   %   94      %  75  %  70  %  75    +0.37        +46.1
+ana 0,75 · yedek 0.45 · panelden 0.4       124.8   %   94      %  75  %  71  %  77    +0.36        +45.0
+ana 0,75 · yedek 0.45 · panelden 0.35      124.8   %   94      %  76  %  73  %  77    +0.36        +44.3
+```
+_Sınıf sınıf (n · isabet · net):_
+```
+A şimdiki (ana/yedek/panelden 0,75σ, panelden sınırsız) ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.75σ: 53.6/hf % 70 +0.40 | panelden 0.75σ: 34.2/hf % 61 +0.25
+ana 0,75 · yedek 0.6 · panelden 0.5      ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.6σ: 53.6/hf % 73 +0.36 | panelden 0.5σ: 34.2/hf % 69 +0.19
+ana 0,75 · yedek 0.6 · panelden 0.45     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.6σ: 53.6/hf % 73 +0.36 | panelden 0.45σ: 34.2/hf % 72 +0.21
+ana 0,75 · yedek 0.6 · panelden 0.4      ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.6σ: 53.6/hf % 73 +0.36 | panelden 0.4σ: 34.2/hf % 74 +0.17
+ana 0,75 · yedek 0.6 · panelden 0.35     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.6σ: 53.6/hf % 73 +0.36 | panelden 0.35σ: 34.2/hf % 76 +0.15
+ana 0,75 · yedek 0.55 · panelden 0.5     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.55σ: 53.6/hf % 74 +0.34 | panelden 0.5σ: 34.2/hf % 69 +0.19
+ana 0,75 · yedek 0.55 · panelden 0.45    ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.55σ: 53.6/hf % 74 +0.34 | panelden 0.45σ: 34.2/hf % 72 +0.21
+ana 0,75 · yedek 0.55 · panelden 0.4     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.55σ: 53.6/hf % 74 +0.34 | panelden 0.4σ: 34.2/hf % 74 +0.17
+ana 0,75 · yedek 0.55 · panelden 0.35    ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.55σ: 53.6/hf % 74 +0.34 | panelden 0.35σ: 34.2/hf % 76 +0.15
+ana 0,75 · yedek 0.5 · panelden 0.5      ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.5σ: 53.6/hf % 76 +0.32 | panelden 0.5σ: 34.2/hf % 69 +0.19
+ana 0,75 · yedek 0.5 · panelden 0.45     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.5σ: 53.6/hf % 76 +0.32 | panelden 0.45σ: 34.2/hf % 72 +0.21
+ana 0,75 · yedek 0.5 · panelden 0.4      ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.5σ: 53.6/hf % 76 +0.32 | panelden 0.4σ: 34.2/hf % 74 +0.17
+ana 0,75 · yedek 0.5 · panelden 0.35     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.5σ: 53.6/hf % 76 +0.32 | panelden 0.35σ: 34.2/hf % 76 +0.15
+ana 0,75 · yedek 0.45 · panelden 0.5     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.45σ: 53.6/hf % 78 +0.29 | panelden 0.5σ: 34.2/hf % 69 +0.19
+ana 0,75 · yedek 0.45 · panelden 0.45    ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.45σ: 53.6/hf % 78 +0.29 | panelden 0.45σ: 34.2/hf % 72 +0.21
+ana 0,75 · yedek 0.45 · panelden 0.4     ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.45σ: 53.6/hf % 78 +0.29 | panelden 0.4σ: 34.2/hf % 74 +0.17
+ana 0,75 · yedek 0.45 · panelden 0.35    ana 0.75σ: 37.0/hf % 74 +0.64 | yedek 0.45σ: 53.6/hf % 78 +0.29 | panelden 0.35σ: 34.2/hf % 76 +0.15
+```
