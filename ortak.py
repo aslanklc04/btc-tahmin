@@ -478,5 +478,6 @@ def ld_z(nm):
     v = _LDZ.get(nm); return float(v) if v is not None else float("nan")
 def ld_mu(nm): z = ld_z(nm); return bool(np.isfinite(z) and z <= LD_ESIK)
 MOM_DIP_ACK["💧"] = "💧 = likidite dipte: coin'in emir defteri kendi normaline göre çok ince (±%1 derinlik z ≤ −2); testte bu durumdaki ✅ sinyaller %69–73 tuttu (işlem başı +%1,0–2,3)"
+LD_USD_ANA_NOT = "💧💵 ABD alıyor + likidite dipte → ✅ ANA (23.10, ld_yedek.py; kullanıcı onayı — 2024–25 %69 ile %70 eşiğinin 1 puan altında, karnede ayrı izlenir): ana hedefiyle testte %77 · %69 · %80 tuttu (2022–23 · 2024–25 · 2026), işlem başı +%1,09 · +%0,59 · +%1,50; plasebo geçti"
 LD_USD_NOT = "💧 = likidite dipte (emir defteri çok ince): 📋 panelden 💵 sinyallerinde 💧 olanlar testte daha isabetli — panelden hedefiyle %83 · %74 · %85 (hepsi %72 · %70 · %73), işlem başı +%0,3–1,0 (ld_yedek.py 23.10)"
 LD_DIP_NOT = "💧📉🔥 = likidite dipte VE dip birlikte (ana coin'ler): testte %87 · %78 · %73 tuttu (2023 · 2024+ · 2026), işlem başı +%2,2 · +%3,3 · +%1,7 — en üst öncelik"
