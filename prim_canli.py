@@ -61,7 +61,7 @@ def calis():
             o = fetch_1h((now - pd.Timedelta(days=40)).timestamp() * 1000, now.timestamp() * 1000, sym=f"{nm}USDT"); return r24z(o.close)
         except Exception as e: print(nm, "r24z alınamadı:", e); return float("nan")
     RZC = {x[1]: _rz(x[1]) for x in fire}
-    _ust = lambda x: dip_mi(RZC[x[1]]) or ld_mu(x[1])   # 23.10 ld_yedek.py + kullanıcı onayı: 💵 + 💧 → ✅ ana (%77 · %69 · %80, net +1,09 · +0,59 · +1,50; plasebo geçti)                                                        # 💵 + 📉 dip (kombin.py) → ✅ ana · 16.10: 💧 artık yedeği YÜKSELTMEZ (2026 %59 < ana %67; kullanıcı: yalnız işaret)
+    _ust = lambda x: dip_mi(RZC[x[1]]) or ld_mu(x[1])   # 23.10 ld_yedek.py + kullanıcı onayı: 💵 + 💧 → ✅ ana (%77 · %69 · %80, net +1,09 · +0,59 · +1,50; plasebo geçti) · 💵 + 📉 dip (kombin.py) → ✅ ana
     for sinif_, grup in (("ana", [x for x in fire if _ust(x)]), ("panely", [x for x in fire if not _ust(x)])):   # 14.10: 💵 + 📉 dip → ✅ ana (kombin.py)
         if not grup: continue
         _sb = sure_basi(SURE_[grup[0][1]], CIK_[grup[0][1]]) if len({SURE_[x[1]] for x in grup}) == 1 else "⏱ SÜRE: " + " · ".join(f"{x[1]} {SURE_[x[1]]} SAAT" for x in grup) + " TUT (çıkış saatleri satırlarda)\n"
