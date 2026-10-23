@@ -1,0 +1,29 @@
+# 💧 Likidite dipte — yedek ve panelden — 23.10.2026 12:43
+derinlik verisi: 133 coin · aile satırlarının derinlik verisi olan payı: 🔸 yedek (🌐🤝 eşik altı) %81 · 📋 panelden — hepsi %86 · ↳ 💵 ABD alıyor %86 · ↳ 🧪 24 s ana coin %84 · ↳ 🔇/🪙 coin tek %85
+_Hücre: n · isabet · net % · saat % · gün % — yalnız derinlik verisi olan sinyaller. Dönemler: 2022-06→2023 · 2024–25 · 2026 (derinlik arşivi 2026-09 sonuna kadar)._
+
+## 🔸 yedek (🌐🤝 eşik altı)
+```
+hepsi · kendi hedefi       |  1766 · % 78 · +0.35 · s% 75 · g% 76 |  6170 · % 71 · +0.04 · s% 70 · g% 77 |  2154 · % 76 · +0.32 · s% 71 · g% 81
+💧 · kendi hedefi           |   212 · % 88 · +0.56 · s% 89 · g% 88 |   329 · % 76 · -0.18 · s% 71 · g% 71 |   177 · % 84 · +0.45 · s% 90 · g% 91
+hepsi · ana hedefi 0,75σ   |  1766 · % 70 · +0.40 · s% 70 · g% 70 |  6170 · % 63 · +0.01 · s% 62 · g% 70 |  2154 · % 70 · +0.41 · s% 65 · g% 76
+💧 · ana hedefi 0,75σ       |   212 · % 79 · +0.64 · s% 80 · g% 81 |   329 · % 68 · -0.30 · s% 64 · g% 65 |   177 · % 79 · +0.60 · s% 83 · g% 85
+hepsi · süre sonu          |  1766 · % 64 · +0.52 · s% 64 · g% 68 |  6170 · % 57 · +0.05 · s% 55 · g% 65 |  2154 · % 65 · +0.59 · s% 58 · g% 69
+💧 · süre sonu              |   212 · % 67 · +0.71 · s% 69 · g% 71 |   329 · % 62 · -0.14 · s% 58 · g% 61 |   177 · % 67 · +0.93 · s% 79 · g% 78
+```
+(A) işaret: ❌ · (B) anaya yükseltme (plasebo öncesi): ❌
+
+## 📋 panelden — hepsi
+```
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/ld_yedek.py", line 340, in <module>
+    yaz(f"{ad:26s} | " + " | ".join(f_(hucre(m & dm, k)) for _, dm in DON))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/ld_yedek.py", line 340, in <genexpr>
+    yaz(f"{ad:26s} | " + " | ".join(f_(hucre(m & dm, k)) for _, dm in DON))
+                                       ^^^^^^^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/ld_yedek.py", line 264, in hucre
+    m = m & np.isfinite(NET_K[k])
+                        ~~~~~^^^
+KeyError: 0.45
+exit=1
