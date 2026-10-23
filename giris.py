@@ -278,6 +278,12 @@ Y["nm"] = nmq[Y.index]; Y = Y[(Y.sinif != "") & (Y.t >= pd.Timestamp("2022-06-01
 #   KARAR KURALI: bir senaryo B'nin yerine ÖNERİLİR ancak ÜÇ sınıfta da (ana · yedek · panelden) ÜÇ dönemde de (2022-06→2023 · 2024–25 · 2026)
 #     (1) gönderilen sinyal başına net ≥ B'ninki VE (2) dolan işlemlerde isabet ≥ B'ninki − 2 puan.
 #     Şartı sağlayanlar arasında 2024+ sinyal başına neti en yüksek olan önerilir; hiçbiri sağlamazsa B kalır. %70 hedefi ayrıca raporlanır. Karar kullanıcıya sorulur.
+# 23.10.2026 EK (kullanıcı: "limit alışı biraz pahalı koysam?"): ÖNCEKİ F HATALIYDI — limit fiyatı piyasanın üstündeyse emir HEMEN o anki
+#   fiyattan (taker) dolar; eski hesap limit fiyatından almış sayıyordu. Düzeltilmiş: limit L = G × (1 + x); t+7'de açılış ≤ L → açılıştan, piyasa ücreti;
+#   değilse t+7…t+67 dk içinde fiyat L'ye inerse L'den, limit ücreti; inmezse işlem yok. Aynı düzeltme B'ye de (x = 0) uygulanır.
+#   Seviyeler: x = %0 (B), %0,2 · %0,3 · %0,5 · %1 (L2 · L3 · L5 · L10).
+#   KARAR KURALI (önceden): bir L, ÜÇ sınıfta ÜÇ dönemde de sinyal başına net ≥ D (piyasadan) VE isabet ≥ D − 2 puan ise D yerine önerilir;
+#   sağlayanlardan 2024–25 sinyal başına neti en yüksek olan. Hiçbiri sağlamazsa D kalır.
 import requests as _rq
 YM = Y.copy(); YM["t"] = pd.DatetimeIndex(YM.t)
 UM = ["https://data-api.binance.vision/api/v3/klines", "https://api.binance.com/api/v3/klines"]
@@ -311,12 +317,16 @@ def isle(j):
         return cik / fiyat - 1 - ucret_g - F_L
     O, Hh, Lo = M[:, 0], M[:, 1], M[:, 2]
     out = {"A": hed / G - 1 - 2 * F_L if ((M[:min(len(M), H * 60), 1] >= hed).any() or (hh >= hed).any()) else son / G - 1 - 2 * F_L}
-    w = np.where(Lo[7:67] <= G)[0]; out["B"] = sonuc(7 + w[0], G, F_L, False) if len(w) else np.nan
+    def lim(x):
+        L_ = G * (1 + x)
+        if O[7] <= L_: return sonuc(7, O[7], F_P, True)
+        w = np.where(Lo[8:67] <= L_)[0]; return sonuc(8 + w[0], L_, F_L, False) if len(w) else np.nan
+    out["B"] = lim(0.0)
+    for x, ad in ((0.002, "L2"), (0.003, "L3"), (0.005, "L5"), (0.01, "L10")): out[ad] = lim(x)
     w = np.where(Lo[7:17] <= G)[0]
     if len(w): out["C"] = out["E"] = sonuc(7 + w[0], G, F_L, False)
     else: out["E"] = sonuc(17, O[17], F_P, True); out["C"] = out["E"] if O[17] <= G * 1.005 else np.nan
     out["D"] = sonuc(7, O[7], F_P, True)
-    w = np.where(Lo[7:67] <= G * 1.003)[0]; out["F"] = sonuc(7 + w[0], G * 1.003, F_L, False) if len(w) else np.nan
     out["kayma"] = O[7] / G - 1
     return j, out
 idx = list(YM.index); T1 = time.time(); SON = {}
@@ -330,9 +340,9 @@ L.clear(); tR = pd.DatetimeIndex(R.t)
 yaz(f"# 🧾 Giriş emri ölçümü — {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m.%Y %H:%M}")
 yaz("_Sinyal saati kapanışı = G. Mesaj t+7 dk'da gelir. 1 dk Binance mumu. Ücret: limit %0,02 · piyasa %0,05. İsabet = net > 0 (dolan işlemlerde). "
     "Sinyal başına net = dolmayan işlem 0 sayılarak, gönderilen her sinyal için ortalama._\n")
-yaz("Senaryolar: **A** test varsayımı (G'den alınmış sayılır) · **B** ŞİMDİKİ: G'ye limit 60 dk · **C** limit 10 dk, dolmazsa ≤ G+%0,5 ise piyasadan · **D** mesaj gelince piyasadan · **E** limit 10 dk, dolmazsa piyasadan · **F** G+%0,3'e limit 60 dk\n")
+yaz("Senaryolar: **A** test varsayımı (G'den alınmış sayılır) · **B** ŞİMDİKİ: G'ye limit 60 dk (fiyat zaten G'nin altındaysa hemen dolar) · **C** limit 10 dk, dolmazsa ≤ G+%0,5 ise piyasadan · **D** mesaj gelince piyasadan · **E** limit 10 dk, dolmazsa piyasadan · **L2/L3/L5/L10** G'nin %0,2 / %0,3 / %0,5 / %1 üstüne limit 60 dk (fiyat zaten altındaysa hemen o anki fiyattan dolar)\n")
 DD = (("2022-06→2023", (tR >= P0x) & (tR < A24x)), ("2024–25", (tR >= A24x) & (tR < A26x)), ("2026", tR >= A26x))
-SC = ["A", "B", "C", "D", "E", "F"]; TAB = {}
+SC = ["A", "B", "D", "L2", "L3", "L5", "L10", "C", "E"]; TAB = {}
 for sn in ["✅ ana (+0,75σ)", "🔸 yedek (+0,50σ)", "📋 panelden (+0,45σ)"]:
     yaz(f"## {sn}"); yaz("| Senaryo | " + " | ".join(f"{dn}: doldu · isabet · net/işlem · net/sinyal" for dn, _ in DD) + " |"); yaz("|---|---|---|---|")
     for s_ in SC:
@@ -343,16 +353,19 @@ for sn in ["✅ ana (+0,75σ)", "🔸 yedek (+0,50σ)", "📋 panelden (+0,45σ)
             TAB[(sn, s_, dn)] = (ist, ns); h.append(f"{n:,} · %{100 * f_.mean():.0f} · %{ist:.1f} · {ni:+.2f}% · {ns:+.3f}%")
         yaz(f"| {s_} | " + " | ".join(h) + " |")
     g = R[R.sinif == sn].kayma; yaz(f"_Mesaj gelince (t+7 dk) fiyat G'ye göre: medyan {100 * g.median():+.2f}% · G'nin üstünde olan %{100 * (g > 0).mean():.0f} · +%0,3'ten fazla %{100 * (g > 0.003).mean():.0f} · +%0,5'ten fazla %{100 * (g > 0.005).mean():.0f}_\n")
-yaz("## Karar (önceden yazılı kural)")
+yaz("## Karar 1 (ilk kural): B'ye karşı")
+S3 = ["✅ ana (+0,75σ)", "🔸 yedek (+0,50σ)", "📋 panelden (+0,45σ)"]
+def kars(s_, ref):
+    return [(sn, dn) for sn in S3 for dn, _ in DD if not (TAB[(sn, s_, dn)][1] >= TAB[(sn, ref, dn)][1] and TAB[(sn, s_, dn)][0] >= TAB[(sn, ref, dn)][0] - 2)]
+for s_ in ["C", "D", "E"]:
+    k_ = kars(s_, "B"); yaz(f"- {s_}: " + ("✅ şart sağlandı" if not k_ else "❌ sağlanmadı: " + ", ".join(f"{a.split(' (')[0]} {b}" for a, b in k_)))
+yaz("\n## Karar 2 (23.10 ek kural): pahalı limit (L) piyasadan almaya (D) karşı")
 ok = []
-for s_ in ["C", "D", "E", "F"]:
-    sart = [(sn, dn) for sn in ["✅ ana (+0,75σ)", "🔸 yedek (+0,50σ)", "📋 panelden (+0,45σ)"] for dn, _ in DD
-            if not (TAB[(sn, s_, dn)][1] >= TAB[(sn, "B", dn)][1] and TAB[(sn, s_, dn)][0] >= TAB[(sn, "B", dn)][0] - 2)]
-    yaz(f"- {s_}: " + ("✅ şart sağlandı" if not sart else "❌ sağlanmadı: " + ", ".join(f"{a.split(' (')[0]} {b}" for a, b in sart)))
-    if not sart: ok.append(s_)
+for s_ in ["L2", "L3", "L5", "L10"]:
+    k_ = kars(s_, "D"); yaz(f"- {s_}: " + ("✅ şart sağlandı" if not k_ else "❌ sağlanmadı: " + ", ".join(f"{a.split(' (')[0]} {b}" for a, b in k_)))
+    if not k_: ok.append(s_)
 if ok:
-    en = max(ok, key=lambda s_: np.mean([TAB[(sn, s_, "2024–25")][1] for sn in ["✅ ana (+0,75σ)", "🔸 yedek (+0,50σ)", "📋 panelden (+0,45σ)"]]))
-    yaz(f"\n**Önerilen: {en}** (karar kullanıcının)")
-else: yaz("\n**Hiçbiri şartı sağlamadı → B (şimdiki) kalır**")
+    en = max(ok, key=lambda s_: np.mean([TAB[(sn, s_, "2024–25")][1] for sn in S3])); yaz(f"\n**Önerilen: {en}** (karar kullanıcının)")
+else: yaz("\n**Hiçbir pahalı limit şartı sağlamadı → D (mesaj gelince piyasadan) kalır**")
 yaz(f"\n_{len(R):,} sinyal ölçüldü / {len(YM):,} · süre {time.time() - T0:.0f} sn_")
 open("giris_sonuc.md", "w").write("\n".join(L) + "\n")
