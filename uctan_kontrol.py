@@ -21,6 +21,9 @@ for m in q:
         for l in t.split("\n"):
             if any(k in l for k in ("🐢", "⏩", "⚡ Prim")) and "🎯 hedefe" not in l: s(f"hız notu 🎯 ile çelişiyor: {l.strip()[:90]}")
     if (e.startswith("⛓️") or e.startswith("🧑")) and "🎯" in t: s(f"⛓️/🧑 mesajında 🎯 olmamalı: {e[:60]}")
+nld = sum("📋 panelden → ✅ ANA" in m["m"] and m["c"] == "ana" for m in q)
+b(f"💧 ile anaya çıkan panelden mesajı: {nld}")
+if nld == 0: s("💧 zorlandığı hâlde 📋 panelden → ✅ ana mesajı oluşmadı")
 # gonder'in gerçekten göndereceği metinler (iki fonlama durumu)
 for fz in ("0.5", "2.5"):
     shutil.copy("durum/tg_kuyruk.json", "/tmp/kuyruk_yedek.json")

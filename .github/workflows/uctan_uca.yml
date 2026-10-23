@@ -48,6 +48,8 @@ jobs:
           run coin_tek TEST_ZORLA=tek timeout 900 python tahmin_coin.py
           run coin_zit TEST_ZORLA=zit timeout 900 python tahmin_coin.py
           run d24 TEST_ZORLA=1 timeout 600 python tahmin24.py
+          run coin_tek_ld TEST_ZORLA=tek TEST_LD=-3 timeout 900 python tahmin_coin.py
+          run d24_ld TEST_ZORLA=1 TEST_LD=-3 timeout 600 python tahmin24.py
           run zincir ZINCIR_KURU=1 timeout 300 python zincir_canli.py
           run kucuk KUCUK_KURU=1 timeout 300 python kucuk_canli.py
           run d10 D10_KURU=1 timeout 300 python d10_canli.py
