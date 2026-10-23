@@ -245,7 +245,7 @@ def ohl(nm):
     try: o = fetch_1h(pd.Timestamp("2022-05-01", tz="UTC").timestamp() * 1000, time.time() * 1000, sym=f"{nm}USDT"); o.index = utc(o.index); return nm, o[["high", "close"]].astype(float)
     except Exception as e: return nm, None
 with ThreadPoolExecutor(8) as ex: OHL = {k: v for k, v in ex.map(ohl, NM) if v is not None}
-KS = [None, 0.5, 0.75]; NET_K = {k: np.full(len(Q), np.nan) for k in KS}; F_ = 0.0004
+KS = [None, 0.45, 0.5, 0.75]; NET_K = {k: np.full(len(Q), np.nan) for k in KS}; F_ = 0.0004
 for nm in NM:
     o = OHL.get(nm)
     if o is None: continue
