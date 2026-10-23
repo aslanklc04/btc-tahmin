@@ -29,7 +29,11 @@ for sn, c, g0, c0, g, k in S:
     except Exception as e: o.append(f"| {sn} | {c} | {g:g} | {k:g} | veri yok ({type(e).__name__}) |||||| "); continue
     if d.empty: o.append(f"| {sn} | {c} | {g:g} | {k:g} | veri yok |||||| "); continue
     ilk = d[d.index < gt + pd.Timedelta(minutes=60)]; dol = ilk[ilk.d <= g]
-    if dol.empty: o.append(f"| {sn} | {c} | {g:g} | {k:g} | ❌ dolmadı (60 dk en düşük {ilk.d.min():g}) | — | — | — | {'kapandı' if NOW >= ct else 'açık'} | işlem yok |"); continue
+    if dol.empty:
+        pg = d.a.iloc[0]; h2 = d[d.y >= k]; r = 100 * (d.k.iloc[-1] / pg - 1)
+        o.append(f"| {sn} | {c} | {g:g} | {k:g} | ❌ limit dolmadı (60 dk en düşük {ilk.d.min():g}) · piyasadan {pg:g} ({100 * (pg / g - 1):+.2f}%) alınsaydı → | "
+                 + (f"✅ {h2.index[0]:%d.%m %H:%M}" if not h2.empty else "hayır") + f" | {100 * ((d[d.index <= h2.index[0]] if not h2.empty else d).d.min() / pg - 1):+.2f}% | {100 * (d.y.max() / pg - 1):+.2f}% | {'kapandı' if NOW >= ct else 'açık'} | "
+                 + (f"✅ 🎯 +%{100 * (k / pg - 1):.2f}" if not h2.empty else f"{'✅' if r > 0.04 else '❌'} süre sonu {r:+.2f}%") + " |"); continue
     d2 = d[d.index >= dol.index[0]]; hit = d2[d2.y >= k]; ht = hit.index[0] if not hit.empty else None
     once = d2[d2.index <= ht] if ht is not None else d2; dd = 100 * (once.d.min() / g - 1); mx = 100 * (d2.y.max() / g - 1)
     son = d2.k.iloc[-1]; kap = NOW >= ct
