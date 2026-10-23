@@ -1,19 +1,7 @@
 {
 "gun": "2026-10-23",
-"giden": 3,
+"giden": 4,
 "log": [
-{
-"t": "20.10 11:06",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "21.10 00:06",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "21.10 08:06",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "23.10 04:07",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.10 05:07",
+"s": "✅ ana",
+"e": "🧪 24 saat: CAKE (z +1.7)",
+"k": "gönderildi"
+},
+{
+"t": "23.10 05:07",
+"s": "panel",
+"e": "🧪 24 saat: DOT (z -0.9)",
 "k": "gitmedi — yalnız panel"
 }
 ],
