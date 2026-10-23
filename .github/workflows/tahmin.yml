@@ -1,6 +1,6 @@
 name: Saatlik tahmin
 on:
-  workflow_dispatch:          # her saat :05'te cron-job.org tetikler (GitHub'ın kendi zamanlayıcısı ek çalışmalarla dakika kotasını harcadığı için kaldırıldı)
+  workflow_dispatch:          # her saat cron-job.org tetikler (23.10: :02'de geliyordu) (GitHub'ın kendi zamanlayıcısı ek çalışmalarla dakika kotasını harcadığı için kaldırıldı)
 permissions:
   contents: write
 concurrency:
@@ -173,7 +173,15 @@ jobs:
         with:
           path: durum/prim.pkl
           key: pgecmis-${{ github.run_id }}
-      - name: 📒 canli karne (gonderilen/gonderilmeyen sinyallerin gercek sonucu; pazar 20:00 haftalik mesaj)
+      - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
+        if: always()
+        timeout-minutes: 6
+        run: python gonder.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }}"   # karne artık gönderimden sonra; hatası ayrı adımda uyarılır
+      - name: 📒 canli karne (23.10.2026 gonderimden SONRA — sinyaller ~2,5 dk erken gider; mesajlari kuyruga degil dogrudan)
         id: karne
         if: always()
         continue-on-error: true
@@ -182,14 +190,15 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
-        if: always()
-        timeout-minutes: 6
-        run: python gonder.py
+          TG_SIRALI: ""            # gonder.py bitti: haftalik karne / panelden durdurma mesaji dogrudan gider
+      - name: Karne hata verdiyse uyar
+        if: always() && steps.karne.outcome == 'failure'
+        continue-on-error: true
+        run: python -c "from ortak import tg_send; tg_send('⚠️ SİSTEM UYARISI — bu saat 📒 karne adımı hata verdi (sinyaller gönderildi; yalnız karne güncellenmedi). Düzeltilene kadar her saat tekrar eder.')"
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }} karne=${{ steps.karne.outcome }}"
+          TG_SIRALI: ""
       - name: son_durum.md depoya yaz
         run: |
           [ -f son_durum.md ] || exit 0
