@@ -1,13 +1,13 @@
-# 📒 Canlı karne — 23.10.2026 02:05
+# 📒 Canlı karne — 23.10.2026 03:05
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 39 | %67 | 0.49% | 19.2% | 2 | 39 · %69 · 0.61% | %62 · %67 |
-| 🔸 yedek (gönderildi) | 139 | %82 | 2.00% | 277.5% | 15 | 146 · %84 · 0.73% | %60 · %65 |
-| panel (gönderilmedi) | 214 | %56 | 0.45% | 95.7% | 13 | 216 · %57 · 0.18% | — |
-| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 1 | %100 | 0.32% | 0.3% | 2 | 1 · %100 · 1.55% | %72 (🎯 +0,45σ ile) |
-| ↳ panel · prim ⛔ (filtre) | 133 | %59 | 0.54% | 71.5% | 9 | — | — |
+| 🔸 yedek (gönderildi) | 140 | %81 | 1.98% | 276.7% | 14 | 147 · %84 · 0.72% | %60 · %65 |
+| panel (gönderilmedi) | 215 | %55 | 0.44% | 95.4% | 13 | 217 · %57 · 0.18% | — |
+| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 2 | %50 | -0.26% | -0.5% | 1 | 2 · %50 · 0.36% | %72 (🎯 +0,45σ ile) |
+| ↳ panel · prim ⛔ (filtre) | 134 | %58 | 0.53% | 71.1% | 9 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -20,14 +20,14 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | ✅ ana | 🧪 24 s ana coin | 0 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
 | 🔸 yedek | 🌐🤝 ortak geniş liste | 132 · %83 | 132 | %83 | 1.81% | 239.3% | %60 · %65 | ✅ iyi · testle uyumlu |
 | 🔸 yedek | 💵 ABD alıyor | 2 · %100 | 4 | %75 | 8.89% | 35.5% | — | ⏳ veri az |
-| 🔸 yedek | 🔇/🪙 coin tek | 0 | 3 | %67 | 0.89% | 2.7% | — | ⏳ veri az |
-| panel | ₿ BTC saatlik / ⭐ / A | 49 · %47 | 76 | %51 | 0.09% | 6.8% | — | ⚠️ orta |
+| 🔸 yedek | 🔇/🪙 coin tek | 1 · %0 | 4 | %50 | 0.46% | 1.8% | — | ⏳ veri az |
+| panel | ₿ BTC saatlik / ⭐ / A | 49 · %45 | 77 | %51 | 0.08% | 6.4% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 29 · %48 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 4 · %75 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
 | panel | 🔇/🪙 coin tek | 15 · %53 | 45 | %56 | 0.29% | 13.1% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 3 · %100 | 6 | %83 | 0.20% | 1.2% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 42 · %60 | 42 | %60 | 1.26% | 52.8% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 10 · %70 | 12 | %67 | 2.10% | 25.2% | %55 · %53 | ✅ iyi |
+| panel | 🧪 24 s ana coin | 9 · %78 | 12 | %67 | 2.10% | 25.2% | %55 · %53 | ✅ iyi |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
@@ -40,7 +40,6 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 18.10 23:00 | ana | 🌐🤝 | SUSHI | 4 s | +4.94% | ✅ |
 | 18.10 23:00 | ana | 🌐🤝 | TURBO | 4 s | +4.42% | ✅ |
 | 18.10 23:00 | ana | 🌐🤝 | WLD | 4 s | +5.69% | ✅ |
 | 18.10 23:00 | ana | 🤝 | SHIB | 4 s | +3.70% | ✅ |
@@ -65,3 +64,4 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 18.10 23:00 | yedek | 🌐🤝 | PYTH | 4 s | +2.78% | ✅ |
 | 20.10 04:00 | yedek | 🌐🤝 | SKL | 4 s | -0.04% | ❌ |
 | 22.10 18:00 | yedek | 💵 | FIL | 8 s | +0.32% | ✅ |
+| 22.10 19:00 | yedek | 🔇/🪙 | ADA | 8 s | -0.83% | ❌ |
