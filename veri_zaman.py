@@ -7,7 +7,7 @@ BN = ["BTC", "ETH", "SOL", "INJ", "CAKE", "RLC", "SHIB"]; CB = ["BTC", "ETH", "I
 s = requests.Session(); s.headers.update({"User-Agent": "btc-tahmin"})
 def olc():
     now = pd.Timestamp.now(tz="UTC"); H = now.floor("h"); o = {}
-    for u in ("https://data-api.binance.vision", "https://api.binance.com"):
+    for u in ("https://data-api.binance.vision",):                                                   # api.binance.com ABD sunucusundan kapalı (canlı da data-api kullanır)
         for c in BN:
             try:
                 x = s.get(f"{u}/api/v3/klines", params=dict(symbol=c + "USDT", interval="1h", limit=3), timeout=15).json()
@@ -17,8 +17,8 @@ def olc():
     for c in CB:
         try:
             x = s.get(f"https://api.exchange.coinbase.com/products/{c}-USD/candles", params=dict(granularity=3600, start=(H - pd.Timedelta(hours=5)).isoformat(), end=H.isoformat()), timeout=15).json()
-            t = max(r[0] for r in x); r = [r for r in x if r[0] == t][0]
-            o[f"CB {c}"] = (pd.Timestamp(t, unit="s", tz="UTC") + pd.Timedelta(hours=1), float(r[4]), float(r[5]))
+            t0 = int((H - pd.Timedelta(hours=1)).timestamp()); r = [r for r in x if r[0] == t0]          # düzeltme 23.10: yeni başlayan mum değil, BİTEN saatin mumu
+            o[f"CB {c}"] = (H, float(r[0][4]), float(r[0][5])) if r else (H - pd.Timedelta(hours=1), 0.0, 0.0)
         except Exception as e: o[f"CB {c}"] = ("hata", type(e).__name__, 0)
     try:
         d = s.get(f"{NE}/saat", params={"h": (H - pd.Timedelta(hours=1)).strftime("%Y%m%d%H")}, timeout=90).json(); cs = d.get("coins", {})
@@ -44,7 +44,7 @@ for k in son:
     h = []
     for t, o in R:
         a, b, c = o.get(k, ("—", "", 0)); f, b0, c0 = son[k]
-        if isinstance(a, pd.Timestamp): h.append(f"{TR(a)[:5]} " + ("✅" if a == H0 else "⏳ 1 saat eski") + ("" if not isinstance(f, pd.Timestamp) or a != f or k.startswith(("Neon", "Ku")) else (" · fiyat aynı" if b == b0 else f" · fiyat farklı {b} → {b0}")) + (f" · {b} coin, n min/medyan {c[0]}/{c[1]}, ≥10 olan {c[2]}" if k.startswith("Neon 💧") else ""))
+        if isinstance(a, pd.Timestamp): h.append(f"{TR(a)[:5]} " + ("✅" if a == H0 else "⏳ 1 saat eski") + ("" if not isinstance(f, pd.Timestamp) or a != f or k.startswith(("Neon", "Ku")) else (" · fiyat aynı" + ("" if c == c0 else f" · hacim {c:.4g} → {c0:.4g}") if b == b0 else f" · fiyat farklı {b} → {b0}")) + (f" · {b} coin, n min/medyan {c[0]}/{c[1]}, ≥10 olan {c[2]}" if k.startswith("Neon 💧") else ""))
         else: h.append(f"{a} {b}")
     L.append(f"| {k} | " + " | ".join(h) + " |")
 open("veri_zaman_sonuc.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
