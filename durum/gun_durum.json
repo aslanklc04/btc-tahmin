@@ -3,12 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "21.10 21:08",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: CRV (z +3.4, 8 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "22.10 03:07",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.3",
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 23.10 09:00 · $81,850",
 "k": "gönderildi"
+},
+{
+"t": "23.10 11:07",
+"s": "panel",
+"e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.5",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
