@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-23",
-"giden": 4,
+"giden": 5,
 "log": [
-{
-"t": "22.10 03:07",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.3",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "22.10 05:07",
 "s": "panel",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.5",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.10 12:06",
+"s": "🔸 yedek 📋 panelden",
+"e": "🧪 24 saat: SHIB (z +0.6)",
+"k": "gönderildi"
 }
 ],
-"panelden": 1
+"panelden": 2
 }
