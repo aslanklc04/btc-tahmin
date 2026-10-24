@@ -1,0 +1,23 @@
+name: Karal2 veri (PROTOKOL_karal2)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [karal2_veri.py, .github/workflows/karal2_veri.yml]
+permissions:
+  contents: write
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - run: pip install -q requests pandas numpy
+      - run: |
+          set +e; timeout 13500 python -u karal2_veri.py > karal2_veri_log.txt 2>&1; echo "exit=$?" >> karal2_veri_log.txt; tail -20 karal2_veri_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add karal2_veri_log.txt; for f in karal2_veri.csv.gz karal2_veri_ozet.md; do git add $f 2>/dev/null || true; done; git commit -m "Karal2 veri" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
