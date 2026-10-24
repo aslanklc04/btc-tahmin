@@ -1,0 +1,111 @@
+# Canlı karne denetimi — 24.10.2026 10:23
+_karne_kayit.csv: 285 satır → 387 coin-sinyal (BTC ₿/🔻 panel satırları hariç) · gönderilen: yedek 179, ana 46, panelden 4_
+
+## Gönderilen sinyaller (gönderildiği andaki sınıf)
+_🎯 = bugünkü sınıf hedefi (✅ +0,75σ · 🔸 +0,50σ · 📋 +0,45σ), karne de geçmişe böyle uygular; 21.10 öncesi mesajlarda 🎯 satırı YOKTU (o mesajlar için 'süre sonu' satırı geçerli)._
+
+**✅ ana** — 45 coin-sinyal, 17 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %71 · net +0.61 | süre sonu %69 · +0.48
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %64 · -0.01 | maliyet 0,20 → %64 · -0.17 · 🎯'e değen %51 (hedef ort. +%2.69)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %62 · -0.37 · mesaj fiyatına göre giriş farkı ort. +0.20%
+  - mesaj fiyatından LİMİT (60 dk): dolan %76 · dolanlarda maliyet 0,20 → %56 · -0.59
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %41 · mesaj+🎯 maliyet 0,20 %41 · net -1.36 (17 saat)
+**🔸 yedek** — 179 coin-sinyal, 17 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %85 · net +0.71 | süre sonu %83 · +1.83
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %85 · +0.70 | maliyet 0,20 → %84 · +0.54 · 🎯'e değen %78 (hedef ort. +%1.22)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %80 · +0.39 · mesaj fiyatına göre giriş farkı ort. +0.15%
+  - mesaj fiyatından LİMİT (60 dk): dolan %73 · dolanlarda maliyet 0,20 → %80 · +0.55
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %76 · mesaj+🎯 maliyet 0,20 %76 · net +0.41 (17 saat)
+**🔸 yedek · 📋 panelden** — 3 coin-sinyal, 3 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %67 · net +1.16 | süre sonu %33 · -0.47
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %67 · +1.14 | maliyet 0,20 → %67 · +0.98 · 🎯'e değen %67 (hedef ort. +%1.84)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %67 · +1.01 · mesaj fiyatına göre giriş farkı ort. -0.03%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %67 · +1.07
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %67 · mesaj+🎯 maliyet 0,20 %67 · net +0.98 (3 saat)
+**  ↳ ana · 🌐🤝** — 13 coin-sinyal, 2 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %100 · net +1.70 | süre sonu %100 · +2.62
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %92 · +1.66 | maliyet 0,20 → %92 · +1.50 · 🎯'e değen %92 (hedef ort. +%1.83)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %92 · +1.10 · mesaj fiyatına göre giriş farkı ort. +0.40%
+  - mesaj fiyatından LİMİT (60 dk): dolan %38 · dolanlarda maliyet 0,20 → %100 · +1.79
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %100 · mesaj+🎯 maliyet 0,20 %100 · net +1.55 (2 saat)
+**  ↳ ana · 🌐🧪** — 12 coin-sinyal, 9 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %67 · net +0.88 | süre sonu %58 · -1.23
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %58 · -1.40 | maliyet 0,20 → %58 · -1.56 · 🎯'e değen %33 (hedef ort. +%4.41)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %58 · -1.65 · mesaj fiyatına göre giriş farkı ort. +0.08%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %58 · -1.51
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %56 · mesaj+🎯 maliyet 0,20 %44 · net -3.14 (9 saat)
+**  ↳ ana · 💵** — 4 coin-sinyal, 4 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %0 · net -2.52 | süre sonu %0 · -2.52
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %0 · -2.88 | maliyet 0,20 → %0 · -3.04 · 🎯'e değen %0 (hedef ort. +%3.62)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %0 · -3.15 · mesaj fiyatına göre giriş farkı ort. +0.11%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %0 · -3.03
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %0 · mesaj+🎯 maliyet 0,20 %0 · net -3.04 (4 saat)
+**  ↳ ana · 🤝** — 14 coin-sinyal, 6 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %71 · net +0.34 | süre sonu %71 · +0.87
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %64 · +0.38 | maliyet 0,20 → %64 · +0.22 · 🎯'e değen %43 (hedef ort. +%1.74)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %57 · +0.06 · mesaj fiyatına göre giriş farkı ort. +0.16%
+  - mesaj fiyatından LİMİT (60 dk): dolan %79 · dolanlarda maliyet 0,20 → %55 · +0.03
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %50 · mesaj+🎯 maliyet 0,20 %50 · net -0.12 (6 saat)
+**  ↳ yedek · 🌐🤝** — 173 coin-sinyal, 12 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %86 · net +0.72 | süre sonu %84 · +1.67
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %86 · +0.71 | maliyet 0,20 → %85 · +0.55 · 🎯'e değen %78 (hedef ort. +%1.20)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %81 · +0.40 · mesaj fiyatına göre giriş farkı ort. +0.15%
+  - mesaj fiyatından LİMİT (60 dk): dolan %72 · dolanlarda maliyet 0,20 → %81 · +0.56
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %75 · mesaj+🎯 maliyet 0,20 %75 · net +0.31 (12 saat)
+**  ↳ yedek · 💵** — 3 coin-sinyal, 3 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %67 · net +0.51 | süre sonu %67 · +11.74
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %67 · +0.65 | maliyet 0,20 → %67 · +0.49 · 🎯'e değen %67 (hedef ort. +%2.23)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %67 · +0.41 · mesaj fiyatına göre giriş farkı ort. +0.08%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %67 · +0.50
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %67 · mesaj+🎯 maliyet 0,20 %67 · net +0.49 (3 saat)
+**  ↳ yedek · 🔇/🪙** — 3 coin-sinyal, 3 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %67 · net -0.02 | süre sonu %67 · +0.89
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %67 · -0.06 | maliyet 0,20 → %67 · -0.22 · 🎯'e değen %67 (hedef ort. +%0.97)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %67 · -0.32 · mesaj fiyatına göre giriş farkı ort. +0.10%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %67 · -0.10
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %67 · mesaj+🎯 maliyet 0,20 %67 · net -0.22 (3 saat)
+
+## Bugünkü kurallarla (yalnız prim z'sine göre yeniden sınıflanmış; gönderilmemiş panel satırları dahil)
+**bugünkü kural · ana** — 40 coin-sinyal, 14 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %80 · net +0.94 | süre sonu %78 · +0.79
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %72 · +0.26 | maliyet 0,20 → %72 · +0.10 · 🎯'e değen %55 (hedef ort. +%2.57)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %70 · -0.10 · mesaj fiyatına göre giriş farkı ort. +0.20%
+  - mesaj fiyatından LİMİT (60 dk): dolan %72 · dolanlarda maliyet 0,20 → %66 · -0.28
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %57 · mesaj+🎯 maliyet 0,20 %50 · net -1.86 (14 saat)
+**bugünkü kural · yedek** — 202 coin-sinyal, 14 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %81 · net +0.62 | süre sonu %79 · +1.40
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %81 · +0.62 | maliyet 0,20 → %80 · +0.46 · 🎯'e değen %72 (hedef ort. +%1.21)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %77 · +0.31 · mesaj fiyatına göre giriş farkı ort. +0.15%
+  - mesaj fiyatından LİMİT (60 dk): dolan %75 · dolanlarda maliyet 0,20 → %75 · +0.45
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %71 · mesaj+🎯 maliyet 0,20 %71 · net +0.29 (14 saat)
+**bugünkü kural · panelden** — 19 coin-sinyal, 16 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %58 · net +0.07 | süre sonu %47 · +1.57
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %53 · -0.16 | maliyet 0,20 → %53 · -0.32 · 🎯'e değen %53 (hedef ort. +%2.17)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %53 · -0.40 · mesaj fiyatına göre giriş farkı ort. +0.08%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %53 · -0.28
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %62 · mesaj+🎯 maliyet 0,20 %56 · net -0.21 (16 saat)
+
+## Kural konduktan SONRA gelen sinyaller (seçimden sonraki veri)
+**🔸 yedek = 🌐🤝 eşik altı (16.10 18:09 UTC)** — 173 coin-sinyal, 12 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %86 · net +0.72 | süre sonu %84 · +1.67
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %86 · +0.71 | maliyet 0,20 → %85 · +0.55 · 🎯'e değen %78 (hedef ort. +%1.20)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %81 · +0.40 · mesaj fiyatına göre giriş farkı ort. +0.15%
+  - mesaj fiyatından LİMİT (60 dk): dolan %72 · dolanlarda maliyet 0,20 → %81 · +0.56
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %75 · mesaj+🎯 maliyet 0,20 %75 · net +0.31 (12 saat)
+**🎯 sınıf hedefleri (22.10 20:05 UTC) · gönderilen hepsi** — 46 coin-sinyal, 4 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %91 · net +0.79 | süre sonu %87 · +1.15
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %93 · +0.82 | maliyet 0,20 → %91 · +0.66 · 🎯'e değen %78 (hedef ort. +%1.24)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %85 · +0.62 · mesaj fiyatına göre giriş farkı ort. +0.04%
+  - mesaj fiyatından LİMİT (60 dk): dolan %72 · dolanlarda maliyet 0,20 → %91 · +0.90
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %100 · mesaj+🎯 maliyet 0,20 %100 · net +1.48 (4 saat)
+**✅ ana 🎯 0,75σ (21.10 06:47 UTC)** — 6 coin-sinyal, 4 ayrı saat (mesaj)
+  - karne/test yöntemi (giriş saat kapanışı, 🎯 saatlik yüksek, maliyet 0,04): isabet %83 · net +0.64 | süre sonu %83 · +0.40
+  - mesaj fiyatı + mesajdaki 🎯 (1 dk), çıkış +6 dk: maliyet 0,04 → %83 · +0.77 | maliyet 0,20 → %83 · +0.61 · 🎯'e değen %50 (hedef ort. +%2.45)
+  - mesaj anında piyasa alışı + aynı 🎯: maliyet 0,20 → %83 · +0.68 · mesaj fiyatına göre giriş farkı ort. -0.06%
+  - mesaj fiyatından LİMİT (60 dk): dolan %100 · dolanlarda maliyet 0,20 → %83 · +0.77
+  - saat-kümeli (aynı mesajdaki coin'ler tek gözlem): karne yöntemi %75 · mesaj+🎯 maliyet 0,20 %75 · net +0.45 (4 saat)
+
+## Rastgele giriş tabanı — canlı dönemde (12.10 → bugün), geniş liste coin'leri, her saat giriş, 4 saat, saatlik yöntem, maliyet 0,04
+- 🎯 0.75σ: 36792 giriş · isabet %45 · net -0.24
+- 🎯 0.5σ: 36792 giriş · isabet %51 · net -0.23
+- 🎯 0.45σ: 36792 giriş · isabet %53 · net -0.22

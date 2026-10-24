@@ -1,0 +1,130 @@
+# Bağımsız denetim — geçmiş test (24.10.2026 10:24)
+_Kendi verim: 141 coin Binance 1s · 141 coin Coinbase primi_
+_Model çıktıları: ana coin 20 · geniş 141 · 24 s ana 15 · 24 s geniş 141 · canlı geniş liste 126 · ana 14 · 24 s ana 10_
+
+## A) Hizalama ve geleceğe bakma denetimleri
+- ETHUSDT dışa aktarım 'close' ↔ benim Binance kapanışım (log getiri): gecikme -1: n=46898 ort.|fark|=0.006951 kor=0.0052 · gecikme +0: n=46897 ort.|fark|=2.729e-08 kor=1.0000 · gecikme +1: n=46893 ort.|fark|=0.00695 kor=0.0052
+- DOGEUSDT dışa aktarım 'close' ↔ benim Binance kapanışım (log getiri): gecikme -1: n=46898 ort.|fark|=0.009507 kor=-0.0148 · gecikme +0: n=46897 ort.|fark|=2.938e-08 kor=1.0000 · gecikme +1: n=46893 ort.|fark|=0.009506 kor=-0.0148
+- ETHUSDT dışa aktarım y4 ↔ benim log(c[t+4]/c[t]): gecikme -1: n=47053 ort.|fark|=0.006922 kor=0.7505 · gecikme +0: n=47056 ort.|fark|=7.026e-07 kor=1.0000 · gecikme +1: n=47053 ort.|fark|=0.006924 kor=0.7504
+- AAVEUSDT dışa aktarım y4 ↔ benim log(c[t+4]/c[t]): gecikme -1: n=43326 ort.|fark|=0.01035 kor=0.7472 · gecikme +0: n=43327 ort.|fark|=3.769e-07 kor=1.0000 · gecikme +1: n=43326 ort.|fark|=0.01035 kor=0.7472
+- BTC önceki araştırmanın prim z'si ↔ benim prim z'm: gecikme -1: n=39073 ort.|fark|=0.3284 kor=0.9048 · gecikme +0: n=39073 ort.|fark|=0.006891 kor=0.9971 · gecikme +1: n=39070 ort.|fark|=0.3286 kor=0.9039
+- ETH önceki araştırmanın prim z'si ↔ benim prim z'm: gecikme -1: n=39073 ort.|fark|=0.3609 kor=0.8929 · gecikme +0: n=39073 ort.|fark|=0.006404 kor=0.9973 · gecikme +1: n=39070 ort.|fark|=0.3612 kor=0.8921
+- FIL önceki araştırmanın prim z'si ↔ benim prim z'm: gecikme -1: n=39070 ort.|fark|=0.7517 kor=0.3961 · gecikme +0: n=39070 ort.|fark|=0.00391 kor=0.9984 · gecikme +1: n=39067 ort.|fark|=0.7518 kor=0.3955
+- NEAR önceki araştırmanın prim z'si ↔ benim prim z'm: gecikme -1: n=36102 ort.|fark|=0.7896 kor=0.4539 · gecikme +0: n=36102 ort.|fark|=0.0004507 kor=0.9999 · gecikme +1: n=36098 ort.|fark|=0.7898 kor=0.4458
+- BTC 4s Çok güçlü ↑: CANLI BTC modeli (model.pkl.gz, 09.08–04.10) ↔ araştırmanın kullandığı dışa aktarım: 1345 saat, uyum %99.5, canlı 89 saat ↑ · dışa aktarım 82 saat ↑ · ikisi birden 82
+
+## B) Canlı kurallarla yeniden kurulan sinyaller (01.06.2022 → 14.10.2026, model dışa aktarımlarının bittiği gün)
+```
+sinif     tur         
+ana       🌐🤝               1706
+          🌐🧪               2227
+          📉🔥💵               242
+          📉🔥🧪               110
+          🔀                  99
+          🚀                  36
+          🚀🤝                 26
+          🚀🧪                 23
+          🤝                2219
+panel     🔇/🪙 prim<0       3527
+          🤝 prim<0         3005
+          🧪 prim<0         1683
+panelden  💵                3786
+          🔇/🪙              1561
+          🧪 ana coin       1115
+yedek     🌐🤝 eşik altı    21146
+```
+
+## C) Sınıf sınıf sonuç — test yöntemiyle (giriş = sinyal saati kapanışı)
+_isabet = net > 0 (maliyet %0,04 ile, testteki gibi) · [rastgele giriş] = aynı coin'de ±30 gün içindeki TÜM saatlerde aynı 🎯 kuralı · saat-kümeli = aynı saatteki sinyallerin ortalaması tek gözlem_
+
+**ana (hepsi, 🎯 0.75σ)**
+  - 2022-06→2023: n=1948 (864 ayrı saat) · süre sonu %59 · 🎯 ile %69 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %66 · net/işlem +0.42 / +0.36 / +0.26 (maliyet 0.04/0.1/0.2) [rastgele: +0.02 / -0.14] · %90 GA (maliyet 0,20, haftalık blok): +0.05…+0.49
+  - 2024–25: n=3486 (1319 ayrı saat) · süre sonu %62 · 🎯 ile %69 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %67 · net/işlem +0.52 / +0.46 / +0.36 (maliyet 0.04/0.1/0.2) [rastgele: -0.07 / -0.23] · %90 GA (maliyet 0,20, haftalık blok): +0.17…+0.56
+  - 2026: n=1253 (535 ayrı saat) · süre sonu %67 · 🎯 ile %74 [rastgele giriş, aynı hedef: %53] · saat-kümeli 🎯 %70 · net/işlem +0.69 / +0.63 / +0.53 (maliyet 0.04/0.1/0.2) [rastgele: -0.05 / -0.21] · %90 GA (maliyet 0,20, haftalık blok): +0.40…+0.71
+**  ↳ ana · 🌐🤝**
+  - 2022-06→2023: n=443 (234 ayrı saat) · süre sonu %60 · 🎯 ile %73 [rastgele giriş, aynı hedef: %55] · saat-kümeli 🎯 %71 · net/işlem +0.35 / +0.29 / +0.19 (maliyet 0.04/0.1/0.2) [rastgele: +0.01 / -0.15] · %90 GA (maliyet 0,20, haftalık blok): +0.07…+0.33
+  - 2024–25: n=935 (381 ayrı saat) · süre sonu %68 · 🎯 ile %75 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %74 · net/işlem +0.48 / +0.42 / +0.32 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.13…+0.50
+  - 2026: n=328 (123 ayrı saat) · süre sonu %75 · 🎯 ile %83 [rastgele giriş, aynı hedef: %53] · saat-kümeli 🎯 %85 · net/işlem +0.75 / +0.69 / +0.59 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.46…+0.78
+**  ↳ ana · 🌐🧪**
+  - 2022-06→2023: n=617 (432 ayrı saat) · süre sonu %59 · 🎯 ile %68 [rastgele giriş, aynı hedef: %55] · saat-kümeli 🎯 %65 · net/işlem +0.69 / +0.63 / +0.53 (maliyet 0.04/0.1/0.2) [rastgele: +0.10 / -0.06] · %90 GA (maliyet 0,20, haftalık blok): +0.03…+1.01
+  - 2024–25: n=1204 (772 ayrı saat) · süre sonu %59 · 🎯 ile %67 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %64 · net/işlem +0.83 / +0.77 / +0.67 (maliyet 0.04/0.1/0.2) [rastgele: -0.10 / -0.26] · %90 GA (maliyet 0,20, haftalık blok): +0.30…+1.02
+  - 2026: n=405 (326 ayrı saat) · süre sonu %60 · 🎯 ile %68 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %66 · net/işlem +0.94 / +0.88 / +0.78 (maliyet 0.04/0.1/0.2) [rastgele: -0.07 / -0.23] · %90 GA (maliyet 0,20, haftalık blok): +0.40…+1.17
+**  ↳ ana · 📉🔥💵**
+  - 2022-06→2023: n=83 (51 ayrı saat) · süre sonu %66 · 🎯 ile %77 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %73 · net/işlem +0.86 / +0.80 / +0.70 (maliyet 0.04/0.1/0.2) [rastgele: -0.08 / -0.24] · %90 GA (maliyet 0,20, haftalık blok): +0.19…+1.25
+  - 2024–25: n=143 (66 ayrı saat) · süre sonu %68 · 🎯 ile %76 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %68 · net/işlem +0.92 / +0.86 / +0.76 (maliyet 0.04/0.1/0.2) [rastgele: -0.22 / -0.38] · %90 GA (maliyet 0,20, haftalık blok): +0.15…+1.36
+  - 2026: n=16 (15 ayrı saat) · süre sonu %69 · 🎯 ile %88 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %87 · net/işlem +1.65 / +1.59 / +1.49 (maliyet 0.04/0.1/0.2) [rastgele: -0.19 / -0.35] · %90 GA (maliyet 0,20, haftalık blok): +0.67…+2.17
+**  ↳ ana · 📉🔥🧪**
+  - 2022-06→2023: n=27 (20 ayrı saat) · süre sonu %78 · 🎯 ile %78 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %70 · net/işlem +1.16 / +1.10 / +1.00 (maliyet 0.04/0.1/0.2) [rastgele: -0.12 / -0.28] · %90 GA (maliyet 0,20, haftalık blok): +0.16…+1.67
+  - 2024–25: n=65 (45 ayrı saat) · süre sonu %71 · 🎯 ile %77 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %80 · net/işlem +0.61 / +0.55 / +0.45 (maliyet 0.04/0.1/0.2) [rastgele: -0.35 / -0.51] · %90 GA (maliyet 0,20, haftalık blok): -0.62…+1.51
+  - 2026: n=18 (14 ayrı saat) · süre sonu %61 · 🎯 ile %72 [rastgele giriş, aynı hedef: %48] · saat-kümeli 🎯 %71 · net/işlem +0.69 / +0.63 / +0.53 (maliyet 0.04/0.1/0.2) [rastgele: -0.51 / -0.67] · %90 GA (maliyet 0,20, haftalık blok): -0.83…+1.60
+**  ↳ ana · 🔀**
+  - 2022-06→2023: n=33 (30 ayrı saat) · süre sonu %82 · 🎯 ile %85 [rastgele giriş, aynı hedef: %52] · saat-kümeli 🎯 %83 · net/işlem +0.53 / +0.47 / +0.37 (maliyet 0.04/0.1/0.2) [rastgele: -0.05 / -0.21] · %90 GA (maliyet 0,20, haftalık blok): -0.05…+0.65
+  - 2024–25: n=48 (44 ayrı saat) · süre sonu %62 · 🎯 ile %73 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %73 · net/işlem +0.50 / +0.44 / +0.34 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.05…+0.67
+  - 2026: n=18 (16 ayrı saat) · süre sonu %78 · 🎯 ile %83 [rastgele giriş, aynı hedef: %53] · saat-kümeli 🎯 %81 · net/işlem +0.56 / +0.50 / +0.40 (maliyet 0.04/0.1/0.2) [rastgele: -0.06 / -0.22] · %90 GA (maliyet 0,20, haftalık blok): +0.13…+0.63
+**  ↳ ana · 🚀**
+  - 2022-06→2023: n=16 (15 ayrı saat) · süre sonu %69 · 🎯 ile %88 [rastgele giriş, aynı hedef: %55] · saat-kümeli 🎯 %93 · net/işlem +0.61 / +0.55 / +0.45 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): +0.27…+0.69
+  - 2024–25: n=20 (20 ayrı saat) · süre sonu %55 · 🎯 ile %60 [rastgele giriş, aynı hedef: %57] · saat-kümeli 🎯 %60 · net/işlem +0.40 / +0.34 / +0.24 (maliyet 0.04/0.1/0.2) [rastgele: +0.03 / -0.13] · %90 GA (maliyet 0,20, haftalık blok): -0.15…+0.79
+  - 2026: —
+**  ↳ ana · 🤝**
+  - 2022-06→2023: n=709 (329 ayrı saat) · süre sonu %55 · 🎯 ile %64 [rastgele giriş, aynı hedef: %53] · saat-kümeli 🎯 %66 · net/işlem +0.14 / +0.08 / -0.02 (maliyet 0.04/0.1/0.2) [rastgele: -0.02 / -0.18] · %90 GA (maliyet 0,20, haftalık blok): -0.16…+0.14
+  - 2024–25: n=1048 (404 ayrı saat) · süre sonu %59 · 🎯 ile %66 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %65 · net/işlem +0.13 / +0.07 / -0.03 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): -0.23…+0.16
+  - 2026: n=462 (174 ayrı saat) · süre sonu %69 · 🎯 ile %73 [rastgele giriş, aynı hedef: %53] · saat-kümeli 🎯 %70 · net/işlem +0.40 / +0.34 / +0.24 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.10…+0.38
+**yedek (hepsi, 🎯 0.5σ)**
+  - 2022-06→2023: n=5556 (649 ayrı saat) · süre sonu %60 · 🎯 ile %75 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %74 · net/işlem +0.21 / +0.15 / +0.05 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): -0.07…+0.18
+  - 2024–25: n=11682 (839 ayrı saat) · süre sonu %60 · 🎯 ile %73 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %71 · net/işlem +0.13 / +0.07 / -0.03 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.19…+0.11
+  - 2026: n=3908 (304 ayrı saat) · süre sonu %63 · 🎯 ile %75 [rastgele giriş, aynı hedef: %59] · saat-kümeli 🎯 %68 · net/işlem +0.30 / +0.24 / +0.14 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.07…+0.23
+**  ↳ yedek · 🌐🤝 eşik altı**
+  - 2022-06→2023: n=5556 (649 ayrı saat) · süre sonu %60 · 🎯 ile %75 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %74 · net/işlem +0.21 / +0.15 / +0.05 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): -0.07…+0.18
+  - 2024–25: n=11682 (839 ayrı saat) · süre sonu %60 · 🎯 ile %73 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %71 · net/işlem +0.13 / +0.07 / -0.03 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.19…+0.11
+  - 2026: n=3908 (304 ayrı saat) · süre sonu %63 · 🎯 ile %75 [rastgele giriş, aynı hedef: %59] · saat-kümeli 🎯 %68 · net/işlem +0.30 / +0.24 / +0.14 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.07…+0.23
+**panelden (hepsi, 🎯 0.45σ)**
+  - 2022-06→2023: n=2286 (1789 ayrı saat) · süre sonu %55 · 🎯 ile %71 [rastgele giriş, aynı hedef: %63] · saat-kümeli 🎯 %70 · net/işlem +0.22 / +0.16 / +0.06 (maliyet 0.04/0.1/0.2) [rastgele: +0.02 / -0.14] · %90 GA (maliyet 0,20, haftalık blok): -0.05…+0.17
+  - 2024–25: n=2812 (2091 ayrı saat) · süre sonu %56 · 🎯 ile %73 [rastgele giriş, aynı hedef: %64] · saat-kümeli 🎯 %71 · net/işlem +0.28 / +0.22 / +0.12 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): +0.01…+0.23
+  - 2026: n=1364 (1039 ayrı saat) · süre sonu %53 · 🎯 ile %71 [rastgele giriş, aynı hedef: %63] · saat-kümeli 🎯 %70 · net/işlem +0.20 / +0.14 / +0.04 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.08…+0.17
+**  ↳ panelden · 💵**
+  - 2022-06→2023: n=1315 (1121 ayrı saat) · süre sonu %53 · 🎯 ile %71 [rastgele giriş, aynı hedef: %64] · saat-kümeli 🎯 %70 · net/işlem +0.30 / +0.24 / +0.14 (maliyet 0.04/0.1/0.2) [rastgele: +0.03 / -0.13] · %90 GA (maliyet 0,20, haftalık blok): +0.02…+0.27
+  - 2024–25: n=1683 (1363 ayrı saat) · süre sonu %53 · 🎯 ile %70 [rastgele giriş, aynı hedef: %64] · saat-kümeli 🎯 %69 · net/işlem +0.27 / +0.21 / +0.11 (maliyet 0.04/0.1/0.2) [rastgele: +0.01 / -0.15] · %90 GA (maliyet 0,20, haftalık blok): -0.01…+0.21
+  - 2026: n=788 (644 ayrı saat) · süre sonu %54 · 🎯 ile %72 [rastgele giriş, aynı hedef: %63] · saat-kümeli 🎯 %72 · net/işlem +0.31 / +0.25 / +0.15 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): +0.03…+0.29
+**  ↳ panelden · 🔇/🪙**
+  - 2022-06→2023: n=545 (479 ayrı saat) · süre sonu %60 · 🎯 ile %73 [rastgele giriş, aynı hedef: %61] · saat-kümeli 🎯 %72 · net/işlem +0.12 / +0.06 / -0.04 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): -0.15…+0.08
+  - 2024–25: n=632 (514 ayrı saat) · süre sonu %60 · 🎯 ile %76 [rastgele giriş, aynı hedef: %62] · saat-kümeli 🎯 %76 · net/işlem +0.04 / -0.02 / -0.12 (maliyet 0.04/0.1/0.2) [rastgele: -0.05 / -0.21] · %90 GA (maliyet 0,20, haftalık blok): -0.32…+0.07
+  - 2026: n=384 (308 ayrı saat) · süre sonu %53 · 🎯 ile %69 [rastgele giriş, aynı hedef: %62] · saat-kümeli 🎯 %70 · net/işlem +0.09 / +0.03 / -0.07 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.18…+0.04
+**  ↳ panelden · 🧪 ana coin**
+  - 2022-06→2023: n=426 (350 ayrı saat) · süre sonu %54 · 🎯 ile %69 [rastgele giriş, aynı hedef: %63] · saat-kümeli 🎯 %69 · net/işlem +0.10 / +0.04 / -0.06 (maliyet 0.04/0.1/0.2) [rastgele: +0.04 / -0.12] · %90 GA (maliyet 0,20, haftalık blok): -0.33…+0.24
+  - 2024–25: n=497 (423 ayrı saat) · süre sonu %62 · 🎯 ile %77 [rastgele giriş, aynı hedef: %64] · saat-kümeli 🎯 %75 · net/işlem +0.65 / +0.59 / +0.49 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): +0.26…+0.71
+  - 2026: n=192 (172 ayrı saat) · süre sonu %51 · 🎯 ile %67 [rastgele giriş, aynı hedef: %65] · saat-kümeli 🎯 %65 · net/işlem -0.02 / -0.08 / -0.18 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): -0.51…+0.10
+
+### Seçim etkisi: araştırmada taranıp canlı geniş listeye ALINMAYAN coin'ler (aynı kurallarla)
+**alınmayanlar · ana**
+  - 2022-06→2023: n=7 (7 ayrı saat) · süre sonu %43 · 🎯 ile %57 [rastgele giriş, aynı hedef: %55] · saat-kümeli 🎯 %57 · net/işlem +0.06 / +0.00 / -0.10 (maliyet 0.04/0.1/0.2) [rastgele: +0.01 / -0.15] · %90 GA (maliyet 0,20, haftalık blok): +nan…+nan
+  - 2024–25: n=9 (9 ayrı saat) · süre sonu %78 · 🎯 ile %78 [rastgele giriş, aynı hedef: %55] · saat-kümeli 🎯 %78 · net/işlem +0.24 / +0.18 / +0.08 (maliyet 0.04/0.1/0.2) [rastgele: -0.01 / -0.17] · %90 GA (maliyet 0,20, haftalık blok): +nan…+nan
+  - 2026: n=14 (14 ayrı saat) · süre sonu %64 · 🎯 ile %71 [rastgele giriş, aynı hedef: %54] · saat-kümeli 🎯 %71 · net/işlem +0.14 / +0.08 / -0.02 (maliyet 0.04/0.1/0.2) [rastgele: +0.00 / -0.16] · %90 GA (maliyet 0,20, haftalık blok): -0.29…+0.00
+**alınmayanlar · yedek**
+  - 2022-06→2023: n=201 (201 ayrı saat) · süre sonu %57 · 🎯 ile %71 [rastgele giriş, aynı hedef: %58] · saat-kümeli 🎯 %71 · net/işlem +0.08 / +0.02 / -0.08 (maliyet 0.04/0.1/0.2) [rastgele: -0.02 / -0.18] · %90 GA (maliyet 0,20, haftalık blok): -0.15…-0.01
+  - 2024–25: n=221 (221 ayrı saat) · süre sonu %61 · 🎯 ile %69 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %69 · net/işlem +0.09 / +0.03 / -0.07 (maliyet 0.04/0.1/0.2) [rastgele: -0.02 / -0.18] · %90 GA (maliyet 0,20, haftalık blok): -0.13…-0.02
+  - 2026: n=77 (77 ayrı saat) · süre sonu %57 · 🎯 ile %66 [rastgele giriş, aynı hedef: %59] · saat-kümeli 🎯 %66 · net/işlem +0.07 / +0.01 / -0.09 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.17…-0.01
+
+### Plasebo: 🔸 yedek saatlerinde, coin sinyali OLMAYAN ama primi aynı aralıkta (0…2) olan geniş coin'ler, aynı 🎯 0,50σ / 4 saat
+**plasebo (sinyalsiz coin'ler, aynı saatler)**
+  - 2022-06→2023: n=20935 (649 ayrı saat) · süre sonu %56 · 🎯 ile %70 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %72 · net/işlem +0.17 / +0.11 / +0.01 (maliyet 0.04/0.1/0.2) [rastgele: -0.00 / -0.16] · %90 GA (maliyet 0,20, haftalık blok): -0.06…+0.09
+  - 2024–25: n=32492 (839 ayrı saat) · süre sonu %54 · 🎯 ile %68 [rastgele giriş, aynı hedef: %60] · saat-kümeli 🎯 %69 · net/işlem +0.08 / +0.02 / -0.08 (maliyet 0.04/0.1/0.2) [rastgele: -0.04 / -0.20] · %90 GA (maliyet 0,20, haftalık blok): -0.20…+0.03
+  - 2026: n=14183 (304 ayrı saat) · süre sonu %58 · 🎯 ile %71 [rastgele giriş, aynı hedef: %59] · saat-kümeli 🎯 %72 · net/işlem +0.26 / +0.20 / +0.10 (maliyet 0.04/0.1/0.2) [rastgele: -0.03 / -0.19] · %90 GA (maliyet 0,20, haftalık blok): +0.02…+0.17
+
+## D) Gerçekçi uygulama — 1 dakikalık mum (rastgele örneklem)
+_E0 = test yöntemi 1 dk ile (giriş saat kapanışı, hedef saat başından itibaren) · E1 = mesajdan sonra piyasa alışı (sinyal saati + 6 dk), hedef ve çıkış 1 dk, çıkış saati +6 dk · E2 = mesajdaki fiyattan limit alış (60 dk geçerli), dolmazsa işlem yok_
+
+**ana** (örneklem 450, hourly yöntemle aynı sinyaller: isabet %68, net +0.45)
+  - E0 test yöntemi 1 dk: maliyet 0,04 → n=450 · isabet %68 · net +0.45 · maliyet 0,20 → n=450 · isabet %67 · net +0.29
+  - E1 piyasa +6 dk: maliyet 0,04 → n=450 · isabet %69 · net +0.35 · maliyet 0,20 → n=450 · isabet %67 · net +0.19
+  - E2 limit (mesaj fiyatı): maliyet 0,04 → n=375 (+75 dolmadı, dolma %83) · isabet %67 · net +0.42 · maliyet 0,20 → n=375 (+75 dolmadı, dolma %83) · isabet %65 · net +0.26
+**yedek** (örneklem 450, hourly yöntemle aynı sinyaller: isabet %78, net +0.37)
+  - E0 test yöntemi 1 dk: maliyet 0,04 → n=450 · isabet %78 · net +0.37 · maliyet 0,20 → n=450 · isabet %77 · net +0.21
+  - E1 piyasa +6 dk: maliyet 0,04 → n=450 · isabet %71 · net +0.24 · maliyet 0,20 → n=450 · isabet %68 · net +0.08
+  - E2 limit (mesaj fiyatı): maliyet 0,04 → n=362 (+88 dolmadı, dolma %80) · isabet %72 · net +0.32 · maliyet 0,20 → n=362 (+88 dolmadı, dolma %80) · isabet %72 · net +0.16
+**panelden** (örneklem 450, hourly yöntemle aynı sinyaller: isabet %70, net +0.21)
+  - E0 test yöntemi 1 dk: maliyet 0,04 → n=450 · isabet %70 · net +0.21 · maliyet 0,20 → n=450 · isabet %68 · net +0.05
+  - E1 piyasa +6 dk: maliyet 0,04 → n=450 · isabet %68 · net +0.10 · maliyet 0,20 → n=450 · isabet %66 · net -0.06
+  - E2 limit (mesaj fiyatı): maliyet 0,04 → n=411 (+39 dolmadı, dolma %91) · isabet %65 · net +0.08 · maliyet 0,20 → n=411 (+39 dolmadı, dolma %91) · isabet %64 · net -0.08
+
+_süre 119 sn_
+exit=0
