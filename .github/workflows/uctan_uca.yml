@@ -55,6 +55,7 @@ jobs:
           run d10 D10_KURU=1 timeout 300 python d10_canli.py
           run prim PRIM_KURU=1 timeout 300 python prim_canli.py
           run karne timeout 400 python karne.py
+          cp durum/tg_kuyruk.json a3/ornek_kuyruk.json 2>/dev/null || true   # 24.10: sade mesaj biçimi için örnekler
           cp a3/uctan_kontrol.py .; python uctan_kontrol.py 2>&1 | tee log/kontrol.txt
           grep -h -iE "traceback|error|hata|⚠️" log/*.txt | grep -v "^ℹ️" | sort | uniq -c | sort -rn | head -40 > log/uyarilar.txt
           cp uctan_sonuc.md a3/ ; { echo; echo "## Adımlar"; cat log/adimlar.txt; echo '```'; cat log/uyarilar.txt; echo '```'; } >> a3/uctan_sonuc.md
@@ -63,5 +64,5 @@ jobs:
       - run: |
           cd a3
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add uctan_sonuc.md uctan_log.txt; git commit -m "Uctan uca denetim" || exit 0
+          git add uctan_sonuc.md uctan_log.txt ornek_kuyruk.json 2>/dev/null; git commit -m "Uctan uca denetim" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
