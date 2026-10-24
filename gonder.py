@@ -19,15 +19,15 @@ ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "
 YEDEK_UST = ("ℹ️ BİLGİ · 🔸 YEDEK SİNYAL (işlem önerisi değil) — 🌐🤝 geniş liste eşik altı (coin primi 0…2). 24.10 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama): "
              "2022–24 isabet %69 · işlem başı +%0,14 · 2025+ %64 · −%0,09 · 2026 %70 · +%0,27 → kâr çoğunlukla komisyona gidiyor.\n"
              "İşlem açacaksan kaldıraçsız ve küçük; asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")   # 24.10.2026 kullanıcı onayı: yedek → bilgi (karal2_sonuc.md, denetim)
-PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD alıyor / 🧪 24 s ana coin / 🔇🪙 coin tek türleri: panelden 🎯 hedefiyle (+0,45σ) testte %72 · %72 · %72 tuttu (2022–23 · 2024–25 · 2026), işlem başı +%0,2.\n"
+PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD alıyor / 🧪 24 s ana coin / 🔇🪙 coin tek türleri: panelden 🎯 hedefiyle (+0,45σ) 📏 gerçekçi ölçümde (mesaj fiyatından limit, vadeli komisyon + fonlama) %69 · %65 · %66 tuttu (2022–24 · 2025+ · 2026), saat isabeti %67 · %64 · %65, işlem başı +%0,21 · +%0,07 · +%0,12.\n"
                 "Küçük miktar, kaldıraçsız; istersen pas geç. 30 sinyal kapandığında canlı isabet %55'in altında ya da işlem başı kâr eksideyse kendiliğinden durur.")
 PANELDEN_GUN, PANELDEN_DUR_F = None, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
-TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyaller bu saatlerde %77 · %71 · %85 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8–1,9"
-FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): bu saatlerde ✅ ana sinyaller testte %72 · %75 · %86 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–2,2 (normalde %59–67, +%0,4–0,9)"
-TERFI_PANELX = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD bu coin'i satıyor (⛔) ama bu saatlerde böyle sinyaller testte %73 · %76 · %76 tuttu (2022–23 · 2024+ · 2026), işlem başı +%1,1–1,5 (ekle_ara.py)"
-TERFI_PANELG = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): 🌐 geniş liste eşik altı (kendi primi 0…2) 🤝 sinyalleri bu saatlerde testte %75 · %75 · %81 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,9–1,2 (ekle_ara.py)"
-TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): bu saatlerde 🔸 yedekler testte %60–77 tuttu (2022–23 · 2024+; kombin.py), işlem başı +%0,5–3,5"
+TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyal · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
+FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45 (normalde %68 · %66 · %69, +%0,53 · +%0,34 · +%0,51)"
+TERFI_PANELX = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD bu coin'i satıyor (⛔) · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
+TERFI_PANELG = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): 🌐 geniş liste eşik altı 🤝 · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
+TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
 TERFI_P = {"panelf": TERFI_PANEL, "panelfx": TERFI_PANELX, "panelg": TERFI_PANELG, "yedekg": TERFI_PANELG, "panely": TERFI_FON}                # 🔥 iken ✅ ana olan panel sınıfları
 def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
     if os.environ.get("TEST_FZ"): return float(os.environ["TEST_FZ"])                             # yalnız test
@@ -67,8 +67,14 @@ def karal_sil(t): return KARAL_RE.sub("", t)                                    
 def gecikme(m):
     gec = time.time() - m["t"]
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
+ESKI_DIP = "\n* eski test: saat kapanışından giriş ve %0,04 maliyetle ölçüldü — gerçekçi değil, genelde birkaç puan iyimser. Gerçekçi rakamlar 📏 / \"gerçekçi ölçümde\" diye yazılı olanlar."
+def eski_isaretle(t):                                                                         # 24.10.2026 kullanıcı: "herşey gerçek olsun" → yeniden ölçülemeyen eski test iddiaları işaretlenir
+    u = re.sub(r"(?<![Ee]ski )\b([Tt])estte\b", lambda m: ("Eski" if m.group(1) == "T" else "eski") + " testte*", t)
+    u = re.sub(r"\bGeçmişte\b", "Eski testte*", u); u = re.sub(r"\bgeçmişte\b", "eski testte*", u)
+    u = re.sub(r"\bGeçmiş\b", "Eski test*", u); u = re.sub(r"\bgeçmiş\b", "eski test*", u)
+    return u + ESKI_DIP if u != t else u
 def yolla(t):                                                                                 # Telegram sınırı: aynı sohbete art arda çok mesajda ~1 sn ara
-    ok = bool(tg_send(t)); time.sleep(1.0); return ok
+    t = eski_isaretle(t); ok = bool(tg_send(t)); time.sleep(1.0); return ok
 ISARET_RE = re.compile(r"^• ((?:(?:🚀|📉🔥|💧|💸) )+)([A-Z0-9]{2,12})", re.M)
 def isaretler(metin):                                                                         # 19.10.2026: coin satırlarındaki işaretler (📉🔥 💧 💸 🚀) karneye ayrı kayıt → "COIN:📉🔥💧|…"
     return "|".join(f"{c}:{m.replace(' ', '')}" for m, c in ISARET_RE.findall(metin or ""))
@@ -88,7 +94,7 @@ def kalabalik(ana):                                                             
     ust = sorted(S, key=lambda x: -x[1])[:3]
     return (f"🎯 KALABALIK SAAT — {len(S)} adet 4 saatlik ana sinyal: parayı hepsine bölmek yerine primi en yüksek 3'üne koy → "
             + ", ".join(f"{c} (z {z:+.1f})" if np.isfinite(z) else c for c, z in ust)
-            + "\n   testte saat başı kâr hepsine bölmeye göre +%0,19→0,24 · +%0,40→0,47 · +%0,65→0,70 (2022–23 · 2024–25 · 2026), isabet aynı; rastgele 3 coin bu farkı vermedi. Diğerleri de geçerli ana sinyal.\n")
+            + "\n   📏 gerçekçi ölçümde (mesaj fiyatından limit, vadeli komisyon + fonlama) en iyi 3'e koymak saat başı kârı 2022–24'te +%0,17→0,21 artırdı, 2025+'da değiştirmedi (+%0,19), 2026'da düşürdü (+%0,45→0,40) → üstünlüğü kanıtlanmadı; hepsine bölmek de olur.\n")
 def main():
     uyari()
     simdi = pd.Timestamp.now(tz=DISPLAY_TZ); bugun = f"{simdi:%Y-%m-%d}"
@@ -136,7 +142,7 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ: testte isabet %72, işlem başı kâr küçük"))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)"))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
     for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
