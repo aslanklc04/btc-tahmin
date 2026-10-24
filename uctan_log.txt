@@ -8,117 +8,115 @@ d10 çıkış=0
 prim çıkış=0
 karne çıkış=0
 === log/coin_ortak.txt
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
 
 === log/coin_tek.txt
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:23 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:13 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
 
 === log/coin_tek_ld.txt
-- 23.10 13:29 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:29 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:29 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:17 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:17 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:17 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
 
 === log/coin_zit.txt
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:26 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 23.10 17:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 13:24 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 23.10 21:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:15 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 4 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 22:14 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 25.10 06:06 · sıraya alındı (gonder.py gönderir)
 
 === log/d10.txt
-📆 D10 23.10.2026: BTC 81,416 · 200 g ort. 72,836 (üstünde) · günlük prim z -1.24 → yok
+📆 D10 24.10.2026: BTC 81,189 · 200 g ort. 72,898 (üstünde) · günlük prim z -1.67 → yok
 === log/d24.txt
-- 23.10 05:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 05:06 · sıraya alındı (gonder.py gönderir)
-- 23.10 05:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 05:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 18:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 18:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 09:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 09:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 07:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 07:06 · sıraya alındı (gonder.py gönderir)
-- 18.10 23:07 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 19.10 23:06 · sıraya alındı (gonder.py gönderir)
-- 18.10 20:05 · ✅ · 🧪📊 24 SAAT DENEME — HAFTALIK · sıraya alındı (gonder.py gönderir)
-
-=== log/d24_ld.txt
-- 23.10 13:27 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 13:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 03:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 03:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 02:07 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 02:07 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 23.10 20:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 20:06 · sıraya alındı (gonder.py gönderir)
 - 23.10 12:04 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 12:06 · sıraya alındı (gonder.py gönderir)
 - 23.10 05:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 05:06 · sıraya alındı (gonder.py gönderir)
 - 23.10 05:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 05:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 18:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 18:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 09:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 09:06 · sıraya alındı (gonder.py gönderir)
-- 22.10 07:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 23.10 07:06 · sıraya alındı (gonder.py gönderir)
+
+=== log/d24_ld.txt
+- 24.10 22:16 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 22:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 12:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 12:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 03:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 03:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 02:07 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 24.10 02:07 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 25.10 02:06 · sıraya alındı (gonder.py gönderir)
+- 23.10 20:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 20:06 · sıraya alındı (gonder.py gönderir)
+- 23.10 12:04 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 24.10 12:06 · sıraya alındı (gonder.py gönderir)
 
 === log/karne.txt
-| 23.10 00:00 | yedek | 🌐🤝 | JASMY | 4 s | +0.63% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | RLC | 4 s | +1.62% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | PUNDIX | 4 s | +1.53% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | ACH | 4 s | -0.04% | ❌ |
-| 23.10 00:00 | yedek | 🌐🤝 | LDO | 4 s | +1.64% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | ENS | 4 s | +1.42% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | METIS | 4 s | +2.82% | ✅ |
-| 23.10 00:00 | yedek | 🌐🤝 | ALT | 4 s | -4.59% | ❌ |
+| 24.10 18:00 | yedek | 🌐🤝 | EGLD | 4 s | -0.47% | ❌ |
+| 24.10 18:00 | yedek | 🌐🤝 | JASMY | 4 s | +0.87% | ✅ |
+| 24.10 18:00 | yedek | 🌐🤝 | ILV | 4 s | -0.04% | ❌ |
+| 24.10 18:00 | ana | 🌐🤝 | BNT | 4 s | +0.50% | ✅ |
+| 24.10 18:00 | ana | 🤝 📉🔥 | PEPE | 4 s | +2.51% | ✅ |
+| 24.10 18:00 | yedek | 🌐🤝 | WLD | 4 s | +0.65% | ✅ |
+| 24.10 18:00 | yedek | 🌐🤝 | BONK | 4 s | +1.96% | ✅ |
+| 24.10 18:00 | yedek | 🌐🤝 | JTO | 4 s | +0.88% | ✅ |
 === log/kontrol.txt
-Gönderildi: 39/40 (ana 39, yedek 0, panel 1, bilgi 0) · bugün giden sinyal: 44
-ℹ️ [2.5] 4693 karakterlik mesaj 2 parçaya bölünecek
-ℹ️ [2.5] 5394 karakterlik mesaj 2 parçaya bölünecek
-ℹ️ [2.5] 5278 karakterlik mesaj 2 parçaya bölünecek
-ℹ️ [2.5] 5200 karakterlik mesaj 2 parçaya bölünecek
-ℹ️ 🔥 z=2.5: gidecek 39 mesaj → ana 38, yedek 0, panelden 0, bilgi 1
+❌ [🔥 z=2.5] ana mesajında yanlış 🎯 hedefi: 🎯 Kâr-al $733.231 (+%0.5) · 📐 pay ×1: önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · gerçekçi
+❌ [🔥 z=2.5] ana mesajında yanlış 🎯 hedefi: 🎯 Kâr-al $0.2104 (+%1.8) · 📐 pay ×0,75: önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · gerçek
+❌ [🔥 z=2.5] ana mesajında yanlış 🎯 hedefi: 🎯 Kâr-al $0.2104 (+%1.8) · 📐 pay ×0,75: önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · gerçek
+❌ [🔥 z=2.5] ana mesajında yanlış 🎯 hedefi: 🎯 Kâr-al $2,354 (+%0.7) · 📐 pay ×1: önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · gerçekçi ö
+❌ [🔥 z=2.5] ana mesajında yanlış 🎯 hedefi: 🎯 Kâr-al $2,354 (+%0.7) · 📐 pay ×1: önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · gerçekçi ö
+ℹ️ 🔥 z=2.5: gidecek 38 mesaj → ana 37, yedek 0, panelden 0, bilgi 1
 
-✅ SORUN YOK
+❌ 68 SORUN
 === log/kucuk.txt
 
 ## 🧑 Küçük yatırımcı kaçıyor → BTC / ETH AL (günlük)
-Son değerlendirme: **23.10 13:30** (veri günü 18.10) · 1 BTC'den küçük cüzdanlarda 1,394,182 BTC, 30 günde %-0.14 · z **+0.44** (sinyal: z ≤ -1.5) → sinyal yok
+Son değerlendirme: **24.10 22:19** (veri günü 18.10) · 1 BTC'den küçük cüzdanlarda 1,394,182 BTC, 30 günde %-0.14 · z **+0.44** (sinyal: z ≤ -1.5) → sinyal yok
 
 Başlangıçtan (08.10.2026) beri sonuçlanan: BTC **sonuçlanan işlem yok** · ETH **sonuçlanan işlem yok**
 
 _tipler2.py: 53 denemelik taramada öne çıktı · tipler3.py: iki dönemde de anlamlı, fiyat etkisinden bağımsız, TR 15:00 girişle tuttu. Ayda ~1 sinyal. kucuk_coin.py: ETH de geçti (en kötü ara düşüş %24); diğer coin'ler yalnız bilgi._
 
 === log/likidite.txt
-💧 son saat 2026-10-23 10:00:00+00:00 · z ≤ −2: ARKM, AUCTION, BONK, DOT, SUSHI · Neon 0 saat · 0 sn
+💧 son saat 2026-10-24 19:00:00+00:00 · z ≤ −2: AGLD, ANKR, ARKM, AUCTION, JTO, POWR · Neon 0 saat · 0 sn
 === log/prim.txt
+- 21.10 21:05 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 22.10 05:06 · sıraya alındı (gonder.py gönderir)
 - 19.10 10:05 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 19.10 18:06 · sıraya alındı (gonder.py gönderir)
 - 19.10 01:05 · ✅ · ⏱ SÜRE: UNI 4 SAAT · AAVE 24 SAAT TUT (çıkış saatleri satırlarda) · sıraya alındı (gonder.py gönderir)
 - 18.10 20:05 · ✅ · 💵📊 ABD ALIYOR (kendi primi) — HAFTALIK · sıraya alındı (gonder.py gönderir)
 - 15.10 16:05 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 16.10 00:06 · sıraya alındı (gonder.py gönderir)
 - 15.10 12:05 · ✅ · ⏱ SÜRE: 24 SAAT TUT → çıkış 16.10 12:06 · sıraya alındı (gonder.py gönderir)
 - 15.10 06:06 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 15.10 14:06 · sıraya alındı (gonder.py gönderir)
-- 14.10 17:05 · ✅ · ⏱ SÜRE: 8 SAAT TUT → çıkış 15.10 01:06 · sıraya alındı (gonder.py gönderir)
 
 === log/tahmin_star.txt
-- 23.10 02:02 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 23.10 02:00 · $81,351 · sıraya alındı (gonder.py gönderir)
-- 23.10 00:02 · ✅ · ⭐ EN GÜÇLÜ SİNYAL — 🧭 BTC 23.10 00:00 · $81,279 · sıraya alındı (gonder.py gönderir)
-- 22.10 21:02 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 22.10 21:00 · $81,212 · sıraya alındı (gonder.py gönderir)
-- 22.10 20:02 · ✅ · 🧭 BTC 22.10 20:00 · $81,284 · sıraya alındı (gonder.py gönderir)
-- 22.10 19:02 · ✅ · 🧭 BTC 22.10 19:00 · $81,682 · sıraya alındı (gonder.py gönderir)
+- 24.10 13:02 · ✅ · ⭐ EN GÜÇLÜ SİNYAL — 🧭 BTC 24.10 13:00 · $80,631 · sıraya alındı (gonder.py gönderir)
+- 24.10 12:02 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 24.10 12:00 · $80,716 · sıraya alındı (gonder.py gönderir)
+- 24.10 11:02 · ✅ · 🧭 BTC 24.10 11:00 · $80,732 · sıraya alındı (gonder.py gönderir)
+- 24.10 09:02 · ✅ · ☀️ Günlük özet — 🧭 BTC 24.10 09:00 · $80,776 · sıraya alındı (gonder.py gönderir)
+- 24.10 09:02 · ✅ · 🧭 BTC 24.10 09:00 · $80,776 · sıraya alındı (gonder.py gönderir)
 
-_Çalıştırma: 23.10 13:19 · token YOK · sohbet kimliği YOK_
+_Çalıştırma: 24.10 22:08 · token YOK · sohbet kimliği YOK_
 
 === log/uyarilar.txt
-      1 ⚠️ RPL Coinbase primi eski ya da eksik (son 2026-10-23 07:00:00+00:00) — kullanılmadı
-      1 ⚠️ FIDA Coinbase primi eski ya da eksik (son 2026-10-23 05:00:00+00:00) — kullanılmadı
-      1 ⚠️ ARPA Coinbase primi eski ya da eksik (son 2026-10-23 07:00:00+00:00) — kullanılmadı
-      1 | ✅ ana | 🌐🧪 24 s geniş liste | 3 · %33 | 10 | %50 | -1.56% | -15.6% | %60 · %60 | ⚠️ orta |
-      1 | panel | 🌐🤝 ortak geniş liste | 29 · %48 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
-      1 | panel | ₿ BTC saatlik / ⭐ / A | 51 · %49 | 82 | %54 | 0.10% | 8.1% | — | ⚠️ orta |
+      1 ⚠️ 🧑 küçük yatırımcı verisi (bitcoin-data.com): 6 gündür yeni veri yok (son veri 18.10) → bu sinyal türü şu an çalışamıyor
+      1 | ✅ ana | 🌐🧪 24 s geniş liste | 6 · %50 | 13 | %54 | -1.82% | -23.6% | %60 · %60 | ⚠️ orta |
+      1 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
+      1 | panel | ₿ BTC saatlik / ⭐ / A | 50 · %40 | 97 | %49 | 0.05% | 5.0% | — | ⚠️ orta |
       1 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
-      1 _Model eğitimi: 04.10.2026 · güncelleme: 23.10.2026 13:19 · ⚠️ Yatırım tavsiyesi değildir._
+      1 _Model eğitimi: 04.10.2026 · güncelleme: 24.10.2026 22:08 · ⚠️ Yatırım tavsiyesi değildir._
 === log/zincir.txt
 _Kurallar: AL-2 (7 g), AL-1 (7 g), AL-3 (3 g), SAT-1 (7 g) — zincir2.py'de ≤2023'te seçildi, 2024+'da doğrulandı; zincir3.py: TR 09:00 girişle de tuttu. Yılda ~25–30 sinyal beklenir._
 
