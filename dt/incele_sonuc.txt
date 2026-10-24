@@ -1,0 +1,68 @@
+== art1: 60 dosya
+  örnek: ['art1/coin-ADAUSDT/disa_ADAUSDT.pkl', 'art1/coin-ADAUSDT/durum/model_ADAUSDT.pkl.gz', 'art1/coin-ADAUSDT/durum/rapor_ADAUSDT.md', 'art1/coin-APTUSDT/disa_APTUSDT.pkl', 'art1/coin-APTUSDT/durum/model_APTUSDT.pkl.gz', 'art1/coin-APTUSDT/durum/rapor_APTUSDT.md']
+  önekler: {'disa': 20, 'model': 20, 'rapor': 20}
+== art2: 30 dosya
+  örnek: ['art2/u24-ADAUSDT/disa24_ADAUSDT.pkl', 'art2/u24-ADAUSDT/log24_ADAUSDT.txt', 'art2/u24-APTUSDT/disa24_APTUSDT.pkl', 'art2/u24-APTUSDT/log24_APTUSDT.txt', 'art2/u24-ARBUSDT/disa24_ARBUSDT.pkl', 'art2/u24-ARBUSDT/log24_ARBUSDT.txt']
+  önekler: {'disa24': 15, 'log24': 15}
+== art3: 1 dosya
+  örnek: ['art3/prim_veri.pkl']
+  önekler: {'prim': 1}
+== art4: 1 dosya
+  örnek: ['art4/sf_BTCUSDT.pkl']
+  önekler: {'sf': 1}
+== ga: 564 dosya
+  örnek: ['ga/g-1INCHUSDT/disa24_1INCHUSDT.pkl', 'ga/g-1INCHUSDT/disa_1INCHUSDT.pkl', 'ga/g-1INCHUSDT/log_1INCHUSDT.txt', 'ga/g-1INCHUSDT/prim_1INCHUSDT.pkl', 'ga/g-AAVEUSDT/disa24_AAVEUSDT.pkl', 'ga/g-AAVEUSDT/disa_AAVEUSDT.pkl']
+  önekler: {'disa24': 141, 'disa': 141, 'log': 141, 'prim': 141}
+  art1/coin-BTCUSDT/disa_BTCUSDT.pkl: cols ['u4', 'star', 'acls', 'y4', 'y8'] idx 2020-01-01 00:00:00+00:00 → 2026-10-14 10:00:00+00:00 n=59451 dtypes {'u4': 'object', 'star': 'object', 'acls': 'object', 'y4': 'float64', 'y8': 'float64'}
+                              u4   star   acls  y4  y8
+t                                                     
+2026-10-14 08:00:00+00:00  False  False  False NaN NaN
+2026-10-14 09:00:00+00:00  False  False  False NaN NaN
+2026-10-14 10:00:00+00:00  False  False  False NaN NaN
+  art1/coin-ETHUSDT/disa_ETHUSDT.pkl: cols ['u4', 'star', 'acls', 'y4', 'y8'] idx 2020-01-01 00:00:00+00:00 → 2026-10-14 10:00:00+00:00 n=59451 dtypes {'u4': 'object', 'star': 'object', 'acls': 'object', 'y4': 'float64', 'y8': 'float64'}
+                              u4   star   acls  y4  y8
+t                                                     
+2026-10-14 08:00:00+00:00  False  False  False NaN NaN
+2026-10-14 09:00:00+00:00  False  False  False NaN NaN
+2026-10-14 10:00:00+00:00  False  False  False NaN NaN
+  art2/u24-ETHUSDT/disa24_ETHUSDT.pkl: cols ['close', 'S8', 'C8', 'T30_8', 'T10_8', 'S24', 'C24', 'T30_24', 'T10_24', 'S72', 'C72', 'T30_72', 'T10_72'] idx 2017-08-17 05:00:00+00:00 → 2026-10-07 12:00:00+00:00 n=79992 dtypes {'close': 'float32', 'S8': 'float32', 'C8': 'float32', 'T30_8': 'float32', 'T10_8': 'float32', 'S24': 'float32', 'C24': 'float32', 'T30_24': 'float32', 'T10_24': 'float32', 'S72': 'float32', 'C72': 'float32', 'T30_72': 'float32', 'T10_72': 'float32'}
+                                 close        S8  ...    T30_72    T10_72
+t                                                 ...                    
+2026-10-07 10:00:00+00:00  2596.989990 -1.342168  ...  0.795798  1.347027
+2026-10-07 11:00:00+00:00  2579.889893 -1.472852  ...  0.797379  1.347027
+2026-10-07 12:00:00+00:00  2578.939941 -1.532936  ...  0.799001  1.350403
+
+[3 rows x 13 columns]
+  art3/prim_veri.pkl: dict 50 anahtar, ilk: ['BTC', 'ETH', 'ADA', 'APT', 'ARB', 'BNB', 'DOGE', 'DOT']
+    [BTC] cols ['c', 'z', 'bp'] idx 2022-05-01 01:00:00+00:00 → 2026-10-22 14:00:00+00:00 n=39253
+                                      c         z         bp
+t                                                           
+2026-10-22 12:00:00+00:00  81750.007812 -0.957808 -11.423034
+2026-10-22 13:00:00+00:00  81687.226562 -0.624961  -9.801928
+2026-10-22 14:00:00+00:00  81700.007812 -0.852403 -10.927631
+  art4/sf_BTCUSDT.pkl: cols ['S1', 'C1', 'T101', 'T301', 'y1', 'S4', 'C4', 'T104', 'T304', 'y4', 'S8', 'C8', 'T108', 'T308', 'y8', 'am'] idx 2020-01-01 00:00:00+00:00 → 2026-10-08 15:00:00+00:00 n=59312 dtypes {'S1': 'float32', 'C1': 'float32', 'T101': 'float32', 'T301': 'float32', 'y1': 'float32', 'S4': 'float32', 'C4': 'float32', 'T104': 'float32', 'T304': 'float32', 'y4': 'float32', 'S8': 'float32', 'C8': 'float32', 'T108': 'float32', 'T308': 'float32', 'y8': 'float32', 'am': 'float32'}
+                                 S1        C1      T101  ...      T308  y8  am
+t                                                        ...                  
+2026-10-08 13:00:00+00:00  0.765875  0.765875  1.657186  ...  1.006439 NaN NaN
+2026-10-08 14:00:00+00:00  0.502622  0.502622  1.657186  ...  1.006439 NaN NaN
+2026-10-08 15:00:00+00:00 -0.549272  0.549272  1.657186  ...  1.005747 NaN NaN
+
+[3 rows x 16 columns]
+  ga/g-AAVEUSDT/disa_AAVEUSDT.pkl: cols ['u4', 'star', 'acls', 'y4', 'y8'] idx 2021-11-01 00:00:00+00:00 → 2026-10-11 12:00:00+00:00 n=43332 dtypes {'u4': 'object', 'star': 'object', 'acls': 'object', 'y4': 'float64', 'y8': 'float64'}
+                              u4   star   acls  y4  y8
+t                                                     
+2026-10-11 10:00:00+00:00  False  False  False NaN NaN
+2026-10-11 11:00:00+00:00  False  False  False NaN NaN
+2026-10-11 12:00:00+00:00  False  False  False NaN NaN
+  ga/g-AAVEUSDT/disa24_AAVEUSDT.pkl: cols ['close', 'S24', 'C24', 'T30_24', 'T10_24'] idx 2020-10-15 04:00:00+00:00 → 2026-10-11 12:00:00+00:00 n=52477 dtypes {'close': 'float32', 'S24': 'float32', 'C24': 'float32', 'T30_24': 'float32', 'T10_24': 'float32'}
+                                close       S24       C24    T30_24    T10_24
+t                                                                            
+2026-10-11 10:00:00+00:00  167.550003 -0.741475  0.741475  0.782021  1.633724
+2026-10-11 11:00:00+00:00  166.850006 -0.976443  0.976443  0.782021  1.633724
+2026-10-11 12:00:00+00:00  166.880005 -0.966203  0.966203  0.782867  1.633724
+ga disa: 141 ga disa24: 141
+ga dosya türleri: ['disa', 'disa24', 'log', 'prim']
+ga bir klasör: ['ga/g-AAVEUSDT/disa24_AAVEUSDT.pkl', 'ga/g-AAVEUSDT/disa_AAVEUSDT.pkl', 'ga/g-AAVEUSDT/log_AAVEUSDT.txt', 'ga/g-AAVEUSDT/prim_AAVEUSDT.pkl']
+model_ETH: 2026-10-07 04:59:11.901291+00:00 {'u4': (True, 4), 'star': (False, 8), 'acls': (True, 4)} PG4 2026-07-29 04:00:00+00:00 2026-10-07 04:00:00+00:00
+model BTC: 2026-10-04 17:40:38.117912+00:00 PG4 2026-07-26 17:00:00+00:00 2026-10-04 17:00:00+00:00
+model24: canli/durum/model24_ADAUSDT.pkl.gz ['sym', 'created', 'H', 'model', 'month', 'FEATS', 'PG', 'PL', 'STATS', 'TEST'] 2026-10-07 12:41:35.817854+00:00
