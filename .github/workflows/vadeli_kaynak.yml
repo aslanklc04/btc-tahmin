@@ -1,0 +1,27 @@
+name: Vadeli kaynak yoklama
+on:
+  push:
+    branches: [arastirma3]
+    paths: [vadeli_kaynak.py, .github/workflows/vadeli_kaynak.yml]
+permissions:
+  contents: write
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - run: pip install -q requests pandas numpy
+      - run: python vadeli_kaynak.py
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add vadeli_kaynak_sonuc.md; git commit -m "Simdiki fiyatlar" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
