@@ -1,4 +1,4 @@
-# Canlı karne denetimi — 24.10.2026 10:23
+# Canlı karne denetimi — 24.10.2026 10:29
 _karne_kayit.csv: 285 satır → 387 coin-sinyal (BTC ₿/🔻 panel satırları hariç) · gönderilen: yedek 179, ana 46, panelden 4_
 
 ## Gönderilen sinyaller (gönderildiği andaki sınıf)
@@ -109,4 +109,9 @@ _🎯 = bugünkü sınıf hedefi (✅ +0,75σ · 🔸 +0,50σ · 📋 +0,45σ), 
 - 🎯 0.75σ: 36792 giriş · isabet %45 · net -0.24
 - 🎯 0.5σ: 36792 giriş · isabet %51 · net -0.23
 - 🎯 0.45σ: 36792 giriş · isabet %53 · net -0.22
+
+## Plasebo — canlı dönem: 🔸 yedek mesajlarının saatlerinde, sinyali OLMAYAN geniş liste coin'leri (aynı 🎯 0,50σ, 4 saat, saatlik yöntem, maliyet 0,04)
+- 🔸 yedek sinyalleri (karşılaştırma): n=202 · isabet %81 · net +0.62 · saat-kümeli %71 (14 saat)
+- plasebo: sinyalsiz, primi 0…2: n=370 · isabet %65 · net +0.31 · saat-kümeli %71 (14 saat)
+- aynı saatlerde TÜM geniş coin'ler: n=1562 · isabet %67 · net +0.34 · saat-kümeli %71 (14 saat)
 exit=0
