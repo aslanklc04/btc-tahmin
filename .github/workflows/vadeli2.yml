@@ -1,0 +1,34 @@
+name: Vadeli veri arastirmasi (PROTOKOL_vadeli)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [vadeli2.py, .github/workflows/vadeli2.yml]
+permissions:
+  contents: write
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+          sparse-checkout: durum
+      - run: pip install -q requests pandas numpy pyarrow
+      - run: |
+          set +e; timeout 17000 python -u vadeli2.py > vadeli2_log.txt 2>&1; echo "exit=$?" >> vadeli2_log.txt; tail -40 vadeli2_log.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vadeli2-ozellik
+          path: vadeli2_ozellik.parquet
+          retention-days: 90
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add vadeli2_log.txt; for f in vadeli2_sonuc.md vadeli2_secim.json; do git add $f 2>/dev/null || true; done; git commit -m "Vadeli arastirma" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
