@@ -10,7 +10,7 @@
 import os, re, csv, json, time, requests, numpy as np
 os.environ.pop("TG_SIRALI", None)                                                             # buradan doğrudan gönder
 import pandas as pd
-from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ, karal_degistir, KARAL_K_YEDEK, KARAL_K_PANEL
+from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ, karal_degistir, KARAL_K_YEDEK, KARAL_K_PANEL, eski_isaretle
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
 RAPOR_F = "durum/haftalik_rapor.md"
@@ -67,12 +67,6 @@ def karal_sil(t): return KARAL_RE.sub("", t)                                    
 def gecikme(m):
     gec = time.time() - m["t"]
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
-ESKI_DIP = "\n* eski test: saat kapanışından giriş ve %0,04 maliyetle ölçüldü — gerçekçi değil, genelde birkaç puan iyimser. Gerçekçi rakamlar 📏 / \"gerçekçi ölçümde\" diye yazılı olanlar."
-def eski_isaretle(t):                                                                         # 24.10.2026 kullanıcı: "herşey gerçek olsun" → yeniden ölçülemeyen eski test iddiaları işaretlenir
-    u = re.sub(r"(?<![Ee]ski )\b([Tt])estte\b", lambda m: ("Eski" if m.group(1) == "T" else "eski") + " testte*", t)
-    u = re.sub(r"\bGeçmişte\b", "Eski testte*", u); u = re.sub(r"\bgeçmişte\b", "eski testte*", u)
-    u = re.sub(r"\bGeçmiş\b", "Eski test*", u); u = re.sub(r"\bgeçmiş\b", "eski test*", u)
-    return u + ESKI_DIP if u != t else u
 def yolla(t):                                                                                 # Telegram sınırı: aynı sohbete art arda çok mesajda ~1 sn ara
     t = eski_isaretle(t); ok = bool(tg_send(t)); time.sleep(1.0); return ok
 ISARET_RE = re.compile(r"^• ((?:(?:🚀|📉🔥|💧|💸) )+)([A-Z0-9]{2,12})", re.M)

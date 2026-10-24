@@ -5,7 +5,7 @@
 # ÖNCEDEN YAZILI KARAR (15.10.2026, sonuçlar görülmeden): 12.11.2026'dan itibaren ✅ ana olarak gönderilmiş bir türde ≥ 20 kapanan sinyal varsa
 #   canlı isabet testteki isabetin belirgin altında (tek yönlü binom p < 0,05) VE canlı işlem başı net < 0 → "❌ ana'dan çıkarma önerisi" (kullanıcıya sorulur).
 import os, re, json, math, numpy as np, pandas as pd
-from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST, KARAL_K, KARAL_K_YEDEK, KARAL_K_PANEL
+from ortak import fetch_1h, tg_send, DISPLAY_TZ, TUT_TEST, KARAL_K, KARAL_K_YEDEK, KARAL_K_PANEL, eski_isaretle
 KAYIT_F, MD_F, DUR_F = "durum/karne_kayit.csv", "durum/karne.md", "durum/karne_durum.json"
 KOM, KARAR_T = 0.04, pd.Timestamp("2026-11-12", tz=DISPLAY_TZ)
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
@@ -177,6 +177,6 @@ def main():
         if len(Kp[Kp.sinif == "ana"]) < 40: tl.append("Az sinyal varken tek hafta sonucu yanıltıcıdır.")
         if yerel >= KARAR_T and ana_karar: tl.append("❌ ÖNERİ — ana'dan çıkarılması önerilen: " + ", ".join(t for t, *_ in ana_karar))
         tl.append("(Eski model raporları artık Telegram'a gitmiyor; panelde: durum/haftalik_rapor.md)")
-        tg_send("\n".join(tl))
+        tg_send(eski_isaretle("\n".join(tl)))                                          # 24.10: eski test rakamları işaretli
         if os.environ.get("KARNE_ZORLA") != "1": D.update(ilk=True, hafta=hafta); json.dump(D, open(DUR_F, "w", encoding="utf-8"))
 if __name__ == "__main__": main()
