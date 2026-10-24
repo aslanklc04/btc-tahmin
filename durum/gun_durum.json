@@ -1,19 +1,7 @@
 {
 "gun": "2026-10-24",
-"giden": 7,
+"giden": 8,
 "log": [
-{
-"t": "23.10 08:07",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.10 09:07",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 23.10 09:00 · $81,850",
-"k": "gönderildi"
-},
 {
 "t": "23.10 11:07",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "24.10 13:05",
 "s": "panel",
 "e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 14:05",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: AMP (z +0.3), VTHO (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 14:05",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 8 saat Güçlü ↑ · prim ⛔ z -1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
