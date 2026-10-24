@@ -25,3 +25,9 @@ _Veri indirilmeden ve hiçbir sonuç görülmeden yazıldı. Değişiklik gereki
 ## Genel
 - Toplam deneme: 96 filtre + 4 yeni sinyal = 100. Başarısızlık "bulunamadı" diye raporlanır, eşik gevşetilmez.
 - Geçen hiçbir şey kullanıcı onayı olmadan canlıya alınmaz; önce gölge izleme.
+
+## Ek 1 (24.10.2026, veri indirilmeden) — uygulama ayrıntıları
+- N2'deki σ24 = coin'in son 720 saatlik saatlik log getiri std'si × √24 (24 saatlik hareketin σ'sı).
+- Arşivde güncel ayın aylık fundingRate dosyası yoksa o ay için fr eksik sayılır (filtre o sinyallerde uygulanmaz → sinyal hem tabandan hem filtreden çıkar).
+- Saatlik toplama: (t−1 s, t] aralığı; oi / gls / tls aralığın son değeri, tk aralığın ortalaması.
+- N sinyalleri için fiyat: Binance spot 1 s kapanış (data-api); fonlama yaklaşığı = %0,01 × H/8.

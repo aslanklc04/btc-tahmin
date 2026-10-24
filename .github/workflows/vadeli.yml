@@ -1,15 +1,14 @@
-name: Vadeli metrik testi
+name: Vadeli veri arastirmasi (PROTOKOL_vadeli)
 on:
   push:
     branches: [arastirma3]
-    paths: [vadeli_tetik.txt]
+    paths: [vadeli.py, .github/workflows/vadeli.yml]
 permissions:
   contents: write
-  actions: read
 jobs:
-  test:
+  v:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,48 +18,17 @@ jobs:
           ref: main
           path: canli
           sparse-checkout: durum
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-      - run: pip install -r requirements.txt
-      - uses: actions/download-artifact@v4
-        with:
-          path: art1
-          pattern: coin-*
-          run-id: 38550403442
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          path: art2
-          pattern: u24-*
-          run-id: 37618956269
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          path: art3
-          name: prim-veri
-          run-id: 37771896586
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          name: sf-btc
-          run-id: 37801388956
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/download-artifact@v4
-        with:
-          path: mt
-          pattern: metrik-*
-          run-id: 38879846493
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Genis tarama artifact'leri
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run download 38139240014 -R ${{ github.repository }} -p "g-*" -D ga && ls ga | wc -l
+      - run: pip install -q requests pandas numpy pyarrow
       - run: |
-          set +e; timeout 6000 python -u vadeli.py > vadeli_log.txt 2>&1; echo "exit=$?" >> vadeli_log.txt; tail -30 vadeli_log.txt
+          set +e; timeout 17000 python -u vadeli.py > vadeli_log.txt 2>&1; echo "exit=$?" >> vadeli_log.txt; tail -40 vadeli_log.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vadeli-ozellik
+          path: vadeli_ozellik.parquet
+          retention-days: 90
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add vadeli_log.txt; for f in vadeli_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Vadeli sonucu" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
+          git add vadeli_log.txt; for f in vadeli_sonuc.md vadeli_secim.json; do git add $f 2>/dev/null || true; done; git commit -m "Vadeli arastirma" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
