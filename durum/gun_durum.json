@@ -1,79 +1,7 @@
 {
 "gun": "2026-10-24",
-"giden": 8,
+"giden": 13,
 "log": [
-{
-"t": "23.10 22:05",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.10 23:05",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ ⏰ · 8 saat Çok güçlü ↑ · prim ⚠️ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.10 23:05",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: SHIB (z +0.6), APT (z +0.4), NEAR (z +0.1)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 02:07",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: NMR (z +1.4), ENS (z +1.3), TRB (z +1.3), JASMY (z +1.2), SNX (z +1.0), ALT (z +0.8), ZRO (z +0.7), DASH (z +0.7), XLM (z +0.6), GRT (z +0.6)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 02:07",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: KNC (z +0.6), LDO (z +0.6), UMA (z +0.6), VET (z +0.5), CTSI (z +0.4), SPELL (z +0.3), AUCTION (z +0.3), CHZ (z +0.3), SAND (z +0.2), ACH (z +0.2)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 02:07",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: AXL (z +0.2), METIS (z +0.1), CELR (z +0.1), 1INCH (z +0.1), INJ (z +0.0), KAVA (z +0.0), BNT (z +0.0), G (z +0.0), PUNDIX (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ARB (z -0.0)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: DOT (z -0.3)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: FLOKI (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "24.10 02:07",
 "s": "panel",
@@ -241,7 +169,79 @@
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -1.0",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: PEPE (z +0.6), FIL (z +2.7), BNT (z +2.4)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 18:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: ILV (z +1.3), JASMY (z +1.2), EGLD (z +1.1), ALGO (z +1.0), VTHO (z +0.9), VET (z +0.7), WIF (z +0.7), RLC (z +0.6), BONK (z +0.5), RSR (z +0.4)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 18:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: KSM (z +0.4), G (z +0.4), SPELL (z +0.3), ATOM (z +0.3), DASH (z +0.3), ACH (z +0.2), SKL (z +0.2), KNC (z +0.2), ICP (z +0.2), AMP (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 18:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: ARKM (z +0.1), ALT (z +0.1), WLD (z +0.0), JTO (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 18:06",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: FIL (z +2.7, 8 saat)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ADA (z -0.5)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: DOT (z -0.6)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: SUI (z -0.7)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: LINK (z -0.9)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 18:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.8 ⛔)",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 1
+"panelden": 2
 }
