@@ -1,30 +1,13 @@
 {
  "adaylar": [
   {
-   "ad": "saat içi en iyi 1 (z) & n > 1",
+   "ad": "saat içi en iyi 3 (z) & fon üst⅓ (>0.51)",
    "k": "Aşama1 k",
    "spec": {
     "f": [
      [
-      "n",
-      1.0,
-      Infinity
-     ]
-    ],
-    "top": [
-     "z",
-     1
-    ]
-   }
-  },
-  {
-   "ad": "saat içi en iyi 3 (z) & n > 1",
-   "k": "Aşama1 k",
-   "spec": {
-    "f": [
-     [
-      "n",
-      1.0,
+      "fon",
+      0.5097962181254637,
       Infinity
      ]
     ],
@@ -35,13 +18,30 @@
    }
   },
   {
-   "ad": "saat içi en iyi 3 (z) & fon üst⅓ (>0.51)",
+   "ad": "saat içi en iyi 5 (z) & fon üst⅓ (>0.51)",
    "k": "Aşama1 k",
    "spec": {
     "f": [
      [
       "fon",
       0.5097962181254637,
+      Infinity
+     ]
+    ],
+    "top": [
+     "z",
+     5
+    ]
+   }
+  },
+  {
+   "ad": "saat içi en iyi 3 (z) & zB üst⅓ (>0.916)",
+   "k": "Aşama1 k",
+   "spec": {
+    "f": [
+     [
+      "zB",
+      0.915578544139862,
       Infinity
      ]
     ],

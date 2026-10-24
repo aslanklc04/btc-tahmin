@@ -32,3 +32,11 @@ _Bu dosya veri seti oluşturulmadan ve hiçbir sonuç görülmeden yazıldı. So
 - Aşama 2 (K-A, K-B): k = şimdiki ve Aşama 1'in en iyisi; tek filtre, 2'li filtre, saat içi en iyi N, saat içi en iyi N + tek filtre.
 - Şartları geçenler arasından doğrulamaya en fazla 3 aday: keşifte haftalık toplam net (saat başı net × haftalık saat) en yüksek üç; aynı filtrenin yalnız k'sı farklı kopyaları tek sayılır.
 - Kod, DOĞRULAMA dönemini (t ≥ 2025-01-01) keşif betiğinde veriden siler; doğrulama ayrı betikte, seçilen adaylar dosyasını okuyarak bir kez çalışır.
+
+## Ek 2 (24.10.2026, doğrulama ÇALIŞMADAN önce; bağımsız ön denetimin bulgularıyla)
+Ön denetçi keşfi yeniden üretti (byte byte aynı), geleceğe bakma bulmadı, şu üç noktayı işaretledi. Kararlar:
+1. **Eşit skorlar:** aynı saatte aynı coin için birden çok satır (ör. ana 4 s + panelden 24 s) aynı z'ye sahip; "en iyi N" seçimi kararsızdı. → Kararlı sıralama: skor (azalan), sonra sınıf sırası (✅ ana → 🔸 yedek → 📋 panelden), sonra H (artan), sonra coin adı. kesif.py ve dogrulama.py'de aynı.
+2. **KuCoin fonlama zamanı:** veri_zaman.py canlı ölçümü (23.10, 16:00 UTC): 16:00 damgalı kayıt 16:00:20'de yayındaydı; sinyal t+7 dk'da hesaplandığı için damga = t kaydının kullanılması geleceğe bakma değil. Tek gözlem olduğu not edilir; değişiklik yok.
+3. **Seçim ile başarı şartı uyumsuzluğu:** keşif seçimi "saat başı net > taban", doğrulama başarısı "işlem başı net ≥ taban" istiyordu. → Keşif seçim şartına **işlem başı net ≥ tabanın işlem başı neti** eklenir (başarı şartıyla aynı). Aday seçimi (haftalık toplam nete göre ilk 3) aynı kalır.
+4. Küçük: saat dilimi seçeneklerine gece komşuluğu {3,0} eklenir (Ek 1'deki "bitişik iki dilim" tanımının eksik uygulanmasıydı).
+Bilgi (değişiklik yok): limit (B) penceresi 8.–66. dk (7. dk içi dolum atlanıyor, temkinli yön); gen24 evreni yalnız sinyal üreten coin'ler; haftalık saat paydası son sinyal zamanı.

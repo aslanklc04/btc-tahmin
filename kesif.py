@@ -60,15 +60,16 @@ for sn in SIN:
 yaz("\nSınıf başına saat isabeti ≥ %72 olan en kârlı k: " + " · ".join(f"{sn.split(' (')[0]}: " + (f"k {b[0]}{' yarı' if b[1] else ''} ({b[2]:+.3f})" if b else "yok") for sn, b in EN_K.items()))
 # ---- Aşama 2: K-A filtreler, K-B saat içi seçim ----
 H_ = V.groupby("t").agg(n=("nm", "size"), b_r4=("b_r4", "first"), b_r24=("b_r24", "first"), zB=("zB", "first"), fon=("fon", "first"), gen24=("gen24", "first"), b_vr=("b_vr", "first"), hod=("hod", "first"), dow=("dow", "first"))
-H_["dilim"] = H_.hod // 6; H_["hs"] = (H_.dow >= 5).astype(int)
+H_["dilim"] = H_.hod // 6; H_["hs"] = (H_.dow >= 5).astype(int); H_["dilim_g"] = (H_.dilim + 1) % 4                                   # Ek 2.4: {3,0} = dilim_g ∈ {0,1}
 SUR = ["n", "b_r4", "b_r24", "zB", "fon", "gen24", "b_vr"]
 def secenek(c):                                                                              # (ad, spec) · spec = (sütun, alt, üst): alt < x ≤ üst
     if c == "dilim": return [(f"dilim∈{{{a}}}" if a == b else f"dilim∈{{{a},{b}}}", (c, a - 1, b)) for a in range(4) for b in range(a, min(a + 2, 4))]
     if c == "hs": return [("hafta sonu", (c, 0, 1)), ("hafta içi", (c, -1, 0))]
+    if c == "dilim_g": return [("dilim∈{3,0}", (c, -1, 1))]
     q1, q2 = H_[c].quantile([1 / 3, 2 / 3]).values; I = np.inf
     return [(f"{c} alt⅓ (≤{q1:.3g})", (c, -I, q1)), (f"{c} orta⅓ ({q1:.3g}…{q2:.3g})", (c, q1, q2)), (f"{c} üst⅓ (>{q2:.3g})", (c, q2, I)), (f"{c} ≤ {q2:.3g}", (c, -I, q2)), (f"{c} > {q1:.3g}", (c, q1, I))]
 def maske(sp): c, a, b = sp; return (H_[c] > a) & (H_[c] <= b)
-SEC = {c: [(a, sp, maske(sp)) for a, sp in secenek(c)] for c in SUR + ["dilim", "hs"]}
+SEC = {c: [(a, sp, maske(sp)) for a, sp in secenek(c)] for c in SUR + ["dilim", "dilim_g", "hs"]}
 KMAP = {"şimdiki k": dict(KS), "Aşama1 k": {sn: (EN_K[sn][0] if EN_K[sn] else KS[sn]) for sn in SIN}}
 YMAP = {"şimdiki k": {sn: False for sn in SIN}, "Aşama1 k": {sn: (EN_K[sn][1] if EN_K[sn] else False) for sn in SIN}}
 def r_k(d, km, ym):
@@ -84,7 +85,9 @@ for kad in KMAP:
         global NT; NT += 1
         x = sepet(d, r.values) if d is not None else S_
         if maske_saat is not None: x = x[x.index.isin(H_.index[maske_saat.reindex(H_.index).fillna(False).values])]
-        o = ozet(x); o.update(ad=ad, k=kad, spec=json.dumps(spec)); ADAY.append(o)
+        dd_ = V if d is None else d; rv = (R if r is None else r)
+        rr_ = rv[dd_.t.isin(x.index).values].dropna()                                        # Ek 2.3: işlem başı net (seçilen saatlerdeki sinyaller)
+        o = ozet(x); o.update(ad=ad, k=kad, spec=json.dumps(spec), inet=100 * rr_.mean() if len(rr_) else np.nan); ADAY.append(o)
     dene("filtre yok", spec=dict(f=[], top=None))
     tek = [(c, a, sp, m) for c in SEC for a, sp, m in SEC[c]]
     for c, a, sp, m in tek: dene(a, m, spec=dict(f=[sp], top=None))
@@ -92,23 +95,24 @@ for kad in KMAP:
         if c1 != c2: dene(f"{a1} & {a2}", m1 & m2, spec=dict(f=[s1, s2], top=None))
     for sk in ["z", "rz", "c_r24"]:
         for N in (1, 3, 5):
-            sel = V.assign(_r=R.values).sort_values(sk, ascending=False).groupby("t").head(N); rr = sel._r
+            sel = V.assign(_r=R.values, _so=V.sinif.map({sn: i for i, sn in enumerate(SIN)})).sort_values([sk, "_so", "H", "nm"], ascending=[False, True, True, True], kind="mergesort").groupby("t").head(N); rr = sel._r   # Ek 2.1
             dene(f"saat içi en iyi {N} ({sk})", None, sel, rr, spec=dict(f=[], top=[sk, N]))
             for c, a, sp, m in tek: dene(f"saat içi en iyi {N} ({sk}) & {a}", m, sel, rr, spec=dict(f=[sp], top=[sk, N]))
 A = pd.DataFrame(ADAY)
 taban_net = T0["net"]
-gec = A[(A.ist >= 72) & (A.net > taban_net) & (A.hf >= 4) & (A.i1 >= 68) & (A.i2 >= 68)].copy()
+taban_inet = 100 * np.nanmean(R0)
+gec = A[(A.ist >= 72) & (A.net > taban_net) & (A.inet >= taban_inet) & (A.hf >= 4) & (A.i1 >= 68) & (A.i2 >= 68)].copy()   # Ek 2.3
 yaz(f"\n## Aşama 2 — {len(A):,} kural denendi (toplam deneme {NT:,}) · taban saat başı net {taban_net:+.3f} · şartları geçen: {len(gec)}")
-yaz("Şartlar: saat isabeti ≥ %72 · saat başı net > taban · haftada ≥ 4 saat · iki yarıda da ≥ %68\n")
+yaz(f"Şartlar: saat isabeti ≥ %72 · saat başı net > taban · işlem başı net ≥ taban ({taban_inet:+.3f}, Ek 2.3) · haftada ≥ 4 saat · iki yarıda da ≥ %68\n")
 yaz("### Saat isabetine göre en yüksek 15 (haftada ≥ 4 saat olanlar; şart geçmese de bilgi)")
-yaz("| Kural | k | saat | hf | saat isabeti | i1 · i2 | saat başı net | haftalık top |"); yaz("|---|---|---|---|---|---|---|---|")
+yaz("| Kural | k | saat | hf | saat isabeti | i1 · i2 | saat başı net | işlem başı net | haftalık top |"); yaz("|---|---|---|---|---|---|---|---|---|")
 for _, r in A[A.hf >= 4].sort_values("ist", ascending=False).head(15).iterrows():
-    yaz(f"| {r.ad} | {r.k} | {r.n} | {r.hf:.1f} | %{r.ist:.1f} | %{r.i1:.0f} · %{r.i2:.0f} | {r.net:+.3f} | {r.top:+.2f} |")
+    yaz(f"| {r.ad} | {r.k} | {r.n} | {r.hf:.1f} | %{r.ist:.1f} | %{r.i1:.0f} · %{r.i2:.0f} | {r.net:+.3f} | {r.inet:+.3f} | {r.top:+.2f} |")
 yaz("\n### Şartları geçenler (haftalık toplam nete göre)")
 if len(gec):
-    yaz("| Kural | k | saat | hf | saat isabeti | i1 · i2 | saat başı net | haftalık top |"); yaz("|---|---|---|---|---|---|---|---|")
+    yaz("| Kural | k | saat | hf | saat isabeti | i1 · i2 | saat başı net | işlem başı net | haftalık top |"); yaz("|---|---|---|---|---|---|---|---|---|")
     for _, r in gec.sort_values("top", ascending=False).head(25).iterrows():
-        yaz(f"| {r.ad} | {r.k} | {r.n} | {r.hf:.1f} | %{r.ist:.1f} | %{r.i1:.0f} · %{r.i2:.0f} | {r.net:+.3f} | {r.top:+.2f} |")
+        yaz(f"| {r.ad} | {r.k} | {r.n} | {r.hf:.1f} | %{r.ist:.1f} | %{r.i1:.0f} · %{r.i2:.0f} | {r.net:+.3f} | {r.inet:+.3f} | {r.top:+.2f} |")
 sec = []
 for _, r in gec.sort_values("top", ascending=False).iterrows():
     if r.ad not in [s["ad"] for s in sec]: sec.append(dict(ad=r.ad, k=r.k, spec=json.loads(r.spec)))

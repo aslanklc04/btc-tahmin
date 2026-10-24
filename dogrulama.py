@@ -5,7 +5,7 @@ exec(open("kesif.py").read().split("L = []; yaz")[0].replace('V = V[V.t < pd.Tim
 A0 = pd.Timestamp("2025-01-01", tz="UTC"); V = V[V.t >= A0].copy(); HAFTA = (V.t.max() - A0).days / 7
 J = json.load(open("kesif_adaylar.json")); KMAP, YMAP = J["KMAP"], J["YMAP"]
 H_ = V.groupby("t").agg(n=("nm", "size"), b_r4=("b_r4", "first"), b_r24=("b_r24", "first"), zB=("zB", "first"), fon=("fon", "first"), gen24=("gen24", "first"), b_vr=("b_vr", "first"), hod=("hod", "first"), dow=("dow", "first"))
-H_["dilim"] = H_.hod // 6; H_["hs"] = (H_.dow >= 5).astype(int)
+H_["dilim"] = H_.hod // 6; H_["hs"] = (H_.dow >= 5).astype(int); H_["dilim_g"] = (H_.dilim + 1) % 4
 def r_k(d, km, ym, gir="D", uc="vadeli"):
     r = np.full(len(d), np.nan)
     for sn in SIN:
@@ -15,7 +15,7 @@ def r_k(d, km, ym, gir="D", uc="vadeli"):
 def uygula(sp, km, ym, gir="D", uc="vadeli", donem=None):
     d = V if donem is None else V[V.t >= donem]
     r = pd.Series(r_k(d, km, ym, gir, uc), index=d.index)
-    if sp["top"]: sk, N = sp["top"]; d = d.assign(_r=r.values).sort_values(sk, ascending=False).groupby("t").head(N); r = d._r
+    if sp["top"]: sk, N = sp["top"]; d = d.assign(_r=r.values, _so=d.sinif.map({sn: i for i, sn in enumerate(SIN)})).sort_values([sk, "_so", "H", "nm"], ascending=[False, True, True, True], kind="mergesort").groupby("t").head(N); r = d._r   # Ek 2.1
     x = sepet(d, r.values)
     for c, a, b in sp["f"]: m = (H_[c] > a) & (H_[c] <= b); x = x[x.index.isin(H_.index[m.values])]
     hf = len(x) / ((V.t.max() - (donem or A0)).days / 7)
