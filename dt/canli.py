@@ -159,3 +159,33 @@ for k in (0.75, 0.50, 0.45):
         hits += list(ret > 0); nets += list(ret)
     yaz(f"- 🎯 {k}σ: {len(hits)} giriş · isabet %{100*np.mean(hits):.0f} · net {np.mean(nets):+.2f}")
 open("dt/canli_sonuc.md", "w").write("\n".join(L) + "\n")
+# ---- plasebo (canlı dönem): 🔸 yedek saatlerinde sinyali OLMAYAN geniş coin'ler, primi 0…2, aynı 🎯 0,50σ / 4 saat, saatlik yöntem ----
+yaz("\n## Plasebo — canlı dönem: 🔸 yedek mesajlarının saatlerinde, sinyali OLMAYAN geniş liste coin'leri (aynı 🎯 0,50σ, 4 saat, saatlik yöntem, maliyet 0,04)")
+ZL = {}
+for s, d in V.items():
+    cb = d["cb"]
+    if cb is None or len(cb) < 200 or d["bn"] is None: continue
+    p = np.log(cb / d["bn"].c.reindex(cb.index)).dropna(); z = (p - p.rolling(720, min_periods=168).mean()) / (p.rolling(720, min_periods=168).std() + 1e-12)
+    ZL[s] = z
+def o4(s, t, k=0.5):
+    h = BNH.get(s)
+    if h is None or t not in h.index: return np.nan
+    c = h.c; sg = np.log(c[c.index <= t]).diff().dropna().iloc[-720:].std(); t1 = t + pd.Timedelta(hours=4)
+    if t1 not in c.index: return np.nan
+    tg = c[t] * (1 + k * sg * 2); w = h.h[(h.index > t) & (h.index <= t1)]
+    return 100 * (tg / c[t] - 1) if (w >= tg).any() else 100 * (c[t1] / c[t] - 1)
+Y = X[X.sim == "yedek"]; PLs, ALL = [], []
+for t, gy in Y.groupby("t0"):
+    have = set(gy.coin)
+    for s in GEN:
+        if s in have: continue
+        z = ZL.get(s + "USDT"); zv = float(z[z.index <= t].iloc[-1]) if z is not None and (z.index <= t).any() and t - z[z.index <= t].index[-1] <= pd.Timedelta(hours=2) else np.nan
+        v = o4(s + "USDT", t)
+        if np.isfinite(v):
+            ALL.append((t, v))
+            if np.isfinite(zv) and 0 <= zv < 2: PLs.append((t, v))
+sig = Y.karne_tp.values
+for ad, arr in (("🔸 yedek sinyalleri (karşılaştırma)", list(zip(Y.t0, sig))), ("plasebo: sinyalsiz, primi 0…2", PLs), ("aynı saatlerde TÜM geniş coin'ler", ALL)):
+    a = pd.DataFrame(arr, columns=["t", "r"]).dropna(); hr = a.groupby("t").r.mean()
+    yaz(f"- {ad}: n={len(a)} · isabet %{100*(a.r - 0.04 > 0).mean():.0f} · net {a.r.mean() - 0.04:+.2f} · saat-kümeli %{100*(hr - 0.04 > 0).mean():.0f} ({len(hr)} saat)")
+open("dt/canli_sonuc.md", "w").write("\n".join(L) + "\n")
