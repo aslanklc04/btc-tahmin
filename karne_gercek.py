@@ -78,6 +78,7 @@ def main():
     if X.empty: print("karne_gercek: sinyal yok"); return
     X = X.drop_duplicates(["t0", "coin", "H", "sinif"]).reset_index(drop=True); X["anahtar"] = X.t0.astype(str) + "|" + X.coin + "|" + X.sinif + "|" + X.H.astype(str)
     ESK = pd.read_csv(CSV_F) if os.path.exists(CSV_F) else pd.DataFrame(columns=["anahtar"])
+    if len(ESK) and "tpp" not in ESK: ESK = pd.DataFrame(columns=["anahtar"])                    # 24.10: 🎯 mesafesi sütunu eklendi → önbellek bir kez yeniden hesaplanır
     tamam = set(ESK.anahtar[ESK.get("tam", pd.Series(dtype=bool)).astype(str) == "True"]) if len(ESK) else set()
     now = pd.Timestamp.now(tz="UTC")
     FZ = fon_serisi(X.t0.min() - pd.Timedelta(days=60))
@@ -100,7 +101,7 @@ def main():
         x = kl1m(r.coin + "USDT", r.t0, min(now, r.t0 + pd.Timedelta(minutes=2 * Hm)))
         if len(x) < Hm or int(x[0][0]) != int(r.t0.timestamp() * 1000): continue
         M = np.array([[float(v) for v in z[1:5]] for z in x]); O, Lo = M[:, 0], M[:, 2]
-        d = dict(anahtar=r.anahtar, tg=r.tg, t0=r.t0, sinif=r.sinif, coin=r.coin, H=r.H, tur=r.tur, z=r.z, fz=r.fz, a2=bool(r.a2), G=G)
+        d = dict(anahtar=r.anahtar, tg=r.tg, t0=r.t0, sinif=r.sinif, coin=r.coin, H=r.H, tur=r.tur, z=r.z, fz=r.fz, a2=bool(r.a2), G=G, tpp=100 * K0[r.sinif] * s1 * np.sqrt(r.H))   # tpp: 🎯 mesafesi % (24.10 gölge)
         if O[a] <= G: fB, Pb, finb, chkb = True, O[a], FP, a
         else:
             w = np.where(Lo[a + 1:a + 61] <= G)[0]; fB = len(w) > 0
@@ -135,6 +136,12 @@ def rapor(Y, now):
     L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)")
     b = Y.dropna(subset=["B_T0", "B_T1"]); L.append(f"- **T1 takip eden kâr-al (τ 0,25):** {ol(b, 'B_T1')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     b = Y.dropna(subset=["B_T0", "B_T3"]); L.append(f"- **T3 zarardakini 2 katı süreye uzat:** {ol(b, 'B_T3')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
+    Y["tpp"] = pd.to_numeric(Y.get("tpp"), errors="coerce"); ap = Y[Y.sinif.isin(["ana", "panelden"])].dropna(subset=["B_T0", "tpp"])
+    L.append(f"- **🎯 ≥ %1,5 filtresi (ana + panelden):** {ol(ap[ap.tpp >= 1.5], 'B_T0')} — filtresiz: {ol(ap, 'B_T0')} · elenenler (🎯 < %1,5): {ol(ap[ap.tpp < 1.5], 'B_T0')}")
+    b = Y.dropna(subset=["B_T0", "tpp"]).copy(); b["w"] = np.clip(np.round(4 * 1.5 / b.tpp) / 4, 0.25, 1.0)
+    if len(b):
+        e = b.groupby("t0").B_T0.mean(); wv = b.assign(wr=b.w * b.B_T0).groupby("t0").agg(wr=("wr", "sum"), w=("w", "sum")); w_ = wv.wr / wv.w
+        L.append(f"- **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %{100 * (e > 0).mean():.0f} · ort {100 * e.mean():+.2f}% · en kötü saat {100 * e.min():+.2f}% · oynaklık {100 * e.std():.2f} | risk paylı → %{100 * (w_ > 0).mean():.0f} · ort {100 * w_.mean():+.2f}% · en kötü {100 * w_.min():+.2f}% · oynaklık {100 * w_.std():.2f}")
     a2 = Y[Y.a2.astype(str) == "True"]; L.append(f"- **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** {ol(a2, 'B_A2')} · testte (2025+) saat isabeti %70,5 (sınırda)")
     L.append(f"\n_Kayıt: durum/karne_gercek.csv ({len(Y)} satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._")
     open(MD_F, "w", encoding="utf-8").write("\n".join(L) + "\n")

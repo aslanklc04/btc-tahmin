@@ -16,8 +16,9 @@ GUN_F = "durum/gun_durum.json"
 RAPOR_F = "durum/haftalik_rapor.md"
 KARNE_F = "durum/karne_kayit.csv"                                                             # 15.10.2026 canlı karne: her karar (bilgi hariç) kalıcı kayıt → karne.py sonucu ölçer
 ADLAR = {"karne": "📒 canlı karne", "likidite": "💧 likidite ölçümü", "btc": "BTC modeli", "coin": "altcoin", "d24": "24 saat", "zincir": "⛓️ arz/talep", "kucuk": "🧑 küçük yatırımcı", "prim": "💵 prim"}
-YEDEK_UST = ("🔸 YEDEK SİNYAL (ana değil) — 🌐🤝 geniş liste eşik altı (coin primi 0…2): yedek 🎯 hedefiyle (+0,50σ) testte %74 · %71 · %76 tuttu (2022–23 · 2024–25 · 2026), işlem başı +%0,05–0,3.\n"
-             "İstersen küçük pozisyon, istersen pas geç. Asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")
+YEDEK_UST = ("ℹ️ BİLGİ · 🔸 YEDEK SİNYAL (işlem önerisi değil) — 🌐🤝 geniş liste eşik altı (coin primi 0…2). 24.10 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama): "
+             "2022–24 isabet %69 · işlem başı +%0,14 · 2025+ %64 · −%0,09 · 2026 %70 · +%0,27 → kâr çoğunlukla komisyona gidiyor.\n"
+             "İşlem açacaksan kaldıraçsız ve küçük; asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")   # 24.10.2026 kullanıcı onayı: yedek → bilgi (karal2_sonuc.md, denetim)
 PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD alıyor / 🧪 24 s ana coin / 🔇🪙 coin tek türleri: panelden 🎯 hedefiyle (+0,45σ) testte %72 · %72 · %72 tuttu (2022–23 · 2024–25 · 2026), işlem başı +%0,2.\n"
                 "Küçük miktar, kaldıraçsız; istersen pas geç. 30 sinyal kapandığında canlı isabet %55'in altında ya da işlem başı kâr eksideyse kendiliğinden durur.")
 PANELDEN_GUN, PANELDEN_DUR_F = None, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
@@ -53,6 +54,14 @@ def uyari():                                                                    
     if os.path.exists(HATA_F): os.remove(HATA_F)
     if bozuk or ayr:
         tg_send("⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:\n" + (f"Adım: {', '.join(bozuk)}\n" if bozuk else "") + "\n".join(ayr[:8]) + "\n(Düzeltilene kadar her saat tekrar eder.)")
+PAY_RE = re.compile(r"(🎯 Kâr-al \$[0-9.,]+ \(\+%([0-9.]+)\))")
+PAY_NOT = "📐 pay = normal pozisyonuna göre önerilen büyüklük: 🎯 uzaksa coin oynak → daha küçük gir (×1'den büyük önerilmez). Aynı saatteki bütün sinyaller tek bütçe sayılır.\n"
+def pay_ekle(metin):                                                                          # 24.10.2026 kullanıcı onayı: risk payı işareti (🎯 mesafesi ≥ %1,5 → pozisyon 1,5/mesafe oranında küçülür); gölge ölçüm karne_gercek.py
+    def f(m):
+        try: w = min(1.0, max(0.25, round(4 * 1.5 / float(m.group(2))) / 4))
+        except Exception: return m.group(0)
+        return m.group(1) + f" · 📐 pay ×{w:g}".replace(".", ",")
+    return PAY_RE.sub(f, metin)
 KARAL_RE = re.compile(r"\n[ \t]*🎯 Kâr-al[^\n]*")
 def karal_sil(t): return KARAL_RE.sub("", t)                                                    # 21.10.2026 kullanıcı: 🔸 yedekte 🎯 kâr-al yok, tahmin süresi kadar tut (karne: yedekte kâr-al neti yarıya indiriyor)
 def gecikme(m):
@@ -114,12 +123,12 @@ def main():
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         if i == 0 and KAL: ust = KAL + "━━━━━━━━━━━━\n" + ust if n < 2 else ust.replace("━━━━━━━━━━━━\n", KAL + "━━━━━━━━━━━━\n", 1)
-        ok = yolla(gecikme(m) + ust + m["m"]); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(m["m"])); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + karal_degistir(m["m"], KARAL_K_YEDEK, "🔸 yedek hedefi +0,50σ: testte yedek isabeti %71–76, işlem başı kâr küçük")); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
+        ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "🔸 yedek hedefi +0,50σ (gerçekçi ölçümde isabet %64–70, kâr çok küçük)"))); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
     for m in yedek:
         if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
     pden = sorted([m for m in panel if m["c"] == "panely" and m["o"] < ALMA_ESIK], key=lambda m: (m["o"], m["s"]))   # 22.10: 📋 panelden → 🔸 yedek (günde ≤ 2, ⛔ hariç)
@@ -127,7 +136,7 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            ok = yolla(gecikme(m) + ust + karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ: testte isabet %72, işlem başı kâr küçük")); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ: testte isabet %72, işlem başı kâr küçük"))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
     for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
