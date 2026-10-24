@@ -10,7 +10,10 @@
 import os, re, csv, json, time, requests, numpy as np
 os.environ.pop("TG_SIRALI", None)                                                             # buradan doğrudan gönder
 import pandas as pd
+import sade                                                                                   # 24.10.2026: sade mesaj biçimi (kullanıcı onayı); SADE_KAPALI=1 → eski biçim
 from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ, karal_degistir, KARAL_K_YEDEK, KARAL_K_PANEL, eski_isaretle
+SADE = os.environ.get("SADE_KAPALI") != "1"
+GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
 MADALYA = ["🥇", "🥈", "🥉"]
 GUN_F = "durum/gun_durum.json"
 RAPOR_F = "durum/haftalik_rapor.md"
@@ -123,9 +126,21 @@ def main():
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         if i == 0 and KAL: ust = KAL + "━━━━━━━━━━━━\n" + ust if n < 2 else ust.replace("━━━━━━━━━━━━\n", KAL + "━━━━━━━━━━━━\n", 1)
-        ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(m["m"])); gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        if SADE:
+            _bas = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "")
+            _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
+            if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
+            if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {x['e'][:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
+            ok = yolla(gecikme(m) + "".join(x + "\n" for x in _ek if x) + sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
+        else: ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(m["m"]))
+        gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
+    if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır
+        _ham = "\n".join(pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "")) for m in gidecek)
+        ok = yolla(gecikme(gidecek[0]) + sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)"))
+        for m in gidecek: gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        gidecek = []
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
         ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "🔸 yedek hedefi +0,50σ (gerçekçi ölçümde isabet %64–70, kâr çok küçük)"))); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
@@ -136,10 +151,10 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)"))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            ok = yolla(gecikme(m) + (sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else "")) if SADE else ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
-    for m in bilgi: ok = yolla(m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+    for m in bilgi: ok = yolla(sade.sadelestir(m["m"], "bilgi") if SADE else m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
     GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_, _ in karar])[-40:]
     try:                                                                                       # canlı karne kaydı (bilgi hariç): saat · sınıf · etiket · karar · süre (mesajın ⏱ SÜRE satırı) · 🔥 fonlama z
