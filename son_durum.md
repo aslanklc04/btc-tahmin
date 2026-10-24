@@ -28,7 +28,7 @@
 | 4 saat | $80,768 (+%0.61) | $79,785 (−%0.61) | ⬇️ önce STOP · Zayıf | %53.4 (2024+ %53.0) |
 | 8 saat | $80,971 (+%0.87) | $79,581 (−%0.87) | ⬇️ önce STOP · Zayıf | %52.7 (2024+ %51.9) |
 
-_Model eğitimi: 04.10.2026 · güncelleme: 24.10.2026 21:02 · ⚠️ Yatırım tavsiyesi değildir._
+_Model eğitimi: 04.10.2026 · güncelleme: 24.10.2026 21:15 · ⚠️ Yatırım tavsiyesi değildir._
 
 ## 📨 Telegram günlüğü (son 10 gönderim)
 - 24.10 18:02 · ✅ · 🧭 BTC 24.10 18:00 · $80,214 · sıraya alındı (gonder.py gönderir)
@@ -42,7 +42,7 @@ _Model eğitimi: 04.10.2026 · güncelleme: 24.10.2026 21:02 · ⚠️ Yatırım
 - 24.10 09:02 · ✅ · 🧭 BTC 24.10 09:00 · $80,776 · sıraya alındı (gonder.py gönderir)
 - 24.10 08:02 · ✅ · 🟢 A SINIFI SİNYAL — 🧭 BTC 24.10 08:00 · $80,880 · sıraya alındı (gonder.py gönderir)
 
-_Çalıştırma: 24.10 21:02 · token VAR · sohbet kimliği VAR_
+_Çalıştırma: 24.10 21:15 · token VAR · sohbet kimliği VAR_
 
 ## 🪙 Altcoinler (kendi modelleriyle)
 BTC şu an: **sessiz (⭐ / 4s Çok güçlü ↑ / A yok) — 🔇 BTC sessizken sinyalleri etkin**
@@ -397,10 +397,10 @@ Başlangıçtan (08.10.2026) beri sonuçlanan: **5/13 tuttu (%38) · ort. net %+
 | DOGE | -0.53 | ≥ 3 | 24 s | — | %62 · +%2.26 (66) |
 | XRP | -1.46 | ≥ 2 | 24 s | — | %56 · +%1.58 (131) |
 | ADA | -1.66 | ≥ 3 | 24 s | — | %60 · +%1.85 (77) |
-| ALGO | -0.51 | ≥ 3 | 24 s | — | %51 · +%1.43 (80) |
+| ALGO | -0.88 | ≥ 3 | 24 s | — | %51 · +%1.43 (80) |
 | NEAR | -0.41 | ≥ 2 | 24 s | — | %53 · +%0.92 (275) |
 | ETH | -1.24 | ≥ 3 | 24 s | — | %59 · +%1.32 (39) |
-| CRV | -0.13 | ≥ 3 | 8 s | — | %56 · +%0.68 (159) |
+| CRV | +0.78 | ≥ 3 | 8 s | — | %56 · +%0.68 (159) |
 | AVAX | -1.32 | ≥ 3 | 4 s | — | %64 · +%0.65 (95) |
 | LINK | -0.58 | ≥ 2 | 8 s | — | %55 · +%0.34 (309) |
 | BTC | -1.22 | ≥ 2 | 24 s | — | %58 · +%0.56 (115) |
