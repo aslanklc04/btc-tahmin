@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "23.10 00:08",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: ENS (z +0.1), METIS (z +0.0), ALT (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "23.10 00:08",
 "s": "panel",
 "e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.5",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "24.10 02:07",
 "s": "panel",
 "e": "🧪 24 saat: ADA (z -1.7 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 03:05",
+"s": "panel",
+"e": "🧪 24 saat: BTC (z -1.3 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
