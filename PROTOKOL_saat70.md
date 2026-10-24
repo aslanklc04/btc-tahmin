@@ -23,3 +23,12 @@ _Bu dosya veri seti oluşturulmadan ve hiçbir sonuç görülmeden yazıldı. So
 - Doğrulamada BAŞARI: saat isabeti ≥ %70 VE saat başı ort. net (vadeli) > 0 VE işlem başı net ≥ şimdiki kural VE haftada ≥ 3 sinyalli saat. Spot ücretle sonuç ayrıca raporlanır.
 - Keşifte denenen toplam kural sayısı raporlanır. Başarısız olursa "bulunamadı" denir; eşik gevşetilip yeniden aranmaz.
 - Hiçbir şey kullanıcı onayı olmadan canlıya alınmaz.
+
+## Ek 1 (24.10.2026, veri seti henüz gelmeden yazıldı) — uygulama ayrıntıları
+- Net: piyasa girişi (D) giriş ücreti piyasa; limit (B) hemen dolarsa piyasa, beklerse limit ücreti. 🎯 dolarsa limit çıkış, dolmazsa süre sonu piyasa çıkış. 🎯 ≤ giriş ise hemen piyasa çıkış.
+- Şimdiki kural (taban): sınıf k'ları (ana 0,75 · yedek 0,50 · panelden 0,45), tüm gönderilen sinyaller, filtre yok.
+- Tertil sınırları yalnız KEŞİF saatlerinden hesaplanır. Bir filtre = bir tertil ya da bitişik iki tertil (alt/üst kesim) → değişken başına 5 seçenek (saat dilimi: 4 dilimin herhangi biri ya da bitişik ikisi; hafta sonu: evet/hayır).
+- Aşama 1 (K-C): filtre yok; her sınıf için k ızgarası ve "yarı 🎯 + yarı süre sonu" seçenekleri.
+- Aşama 2 (K-A, K-B): k = şimdiki ve Aşama 1'in en iyisi; tek filtre, 2'li filtre, saat içi en iyi N, saat içi en iyi N + tek filtre.
+- Şartları geçenler arasından doğrulamaya en fazla 3 aday: keşifte haftalık toplam net (saat başı net × haftalık saat) en yüksek üç; aynı filtrenin yalnız k'sı farklı kopyaları tek sayılır.
+- Kod, DOĞRULAMA dönemini (t ≥ 2025-01-01) keşif betiğinde veriden siler; doğrulama ayrı betikte, seçilen adaylar dosyasını okuyarak bir kez çalışır.
