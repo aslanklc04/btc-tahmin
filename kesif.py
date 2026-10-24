@@ -1,7 +1,7 @@
 # kesif.py — PROTOKOL_saat70.md (Ek 1 dahil) KEŞİF aşaması: yalnız 2022-06-01 → 2024-12-31. Doğrulama dönemi veriden SİLİNİR.
 # Girdi: veri_seti.csv.gz · Çıktı: kesif_sonuc.md + kesif_adaylar.json (doğrulamaya gidecek ≤ 3 aday).
 import json, itertools, numpy as np, pandas as pd
-V = pd.read_csv("veri_seti.csv.gz", parse_dates=["t"])
+V = pd.read_csv("veri_seti.csv.gz"); V["t"] = pd.to_datetime(V.t, utc=True)
 V = V[V.t < pd.Timestamp("2025-01-01", tz="UTC")].copy()                                   # ← doğrulama dönemi burada atılır
 assert V.t.max() < pd.Timestamp("2025-01-01", tz="UTC")
 KG = [0.2, 0.3, 0.45, 0.5, 0.6, 0.75, 1.0, 1.25, 1.5, 2.0]
@@ -20,7 +20,7 @@ def net(df, k, gir="D", ucret="vadeli", yari=False):
         if yari: r = 0.5 * r + 0.5 * sure
     return np.where(dol, r, np.nan)
 def sepet(df, r):                                                                           # saat sepeti: aynı t'deki sinyallerin ortalaması
-    x = pd.Series(r, index=df.index).groupby(df.t.values).mean().dropna(); return x
+    x = pd.Series(r, index=df.index).groupby(pd.DatetimeIndex(df.t)).mean().dropna(); return x
 HAFTA = (pd.Timestamp("2025-01-01", tz="UTC") - pd.Timestamp("2022-06-01", tz="UTC")).days / 7
 YARI = pd.Timestamp("2023-07-01", tz="UTC")
 def ozet(x):
