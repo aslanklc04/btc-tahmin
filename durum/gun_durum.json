@@ -1,43 +1,7 @@
 {
 "gun": "2026-10-24",
-"giden": 13,
+"giden": 16,
 "log": [
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: LINK (z -0.7)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: OP (z -1.2 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ADA (z -1.7 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: SUI (z -4.8 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 02:07",
-"s": "panel",
-"e": "🧪 24 saat: DOGE (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "24.10 02:07",
 "s": "panel",
@@ -240,6 +204,42 @@
 "t": "24.10 18:06",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.8 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 19:06",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: BAT (z +2.3), DASH (z +2.2), ADA (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 19:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: KSM (z +1.1), SUPER (z +1.1), XTZ (z +1.0), UMA (z +0.8), RPL (z +0.8), ETC (z +0.6), FLOW (z +0.3), MANA (z +0.3), SUSHI (z +0.3), ENS (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 19:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: KNC (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "24.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.8)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: FLOKI (z -0.8)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.10 19:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: BNB (z -1.1 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
