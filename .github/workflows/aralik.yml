@@ -1,0 +1,53 @@
+name: Aralik + kar-al (PROTOKOL_aralik)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [aralik_q.py, aralik_analiz.py, .github/workflows/aralik.yml]
+permissions:
+  contents: write
+jobs:
+  q:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: canli
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r canli/requirements.txt
+      - run: python -u aralik_q.py ${{ matrix.p }} 10 2>&1 | tail -40
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aralik-q-${{ matrix.p }}
+          path: aralik_q_${{ matrix.p }}.csv
+  analiz:
+    needs: q
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arastirma3
+      - uses: actions/download-artifact@v4
+        with:
+          path: parca
+          pattern: aralik-q-*
+      - run: pip install -q requests pandas numpy
+      - run: |
+          set +e; python -u aralik_analiz.py > aralik_log.txt 2>&1; echo "exit=$?" >> aralik_log.txt; tail -30 aralik_log.txt
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add aralik_log.txt; for f in aralik_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Aralik sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
