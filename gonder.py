@@ -117,7 +117,7 @@ def main():
         for m in pterfi: m["terfi"] = m["c"]; m["m"] = m["m"].replace("⛔ ALMA", "⛔ ama 🔥 fonlama çok yüksek")
         panel = [m for m in panel if not m.get("terfi")]; ana = ana + sorted(pterfi, key=lambda m: (m["o"], m["s"]))
     n = len(ana); gonderilen = 0; karar = []
-    KAL = kalabalik(ana)
+    KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
     for i, m in enumerate(ana):
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
