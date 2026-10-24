@@ -191,10 +191,20 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TG_SIRALI: ""            # gonder.py bitti: haftalik karne / panelden durdurma mesaji dogrudan gider
-      - name: Karne hata verdiyse uyar
-        if: always() && steps.karne.outcome == 'failure'
+      - name: 📏 gercekci karne + golge izleme (24.10.2026; yalniz olcum, sinyallere dokunmaz)
+        id: kgercek
+        if: always()
         continue-on-error: true
-        run: python -c "from ortak import tg_send; tg_send('⚠️ SİSTEM UYARISI — bu saat 📒 karne adımı hata verdi (sinyaller gönderildi; yalnız karne güncellenmedi). Düzeltilene kadar her saat tekrar eder.')"
+        timeout-minutes: 8
+        run: python karne_gercek.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TG_SIRALI: ""
+      - name: Karne hata verdiyse uyar
+        if: always() && (steps.karne.outcome == 'failure' || steps.kgercek.outcome == 'failure')
+        continue-on-error: true
+        run: python -c "from ortak import tg_send; tg_send('⚠️ SİSTEM UYARISI — bu saat 📒 karne ya da 📏 gerçekçi karne adımı hata verdi (sinyaller gönderildi; yalnız karne güncellenmedi). Düzeltilene kadar her saat tekrar eder.')"
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -204,7 +214,7 @@ jobs:
           [ -f son_durum.md ] || exit 0
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json; do git add $f 2>/dev/null || true; done
+          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json; do git add $f 2>/dev/null || true; done
           git commit -m "Saatlik durum" || echo "degisiklik yok"
           ok=0; for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && ok=1 && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
           [ $ok = 1 ] || { echo '::error::panel depoya gönderilemedi'; exit 1; }
