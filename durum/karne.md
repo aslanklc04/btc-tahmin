@@ -1,13 +1,13 @@
-# 📒 Canlı karne — 25.10.2026 01:04
+# 📒 Canlı karne — 25.10.2026 02:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 53 | %70 | 0.42% | 22.0% | 0 | 53 · %72 · 0.45% | %62 · %67 |
-| 🔸 yedek (gönderildi) | 223 | %81 | 1.55% | 345.3% | 3 | 223 · %83 · 0.66% | %60 · %65 |
-| panel (gönderilmedi) | 271 | %57 | 0.41% | 109.8% | 5 | 271 · %58 · 0.21% | — |
-| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 4 | %25 | -1.25% | -5.0% | 3 | 4 · %50 · -0.03% | %72 (🎯 +0,45σ ile) |
-| ↳ panel · prim ⛔ (filtre) | 168 | %59 | 0.48% | 80.2% | 4 | — | — |
+| 🔸 yedek (gönderildi) | 224 | %81 | 1.54% | 345.9% | 2 | 224 · %83 · 0.66% | %60 · %65 |
+| panel (gönderilmedi) | 273 | %56 | 0.40% | 108.0% | 3 | 273 · %58 · 0.20% | — |
+| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 5 | %40 | -0.89% | -4.4% | 2 | 5 · %60 · 0.09% | %72 (🎯 +0,45σ ile) |
+| ↳ panel · prim ⛔ (filtre) | 169 | %59 | 0.47% | 79.2% | 3 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -19,7 +19,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | ✅ ana | 🤝 BTC ile ortak | 14 · %86 | 17 | %71 | 0.92% | 15.7% | %63 · %68 | ✅ iyi |
 | ✅ ana | 🧪 24 s ana coin | 0 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
 | 🔸 yedek | 🌐🤝 ortak geniş liste | 172 · %84 | 213 | %82 | 1.47% | 312.4% | %60 · %65 | ✅ iyi · testle uyumlu |
-| 🔸 yedek | 💵 ABD alıyor | 2 · %50 | 5 | %60 | 6.93% | 34.6% | — | ✅ iyi |
+| 🔸 yedek | 💵 ABD alıyor | 3 · %67 | 6 | %67 | 5.86% | 35.2% | — | ✅ iyi |
 | 🔸 yedek | 🔇/🪙 coin tek | 1 · %0 | 4 | %50 | 0.46% | 1.8% | — | ⏳ veri az |
 | 🔸 yedek | 🧪 24 s ana coin | 1 · %0 | 1 | %0 | -3.58% | -3.6% | — | ⏳ veri az |
 | panel | ₿ BTC saatlik / ⭐ / A | 49 · %39 | 98 | %49 | 0.05% | 4.8% | — | ⚠️ orta |
@@ -28,7 +28,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | panel | 🔇/🪙 coin tek | 13 · %46 | 50 | %54 | 0.27% | 13.4% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 1 · %100 | 6 | %83 | 0.20% | 1.2% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 46 · %89 | 70 | %70 | 1.06% | 74.3% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 6 · %50 | 14 | %57 | 1.38% | 19.4% | %55 · %53 | ✅ iyi |
+| panel | 🧪 24 s ana coin | 8 · %38 | 16 | %50 | 1.10% | 17.5% | %55 · %53 | ⚠️ orta |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
@@ -41,7 +41,6 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 24.10 18:00 | yedek | 🌐🤝 | RSR | 4 s | +1.43% | ✅ |
 | 24.10 18:00 | ana | 🤝 📉🔥 | PEPE | 4 s | +2.51% | ✅ |
 | 24.10 18:00 | ana | 🌐🤝 | FIL | 4 s | +0.77% | ✅ |
 | 24.10 18:00 | yedek | 🌐🤝 | ILV | 4 s | -0.04% | ❌ |
@@ -49,8 +48,9 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 24.10 18:00 | ana | 🌐🤝 | BNT | 4 s | +0.50% | ✅ |
 | 24.10 18:00 | yedek | 🌐🤝 | ALGO | 4 s | +1.03% | ✅ |
 | 24.10 18:00 | yedek | 🌐🤝 | VTHO | 4 s | +1.68% | ✅ |
-| 24.10 18:00 | yedek | 🌐🤝 | WIF | 4 s | +0.62% | ✅ |
+| 24.10 18:00 | yedek | 🌐🤝 | VET | 4 s | +0.25% | ✅ |
 | 24.10 18:00 | yedek | 🌐🤝 | RLC | 4 s | -2.44% | ❌ |
+| 24.10 18:00 | yedek | 🌐🤝 | BONK | 4 s | +1.96% | ✅ |
 | 24.10 18:00 | yedek | 🌐🤝 | EGLD | 4 s | -0.47% | ❌ |
 | 24.10 19:00 | yedek | 🌐🤝 | RPL | 4 s | +2.04% | ✅ |
 | 24.10 19:00 | yedek | 🌐🤝 | SUSHI | 4 s | +1.72% | ✅ |
