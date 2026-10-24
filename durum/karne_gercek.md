@@ -1,4 +1,4 @@
-# 📏 Gerçekçi karne — 25.10.2026 00:06
+# 📏 Gerçekçi karne — 25.10.2026 01:06
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
