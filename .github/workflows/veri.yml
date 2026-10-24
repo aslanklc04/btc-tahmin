@@ -1,0 +1,22 @@
+name: Denetim - veri
+on:
+  push:
+    branches: [denetim]
+    paths: [dt/veri.py, dt/coinler.txt, .github/workflows/veri.yml]
+permissions:
+  contents: read
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix: {shard: [0, 1, 2, 3, 4, 5]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q pandas numpy requests
+      - run: python -u dt/veri.py ${{ matrix.shard }} 6
+      - uses: actions/upload-artifact@v4
+        with: {name: "dveri-${{ matrix.shard }}", path: "out/veri_${{ matrix.shard }}.pkl", retention-days: 30}
