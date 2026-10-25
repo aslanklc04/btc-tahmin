@@ -150,6 +150,8 @@ def _sade(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
         if s.startswith("   ") and out:
             t = s.strip()
             if t.startswith("Giriş (limit)"):
+                gp = re.match(r"Giriş \(limit\) (\$[0-9.,]+)", t)                                 # 26.10: coin satırındaki yuvarlanmış fiyat yerine emirdeki tam limit fiyatı
+                if gp: out[-1][0] = re.sub(r"^(• (?:(?:🚀|📉🔥|💧|💸) )*[A-Z0-9]{2,12} )\$[0-9.,]+", lambda z: z.group(1) + gp.group(1), out[-1][0], count=1)
                 g = re.search(r"geçmiş ort\. sonuç ([+−-]%[\d.]+)", t)
                 if g: out[-1][0] += f" · eski test ort. {g.group(1)}"
                 continue
