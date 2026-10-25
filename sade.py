@@ -8,7 +8,8 @@ import re, math
 GR = {  # 📏 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; karal2_veri 24.10): işlem isabeti 2022–24 · 2025+ · 2026, işlem başı net
     ("ana", None): ("%68 · %66 · %69", "+%0,53 · +%0,34 · +%0,51"),
     ("ana", "🌐🧪"): ("%68 · %64 · %65", "+%1,01 · +%0,59 · +%0,77"), ("ana", "🌐🤝"): ("%70 · %65 · %74", "+%0,39 · +%0,03 · +%0,64"),
-    ("ana", "🤝"): ("%64 · %63 · %69", "+%0,14 · +%0,04 · +%0,36"), ("ana", "🚀"): ("%68 · %73 · %80", "+%0,32 · +%0,53 · +%0,53"),
+    ("ana", "🤝"): ("%64 · %63 · %69", "+%0,14 · +%0,04 · +%0,36"), ("ana", "🚀"): ("%71 · %67 · %70", "+%0,44 · +%0,35 · +%0,44"),   # 25.10: ✅ ana + coin son 24 s z ≥ 2 (MOM_NOT ile aynı küme)
+    ("ana", "₿🚀"): ("%67 · %75 · %83", "+%0,18 · +%0,26 · +%0,41"),                              # 25.10: yalnız BTC 🚀 ana sinyalleri (karal2_veri, B_T0)
     ("ana", "🔀"): ("%70 · %75 · %86", "+%0,54 · +%0,53 · +%0,73"),
     ("yedek", None): ("%69 · %64 · %70", "+%0,14 · −%0,09 · +%0,27"),
     ("panelden", None): ("%69 · %65 · %66", "+%0,21 · +%0,07 · +%0,12"), ("panelden", "💵"): ("%68 · %65 · %67", "+%0,26 · +%0,11 · +%0,20"),
@@ -17,6 +18,8 @@ GR = {  # 📏 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komis
 KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat, değmezse çıkış saatinde sat · stop yok · kaldıraç en fazla 2–3x, izole · 📐 pay = normal pozisyonuna oran · aynı saatteki sinyaller tek bütçe",
          "panelden": "Kural: limit 60 dk · 🎯'ye değerse sat, değmezse çıkış saatinde · stop yok · küçük miktar, kaldıraçsız · 📐 pay = normal pozisyonuna oran",
          "yedek": "Girersen: kaldıraçsız, küçük · limit 60 dk · stop yok"}
+KURAL_TUR = {"⛓️": "Kural: limit 60 dk geçerli · 🎯 yok — çıkış saatinde kapat · stop yok · kaldıraç en fazla 2x, izole",           # 25.10: ⛓️ / 🧑'de 🎯 yok (21.10 kullanıcı)
+             "🧑": "Kural: limit 60 dk geçerli · 🎯 yok — çıkış saatinde sat · stop yok · kaldıraç satırdaki sınırı aşma, izole"}
 AT = ("⏱ ", "⏱️", "💵 BTC geneli", "💡", "ℹ️", "🌐 = ", "✅ Seçilmiş sinyal", "Coinbase'de bu coin", "BTC 4s Çok güçlü ↑ ve aynı saatte", "⚠️ Tek işleme",
       "🔸 🌐 geniş liste", "🚀 MOMENTUM", "📉🔥 ÖNCELİKLİ", "🚀 = ", "📉🔥 = ", "💸 = ", "💸 ÖNCELİKLİ", "💧 = ", "💧📉🔥 = ", "💧💵 ", "📉🔥 💵 + DİP", "Komisyon sonrası kâr", "* eski test",
       "BTC'de güçlü sinyal yokken", "Geçmiş (", "Geçmiş 2024+", "BTC bu saatte", "4 ve 8 saat birlikte", "1s+4s+8s birlikte", "🔇 BTC sessizken")
@@ -33,6 +36,8 @@ def _fmt(p):
     return f"${p:.{min(12, 3 - int(math.floor(math.log10(p))))}f}"
 def _tur(etiket, sinif, gen):
     e = etiket or ""
+    if e.startswith("⛓️"): return "⛓️"
+    if e.startswith("🧑"): return "🧑"
     if sinif == "panelden": return "💵" if "💵" in e else ("🧪" if e.startswith("🧪") else "🔇/🪙")
     if sinif != "ana": return None
     if "🔀" in e.split(" ")[0]: return "🔀"
@@ -44,6 +49,7 @@ def _tur(etiket, sinif, gen):
         if not any(c in gen for c in coins): return "🤝"
     return None
 def olcu_satiri(sinif, tur):
+    if tur in ("⛓️", "🧑"): return "📏 Gerçekçi ölçüm yok (bu türde 🎯 kullanılmıyor, gerçekçi karnede izlenmiyor) — satırlardaki rakamlar eski test, örnek az"
     i, n = GR.get((sinif, tur)) or GR.get((sinif, None)) or ("—", "—")
     ek = " → kâr çoğunlukla komisyona gidiyor" if sinif == "yedek" else ""
     return f"📏 Gerçekçi{' (' + tur + ')' if tur else ''}: isabet {i} · işlem başı {n} (2022–24 · 2025+ · 2026){ek}"
@@ -51,8 +57,10 @@ def coin_satiri(s):
     """• satırını sadeleştir: tekrar eden giriş/çıkış/stop parçalarını at, prim ve eski test etiketlerini kısalt."""
     s = s.rstrip()
     g = re.match(r"^• ((?:(?:🚀|📉🔥|💧|💸) )*)([A-Z0-9]{2,12}): kendi primi (z [+-]?[\d.]+(?: \([^)]*\))?) · limit ALIŞ (\$[0-9.,]+).*?(?:geçmiş ort\. sonuç ([+−-]%[\d.]+))?$", s)
-    if g:                                                                                     # 💵 biçimi
-        return f"• {g.group(1)}{g.group(2)} {g.group(4)} · prim ✅ {g.group(3)}" + (f" · eski test ort. {g.group(5)}" if g.group(5) else "")
+    if g:                                                                                     # 💵 biçimi (25.10: coin'e özel süre + çıkış korunur; ortak çıkış başlıktaysa sadelestir siler)
+        c = re.search(r"· çıkış (\d\d\.\d\d \d\d:\d\d) \((\d+) saat\)", s)
+        return (f"• {g.group(1)}{g.group(2)} {g.group(4)} · prim ✅ {g.group(3)}" + (f" · çıkış {c.group(1)} ({c.group(2)} saat)" if c else "")
+                + (f" · eski test ort. {g.group(5)}" if g.group(5) else ""))
     s = re.sub(r" — limit alış \$[0-9.,]+ · çıkış \d\d\.\d\d \d\d:\d\d \(stop koyma\)", "", s)                # 🧪 biçimi
     s = s.replace(" — ", " · ").replace(" → 4s beklenen", " · 4s beklenen").replace(" · 🌐 · 4s", " · 🌐 · 4s")
     s = re.sub(r"💵 [A-Z0-9]{2,12}: ", "prim ", s)
@@ -60,8 +68,78 @@ def coin_satiri(s):
     s = re.sub(r"geçmiş 2024\+ isabet %(\d+), 2026 %(\d+)", r"eski test isabet %\1 (2024+) / %\2 (2026)", s)
     return s
 def sadelestir(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
-    """metin: üreticinin mesajı (karal_degistir + pay_ekle sonrası) · sinif: ana / yedek / panelden / bilgi · k: 🎯 katsayısı (aralık için) · ust: sınıf başlığı."""
+    """metin: üreticinin mesajı (karal_degistir + pay_ekle sonrası) · sinif: ana / yedek / panelden / bilgi · k: 🎯 katsayısı (aralık için) · ust: sınıf başlığı.
+    25.10.2026 kullanıcı: sade biçim önce denenir; coin, giriş fiyatı, çıkış saati, 🎯 ya da süreden biri kaybolursa (ya da hata çıkarsa) None döner → gonder.py eski biçimi yollar."""
     if sinif == "bilgi": return gunluk(metin) if metin.startswith("☀️") else metin
+    try: out = _sade(metin, sinif, etiket, gen, k, ust)
+    except Exception as e: print("sade biçim hatası → eski biçim:", repr(e)); return None
+    if not out: print("sade biçim çözülemedi → eski biçim:", (etiket or metin[:60]).replace("\n", " ")); return None
+    eksik = kontrol(metin, out)
+    if eksik: print("sade biçimde eksik bilgi → eski biçim:", "; ".join(eksik[:5]), "·", (etiket or "")[:60]); return None
+    return out
+_SAYI = lambda x: _f(x.lstrip("$"))
+GIRIS_RE = re.compile(r"(?:LİMİT alış|limit ALIŞ|limit alış|Limit ALIŞ|Limit SATIŞ \(kısa\)|Giriş \(limit\)) (\$[0-9.,]+)")
+CIKIS_RE = re.compile(r"[çÇ]ıkış(?: \(ikisi için\):)? (\d\d\.\d\d \d\d:\d\d)")
+COIN_RE = re.compile(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{2,12})\b")
+def kontrol(ham, out):
+    """Sade çıktıda temel bilgiler duruyor mu: her coin · her giriş fiyatı · her çıkış saati · her 🎯 fiyatı · süre. Dönüş: eksiklerin listesi (boşsa tamam)."""
+    eksik = []; fiy = [_SAYI(x) for x in re.findall(r"\$[0-9][0-9.,]*", out)]
+    var = lambda v: any(abs(f - v) <= 0.003 * v for f in fiy if f == f)
+    for c in set(COIN_RE.findall(ham)) | set(re.findall(r"^🪙\S*\s+([A-Z0-9]{2,12}) ", ham, re.M)):
+        if not re.search(rf"\b{re.escape(c)}\b", out): eksik.append(f"coin {c}")
+    for x in set(GIRIS_RE.findall(ham)):
+        v = _SAYI(x)
+        if v == v and v > 0 and not var(v): eksik.append(f"giriş {x}")
+    for x in set(re.findall(r"🎯 Kâr-al (\$[0-9.,]+)", ham)):
+        v = _SAYI(x)
+        if v == v and v > 0 and not var(v): eksik.append(f"🎯 {x}")
+    for x in set(CIKIS_RE.findall(ham)) | set(m.group(3) for m in map(SURE_RE.match, ham.split("\n")) if m):
+        if x not in out: eksik.append(f"çıkış {x}")
+    if re.search(r"(SAAT|GÜN) TUT", ham) and not re.search(r"\d+ (saat|gün)", out): eksik.append("süre")
+    return eksik
+def _son_cikis(metin):
+    c = CIKIS_RE.findall(metin); return max(c, key=lambda x: (x[3:5], x[0:2], x[6:])) if c else None
+def btc_sade(metin, sinif, etiket, ust):
+    """₿ BTC ⭐ / A sınıfı / saatlik mesaj → sade biçim: başlık · süre/çıkış · 📏 · prim · giriş/çıkış (💡) · 🎯 · ufuk satırları · kural."""
+    L = metin.split("\n"); sure = cikis = None; sure_t = ""; bas = None; prim = ""; eis = ""; hiz = ""; emir = []; ufuk = []; diger = []; i = 0
+    while i < len(L):
+        x = L[i]; t = x.strip(); m = SURE_RE.match(x)
+        if m: sure, cikis = f"{m.group(1)} {'saat' if m.group(2) == 'SAAT' else 'gün'}", m.group(3)
+        elif x.startswith("⏱ SÜRE:"): h_ = re.findall(r"(\d+) SAAT", x); sure_t = ("süre " + " · ".join(dict.fromkeys(h_)) + " saat (her sinyalin çıkışı satırında)") if h_ else ""
+        elif "— 🧭 BTC" in x and bas is None: bas = x.strip().replace(" — ", " · ")
+        elif x.startswith(("💵 ABD", "💵 BTC")):
+            g = re.search(r"z ([+-]?[\d.]+)\)\s*(✅|⛔|⚠️)?", x); prim = (f"prim {g.group(2) or ''} z {g.group(1)}".replace("  ", " ") if g else "") + (" (ABD satıyor)" if "⛔" in x else "")
+        elif x.startswith(("4 ve 8 saat birlikte", "Geçmiş (", "1s+4s+8s birlikte")) and "isabet %" in x and not eis:
+            eis = "eski test isabet " + " · ".join(f"%{b}" + (f" ({a.strip()})" if a else "") for a, b in re.findall(r"(\d+s )?isabet %([\d.]+)", x))
+        elif x.startswith(("⚡", "🐢", "⏩")): hiz = x.split(":")[0].strip()
+        elif x.startswith("💡"):
+            e = t[1:].strip()
+            g = re.match(r"Emir önerisi: LİMİT alış (\$[0-9.,]+)", e)
+            if g: e = f"Giriş: LİMİT alış {g.group(1)} (60 dk geçerli)"
+            g = re.match(r"(.*?)Giriş \(limit\) (\$[0-9.,]+) → çıkış (\d\d\.\d\d \d\d:\d\d)'de (sat|kapat) \([^)]*\)(?: · geçmiş ort\. sonuç ([+−-]%[\d.]+))?", e)
+            if g: e = (g.group(1).rstrip(" —") + " · " if g.group(1).strip() else "") + f"giriş {g.group(2)} · çıkış {g.group(3)}" + (f" · eski test ort. {g.group(5)}" if g.group(5) else "")
+            emir.append(e)
+        elif x.startswith("   ") and (emir and L[i - 1].startswith(("💡", "   "))) and not re.match(r"^\s+beklenen", x):
+            g = re.match(r"Çıkış (\d\d\.\d\d \d\d:\d\d): .*?(?:geçmiş ort\. sonuç ([+−-]%[\d.]+))?$", t)
+            if g: emir.append(f"Çıkış {g.group(1)}: LİMİT satış (60 dk'da dolmazsa piyasa)" + (f" · eski test ort. {g.group(2)}" if g.group(2) else ""))
+            elif t.startswith("🎯 Kâr-al"):
+                g = TP_RE.search(t); emir.append((f"🎯 {g.group(1)} (+%{g.group(2).replace('.', ',')})" + (f" · 📐 pay ×{g.group(3)}" if g.group(3) else "")) if g else t)
+            else: emir.append(t)
+        elif re.match(r"^\d+ saat: ", x):
+            b = re.search(r"beklenen (\$[0-9.,]+) · %80 aralık (\$[0-9.,]+)–(\$[0-9.,]+)", L[i + 1]) if i + 1 < len(L) else None
+            ufuk.append(f"{x.split(' saat:')[0]} s: {x.split(': ', 1)[1].split(' — ')[0]}" + (f" · beklenen {b.group(1)} (%80: {b.group(2)}–{b.group(3)})" if b else ""))
+            if b: i += 1
+        elif re.match(r"^🎯 \d+s: hedef", x): pass                                                   # bariyer modeli (stop'lu) — işlem kuralı değil, sade biçimde yok
+        elif x.startswith(AT) or not t or x.startswith("━"): pass
+        else: diger.append(x.rstrip())
+        i += 1
+    if not bas or not emir: return None
+    tur = "₿🚀" if "🚀" in (etiket or "") else None
+    ilk = (ust.strip() + " — " if ust else "") + bas + (f" · {sure}" if sure else (f" · {sure_t}" if sure_t else "")) + (f" · çıkış {cikis}" if cikis else "")
+    sat = [ilk, olcu_satiri(sinif, tur), makro_satiri(cikis or _son_cikis(metin)), " · ".join(z for z in ("• BTC" + (" 🚀 momentum" if tur else ""), prim, eis, hiz) if z)]
+    sat += ["   " + e for e in emir] + ["   " + u for u in ufuk] + diger + [KURAL.get(sinif, "")]
+    return "\n".join(z for z in sat if z)
+def _sade(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
     L = metin.split("\n"); sure = cikis = None; baslik = None; out = []; cur = None; beklenen_var = "beklenen" in metin
     for s in L:
         m = SURE_RE.match(s)
@@ -95,12 +173,15 @@ def sadelestir(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
         if s.startswith(AT) or not s.strip() or s.startswith("━"): continue
         out.append([s.rstrip(), []])                                                       # bilinmeyen satır: koru
     if not any(o[0].startswith("• ") for o in out):
-        t = tek_coin(metin, sinif, etiket, gen, ust)                                         # 🔇 / 🪙 / 🔀 tek coin biçimi
-        return t if t else not_at(metin)                                                   # çözülemedi → güvenli geri dönüş
+        if "— 🧭 BTC" in metin and "🪙" not in metin: return btc_sade(metin, sinif, etiket, ust)   # 25.10: ₿ BTC ⭐ / A / saatlik
+        return tek_coin(metin, sinif, etiket, gen, ust)                                      # 🔇 / 🪙 / 🔀 tek coin biçimi · çözülemezse None → gonder eski biçimi yollar
+    if cikis:                                                                                # tek ortak çıkış başlıkta → coin satırında tekrar etmesin
+        for o in out: o[0] = re.sub(rf" · çıkış {re.escape(cikis)} \(\d+ saat\)", "", o[0])
+    tur = _tur(etiket, sinif, gen)
     ilk = (ust.strip() + " — " if ust else "") + (baslik or "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
-    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis)]
+    sat = [ilk, olcu_satiri(sinif, tur), makro_satiri(cikis or _son_cikis(metin))]
     for c, alt in out: sat.append(c); sat += ["   " + a for a in alt]
-    sat.append(KURAL.get(sinif, ""))
+    sat.append(KURAL_TUR.get(tur) or KURAL.get(sinif, ""))
     return "\n".join(x for x in sat if x)
 def not_at(metin):                                                                           # güvenli geri dönüş: yalnız not satırlarını at (⏱ SÜRE satırı kalır)
     return "\n".join(s for s in metin.split("\n") if SURE_RE.match(s) or not s.startswith(AT))
@@ -139,7 +220,8 @@ def tek_coin(metin, sinif, etiket, gen, ust):
     if not bas or not tp: return None
     g = re.match(r"^🪙\S*\s+([A-Z0-9]{2,12}) (.*?) — (?:.*?— )?🧭 \S+ (\d\d\.\d\d \d\d:\d\d) · (\$[0-9.,]+)", bas)
     if not g: return None
-    nm, ad, saat, fiyat = g.groups(); isr = re.match(r"^((?:(?:🚀|📉🔥|💧|💸) )*)", etiket.split(" ", 1)[1] if " " in etiket else "").group(1) if etiket else ""
+    nm, ad, saat, fiyat = g.groups(); gf = GIRIS_RE.search(metin); fiyat = gf.group(1) if gf else fiyat   # 25.10: limit fiyatı başlıktaki yuvarlanmış fiyattan değil emir satırından
+    isr = re.match(r"^((?:(?:🚀|📉🔥|💧|💸) )*)", etiket.split(" ", 1)[1] if " " in etiket else "").group(1) if etiket else ""
     ilk = (ust.strip() + " — " if ust else "") + f"🪙 {ad} · {saat}" + (" · 🔇 BTC sessizken" if "🔇" in bas else "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
     sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp, KURAL.get(sinif, "")]
     return "\n".join(x for x in sat if x)

@@ -46,13 +46,17 @@ def olcu(d, sc):
 def kural_olaylari(Z):
     """Her kural için araştırmadaki sayım: koşulun ilk günü olay, tutma süresi boyunca tekrar sayılmaz."""
     return {ad: Z.index[events(kos(Z).fillna(False).values, gun)] for ad, _, _, gun, kos, _ in KURAL}
-def fmt(p): return f"${p:,.0f}" if p >= 1000 else f"${p:,.2f}"
+def fmt(p): return "$?" if not (np.isfinite(p) and p > 0) else (f"${p:,.0f}" if p >= 1000 else f"${p:,.2f}")
 def anlik(sym, yedek=np.nan):
     for url in EP:
         try:
             r = requests.get(url.replace("klines", "ticker/price"), params=dict(symbol=sym), timeout=10)
             if r.status_code == 200: return float(r.json()["price"])
         except Exception: pass
+    try:                                                                                       # 25.10 denetim: anlık fiyat yoksa son kapanmış saatin kapanışı ("$?" / "$nan" gitmesin)
+        if not np.isfinite(yedek):
+            _n = pd.Timestamp.now(tz="UTC"); return float(fetch_1h((_n - pd.Timedelta(hours=6)).timestamp() * 1000, _n.timestamp() * 1000, sym=sym).close.iloc[-1])
+    except Exception: pass
     return yedek
 def ozet(x): return f"{sum(e['ok'] for e in x)}/{len(x)} tuttu (%{100*sum(e['ok'] for e in x)/len(x):.0f}) · ort. net %{np.mean([e['net'] for e in x]):+.2f} · toplam %{np.sum([e['net'] for e in x]):+.1f}" if x else "sonuçlanan işlem yok"
 def zsatir(r): return " · ".join(f"{ADLAR[k]} z {r[k]:+.1f}" for k in ADLAR if np.isfinite(r[k]))

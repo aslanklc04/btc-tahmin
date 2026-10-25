@@ -29,6 +29,10 @@ def anlik(sym, yedek=np.nan):
             r = requests.get(url.replace("klines", "ticker/price"), params=dict(symbol=sym), timeout=10)
             if r.status_code == 200: return float(r.json()["price"])
         except Exception: pass
+    try:                                                                                       # 25.10 denetim: anlık fiyat yoksa son kapanmış saatin kapanışı ("$?" / "$nan" gitmesin)
+        if not np.isfinite(yedek):
+            _n = pd.Timestamp.now(tz="UTC"); return float(fetch_1h((_n - pd.Timedelta(hours=6)).timestamp() * 1000, _n.timestamp() * 1000, sym=sym).close.iloc[-1])
+    except Exception: pass
     return yedek
 def ozet(x): return f"{sum(e['ok'] for e in x)}/{len(x)} tuttu (%{100*sum(e['ok'] for e in x)/len(x):.0f}) · ort. net %{np.mean([e['net'] for e in x]):+.2f} · toplam %{np.sum([e['net'] for e in x]):+.1f}" if x else "sonuçlanan işlem yok"
 def calis():

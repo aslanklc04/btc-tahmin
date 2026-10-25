@@ -37,8 +37,12 @@ def coz(e, sure):
     if e.startswith("🧪"): return [(g.group(1), 24, 1, "🌐🧪" if g.group(1) in GEN else "🧪", isr) for g in COIN_RE.finditer(e.split(":", 1)[1])]
     if e.startswith("🤝"): return [(g.group(1), 4, 1, "🌐🤝" if g.group(1) in GEN else "🤝", isr) for g in COIN_RE.finditer(e.split(":", 1)[1])]
     if e.startswith("₿"):
+        tr_ = "🚀" if "🚀" in e else "₿"
+        if "(bilgi)" not in e and not re.search(r"\((\d+) s\)", e):                                 # 25.10 denetim: saatlik birleşik mesaj (1 · 4 · 8 saat) → her ↑ ufuk ayrı işlem
+            ufk = [(int(h), y) for h, y in re.findall(r"(\d+) saat (?:Çok güçlü|Güçlü) (↑|↓)", e)]
+            if ufk: return [("BTC", h, 1 if y == "↑" else -1, tr_, "") for h, y in dict(ufk).items()]
         hs = [int(x) for x in re.findall(r"(\d+) saat", e)] + [int(x) for x in re.findall(r"\((\d+) s\)", e)]
-        return [("BTC", max(hs) if hs else (sure or 4), -1 if ("(bilgi)" in e or "↓" in e) else 1, "🚀" if "🚀" in e else "₿", "")]
+        return [("BTC", max(hs) if hs else (sure or 4), -1 if ("(bilgi)" in e or "↓" in e) else 1, tr_, "")]
     g = re.match(r"^(\S+) ([A-Z0-9]{2,12}) .*?· (\d+) saat", e)
     if g:
         on = g.group(1); tur = "🔀" if "🔀" in on else ("🚀" if "🚀" in on else "🔇/🪙")
@@ -107,7 +111,7 @@ def main():
         n, h, a, s, o = ozet(X.sinif == sn); ts = SINIF_TEST.get(sn); nt_, ht_, at_ = ozet_tp(X.sinif == sn)
         L.append(f"| {ad} | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | {'%' + f(ts[0], 0) + ' · %' + f(ts[1], 0) if ts else '—'} |")
     n, h, a, s, o = ozet((X.sinif == "yedek") & X.pden); nt_, ht_, at_ = ozet_tp((X.sinif == "yedek") & X.pden)
-    L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %72 (🎯 +0,45σ ile) |")
+    L.append(f"| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | {nt_} · %{f(ht_, 0)} · {f(at_, 2)}% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |")
     n, h, a, s, o = ozet((X.sinif == "panel") & X.prim_ret); L.append(f"| ↳ panel · prim ⛔ (filtre) | {n} | %{f(h, 0)} | {f(a, 2)}% | {f(s, 1)}% | {o} | — | — |")
     L.append("_🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._")
     hafta_m = (X.t0 + pd.to_timedelta(X.H, unit="h")) > now - pd.Timedelta(days=7)            # son 7 günde KAPANAN

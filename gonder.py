@@ -67,6 +67,18 @@ def pay_ekle(metin):                                                            
     return PAY_RE.sub(f, metin)
 KARAL_RE = re.compile(r"\n[ \t]*🎯 Kâr-al[^\n]*")
 def karal_sil(t): return KARAL_RE.sub("", t)                                                    # 21.10.2026 kullanıcı: 🔸 yedekte 🎯 kâr-al yok, tahmin süresi kadar tut (karne: yedekte kâr-al neti yarıya indiriyor)
+DONUS = []                                                                                    # 25.10.2026 kullanıcı: sade biçim çözülemezse / bilgi kaybolursa eski biçim gider (sayılır, panele yazılır)
+def bicim(sade_fn, eski_fn, ad=""):
+    """Önce sade biçim (sade.sadelestir kendi içinde coin · giriş · çıkış · 🎯 · süre kontrolü yapar); None ya da hata → eski biçim."""
+    if SADE:
+        try:
+            t = sade_fn()
+            if t:
+                try: return sade.risk_ekle(t)
+                except Exception as e: print("testere uyarısı eklenemedi:", e); return t
+        except Exception as e: print("sade biçim hatası:", repr(e))
+        DONUS.append(ad); print("→ eski biçim:", ad)
+    return eski_fn()
 def gecikme(m):
     gec = time.time() - m["t"]
     return f"⌛ GECİKMELİ ({gec / 60:.0f} dk) — fiyat değişmiş olabilir, işlem açmadan önce kontrol et\n" if gec > 45 * 60 else ""
@@ -129,24 +141,31 @@ def main():
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         if i == 0 and KAL: ust = KAL + "━━━━━━━━━━━━\n" + ust if n < 2 else ust.replace("━━━━━━━━━━━━\n", KAL + "━━━━━━━━━━━━\n", 1)
-        if SADE:
+        if True:                                                                               # sade önce; çözülemezse eski biçim (ust + PAY_NOT + mesaj)
             _bas = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "")
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {x['e'][:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
-            ok = yolla(gecikme(m) + "".join(x + "\n" for x in _ek if x) + sade.risk_ekle(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas)))
-        else: ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(m["m"]))
-        gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
-    GD["giden"] += n
+            _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + t_))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
+            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
+            except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
+        GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
-    if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır
-        _ham = "\n".join(pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "")) for m in gidecek)
-        ok = yolla(gecikme(gidecek[0]) + sade.risk_ekle(sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)")))
-        for m in gidecek: gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
-        gidecek = []
+    if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır · 25.10: çözülemezse aşağıdaki eski biçim
+        try:
+            _ham = "\n".join(pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "")) for m in gidecek)
+            _t = sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)")
+        except Exception as e: print("yedek sade biçim hatası:", repr(e)); _t = None
+        if _t:
+            try: _t = sade.risk_ekle(_t)
+            except Exception as e: print("testere uyarısı eklenemedi:", e)
+            ok = yolla(gecikme(gidecek[0]) + _t)
+            for m in gidecek: gonderilen += ok; GD["giden"] += ok; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            gidecek = []
+        else: DONUS.append("🔸 yedek"); print("→ eski biçim: 🔸 yedek")
     for j, m in enumerate(gidecek):
         ust = YEDEK_UST.replace("🔸 YEDEK SİNYAL", f"🔸 YEDEK SİNYAL {j + 1}/{ny}" if ny >= 2 else "🔸 YEDEK SİNYAL", 1) + "\n━━━━━━━━━━━━\n"
-        ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "🔸 yedek hedefi +0,50σ (gerçekçi ölçümde isabet %64–70, kâr çok küçük)"))); gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
+        ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "🔸 yedek hedefi +0,50σ (gerçekçi ölçümde isabet %64–70, kâr çok küçük)"))); gonderilen += ok; GD["giden"] += ok; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))   # 21.10 akşam: 🔸 yedekte de 🎯 kâr-al · 22.10: karne kaydı yorum satırında kalmıştı → düzeltildi
     for m in yedek:
         if m["o"] >= ALMA_ESIK: karar.append(("🔸 yedek", m["e"], "gitmedi — ⛔ ABD satıyor (testte kaybettirdi)", m))
     pden = sorted([m for m in panel if m["c"] == "panely" and m["o"] < ALMA_ESIK], key=lambda m: (m["o"], m["s"]))   # 22.10: 📋 panelden → 🔸 yedek (günde ≤ 2, ⛔ hariç)
@@ -154,10 +173,14 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            ok = yolla(gecikme(m) + (sade.risk_ekle(sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else ""))) if SADE else ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            try: ok = yolla(gecikme(m) + bicim(lambda: sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else "")),
+                                              lambda: ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")), m.get("e", "")))
+            except Exception as e: print("panelden mesaj gönderilemedi:", repr(e)); ok = False
+            gonderilen += ok; GD["giden"] += ok; GD["panelden"] += ok; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
-    for m in bilgi: ok = yolla(sade.sadelestir(m["m"], "bilgi") if SADE else m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+    for m in bilgi: ok = yolla(bicim(lambda: sade.sadelestir(m["m"], "bilgi"), lambda: m["m"], "ℹ️ bilgi")); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+    if DONUS: print(f"⚠️ {len(DONUS)} mesaj eski biçimle gitti (sade biçim çözülemedi): {DONUS}")
     print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
     GD["log"] = (GD["log"] + [dict(t=f"{simdi:%d.%m %H:%M}", s=s_, e=e_, k=k_) for s_, e_, k_, _ in karar])[-40:]
     try:                                                                                       # canlı karne kaydı (bilgi hariç): saat · sınıf · etiket · karar · süre (mesajın ⏱ SÜRE satırı) · 🔥 fonlama z
@@ -185,7 +208,8 @@ def main():
     if os.path.exists("son_durum.md"):                                                         # panel: Telegram kararları
         sat = [f"- {x['t']} · {x['s']} · {x['e']} → {x['k']}" for x in reversed(GD["log"][-20:])]
         open("son_durum.md", "a", encoding="utf-8").write(f"\n\n## 📨 Telegram kararları (son 20) — bugün giden sinyal: {GD['giden']}\n"
-            "_✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_\n" + ("\n".join(sat) if sat else "- (henüz yok)") + "\n")
+            "_✅ ana = işlem sinyali · 🔸 yedek = seçilmiş sette olmayan sinyal (⛔ olanlar hariç gider) · panel = gönderilmez_\n"
+            + (f"_⚠️ Bu saat {len(DONUS)} mesaj eski biçimle gitti (sade biçim çözülemedi): {', '.join(str(x)[:50] for x in DONUS)}_\n" if DONUS else "") + ("\n".join(sat) if sat else "- (henüz yok)") + "\n")
     if rapor:                                                                                  # son haftalık model raporları: durum/haftalik_rapor.md (en yenisi üstte, son 30)
         try:
             eski = open(RAPOR_F, encoding="utf-8").read().split("\n\n---\n\n") if os.path.exists(RAPOR_F) else []

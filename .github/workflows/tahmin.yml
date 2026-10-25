@@ -14,6 +14,8 @@ jobs:
       TG_SIRALI: "1"            # mesajlar kuyruğa; sondaki gonder.py öncelik sırasıyla (en iyi sinyal üstte) gönderir
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # 25.10 denetim: aynı saatte kuyrukta bekleyen ikinci çalışma, birincinin kaydettiği son durumu görsün (tetikleme anındaki eski commit'i değil)
       - name: Genis coin modelleri (modeller dali; yoksa atlanir)
         continue-on-error: true
         uses: actions/checkout@v4
@@ -41,6 +43,8 @@ jobs:
           key: gecmis-${{ github.run_id }}
           restore-keys: gecmis-
       - id: btc
+        continue-on-error: true   # 25.10 denetim: BTC adımı düşerse diğer sinyaller (coin, 🧪, 💵, ⛓️, 🧑) yine üretilsin; hata gonder.py uyarısında
+        timeout-minutes: 8
         run: python tahmin.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -174,13 +178,15 @@ jobs:
           path: durum/prim.pkl
           key: pgecmis-${{ github.run_id }}
       - name: Telegram mesajlarini oncelik sirasiyla gonder (en iyi sinyal ustte)
+        id: gonder
         if: always()
+        continue-on-error: true   # 25.10 denetim: hata olsa da karne ve depoya kayıt adımları çalışsın
         timeout-minutes: 6
         run: python gonder.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }}"   # karne artık gönderimden sonra; hatası ayrı adımda uyarılır
+          ADIMLAR: "btc=${{ steps.btc.outcome }} coin=${{ steps.coin.outcome }} d24=${{ steps.d24.outcome }} zincir=${{ steps.zincir.outcome }} kucuk=${{ steps.kucuk.outcome }} prim=${{ steps.prim.outcome }} likidite=${{ steps.likidite.outcome }} d10=${{ steps.d10.outcome }}"   # karne artık gönderimden sonra; hatası ayrı adımda uyarılır
       - name: 📒 canli karne (23.10.2026 gonderimden SONRA — sinyaller ~2,5 dk erken gider; mesajlari kuyruga degil dogrudan)
         id: karne
         if: always()
@@ -202,14 +208,16 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TG_SIRALI: ""
       - name: Karne hata verdiyse uyar
-        if: always() && (steps.karne.outcome == 'failure' || steps.kgercek.outcome == 'failure')
+        if: always() && (steps.karne.outcome == 'failure' || steps.kgercek.outcome == 'failure' || steps.gonder.outcome == 'failure')
         continue-on-error: true
-        run: python -c "from ortak import tg_send; tg_send('⚠️ SİSTEM UYARISI — bu saat 📒 karne ya da 📏 gerçekçi karne adımı hata verdi (sinyaller gönderildi; yalnız karne güncellenmedi). Düzeltilene kadar her saat tekrar eder.')"
+        run: python -c "from ortak import tg_send; import os; tg_send('⚠️ SİSTEM UYARISI — bu saat ' + ('📨 GÖNDERME adımı hata verdi — bazı sinyaller gitmemiş olabilir' if os.environ.get('GO') == 'failure' else '📒 karne ya da 📏 gerçekçi karne adımı hata verdi (sinyaller gönderildi; yalnız karne güncellenmedi)') + '. Düzeltilene kadar her saat tekrar eder.')"
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TG_SIRALI: ""
+          GO: ${{ steps.gonder.outcome }}
       - name: son_durum.md depoya yaz
+        if: always()   # 25.10 denetim: önceki bir adım düşse de karne kayıtları depoya yazılsın
         run: |
           [ -f son_durum.md ] || exit 0
           git config user.name "github-actions"

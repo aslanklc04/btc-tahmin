@@ -95,7 +95,7 @@ def emir_satiri(H, ort=None):                                                   
     cik = (t + pd.Timedelta(hours=H, minutes=6)).tz_convert(DISPLAY_TZ)
     bek = (f" · {CIKIS_NOT} · geçmiş ort. sonuç {'+' if ort >= 0 else '−'}%{abs(ort):.2f}" if ort is not None and np.isfinite(ort) else f" · {CIKIS_NOT}")
     return (f"💡 Emir önerisi: LİMİT alış ${P_NOW:,.1f} (şu anki fiyat) — 60 dk geçerli, dolmazsa işleme girme.\n"
-            f"   Çıkış {cik:%d.%m %H:%M}: o anki fiyattan LİMİT satış — 60 dk'da dolmazsa piyasa emriyle sat. (Testte işlem başı kârı ~%0,05 artırdı.){bek}")
+            f"   Çıkış {cik:%d.%m %H:%M}: o anki fiyattan LİMİT satış — 60 dk'da dolmazsa piyasa emriyle sat. (Testte işlem başı kârı ~%0,05 artırdı.){bek}" + karal_satir(P_NOW, full.close, H))   # 25.10 denetim: karne bu sinyali 🎯 ile ölçüyordu ama mesajda 🎯 yoktu
 HIZ = hiz_notu(CBZ, karal=True); HIZL = (HIZ + "\n") if HIZ else ""; ALMA = bool(np.isfinite(CBZ) and CBZ <= -1)
 u4_yeni = bool(strong_up.get(4)) and any(H_ == 4 and sg_ == 1 for H_, sg_, _ in new_sig)
 # ---- sinyal sonuç takibi (haftalık rapor için) ----
@@ -152,6 +152,11 @@ if HAFTALIK_RAPOR and tloc.weekday() == 6 and tloc.hour == 20 and (G.get("last_w
     G["last_weekly"] = t
 if GUNLUK_OZET_SAATI is not None and tloc.hour == GUNLUK_OZET_SAATI and (G["last_daily"] is None or t - G["last_daily"] >= pd.Timedelta(hours=20)):
     tg_send(f"☀️ Günlük özet — {head}\nℹ️ Bilgi mesajı, işlem sinyali değil. İşlem için yalnız ✅ İŞLEM SİNYALİ ve 🔸 YEDEK SİNYAL mesajlarına bak.\n⭐ en güçlü sinyal: {'VAR' if agree else 'yok'} · 🟢 A sınıfı: {'VAR' if acls_on else 'yok'}\n" + "\n".join(lines) + "".join("\n" + u for u in tazelik_uyari())); G["last_daily"] = t
+# 25.10 denetim: durum, mesajlar kuyruğa yazıldıktan HEMEN sonra kaydedilir (panel kısmı düşerse aynı sinyal sonraki saat tekrar gitmesin)
+for d_ in ("PG", "PL", "BPG", "BPL"):
+    for k in G[d_]: G[d_][k] = G[d_][k][G[d_][k].index >= G[d_][k].index[-1] - pd.Timedelta(days=70)]
+G["ST"] = G["ST"][G["ST"].index >= G["ST"].index[-1] - pd.Timedelta(days=70)]
+with open("durum/gecmis.pkl", "wb") as f: pickle.dump(G, f)
 # ---- son_durum.md (GitHub'da okunabilir panel) ----
 star = (f"## ⭐ EN GÜÇLÜ SİNYAL VAR — 4 ve 8 saat birlikte 'Çok güçlü YUKARI'\nGeçmiş: 4 saat sonra isabet **%{a4_['acc']:.1f}**, 8 saat sonra **%{a8_['acc']:.1f}** ({a4_['n']} olay)" + ("\n\n" + M.get("ALT_LINE", "") if M.get("ALT_LINE") else "")
         if agree else f"⭐ En güçlü sinyal şu an **yok** (4s: {'✔' if strong_up.get(4) else '✘'} · 8s: {'✔' if strong_up.get(8) else '✘'}). Geldiğinde geçmiş isabet 4s %{a4_['acc']:.1f}, 8s %{a8_['acc']:.1f}.")
@@ -169,10 +174,6 @@ md += "\n## 📨 Telegram günlüğü (son 10 gönderim)\n" + ("\n".join(f"- {x[
 md += f"\n_Çalıştırma: {pd.Timestamp.now(tz=DISPLAY_TZ):%d.%m %H:%M} · token {'VAR' if _ortak.TELEGRAM_TOKEN else 'YOK'} · sohbet kimliği {'VAR' if _ortak.TELEGRAM_CHAT_ID else 'YOK'}_\n"
 TZU = tazelik_uyari(); md = md.replace("\n\n", "\n\n" + "  \n".join(TZU) + "\n\n", 1) if TZU else md   # 22.10: bayat veri kaynağı uyarısı panelin üstünde
 open("son_durum.md", "w").write(md)
-for d_ in ("PG", "PL", "BPG", "BPL"):
-    for k in G[d_]: G[d_][k] = G[d_][k][G[d_][k].index >= G[d_][k].index[-1] - pd.Timedelta(days=70)]
-G["ST"] = G["ST"][G["ST"].index >= G["ST"].index[-1] - pd.Timedelta(days=70)]
-with open("durum/gecmis.pkl", "wb") as f: pickle.dump(G, f)
 # ---- spot emir defteri kaydı: "sabırsız satıcı" fikrini ileride spot defterle test etmek için (vadeli defter ABD sunucusundan erişilemiyor, HTTP 451) ----
 try:
     import csv

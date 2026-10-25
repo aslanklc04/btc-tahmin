@@ -204,6 +204,8 @@ try:
         else: tg_send("🪙📊 ALTCOİN HAFTALIK SONUÇ — son 7 günde sonuçlanan altcoin sinyali yok.", sinif="rapor")
         GC["_last_weekly"] = tl_
 except Exception: traceback.print_exc()
+# 25.10 denetim: durum, mesajlar kuyruğa yazıldıktan hemen sonra kaydedilir (panel kısmı düşerse sinyal tekrar gitmesin)
+with open(STATE_F, "wb") as f: pickle.dump(GC, f)
 # ---- panel: son_durum.md'ye altcoin bölümü ----
 if rows_md or kapali:
     tl = GC.get("_tglog", [])[-10:]
@@ -216,4 +218,3 @@ if rows_md or kapali:
           + "\n### 📨 Altcoin mesajları (son 10)\n" + ("\n".join(f"- {x['t'].tz_convert(DISPLAY_TZ):%d.%m %H:%M} · {'✅' if x['ok'] else '❌'} · {x['tip']} · {x['info']}" for x in reversed(tl)) if tl else "- (henüz gönderim yok)") + "\n")
     if os.path.exists("son_durum.md"): open("son_durum.md", "a").write(md)
     print(md)
-with open(STATE_F, "wb") as f: pickle.dump(GC, f)

@@ -21,9 +21,12 @@ out, s = [], requests.Session()
 for j in range(10, 0, -1):
     a, b = gun - pd.Timedelta(hours=300 * j), gun - pd.Timedelta(hours=300 * (j - 1))
     for _ in range(3):
-        r = s.get("https://api.exchange.coinbase.com/products/BTC-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
-        if r.status_code == 200: out += r.json(); break
+        try:                                                                                   # 25.10 denetim: ağ hatası adımı düşürmesin (prim yoksa sinyal de yok)
+            r = s.get("https://api.exchange.coinbase.com/products/BTC-USD/candles", params=dict(granularity=3600, start=a.isoformat(), end=b.isoformat()), timeout=20)
+            if r.status_code == 200: out += r.json(); break
+        except Exception as e: print("Coinbase alınamadı:", str(e)[:100])
         time.sleep(1.5)
+if not out: print("📆 D10: Coinbase verisi yok → bu saat sinyal yok"); raise SystemExit(0)
 cb = pd.DataFrame(out, columns=["t", "low", "high", "open", "close", "volume"]).drop_duplicates("t")
 cb = pd.Series(cb.close.values.astype(float), index=pd.to_datetime(cb.t, unit="s", utc=True) + pd.Timedelta(hours=1)).sort_index()
 bn = fetch_1h((gun - pd.Timedelta(hours=3020)).timestamp() * 1000, gun.timestamp() * 1000 + 1).close
