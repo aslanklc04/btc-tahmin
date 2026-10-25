@@ -1,4 +1,4 @@
-# 25.10.2026 denetim düzeltmeleri (duzeltme-2510 dalı) uçtan uca deneniyor
+# 25.10.2026 denetim düzeltmeleri main'e alındı — main üzerinde son uçtan uca deneme
 name: Uctan uca kuru denetim
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: duzeltme-2510
+          ref: main
       - uses: actions/checkout@v4
         with:
           ref: arastirma3
