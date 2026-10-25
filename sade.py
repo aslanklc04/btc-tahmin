@@ -143,3 +143,31 @@ def tek_coin(metin, sinif, etiket, gen, ust):
     ilk = (ust.strip() + " — " if ust else "") + f"🪙 {ad} · {saat}" + (" · 🔇 BTC sessizken" if "🔇" in bas else "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
     sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp, KURAL.get(sinif, "")]
     return "\n".join(x for x in sat if x)
+
+# ---- 25.10.2026 kullanıcı onayı: ⚠️ testere (iki yönde sert hareket) riski — PROTOKOL_sekil keşfi: oynaklık σ24/σ720 > 1,25 ya da hacim log(24 s / 720 s ort.) > 0,4
+#      iken pencerenin ↕️ testere olma ihtimali 3,3–3,6 kat (keşif · 2025+ · dokunulmamış coin'ler, 1–24 s). Sinyali değiştirmez, yalnız kaldıraç uyarısı.
+RISK = {}
+COIN_SAT_RE = re.compile(r"^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{2,12})\b")
+def risk_hesapla(coinler):
+    import requests, numpy as np, time as _t
+    from concurrent.futures import ThreadPoolExecutor
+    def bir(c):
+        try:
+            k = requests.get("https://data-api.binance.vision/api/v3/klines", params=dict(symbol=f"{c}USDT", interval="1h", limit=760), timeout=5).json()
+            k = [x for x in k if x[6] < _t.time() * 1000]
+            if len(k) < 300: return c, None
+            cl = np.array([float(x[4]) for x in k]); qv = np.array([float(x[7]) for x in k]); lr = np.diff(np.log(cl))
+            vol = lr[-24:].std() / lr[-720:].std(); hac = np.log(qv[-24:].sum() / (qv[-720:].mean() * 24))
+            return c, (vol, hac)
+        except Exception: return c, None
+    with ThreadPoolExecutor(8) as ex:
+        for c, v in ex.map(bir, sorted(set(coinler))):
+            if v and (v[0] > 1.25 or v[1] > 0.4): RISK[c] = v
+def risk_ekle(metin):
+    out = []
+    for x in metin.split("\n"):
+        m = COIN_SAT_RE.match(x)
+        if m and m.group(1) in RISK:
+            v, h = RISK[m.group(1)]; x += " · ⚠️ testere riski ×3,5 (" + ("oynaklık" if v > 1.25 else "") + (" + " if v > 1.25 and h > 0.4 else "") + ("hacim" if h > 0.4 else "") + " yüksek) — kaldıracı düşür"
+        out.append(x)
+    return "\n".join(out)

@@ -86,6 +86,9 @@ def main():
     X["_so"] = X.sinif.map({"ana": 0, "yedek": 1, "panelden": 2})                                  # A2: saat içi en iyi 5 (z), PROTOKOL_saat70 Ek 2.1 sırası
     sel = X.sort_values(["z", "_so", "H", "coin"], ascending=[False, True, True, True], kind="mergesort").groupby("t0").head(N_A2).index
     X["a2"] = X.index.isin(sel) & (X.fz > FZ_A2)
+    BK = {}
+    if os.path.exists("durum/beklenen.csv"):                                                    # 25.10 gölge R2: gonder.py'nin kaydettiği mesaj "4s beklenen" fiyatı
+        _bk = pd.read_csv("durum/beklenen.csv", dtype=str); BK = {(r_.t, r_.coin): float(r_.beklenen) for r_ in _bk.itertuples()}
     yeni = X[~X.anahtar.isin(tamam) & (X.t0 + pd.to_timedelta(X.H, unit="h") <= now)]
     P = {}
     for nm in yeni.coin.unique():
@@ -111,6 +114,8 @@ def main():
         if fB:
             ab = dict(M=M, a=a, Pe=Pb, fin=finb, chk=chkb, Hm=Hm, t0m=t0m)
             d.update(B_T0=sim(tp=tp, **ab), B_T1=sim(tp=tp, tau=TAU, s1=s1, **ab), B_T3=sim(tp=tp, uzat=True, **ab), B_A2=sim(tp=tpa, **ab))
+            _bk = BK.get((f"{r.tg.tz_convert(DISPLAY_TZ):%Y-%m-%d %H:%M}", r.coin))
+            if _bk: d.update(B_R2=sim(tp=_bk, **ab) if _bk > Pb * 1.002 else np.nan, R2_var=True)
         d["tam"] = bool(len(M) >= 2 * Hm)
         out.append(d)
     Y = pd.concat([ESK[~ESK.anahtar.isin([o["anahtar"] for o in out])], pd.DataFrame(out)], ignore_index=True) if len(ESK) else pd.DataFrame(out)
@@ -119,7 +124,7 @@ def main():
     rapor(Y, now)
 def rapor(Y, now):
     Y = Y.copy(); Y["t0"] = pd.to_datetime(Y.t0, utc=True)
-    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
+    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2", "B_R2"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
     def ol(d, c):
         x = d[["t0", c]].dropna()
         if x.empty: return "—"
@@ -142,6 +147,8 @@ def rapor(Y, now):
     if len(b):
         e = b.groupby("t0").B_T0.mean(); wv = b.assign(wr=b.w * b.B_T0).groupby("t0").agg(wr=("wr", "sum"), w=("w", "sum")); w_ = wv.wr / wv.w
         L.append(f"- **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %{100 * (e > 0).mean():.0f} · ort {100 * e.mean():+.2f}% · en kötü saat {100 * e.min():+.2f}% · oynaklık {100 * e.std():.2f} | risk paylı → %{100 * (w_ > 0).mean():.0f} · ort {100 * w_.mean():+.2f}% · en kötü {100 * w_.min():+.2f}% · oynaklık {100 * w_.std():.2f}")
+    if "R2_var" in Y:                                                                          # 25.10 gölge R2 (PROTOKOL_aralik: testte isabet %79–86, kâr şimdikinin yarısı)
+        r2 = Y[Y.R2_var.astype(str) == "True"]; L.append(f"- **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** {ol(r2.dropna(subset=['B_R2']), 'B_R2')} — aynı sinyaller şimdiki 🎯 ile: {ol(r2, 'B_T0')} · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz")
     a2 = Y[Y.a2.astype(str) == "True"]; L.append(f"- **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** {ol(a2, 'B_A2')} · testte (2025+) saat isabeti %70,5 (sınırda)")
     L.append(f"\n_Kayıt: durum/karne_gercek.csv ({len(Y)} satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._")
     open(MD_F, "w", encoding="utf-8").write("\n".join(L) + "\n")

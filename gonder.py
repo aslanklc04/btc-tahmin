@@ -119,6 +119,9 @@ def main():
     if pterfi:
         for m in pterfi: m["terfi"] = m["c"]; m["m"] = m["m"].replace("⛔ ALMA", "⛔ ama 🔥 fonlama çok yüksek")
         panel = [m for m in panel if not m.get("terfi")]; ana = ana + sorted(pterfi, key=lambda m: (m["o"], m["s"]))
+    if SADE:                                                                                   # 25.10: ⚠️ testere riski için coin'lerin oynaklık/hacim durumu (yalnız uyarı)
+        try: sade.risk_hesapla([c for m in ana + yedek + panel for c in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{2,12})\b", m.get("m", ""))])
+        except Exception as e: print("testere riski hesaplanamadı:", e)
     n = len(ana); gonderilen = 0; karar = []
     KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
     for i, m in enumerate(ana):
@@ -131,14 +134,14 @@ def main():
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {x['e'][:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
-            ok = yolla(gecikme(m) + "".join(x + "\n" for x in _ek if x) + sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
+            ok = yolla(gecikme(m) + "".join(x + "\n" for x in _ek if x) + sade.risk_ekle(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas)))
         else: ok = yolla(gecikme(m) + ust + PAY_NOT + pay_ekle(m["m"]))
         gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     GD["giden"] += n
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır
         _ham = "\n".join(pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "")) for m in gidecek)
-        ok = yolla(gecikme(gidecek[0]) + sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)"))
+        ok = yolla(gecikme(gidecek[0]) + sade.risk_ekle(sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)")))
         for m in gidecek: gonderilen += ok; GD["giden"] += 1; karar.append(("🔸 yedek", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         gidecek = []
     for j, m in enumerate(gidecek):
@@ -151,7 +154,7 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            ok = yolla(gecikme(m) + (sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else "")) if SADE else ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+            ok = yolla(gecikme(m) + (sade.risk_ekle(sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else ""))) if SADE else ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")))); gonderilen += ok; GD["giden"] += 1; GD["panelden"] += 1; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
     for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
     for m in bilgi: ok = yolla(sade.sadelestir(m["m"], "bilgi") if SADE else m["m"]); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
@@ -169,6 +172,15 @@ def main():
                 g = re.search(r"⏱ SÜRE: (\d+) (SAAT|GÜN)", m_.get("m", "")); su = (int(g.group(1)) * (24 if g.group(2) == "GÜN" else 1)) if g else ""
                 w.writerow([f"{simdi:%Y-%m-%d %H:%M}", s_, e_, k_, su, f"{FZ:.2f}" if np.isfinite(FZ) else "", isaretler(m_.get("m", ""))])
     except Exception as e: print("karne kaydı yazılamadı:", e)
+    try:                                                                                       # 25.10 gölge R2: mesajdaki "4s beklenen" fiyatı → karne_gercek.py "🎯 = beklenen" sonucunu ölçer
+        _b = [(c, b) for s_, e_, k_, m_ in karar if k_ == "gönderildi" for c, b in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{2,12}) \$[0-9.,]+.*?4s beklenen \$([0-9.,]+)", m_.get("m", ""))]
+        if _b:
+            _y = not os.path.exists("durum/beklenen.csv")
+            with open("durum/beklenen.csv", "a", encoding="utf-8", newline="") as f:
+                w = csv.writer(f)
+                if _y: w.writerow(["t", "coin", "beklenen"])
+                for c, b in dict(_b).items(): w.writerow([f"{simdi:%Y-%m-%d %H:%M}", c, b.replace(",", "")])
+    except Exception as e: print("beklenen kaydı yazılamadı:", e)
     os.makedirs(os.path.dirname(GUN_F), exist_ok=True); json.dump(GD, open(GUN_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if os.path.exists("son_durum.md"):                                                         # panel: Telegram kararları
         sat = [f"- {x['t']} · {x['s']} · {x['e']} → {x['k']}" for x in reversed(GD["log"][-20:])]
