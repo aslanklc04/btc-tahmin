@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-25",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "24.10 11:05",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.1",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "24.10 12:05",
 "s": "🔸 yedek 📋 panelden",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.0",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "25.10 17:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: CRV (z +3.3, 8 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
