@@ -3,12 +3,6 @@
 "giden": 5,
 "log": [
 {
-"t": "24.10 17:05",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "24.10 18:06",
 "s": "✅ ana",
 "e": "🤝 4 saat · BTC ile ortak: PEPE (z +0.6), FIL (z +2.7), BNT (z +2.4)",
@@ -240,6 +234,12 @@
 "t": "26.10 01:05",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -1.2 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 02:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.8",
 "k": "gitmedi — yalnız panel"
 }
 ],
