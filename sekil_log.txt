@@ -1,0 +1,103 @@
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:27: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  t = T3[(T3.g == "A") & (T3.W == W)].groupby(["sh", "son_sh"]).n.sum().unstack(fill_value=0); t = t.div(t.sum(1), axis=0)
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:27: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  t = T3[(T3.g == "A") & (T3.W == W)].groupby(["sh", "son_sh"]).n.sum().unstack(fill_value=0); t = t.div(t.sum(1), axis=0)
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:27: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  t = T3[(T3.g == "A") & (T3.W == W)].groupby(["sh", "son_sh"]).n.sum().unstack(fill_value=0); t = t.div(t.sum(1), axis=0)
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:27: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  t = T3[(T3.g == "A") & (T3.W == W)].groupby(["sh", "son_sh"]).n.sum().unstack(fill_value=0); t = t.div(t.sum(1), axis=0)
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:35: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  J = K.join(A_[["n", "lift"]], rsuffix="_A").join(B_[["n", "lift"]], rsuffix="_B").reset_index(); J = J[J.dilim >= 0]
+/home/runner/work/btc-tahmin/btc-tahmin/sekil_birlestir.py:37: Pandas4Warning: Starting with pandas version 4.0 all arguments of min will be keyword-only.
+  KE = J[(J.n >= 2000) & (J.n_A >= 1000) & (J.n_B >= 1000) & (yuk | dus)].copy(); KE["guc"] = np.abs(np.log(KE[["lift", "lift_A", "lift_B"]])).min(1)
+# 🧭 Fiyat hareket şekilleri — atlas ve etkenler · PROTOKOL_sekil.md
+
+_Pencere sayısı (her saat başı, 4 ufuk toplam): araştırma keşif 10,794,423 · araştırma 2025+ 8,631,315 · dokunulmamış 11,968,500. Pencereler üst üste biner (her saat başlar) → sayılar bağımsız değildir._
+
+## 1 saatlik pencere — şekil sıklığı ve sonrası
+| Şekil | keşif % | 2025+ % | dokunulmamış % | sonraki pencere ort. getiri (σ) | sonraki pencerede ⬆️ (r ≥ 0,25σ) |
+|---|---|---|---|---|---|
+| ↕️ Testere | %2.5 | %2.2 | %2.5 | +0.008 | %42 |
+| ➖ Sakin | %13.7 | %12.6 | %15.4 | -0.005 | %28 |
+| ⬆️ Direkt yükseliş | %21.3 | %21.2 | %20.9 | -0.010 | %32 |
+| ⬆️↘️ Yükselip sonda geri çekildi | %6.7 | %6.9 | %6.7 | +0.015 | %37 |
+| ↘️⬆️ Kısa düşüp uzun yükseldi | %6.1 | %5.8 | %5.5 | -0.025 | %36 |
+| ⬇️ Direkt düşüş | %21.2 | %22.7 | %21.3 | +0.008 | %36 |
+| ⬇️↗️ Düşüp sonda toparladı | %7.2 | %6.7 | %6.5 | +0.000 | %40 |
+| ↗️⬇️ Kısa yükselip uzun düştü | %5.7 | %5.9 | %5.4 | +0.052 | %43 |
+| ↔️ Gidip döndü | %15.7 | %16.0 | %15.8 | +0.003 | %35 |
+
+_Şekil → bir sonraki pencerenin en olası şekli (araştırma coin'leri, tüm dönem):_ ↕️ → ↕️ %17 · ➖ → ➖ %30 · ⬆️ → ⬇️ %27 · ⬆️↘️ → ⬇️ %20 · ↘️⬆️ → ⬇️ %20 · ⬇️ → ⬆️ %25 · ⬇️↗️ → ⬆️ %20 · ↗️⬇️ → ⬆️ %20 · ↔️ → ⬇️ %22
+
+## 4 saatlik pencere — şekil sıklığı ve sonrası
+| Şekil | keşif % | 2025+ % | dokunulmamış % | sonraki pencere ort. getiri (σ) | sonraki pencerede ⬆️ (r ≥ 0,25σ) |
+|---|---|---|---|---|---|
+| ↕️ Testere | %2.4 | %2.2 | %2.4 | +0.056 | %42 |
+| ➖ Sakin | %12.3 | %11.8 | %14.2 | -0.016 | %28 |
+| ⬆️ Direkt yükseliş | %19.4 | %19.9 | %19.4 | -0.006 | %32 |
+| ⬆️↘️ Yükselip sonda geri çekildi | %7.9 | %7.5 | %7.7 | +0.010 | %35 |
+| ↘️⬆️ Kısa düşüp uzun yükseldi | %6.2 | %6.0 | %5.7 | +0.001 | %36 |
+| ⬇️ Direkt düşüş | %19.6 | %21.8 | %20.1 | +0.004 | %35 |
+| ⬇️↗️ Düşüp sonda toparladı | %8.5 | %7.5 | %7.2 | +0.033 | %39 |
+| ↗️⬇️ Kısa yükselip uzun düştü | %5.9 | %6.1 | %5.7 | +0.042 | %41 |
+| ↔️ Gidip döndü | %17.7 | %17.3 | %17.5 | +0.000 | %34 |
+
+_Şekil → bir sonraki pencerenin en olası şekli (araştırma coin'leri, tüm dönem):_ ↕️ → ↔️ %15 · ➖ → ➖ %27 · ⬆️ → ⬇️ %24 · ⬆️↘️ → ⬇️ %20 · ↘️⬆️ → ⬇️ %19 · ⬇️ → ⬆️ %23 · ⬇️↗️ → ⬆️ %20 · ↗️⬇️ → ⬆️ %20 · ↔️ → ⬇️ %21
+
+## 8 saatlik pencere — şekil sıklığı ve sonrası
+| Şekil | keşif % | 2025+ % | dokunulmamış % | sonraki pencere ort. getiri (σ) | sonraki pencerede ⬆️ (r ≥ 0,25σ) |
+|---|---|---|---|---|---|
+| ↕️ Testere | %2.5 | %2.1 | %2.4 | +0.071 | %42 |
+| ➖ Sakin | %11.3 | %10.7 | %13.3 | -0.016 | %28 |
+| ⬆️ Direkt yükseliş | %18.4 | %19.3 | %18.8 | +0.006 | %33 |
+| ⬆️↘️ Yükselip sonda geri çekildi | %8.6 | %8.1 | %8.4 | +0.022 | %35 |
+| ↘️⬆️ Kısa düşüp uzun yükseldi | %6.5 | %6.3 | %5.8 | +0.007 | %36 |
+| ⬇️ Direkt düşüş | %19.4 | %22.1 | %20.0 | -0.004 | %35 |
+| ⬇️↗️ Düşüp sonda toparladı | %8.8 | %7.6 | %7.3 | +0.028 | %39 |
+| ↗️⬇️ Kısa yükselip uzun düştü | %6.2 | %6.4 | %6.0 | +0.044 | %39 |
+| ↔️ Gidip döndü | %18.3 | %17.6 | %17.9 | -0.002 | %34 |
+
+_Şekil → bir sonraki pencerenin en olası şekli (araştırma coin'leri, tüm dönem):_ ↕️ → ↔️ %16 · ➖ → ➖ %25 · ⬆️ → ⬇️ %23 · ⬆️↘️ → ⬇️ %20 · ↘️⬆️ → ⬇️ %19 · ⬇️ → ⬆️ %21 · ⬇️↗️ → ⬆️ %19 · ↗️⬇️ → ↔️ %19 · ↔️ → ⬇️ %21
+
+## 24 saatlik pencere — şekil sıklığı ve sonrası
+| Şekil | keşif % | 2025+ % | dokunulmamış % | sonraki pencere ort. getiri (σ) | sonraki pencerede ⬆️ (r ≥ 0,25σ) |
+|---|---|---|---|---|---|
+| ↕️ Testere | %2.4 | %1.9 | %2.3 | +0.102 | %40 |
+| ➖ Sakin | %9.1 | %8.6 | %11.4 | -0.042 | %28 |
+| ⬆️ Direkt yükseliş | %17.6 | %18.0 | %17.5 | +0.027 | %33 |
+| ⬆️↘️ Yükselip sonda geri çekildi | %9.7 | %9.0 | %9.8 | +0.032 | %34 |
+| ↘️⬆️ Kısa düşüp uzun yükseldi | %7.2 | %6.3 | %6.1 | +0.043 | %36 |
+| ⬇️ Direkt düşüş | %20.6 | %22.4 | %20.6 | -0.007 | %36 |
+| ⬇️↗️ Düşüp sonda toparladı | %8.6 | %8.1 | %7.3 | +0.015 | %39 |
+| ↗️⬇️ Kısa yükselip uzun düştü | %6.6 | %7.3 | %6.6 | +0.053 | %40 |
+| ↔️ Gidip döndü | %18.3 | %18.4 | %18.5 | +0.004 | %34 |
+
+_Şekil → bir sonraki pencerenin en olası şekli (araştırma coin'leri, tüm dönem):_ ↕️ → ↔️ %17 · ➖ → ⬇️ %26 · ⬆️ → ⬇️ %25 · ⬆️↘️ → ⬇️ %21 · ↘️⬆️ → ⬇️ %21 · ⬇️ → ⬇️ %20 · ⬇️↗️ → ↔️ %19 · ↗️⬇️ → ↔️ %19 · ↔️ → ⬇️ %23
+
+## Etken keşifleri — 494 / 1512 deneme şartları geçti (keşifte lift ≥ 1,3 / ≤ 0,77, doğrulama A ve B'de aynı yönde ≥ 1,15 / ≤ 0,87)
+
+### 1 saat — 142 keşif (en güçlü 25; lift = o koşulda şeklin normale göre kaç kat sık görüldüğü)
+| Koşul (pencere başında) | Şekil | keşif lift (n) | 2025+ lift | dokunulmamış lift |
+|---|---|---|---|---|
+| önceki pencere: ↕️ Testere | ↕️ Testere | ×6.96 (11,410) | ×7.95 | ×7.41 |
+| oynaklık yüksek | ➖ Sakin | ×0.22 (13,454) | ×0.25 | ×0.25 |
+| oynaklık düşük | ↕️ Testere | ×0.22 (7,213) | ×0.26 | ×0.25 |
+| hacim düşük | ↕️ Testere | ×0.23 (6,365) | ×0.28 | ×0.28 |
+| oynaklık yüksek | ↕️ Testere | ×3.49 (37,781) | ×3.56 | ×3.53 |
+| son 1 s sert düşmüş | ➖ Sakin | ×0.26 (9,827) | ×0.30 | ×0.27 |
+| hacim yüksek | ➖ Sakin | ×0.25 (15,736) | ×0.28 | ×0.30 |
+| hacim yüksek | ↕️ Testere | ×3.28 (36,748) | ×3.55 | ×3.41 |
+| önceki pencere: ➖ Sakin | ↗️⬇️ Kısa yükselip uzun düştü | ×0.30 (6,253) | ×0.31 | ×0.29 |
+| son 24 s sert yükselmiş | ↕️ Testere | ×3.18 (23,651) | ×3.29 | ×3.75 |
+| önceki pencere: ➖ Sakin | ↘️⬆️ Kısa düşüp uzun yükseldi | ×0.28 (6,260) | ×0.32 | ×0.28 |
+| son 1 s sert yükselmiş | ➖ Sakin | ×0.28 (10,747) | ×0.32 | ×0.28 |
+| son 4 s sert yükselmiş | ↕️ Testere | ×3.13 (21,222) | ×3.18 | ×3.60 |
+| son 4 s sert düşmüş | ➖ Sakin | ×0.30 (11,177) | ×0.33 | ×0.31 |
+| önceki pencere: ↗️⬇️ Kısa yükselip uzun düştü | ➖ Sakin | ×0.33 (6,925) | ×0.31 | ×0.32 |
+| son 1 s sert yükselmiş | ↕️ Testere | ×2.99 (20,308) | ×3.01 | ×3.36 |
+| önceki pencere: ↘️⬆️ Kısa düşüp uzun yükseldi | ➖ Sakin | ×0.35 (7,952) | ×0.32 | ×0.32 |
+| son 4 s sert yükselmiş | ➖ Sakin | ×0.27 (10,219) | ×0.36 | ×0.29 |
+| son 24 s sert yükselmiş | ➖ Sakin | ×0.31 (12,671) | ×0.38 | ×0.32 |
+| son 1 s sert düşmüş | ↕️ Testere | ×2.81 (19,041) | ×2.48 | ×2.58 |
+| önceki pencere: ⬇️↗️ Düşüp sonda toparladı | ➖ Sakin | ×0.41 (10,987) | ×0.40 | ×0.39 |
+exit=0
