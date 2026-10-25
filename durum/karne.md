@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 25.10.2026 05:04
+# 📒 Canlı karne — 25.10.2026 06:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 53 | %70 | 0.42% | 22.0% | 0 | 53 · %72 · 0.45% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 224 | %81 | 1.54% | 345.9% | 2 | 224 · %83 · 0.66% | %60 · %65 |
-| panel (gönderilmedi) | 274 | %56 | 0.39% | 107.6% | 2 | 274 · %58 · 0.20% | — |
+| panel (gönderilmedi) | 274 | %56 | 0.39% | 107.6% | 2 | 275 · %58 · 0.20% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 5 | %40 | -0.89% | -4.4% | 2 | 5 · %60 · 0.09% | %72 (🎯 +0,45σ ile) |
 | ↳ panel · prim ⛔ (filtre) | 170 | %58 | 0.46% | 78.8% | 2 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
