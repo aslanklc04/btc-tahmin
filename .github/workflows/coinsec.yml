@@ -1,0 +1,66 @@
+name: Coin secimi (PROTOKOL_coinsec)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [coinsec_olay.py, coinsec_isle.py, coinsec_analiz.py, .github/workflows/coinsec.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  olay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+          name: coin-BTCUSDT
+          run-id: 38550403442
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: pip install -q pandas numpy
+      - run: python -u coinsec_olay.py
+      - uses: actions/upload-artifact@v4
+        with: {name: coinsec-olay, path: coinsec_olay.csv}
+  isle:
+    needs: olay
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {name: coinsec-olay}
+      - run: pip install -q requests pandas numpy
+      - run: python -u coinsec_isle.py ${{ matrix.p }} 16 2>&1 | tail -40
+      - uses: actions/upload-artifact@v4
+        with: {name: "coinsec-p-${{ matrix.p }}", path: "coinsec_p${{ matrix.p }}.csv.gz"}
+  analiz:
+    needs: isle
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "coinsec-*"}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u coinsec_analiz.py > coinsec_log.txt 2>&1; echo "exit=$?" >> coinsec_log.txt; tail -40 coinsec_log.txt
+          cp parca/coinsec-olay/coinsec_olay.csv . 2>/dev/null || true
+          python - <<'EOF'
+          import glob, pandas as pd
+          D = pd.concat([pd.read_csv(p) for p in glob.glob("parca/**/coinsec_p*.csv.gz", recursive=True)], ignore_index=True)
+          D.to_csv("coinsec_veri.csv.gz", index=False, compression="gzip"); print(len(D), "satır")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with: {name: coinsec-veri, path: coinsec_veri.csv.gz}
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add coinsec_log.txt; for f in coinsec_sonuc.md coinsec_secim.json coinsec_olay.csv coinsec_veri.csv.gz; do git add $f 2>/dev/null || true; done; git commit -m "Coinsec sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
