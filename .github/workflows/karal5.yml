@@ -1,0 +1,69 @@
+name: Karal5 buyuk kar-al taramasi (PROTOKOL_karal5)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [karal5_motor.py, karal5_sinyal.py, karal5_analiz1.py, karal5_yeni.py, karal5_analiz2.py, .github/workflows/karal5.yml]
+permissions:
+  contents: write
+jobs:
+  sinyal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: python -u karal5_sinyal.py ${{ matrix.p }} 12 2>&1 | tail -12
+      - uses: actions/upload-artifact@v4
+        with: {name: "karal5s-p-${{ matrix.p }}", path: "karal5s_*_p${{ matrix.p }}.*\nkaral5_adlar.json"}
+  analiz1:
+    needs: sinyal
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "karal5s-*"}
+      - run: pip install -q pandas numpy
+      - run: python -u karal5_analiz1.py 2>&1 | tail -60
+      - uses: actions/upload-artifact@v4
+        with: {name: karal5-secim, path: "karal5_secim.json\nkaral5_ana_olcu.json\nkaral5_tarama.md"}
+  yeni:
+    needs: analiz1
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {name: karal5-secim}
+      - run: pip install -q requests pandas numpy
+      - run: python -u karal5_yeni.py ${{ matrix.p }} 16 2>&1 | tail -10
+      - uses: actions/upload-artifact@v4
+        with: {name: "karal5y-p-${{ matrix.p }}", path: "karal5y_p${{ matrix.p }}.csv.gz"}
+  analiz2:
+    needs: [analiz1, yeni]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u karal5_analiz2.py > karal5_log.txt 2>&1; echo "exit=$?" >> karal5_log.txt; tail -40 karal5_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          cp parca/karal5-secim/* . 2>/dev/null || true
+          git add karal5_log.txt; for f in karal5_sonuc.md karal5_secim.json karal5_tarama.md; do git add $f 2>/dev/null || true; done; git commit -m "Karal5 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
