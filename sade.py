@@ -129,6 +129,7 @@ def btc_sade(metin, sinif, etiket, ust):
             b = re.search(r"beklenen (\$[0-9.,]+) · %80 aralık (\$[0-9.,]+)–(\$[0-9.,]+)", L[i + 1]) if i + 1 < len(L) else None
             ufuk.append(f"{x.split(' saat:')[0]} s: {x.split(': ', 1)[1].split(' — ')[0]}" + (f" · beklenen {b.group(1)} (%80: {b.group(2)}–{b.group(3)})" if b else ""))
             if b: i += 1
+        elif x.startswith("🪙 Geçmişte bu sinyalden"): pass                                         # uzun bilgi notu (eski biçimde kalır)
         elif re.match(r"^🎯 \d+s: hedef", x): pass                                                   # bariyer modeli (stop'lu) — işlem kuralı değil, sade biçimde yok
         elif x.startswith(AT) or not t or x.startswith("━"): pass
         else: diger.append(x.rstrip())
@@ -173,7 +174,7 @@ def _sade(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
         if s.startswith(AT) or not s.strip() or s.startswith("━"): continue
         out.append([s.rstrip(), []])                                                       # bilinmeyen satır: koru
     if not any(o[0].startswith("• ") for o in out):
-        if "— 🧭 BTC" in metin and "🪙" not in metin: return btc_sade(metin, sinif, etiket, ust)   # 25.10: ₿ BTC ⭐ / A / saatlik
+        if "— 🧭 BTC" in metin and not re.search(r"(?m)^🪙.* — .*🧭", metin): return btc_sade(metin, sinif, etiket, ust)   # 25.10: ₿ BTC ⭐ / A / saatlik
         return tek_coin(metin, sinif, etiket, gen, ust)                                      # 🔇 / 🪙 / 🔀 tek coin biçimi · çözülemezse None → gonder eski biçimi yollar
     if cikis:                                                                                # tek ortak çıkış başlıkta → coin satırında tekrar etmesin
         for o in out: o[0] = re.sub(rf" · çıkış {re.escape(cikis)} \(\d+ saat\)", "", o[0])
