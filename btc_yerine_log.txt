@@ -1,0 +1,9 @@
+# ₿ Sinyal saatlerinde coin yerine BTC — PROTOKOL_btcyerine.md · 25.10.2026 10:15
+_9,706 saat sepeti · her hücre: saat isabeti · saat başı net % · risk başına kâr (net ÷ σ√H) · COIN → BTC_
+
+- **✅ ana (+0,75σ)**: keşif ½-1: 586 saat · %63→%56 · +0.22→-0.16 · risk başına +0.041→-0.079 ❌ | keşif ½-2: 1155 saat · %65→%63 · +0.43→+0.18 · risk başına +0.094→+0.074 ❌ | KONTROL 2025+: 1324 saat · %64→%60 · +0.25→+0.03 · risk başına +0.055→+0.005 ❌ | KONTROL 2026: 567 saat · %66→%61 · +0.39→+0.07 · risk başına +0.133→+0.041 ❌ → geçmedi
+- **🔸 yedek (+0,50σ)**: keşif ½-1: 432 saat · %68→%68 · +0.00→-0.07 · risk başına +0.007→-0.037 ❌ | keşif ½-2: 574 saat · %70→%69 · +0.06→+0.01 · risk başına +0.022→+0.010 ❌ | KONTROL 2025+: 670 saat · %63→%64 · -0.10→-0.03 · risk başına -0.047→-0.060 ❌ | KONTROL 2026: 287 saat · %64→%61 · +0.05→-0.02 · risk başına +0.030→-0.048 ❌ → geçmedi
+- **📋 panelden (+0,45σ)**: keşif ½-1: 1188 saat · %69→%63 · +0.02→-0.07 · risk başına -0.008→-0.034 ❌ | keşif ½-2: 1615 saat · %69→%63 · +0.12→-0.01 · risk başına +0.002→-0.047 ❌ | KONTROL 2025+: 2162 saat · %67→%62 · -0.00→-0.04 · risk başına -0.015→-0.046 ❌ | KONTROL 2026: 1049 saat · %68→%60 · +0.03→-0.05 · risk başına -0.004→-0.051 ❌ → geçmedi
+
+_3 deneme · süre 467 sn_
+exit=0
