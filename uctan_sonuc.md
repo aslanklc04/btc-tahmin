@@ -34,5 +34,5 @@ karne çıkış=0
       1 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
       1 | panel | ₿ BTC saatlik / ⭐ / A | 61 · %41 | 118 | %48 | 0.03% | 4.1% | — | ⚠️ orta |
       1 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
-      1 _Model eğitimi: 04.10.2026 · güncelleme: 25.10.2026 17:33 · ⚠️ Yatırım tavsiyesi değildir._
+      1 _Model eğitimi: 04.10.2026 · güncelleme: 25.10.2026 17:48 · ⚠️ Yatırım tavsiyesi değildir._
 ```
