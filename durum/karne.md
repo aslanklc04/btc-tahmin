@@ -1,13 +1,13 @@
-# 📒 Canlı karne — 25.10.2026 02:04
+# 📒 Canlı karne — 25.10.2026 03:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 53 | %70 | 0.42% | 22.0% | 0 | 53 · %72 · 0.45% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 224 | %81 | 1.54% | 345.9% | 2 | 224 · %83 · 0.66% | %60 · %65 |
-| panel (gönderilmedi) | 273 | %56 | 0.40% | 108.0% | 3 | 273 · %58 · 0.20% | — |
+| panel (gönderilmedi) | 274 | %56 | 0.39% | 107.6% | 2 | 274 · %58 · 0.20% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 5 | %40 | -0.89% | -4.4% | 2 | 5 · %60 · 0.09% | %72 (🎯 +0,45σ ile) |
-| ↳ panel · prim ⛔ (filtre) | 169 | %59 | 0.47% | 79.2% | 3 | — | — |
+| ↳ panel · prim ⛔ (filtre) | 170 | %58 | 0.46% | 78.8% | 2 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -28,7 +28,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | panel | 🔇/🪙 coin tek | 13 · %46 | 50 | %54 | 0.27% | 13.4% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 1 · %100 | 6 | %83 | 0.20% | 1.2% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 46 · %89 | 70 | %70 | 1.06% | 74.3% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 8 · %38 | 16 | %50 | 1.10% | 17.5% | %55 · %53 | ⚠️ orta |
+| panel | 🧪 24 s ana coin | 9 · %33 | 17 | %47 | 1.01% | 17.1% | %55 · %53 | ⚠️ orta |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
