@@ -1,0 +1,52 @@
+name: Karal4 (PROTOKOL_karal4)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [karal4.py, coinsec2_isle.py, karal4_analiz.py, .github/workflows/karal4.yml]
+permissions:
+  contents: write
+jobs:
+  sinyal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: python -u karal4.py ${{ matrix.p }} 8 2>&1 | tail -10
+      - uses: actions/upload-artifact@v4
+        with: {name: "karal4-p-${{ matrix.p }}", path: "karal4_p${{ matrix.p }}.csv.gz"}
+  yeni:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: python -u coinsec2_isle.py ${{ matrix.p }} 16 2>&1 | tail -10
+      - uses: actions/upload-artifact@v4
+        with: {name: "coinsec2-p-${{ matrix.p }}", path: "coinsec2_p${{ matrix.p }}.csv.gz"}
+  analiz:
+    needs: [sinyal, yeni]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u karal4_analiz.py > karal4_log.txt 2>&1; echo "exit=$?" >> karal4_log.txt; tail -30 karal4_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add karal4_log.txt; git add karal4_sonuc.md 2>/dev/null || true; git commit -m "Karal4 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
