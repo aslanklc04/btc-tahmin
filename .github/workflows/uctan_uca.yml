@@ -1,4 +1,4 @@
-# 26.10.2026 geri alma sonrası tam sistem kontrolü (main)
+# 26.10.2026 sade düzeltmesi sonrası yeniden kontrol
 name: Uctan uca kuru denetim
 on:
   push:

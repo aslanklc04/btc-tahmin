@@ -38,7 +38,7 @@ for fz in ("0.5", "2.5"):
         bas = x[:400]
         if "📋 PANELDEN" in bas: tur, beklenen = "panelden", "📋 panelden hedefi +0,45σ"
         elif "🔸 YEDEK SİNYAL" in bas: tur, beklenen = "yedek", "🔸 yedek hedefi +0,50σ"
-        elif "✅ İŞLEM SİNYALİ" in bas: tur, beklenen = "ana", "testte ✅ ana isabet"
+        elif "✅ İŞLEM SİNYALİ" in bas: tur, beklenen = "ana", "✅ ana isabet"   # 24.10: metin "gerçekçi ölçümde ✅ ana isabet"
         else: tur, beklenen = "bilgi", None
         say[tur] += 1
         P = ortak.mesaj_parcala(x)
