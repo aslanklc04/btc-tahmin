@@ -3,18 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "24.10 04:05",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.4 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 06:05",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -1.1",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "24.10 07:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⛔ z -1.3",
@@ -241,6 +229,18 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⛔ z -1.2",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "25.10 09:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -1.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "25.10 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 25.10 09:00 · $80,608",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
