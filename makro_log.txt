@@ -1,0 +1,13 @@
+# 🏛️ ABD makro olayları (FOMC · CPI) — PROTOKOL_makro.md · 25.10.2026 11:35
+
+## M1 — sinyalin tutma süresi FOMC/CPI açıklamasını içeriyor mu (1.3% sinyal olaylı)
+- **✅ ana (+0,75σ)**: keşif ½-1: olaylı 24 · %71 · +2.04 | olaysız %61 · +0.08 | at → saat %62→%61, net +0.119→+0.079 ❌ ‖ keşif ½-2: olaylı 71 · %80 · +2.17 | olaysız %70 · +0.66 | at → saat %65→%64, net +0.695→+0.657 ❌ ‖ KONTROL 2025+: olaylı 53 · %72 · +1.46 | olaysız %66 · +0.32 | at → saat %65→%64, net +0.337→+0.316 ❌ ‖ KONTROL 2026: olaylı 30 · %67 · +1.09 | olaysız %69 · +0.50 | at → saat %67→%67, net +0.513→+0.497 ❌ → geçmedi
+- **🔸 yedek (+0,50σ)**: keşif ½-1: olaylı 6 · %17 · -3.13 | olaysız %68 · +0.04 | at → saat %68→%69, net +0.025→+0.036 ❌ ‖ keşif ½-2: olaylı 10 · %100 · +1.10 | olaysız %70 · +0.20 | at → saat %71→%71, net +0.203→+0.201 ❌ ‖ KONTROL 2025+: olaylı 7 · %100 · +1.23 | olaysız %64 · -0.09 | at → saat %66→%66, net -0.088→-0.090 ❌ ‖ KONTROL 2026: olaylı 3 · %100 · +1.12 | olaysız %70 · +0.27 | at → saat %66→%66, net +0.268→+0.267 ❌ → geçmedi
+- **📋 panelden (+0,45σ)**: keşif ½-1: olaylı 37 · %84 · +0.80 | olaysız %68 · +0.09 | at → saat %67→%67, net +0.108→+0.088 ❌ ‖ keşif ½-2: olaylı 40 · %80 · +0.94 | olaysız %70 · +0.27 | at → saat %68→%67, net +0.282→+0.268 ❌ ‖ KONTROL 2025+: olaylı 48 · %79 · +0.31 | olaysız %64 · +0.06 | at → saat %64→%64, net +0.066→+0.061 ❌ ‖ KONTROL 2026: olaylı 30 · %83 · +0.55 | olaysız %65 · +0.11 | at → saat %65→%65, net +0.124→+0.113 ❌ → geçmedi
+
+## M2 — 4 saatlik pencerede ↕️ testere riski (fiyat: 220 coin)
+- **FOMC**: keşif: olaylı %11.1 vs olaysız %2.4 → ×4.68 ✅ (n 12,480) | 2025+: olaylı %5.8 vs olaysız %2.1 → ×2.76 ✅ (n 9,870) | dokunulmamış: olaylı %7.5 vs olaysız %2.4 → ×3.13 ✅ (n 13,785) → **GEÇTİ**
+- **CPI**: keşif: olaylı %9.4 vs olaysız %2.4 → ×3.97 ✅ (n 14,727) | 2025+: olaylı %5.1 vs olaysız %2.1 → ×2.40 ✅ (n 11,844) | dokunulmamış: olaylı %6.6 vs olaysız %2.4 → ×2.77 ✅ (n 16,392) → **GEÇTİ**
+
+_5 deneme · süre 553 sn_
+exit=0
