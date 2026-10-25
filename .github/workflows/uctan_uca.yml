@@ -1,4 +1,4 @@
-# 25.10.2026 tam denetim için yeniden çalıştırıldı
+# 25.10.2026 denetim düzeltmeleri (duzeltme-2510 dalı) uçtan uca deneniyor
 name: Uctan uca kuru denetim
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: duzeltme-2510
       - uses: actions/checkout@v4
         with:
           ref: arastirma3
