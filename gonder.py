@@ -11,7 +11,7 @@ import os, re, csv, json, time, requests, numpy as np
 os.environ.pop("TG_SIRALI", None)                                                             # buradan doğrudan gönder
 import pandas as pd
 import sade                                                                                   # 24.10.2026: sade mesaj biçimi (kullanıcı onayı); SADE_KAPALI=1 → eski biçim
-from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ, karal_degistir, KARAL_K_YEDEK, KARAL_K_PANEL, eski_isaretle
+from ortak import tg_send, KUYRUK_F, HATA_F, DISPLAY_TZ, karal_degistir, KARAL_K_YEDEK, KARAL_K_PANEL, eski_isaretle, KARAL_K, KARAL_K_ANA, ANA_KARAL_NOT, ANA_KARAL_GOVDE, uzatma_ekle
 SADE = os.environ.get("SADE_KAPALI") != "1"
 GEN = {l.strip()[:-4] for l in open("durum/genis_liste.txt") if l.strip()} if os.path.exists("durum/genis_liste.txt") else set()
 MADALYA = ["🥇", "🥈", "🥉"]
@@ -59,9 +59,9 @@ def uyari():                                                                    
         tg_send("⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:\n" + (f"Adım: {', '.join(bozuk)}\n" if bozuk else "") + "\n".join(ayr[:8]) + "\n(Düzeltilene kadar her saat tekrar eder.)")
 PAY_RE = re.compile(r"(🎯 Kâr-al \$[0-9.,]+ \(\+%([0-9.]+)\))")
 PAY_NOT = "📐 pay = normal pozisyonuna göre önerilen büyüklük: 🎯 uzaksa coin oynak → daha küçük gir (×1'den büyük önerilmez). Aynı saatteki bütün sinyaller tek bütçe sayılır.\n"
-def pay_ekle(metin):                                                                          # 24.10.2026 kullanıcı onayı: risk payı işareti (🎯 mesafesi ≥ %1,5 → pozisyon 1,5/mesafe oranında küçülür); gölge ölçüm karne_gercek.py
-    def f(m):
-        try: w = min(1.0, max(0.25, round(4 * 1.5 / float(m.group(2))) / 4))
+def pay_ekle(metin, olcek=1.0):                                                               # 24.10.2026 kullanıcı onayı: risk payı işareti (🎯 mesafesi ≥ %1,5 → pozisyon 1,5/mesafe oranında küçülür); gölge ölçüm karne_gercek.py
+    def f(m):                                                                                 # 26.10: ana 🎯 1,0σ oldu → pay eski 0,75σ mesafesiyle hesaplanır (olcek = 0,75 / 1,0), pozisyon büyüklüğü değişmez
+        try: w = min(1.0, max(0.25, round(4 * 1.5 / (float(m.group(2)) * olcek)) / 4))
         except Exception: return m.group(0)
         return m.group(1) + f" · 📐 pay ×{w:g}".replace(".", ",")
     return PAY_RE.sub(f, metin)
@@ -141,13 +141,14 @@ def main():
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
         if i == 0 and KAL: ust = KAL + "━━━━━━━━━━━━\n" + ust if n < 2 else ust.replace("━━━━━━━━━━━━\n", KAL + "━━━━━━━━━━━━\n", 1)
+        mm = pay_ekle(uzatma_ekle(karal_degistir(m["m"], KARAL_K_ANA, ANA_KARAL_NOT, ANA_KARAL_GOVDE)), KARAL_K / KARAL_K_ANA)   # 26.10 kullanıcı onayı: ana 🎯 1,0σ + ⏳ uzatma (PROTOKOL_karal5)
         if True:                                                                               # sade önce; çözülemezse eski biçim (ust + PAY_NOT + mesaj)
             _bas = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "")
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {x['e'][:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
-            _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + t_))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
-            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
+            _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + t_))(sade.sadelestir(mm, "ana", m.get("e", ""), GEN, KARAL_K_ANA, _bas))
+            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: ust + PAY_NOT + mm, m.get("e", "")))
             except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
         GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)

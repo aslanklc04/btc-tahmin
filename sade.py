@@ -6,16 +6,17 @@
 # Çözülemeyen biçimde mesaj gelirse yalnız not satırları atılır, gerisi olduğu gibi kalır (güvenli geri dönüş).
 import re, math
 GR = {  # 📏 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; karal2_veri 24.10): işlem isabeti 2022–24 · 2025+ · 2026, işlem başı net
-    ("ana", None): ("%68 · %66 · %69", "+%0,53 · +%0,34 · +%0,51"),
-    ("ana", "🌐🧪"): ("%68 · %64 · %65", "+%1,01 · +%0,59 · +%0,77"), ("ana", "🌐🤝"): ("%70 · %65 · %74", "+%0,39 · +%0,03 · +%0,64"),
-    ("ana", "🤝"): ("%64 · %63 · %69", "+%0,14 · +%0,04 · +%0,36"), ("ana", "🚀"): ("%71 · %67 · %70", "+%0,44 · +%0,35 · +%0,44"),   # 25.10: ✅ ana + coin son 24 s z ≥ 2 (MOM_NOT ile aynı küme)
-    ("ana", "₿🚀"): ("%67 · %75 · %83", "+%0,18 · +%0,26 · +%0,41"),                              # 25.10: yalnız BTC 🚀 ana sinyalleri (karal2_veri, B_T0)
-    ("ana", "🔀"): ("%70 · %75 · %86", "+%0,54 · +%0,53 · +%0,73"),
+    # 26.10 ✅ ana yeni kural (🎯 1,0σ + ⏳ uzatma; karal5_tur, 1 dk mum, B girişi): işlem isabeti · işlem başı net
+    ("ana", None): ("%81 · %78 · %80", "+%0,70 · +%0,42 · +%0,67"),
+    ("ana", "🌐🧪"): ("%81 · %76 · %77", "+%1,19 · +%0,97 · +%1,23"), ("ana", "🌐🤝"): ("%84 · %78 · %82", "+%0,51 · −%0,11 · +%0,56"),
+    ("ana", "🤝"): ("%78 · %76 · %80", "+%0,27 · +%0,01 · +%0,44"), ("ana", "🚀"): ("%82 · %77 · %75", "+%0,60 · +%0,36 · +%0,36"),   # ✅ ana + coin son 24 s z ≥ 2
+    ("ana", "₿🚀"): ("%82 · %84 · %86", "+%0,31 · +%0,38 · +%0,51"),                              # yalnız BTC 🚀 ana sinyalleri
+    ("ana", "🔀"): ("%82 · %80 · %95", "+%0,65 · +%0,52 · +%0,66"),
     ("yedek", None): ("%69 · %64 · %70", "+%0,14 · −%0,09 · +%0,27"),
     ("panelden", None): ("%69 · %65 · %66", "+%0,21 · +%0,07 · +%0,12"), ("panelden", "💵"): ("%68 · %65 · %67", "+%0,26 · +%0,11 · +%0,20"),
     ("panelden", "🧪"): ("%69 · %65 · %62", "+%0,27 · −%0,02 · −%0,11"), ("panelden", "🔇/🪙"): ("%72 · %65 · %65", "+%0,09 · +%0,03 · +%0,09"),
 }
-KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat, değmezse çıkış saatinde sat · stop yok · kaldıraç en fazla 2–3x, izole · 📐 pay = normal pozisyonuna oran · aynı saatteki sinyaller tek bütçe",
+KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat · değmezse çıkış saatinde kârdaysan sat, zarardaysan ⏳ satırındaki fiyata limit sat (en geç ⏳ saatinde) · stop yok · kaldıraç en fazla 2–3x, izole · 📐 pay = normal pozisyonuna oran · aynı saatteki sinyaller tek bütçe",
          "panelden": "Kural: limit 60 dk · 🎯'ye değerse sat, değmezse çıkış saatinde · stop yok · küçük miktar, kaldıraçsız · 📐 pay = normal pozisyonuna oran",
          "yedek": "Girersen: kaldıraçsız, küçük · limit 60 dk · stop yok"}
 KURAL_TUR = {"⛓️": "Kural: limit 60 dk geçerli · 🎯 yok — çıkış saatinde kapat · stop yok · kaldıraç en fazla 2x, izole",           # 25.10: ⛓️ / 🧑'de 🎯 yok (21.10 kullanıcı)
@@ -200,7 +201,7 @@ def gunluk(metin):
 
 def tek_coin(metin, sinif, etiket, gen, ust):
     """🪙 / 🔇 / 🔀 tek coin mesajı: başlık · ufuk satırları (beklenen + %80) · prim · 🎯 → sade biçim. Çözülemezse None."""
-    L = metin.split("\n"); sure = cikis = None; bas = None; ufuk = []; prim = ""; tp = ""; ek = ""; eis = ""; i = 0
+    L = metin.split("\n"); sure = cikis = None; bas = None; ufuk = []; prim = ""; tp = ""; ek = ""; eis = ""; uz = ""; i = 0
     while i < len(L):
         x = L[i]; m = SURE_RE.match(x)
         if m: sure, cikis = f"{m.group(1)} {'saat' if m.group(2) == 'SAAT' else 'gün'}", m.group(3)
@@ -217,6 +218,7 @@ def tek_coin(metin, sinif, etiket, gen, ust):
             if "⛔ ALMA" in x: prim += " ⛔ ALMA"
         elif x.strip().startswith("🎯 Kâr-al"):
             g = TP_RE.search(x); tp = (f"🎯 {g.group(1)} (+%{g.group(2).replace('.', ',')})" + (f" · 📐 pay ×{g.group(3)}" if g.group(3) else "")) if g else ""
+        elif x.strip().startswith("⏳") and tp: uz = x.strip()
         i += 1
     if not bas or not tp: return None
     g = re.match(r"^🪙\S*\s+([A-Z0-9]{2,12}) (.*?) — (?:.*?— )?🧭 \S+ (\d\d\.\d\d \d\d:\d\d) · (\$[0-9.,]+)", bas)
@@ -224,7 +226,7 @@ def tek_coin(metin, sinif, etiket, gen, ust):
     nm, ad, saat, fiyat = g.groups(); gf = GIRIS_RE.search(metin); fiyat = gf.group(1) if gf else fiyat   # 25.10: limit fiyatı başlıktaki yuvarlanmış fiyattan değil emir satırından
     isr = re.match(r"^((?:(?:🚀|📉🔥|💧|💸) )*)", etiket.split(" ", 1)[1] if " " in etiket else "").group(1) if etiket else ""
     ilk = (ust.strip() + " — " if ust else "") + f"🪙 {ad} · {saat}" + (" · 🔇 BTC sessizken" if "🔇" in bas else "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
-    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp, KURAL.get(sinif, "")]
+    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp] + (["   " + uz] if uz else []) + [KURAL.get(sinif, "")]
     return "\n".join(x for x in sat if x)
 
 # ---- 25.10.2026 kullanıcı onayı: ⚠️ testere (iki yönde sert hareket) riski — PROTOKOL_sekil keşfi: oynaklık σ24/σ720 > 1,25 ya da hacim log(24 s / 720 s ort.) > 0,4

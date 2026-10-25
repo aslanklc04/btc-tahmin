@@ -13,6 +13,7 @@ from ortak import fetch_1h, tg_send, DISPLAY_TZ
 from karne import coz
 KAYIT_F, CSV_F, MD_F, DUR_F = "durum/karne_kayit.csv", "durum/karne_gercek.csv", "durum/karne_gercek.md", "durum/karne_gercek_durum.json"
 K0 = {"ana": 0.75, "yedek": 0.5, "panelden": 0.45}; KA2 = {"ana": 0.45, "yedek": 0.5, "panelden": 0.3}; FZ_A2, N_A2 = 0.5098, 5
+K_UZ, BE_UZ = 1.0, 1.0012                                                                         # 26.10: ✅ ana mesajdaki kural 🎯 1,0σ + zarardaysa ⏳ (süre kadar daha, başa baş × 1,0012) → B_UZ
 FL, FP, FON, TAU = 0.0002, 0.0005, 0.0001, 0.25
 U1 = "https://data-api.binance.vision/api/v3/klines"; S = requests.Session()
 def kl1m(sym, a, b):
@@ -41,7 +42,7 @@ def fon_serisi(bas):
     if not out: return pd.Series(dtype=float)
     d = pd.Series({int(x["timepoint"]): float(x["fundingRate"]) for x in out}).sort_index(); d.index = pd.to_datetime(d.index, unit="ms", utc=True)
     return ((d - d.rolling(90, min_periods=30).mean()) / (d.rolling(90, min_periods=30).std() + 1e-12)).dropna()
-def sim(M, a, Pe, fin, chk, tp, Hm, t0m, tau=None, s1=None, uzat=False):
+def sim(M, a, Pe, fin, chk, tp, Hm, t0m, tau=None, s1=None, uzat=False, be=1.0007):
     O, Hh, Lo, C = M[:, 0], M[:, 1], M[:, 2], M[:, 3]
     if tp <= Pe: return -fin - FP
     n = min(len(C), Hm); w = np.where(Hh[chk:n] >= tp)[0]
@@ -58,8 +59,8 @@ def sim(M, a, Pe, fin, chk, tp, Hm, t0m, tau=None, s1=None, uzat=False):
         if uzat:
             if len(C) < 2 * Hm: return np.nan                                                    # uzatma süresi dolmadı
             if C[n - 1] < Pe:
-                w2 = np.where(Hh[n:2 * Hm] >= Pe * 1.0007)[0]
-                if len(w2): j = n + w2[0]; cik, fo = Pe * 1.0007, FL
+                w2 = np.where(Hh[n:2 * Hm] >= Pe * be)[0]
+                if len(w2): j = n + w2[0]; cik, fo = Pe * be, FL
                 else: j = 2 * Hm - 1; cik, fo = C[2 * Hm - 1], FP
     nf = (t0m + j + 1) // 480 - (t0m + a) // 480
     return cik / Pe - 1 - fin - fo - FON * nf
@@ -78,7 +79,7 @@ def main():
     if X.empty: print("karne_gercek: sinyal yok"); return
     X = X.drop_duplicates(["t0", "coin", "H", "sinif"]).reset_index(drop=True); X["anahtar"] = X.t0.astype(str) + "|" + X.coin + "|" + X.sinif + "|" + X.H.astype(str)
     ESK = pd.read_csv(CSV_F) if os.path.exists(CSV_F) else pd.DataFrame(columns=["anahtar"])
-    if len(ESK) and "tpp" not in ESK: ESK = pd.DataFrame(columns=["anahtar"])                    # 24.10: 🎯 mesafesi sütunu eklendi → önbellek bir kez yeniden hesaplanır
+    if len(ESK) and ("tpp" not in ESK or "B_UZ" not in ESK): ESK = pd.DataFrame(columns=["anahtar"])   # 26.10: B_UZ sütunu → önbellek bir kez yeniden                    # 24.10: 🎯 mesafesi sütunu eklendi → önbellek bir kez yeniden hesaplanır
     tamam = set(ESK.anahtar[ESK.get("tam", pd.Series(dtype=bool)).astype(str) == "True"]) if len(ESK) else set()
     now = pd.Timestamp.now(tz="UTC")
     FZ = fon_serisi(X.t0.min() - pd.Timedelta(days=60))
@@ -114,6 +115,7 @@ def main():
         if fB:
             ab = dict(M=M, a=a, Pe=Pb, fin=finb, chk=chkb, Hm=Hm, t0m=t0m)
             d.update(B_T0=sim(tp=tp, **ab), B_T1=sim(tp=tp, tau=TAU, s1=s1, **ab), B_T3=sim(tp=tp, uzat=True, **ab), B_A2=sim(tp=tpa, **ab))
+            d["B_UZ"] = sim(tp=G * (1 + K_UZ * s1 * np.sqrt(r.H)), uzat=True, be=BE_UZ, **ab) if r.sinif == "ana" else d["B_T0"]   # mesajdaki bugünkü kural
             _bk = BK.get((f"{r.tg.tz_convert(DISPLAY_TZ):%Y-%m-%d %H:%M}", r.coin))
             if _bk: d.update(B_R2=sim(tp=_bk, **ab) if _bk > Pb * 1.002 else np.nan, R2_var=True)
         d["tam"] = bool(len(M) >= 2 * Hm)
@@ -124,7 +126,7 @@ def main():
     rapor(Y, now)
 def rapor(Y, now):
     Y = Y.copy(); Y["t0"] = pd.to_datetime(Y.t0, utc=True)
-    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2", "B_R2"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
+    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2", "B_R2", "B_UZ"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
     def ol(d, c):
         x = d[["t0", c]].dropna()
         if x.empty: return "—"
@@ -133,12 +135,13 @@ def rapor(Y, now):
     L = [f"# 📏 Gerçekçi karne — {now.tz_convert(DISPLAY_TZ):%d.%m.%Y %H:%M}",
          "_Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._\n",
          "## Gönderilen sinyaller (B: limit giriş)"]
-    for sn, ad in (("ana", "✅ ana"), ("yedek", "🔸 yedek"), ("panelden", "📋 panelden"), (None, "Tümü")):
+    for sn, ad in (("ana", "✅ ana (26.10 kuralı: 🎯 1,0σ + ⏳ uzatma; geçmiş sinyallere de uygulanır)"), ("yedek", "🔸 yedek"), ("panelden", "📋 panelden"), (None, "Tümü")):
         d = Y if sn is None else Y[Y.sinif == sn]
         dol = f" · limit doldu %{100 * d.fB.astype(str).eq('True').mean():.0f}" if len(d) else ""
-        L.append(f"- **{ad}:** {ol(d, 'B_T0')}{dol}")
+        L.append(f"- **{ad}:** {ol(d, 'B_UZ')}{dol}")
+    L.append(f"- ✅ ana eski kuralla (🎯 0,75σ, uzatmasız) karşılaştırma: {ol(Y[Y.sinif == 'ana'].dropna(subset=['B_UZ']), 'B_T0')}")
     L.append(f"- Piyasadan giriş (D) karşılaştırma, tümü: {ol(Y, 'D_T0')}")
-    L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)")
+    L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için) — karşılaştırmalar eski kurala (🎯 sabit, uzatmasız) göre")
     b = Y.dropna(subset=["B_T0", "B_T1"]); L.append(f"- **T1 takip eden kâr-al (τ 0,25):** {ol(b, 'B_T1')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     b = Y.dropna(subset=["B_T0", "B_T3"]); L.append(f"- **T3 zarardakini 2 katı süreye uzat:** {ol(b, 'B_T3')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     Y["tpp"] = pd.to_numeric(Y.get("tpp"), errors="coerce"); ap = Y[Y.sinif.isin(["ana", "panelden"])].dropna(subset=["B_T0", "tpp"])
