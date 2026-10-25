@@ -1,6 +1,6 @@
 {
-"gun": "2026-10-25",
-"giden": 2,
+"gun": "2026-10-26",
+"giden": 0,
 "log": [
 {
 "t": "24.10 12:05",
@@ -243,5 +243,5 @@
 "k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 1
+"panelden": 0
 }
