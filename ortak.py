@@ -406,6 +406,9 @@ def tazelik_uyari(esik=2):
     for k, v in d.items():
         g = (bugun - pd.Timestamp(v["son"], tz="UTC")).days
         if g > esik: out.append(f"⚠️ {k}: {g} gündür yeni veri yok (son veri {pd.Timestamp(v['son']):%d.%m}) → bu sinyal türü şu an çalışamıyor")
+    try:
+        import sade; out += sade.takvim_uyari()                                               # 25.10: makro takvimi yenilenmeli mi
+    except Exception: pass
     return out
 def hiz_notu(z, karal=False):                                                                 # prim_pencere.py (30 gün z, 49 coin, 2024+) + cikis.py: z ≥ 3'te 4 saatte çıkmak kârı ~%60 düşürdü
     """karal=True: mesajda 🎯 kâr-al satırı var → "erken çıkma" yerine "🎯 hedef dışında erken çıkma" (22.10.2026: iki talimat çelişmesin)."""

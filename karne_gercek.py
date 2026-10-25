@@ -149,6 +149,12 @@ def rapor(Y, now):
         L.append(f"- **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %{100 * (e > 0).mean():.0f} · ort {100 * e.mean():+.2f}% · en kötü saat {100 * e.min():+.2f}% · oynaklık {100 * e.std():.2f} | risk paylı → %{100 * (w_ > 0).mean():.0f} · ort {100 * w_.mean():+.2f}% · en kötü {100 * w_.min():+.2f}% · oynaklık {100 * w_.std():.2f}")
     if "R2_var" in Y:                                                                          # 25.10 gölge R2 (PROTOKOL_aralik: testte isabet %79–86, kâr şimdikinin yarısı)
         r2 = Y[Y.R2_var.astype(str) == "True"]; L.append(f"- **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** {ol(r2.dropna(subset=['B_R2']), 'B_R2')} — aynı sinyaller şimdiki 🎯 ile: {ol(r2, 'B_T0')} · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz")
+    try:                                                                                       # 25.10 gölge: tutma süresi FOMC/CPI açıklamasını içeren sinyaller (PROTOKOL_makro M1 gözlemi: testte daha iyiydi, az veri)
+        import sade; EVT = pd.DatetimeIndex([t.tz_convert("UTC") for t, _ in sade._olaylar()])
+        _h = pd.to_numeric(Y.H, errors="coerce").values; _t = pd.DatetimeIndex(Y.t0); _i = EVT.searchsorted(_t); _ok = _i < len(EVT)
+        _o = np.zeros(len(Y), bool); _o[_ok] = EVT[_i[_ok]] <= _t[_ok] + pd.to_timedelta(_h[_ok], unit="h"); Y["olay"] = _o
+        L.append(f"- **🏛️ FOMC/CPI olaylı sinyaller:** {ol(Y[Y.olay], 'B_T0')} — olaysız: {ol(Y[~Y.olay], 'B_T0')}")
+    except Exception as e: print("olay gölgesi:", e)
     a2 = Y[Y.a2.astype(str) == "True"]; L.append(f"- **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** {ol(a2, 'B_A2')} · testte (2025+) saat isabeti %70,5 (sınırda)")
     L.append(f"\n_Kayıt: durum/karne_gercek.csv ({len(Y)} satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._")
     open(MD_F, "w", encoding="utf-8").write("\n".join(L) + "\n")

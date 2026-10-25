@@ -98,7 +98,7 @@ def sadelestir(metin, sinif, etiket="", gen=frozenset(), k=None, ust=""):
         t = tek_coin(metin, sinif, etiket, gen, ust)                                         # 🔇 / 🪙 / 🔀 tek coin biçimi
         return t if t else not_at(metin)                                                   # çözülemedi → güvenli geri dönüş
     ilk = (ust.strip() + " — " if ust else "") + (baslik or "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
-    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen))]
+    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis)]
     for c, alt in out: sat.append(c); sat += ["   " + a for a in alt]
     sat.append(KURAL.get(sinif, ""))
     return "\n".join(x for x in sat if x)
@@ -141,7 +141,7 @@ def tek_coin(metin, sinif, etiket, gen, ust):
     if not g: return None
     nm, ad, saat, fiyat = g.groups(); isr = re.match(r"^((?:(?:🚀|📉🔥|💧|💸) )*)", etiket.split(" ", 1)[1] if " " in etiket else "").group(1) if etiket else ""
     ilk = (ust.strip() + " — " if ust else "") + f"🪙 {ad} · {saat}" + (" · 🔇 BTC sessizken" if "🔇" in bas else "") + (f" · {sure}" if sure else "") + (f" · çıkış {cikis}" if cikis else "")
-    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp, KURAL.get(sinif, "")]
+    sat = [ilk, olcu_satiri(sinif, _tur(etiket, sinif, gen)), makro_satiri(cikis), f"• {isr}{nm} {fiyat}" + (f" · {prim}" if prim else "") + (f" · ayrıca {ek}" if ek else "") + (f" · {eis}" if eis else "")] + ufuk + ["   " + tp, KURAL.get(sinif, "")]
     return "\n".join(x for x in sat if x)
 
 # ---- 25.10.2026 kullanıcı onayı: ⚠️ testere (iki yönde sert hareket) riski — PROTOKOL_sekil keşfi: oynaklık σ24/σ720 > 1,25 ya da hacim log(24 s / 720 s ort.) > 0,4
@@ -171,3 +171,28 @@ def risk_ekle(metin):
             v, h = RISK[m.group(1)]; x += " · ⚠️ testere riski ×3,5 (" + ("oynaklık" if v > 1.25 else "") + (" + " if v > 1.25 and h > 0.4 else "") + ("hacim" if h > 0.4 else "") + " yüksek) — kaldıracı düşür"
         out.append(x)
     return "\n".join(out)
+
+# ---- 25.10.2026 kullanıcı onayı: FOMC / CPI uyarısı — PROTOKOL_makro M2: açıklamayı içeren 4 saatlik pencerede ↕️ testere ihtimali ×2,4–4,7
+#      (keşif · 2025+ · dokunulmamış coin'ler). Tarihler durum/makro_tarih.json (resmi takvimler; her yıl güncellenmeli). Sinyali değiştirmez.
+def _olaylar():
+    import json, pandas as pd
+    try: M = json.load(open("durum/makro_tarih.json", encoding="utf-8"))
+    except Exception: return []
+    ev = [(pd.Timestamp(f"{g} 14:00", tz="America/New_York"), "FOMC faiz kararı") for g in M.get("fomc", [])] + [(pd.Timestamp(f"{g} 08:30", tz="America/New_York"), "CPI enflasyon") for g in M.get("cpi", [])]
+    return sorted(ev)
+def makro_satiri(cikis):
+    """cikis: 'gg.aa SS:DD' (TR). Şimdi → çıkış arasında FOMC/CPI açıklaması varsa uyarı satırı, yoksa ''."""
+    import pandas as pd
+    if not cikis: return ""
+    try:
+        now = pd.Timestamp.now(tz="Europe/Istanbul"); c = pd.Timestamp(f"{now.year}-{cikis[3:5]}-{cikis[0:2]} {cikis[6:11]}", tz="Europe/Istanbul")
+        if c < now - pd.Timedelta(days=1): c = c + pd.DateOffset(years=1)
+        ic = [(t.tz_convert("Europe/Istanbul"), ad) for t, ad in _olaylar() if now <= t <= c]
+    except Exception: return ""
+    if not ic: return ""
+    return "⚠️ " + " · ".join(f"{ad} {t:%d.%m %H:%M} TR" for t, ad in ic[:2]) + " bu süre içinde — testere (iki yönde sert hareket) riski ×3 → kaldıracı düşür"
+def takvim_uyari():
+    import pandas as pd
+    ev = _olaylar(); now = pd.Timestamp.now(tz="UTC")
+    son_fomc = max((t for t, ad in ev if ad.startswith("FOMC")), default=None)
+    return ["📅 durum/makro_tarih.json: ileriki FOMC tarihi kalmadı — yeni yılın takvimi eklenmeli (federalreserve.gov · bls.gov)"] if son_fomc is None or son_fomc < now + pd.Timedelta(days=45) else []
