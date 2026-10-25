@@ -29,3 +29,4 @@ _Kullanıcı (25.10): "Kâr-alı gerçekten geliştirebiliriz. Denemediğimiz bi
 ## Ek (26.10.2026, sonuçtan SONRA — protokol değişikliği değil, kullanıcı kararı)
 - Önceden yazılı şarta göre hiçbir kural geçmedi (karal5_sonuc.md). En yakın "UZ 1.0 +1.0H be": sinyal verisi 2025+ / 2026 ✅, yeni veri B 2022–24 ✅; yeni veri A 2025+ ve B 2025+'da isabet +16 puan ama net −%0,02 / −%0,01 → ❌.
 - Kullanıcıya bu açıkça söylendi; kullanıcı: "İsabet yüksek kâr aynı ise ekle" → ✅ ana için canlıya alındı (main c68e0a0). Karar şartı geçmiş SAYILMAZ; canlı gerçekçi karnede (B_UZ) eski kuralla yan yana izlenir.
+- 26.10 21:42 UTC: kullanıcı başa baş çıkışların isabete sayıldığını ve 🎯 uzaklaşınca gerçek kârla kapanan oranın düşebileceğini sorduktan sonra "Eskiye dön" dedi → geri alındı (main 6d29241). Canlıda bu kuralla hiç mesaj gitmedi (21:26–21:42 arasında saatlik çalışma yok).
