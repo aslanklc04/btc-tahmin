@@ -1,3 +1,4 @@
+# 25.10.2026 tam denetim için yeniden çalıştırıldı
 name: Uctan uca kuru denetim
 on:
   push:
