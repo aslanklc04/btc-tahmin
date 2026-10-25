@@ -25,3 +25,7 @@ _Kullanıcı (25.10): "Kâr-alı gerçekten geliştirebiliriz. Denemediğimiz bi
 1. **Tarama / keşif:** sinyal verisi 2022-06 → 2024, iki yarıda da "iyi" olan kurallar → keşif sinyal başı neti en yüksek 5 kural.
 2. **Doğrulama (bir kez, 5 küme, hepsinde "iyi"):** sinyal verisi ✅ ana 2025+ · 2026 · YENİ VERİ (coinsec olayları: BTC güçlü ↑ saatleri × 219 coin, 5 dk mum, 4 saat, aynı B girişi, taban S(0,75)) A 2025+ · B 2022–24 · B 2025+ (yeni veride ölçü işlem düzeyinde: net ≥ taban + %0,03 ve isabet ≥ taban − 1, ya da isabet ≥ taban + 3 ve net ≥ taban).
 3. Beşini de geçen kural(lar) arasında sinyal verisi 2025+ neti en yüksek olan → kullanıcı ön onaylı, mesaja SOMUT FİYATLARLA eklenir. Hiçbiri geçmezse 🎯 değişmez.
+
+## Ek (26.10.2026, sonuçtan SONRA — protokol değişikliği değil, kullanıcı kararı)
+- Önceden yazılı şarta göre hiçbir kural geçmedi (karal5_sonuc.md). En yakın "UZ 1.0 +1.0H be": sinyal verisi 2025+ / 2026 ✅, yeni veri B 2022–24 ✅; yeni veri A 2025+ ve B 2025+'da isabet +16 puan ama net −%0,02 / −%0,01 → ❌.
+- Kullanıcıya bu açıkça söylendi; kullanıcı: "İsabet yüksek kâr aynı ise ekle" → ✅ ana için canlıya alındı (main c68e0a0). Karar şartı geçmiş SAYILMAZ; canlı gerçekçi karnede (B_UZ) eski kuralla yan yana izlenir.
