@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-25",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "24.10 12:05",
-"s": "🔸 yedek 📋 panelden",
-"e": "🧪 24 saat: SHIB (z +0.6)",
-"k": "gönderildi"
-},
 {
 "t": "24.10 12:05",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "25.10 17:04",
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: CRV (z +3.3, 8 saat)",
+"k": "gönderildi"
+},
+{
+"t": "25.10 21:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: COMP (z +1.8)",
 "k": "gönderildi"
 }
 ],
