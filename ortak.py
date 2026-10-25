@@ -301,7 +301,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
 #   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
 #   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) → yalnız 🔥 iken ana (ekle_ara.py 15.10) · 16.10: yedekg = 🌐 eşik altı 🤝 → 🔸 yedek · panely = eski yedekler → panel (🔥 iken ana) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
-ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0). 📏 Gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama; 26.10 kuralı: 🎯 1,0σ + zarardaysa ⏳ uzatma; 2022–24 · 2025+ · 2026): ✅ ana işlem isabeti %81 · %78 · %80 · saat isabeti %78 · %75 · %76 · işlem başı +%0,70 · +%0,42 · +%0,67 (limit emirlerin ~%75'i dolar; karal5_tur)."
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0). 📏 Gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; 2022–24 · 2025+ · 2026): ✅ ana işlem isabeti %68 · %66 · %69 · saat isabeti %64 · %65 · %67 · işlem başı +%0,53 · +%0,34 · +%0,51 (limit emirlerin ~%75'i dolar; 24.10 karal2)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def panel_sinif(z):                                                                           # coin primi < 0 olan sinyal: −1…0 → panelf · ⛔ ≤ −1 → panelfx (ikisi de yalnız 🔥 iken ana) · primsiz → panel
     if z is None or not np.isfinite(z): return "panel"
@@ -318,9 +318,9 @@ def r24z(close):
     except Exception: return float("nan")
 def mom_mu(rz): return bool(rz is not None and np.isfinite(rz) and rz >= MOM_ESIK)
 def dip_mi(rz): return bool(rz is not None and np.isfinite(rz) and rz <= DIP_ESIK)
-MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %82 · %77 · %75 tuttu, işlem başı +%0,60 · +%0,36 · +%0,36 (26.10 kuralı: 🎯 1,0σ + ⏳ uzatma) (2022–24 · 2025+ · 2026) → ✅ işlem sinyali."
-DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %83 · %89 · %91 tuttu, işlem başı +%1,15 · +%1,61 · +%1,58 (26.10 kuralı: 🎯 1,0σ + ⏳ uzatma) (2022–24 · 2025+ · 2026)."
-MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; gerçekçi ölçümde bu durumdaki ✅ sinyaller %82 · %77 · %75 tuttu (işlem başı +%0,60 · +%0,36 · +%0,36; 26.10 kuralı), ABD alımı olmasa da ✅",
+MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %67 · %70 tuttu, işlem başı +%0,44 · +%0,35 · +%0,44 (2022–24 · 2025+ · 2026) → ✅ işlem sinyali."
+DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %78 · %80 tuttu, işlem başı +%0,32 · +%0,81 · +%0,75 (2022–24 · 2025+ · 2026)."
+MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %67 · %70 tuttu (işlem başı +%0,44 · +%0,35 · +%0,44), ABD alımı olmasa da ✅",
                "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %78 · %80 tuttu (işlem başı +%0,32 · +%0,81 · +%0,75)"}
 # 💸 COİN'İN KENDİ FONLAMASI (teknik_tara.py C4b, 12.10.2026, plasebolu önceden yazılı karar — Binance'e o gün erişilemediği için bekledi):
 #   coin'in Binance USDT-M fonlaması son 90 ödemeye göre z ≥ 2 iken ✅ ana sinyaller %59 · %65 · %64, işlem başı +0,88 · +1,67 · +1,78 (ana %55,5 · %58,7 · %60,1)
@@ -376,63 +376,15 @@ def karal_fiyat(p, kapanis, H):
         return float(p * (1 + KARAL_K * r.std() * np.sqrt(H)))
     except Exception: return float("nan")
 KARAL_K_YEDEK, KARAL_K_PANEL = 0.50, 0.45                                                       # 22.10.2026 kullanıcı onayı (esik70.py): 🔸 yedek / 📋 panelden isabeti üç dönemde ≥ %70 tutan en uzak hedef
-# ---- 26.10.2026 kullanıcı onayı ("isabet yüksek kâr aynı ise ekle"; PROTOKOL_karal5 — sinyal verisinde 2025+ / 2026 geçti, yeni veride iki kümede kâr %0,01–0,02 düşük kaldığı için
-#      önceden yazılı şartı tam geçmedi; kullanıcı bunu bilerek onayladı): ✅ ana 🎯 0,75σ → 1,0σ + süre dolunca zarardaysa süre kadar daha bekle, başa başa (alış × 1,0012) dönerse sat.
-#      Gerçekçi (karal5_tur): işlem isabeti %68 → %81 · %66 → %78 · %69 → %80 · saat isabeti %64 → %78 · %65 → %75 · %67 → %76 · işlem başı +0,53 → +0,70 · +0,34 → +0,42 · +0,51 → +0,67 (2022–24 · 2025+ · 2026)
-KARAL_K_ANA, BE_KAT = 1.0, 1.0012
-ANA_KARAL_NOT = "26.10 kuralı (gerçekçi ölçümde isabet %81 · %78 · %80)"
-ANA_KARAL_GOVDE = "önce buraya değerse orada sat (limit emir); değmezse çıkış saatinde kârdaysan sat, zarardaysan ⏳ satırına bak"
-UZ_RE = re.compile(r"🎯 Kâr-al \$([0-9.,]+) \(\+%([0-9.]+)\)")
-def uzatma_ekle(metin, simdi=None):
-    """✅ ana: her 🎯 satırının altına somut fiyatlı uzatma satırı. Çıkış saati ve süre üstteki satırlardan / ⏱ SÜRE satırından okunur; bulunamazsa satır eklenmez."""
-    L = metin.split("\n"); out = []; simdi = simdi or pd.Timestamp.now(tz=DISPLAY_TZ)
-    g = re.search(r"⏱ SÜRE: (\d+) (SAAT|GÜN) TUT", metin); H0 = (int(g.group(1)) * (24 if g.group(2) == "GÜN" else 1)) if g else None
-    for i, x in enumerate(L):
-        out.append(x); m = UZ_RE.search(x)
-        if not m: continue
-        try:
-            X, pct = float(m.group(1).replace(",", "")), float(m.group(2)); p = giris_bul(L, i) or X / (1 + pct / 100); cik = H = None
-            for y in reversed(L[max(0, i - 6):i]):
-                c = re.search(r"[çÇ]ıkış (\d\d)\.(\d\d) (\d\d):(\d\d)", y)
-                if c:
-                    h = re.search(r"\((\d+) saat\)", y) or re.search(r"^💡 (\d+) saat", y.strip()); H = int(h.group(1)) if h else H0
-                    cik = pd.Timestamp(year=simdi.year, month=int(c.group(2)), day=int(c.group(1)), hour=int(c.group(3)), minute=int(c.group(4)), tz=DISPLAY_TZ)
-                    if cik < simdi - pd.Timedelta(days=30): cik = cik + pd.DateOffset(years=1)
-                    break
-            if cik is not None and not H:                                                        # süre yazılı değilse: mesaj başlığındaki sinyal saatinden (çıkış = sinyal + H saat + 6 dk)
-                b = re.search(r"(?:— |🧭 BTC )(\d\d)\.(\d\d) (\d\d):(\d\d)", metin)
-                if b:
-                    t_ = pd.Timestamp(year=cik.year, month=int(b.group(2)), day=int(b.group(1)), hour=int(b.group(3)), minute=int(b.group(4)), tz=DISPLAY_TZ)
-                    hh = round((cik - t_) / pd.Timedelta(hours=1)); H = hh if 1 <= hh <= 24 * 7 else None
-            if cik is None or not H: continue
-            son = cik + pd.Timedelta(hours=H); girinti = x[:len(x) - len(x.lstrip())]
-            out.append(f"{girinti}⏳ Çıkışta zarardaysan satma: {fiyat_yaz(p * BE_KAT)} limit sat (alış {fiyat_yaz(p)} ise başa baş) · dolmazsa en geç {son:%d.%m %H:%M}'de sat")
-        except Exception: continue
-    return "\n".join(out)
 KARAL_RE2 = re.compile(r"🎯 Kâr-al \$([0-9.,]+) \(\+%([0-9.]+)\): önce buraya değerse orada sat \(limit emir\), değmezse çıkış saatinde sat · [^\n]*")
-GIRIS_RE = re.compile(r"(?:LİMİT alış|limit ALIŞ|limit alış|Limit ALIŞ|Giriş \(limit\)) (\$[0-9.,]+)")
-def giris_bul(L, i):
-    """i. satırdaki 🎯'nin ait olduğu giriş fiyatı: üstteki ≤ 6 satırda (coin satırına kadar) son giriş fiyatı; yoksa None."""
-    for y in reversed(L[max(0, i - 6):i]):
-        g = GIRIS_RE.findall(y)
-        if g:
-            try: return float(g[-1].lstrip("$").replace(",", ""))
-            except Exception: return None
-        if y.startswith("• "): break
-    return None
-KARAL_GOVDE = "önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat"
-def karal_degistir(metin, k, not_, govde=KARAL_GOVDE):
-    """Mesajdaki 🎯 satırlarını k katsayısına çevirir (üretici 0,75σ yazar; gonder.py ana / yedek / panelden için çağırır). 26.10: giriş fiyatı satırdan okunur (yuvarlama hatası yok)."""
-    L = metin.split("\n")
-    for i, x in enumerate(L):
-        m = KARAL_RE2.search(x)
-        if not m: continue
+def karal_degistir(metin, k, not_):
+    """Mesajdaki 🎯 satırlarını k katsayısına çevirir (üretici 0,75σ yazar; gonder.py yedek / panelden olarak gönderirken çağırır)."""
+    def f(m):
         try:
-            X = float(m.group(1).replace(",", "")); pct = float(m.group(2)); p = giris_bul(L, i) or X / (1 + pct / 100)
-            yp = (X / p - 1) * 100 * k / KARAL_K
-            L[i] = x[:m.start()] + f"🎯 Kâr-al {fiyat_yaz(p * (1 + yp / 100))} (+%{yp:.1f}): {govde} · {not_}" + x[m.end():]
-        except Exception: continue
-    return "\n".join(L)
+            X = float(m.group(1).replace(",", "")); pct = float(m.group(2)); p = X / (1 + pct / 100); yp = pct * k / KARAL_K
+            return f"🎯 Kâr-al {fiyat_yaz(p * (1 + yp / 100))} (+%{yp:.1f}): önce buraya değerse orada sat (limit emir), değmezse çıkış saatinde sat · {not_}"
+        except Exception: return m.group(0)
+    return KARAL_RE2.sub(f, metin)
 def karal_satir(p, kapanis, H, girinti="   "):
     h = karal_fiyat(p, kapanis, H)
     if not np.isfinite(h): return ""
