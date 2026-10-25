@@ -1,0 +1,25 @@
+name: Tepe filtresi + dip sinyali (PROTOKOL_tepedip)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [tepedip.py, .github/workflows/tepedip.yml]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: canli}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip}
+      - run: pip install -q -r canli/requirements.txt
+      - run: |
+          set +e; python -u tepedip.py > tepedip_log.txt 2>&1; echo "exit=$?" >> tepedip_log.txt; tail -40 tepedip_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add tepedip_log.txt; for f in tepedip_sonuc.md; do git add $f 2>/dev/null || true; done; git commit -m "Tepe-dip sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
