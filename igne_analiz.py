@@ -1,8 +1,15 @@
 # igne_analiz.py — PROTOKOL_igne.md kararları (parçaları birleştirir → igne_sonuc.md)
 import glob, numpy as np, pandas as pd
 out = []; yaz = lambda s="": (out.append(s), print(s))
-A = pd.concat([pd.read_csv(f) for f in glob.glob("parca/**/igneA_p*.csv.gz", recursive=True)], ignore_index=True); A["t"] = pd.to_datetime(A.t, utc=True)
-B = pd.concat([pd.read_csv(f) for f in glob.glob("parca/**/igneB_p*.csv.gz", recursive=True)], ignore_index=True); B["gun"] = pd.to_datetime(B.gun, utc=True)
+def oku(desen):
+    L = []
+    for f in sorted(glob.glob(desen, recursive=True)):
+        try: d = pd.read_csv(f)
+        except pd.errors.EmptyDataError: d = pd.DataFrame()
+        print(f, len(d)); L.append(d)
+    return pd.concat(L, ignore_index=True)
+A = oku("parca/**/igneA_p*.csv.gz"); A["t"] = pd.to_datetime(A.t, utc=True)
+B = oku("parca/**/igneB_p*.csv.gz"); B["gun"] = pd.to_datetime(B.gun, utc=True)
 eksik = sorted(set(sum([open(f).read().split() for f in glob.glob("parca/**/igne_eksik_p*.txt", recursive=True)], [])))
 U = lambda s: pd.Timestamp(s, tz="UTC")
 DON = {"½-1": (U("2022-06-01"), U("2023-07-01")), "½-2": (U("2023-07-01"), U("2025-01-01")), "2025+": (U("2025-01-01"), U("2027-01-01")), "2026": (U("2026-01-01"), U("2027-01-01"))}
