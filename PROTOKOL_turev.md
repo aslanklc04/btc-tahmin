@@ -30,3 +30,6 @@ Piyasa geneli:
 
 ## Canlıya geçiş şartı
 - Başarılı filtrenin özelliği CANLIDA erişilebilir olmalı (Binance vadeli API ABD'den kapalı: canlı karşılık OKX / Deribit / alternative.me ile önce doğrulanır). Kullanıcı onayı olmadan canlıya girmez.
+
+## Ek (26.10.2026, veri işlenmeden ÖNCE — sayım düzeltmesi)
+- 1. madde iki özellik içerir (`oi24`, `oi4`) → toplam **10 özellik, 20 filtre** (metindeki "9 × 2 = 18" yanlış sayım). Başka değişiklik yok.
