@@ -132,7 +132,7 @@ def main():
         for m in pterfi: m["terfi"] = m["c"]; m["m"] = m["m"].replace("⛔ ALMA", "⛔ ama 🔥 fonlama çok yüksek")
         panel = [m for m in panel if not m.get("terfi")]; ana = ana + sorted(pterfi, key=lambda m: (m["o"], m["s"]))
     if SADE:                                                                                   # 25.10: ⚠️ testere riski için coin'lerin oynaklık/hacim durumu (yalnız uyarı)
-        try: sade.risk_hesapla([c for m in ana + yedek + panel for c in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{2,12})\b", m.get("m", ""))])
+        try: sade.risk_hesapla([c for m in ana + yedek + panel for c in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{1,12})\b", m.get("m", ""))])
         except Exception as e: print("testere riski hesaplanamadı:", e)
     n = len(ana); gonderilen = 0; karar = []
     KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
@@ -145,7 +145,7 @@ def main():
             _bas = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "")
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
-            if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {x['e'][:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
+            if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {re.sub(r' · isabet %[0-9.]+', '', x['e'])[:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
             _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + t_))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
             try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
             except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
