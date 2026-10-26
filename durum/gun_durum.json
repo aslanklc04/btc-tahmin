@@ -5,12 +5,6 @@
 {
 "t": "24.10 19:06",
 "s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: KSM (z +1.1), SUPER (z +1.1), XTZ (z +1.0), UMA (z +0.8), RPL (z +0.8), ETC (z +0.6), FLOW (z +0.3), MANA (z +0.3), SUSHI (z +0.3), ENS (z +0.1)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 19:06",
-"s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: KNC (z +0.0)",
 "k": "gönderildi"
 },
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.2",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 09:03",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 26.10 09:00 · $80,263",
+"k": "gönderildi"
 }
 ],
 "panelden": 1
