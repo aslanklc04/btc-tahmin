@@ -1,25 +1,7 @@
 {
 "gun": "2026-10-26",
-"giden": 9,
+"giden": 10,
 "log": [
-{
-"t": "24.10 18:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.3 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 18:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.8 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 19:06",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: BAT (z +2.3), DASH (z +2.2), ADA (z +0.2)",
-"k": "gönderildi"
-},
 {
 "t": "24.10 19:06",
 "s": "🔸 yedek",
@@ -240,6 +222,24 @@
 "t": "26.10 06:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 07:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: VET (z +1.0)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 07:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -3.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 07:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.2",
 "k": "gitmedi — yalnız panel"
 }
 ],
