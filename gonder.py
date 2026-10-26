@@ -84,12 +84,13 @@ ELIT_SATIR = "💎 ELİT (📉🔥 dip · 🔥 fonlama · 🔀): geçmişte 🎯
 NORMAL_SATIR = "ℹ️ ELİT değil → küçük gir (ELİT dışı ✅ geçmişte isabet %64 · %61 · %67 · kâr +%0,47 · +%0,11 · +%0,43)"
 def elit_mi(m, fon):
     """Mesaj bütünüyle ELİT mi (🔥 fonlama saati, 🔥 ile yükselen ya da 🔀) · tek tek ELİT coin'ler 📉🔥 işaretlilerdir."""
+    if m.get("terfi") in ("panelf", "panelfx"): return False                                    # 26.10 kullanıcı onayı: primi eksi coin'lerden 🔥 ile anaya çıkanlar ELİT değil (%66 · %76 · %61)
     return bool(fon or m.get("terfi") or "🔀" in (m.get("e", "").split(" ")[0] if m.get("e") else ""))
-def elit_isle(metin, tum):
+def elit_isle(metin, tum, pe=False):
     """Sade/eski metinde: ELİT coin satırlarına 💎 ELİT, 📏 satırının altına ELİT ya da normal açıklaması."""
     L = metin.split("\n"); var = tum
     for i, x in enumerate(L):
-        if x.startswith("• ") and (tum or "📉🔥" in x.split("$")[0]): L[i] = "• 💎 ELİT " + x[2:]; var = True
+        if x.startswith("• ") and not pe and (tum or "📉🔥" in x.split("$")[0]): L[i] = "• 💎 ELİT " + x[2:]; var = True
     j = next((i for i, x in enumerate(L) if x.startswith("📏 ")), None)
     ek = ELIT_SATIR if var else NORMAL_SATIR
     if j is not None: L.insert(j + 1, ek)
@@ -150,7 +151,7 @@ def main():
     if SADE:                                                                                   # 25.10: ⚠️ testere riski için coin'lerin oynaklık/hacim durumu (yalnız uyarı)
         try: sade.risk_hesapla([c for m in ana + yedek + panel for c in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{1,12})\b", m.get("m", ""))])
         except Exception as e: print("testere riski hesaplanamadı:", e)
-    ana = sorted(ana, key=lambda m: 0 if (elit_mi(m, FON_ANA) or "📉🔥" in m.get("m", "")) else 1)          # 26.10: 💎 ELİT mesajlar en üstte (sıra içinde eski düzen korunur)
+    ana = sorted(ana, key=lambda m: 0 if (elit_mi(m, FON_ANA) or ("📉🔥" in m.get("m", "") and m.get("terfi") not in ("panelf", "panelfx"))) else 1)          # 26.10: 💎 ELİT mesajlar en üstte (sıra içinde eski düzen korunur)
     n = len(ana); gonderilen = 0; karar = []
     KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
     for i, m in enumerate(ana):
@@ -163,11 +164,11 @@ def main():
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {re.sub(r' · isabet %[0-9.]+', '', x['e'])[:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
-            _tum = elit_mi(m, FON_ANA); _bas = _bas + (" · 💎 ELİT" if (_tum or "📉🔥" in m.get("m", "")) else "")
-            _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + elit_isle(t_, _tum)))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
-            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: (ELIT_SATIR if (_tum or "📉🔥" in m.get("m", "")) else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
+            _tum = elit_mi(m, FON_ANA); _pe = m.get("terfi") in ("panelf", "panelfx"); _el = _tum or ("📉🔥" in m.get("m", "") and not _pe); _bas = _bas + (" · 💎 ELİT" if _el else "")
+            _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + elit_isle(t_, _tum, _pe)))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
+            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: (ELIT_SATIR if _el else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
             except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
-        GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else " (🔥 panelden)") if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
+        GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else (" (🔥 prim eksi)" if m.get("terfi") in ("panelf", "panelfx") else " (🔥 panelden)")) if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
     if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır · 25.10: çözülemezse aşağıdaki eski biçim
         try:

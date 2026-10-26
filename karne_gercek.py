@@ -145,7 +145,7 @@ def rapor(Y, now):
                 for par in str(getattr(r, "isr", "")).split("|"):
                     if "📉🔥" in par: dip.add((pd.Timestamp(r.t, tz=DISPLAY_TZ).tz_convert("UTC").floor("h"), par.split(":")[0]))
         a = Y[Y.sinif == "ana"].copy(); a["fz"] = pd.to_numeric(a.fz, errors="coerce")
-        e = (a.fz >= 2) | (a.tur == "🔀") | pd.Series([(t, c) in dip for t, c in zip(a.t0, a.coin)], index=a.index)
+        e = ((a.fz >= 2) | (a.tur == "🔀") | pd.Series([(t, c) in dip for t, c in zip(a.t0, a.coin)], index=a.index)) & ~((a.fz >= 2) & (pd.to_numeric(a.z, errors="coerce") < 0) & (a.tur != "🚀"))   # 26.10: primi eksi coin'den 🔥 ile ana → ELİT değil
         L.append(f"- **💎 ELİT (ana):** limit {ol(a[e], 'B_T0')} · piyasadan {ol(a[e], 'D_T0')}")
         L.append(f"- **ELİT değil (ana):** limit {ol(a[~e], 'B_T0')} · piyasadan {ol(a[~e], 'D_T0')}")
     except Exception as e_: print("ELİT satırı:", e_)
