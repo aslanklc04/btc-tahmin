@@ -1,4 +1,4 @@
-# 26.10.2026 sade düzeltmesi sonrası yeniden kontrol
+# 26.10.2026 coin geçmişi satırı sonrası kontrol (main)
 name: Uctan uca kuru denetim
 on:
   push:
