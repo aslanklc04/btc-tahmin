@@ -1,19 +1,7 @@
 {
-"gun": "2026-10-26",
-"giden": 12,
+"gun": "2026-10-27",
+"giden": 0,
 "log": [
-{
-"t": "25.10 09:04",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 25.10 09:00 · $80,608",
-"k": "gönderildi"
-},
-{
-"t": "25.10 10:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.1",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "25.10 10:04",
 "s": "panel",
@@ -241,7 +229,19 @@
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 00:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 00:04",
+"s": "panel",
+"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⛔ z -2.1",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 1
+"panelden": 0
 }
