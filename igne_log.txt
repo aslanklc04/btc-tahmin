@@ -1,22 +1,159 @@
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/igne_analiz.py", line 5, in <module>
-    B = pd.concat([pd.read_csv(f) for f in glob.glob("parca/**/igneB_p*.csv.gz", recursive=True)], ignore_index=True); B["gun"] = pd.to_datetime(B.gun, utc=True)
-                   ^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
-    return _read(filepath_or_buffer, kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 423, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
-    self._engine = self._make_engine(f, self.engine)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 3006, in _make_engine
-    return mapping[engine](f, **self.options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 107, in __init__
-    self._reader = parsers.TextReader(src, **kwds)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "pandas/_libs/parsers.pyx", line 735, in pandas._libs.parsers.TextReader.__cinit__
-pandas.errors.EmptyDataError: No columns to parse from file
-exit=1
+parca/igne-p-0/igneA_p0.csv.gz 3849
+parca/igne-p-1/igneA_p1.csv.gz 2691
+parca/igne-p-10/igneA_p10.csv.gz 1054
+parca/igne-p-11/igneA_p11.csv.gz 1066
+parca/igne-p-12/igneA_p12.csv.gz 1070
+parca/igne-p-13/igneA_p13.csv.gz 1008
+parca/igne-p-14/igneA_p14.csv.gz 816
+parca/igne-p-15/igneA_p15.csv.gz 1828
+parca/igne-p-2/igneA_p2.csv.gz 2133
+parca/igne-p-3/igneA_p3.csv.gz 1943
+parca/igne-p-4/igneA_p4.csv.gz 1936
+parca/igne-p-5/igneA_p5.csv.gz 1724
+parca/igne-p-6/igneA_p6.csv.gz 1648
+parca/igne-p-7/igneA_p7.csv.gz 1634
+parca/igne-p-8/igneA_p8.csv.gz 1356
+parca/igne-p-9/igneA_p9.csv.gz 1209
+parca/igne-sonuc/parca/igne-p-0/igneA_p0.csv.gz 3849
+parca/igne-sonuc/parca/igne-p-1/igneA_p1.csv.gz 2691
+parca/igne-sonuc/parca/igne-p-10/igneA_p10.csv.gz 1054
+parca/igne-sonuc/parca/igne-p-11/igneA_p11.csv.gz 1066
+parca/igne-sonuc/parca/igne-p-12/igneA_p12.csv.gz 1070
+parca/igne-sonuc/parca/igne-p-13/igneA_p13.csv.gz 1008
+parca/igne-sonuc/parca/igne-p-14/igneA_p14.csv.gz 816
+parca/igne-sonuc/parca/igne-p-15/igneA_p15.csv.gz 1828
+parca/igne-sonuc/parca/igne-p-2/igneA_p2.csv.gz 2133
+parca/igne-sonuc/parca/igne-p-3/igneA_p3.csv.gz 1943
+parca/igne-sonuc/parca/igne-p-4/igneA_p4.csv.gz 1936
+parca/igne-sonuc/parca/igne-p-5/igneA_p5.csv.gz 1724
+parca/igne-sonuc/parca/igne-p-6/igneA_p6.csv.gz 1648
+parca/igne-sonuc/parca/igne-p-7/igneA_p7.csv.gz 1634
+parca/igne-sonuc/parca/igne-p-8/igneA_p8.csv.gz 1356
+parca/igne-sonuc/parca/igne-p-9/igneA_p9.csv.gz 1209
+parca/igne-p-0/igneB_p0.csv.gz 4824
+parca/igne-p-1/igneB_p1.csv.gz 4824
+parca/igne-p-10/igneB_p10.csv.gz 3861
+parca/igne-p-11/igneB_p11.csv.gz 4326
+parca/igne-p-12/igneB_p12.csv.gz 3738
+parca/igne-p-13/igneB_p13.csv.gz 3729
+parca/igne-p-14/igneB_p14.csv.gz 3732
+parca/igne-p-15/igneB_p15.csv.gz 0
+parca/igne-p-2/igneB_p2.csv.gz 4824
+parca/igne-p-3/igneB_p3.csv.gz 4824
+parca/igne-p-4/igneB_p4.csv.gz 4824
+parca/igne-p-5/igneB_p5.csv.gz 4824
+parca/igne-p-6/igneB_p6.csv.gz 4824
+parca/igne-p-7/igneB_p7.csv.gz 4824
+parca/igne-p-8/igneB_p8.csv.gz 4824
+parca/igne-p-9/igneB_p9.csv.gz 4746
+parca/igne-sonuc/parca/igne-p-0/igneB_p0.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-1/igneB_p1.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-10/igneB_p10.csv.gz 3861
+parca/igne-sonuc/parca/igne-p-11/igneB_p11.csv.gz 4326
+parca/igne-sonuc/parca/igne-p-12/igneB_p12.csv.gz 3738
+parca/igne-sonuc/parca/igne-p-13/igneB_p13.csv.gz 3729
+parca/igne-sonuc/parca/igne-p-14/igneB_p14.csv.gz 3732
+parca/igne-sonuc/parca/igne-p-15/igneB_p15.csv.gz 0
+parca/igne-sonuc/parca/igne-p-2/igneB_p2.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-3/igneB_p3.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-4/igneB_p4.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-5/igneB_p5.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-6/igneB_p6.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-7/igneB_p7.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-8/igneB_p8.csv.gz 4824
+parca/igne-sonuc/parca/igne-p-9/igneB_p9.csv.gz 4746
+# 🪡 Likidasyon iğnesi — PROTOKOL_igne.md · Binance vadeli 1 dk
+A: 53,930 sinyal ölçüldü (veri_seti 28,280) · B: 135,096 gün×coin×d satırı · vadeli sembolü bulunamayan coin: 5 (AMP, GNO, OSMO, QI, REQ)
+Son sinyal: 2026-10-21 18:00:00+00:00 · son B günü: 2026-10-25
+
+## A — sinyallere ikinci kademe (L = Gf·(1 − d·s), 7. dk → t + H)
+_hücre: dolan işlem · işlem isabeti · işlem başı net % · Taban = kademe 1 (giriş B)_
+
+### ✅ ana (+0,75σ) · 17,340 sinyal
+| Kural | ½-1 | ½-2 | 2025+ | 2026 | keşif |
+|---|---|---|---|---|---|
+| Taban (kademe 1) | 2234 · %60.5 · +0.136 | 5466 · %69.2 · +0.683 | 5590 · %64.5 · +0.221 | 2068 · %67.9 · +0.472 | — |
+| d0.5_E1 | 1622 · %60.4 · +0.233 | 3870 · %69.3 · +0.985 | 3774 · %60.0 · +0.260 | 1304 · %62.1 · +0.564 | ❌ |
+| d0.5_E2 | 1622 · %72.7 · +0.221 | 3870 · %78.7 · +0.503 | 3774 · %71.7 · +0.067 | 1304 · %73.3 · +0.399 | ✅ |
+| d1.0_E1 | 950 · %62.3 · +0.246 | 2268 · %74.3 · +1.313 | 1978 · %58.4 · +0.172 | 706 · %67.4 · +1.022 | ❌ |
+| d1.0_E2 | 950 · %66.1 · +0.352 | 2268 · %77.2 · +1.010 | 1978 · %62.4 · +0.086 | 706 · %70.0 · +0.808 | ❌ |
+| d1.5_E1 | 556 · %62.2 · +0.293 | 1146 · %70.7 · +1.445 | 1196 · %66.9 · +0.650 | 416 · %74.5 · +1.918 | ❌ |
+| d1.5_E2 | 556 · %64.7 · +0.391 | 1146 · %72.8 · +1.317 | 1196 · %67.9 · +0.544 | 416 · %75.0 · +1.646 | ❌ |
+| d2.0_E1 | 302 · %62.3 · +0.211 | 682 · %70.1 · +1.574 | 676 · %66.3 · +0.834 | 224 · %83.9 · +2.917 | ❌ |
+| d2.0_E2 | 302 · %64.9 · +0.429 | 682 · %72.1 · +1.652 | 676 · %66.3 · +0.599 | 224 · %83.9 · +2.571 | ❌ |
+
+**Keşiften seçilen: d0.5_E2 → KONTROL: ❌ geçmedi**
+- d0.5: dolum oranı %53.4 · haftada dolum 28.7 · 49.3 · 40.1 · 31.2 · dolumdan sonra ek düşüş ort. %-2.7, en kötü %-75.8
+- d1.0: dolum oranı %30.0 · haftada dolum 16.8 · 28.9 · 21.0 · 16.9 · dolumdan sonra ek düşüş ort. %-3.2, en kötü %-75.7
+- d1.5: dolum oranı %16.7 · haftada dolum 9.9 · 14.6 · 12.7 · 9.9 · dolumdan sonra ek düşüş ort. %-4.0, en kötü %-75.5
+- d2.0: dolum oranı %9.6 · haftada dolum 5.4 · 8.7 · 7.2 · 5.4 · dolumdan sonra ek düşüş ort. %-5.4, en kötü %-75.3
+
+### 🔸 yedek (+0,50σ) · 22,950 sinyal
+| Kural | ½-1 | ½-2 | 2025+ | 2026 | keşif |
+|---|---|---|---|---|---|
+| Taban (kademe 1) | 2920 · %66.5 · -0.025 | 6326 · %68.0 · +0.191 | 8766 · %62.0 · -0.164 | 3264 · %68.0 · +0.231 | — |
+| d0.5_E1 | 2062 · %59.4 · -0.052 | 4106 · %66.6 · +0.271 | 5680 · %57.8 · -0.210 | 1918 · %64.7 · +0.364 | ❌ |
+| d0.5_E2 | 2062 · %68.8 · -0.066 | 4106 · %75.0 · +0.149 | 5680 · %70.4 · -0.132 | 1918 · %73.4 · +0.261 | ❌ |
+| d1.0_E1 | 1208 · %57.8 · +0.056 | 2194 · %68.9 · +0.491 | 2976 · %55.9 · -0.427 | 996 · %70.1 · +0.709 | ❌ |
+| d1.0_E2 | 1208 · %60.8 · +0.054 | 2194 · %71.5 · +0.404 | 2976 · %59.9 · -0.354 | 996 · %72.7 · +0.632 | ❌ |
+| d1.5_E1 | 692 · %59.2 · -0.030 | 1176 · %68.4 · +0.592 | 1632 · %58.3 · -0.775 | 510 · %75.7 · +0.997 | ❌ |
+| d1.5_E2 | 692 · %60.1 · +0.006 | 1176 · %69.2 · +0.525 | 1632 · %59.7 · -0.717 | 510 · %77.3 · +0.960 | ❌ |
+| d2.0_E1 | 426 · %55.4 · +0.035 | 676 · %65.7 · +0.643 | 876 · %55.3 · -1.528 | 250 · %81.6 · +1.509 | ❌ |
+| d2.0_E2 | 426 · %55.4 · +0.017 | 676 · %66.0 · +0.586 | 876 · %55.3 · -1.511 | 250 · %81.6 · +1.373 | ❌ |
+
+**Keşif şartını geçen kural yok.** _(bilgi)_
+- d0.5: dolum oranı %51.6 · haftada dolum 36.5 · 52.3 · 60.4 · 45.8 · dolumdan sonra ek düşüş ort. %-2.0, en kötü %-81.8
+- d1.0: dolum oranı %27.8 · haftada dolum 21.4 · 27.9 · 31.7 · 23.8 · dolumdan sonra ek düşüş ort. %-2.5, en kötü %-81.6
+- d1.5: dolum oranı %15.3 · haftada dolum 12.3 · 15.0 · 17.4 · 12.2 · dolumdan sonra ek düşüş ort. %-3.3, en kötü %-81.5
+- d2.0: dolum oranı %8.6 · haftada dolum 7.5 · 8.6 · 9.3 · 6.0 · dolumdan sonra ek düşüş ort. %-4.6, en kötü %-81.3
+
+### 📋 panelden (+0,45σ) · 13,640 sinyal
+| Kural | ½-1 | ½-2 | 2025+ | 2026 | keşif |
+|---|---|---|---|---|---|
+| Taban (kademe 1) | 2598 · %68.7 · +0.173 | 3808 · %69.6 · +0.258 | 4828 · %64.2 · +0.044 | 2326 · %65.1 · +0.128 | — |
+| d0.5_E1 | 1692 · %60.2 · +0.363 | 2660 · %63.3 · +0.554 | 3192 · %54.6 · +0.061 | 1480 · %55.3 · +0.154 | ❌ |
+| d0.5_E2 | 1692 · %67.6 · +0.198 | 2660 · %70.4 · +0.327 | 3192 · %64.7 · +0.110 | 1480 · %64.6 · +0.210 | ❌ |
+| d1.0_E1 | 878 · %57.9 · +0.360 | 1364 · %66.0 · +0.759 | 1592 · %57.8 · +0.219 | 708 · %60.5 · +0.346 | ❌ |
+| d1.0_E2 | 878 · %59.9 · +0.339 | 1364 · %67.0 · +0.609 | 1592 · %60.6 · +0.275 | 708 · %62.1 · +0.326 | ❌ |
+| d1.5_E1 | 462 · %63.6 · +0.663 | 692 · %66.2 · +0.943 | 746 · %60.3 · +0.287 | 288 · %63.2 · +0.625 | ❌ |
+| d1.5_E2 | 462 · %63.6 · +0.584 | 692 · %66.2 · +0.824 | 746 · %61.9 · +0.399 | 288 · %64.6 · +0.632 | ❌ |
+| d2.0_E1 | 246 · %71.5 · +1.273 | 386 · %69.4 · +1.298 | 382 · %66.0 · +0.644 | 134 · %70.1 · +1.071 | ❌ |
+| d2.0_E2 | 246 · %71.5 · +1.092 | 386 · %69.4 · +1.225 | 382 · %67.5 · +0.801 | 134 · %70.1 · +1.031 | ❌ |
+
+**Keşif şartını geçen kural yok.** _(bilgi)_
+- d0.5: dolum oranı %55.3 · haftada dolum 30.0 · 33.9 · 34.0 · 35.4 · dolumdan sonra ek düşüş ort. %-2.1, en kötü %-73.2
+- d1.0: dolum oranı %28.1 · haftada dolum 15.6 · 17.4 · 16.9 · 16.9 · dolumdan sonra ek düşüş ort. %-2.4, en kötü %-72.7
+- d1.5: dolum oranı %13.9 · haftada dolum 8.2 · 8.8 · 7.9 · 6.9 · dolumdan sonra ek düşüş ort. %-2.9, en kötü %-72.1
+- d2.0: dolum oranı %7.4 · haftada dolum 4.4 · 4.9 · 4.1 · 3.2 · dolumdan sonra ek düşüş ort. %-3.7, en kötü %-71.5
+
+## B — bağımsız günlük iğne emri (BTC + 14 ana coin · 00:00 UTC'de L = P·(1 − d·σgün), gün boyu geçerli)
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x/3x likidasyon_
+
+| Kural | ½-1 | ½-2 | 2025+ | 2026 | keşif |
+|---|---|---|---|---|---|
+| d2 X1 | 528 · %64.8 · +1.02 · gün %73 · -16.9 · 0/4 | 1008 · %72.6 · +1.73 · gün %77 · -16.5 · 0/0 | 1084 · %63.1 · +0.76 · gün %65 · -31.4 · 20/34 | 454 · %61.7 · +0.72 · gün %60 · -17.6 · 0/0 | ❌ |
+| d2 X2 | 528 · %61.0 · +1.40 · gün %67 · -17.5 · 0/4 | 1008 · %65.3 · +2.00 · gün %70 · -16.5 · 0/0 | 1084 · %58.1 · +1.12 · gün %58 · -31.4 · 20/34 | 454 · %54.2 · +0.83 · gün %56 · -17.6 · 0/0 | ❌ |
+| d3 X1 | 170 · %60.0 · +0.24 · gün %61 · -20.6 · 0/2 | 372 · %87.1 · +5.18 · gün %86 · -11.4 · 0/0 | 306 · %73.9 · +1.28 · gün %79 · -29.0 · 20/24 | 154 · %70.1 · +1.53 · gün %65 · -12.7 · 0/0 | ❌ |
+| d3 X2 | 170 · %58.8 · +0.96 · gün %61 · -20.6 · 0/2 | 372 · %85.5 · +6.64 · gün %80 · -11.4 · 0/0 | 306 · %73.2 · +2.35 · gün %79 · -29.0 · 20/24 | 154 · %68.8 · +1.65 · gün %65 · -12.7 · 0/0 | ❌ |
+| d4 X1 | 94 · %57.4 · +0.51 · gün %70 · -18.2 · 0/2 | 154 · %87.0 · +8.05 · gün %94 · -5.5 · 0/0 | 112 · %67.9 · +2.38 · gün %80 · -26.6 · 20/24 | 54 · %85.2 · +5.25 · gün %83 · -5.2 · 0/0 | ❌ |
+| d4 X2 | 94 · %51.1 · +0.46 · gün %70 · -18.2 · 0/2 | 154 · %87.0 · +10.58 · gün %94 · -5.5 · 0/0 | 112 · %67.9 · +5.20 · gün %80 · -26.6 · 20/24 | 54 · %85.2 · +5.23 · gün %83 · -5.2 · 0/0 | ❌ |
+
+**Keşif şartını geçen kural yok.**
+
+### B bilgi: coin başına (d3 X1, tüm dönem) · ayda işlem
+- ADA: 56 · %60.7 · +0.76 · gün %61 · -16.6 · 2/2 · ayda 1.1
+- APT: 52 · %69.2 · +2.81 · gün %69 · -19.4 · 2/2 · ayda 1.1
+- ARB: 60 · %83.3 · +3.25 · gün %83 · -20.4 · 2/2 · ayda 1.4
+- BNB: 74 · %70.3 · +1.14 · gün %70 · -12.7 · 0/0 · ayda 1.4
+- BTC: 62 · %71.0 · +1.20 · gün %71 · -6.0 · 0/0 · ayda 1.2
+- DOGE: 58 · %82.8 · +3.47 · gün %83 · -17.1 · 2/2 · ayda 1.1
+- DOT: 64 · %84.4 · +2.80 · gün %84 · -19.9 · 2/2 · ayda 1.2
+- ETH: 82 · %75.6 · +1.93 · gün %76 · -7.1 · 0/0 · ayda 1.6
+- FLOKI: 38 · %84.2 · +6.06 · gün %84 · -18.9 · 2/2 · ayda 0.9
+- LINK: 52 · %76.9 · +2.03 · gün %77 · -19.5 · 2/2 · ayda 1.0
+- NEAR: 60 · %76.7 · +3.42 · gün %77 · -20.6 · 0/2 · ayda 1.1
+- OP: 54 · %81.5 · +1.60 · gün %81 · -29.0 · 2/2 · ayda 1.0
+- PEPE: 32 · %81.2 · +5.69 · gün %81 · -19.1 · 2/2 · ayda 0.8
+- SHIB: 60 · %86.7 · +4.85 · gün %87 · -12.4 · 0/4 · ayda 1.1
+- SUI: 44 · %72.7 · +3.98 · gün %73 · -17.4 · 2/2 · ayda 1.1
+exit=0
