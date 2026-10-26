@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "24.10 19:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: KNC (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 19:06",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.8)",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 26.10 09:00 · $80,263",
 "k": "gönderildi"
+},
+{
+"t": "26.10 14:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
