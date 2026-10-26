@@ -1,25 +1,7 @@
 {
 "gun": "2026-10-26",
-"giden": 5,
+"giden": 7,
 "log": [
-{
-"t": "24.10 18:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: ILV (z +1.3), JASMY (z +1.2), EGLD (z +1.1), ALGO (z +1.0), VTHO (z +0.9), VET (z +0.7), WIF (z +0.7), RLC (z +0.6), BONK (z +0.5), RSR (z +0.4)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 18:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: KSM (z +0.4), G (z +0.4), SPELL (z +0.3), ATOM (z +0.3), DASH (z +0.3), ACH (z +0.2), SKL (z +0.2), KNC (z +0.2), ICP (z +0.2), AMP (z +0.2)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 18:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: ARKM (z +0.1), ALT (z +0.1), WLD (z +0.0), JTO (z +0.0)",
-"k": "gönderildi"
-},
 {
 "t": "24.10 18:06",
 "s": "🔸 yedek 📋 panelden",
@@ -240,6 +222,24 @@
 "t": "26.10 03:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 04:04",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: ARB (z +0.3)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 04:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: APE (z +0.3), ENS (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 04:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
