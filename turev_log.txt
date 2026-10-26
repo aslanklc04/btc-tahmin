@@ -1,21 +1,60 @@
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/turev_analiz.py", line 6, in <module>
-    i = P.index.searchsorted(F.t.values, side="right") - 1; ok = i >= 0; v = np.full(len(F), np.nan); v[ok] = P[c].values[i[ok]]; F[c] = v
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/base.py", line 1679, in searchsorted
-    result = values.searchsorted(value, side=side, sorter=sorter)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/arrays/_mixins.py", line 316, in searchsorted
-    npvalue = self._validate_setitem_value(value)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 709, in _validate_setitem_value
-    return self._unbox(value)
-           ^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 720, in _unbox
-    self._check_compatible_with(other)
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 565, in _check_compatible_with
-    self._assert_tzawareness_compat(other)
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 784, in _assert_tzawareness_compat
-    raise TypeError(
-TypeError: Cannot compare tz-naive and tz-aware datetime-like objects
-exit=1
+# 🧭 Fiyat dışı veri (türev · opsiyon · duygu) ile sinyal seçimi — PROTOKOL_turev.md
+_28,280 sinyal · özellik doluluğu (✅ ana keşif): oi24 %93 · oi4 %93 · ls_top %80 · ls_all %93 · taker %95 · fon %96 · baz %40 · dvol %99 · dvol24 %99 · fg %99_
+
+## Taban (✅ ana, tüm sinyaller)
+½-1: 1157 işlem · ist %61.5 · net +0.119 · saat %62.0 · ½-2: 2882 işlem · ist %70.3 · net +0.695 · saat %64.6 · KEŞİF: 4039 işlem · ist %67.8 · net +0.530 · saat %63.7 · 2025+: 2897 işlem · ist %66.0 · net +0.337 · saat %64.9 · 2026: 1085 işlem · ist %69.0 · net +0.513 · saat %67.3
+
+## KEŞİF — iki yarıda da: isabet ≥ taban + 4 · net ≥ taban + 0,10 · isabet > plasebo %95 · ≥ 100 işlem
+| Filtre | ½-1 (n · ist · net · pl95) | ½-2 (n · ist · net · pl95) | KEŞİF ist · net | geçti |
+|---|---|---|---|---|
+| oi24 düşük (≤ -0.0771) | 371 · %61.7 · +0.094 · %64.4 | 746 · %74.8 · +1.083 · %72.3 | %70.5 · +0.754 | ❌ |
+| oi24 yüksek (≥ -0.00346) | 336 · %60.1 · +0.267 · %65.2 | 774 · %66.3 · +0.531 · %72.5 | %64.4 · +0.451 | ❌ |
+| oi4 düşük (≤ -0.0453) | 309 · %61.8 · +0.136 · %65.4 | 816 · %76.0 · +1.102 · %72.4 | %72.1 · +0.837 | ❌ |
+| oi4 yüksek (≥ -0.00724) | 367 · %62.1 · +0.269 · %65.1 | 741 · %66.4 · +0.498 · %72.5 | %65.0 · +0.422 | ❌ |
+| ls_top düşük (≤ -0.226) | 170 · %66.5 · +0.835 · %67.1 | 776 · %70.5 · +0.761 · %72.6 | %69.8 · +0.775 | ❌ |
+| ls_top yüksek (≥ 1.61) | 163 · %76.1 · +0.481 · %66.9 | 819 · %67.5 · +0.599 · %72.5 | %68.9 · +0.579 | ❌ |
+| ls_all düşük (≤ -0.709) | 420 · %67.9 · +0.383 · %64.3 | 691 · %68.3 · +0.827 · %73.1 | %68.1 · +0.659 | ❌ |
+| ls_all yüksek (≥ 0.913) | 257 · %49.4 · -0.549 · %65.8 | 913 · %71.3 · +0.635 · %72.6 | %66.5 · +0.375 | ❌ |
+| taker düşük (≤ -1.01) | 347 · %65.7 · +0.194 · %64.9 | 826 · %73.7 · +0.905 · %72.4 | %71.4 · +0.694 | ❌ |
+| taker yüksek (≥ -0.198) | 334 · %53.6 · +0.015 · %65.0 | 809 · %66.1 · +0.415 · %72.6 | %62.5 · +0.298 | ❌ |
+| fon düşük (≤ 0.0211) | 310 · %61.3 · +0.157 · %65.5 | 818 · %68.7 · +0.803 · %72.3 | %66.7 · +0.625 | ❌ |
+| fon yüksek (≥ 0.844) | 243 · %68.7 · +0.364 · %65.8 | 946 · %72.5 · +0.700 · %72.4 | %71.7 · +0.631 | ❌ |
+| baz düşük (≤ -0.167) | 99 · %70.7 · +1.023 · %67.7 | 383 · %67.1 · +0.690 · %74.2 | %67.8 · +0.758 | ❌ |
+| baz yüksek (≥ 1.53) | 95 · %69.5 · +0.452 · %68.4 | 415 · %75.4 · +0.893 · %73.7 | %74.3 · +0.811 | ❌ |
+| dvol düşük (≤ -0.474) | 539 · %56.0 · -0.124 · %64.0 | 678 · %68.9 · +0.626 · %72.9 | %63.2 · +0.294 | ❌ |
+| dvol yüksek (≥ 1.39) | 237 · %65.8 · -0.211 · %65.8 | 992 · %77.4 · +0.886 · %72.5 | %75.2 · +0.675 | ❌ |
+| dvol24 düşük (≤ -0.88) | 313 · %63.3 · +0.275 · %65.2 | 883 · %70.9 · +0.532 · %72.4 | %68.9 · +0.464 | ❌ |
+| dvol24 yüksek (≥ 1.78) | 458 · %63.1 · -0.118 · %64.0 | 780 · %74.5 · +0.942 · %72.2 | %70.3 · +0.550 | ❌ |
+| fg düşük (≤ 47) | 757 · %58.3 · -0.126 · %63.1 | 428 · %66.6 · +0.633 · %73.4 | %61.3 · +0.148 | ❌ |
+| fg yüksek (≥ 72) | 0 · %nan · +nan · %nan | 1490 · %71.5 · +0.714 · %71.7 | %71.5 · +0.714 | ❌ |
+
+**Kontrole giden:** yok
+
+## KONTROL (bir kez) — 2025+ ve 2026: isabet ≥ %70 · net ≥ taban + 0,10 · saat isabeti ≥ %65 · haftada ≥ 1 saat
+| Filtre | Dönem | n | işlem isabeti | işlem başı net | saat isabeti | haftada saat | şart |
+|---|---|---|---|---|---|---|---|
+
+## Bilgi: aynı filtreler 🔸 yedek / 📋 panelden ve piyasadan giriş (D) — seçilenler için
+
+## Bilgi: tüm filtrelerin 2025+ ve 2026 sonuçları (seçimden bağımsız, karar değil)
+- oi24 düşük (≤ -0.0771): 2025+ 796 · %69.2 · +0.460 · 2026 221 · %71.9 · +0.615
+- oi24 yüksek (≥ -0.00346): 2025+ 715 · %63.6 · +0.209 · 2026 293 · %66.9 · +0.455
+- oi4 düşük (≤ -0.0453): 2025+ 528 · %68.2 · +0.432 · 2026 183 · %74.9 · +0.951
+- oi4 yüksek (≥ -0.00724): 2025+ 899 · %60.2 · +0.059 · 2026 402 · %61.4 · +0.159
+- ls_top düşük (≤ -0.226): 2025+ 1017 · %67.4 · +0.458 · 2026 357 · %74.2 · +0.778
+- ls_top yüksek (≥ 1.61): 2025+ 593 · %65.4 · +0.274 · 2026 284 · %66.9 · +0.303
+- ls_all düşük (≤ -0.709): 2025+ 703 · %70.1 · +0.796 · 2026 296 · %71.6 · +0.642
+- ls_all yüksek (≥ 0.913): 2025+ 887 · %65.2 · +0.152 · 2026 313 · %67.7 · +0.434
+- taker düşük (≤ -1.01): 2025+ 740 · %73.6 · +0.554 · 2026 270 · %74.4 · +0.577
+- taker yüksek (≥ -0.198): 2025+ 917 · %58.5 · -0.068 · 2026 351 · %64.1 · +0.309
+- fon düşük (≤ 0.0211): 2025+ 1189 · %70.6 · +0.613 · 2026 446 · %74.2 · +0.680
+- fon yüksek (≥ 0.844): 2025+ 382 · %58.9 · +0.056 · 2026 194 · %60.3 · +0.039
+- baz düşük (≤ -0.167): 2025+ 715 · %68.4 · +0.478 · 2026 247 · %71.7 · +0.534
+- baz yüksek (≥ 1.53): 2025+ 188 · %58.0 · +0.137 · 2026 91 · %56.0 · +0.310
+- dvol düşük (≤ -0.474): 2025+ 1193 · %58.3 · +0.100 · 2026 447 · %61.3 · +0.237
+- dvol yüksek (≥ 1.39): 2025+ 640 · %69.8 · +0.010 · 2026 270 · %78.1 · +0.618
+- dvol24 düşük (≤ -0.88): 2025+ 539 · %48.2 · -0.120 · 2026 245 · %55.9 · +0.125
+- dvol24 yüksek (≥ 1.78): 2025+ 637 · %73.3 · +0.435 · 2026 203 · %78.8 · +0.865
+- fg düşük (≤ 47): 2025+ 1232 · %67.5 · +0.441 · 2026 637 · %69.2 · +0.517
+- fg yüksek (≥ 72): 2025+ 554 · %62.8 · +0.072 · 2026 131 · %76.3 · +0.592
+exit=0
