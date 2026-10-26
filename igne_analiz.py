@@ -8,9 +8,9 @@ def oku(desen):
         except pd.errors.EmptyDataError: d = pd.DataFrame()
         print(f, len(d)); L.append(d)
     return pd.concat(L, ignore_index=True)
-A = oku("parca/**/igneA_p*.csv.gz"); A["t"] = pd.to_datetime(A.t, utc=True)
-B = oku("parca/**/igneB_p*.csv.gz"); B["gun"] = pd.to_datetime(B.gun, utc=True)
-eksik = sorted(set(sum([open(f).read().split() for f in glob.glob("parca/**/igne_eksik_p*.txt", recursive=True)], [])))
+A = oku("parca/igne-p-*/igneA_p*.csv.gz"); A["t"] = pd.to_datetime(A.t, utc=True)
+B = oku("parca/igne-p-*/igneB_p*.csv.gz"); B["gun"] = pd.to_datetime(B.gun, utc=True)
+eksik = sorted(set(sum([open(f).read().split() for f in glob.glob("parca/igne-p-*/igne_eksik_p*.txt")], [])))
 U = lambda s: pd.Timestamp(s, tz="UTC")
 DON = {"½-1": (U("2022-06-01"), U("2023-07-01")), "½-2": (U("2023-07-01"), U("2025-01-01")), "2025+": (U("2025-01-01"), U("2027-01-01")), "2026": (U("2026-01-01"), U("2027-01-01"))}
 yaz("# 🪡 Likidasyon iğnesi — PROTOKOL_igne.md · Binance vadeli 1 dk")
