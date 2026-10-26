@@ -1,5 +1,5 @@
 # veri_yokla2.py — 26.10: fiyat dışı veri kaynakları GitHub Actions'tan erişilebilir mi, ne kadar geriye gidiyor (yalnız tanı)
-import io, zipfile, json, time, requests, pandas as pd
+import io, zipfile, time, requests, pandas as pd
 S = requests.Session(); S.headers["User-Agent"] = "btc-tahmin"; L = []
 def yaz(s): print(s, flush=True); L.append(s)
 def dene(ad, url, **kw):
