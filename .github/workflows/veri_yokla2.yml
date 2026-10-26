@@ -1,0 +1,18 @@
+name: Veri yokla 2
+on:
+  push:
+    branches: [arastirma3]
+    paths: [veri_yokla2.py, .github/workflows/veri_yokla2.yml]
+permissions:
+  contents: write
+jobs:
+  y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests && python -u veri_yokla2.py
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add veri_yokla2.md; git commit -m "Veri yokla 2" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
