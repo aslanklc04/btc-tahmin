@@ -1,69 +1,45 @@
-name: Vadeli piyasa testi (24 saat)
+name: Turev verisi (PROTOKOL_turev)
 on:
   push:
     branches: [arastirma3]
-    paths: [turev.py, turev_rapor.py, .github/workflows/turev.yml]
+    paths: [turev_veri.py, turev_piyasa.py, turev_analiz.py, .github/workflows/turev.yml]
 permissions:
   contents: write
 jobs:
-  liste:
+  piyasa:
     runs-on: ubuntu-latest
-    outputs:
-      coinler: ${{ steps.l.outputs.coinler }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: arastirma3
-      - id: l
-        run: echo 'coinler=["ADAUSDT","BNBUSDT","BTCUSDT","DOGEUSDT","DOTUSDT","ETHUSDT","LINKUSDT","NEARUSDT","OPUSDT","SHIBUSDT"]' >> "$GITHUB_OUTPUT"
-  egit:
-    needs: liste
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy && python -u turev_piyasa.py
+      - uses: actions/upload-artifact@v4
+        with: {name: turev-piyasa, path: turev_piyasa.csv.gz}
+  coin:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     strategy:
       fail-fast: false
       matrix:
-        sym: ${{ fromJSON(needs.liste.outputs.coinler) }}
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: arastirma3
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-      - run: pip install -r requirements.txt
-      - run: |
-          set +e; python turev.py ${{ matrix.sym }} > logtv_${{ matrix.sym }}.txt 2>&1; echo "exit=$?" >> logtv_${{ matrix.sym }}.txt; tail -12 logtv_${{ matrix.sym }}.txt
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy && python -u turev_veri.py ${{ matrix.p }} 16 2>&1 | tail -15
       - uses: actions/upload-artifact@v4
-        with:
-          name: tv-${{ matrix.sym }}
-          path: |
-            turev_${{ matrix.sym }}.pkl
-            logtv_${{ matrix.sym }}.txt
-          retention-days: 30
-  rapor:
-    needs: egit
+        with: {name: "turev-p-${{ matrix.p }}", path: "turev_p${{ matrix.p }}.csv.gz"}
+  analiz:
+    needs: [piyasa, coin]
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: arastirma3
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-      - run: pip install -r requirements.txt
+        with: {ref: arastirma3}
       - uses: actions/download-artifact@v4
-        with:
-          path: art
+        with: {path: parca}
+      - run: pip install -q pandas numpy
       - run: |
-          set +e; for f in art/*/logtv_*.txt; do echo "== $f"; cat "$f"; done > turev_log.txt
-          python turev_rapor.py >> turev_log.txt 2>&1; echo "exit=$?" >> turev_log.txt; tail -30 turev_log.txt
+          set +e; python -u turev_analiz.py > turev_log.txt 2>&1; echo "exit=$?" >> turev_log.txt; tail -40 turev_log.txt
       - run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add turev_log.txt; git add turev_sonuc.md 2>/dev/null; git commit -m "Vadeli piyasa testi sonucu" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add turev_log.txt; for f in turev_sonuc.md turev_veri.csv.gz; do git add $f 2>/dev/null || true; done; git commit -m "Turev sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
