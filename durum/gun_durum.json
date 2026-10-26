@@ -1,37 +1,7 @@
 {
 "gun": "2026-10-26",
-"giden": 10,
+"giden": 12,
 "log": [
-{
-"t": "24.10 19:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: FLOKI (z -0.8)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 19:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: BNB (z -1.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 23:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: ALGO (z +5.5, 24 saat)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 23:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -1.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "25.10 01:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⛔ z -1.2",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "25.10 09:04",
 "s": "panel",
@@ -240,6 +210,36 @@
 "t": "26.10 17:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -3.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 22:04",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: OP (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 22:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: JASMY (z +0.3), PUNDIX (z +0.0), ZRO (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 22:04",
+"s": "panel",
+"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 22:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.6 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 22:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: LINK (z -1.9 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
