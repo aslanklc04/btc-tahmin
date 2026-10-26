@@ -1,4 +1,4 @@
-# 📒 Canlı karne — 26.10.2026 15:04
+# 📒 Canlı karne — 26.10.2026 16:03
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 10 · %80 | 23 | %91 | 1.75% | 40.2% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 5 · %60 | 13 | %54 | -1.82% | -23.6% | %60 · %60 | ⚠️ orta |
+| ✅ ana | 🌐🧪 24 s geniş liste | 4 · %50 | 13 | %54 | -1.82% | -23.6% | %60 · %60 | ⚠️ orta |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 10 · %50 | 21 | %57 | 0.67% | 14.1% | %63 · %68 | ⚠️ testin altında, belirgin değil (p 0.38) |
 | ✅ ana | 🧪 24 s ana coin | 0 | 2 | %50 | 0.16% | 0.3% | %59 · %51 | ⏳ veri az |
