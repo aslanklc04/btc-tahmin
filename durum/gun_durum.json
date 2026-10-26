@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "25.10 09:04",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -1.1",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "25.10 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 25.10 09:00 · $80,608",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "26.10 22:04",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: LINK (z -1.9 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 23:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
