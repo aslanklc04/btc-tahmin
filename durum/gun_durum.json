@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "24.10 18:06",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: PEPE (z +0.6), FIL (z +2.7), BNT (z +2.4)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 18:06",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: ILV (z +1.3), JASMY (z +1.2), EGLD (z +1.1), ALGO (z +1.0), VTHO (z +0.9), VET (z +0.7), WIF (z +0.7), RLC (z +0.6), BONK (z +0.5), RSR (z +0.4)",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "26.10 02:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 03:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
