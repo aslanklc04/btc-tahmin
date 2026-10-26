@@ -138,6 +138,17 @@ def rapor(Y, now):
         dol = f" · limit doldu %{100 * d.fB.astype(str).eq('True').mean():.0f}" if len(d) else ""
         L.append(f"- **{ad}:** {ol(d, 'B_T0')}{dol}")
     L.append(f"- Piyasadan giriş (D) karşılaştırma, tümü: {ol(Y, 'D_T0')}")
+    try:                                                                                       # 26.10 kullanıcı: 💎 ELİT (📉🔥 dip · 🔥 fonlama z ≥ 2 · 🔀) ayrı izlenir
+        dip = set()
+        if os.path.exists(KAYIT_F):
+            for r in pd.read_csv(KAYIT_F, dtype=str).fillna("").itertuples():
+                for par in str(getattr(r, "isr", "")).split("|"):
+                    if "📉🔥" in par: dip.add((pd.Timestamp(r.t, tz=DISPLAY_TZ).tz_convert("UTC").floor("h"), par.split(":")[0]))
+        a = Y[Y.sinif == "ana"].copy(); a["fz"] = pd.to_numeric(a.fz, errors="coerce")
+        e = (a.fz >= 2) | (a.tur == "🔀") | pd.Series([(t, c) in dip for t, c in zip(a.t0, a.coin)], index=a.index)
+        L.append(f"- **💎 ELİT (ana):** limit {ol(a[e], 'B_T0')} · piyasadan {ol(a[e], 'D_T0')}")
+        L.append(f"- **ELİT değil (ana):** limit {ol(a[~e], 'B_T0')} · piyasadan {ol(a[~e], 'D_T0')}")
+    except Exception as e_: print("ELİT satırı:", e_)
     L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)")
     b = Y.dropna(subset=["B_T0", "B_T1"]); L.append(f"- **T1 takip eden kâr-al (τ 0,25):** {ol(b, 'B_T1')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     b = Y.dropna(subset=["B_T0", "B_T3"]); L.append(f"- **T3 zarardakini 2 katı süreye uzat:** {ol(b, 'B_T3')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
