@@ -5,12 +5,6 @@
 {
 "t": "24.10 19:06",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.8)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 19:06",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: FLOKI (z -0.8)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "26.10 14:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 17:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -3.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
