@@ -1,31 +1,7 @@
 {
 "gun": "2026-10-26",
-"giden": 7,
+"giden": 8,
 "log": [
-{
-"t": "24.10 18:06",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: FIL (z +2.7, 8 saat)",
-"k": "gönderildi"
-},
-{
-"t": "24.10 18:06",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 18:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ADA (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "24.10 18:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: DOT (z -0.6)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "24.10 18:06",
 "s": "panel",
@@ -240,6 +216,30 @@
 "t": "26.10 04:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 05:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: TRB (z +0.9), ETHFI (z +0.1), LDO (z +0.0), XTZ (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "26.10 05:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 05:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.4 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.10 05:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: LINK (z -2.2 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
