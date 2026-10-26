@@ -3,7 +3,7 @@ import glob, numpy as np, pandas as pd
 F = pd.concat([pd.read_csv(p) for p in glob.glob("parca/**/turev_p*.csv.gz", recursive=True)], ignore_index=True); F["t"] = pd.to_datetime(F.t, utc=True)
 P = pd.read_csv(glob.glob("parca/**/turev_piyasa.csv.gz", recursive=True)[0], index_col=0); P.index = pd.to_datetime(P.index, utc=True)
 for c in ("dvol", "dvol24", "fg"):
-    i = P.index.searchsorted(F.t.values, side="right") - 1; ok = i >= 0; v = np.full(len(F), np.nan); v[ok] = P[c].values[i[ok]]; F[c] = v
+    i = P.index.searchsorted(pd.DatetimeIndex(F.t), side="right") - 1; ok = i >= 0; v = np.full(len(F), np.nan); v[ok] = P[c].values[i[ok]]; F[c] = v
 V = pd.read_csv("veri_seti.csv.gz", usecols=["t", "nm", "sinif", "H", "tur", "rz", "fon"]).rename(columns={"fon": "kfon"}); K = pd.read_csv("karal2_veri.csv.gz", usecols=["t", "nm", "sinif", "H", "B_T0", "D_T0"])
 for x in (V, K): x["t"] = pd.to_datetime(x.t, utc=True)
 M = K.merge(V.drop_duplicates(["t", "nm", "sinif", "H"]), on=["t", "nm", "sinif", "H"]).merge(F.drop_duplicates(["t", "nm", "sinif", "H"]), on=["t", "nm", "sinif", "H"], how="left")

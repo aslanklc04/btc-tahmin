@@ -1,0 +1,26 @@
+name: Turev analiz (yeniden)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [.github/workflows/turev_analiz.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with:
+          path: parca
+          run-id: 40341413170
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u turev_analiz.py > turev_log.txt 2>&1; echo "exit=$?" >> turev_log.txt; tail -40 turev_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add turev_log.txt; for f in turev_sonuc.md turev_veri.csv.gz; do git add $f 2>/dev/null || true; done; git commit -m "Turev sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
