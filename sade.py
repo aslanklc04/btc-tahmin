@@ -82,14 +82,14 @@ def coin_gecmis(sinif, etiket, gen, coin, satir=""):
     T = _cg().get(sinif, {}); tl = _turler(sinif, etiket, gen, coin, satir)
     if not tl: return ""
     r = next((T[t][coin] for t in tl if coin in T.get(t, {})), None)
-    if r is None: return f"📏 {coin} geçmişi: yeterli geçmiş yok"
+    if r is None: return f"📏 {coin} geçmişi: yeterli örnek yok"
     (n1, i1, k1), (n2, i2, k2), (n3, i3, k3) = r; top = n1 + n2
     if top >= 30:
         return (f"📏 {coin} geçmişi: isabet {_yz(i1, False)} · {_yz(i2, False)} · {_yz(i3, False)} · kâr {_yz(k1)} · {_yz(k2)} · {_yz(k3)} ({n1} · {n2} · {n3} işlem)")
     if top >= 10:
         ii = ((i1 or 0) * n1 + (i2 or 0) * n2) / top; kk = ((k1 or 0) * n1 + (k2 or 0) * n2) / top
         return f"📏 {coin} geçmişi: {top} işlem (2022+) · isabet {_yz(ii, False)} · kâr {_yz(kk)} — örnek az"
-    return f"📏 {coin} geçmişi: yeterli geçmiş yok ({top} işlem)"
+    return f"📏 {coin} geçmişi: yeterli örnek yok ({top} işlem)"
 ESKI_RE = re.compile(r" · eski test (?:ort\. [+−-]%[\d.,]+|isabet [^·]*)")
 def eski_at(s):                                                                               # "eski test" parçaları ve etiketlerin yanındaki eski isabet yüzdeleri
     s = ESKI_RE.sub("", s); s = re.sub(r"(⭐ en güçlü|Çok güçlü ↑|Güçlü ↑|Zayıf ↑|A sınıfı) %\d+", r"\1", s); return s.rstrip()
