@@ -1,12 +1,13 @@
 == Neon projeleri (ad · kimlik · bolge)
 binance vadeli · round-bread-18476082 · aws-eu-central-1
 secilen proje: round-bread-18476082
-neon cli: 8.12.2
+neon cli: 8.13.0
 npm install cikis: 0
 == deploy
 → Applying to branch production (br-still-union-baibtf1k) · project default
 Applied changes
   ~ function derinlik
+  ~ trigger:derinlik:dakika
 
 Function URLs
   • derinlik: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/
@@ -20,13 +21,13 @@ invocation_url: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-
   status: completed
   status: completed
 == tetikleyiciler
-Trigger ID                                    Name    Type      Function Slug  Function Path  Schedule   Enabled  Inherited  Next Run At
-trigger-452674fa-3684-451c-8b1b-81a52484bc44  dakika  schedule  derinlik       /ornek         * * * * *  true     false      2026-10-27T10:54:00.000000Z
+Trigger ID                                    Name    Type      Function Slug  Function Path  Schedule     Enabled  Inherited  Next Run At
+trigger-452674fa-3684-451c-8b1b-81a52484bc44  dakika  schedule  derinlik       /ornek         */3 * * * *  true     false      2026-10-27T12:36:00.000000Z
 == /dene (https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/)
 zaman None
 == /mum dene (27.10)
 durdu None
-== /saat 2026102709 (mevcut ölçüm bozulmadı mı)
+== /saat 2026102711 (mevcut ölçüm bozulmadı mı)
 ornek_dosya None · coin 0 · BTC n None
 == /fonlama (mevcut uç)
 {}
