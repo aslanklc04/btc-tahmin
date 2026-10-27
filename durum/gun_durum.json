@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "25.10 13:04",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "25.10 17:04",
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: CRV (z +3.3, 8 saat)",
@@ -240,6 +234,12 @@
 "t": "27.10 07:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 08:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
