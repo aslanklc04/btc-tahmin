@@ -1,0 +1,17 @@
+# 🪡 igne4 Ek — en yakın 2 formül, bakılmamış coin'lerde (BİLGİ, karar değil)
+_hücre: işlem · işlem isabeti · işlem başı net % · saat isabeti · en kötü işlem % · 2x likidasyon · haftada işlem_
+
+## k≥8 · rr≥0.75 · nsame≤∞ · BTC≥-1% · r7>— · f1.25_S2_H48
+- **görülmüş 141:** ½-1 38 · %68.4 · +0.21 · saat %56 · en kötü -9.2 · liq 0 · haftada 0.7 | ½-2 139 · %76.3 · +3.61 · saat %68 · en kötü -11.3 · liq 0 · haftada 1.8 | 2025+ 337 · %76.6 · +2.18 · saat %74 · en kötü -18.7 · liq 0 · haftada 3.6 | 2026 117 · %89.7 · +1.94 · saat %75 · en kötü -7.8 · liq 0 · haftada 2.8
+  - 10–11.10.2025: 88 işlem · ort. +4.60 · isabet %72
+- **bakılmamış:** ½-1 37 · %64.9 · -0.14 · saat %36 · en kötü -10.2 · liq 0 · haftada 0.7 | ½-2 144 · %78.5 · +3.27 · saat %76 · en kötü -13.2 · liq 0 · haftada 1.8 | 2025+ 660 · %69.1 · +2.30 · saat %57 · en kötü -39.1 · liq 0 · haftada 7.0 | 2026 280 · %73.6 · +1.17 · saat %56 · en kötü -39.1 · liq 0 · haftada 6.6
+  - 10–11.10.2025: 153 işlem · ort. +7.84 · isabet %80
+  - tümü: 841 işlem · isabet %70.5 · ort. +2.36 · medyan +2.20 · en kötü %5 dilim -9.2
+
+## k≥6 · rr≥0.75 · nsame≤∞ · BTC≥— · r7>— · f1.25_yok_H48
+- **görülmüş 141:** ½-1 150 · %69.3 · +0.32 · saat %64 · en kötü -21.6 · liq 0 · haftada 2.7 | ½-2 476 · %70.8 · +1.76 · saat %76 · en kötü -19.8 · liq 0 · haftada 6.1 | 2025+ 589 · %71.1 · +1.54 · saat %67 · en kötü -22.9 · liq 0 · haftada 6.2 | 2026 289 · %79.2 · +1.16 · saat %66 · en kötü -22.9 · liq 0 · haftada 6.8
+  - 10–11.10.2025: 103 işlem · ort. +4.07 · isabet %68
+- **bakılmamış:** ½-1 126 · %70.6 · +0.41 · saat %60 · en kötü -10.2 · liq 0 · haftada 2.2 | ½-2 509 · %75.0 · +1.73 · saat %70 · en kötü -36.8 · liq 0 · haftada 6.5 | 2025+ 1456 · %66.5 · +1.25 · saat %64 · en kötü -64.6 · liq 9 · haftada 15.4 | 2026 826 · %70.1 · +0.62 · saat %62 · en kötü -64.6 · liq 6 · haftada 19.5
+  - 10–11.10.2025: 204 işlem · ort. +6.18 · isabet %69
+  - tümü: 2091 işlem · isabet %68.8 · ort. +1.32 · medyan +1.75 · en kötü %5 dilim -9.3
+
