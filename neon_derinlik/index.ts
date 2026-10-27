@@ -3,6 +3,8 @@
 //   /saat?h=YYYYMMDDHH : o saatin (UTC) dakikalık ölçümlerinin ortalaması (canlı sistem her saat bunu okur)
 //   /dene   : şu anki ölçüm (yazmaz) — kurulum kontrolü
 //   /fonlama?c=BTC,ETH,... : her coin'in son 100 fonlama ödemesi (Binance USDT-M) — 💸 coin fonlaması için
+//   /mum?c=BTC,ETH,...&i=1h|5m|1m&n=..&a=ms : Binance USDT-M vadeli mumları (27.10.2026 — 🪡 iğne gölge izleme). Ağırlık korumalı:
+//        n ≤ 170 (1h) / 600 (5m) / 5 (1m) · en çok 160 coin · 15'erli gruplar · Binance 418/429 derse kalan coin'ler atlanır (derinlik ölçümünü korumak için)
 import { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 
 const s3 = new S3Client({ forcePathStyle: true });
@@ -155,6 +157,27 @@ async function hepsi(ek: string[] = []) {
   const s = await Promise.all(liste.map(async ([nm, sym]) => [nm, await olc(sym)] as const));
   return { t: t.toISOString(), coins: Object.fromEntries(s) };
 }
+async function mumlar(cs: string[], i: string, n: number, a: number | null) {
+  const out: Record<string, { sym: string; k: number[][] } | null> = {}; let dur = false;
+  for (let j = 0; j < cs.length; j += 15) {
+    const grup = cs.slice(j, j + 15);
+    const r = await Promise.all(grup.map(async (nm) => {
+      if (dur) return [nm, null] as const;
+      for (const sym of [COINS[nm] ?? EK[nm] ?? `${nm}USDT`, `${nm}USDT`, `1000${nm}USDT`]) {
+        try {
+          const q = await fetch(`https://fapi.binance.com/fapi/v1/klines?symbol=${sym}&interval=${i}&limit=${n}` + (a ? `&startTime=${a}` : ''));
+          if (q.status === 418 || q.status === 429) { dur = true; return [nm, null] as const; }
+          if (!q.ok) continue;
+          const d: any[] = await q.json();
+          if (Array.isArray(d) && d.length) return [nm, { sym, k: d.map((x) => [x[0], +x[1], +x[2], +x[3], +x[4], +x[7], x[6]]) }] as const;
+        } catch { /* sonraki sembol */ }
+      }
+      return [nm, null] as const;
+    }));
+    for (const [nm, v] of r) out[nm] = v;
+  }
+  return { t: new Date().toISOString(), durdu: dur, coins: out };
+}
 const saatAnahtari = (t: Date) => t.toISOString().slice(0, 13).replace(/[-T]/g, '');   // YYYYMMDDHH
 
 export default {
@@ -192,6 +215,14 @@ export default {
       }));
       return json({ t: new Date().toISOString(), coins: Object.fromEntries(r) });
     }
+    if (u.pathname === '/mum') {
+      const i = ['1h', '5m', '1m'].includes(u.searchParams.get('i') ?? '') ? u.searchParams.get('i')! : '1h';
+      const ust = i === '1h' ? 170 : i === '5m' ? 600 : 5;
+      const n = Math.max(1, Math.min(ust, Number(u.searchParams.get('n') ?? 3) || 3));
+      const a = u.searchParams.get('a') ? Number(u.searchParams.get('a')) : null;
+      const cs = (u.searchParams.get('c') ?? '').split(',').map((x) => x.trim().toUpperCase()).filter((x) => /^[A-Z0-9]{1,15}$/.test(x)).slice(0, 160);
+      return json(await mumlar([...new Set(cs)], i, n, a));
+    }
     if (u.pathname === '/saat') {
       const h = u.searchParams.get('h') ?? saatAnahtari(new Date(Date.now() - 3600_000));
       const ls = await s3.send(new ListObjectsV2Command({ Bucket: KOVA, Prefix: `ornek/${h}/` }));
@@ -209,6 +240,6 @@ export default {
       for (const z of Object.values(top)) { z.bid1 /= z.n; z.ask1 /= z.n; }
       return json({ saat: h, ornek_dosya: anah.length, coins: top });
     }
-    return json({ ok: true, yollar: ['/dene', '/saat?h=YYYYMMDDHH', '/fonlama?c=BTC,ETH'] });
+    return json({ ok: true, yollar: ['/dene', '/saat?h=YYYYMMDDHH', '/fonlama?c=BTC,ETH', '/mum?c=BTC,ETH&i=1h&n=3'] });
   },
 };
