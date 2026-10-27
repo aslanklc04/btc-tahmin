@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-28",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "26.10 01:05",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: YFI (z +2.6), SNX (z +2.3), LINK (z +1.5), OP (z +0.3), FLOKI (z +0.0), LDO (z +3.8), JTO (z +3.8), ENS (z +3.6), SUSHI (z +3.5)",
-"k": "gönderildi"
-},
 {
 "t": "26.10 01:05",
 "s": "🔸 yedek",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "28.10 01:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: TAO (z +1.7)",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
