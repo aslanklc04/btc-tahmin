@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "25.10 17:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: CRV (z +3.3, 8 saat)",
-"k": "gönderildi"
-},
-{
 "t": "25.10 21:04",
 "s": "✅ ana",
 "e": "🧪 24 saat: COMP (z +1.8)",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.1",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 27.10 09:00 · $79,977",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
