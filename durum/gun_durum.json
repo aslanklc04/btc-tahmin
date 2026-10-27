@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "25.10 12:04",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -1.2 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "25.10 13:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.0",
@@ -240,6 +234,12 @@
 "t": "27.10 06:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 07:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ · prim ⛔ z -1.6",
 "k": "gitmedi — yalnız panel"
 }
 ],
