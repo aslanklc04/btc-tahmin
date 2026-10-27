@@ -5,7 +5,7 @@ export default defineConfig({
     derinlik: { name: 'Binance vadeli derinlik', source: './index.ts' },
   },
   triggers: {
-    dakika: { type: 'schedule', function: 'derinlik', cron: '* * * * *', functionPath: '/ornek' },
+    dakika: { type: 'schedule', function: 'derinlik', cron: '*/3 * * * *', functionPath: '/ornek' },
   },
   buckets: {
     derinlik: {},

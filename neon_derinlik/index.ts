@@ -1,5 +1,5 @@
 // Binance USDT-M vadeli emir defteri: fiyatın ±%1'indeki alış / satış derinliği ($). Binance arşivindeki "bookDepth" ±1 ile aynı tanım.
-//   /ornek  (yalnız Neon zamanlayıcısı, dakikada bir): 15 coin'i ölçer → nesne deposuna ornek/YYYYMMDDHH/MM.json
+//   /ornek  (yalnız Neon zamanlayıcısı; 27.10.2026'dan beri 3 DAKİKADA BİR — ücretsiz Neon hakkı ~13 günde bitiyordu): 15 coin'i ölçer → nesne deposuna ornek/YYYYMMDDHH/MM.json
 //   /saat?h=YYYYMMDDHH : o saatin (UTC) dakikalık ölçümlerinin ortalaması (canlı sistem her saat bunu okur)
 //   /dene   : şu anki ölçüm (yazmaz) — kurulum kontrolü
 //   /fonlama?c=BTC,ETH,... : her coin'in son 100 fonlama ödemesi (Binance USDT-M) — 💸 coin fonlaması için
