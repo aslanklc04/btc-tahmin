@@ -1,0 +1,21 @@
+Tue Oct 27 10:54:17 UTC 2026
+== /
+{"code":"functions_free_tier_allowance_exhausted","message":"This account has used its Free plan Functions allowance.","reset_at":"2026-11-01T00:00:00.000000Z","upgrade_url":"https://console.neon.tech/app/billing"}
+HTTP 402 · 0.453509s
+
+== /dene
+{"code":"functions_free_tier_allowance_exhausted","message":"This account has used its Free plan Functions allowance.","reset_at":"2026-11-01T00:00:00.000000Z","upgrade_url":"https://console.neon.tech/app/billing"}
+HTTP 402 · 0.385957s
+
+== /saat?h=2026102709
+{"code":"functions_free_tier_allowance_exhausted","message":"This account has used its Free plan Functions allowance.","reset_at":"2026-11-01T00:00:00.000000Z","upgrade_url":"https://console.neon.tech/app/billing"}
+HTTP 402 · 0.444275s
+
+== /fonlama?c=BTC,ETH
+{"code":"functions_free_tier_allowance_exhausted","message":"This account has used its Free plan Functions allowance.","reset_at":"2026-11-01T00:00:00.000000Z","upgrade_url":"https://console.neon.tech/app/billing"}
+HTTP 402 · 0.446773s
+
+== /mum?c=BTC,PEPE,AAVE&i=1h&n=3
+{"code":"functions_free_tier_allowance_exhausted","message":"This account has used its Free plan Functions allowance.","reset_at":"2026-11-01T00:00:00.000000Z","upgrade_url":"https://console.neon.tech/app/billing"}
+HTTP 402 · 0.401241s
+
