@@ -25,3 +25,6 @@ _igne_sonuc.md: günlük derin limit (B) BTC + 14 ana coin'de 2023 ikinci yarı 
 
 ## Canlıya geçiş
 - Geçen kural kullanıcıya somut fiyatlı örnek mesajla gösterilir; onay olmadan canlıya girmez.
+
+## Ek (27.10.2026, veri işlenmeden ÖNCE — stop dolumu daha kötümser)
+- Hızlı çöküşte stop emri stop fiyatından dolmaz: stop dolumu = min(stop, dakikanın açılışı, (stop + dakikanın en düşüğü) / 2) × (1 − %0,3). Başka değişiklik yok.

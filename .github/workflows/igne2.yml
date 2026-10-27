@@ -1,0 +1,40 @@
+name: Igne2 - gunluk igne + trend (PROTOKOL_igne2)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [igne2_veri.py, igne2_analiz.py, .github/workflows/igne2.yml]
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: python -u igne2_veri.py ${{ matrix.p }} 20 2>&1 | tail -40
+      - uses: actions/upload-artifact@v4
+        with: {name: "igne2-p-${{ matrix.p }}", path: "igne2*_p${{ matrix.p }}.*"}
+  analiz:
+    needs: veri
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "igne2-p-*"}
+      - run: pip install -q pandas numpy requests
+      - run: |
+          set +e; python -u igne2_analiz.py > igne2_log.txt 2>&1; echo "exit=$?" >> igne2_log.txt; tail -60 igne2_log.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: igne2-sonuc, path: "igne2_sonuc.md\nigne2_log.txt"}
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add igne2_log.txt; git add igne2_sonuc.md 2>/dev/null || true; git commit -m "Igne2 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
