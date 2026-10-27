@@ -39,3 +39,7 @@ _igne3: iğne sonrası alım (24 s) dört dönemde de kârlı, isabet %67–70, 
 ## Canlıya geçiş
 - Seçilen formül kullanıcıya somut fiyatlı örnek mesajla gösterilir (giriş, 🎯, stop, çıkış saati). Kullanıcı ön onay verdi ("sonra canlıya alırız"); yine örnek gösterilir. Canlıda ilk haftalar gerçekçi karnede ayrıca izlenir.
 - Not: doğrulama aynı tarih aralığında (farklı coin'ler) → aynı piyasa dönemlerini paylaşır; tamamen bağımsız değildir.
+
+## Ek (27.10.2026, sonuçtan SONRA — karar DEĞİL, yalnız bilgi)
+- Tarama şartını hiçbir formül sağlamadı (igne4_sonuc.md) → protokole göre doğrulama yapılmadı, sonuç "geçmedi".
+- Bilgi için en yakın iki formül bakılmamış coin'lerde ölçülür (seçim bu satırla sabit): (a) k≥8 · rr≥0,75 · BTC≥−%1 · f1,25 · stop S2 · 48 s (stoplu, en kötü kayıp sınırlı) · (b) k≥6 · rr≥0,75 · f1,25 · stopsuz · 48 s (en yakın #1). Sonuç ne çıkarsa çıksın tek başına canlıya geçiş kararı sayılmaz.

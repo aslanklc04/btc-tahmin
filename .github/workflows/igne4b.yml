@@ -1,0 +1,23 @@
+name: Igne4b - en yakin formuller bilgi (PROTOKOL_igne4 Ek)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [igne4b_analiz.py, .github/workflows/igne4b.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "igne4-p-*", run-id: 40478585534, github-token: "${{ github.token }}"}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u igne4b_analiz.py > igne4b_log.txt 2>&1; echo "exit=$?" >> igne4b_log.txt; tail -40 igne4b_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add igne4b_log.txt; git add igne4b_sonuc.md 2>/dev/null || true; git commit -m "Igne4b sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
