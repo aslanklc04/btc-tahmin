@@ -1,0 +1,21 @@
+# 🪡 İğne sonrası alım — formül taraması + doğrulama · PROTOKOL_igne4.md · Binance vadeli 5 dk
+aday (kr ≥ 3): 247,496 · sembol: görülmüş 136 · bakılmamış 735 · son 2026-10-25 23:00:00+00:00
+likidite ≥ 2 M$/gün sonrası: 220,205 aday (görülmüş 81,920 · bakılmamış 138,285)
+
+## TARAMA — görülmüş 141 coin · 4,608 formül · uygun: 0
+_hücre: işlem · işlem isabeti · işlem başı net % · saat isabeti · en kötü işlem % · 2x likidasyon · haftada işlem_
+
+| # | giriş filtresi | çıkış | ½-1 | ½-2 | 2025+ | 2026 |
+|---|---|---|---|---|---|---|
+
+**❌ Tarama şartını sağlayan formül yok.** En yakınlar (dört dönemin en kötü isabeti en yüksek, kârlı olanlar):
+- k≥6 · rr≥0.75 · nsame≤∞ · BTC≥— · r7>— · f1.25_yok_H48: ½-1 150 · %69.3 · +0.32 · saat %64 · en kötü -21.6 · liq 0 · haftada 2.7 | ½-2 476 · %70.8 · +1.76 · saat %76 · en kötü -19.8 · liq 0 · haftada 6.1 | 2025+ 589 · %71.1 · +1.54 · saat %67 · en kötü -22.9 · liq 0 · haftada 6.2 | 2026 289 · %79.2 · +1.16 · saat %66 · en kötü -22.9 · liq 0 · haftada 6.8
+- k≥4 · rr≥0.5 · nsame≤∞ · BTC≥— · r7>0 · f1.0_yok_H48: ½-1 654 · %73.2 · +0.72 · saat %75 · en kötü -20.9 · liq 0 · haftada 11.6 | ½-2 2257 · %77.5 · +1.34 · saat %71 · en kötü -23.7 · liq 0 · haftada 28.7 | 2025+ 1021 · %69.4 · +0.14 · saat %66 · en kötü -38.2 · liq 3 · haftada 10.8 | 2026 608 · %69.1 · +0.18 · saat %66 · en kötü -33.4 · liq 0 · haftada 14.3
+- k≥4 · rr≥0.5 · nsame≤∞ · BTC≥-1% · r7>— · f1.25_yok_H48: ½-1 1051 · %68.9 · +0.20 · saat %67 · en kötü -24.2 · liq 0 · haftada 18.6 | ½-2 2852 · %71.8 · +1.20 · saat %71 · en kötü -23.7 · liq 0 · haftada 36.3 | 2025+ 2128 · %69.9 · +1.80 · saat %67 · en kötü -38.2 · liq 6 · haftada 22.5 | 2026 1072 · %70.4 · +0.74 · saat %69 · en kötü -27.5 · liq 0 · haftada 25.3
+- k≥6 · rr≥0.75 · nsame≤∞ · BTC≥-1% · r7>— · f1.25_yok_H48: ½-1 99 · %77.8 · +0.50 · saat %65 · en kötü -21.6 · liq 0 · haftada 1.8 | ½-2 339 · %68.7 · +1.48 · saat %73 · en kötü -19.8 · liq 0 · haftada 4.3 | 2025+ 491 · %68.4 · +1.56 · saat %66 · en kötü -22.9 · liq 0 · haftada 5.2 | 2026 195 · %76.4 · +1.09 · saat %67 · en kötü -22.9 · liq 0 · haftada 4.6
+- k≥8 · rr≥0.75 · nsame≤∞ · BTC≥-1% · r7>— · f1.25_S2_H48: ½-1 38 · %68.4 · +0.21 · saat %56 · en kötü -9.2 · liq 0 · haftada 0.7 | ½-2 139 · %76.3 · +3.61 · saat %68 · en kötü -11.3 · liq 0 · haftada 1.8 | 2025+ 337 · %76.6 · +2.18 · saat %74 · en kötü -18.7 · liq 0 · haftada 3.6 | 2026 117 · %89.7 · +1.94 · saat %75 · en kötü -7.8 · liq 0 · haftada 2.8
+- k≥4 · rr≥0.5 · nsame≤∞ · BTC≥-1% · r7>0 · f1.0_yok_H48: ½-1 472 · %70.1 · +0.30 · saat %73 · en kötü -20.9 · liq 0 · haftada 8.4 | ½-2 1648 · %76.1 · +1.03 · saat %71 · en kötü -23.7 · liq 0 · haftada 21.0 | 2025+ 760 · %70.4 · +0.26 · saat %66 · en kötü -38.2 · liq 1 · haftada 8.0 | 2026 426 · %67.4 · +0.01 · saat %66 · en kötü -27.5 · liq 0 · haftada 10.0
+- k≥4 · rr≥0.5 · nsame≤∞ · BTC≥-1% · r7>0 · f1.25_yok_H48: ½-1 472 · %71.8 · +0.45 · saat %69 · en kötü -20.9 · liq 0 · haftada 8.4 | ½-2 1648 · %74.9 · +1.48 · saat %74 · en kötü -23.7 · liq 0 · haftada 21.0 | 2025+ 760 · %67.4 · +0.36 · saat %66 · en kötü -38.2 · liq 1 · haftada 8.0 | 2026 426 · %70.2 · +0.22 · saat %68 · en kötü -27.5 · liq 0 · haftada 10.0
+- k≥6 · rr≥0.5 · nsame≤∞ · BTC≥-1% · r7>— · f1.25_yok_H48: ½-1 264 · %70.1 · +0.67 · saat %68 · en kötü -21.6 · liq 0 · haftada 4.7 | ½-2 1401 · %67.0 · +1.60 · saat %73 · en kötü -23.7 · liq 0 · haftada 17.8 | 2025+ 835 · %70.1 · +3.87 · saat %62 · en kötü -29.6 · liq 0 · haftada 8.8 | 2026 368 · %68.8 · +0.65 · saat %63 · en kötü -29.6 · liq 0 · haftada 8.7
+- k≥4 · rr≥0.75 · nsame≤∞ · BTC≥— · r7>— · f1.25_yok_H48: ½-1 542 · %66.2 · +0.28 · saat %65 · en kötü -21.6 · liq 0 · haftada 9.6 | ½-2 1444 · %68.9 · +0.95 · saat %72 · en kötü -24.8 · liq 0 · haftada 18.4 | 2025+ 1204 · %67.1 · +0.97 · saat %64 · en kötü -27.0 · liq 1 · haftada 12.7 | 2026 636 · %71.9 · +0.72 · saat %66 · en kötü -27.0 · liq 0 · haftada 15.0
+- k≥4 · rr≥0.5 · nsame≤∞ · BTC≥— · r7>— · f1.0_yok_H48: ½-1 1603 · %68.6 · +0.27 · saat %71 · en kötü -54.7 · liq 1 · haftada 28.4 | ½-2 4304 · %73.0 · +0.94 · saat %72 · en kötü -23.7 · liq 0 · haftada 54.8 | 2025+ 2939 · %68.1 · +1.09 · saat %68 · en kötü -38.2 · liq 8 · haftada 31.1 | 2026 1605 · %66.2 · +0.30 · saat %69 · en kötü -33.4 · liq 0 · haftada 37.8
