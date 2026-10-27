@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "25.10 21:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: COMP (z +1.8)",
-"k": "gönderildi"
-},
-{
 "t": "25.10 23:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.2",
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 27.10 09:00 · $79,977",
 "k": "gönderildi"
+},
+{
+"t": "27.10 10:03",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -2.1",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
