@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "25.10 23:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.2",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "26.10 01:05",
 "s": "✅ ana",
 "e": "🤝 4 saat · BTC ile ortak: YFI (z +2.6), SNX (z +2.3), LINK (z +1.5), OP (z +0.3), FLOKI (z +0.0), LDO (z +3.8), JTO (z +3.8), ENS (z +3.6), SUSHI (z +3.5)",
@@ -240,6 +234,12 @@
 "t": "27.10 10:03",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -2.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.10 23:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
 }
 ],
