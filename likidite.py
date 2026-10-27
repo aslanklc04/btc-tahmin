@@ -49,7 +49,7 @@ with ThreadPoolExecutor(6) as ex: NR = list(ex.map(neon, gerek))
 for H, d in NR:
     if not d: continue
     lab = H + pd.Timedelta(hours=1)
-    v = {nm: x["bid1"] + x["ask1"] for nm, x in d.get("coins", {}).items() if x.get("n", 0) >= 10 and nm in D.columns}
+    v = {nm: x["bid1"] + x["ask1"] for nm, x in d.get("coins", {}).items() if x.get("n", 0) >= 6 and nm in D.columns}   # 27.10: Neon 3 dk/örnek → ana 20, ek coin 10 ölçüm/saat (önce 60/30)
     if v:
         if lab not in D.index: D = D.reindex(D.index.union(pd.DatetimeIndex([lab])))
         for nm, x in v.items(): D.loc[lab, nm] = x
