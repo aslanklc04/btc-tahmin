@@ -1,0 +1,16 @@
+# 🔭 kesif5 — büyük hareket aileleri · PROTOKOL_kesif5.md · Binance vadeli 1 s + gerçek fonlama
+aday: 1,283,167 · görülmüş 136 sembol · bakılmamış 661 sembol · son 2026-10-20 23:00:00+00:00
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x likidasyon · ayda işlem_
+
+## Keşif + kontrol (görülmüş 141) — geçen: 0 / 648
+
+**❌ Keşif + kontrolü geçen kural yok.**
+
+## Bilgi (karar değil) — en yakınlar: dört dönemin en kötü isabeti en yüksek, en kötü dönem neti ≥ +%1
+
+## Bilgi — aile başına en iyi (en kötü dönem neti en yüksek), görülmüş
+- F1 kapitülasyon · z72≤-4 · dipten ≥0 s · T0.05_yok_H24: ½-1 159 · %70 · +0.82 · gün %60 · en kötü -51.6 · liq 1 · ayda 12.2 | ½-2 216 · %95 · +4.22 · gün %81 · en kötü -12.2 · liq 0 · ayda 11.9 | 2025+ 226 · %88 · +3.67 · gün %62 · en kötü -15.3 · liq 1 · ayda 10.5 | 2026 40 · %57 · +0.61 · gün %59 · en kötü -15.1 · liq 0 · ayda 4.2
+- F2 fonlama sıkışması · yüzdelik≤0.02 · r24≥— · trend · T0.08_yok_H120: ½-1 530 · %57 · +0.25 · gün %52 · en kötü -33.2 · liq 0 · ayda 40.8 | ½-2 1451 · %57 · +0.25 · gün %54 · en kötü -43.1 · liq 2 · ayda 80.2 | 2025+ 2002 · %60 · +0.80 · gün %58 · en kötü -36.7 · liq 13 · ayda 92.6 | 2026 255 · %65 · +1.86 · gün %65 · en kötü -30.3 · liq 0 · ayda 26.5
+- F3 hacimli kırılım · hacim×≥5 · trend · T0.08_yok_H120: ½-1 110 · %63 · +0.27 · gün %55 · en kötü -30.0 · liq 0 · ayda 8.5 | ½-2 471 · %69 · +1.35 · gün %66 · en kötü -38.6 · liq 0 · ayda 26.0 | 2025+ 318 · %66 · +0.38 · gün %60 · en kötü -40.1 · liq 4 · ayda 14.7 | 2026 157 · %73 · +2.08 · gün %74 · en kötü -40.1 · liq 0 · ayda 16.3
+- F4 liderde geri çekilme · 7g BTC'den +30% · geri -10% · trend · T0.05_S_H120: ½-1 100 · %68 · +0.18 · gün %60 · en kötü -27.2 · liq 0 · ayda 7.7 | ½-2 766 · %75 · +0.52 · gün %64 · en kötü -37.1 · liq 0 · ayda 42.3 | 2025+ 498 · %70 · +0.06 · gün %62 · en kötü -34.3 · liq 0 · ayda 23.0 | 2026 162 · %80 · +1.84 · gün %80 · en kötü -34.3 · liq 0 · ayda 16.9
+- F5 geride kalan · BTC24≥5% · coin−BTC≤-2% · T0.03_yok_H72: ½-1 1672 · %72 · +0.38 · gün %66 · en kötü -21.0 · liq 0 · ayda 128.7 | ½-2 3224 · %78 · +0.86 · gün %64 · en kötü -29.2 · liq 0 · ayda 178.2 | 2025+ 1706 · %72 · +0.09 · gün %69 · en kötü -25.1 · liq 0 · ayda 78.9 | 2026 851 · %77 · +1.07 · gün %69 · en kötü -18.7 · liq 0 · ayda 88.6
