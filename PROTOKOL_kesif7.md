@@ -23,3 +23,6 @@ _kesif5 / 6 / 6c: fiyat + fonlama tabanlı ~1.300 altcoin kuralı 2025–26'da t
 - **Keşif:** 2022-06-01 → 2023-12-31 · **Kontrol 1:** 2024 · **Kontrol 2:** 2025-01-01 → 2026-10-25.
 - Keşifte geçen (isabet ≥ %70 · işlem başı net ≥ +%2 · ≥ 8 işlem · likidasyon 0) kurallar iki kontrolde de AYNI şartları (≥ 5 işlem) sağlamalı.
 - Birden çok geçerse: üç dönemin en kötü netine göre ilk 3 raporlanır. Örnek az olduğu için GEÇSE BİLE önce 🧪 gölge izleme önerilir; bakılmamış coin doğrulaması yapılamaz (veri yalnız BTC/ETH) — bu, sonucun en zayıf yanı olarak yazılır.
+
+## Ek (28.10.2026, veri işlenmeden ÖNCE — sayım düzeltmesi)
+- D5 iki seçeneklidir: 2 + 2 + 4 + 2 + 2 = **12 giriş** · 12 × 27 = **324 kural** (metindeki 14 / 378 yanlış sayım). Başka değişiklik yok.
