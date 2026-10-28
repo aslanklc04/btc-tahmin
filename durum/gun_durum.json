@@ -5,12 +5,6 @@
 {
 "t": "26.10 01:05",
 "s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: BNT (z +1.9), RSR (z +1.7), ROSE (z +1.6), CVX (z +1.3), API3 (z +1.3), SPELL (z +1.2), WLD (z +1.1), TAO (z +1.0), XTZ (z +1.0), TRB (z +0.9)",
-"k": "gönderildi"
-},
-{
-"t": "26.10 01:05",
-"s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: COMP (z +0.9), NMR (z +0.9), ARKM (z +0.8), FIDA (z +0.7), RARE (z +0.6), 1INCH (z +0.5), FLOW (z +0.5), GNO (z +0.3), ETC (z +0.2), WIF (z +0.1)",
 "k": "gönderildi"
 },
@@ -240,6 +234,12 @@
 "t": "28.10 01:04",
 "s": "✅ ana",
 "e": "🧪 24 saat: TAO (z +1.7)",
+"k": "gönderildi"
+},
+{
+"t": "28.10 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 28.10 09:00 · $80,901",
 "k": "gönderildi"
 }
 ],
