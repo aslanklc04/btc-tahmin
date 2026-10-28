@@ -1,0 +1,18 @@
+# 🔭 kesif6d — en yakın S2′ short formülleri, BAKILMAMIŞ coin'lerde (bilgi, karar değil)
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x likidasyon · ayda işlem_
+
+- likidite≥2 M$ · T0.05_F20_H120 · **görülmüş:** ½-1 218 · %87 · +2.77 · gün %80 · en kötü -20.6 · liq 0 · ayda 16.8 | ½-2 2457 · %80 · +1.04 · gün %64 · en kötü -21.4 · liq 0 · ayda 135.8 | 2025+ 50 · %82 · +2.61 · gün %86 · en kötü -20.5 · liq 0 · ayda 2.3 | 2026 21 · %81 · +1.62 · gün %85 · en kötü -20.5 · liq 0 · ayda 2.2
+- likidite≥2 M$ · T0.05_F20_H120 · **BAKILMAMIŞ:** ½-1 270 · %81 · +1.84 · gün %68 · en kötü -21.9 · liq 0 · ayda 20.8 | ½-2 3557 · %79 · +1.12 · gün %64 · en kötü -20.5 · liq 0 · ayda 196.6 | 2025+ 4957 · %71 · -0.40 · gün %54 · en kötü -21.7 · liq 0 · ayda 229.4 | 2026 2959 · %68 · -0.47 · gün %50 · en kötü -20.5 · liq 0 · ayda 308.1
+  - tümü 8784 işlem · isabet %74.4 · ort. +0.28 · medyan +4.95 · yıllara göre: 2022: 33 işlem ort. +1.07 · 2023: 1199 işlem ort. +2.13 · 2024: 2595 işlem ort. +0.73 · 2025: 1998 işlem ort. -0.30 · 2026: 2959 işlem ort. -0.47
+- likidite≥2 M$ · T0.05_F20_H72 · **görülmüş:** ½-1 218 · %77 · +1.96 · gün %73 · en kötü -20.5 · liq 0 · ayda 16.8 | ½-2 2457 · %76 · +1.06 · gün %64 · en kötü -21.4 · liq 0 · ayda 135.8 | 2025+ 50 · %78 · +2.36 · gün %82 · en kötü -20.5 · liq 0 · ayda 2.3 | 2026 21 · %81 · +1.65 · gün %85 · en kötü -20.5 · liq 0 · ayda 2.2
+- likidite≥2 M$ · T0.05_F20_H72 · **BAKILMAMIŞ:** ½-1 270 · %71 · +1.21 · gün %72 · en kötü -20.5 · liq 0 · ayda 20.8 | ½-2 3557 · %75 · +1.11 · gün %61 · en kötü -20.5 · liq 0 · ayda 196.6 | 2025+ 4957 · %68 · -0.35 · gün %52 · en kötü -21.7 · liq 0 · ayda 229.4 | 2026 2959 · %66 · -0.31 · gün %48 · en kötü -20.5 · liq 0 · ayda 308.1
+  - tümü 8784 işlem · isabet %70.6 · ort. +0.29 · medyan +4.93 · yıllara göre: 2022: 33 işlem ort. +1.61 · 2023: 1199 işlem ort. +1.68 · 2024: 2595 işlem ort. +0.86 · 2025: 1998 işlem ort. -0.39 · 2026: 2959 işlem ort. -0.31
+
+- likidite≥20 M$ · T0.05_F20_H120 · **görülmüş:** ½-1 182 · %88 · +2.86 · gün %83 · en kötü -20.6 · liq 0 · ayda 14.0 | ½-2 2005 · %82 · +1.26 · gün %69 · en kötü -21.4 · liq 0 · ayda 110.8 | 2025+ 25 · %76 · +1.60 · gün %84 · en kötü -20.5 · liq 0 · ayda 1.2 | 2026 9 · %67 · -1.33 · gün %75 · en kötü -20.5 · liq 0 · ayda 0.9
+- likidite≥20 M$ · T0.05_F20_H120 · **BAKILMAMIŞ:** ½-1 158 · %87 · +2.51 · gün %81 · en kötü -20.5 · liq 0 · ayda 12.2 | ½-2 2245 · %84 · +1.62 · gün %67 · en kötü -20.5 · liq 0 · ayda 124.1 | 2025+ 1714 · %72 · -0.50 · gün %56 · en kötü -21.7 · liq 0 · ayda 79.3 | 2026 912 · %71 · -0.60 · gün %55 · en kötü -20.5 · liq 0 · ayda 94.9
+  - tümü 4117 işlem · isabet %79.0 · ort. +0.77 · medyan +4.95 · yıllara göre: 2022: 13 işlem ort. +2.60 · 2023: 713 işlem ort. +2.17 · 2024: 1677 işlem ort. +1.46 · 2025: 802 işlem ort. -0.39 · 2026: 912 işlem ort. -0.60
+- likidite≥20 M$ · T0.05_F20_H72 · **görülmüş:** ½-1 182 · %77 · +2.03 · gün %78 · en kötü -20.5 · liq 0 · ayda 14.0 | ½-2 2005 · %78 · +1.25 · gün %67 · en kötü -21.4 · liq 0 · ayda 110.8 | 2025+ 25 · %76 · +1.53 · gün %84 · en kötü -20.5 · liq 0 · ayda 1.2 | 2026 9 · %67 · -1.32 · gün %75 · en kötü -20.5 · liq 0 · ayda 0.9
+- likidite≥20 M$ · T0.05_F20_H72 · **BAKILMAMIŞ:** ½-1 158 · %76 · +1.60 · gün %79 · en kötü -20.5 · liq 0 · ayda 12.2 | ½-2 2245 · %79 · +1.50 · gün %65 · en kötü -20.5 · liq 0 · ayda 124.1 | 2025+ 1714 · %71 · -0.38 · gün %57 · en kötü -21.7 · liq 0 · ayda 79.3 | 2026 912 · %70 · -0.33 · gün %56 · en kötü -20.5 · liq 0 · ayda 94.9
+  - tümü 4117 işlem · isabet %75.7 · ort. +0.72 · medyan +4.93 · yıllara göre: 2022: 13 işlem ort. +2.73 · 2023: 713 işlem ort. +1.73 · 2024: 1677 işlem ort. +1.40 · 2025: 802 işlem ort. -0.44 · 2026: 912 işlem ort. -0.33
+
+exit=0
