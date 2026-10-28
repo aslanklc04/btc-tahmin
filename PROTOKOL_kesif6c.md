@@ -5,3 +5,6 @@ _kesif6b: S2′ (fonlama ≥ %0,03 ve son 90 ödemenin ≥ %98 yüzdeliği → s
 ## Giriş (analizde): yüzdelik ≥ {%98 · %95} · likidite ≥ {2 M$ · 20 M$} · trend {yok · BTC < 200 g} → 8 giriş.
 ## Çıkış (short): giriş i+1 açılışı × (1 − %0,1) · hedef T ∈ {%5 · %8} · koruma stopu yok · giriş × {1,10 · 1,15 · 1,20} · H ∈ {72 · 120} → 16 çıkış. Stop dolumu = max(stop, mum açılışı) × (1 + %0,3); aynı mumda hedef + stop → stop. Gerçek fonlama (short alır/öder; Ekim 2026 arşiv yok → short %0,01/8 s öder). 2x likidasyon: stopsuzda en yüksek ≥ +%45, stopluda stop dolumu ≥ +%45.
 ## Toplam 8 × 16 = 128 kural · karar şartları kesif5/6 ile aynı (keşif + kontrol görülmüş 141; ilk 5 → bakılmamış coin'lerde dört dönem: isabet ≥ %70 · net ≥ +%2 · gün isabeti ≥ %60 · ≥ 20 işlem · likidasyon 0).
+
+## Ek (28.10.2026, sonuçtan SONRA — karar DEĞİL, bilgi)
+- Keşif + kontrolü geçen yok (net ≥ %2 şartı ½-2 ve 2026'da tutmadı). En yakın iki formül (bu satırla sabit) bakılmamış coin'lerde ölçülür: fon ≥ %0,03 · yüzdelik ≥ %98 · likidite ≥ 2 M$ · trend yok · hedef %5 · stop +%20 · (a) 120 s · (b) 72 s. Ayrıca 20 M$ likidite sürümü. Tek başına canlı kararı değildir.
