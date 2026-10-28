@@ -1,0 +1,16 @@
+# 🧲 kesif5b — geride kalan coin, BAKILMAMIŞ coin'lerde (bilgi, karar değil)
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x likidasyon · ayda işlem_
+
+- T0.03_yok_H72 · **görülmüş:** ½-1 1672 · %72 · +0.38 · gün %66 · en kötü -21.0 · liq 0 · ayda 128.7 | ½-2 3224 · %78 · +0.86 · gün %64 · en kötü -29.2 · liq 0 · ayda 178.2 | 2025+ 1706 · %72 · +0.09 · gün %69 · en kötü -25.1 · liq 0 · ayda 78.9 | 2026 851 · %77 · +1.07 · gün %69 · en kötü -18.7 · liq 0 · ayda 88.6
+- T0.03_yok_H72 · **BAKILMAMIŞ:** ½-1 1596 · %75 · +0.53 · gün %56 · en kötü -37.3 · liq 0 · ayda 122.8 | ½-2 4139 · %80 · +0.87 · gün %75 · en kötü -36.6 · liq 1 · ayda 228.8 | 2025+ 6068 · %74 · +0.07 · gün %67 · en kötü -90.8 · liq 7 · ayda 280.8 | 2026 3797 · %75 · +0.55 · gün %67 · en kötü -40.6 · liq 2 · ayda 395.3
+  - tümü 11803 işlem · isabet %76.1 · ort. +0.41 · 188 farklı gün · gün isabeti %67 · en kalabalık gün 283 işlem
+
+- T0.05_yok_H72 · **görülmüş:** ½-1 1672 · %63 · +0.70 · gün %61 · en kötü -21.0 · liq 0 · ayda 128.7 | ½-2 3224 · %69 · +1.24 · gün %60 · en kötü -29.2 · liq 0 · ayda 178.2 | 2025+ 1706 · %59 · +0.07 · gün %61 · en kötü -25.1 · liq 0 · ayda 78.9 | 2026 851 · %65 · +1.32 · gün %62 · en kötü -18.7 · liq 0 · ayda 88.6
+- T0.05_yok_H72 · **BAKILMAMIŞ:** ½-1 1596 · %67 · +1.00 · gün %56 · en kötü -37.3 · liq 0 · ayda 122.8 | ½-2 4139 · %72 · +1.37 · gün %70 · en kötü -36.6 · liq 1 · ayda 228.8 | 2025+ 6068 · %64 · +0.00 · gün %64 · en kötü -90.8 · liq 10 · ayda 280.8 | 2026 3797 · %67 · +0.86 · gün %67 · en kötü -64.4 · liq 3 · ayda 395.3
+  - tümü 11803 işlem · isabet %67.0 · ort. +0.62 · 188 farklı gün · gün isabeti %64 · en kalabalık gün 283 işlem
+
+- T0.03_S_H72 · **görülmüş:** ½-1 1672 · %69 · -0.02 · gün %62 · en kötü -19.0 · liq 0 · ayda 128.7 | ½-2 3224 · %72 · +0.03 · gün %58 · en kötü -25.4 · liq 0 · ayda 178.2 | 2025+ 1706 · %69 · -0.19 · gün %67 · en kötü -28.1 · liq 0 · ayda 78.9 | 2026 851 · %74 · +0.83 · gün %69 · en kötü -18.7 · liq 0 · ayda 88.6
+- T0.03_S_H72 · **BAKILMAMIŞ:** ½-1 1596 · %72 · +0.23 · gün %58 · en kötü -23.0 · liq 0 · ayda 122.8 | ½-2 4139 · %74 · +0.18 · gün %67 · en kötü -33.9 · liq 1 · ayda 228.8 | 2025+ 6068 · %68 · -0.08 · gün %58 · en kötü -29.9 · liq 0 · ayda 280.8 | 2026 3797 · %69 · +0.26 · gün %56 · en kötü -29.9 · liq 0 · ayda 395.3
+  - tümü 11803 işlem · isabet %70.8 · ort. +0.06 · 188 farklı gün · gün isabeti %62 · en kalabalık gün 283 işlem
+
+exit=0
