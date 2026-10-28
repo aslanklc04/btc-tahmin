@@ -1,0 +1,15 @@
+# 🏦 kesif7b — borsadan çıkış, stop sürümleri (BİLGİ, PROTOKOL_kesif7 Ek 2)
+veri: CoinMetrics btc 2340 gün, eth 2340 gün · korku endeksi 3188 gün
+BTC: mum 2022-01-01 → 2026-10-25 · fonlama 5202 · DVOL 1975 gün · akış 2340 gün
+ETH: mum 2022-01-01 → 2026-10-25 · fonlama 5202 · DVOL 1975 gün · akış 2340 gün
+_hücre: işlem · isabet · işlem başı net % · en kötü işlem %_
+
+- z ≥ 1.5 · T0.03_yok_14g: keşif 2022-06→2023 29 · %76 · +1.18 · en kötü -7.2 | kontrol 2024 13 · %85 · +1.48 · en kötü -6.2 | kontrol 2025→ 51 · %90 · +1.95 · en kötü -23.1
+- z ≥ 1.5 · T0.03_S0.05_14g: keşif 2022-06→2023 29 · %59 · -0.30 · en kötü -5.5 | kontrol 2024 13 · %62 · -0.34 · en kötü -5.7 | kontrol 2025→ 51 · %76 · +0.99 · en kötü -5.5
+- z ≥ 1.5 · T0.03_S0.08_14g: keşif 2022-06→2023 29 · %66 · -0.56 · en kötü -8.6 | kontrol 2024 13 · %85 · +1.07 · en kötü -8.6 | kontrol 2025→ 51 · %84 · +1.42 · en kötü -8.5
+- z ≥ 1.5 · T0.03_S0.12_14g: keşif 2022-06→2023 29 · %72 · +0.42 · en kötü -12.3 | kontrol 2024 13 · %85 · +1.48 · en kötü -6.2 | kontrol 2025→ 51 · %90 · +2.16 · en kötü -12.4
+- z ≥ 2.5 · T0.03_yok_14g: keşif 2022-06→2023 11 · %73 · +0.65 · en kötü -5.6 | kontrol 2024 2 · %100 · +2.78 · en kötü +2.7 | kontrol 2025→ 15 · %93 · +0.99 · en kötü -23.1
+- z ≥ 2.5 · T0.03_S0.05_14g: keşif 2022-06→2023 11 · %36 · -2.39 · en kötü -5.4 | kontrol 2024 2 · %100 · +2.78 · en kötü +2.7 | kontrol 2025→ 15 · %67 · +0.13 · en kötü -5.4
+- z ≥ 2.5 · T0.03_S0.08_14g: keşif 2022-06→2023 11 · %55 · -2.24 · en kötü -8.5 | kontrol 2024 2 · %100 · +2.78 · en kötü +2.7 | kontrol 2025→ 15 · %87 · +1.22 · en kötü -8.4
+- z ≥ 2.5 · T0.03_S0.12_14g: keşif 2022-06→2023 11 · %73 · +0.04 · en kötü -12.3 | kontrol 2024 2 · %100 · +2.78 · en kötü +2.7 | kontrol 2025→ 15 · %93 · +1.70 · en kötü -12.4
+exit=0
