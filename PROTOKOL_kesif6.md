@@ -24,3 +24,7 @@ _kesif5: 648 alış kuralının hiçbiri geçmedi. Ortak zayıflık: düşüş p
 
 ## Ek (28.10.2026, veri işlenmeden ÖNCE — sayım düzeltmesi)
 - Aileler 4 + 4 + 2 + 4 = 14 giriş × 2 trend = **28 giriş** · 28 × 18 = **504 kural** (metindeki 16 / 576 yanlış sayım). Başka değişiklik yok.
+
+## Ek 2 (28.10.2026, sonuçtan SONRA — S2 TANIM HATASI düzeltmesi)
+- S2'de fonlama çoğu coin'de taban değerde (%0,01) sabit durur; yüzdelik "son 90 ödemenin ≤ sonuncusu" olduğundan taban fonlama da %98–100 yüzdelik sayıldı → S2 ayda binlerce sahte sinyal üretti, sonucu GEÇERSİZ.
+- Düzeltilmiş S2′ (değerlendirmeden önce sabit): son fonlama ≥ %0,03 (tabanın 3 katı) VE yüzdelik ≥ {%98 · %95} · r24 ≤ {sınırsız · 0} · trend {yok · BTC < 200 g} → 8 giriş × 18 çıkış = 144 kural. Aynı karar şartları (keşif + kontrol görülmüş 141, doğrulama bakılmamış). kesif6 verisinden (aday tetiği fr > 0 ve yüzdelik ≥ %95 bu kümeyi kapsar).

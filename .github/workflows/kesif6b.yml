@@ -1,0 +1,23 @@
+name: Kesif6b - duzeltilmis S2 (PROTOKOL_kesif6 Ek 2)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kesif6b_analiz.py, .github/workflows/kesif6b.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "kesif6-p-*", run-id: 40652451273, github-token: "${{ github.token }}"}
+      - run: pip install -q pandas numpy requests
+      - run: |
+          set +e; python -u kesif6b_analiz.py > kesif6b_log.txt 2>&1; echo "exit=$?" >> kesif6b_log.txt; tail -40 kesif6b_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add kesif6b_log.txt; git add kesif6b_sonuc.md 2>/dev/null || true; git add kesif6b_secim.json 2>/dev/null || true; git commit -m "Kesif6b sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
