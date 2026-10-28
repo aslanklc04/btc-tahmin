@@ -1,0 +1,40 @@
+name: Kesif6 - short aileleri (PROTOKOL_kesif6)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kesif6_veri.py, kesif6_analiz.py, .github/workflows/kesif6.yml]
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: python -u kesif6_veri.py ${{ matrix.p }} 40 2>&1 | tail -40
+      - uses: actions/upload-artifact@v4
+        with: {name: "kesif6-p-${{ matrix.p }}", path: "kesif6*_p${{ matrix.p }}.*"}
+  analiz:
+    needs: veri
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "kesif6-p-*"}
+      - run: pip install -q pandas numpy requests
+      - run: |
+          set +e; python -u kesif6_analiz.py > kesif6_log.txt 2>&1; echo "exit=$?" >> kesif6_log.txt; tail -60 kesif6_log.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: kesif6-sonuc, path: "kesif6_sonuc.md\nkesif6_log.txt\nkesif6_secim.json"}
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add kesif6_log.txt; git add kesif6_sonuc.md 2>/dev/null || true; git add kesif6_secim.json 2>/dev/null || true; git commit -m "Kesif6 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

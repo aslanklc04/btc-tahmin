@@ -21,3 +21,6 @@ _kesif5: 648 alış kuralının hiçbiri geçmedi. Ortak zayıflık: düşüş p
 ## Karar (kesif5 ile aynı şartlar)
 1. Keşif (görülmüş, ½-1 ve ½-2) ve 2. Kontrol (görülmüş, 2025+ ve 2026): isabet ≥ %70 · işlem başı net ≥ +%2,0 · gün isabeti ≥ %60 · ≥ 20 (kontrol ≥ 15) işlem · likidasyon 0.
 3. Doğrulama (bakılmamış, dört dönem): aynı şartlar, ≥ 20 işlem. İlk 5 (en kötü dönem neti) doğrulamaya. Geçen → kullanıcıya somut örnek. Hiçbiri geçmezse en yakınlar bilgi.
+
+## Ek (28.10.2026, veri işlenmeden ÖNCE — sayım düzeltmesi)
+- Aileler 4 + 4 + 2 + 4 = 14 giriş × 2 trend = **28 giriş** · 28 × 18 = **504 kural** (metindeki 16 / 576 yanlış sayım). Başka değişiklik yok.
