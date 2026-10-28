@@ -1,0 +1,21 @@
+name: Kesif7b - borsadan cikis stop surumleri (bilgi)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kesif7b.py, .github/workflows/kesif7b.yml]
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: |
+          set +e; python -u kesif7b.py > kesif7b_log.txt 2>&1; echo "exit=$?" >> kesif7b_log.txt; tail -60 kesif7b_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add kesif7b_log.txt; git add kesif7b_sonuc.md 2>/dev/null || true; git commit -m "Kesif7b sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

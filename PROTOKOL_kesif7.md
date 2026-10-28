@@ -26,3 +26,6 @@ _kesif5 / 6 / 6c: fiyat + fonlama tabanlı ~1.300 altcoin kuralı 2025–26'da t
 
 ## Ek (28.10.2026, veri işlenmeden ÖNCE — sayım düzeltmesi)
 - D5 iki seçeneklidir: 2 + 2 + 4 + 2 + 2 = **12 giriş** · 12 × 27 = **324 kural** (metindeki 14 / 378 yanlış sayım). Başka değişiklik yok.
+
+## Ek 2 (28.10.2026, sonuçtan SONRA — karar DEĞİL, bilgi; kullanıcı: "stopu da %5 koy")
+- Gölge izlemede 🏦 D2 (z ≥ 1,5 · +%3 · 14 g) üç sürümle izlenir: stopsuz · −%5 · −%12. −%5 stop protokolde YOKTU → geçmişteki sonucu yalnız bilgi olarak ölçülür (z ≥ 1,5 ve 2,5; aynı veri, aynı ölçüm).
