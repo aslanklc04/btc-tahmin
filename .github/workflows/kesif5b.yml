@@ -1,0 +1,23 @@
+name: Kesif5b - geride kalan bakilmamis (PROTOKOL_kesif5 Ek)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [kesif5b_analiz.py, .github/workflows/kesif5b.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "kesif5-p-*", run-id: 40647619666, github-token: "${{ github.token }}"}
+      - run: pip install -q pandas numpy requests
+      - run: |
+          set +e; python -u kesif5b_analiz.py > kesif5b_log.txt 2>&1; echo "exit=$?" >> kesif5b_log.txt; tail -40 kesif5b_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add kesif5b_log.txt; git add kesif5b_sonuc.md 2>/dev/null || true; git add kesif5b_secim.json 2>/dev/null || true; git commit -m "Kesif5b sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

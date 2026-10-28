@@ -30,3 +30,6 @@ _Kullanıcı (28.10): "Artık gerçekten %70+ isabet, kâr %2–3'ten fazla siny
 2. **Kontrol (görülmüş 141, 2025+ ve 2026):** aynı şartlar (≥ 15 işlem).
 3. **Doğrulama (bakılmamış 735, DÖRT dönem):** isabet ≥ %70 · net ≥ +%2,0 · gün isabeti ≥ %60 · ≥ 20 işlem · likidasyon 0.
 - 1 ve 2'yi geçen ilk 5 kural (keşif + kontrolün en kötü dönem netine göre) doğrulamaya gider. Doğrulamayı geçen → kullanıcıya somut fiyatlı örnekle canlı önerisi. Hiçbiri geçmezse en yakınlar bilgi olarak raporlanır (karar değil).
+
+## Ek (28.10.2026, sonuçtan SONRA — karar DEĞİL, bilgi; kullanıcı: "önerilerini uygula")
+- Keşif + kontrolü geçen yok. "F5 geride kalan" görülmüş coin'lerde dört dönemde isabet %72–78 (net +0,09 … +1,07). Bu satırla sabit formül bakılmamış coin'lerde ölçülür: BTC 24 s ≥ +%5 · coin 24 s − BTC 24 s ≤ −%2 · trend yok · hedef +%3 · stop yok · 72 s. Yanında bilgi: aynı giriş + T0.05_yok_H72 ve T0.03_S_H72. Tek başına canlı kararı değildir.
