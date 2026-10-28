@@ -1,13 +1,13 @@
 # borsa_golge.py — 🏦 BORSADAN GÜÇLÜ ÇIKIŞ (BTC/ETH) · GÖLGE İZLEME (28.10.2026 kullanıcı: "önerilerini uygula"). Telegram'a HİÇBİR ŞEY GÖNDERMEZ.
 # Formül (arastirma3 PROTOKOL_kesif7, en yakın aday — önceden yazılı şartı tam geçmedi): CoinMetrics borsa çıkışı − girişi, 7 günlük toplam;
 #   önceki 365 günün 7 günlük toplamlarına göre z ≥ 1,5 (D−2 günü verisi) → D günü 01:00 UTC'de al · 🎯 +%3 · en fazla 14 gün · varlık başına 3 gün bekleme.
-#   28.10 kullanıcı: üç sürüm yan yana — stopsuz · stop −%5 · stop −%12 (her sinyal üç satır; "surum" sütunu).
+#   28.10 kullanıcı: stop −%12 (asıl) + karşılaştırma için stopsuz; her sinyal iki satır ("surum" sütunu). −%5 kaldırıldı.
 #   Araştırmada: isabet %72 · %85 · %90, işlem başı +%0,4 · +%1,5 · +%2,2 (2022–23 · 2024 · 2025+), ayda ~1–2 sinyal.
 # Fiyat: Binance spot 1 s mum (canlıda erişilebilen; araştırma vadeli — fark küçük). Hedef/stop aynı mumda → stop (kötümser).
 import os, json, time, numpy as np, pandas as pd, requests
 CSV, DUR, MD = "durum/borsa_golge.csv", "durum/borsa_golge_durum.json", "durum/borsa_golge.md"
 FL, FP, KAY, SLIP, T, GUN, ESIK = 0.0002, 0.0005, 0.003, 0.001, 0.03, 14, 1.5
-SURUM = {"stopsuz": None, "stop −%5": 0.05, "stop −%12": 0.12}
+SURUM = {"stopsuz": None, "stop −%12": 0.12}                                          # 28.10 kullanıcı: "stopu 12 yap" → −%5 kaldırıldı (geçmişte %59–62 isabet, zarar)
 VAR = {"BTC": ("btc", "BTCUSDT"), "ETH": ("eth", "ETHUSDT")}
 S = requests.Session()
 def get(u, **kw):
@@ -72,7 +72,7 @@ def main():
     k = T_[T_.net.notna()]; n = len(k)
     md = ["# 🏦 Borsadan güçlü çıkış (BTC/ETH) — gölge izleme (mesaj gönderilmez)",
           f"_güncellendi {now:%Y-%m-%d %H:%M} UTC · başlangıç 28.10.2026 · araştırma: isabet %72 · %85 · %90, işlem başı +%0,4 · +%1,5 · +%2,2 · son z: BTC {D.get('BTC_z')} · ETH {D.get('ETH_z')} (eşik 1,5)_", "",
-          f"- toplam sinyal: {len(T_) // 3} (her biri 3 sürüm) · kapanan satır: {n} · açık: {int((T_.durum == 'açık').sum())}"]
+          f"- toplam sinyal: {T_.drop_duplicates(["gun", "varlik"]).shape[0]} (her biri {len(SURUM)} sürüm) · kapanan satır: {n} · açık: {int((T_.durum == 'açık').sum())}"]
     for sn in SURUM:
         kk = k[k.surum == sn]
         if len(kk): md.append(f"- {sn}: {len(kk)} kapanan · isabet %{100 * (kk.net > 0).mean():.0f} · işlem başı ort. {100 * kk.net.mean():+.2f}% · en kötü {100 * kk.net.min():+.1f}%")
