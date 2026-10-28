@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "26.10 01:05",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: NEAR (z +2.5, 24 saat)",
-"k": "gönderildi"
-},
-{
-"t": "26.10 01:05",
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Çok güçlü ↑ · 8 saat Güçlü ↑ · prim ⛔ z -1.4",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: FIL (z +1.9)",
 "k": "gönderildi"
+},
+{
+"t": "28.10 23:05",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
