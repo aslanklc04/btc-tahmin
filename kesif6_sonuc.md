@@ -1,0 +1,15 @@
+# 🔭 kesif6 — SHORT aileleri · PROTOKOL_kesif6.md · Binance vadeli 1 s + gerçek fonlama
+aday: 5,219,220 · görülmüş 136 sembol · bakılmamış 662 sembol · son 2026-10-20 23:00:00+00:00
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x likidasyon · ayda işlem_
+
+## Keşif + kontrol (görülmüş 141) — geçen: 0 / 504
+
+**❌ Keşif + kontrolü geçen kural yok.**
+
+## Bilgi (karar değil) — en yakınlar: dört dönemin en kötü isabeti en yüksek, en kötü dönem neti ≥ +%1
+
+## Bilgi — aile başına en iyi (en kötü dönem neti en yüksek), görülmüş
+- S1 pompa yorgunluğu · z72≥+4 · tepeden ≥0 s · T0.08_yok_H24: ½-1 99 · %72 · +0.13 · gün %58 · en kötü -69.0 · liq 6 · ayda 7.6 | ½-2 260 · %66 · -0.26 · gün %64 · en kötü -64.1 · liq 13 · ayda 14.4 | 2025+ 453 · %62 · -0.49 · gün %66 · en kötü -99.4 · liq 20 · ayda 21.0 | 2026 302 · %64 · -0.04 · gün %65 · en kötü -64.7 · liq 10 · ayda 31.4
+- S2 fonlama aşırı + · yüzdelik≥0.98 · r24≤— · T0.03_yok_H24: ½-1 16037 · %58 · -0.03 · gün %53 · en kötü -148.7 · liq 12 · ayda 1234.2 | ½-2 27786 · %58 · -0.12 · gün %52 · en kötü -118.6 · liq 29 · ayda 1535.8 | 2025+ 45008 · %60 · -0.03 · gün %56 · en kötü -92.5 · liq 64 · ayda 2082.6 | 2026 16408 · %58 · -0.11 · gün %54 · en kötü -91.3 · liq 22 · ayda 1708.2
+- S3 hacimli çöküş kırılımı · hacim×≥3 · T0.03_S_H24: ½-1 45 · %73 · +0.62 · gün %60 · en kötü -14.6 · liq 0 · ayda 3.5 | ½-2 60 · %60 · -2.27 · gün %62 · en kötü -21.0 · liq 0 · ayda 3.3 | 2025+ 104 · %70 · -1.13 · gün %59 · en kötü -46.9 · liq 1 · ayda 4.8 | 2026 44 · %61 · -1.96 · gün %65 · en kötü -40.2 · liq 0 · ayda 4.6
+- S4 geç düşen · BTC24≤-3% · coin−BTC≥+2% · T0.05_yok_H72: ½-1 1977 · %63 · +0.01 · gün %63 · en kötü -118.8 · liq 20 · ayda 152.2 | ½-2 3106 · %65 · -0.33 · gün %62 · en kötü -204.8 · liq 34 · ayda 171.7 | 2025+ 3278 · %70 · +0.67 · gün %60 · en kötü -146.1 · liq 29 · ayda 151.7 | 2026 1538 · %69 · +0.80 · gün %60 · en kötü -146.1 · liq 8 · ayda 160.1
