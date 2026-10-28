@@ -1,0 +1,114 @@
+# kesif6c_veri.py — PROTOKOL_kesif6c.md: S2′ short + koruma stopu (16 çıkış) (vadeli 1 s mum + gerçek fonlama). Parça I / N.
+import sys, io, time, zipfile, numpy as np, pandas as pd, requests
+from numpy.lib.stride_tricks import sliding_window_view as swv
+I, N = int(sys.argv[1]), int(sys.argv[2]); T0 = time.time()
+FL, FP, KAY, SLIP = 0.0002, 0.0005, 0.003, 0.001
+TS = (0.05, 0.08); STOPS = ("yok", "F10", "F15", "F20"); HS = (72, 120); FST = {"F10": 1.10, "F15": 1.15, "F20": 1.20}
+ADLAR = [f"T{t}_{s}_H{h}" for t in TS for s in STOPS for h in HS]
+A0 = pd.Timestamp("2022-04-01", tz="UTC"); BAS = pd.Timestamp("2022-06-01", tz="UTC"); SON = pd.Timestamp("2026-10-26", tz="UTC")
+NH = int((SON - A0) / pd.Timedelta(hours=1)); h0 = int((BAS - A0) / pd.Timedelta(hours=1))
+URL = "https://data.binance.vision/data/futures/um"
+S = requests.Session()
+def indir(u):
+    for k in range(5):
+        try:
+            r = S.get(u, timeout=60)
+            if r.status_code == 404: return None
+            if r.status_code == 200: return r.content
+        except Exception: pass
+        time.sleep(2 + 3 * k)
+    return None
+def zcsv(b, cols):
+    z = zipfile.ZipFile(io.BytesIO(b)); d = pd.read_csv(z.open(z.namelist()[0]), header=None, usecols=cols)
+    return d[pd.to_numeric(d[cols[0]], errors="coerce").notna()].astype(float)
+AYLAR = pd.period_range("2022-04", "2026-09", freq="M").strftime("%Y-%m")
+def mumlar(sym):
+    P = []
+    for ay in AYLAR:
+        b = indir(f"{URL}/monthly/klines/{sym}/1h/{sym}-1h-{ay}.zip")
+        if b: P.append(zcsv(b, [0, 1, 2, 3, 4, 7]))
+    for g in pd.date_range("2026-10-01", "2026-10-25").strftime("%Y-%m-%d"):
+        b = indir(f"{URL}/daily/klines/{sym}/1h/{sym}-1h-{g}.zip")
+        if b: P.append(zcsv(b, [0, 1, 2, 3, 4, 7]))
+    if not P: return None
+    d = pd.concat(P); d.columns = ["ot", "o", "h", "l", "c", "qv"]; d.loc[d.ot > 1e14, "ot"] = d.ot / 1000
+    d["i"] = ((d.ot / 1000 - A0.timestamp()) // 3600).astype(np.int64)
+    d = d[(d.i >= 0) & (d.i < NH)].drop_duplicates("i").set_index("i").reindex(np.arange(NH))
+    return d
+def fonlama(sym):
+    P = []
+    for ay in AYLAR:
+        b = indir(f"{URL}/monthly/fundingRate/{sym}/{sym}-fundingRate-{ay}.zip")
+        if b:
+            z = zipfile.ZipFile(io.BytesIO(b)); d = pd.read_csv(z.open(z.namelist()[0]))
+            d.columns = [c.strip().lower() for c in d.columns]
+            tc = [c for c in d.columns if "time" in c][0]; rc = [c for c in d.columns if "rate" in c][-1]
+            P.append(pd.DataFrame({"t": pd.to_numeric(d[tc], errors="coerce"), "r": pd.to_numeric(d[rc], errors="coerce")}).dropna())
+    if not P: return None
+    f = pd.concat(P).drop_duplicates("t").sort_values("t"); f.loc[f.t > 1e14, "t"] = f.t / 1000
+    return f.reset_index(drop=True)
+SY = pd.read_csv("igne4_semboller.csv"); SY = list(zip(SY.sym, SY.grup)); benim = SY[I::N]
+print(f"parça {I}/{N}: {len(benim)} sembol", flush=True)
+B = mumlar("BTCUSDT"); Bc = B.c.ffill().values
+btc24 = Bc / np.roll(Bc, 24) - 1; btc7 = Bc / np.roll(Bc, 168) - 1
+print("BTC hazır", f"{time.time() - T0:.0f} sn", flush=True)
+FON_SON = pd.Timestamp("2026-10-01", tz="UTC").timestamp() * 1000
+META, XS = [], []
+for sym, grup in benim:
+    d = B if sym == "BTCUSDT" else mumlar(sym)
+    if d is None: print(sym, "veri yok", flush=True); continue
+    F = fonlama(sym)
+    O, Hh, Lo, C, QV = d.o.values, d.h.values, d.l.values, d.c.values, d.qv.fillna(0).values
+    Cf = pd.Series(C).ffill().values; Hn = np.nan_to_num(Hh, nan=-np.inf); Ln = np.nan_to_num(Lo, nan=np.inf)
+    lc = np.log(pd.Series(Cf)); sd = lc.diff().rolling(720, min_periods=600).std().shift(1).values
+    with np.errstate(invalid="ignore", divide="ignore"):
+        r24 = Cf / np.roll(Cf, 24) - 1; r7 = Cf / np.roll(Cf, 168) - 1
+        z72 = (lc - lc.shift(72)).values / (sd * np.sqrt(72))
+        q24 = pd.Series(QV).rolling(24).sum().values; q30 = pd.Series(QV).rolling(720).sum().shift(24).values / 30; vr = q24 / q30
+        hmax30 = pd.Series(Hn).rolling(720).max().shift(1).values; pos30 = Cf / hmax30
+        pb = Cf / pd.Series(Hn).rolling(24).max().values - 1
+        liq = pd.Series(QV).rolling(168).sum().values / 7
+    high72 = pd.Series(Hn).rolling(72).max().values
+    W = swv(np.concatenate([np.full(71, -np.inf), Hn]), 72); highage = 71 - W.argmax(1)              # 72 saatin tepesinden bu yana geçen saat
+    with np.errstate(invalid="ignore", divide="ignore"): neg30 = Cf / pd.Series(Ln).rolling(720).min().shift(1).values
+    # fonlama: saat i kapanışında bilinen son oran ve son 90 ödemedeki yüzdeliği
+    fr = np.full(NH, np.nan); fp = np.full(NH, np.nan)
+    if F is not None and len(F) > 30:
+        ft = F.t.values; rv = F.r.values; pct = pd.Series(rv).rolling(90, min_periods=30).apply(lambda x: (x <= x[-1]).mean(), raw=True).values
+        kap = (A0.timestamp() + (np.arange(NH) + 1) * 3600) * 1000; ix = np.searchsorted(ft, kap, side="right") - 1
+        ok = ix >= 0; fr[ok] = rv[ix[ok]]; fp[ok] = pct[ix[ok]]
+    kapT = (A0.timestamp() + (np.arange(NH) + 1) * 3600) * 1000                               # saat kapanışları (ms)
+    cumF = np.concatenate([[0.0], np.cumsum(F.r.values)])[np.searchsorted(F.t.values, kapT, side="right")] if F is not None and len(F) else np.zeros(NH)
+    def fon_maliyet(a_i, b_i):                                                                  # giriş saati açılışı → çıkış saati kapanışı arasındaki ödemeler
+        s = cumF[b_i] - cumF[a_i - 1]; tb = kapT[b_i]; ta = kapT[a_i - 1]
+        if tb > FON_SON: s -= 0.0001 * max(0, (tb - max(ta, FON_SON)) / 28_800_000)          # Ekim 2026: arşiv yok → kötümser: short %0,01 / 8 s ÖDER
+        return s
+    with np.errstate(invalid="ignore"):
+        tet = (fr >= 0.0003) & (fp >= 0.95) & (liq >= 2e6)
+    n0 = len(META)
+    for i in np.where(tet)[0]:
+        if i < h0 or i + 121 >= NH or not np.isfinite(O[i + 1]) or not np.isfinite(Cf[i + 120]) or np.isnan(C[i]): continue
+        Pe = O[i + 1] * (1 - SLIP)
+        hi, lo, op = Hn[i + 1:i + 121], Ln[i + 1:i + 121], O[i + 1:i + 121]
+        vals = []
+        for T in TS:
+            tp = Pe * (1 - T); jt_all = int(np.argmax(lo <= tp)) if (lo <= tp).any() else 999
+            for sn in STOPS:
+                st = Pe * FST[sn] if sn in FST else None
+                js = int(np.argmax(hi >= st)) if st is not None and (hi >= st).any() else 999
+                for H in HS:
+                    en = H - 1
+                    if js <= en and js <= jt_all:
+                        p = max(st, op[js] if np.isfinite(op[js]) else st) * (1 + KAY); net = 1 - p / Pe - 2 * FP + fon_maliyet(i + 1, i + 1 + js); w = p / Pe - 1
+                    elif jt_all <= en:
+                        net = T - FP - FL + fon_maliyet(i + 1, i + 1 + jt_all); w = hi[:jt_all + 1].max() / Pe - 1
+                    else:
+                        net = 1 - Cf[i + 1 + en] / Pe - 2 * FP + fon_maliyet(i + 1, i + 1 + en); w = hi[:en + 1].max() / Pe - 1
+                    vals += [net, w]
+        META.append(dict(t=A0 + pd.Timedelta(hours=int(i) + 1), sym=sym, grup=grup, z72=z72[i], highage=int(highage[i]), neg30=neg30[i], fr=fr[i], fp=fp[i], r24=r24[i], vr=vr[i], pos30=pos30[i],
+                         r7rel=r7[i] - btc7[i], pb=pb[i], btc24=btc24[i], liq=liq[i], Pe=Pe))
+        XS.append(np.array(vals, dtype="float32"))
+    print(f"{sym} ({grup}) · {len(META) - n0} aday · {time.time() - T0:.0f} sn", flush=True)
+pd.DataFrame(META).to_csv(f"kesif6c_meta_p{I}.csv.gz", index=False, compression="gzip")
+np.save(f"kesif6c_X_p{I}.npy", np.stack(XS) if XS else np.zeros((0, 2 * len(ADLAR)), "float32"))
+print("bitti", len(META), f"{time.time() - T0:.0f} sn")
