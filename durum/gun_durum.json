@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-28",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "26.10 01:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: OGN (z +0.1), ALT (z +0.1)",
-"k": "gönderildi"
-},
 {
 "t": "26.10 01:05",
 "s": "🔸 yedek 📋 panelden",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "28.10 21:05",
+"s": "✅ ana",
+"e": "🧪 24 saat: FIL (z +1.9)",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
