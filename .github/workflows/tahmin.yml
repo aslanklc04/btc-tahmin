@@ -212,6 +212,11 @@ jobs:
         continue-on-error: true
         timeout-minutes: 4
         run: python igne_golge.py
+      - name: 🏦 borsadan cikis golge izleme (28.10.2026; mesaj gondermez, yalniz kayit)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python borsa_golge.py
       - name: Karne hata verdiyse uyar
         if: always() && (steps.karne.outcome == 'failure' || steps.kgercek.outcome == 'failure' || steps.gonder.outcome == 'failure')
         continue-on-error: true
@@ -227,7 +232,7 @@ jobs:
           [ -f son_durum.md ] || exit 0
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json durum/beklenen.csv durum/igne_golge.csv durum/igne_golge.md durum/igne_golge_durum.json; do git add $f 2>/dev/null || true; done
+          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json durum/beklenen.csv durum/igne_golge.csv durum/igne_golge.md durum/igne_golge_durum.json durum/borsa_golge.csv durum/borsa_golge.md durum/borsa_golge_durum.json; do git add $f 2>/dev/null || true; done
           git commit -m "Saatlik durum" || echo "degisiklik yok"
           ok=0; for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && ok=1 && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
           [ $ok = 1 ] || { echo '::error::panel depoya gönderilemedi'; exit 1; }
