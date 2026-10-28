@@ -1,0 +1,14 @@
+# 🔭 kesif6c — S2′ short + koruma stopu · PROTOKOL_kesif6c.md · Binance vadeli 1 s + gerçek fonlama
+aday: 184,195 · görülmüş 133 sembol · bakılmamış 547 sembol · son 2026-10-20 23:00:00+00:00
+_hücre: işlem · işlem isabeti · işlem başı net % · gün isabeti · en kötü işlem % · 2x likidasyon · ayda işlem_
+
+## Keşif + kontrol (görülmüş 141) — geçen: 0 / 128
+
+**❌ Keşif + kontrolü geçen kural yok.**
+
+## Bilgi (karar değil) — en yakınlar: dört dönemin en kötü isabeti en yüksek, en kötü dönem neti ≥ +%1
+- S2′ + koruma · fon≥%0,03 · yüzdelik≥0.98 · likidite≥2 M$ · T0.05_F20_H120: ½-1 218 · %87 · +2.77 · gün %80 · en kötü -20.6 · liq 0 · ayda 16.8 | ½-2 2457 · %80 · +1.04 · gün %64 · en kötü -21.4 · liq 0 · ayda 135.8 | 2025+ 50 · %82 · +2.61 · gün %86 · en kötü -20.5 · liq 0 · ayda 2.3 | 2026 21 · %81 · +1.62 · gün %85 · en kötü -20.5 · liq 0 · ayda 2.2
+- S2′ + koruma · fon≥%0,03 · yüzdelik≥0.98 · likidite≥2 M$ · T0.05_F20_H72: ½-1 218 · %77 · +1.96 · gün %73 · en kötü -20.5 · liq 0 · ayda 16.8 | ½-2 2457 · %76 · +1.06 · gün %64 · en kötü -21.4 · liq 0 · ayda 135.8 | 2025+ 50 · %78 · +2.36 · gün %82 · en kötü -20.5 · liq 0 · ayda 2.3 | 2026 21 · %81 · +1.65 · gün %85 · en kötü -20.5 · liq 0 · ayda 2.2
+
+## Bilgi — aile başına en iyi (en kötü dönem neti en yüksek), görülmüş
+- S2′ + koruma · fon≥%0,03 · yüzdelik≥0.98 · likidite≥2 M$ · T0.05_F20_H72: ½-1 218 · %77 · +1.96 · gün %73 · en kötü -20.5 · liq 0 · ayda 16.8 | ½-2 2457 · %76 · +1.06 · gün %64 · en kötü -21.4 · liq 0 · ayda 135.8 | 2025+ 50 · %78 · +2.36 · gün %82 · en kötü -20.5 · liq 0 · ayda 2.3 | 2026 21 · %81 · +1.65 · gün %85 · en kötü -20.5 · liq 0 · ayda 2.2
