@@ -72,7 +72,7 @@ def main():
     k = T_[T_.net.notna()]; n = len(k)
     md = ["# 🏦 Borsadan güçlü çıkış (BTC/ETH) — gölge izleme (mesaj gönderilmez)",
           f"_güncellendi {now:%Y-%m-%d %H:%M} UTC · başlangıç 28.10.2026 · araştırma: isabet %72 · %85 · %90, işlem başı +%0,4 · +%1,5 · +%2,2 · son z: BTC {D.get('BTC_z')} · ETH {D.get('ETH_z')} (eşik 1,5)_", "",
-          f"- toplam sinyal: {T_.drop_duplicates(["gun", "varlik"]).shape[0]} (her biri {len(SURUM)} sürüm) · kapanan satır: {n} · açık: {int((T_.durum == 'açık').sum())}"]
+          f"- toplam sinyal: {T_.drop_duplicates(['gun', 'varlik']).shape[0]} (her biri {len(SURUM)} sürüm) · kapanan satır: {n} · açık: {int((T_.durum == 'açık').sum())}"]
     for sn in SURUM:
         kk = k[k.surum == sn]
         if len(kk): md.append(f"- {sn}: {len(kk)} kapanan · isabet %{100 * (kk.net > 0).mean():.0f} · işlem başı ort. {100 * kk.net.mean():+.2f}% · en kötü {100 * kk.net.min():+.1f}%")
