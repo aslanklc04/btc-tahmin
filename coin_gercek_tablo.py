@@ -3,7 +3,7 @@
 import json, numpy as np, pandas as pd
 V = pd.read_csv("veri_seti.csv.gz", usecols=["t", "nm", "sinif", "H", "tur"]); D = pd.read_csv("karal2_veri.csv.gz", usecols=["t", "nm", "sinif", "H", "B_T0"])
 for x in (V, D): x["t"] = pd.to_datetime(x.t, utc=True)
-M = D.drop_duplicates(["t", "nm", "sinif", "H"]).merge(V.drop_duplicates(["t", "nm", "sinif", "H"]), on=["t", "nm", "sinif", "H"])   # 29.10: karal2_veri tekrarları da ayıklanır.dropna(subset=["B_T0"])
+M = D.drop_duplicates(["t", "nm", "sinif", "H"]).merge(V.drop_duplicates(["t", "nm", "sinif", "H"]), on=["t", "nm", "sinif", "H"]).dropna(subset=["B_T0"])   # 29.10: karal2_veri tekrarları da ayıklanır
 M["sn"] = M.sinif.map(lambda s: "ana" if s.startswith("✅") else ("yedek" if s.startswith("🔸") else "panelden"))
 DON = (("2022-06-01", "2025-01-01"), ("2025-01-01", "2030-01-01"), ("2026-01-01", "2030-01-01")); T = {}
 for (sn, tur, nm), g in M.groupby(["sn", "tur", "nm"]):
