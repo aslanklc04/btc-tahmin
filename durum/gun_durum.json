@@ -3,12 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "26.10 09:03",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 26.10 09:00 · $80,263",
-"k": "gönderildi"
-},
-{
 "t": "26.10 14:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.6",
@@ -241,6 +235,12 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: INJ (z +3.3, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "29.10 19:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 3
