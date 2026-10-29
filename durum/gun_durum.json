@@ -5,12 +5,6 @@
 {
 "t": "26.10 07:04",
 "s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -3.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 07:04",
-"s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.2",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: PENDLE (z +1.9)",
 "k": "gönderildi"
+},
+{
+"t": "29.10 17:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.5",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 2
