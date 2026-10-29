@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-29",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "26.10 07:04",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: VET (z +1.0)",
-"k": "gönderildi"
-},
 {
 "t": "26.10 07:04",
 "s": "panel",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.1",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 16:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: PENDLE (z +1.9)",
+"k": "gönderildi"
 }
 ],
 "panelden": 2
