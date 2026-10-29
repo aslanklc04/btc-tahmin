@@ -3,12 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "27.10 08:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.1",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "27.10 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 27.10 09:00 · $79,977",
@@ -240,6 +234,12 @@
 "t": "30.10 01:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 02:03",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -3.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
