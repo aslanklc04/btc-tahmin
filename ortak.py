@@ -301,7 +301,7 @@ def sira_puani(tur, z=float("nan"), alma=False):
 # Sınıflar (14.10.2026 güncel): ✅ ana = 🌐🤝 · 🔀 · 🧑 · 🚀 · 🤝 (coin primi ≥ 0) · 🌐🧪 (z ≥ 1,5) · ⛓️ · 📉🔥 olan 🧪 / 💵 · BTC ⭐/A/saatlik yalnız 🚀 iken.
 #   🔸 yedek = 💵 (dip değilse) · ana coin 🧪 (dip değilse) · 🔇/🪙 coin tek (coin primi ≥ 0, 🔀 değil) — 🔥 BTC fonlaması z ≥ 2 iken ana olur (⛔ hariç).
 #   panelf = coin primi −1…0 olan 🤝/🔇/🪙/🧪 → yalnız 🔥 iken ana (gozden.py B) · panelfx = aynısı ⛔ (z ≤ −1) → yalnız 🔥 iken ana (ekle_ara.py 15.10) · 16.10: yedekg = 🌐 eşik altı 🤝 → 🔸 yedek · panely = eski yedekler → panel (🔥 iken ana) · panel = primsiz / BTC saatlik / 🔻 kısa → gönderilmez.
-ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0). 📏 Gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; 2022–24 · 2025+ · 2026): ✅ ana işlem isabeti %68 · %66 · %69 · saat isabeti %64 · %65 · %67 · işlem başı +%0,53 · +%0,34 · +%0,51 (limit emirlerin ~%75'i dolar; 24.10 karal2)."
+ANA_NOT = "✅ Seçilmiş sinyal (coin'in kendi primi ≥ 0). 📏 Gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; 2022–24 · 2025+ · 2026): ✅ ana işlem isabeti %68 · %66 · %69 · saat isabeti %64 · %65 · %67 · işlem başı +%0,59 · +%0,37 · +%0,54 (limit emirlerin ~%75'i dolar; 24.10 karal2)."
 def ana_mi(z): return bool(z is not None and np.isfinite(z) and z >= 0)
 def panel_sinif(z):                                                                           # coin primi < 0 olan sinyal: −1…0 → panelf · ⛔ ≤ −1 → panelfx (ikisi de yalnız 🔥 iken ana) · primsiz → panel
     if z is None or not np.isfinite(z): return "panel"
@@ -318,9 +318,9 @@ def r24z(close):
     except Exception: return float("nan")
 def mom_mu(rz): return bool(rz is not None and np.isfinite(rz) and rz >= MOM_ESIK)
 def dip_mi(rz): return bool(rz is not None and np.isfinite(rz) and rz <= DIP_ESIK)
-MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %67 · %70 tuttu, işlem başı +%0,44 · +%0,35 · +%0,44 (2022–24 · 2025+ · 2026) → ✅ işlem sinyali."
+MOM_NOT = "🚀 MOMENTUM: bu coin son 24 saatte olağandışı yükseldi (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %69 · %65 · %69 tuttu, işlem başı +%0,43 · +%0,31 · +%0,43 (2022–24 · 2025+ · 2026) → ✅ işlem sinyali."
 DIP_NOT = "📉🔥 ÖNCELİKLİ: bu coin son 24 saatte olağandışı düştü (z {z:+.1f}). Gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %78 · %80 tuttu, işlem başı +%0,32 · +%0,81 · +%0,75 (2022–24 · 2025+ · 2026)."
-MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %67 · %70 tuttu (işlem başı +%0,44 · +%0,35 · +%0,44), ABD alımı olmasa da ✅",
+MOM_DIP_ACK = {"🚀": "🚀 = momentum: coin son 24 saatte olağandışı yükseldi; gerçekçi ölçümde bu durumdaki ✅ sinyaller %69 · %65 · %69 tuttu (işlem başı +%0,43 · +%0,31 · +%0,43), ABD alımı olmasa da ✅",
                "📉🔥": "📉🔥 = öncelikli: coin son 24 saatte olağandışı düştü; gerçekçi ölçümde bu durumdaki ✅ sinyaller %71 · %78 · %80 tuttu (işlem başı +%0,32 · +%0,81 · +%0,75)"}
 # 💸 COİN'İN KENDİ FONLAMASI (teknik_tara.py C4b, 12.10.2026, plasebolu önceden yazılı karar — Binance'e o gün erişilemediği için bekledi):
 #   coin'in Binance USDT-M fonlaması son 90 ödemeye göre z ≥ 2 iken ✅ ana sinyaller %59 · %65 · %64, işlem başı +0,88 · +1,67 · +1,78 (ana %55,5 · %58,7 · %60,1)
@@ -461,11 +461,11 @@ def sure_basi(saat, cikis=None, gun=None):
 
 # ---- 14.10.2026: ana çizgisi (isabet ≥ %55,9 · %58,6 · %59,1) altında kalan türler 🔸 yedeğe indi (kullanıcı onayı; tutma3.py rakamları) ----
 YEDEK_NOT_USD = "ℹ️ 💵 tek başına ✅ ana değil (süre sonunda isabet %54); 22.10'dan beri 🔸 yedek · 📋 panelden olarak gelir — gerçekçi ölçümde panelden 💵 %68 · %65 · %67 tuttu, işlem başı +%0,26 · +%0,11 · +%0,20 (2022–24 · 2025+ · 2026). 🔥 BTC fonlaması çok yüksekken ✅ ana olur."
-YEDEK_NOT_24 = "ℹ️ Ana coin'lerde 🧪 tek başına ✅ ana değil (süre sonunda isabet %54 · %59 · %51); 22.10'dan beri 🔸 yedek · 📋 panelden olarak gelir — gerçekçi ölçümde panelden 🧪 %69 · %65 · %62 tuttu, işlem başı +%0,27 · −%0,02 · −%0,11 (2022–24 · 2025+ · 2026; 2025'ten beri kârsız). 🔥 BTC fonlaması çok yüksekken ✅ ana olur. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
+YEDEK_NOT_24 = "ℹ️ Ana coin'lerde 🧪 tek başına ✅ ana değil (süre sonunda isabet %54 · %59 · %51); 22.10'dan beri 🔸 yedek · 📋 panelden olarak gelir — gerçekçi ölçümde panelden 🧪 %69 · %65 · %62 tuttu, işlem başı +%0,26 · −%0,02 · −%0,11 (2022–24 · 2025+ · 2026; 2025'ten beri kârsız). 🔥 BTC fonlaması çok yüksekken ✅ ana olur. 📉🔥 dip / 🚀 momentum olanlar ve 🌐 coin'ler ana kalır."
 USD_DIP_NOT = "📉🔥 💵 + DİP → ✅ ANA (14.10): ABD alıyor VE coin son 24 saatte olağandışı düştü — testte %66 · %68 · %69 tuttu (2022–23 · 2024+ · 2026), işlem başı +%0,8 · +%3,1 · +%2,0 (kombin.py)."
 PANELF_NOT = "ℹ️ ABD bu coin'i hafif satıyor (kendi primi −1…0): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %77 · %71 · %85)."
 PANELX_NOT = "ℹ️ ABD bu coin'i satıyor (kendi primi ⛔ ≤ −1): normalde gönderilmez; yalnız 🔥 BTC fonlaması çok yüksekken ✅ ana olur (testte %73 · %76 · %76; ekle_ara.py 15.10)."
-PANELG_NOT = "🔸 🌐 geniş liste, eşik altı (kendi primi 0…2): ℹ️ bilgi — gerçekçi ölçümde %69 · %64 · %70 tuttu, işlem başı +%0,14 · −%0,09 · +%0,27 (2022–24 · 2025+ · 2026); 🔥 BTC fonlaması çok yüksekken ✅ ana olur (🔥 saatlerindeki ✅ ana: %75 · %76 · %69, +%0,69 · +%0,74 · +%0,45)."
+PANELG_NOT = "🔸 🌐 geniş liste, eşik altı (kendi primi 0…2): ℹ️ bilgi — gerçekçi ölçümde %69 · %64 · %70 tuttu, işlem başı +%0,14 · −%0,09 · +%0,27 (2022–24 · 2025+ · 2026); 🔥 BTC fonlaması çok yüksekken ✅ ana olur (🔥 saatlerindeki ✅ ana: %75 · %75 · %69, +%0,73 · +%0,72 · +%0,45)."
 
 # ---- 💧 likidite dipte (ld_kontrol.py · ld_genis.py: K0–K4 geçti; neon_uyum.py: canlı ölçüm arşivle uyumlu) — likidite.py her saat durum/likidite_z.json yazar ----
 LD_ESIK, ONCELIK_LD = -2.0, -900

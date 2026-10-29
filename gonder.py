@@ -26,11 +26,11 @@ PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD a
                 "Küçük miktar, kaldıraçsız; istersen pas geç. 30 sinyal kapandığında canlı isabet %55'in altında ya da işlem başı kâr eksideyse kendiliğinden durur.")
 PANELDEN_GUN, PANELDEN_DUR_F = None, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
-TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyal · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
-FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45 (normalde %68 · %66 · %69, +%0,53 · +%0,34 · +%0,51)"
-TERFI_PANELX = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD bu coin'i satıyor (⛔) · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
-TERFI_PANELG = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): 🌐 geniş liste eşik altı 🤝 · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
-TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %76 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,69 · +%0,74 · +%0,45"
+TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyal · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
+FON_ANA_NOT = "🔥 FONLAMA ÇOK YÜKSEK (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45 (normalde %68 · %66 · %69, +%0,59 · +%0,37 · +%0,54)"
+TERFI_PANELX = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD bu coin'i satıyor (⛔) · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
+TERFI_PANELG = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): 🌐 geniş liste eşik altı 🤝 · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
+TERFI_FON = "🔥 yedekten yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
 TERFI_P = {"panelf": TERFI_PANEL, "panelfx": TERFI_PANELX, "panelg": TERFI_PANELG, "yedekg": TERFI_PANELG, "panely": TERFI_FON}                # 🔥 iken ✅ ana olan panel sınıfları
 def fon_z():                                                                                   # fon_vekil.py: KuCoin BTC fonlaması (ABD sunucusundan açık), son 90 ödemeye göre z (≥ 2 → ⛔ olmayan yedek ana olur)
     if os.environ.get("TEST_FZ"): return float(os.environ["TEST_FZ"])                             # yalnız test
@@ -80,8 +80,8 @@ def bicim(sade_fn, eski_fn, ad=""):
         DONUS.append(ad); print("→ eski biçim:", ad)
     return eski_fn()
 # ---- 26.10.2026 kullanıcı onayı ("tm uygula"): 💎 ELİT = 📉🔥 dip · 🔥 fonlama çok yüksek · 🔀 — gerçekçi ölçümde (karal2_veri, 🎯 ile, limit giriş) üç dönemde de ≥ %70 ve kârlı
-ELIT_SATIR = "💎 ELİT (📉🔥 dip · 🔥 fonlama · 🔀): gerçekçi ölçümde 🎯 ile isabet %73 · %78 · %77 · kâr +%0,63 · +%0,87 · +%0,84 (2022–24 · 2025+ · 2026) → asıl parayı 💎 işaretlilere koy"
-NORMAL_SATIR = "ℹ️ ELİT değil → küçük gir (ELİT dışı ✅ gerçekçi ölçümde isabet %64 · %61 · %67 · kâr +%0,47 · +%0,11 · +%0,43)"
+ELIT_SATIR = "💎 ELİT (📉🔥 dip · 🔥 fonlama · 🔀): gerçekçi ölçümde 🎯 ile isabet %73 · %77 · %76 · kâr +%0,68 · +%0,89 · +%0,86 (2022–24 · 2025+ · 2026) → asıl parayı 💎 işaretlilere koy"
+NORMAL_SATIR = "ℹ️ ELİT değil → küçük gir (ELİT dışı ✅ gerçekçi ölçümde isabet %64 · %61 · %67 · kâr +%0,54 · +%0,14 · +%0,46)"
 def elit_mi(m, fon):
     """Mesaj bütünüyle ELİT mi (🔥 fonlama saati, 🔥 ile yükselen ya da 🔀) · tek tek ELİT coin'ler 📉🔥 işaretlilerdir."""
     if m.get("terfi") in ("panelf", "panelfx"): return False                                    # 26.10 kullanıcı onayı: primi eksi coin'lerden 🔥 ile anaya çıkanlar ELİT değil (%66 · %76 · %61)

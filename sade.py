@@ -6,14 +6,14 @@
 # Çözülemeyen biçimde mesaj gelirse yalnız not satırları atılır, gerisi olduğu gibi kalır (güvenli geri dönüş).
 import re, math
 GR = {  # 📏 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komisyon + fonlama, 🎯 ile; karal2_veri 24.10): işlem isabeti 2022–24 · 2025+ · 2026, işlem başı net
-    ("ana", None): ("%68 · %66 · %69", "+%0,53 · +%0,34 · +%0,51"),
+    ("ana", None): ("%68 · %66 · %69", "+%0,59 · +%0,37 · +%0,54"),
     ("ana", "🌐🧪"): ("%68 · %64 · %65", "+%1,01 · +%0,59 · +%0,77"), ("ana", "🌐🤝"): ("%70 · %65 · %74", "+%0,39 · +%0,03 · +%0,64"),
-    ("ana", "🤝"): ("%64 · %63 · %69", "+%0,14 · +%0,04 · +%0,36"), ("ana", "🚀"): ("%71 · %67 · %70", "+%0,44 · +%0,35 · +%0,44"),   # 25.10: ✅ ana + coin son 24 s z ≥ 2 (MOM_NOT ile aynı küme)
-    ("ana", "₿🚀"): ("%67 · %75 · %83", "+%0,18 · +%0,26 · +%0,41"),                              # 25.10: yalnız BTC 🚀 ana sinyalleri (karal2_veri, B_T0)
-    ("ana", "🔀"): ("%70 · %75 · %86", "+%0,54 · +%0,53 · +%0,73"),
+    ("ana", "🤝"): ("%63 · %63 · %68", "+%0,14 · +%0,04 · +%0,36"), ("ana", "🚀"): ("%69 · %65 · %69", "+%0,43 · +%0,31 · +%0,43"),   # 25.10: ✅ ana + coin son 24 s z ≥ 2 (MOM_NOT ile aynı küme)
+    ("ana", "₿🚀"): ("%65 · %71 · %80", "+%0,14 · +%0,20 · +%0,37"),                              # 25.10: yalnız BTC 🚀 ana sinyalleri (karal2_veri, B_T0)
+    ("ana", "🔀"): ("%69 · %75 · %86", "+%0,56 · +%0,54 · +%0,74"),
     ("yedek", None): ("%69 · %64 · %70", "+%0,14 · −%0,09 · +%0,27"),
-    ("panelden", None): ("%69 · %65 · %66", "+%0,21 · +%0,07 · +%0,12"), ("panelden", "💵"): ("%68 · %65 · %67", "+%0,26 · +%0,11 · +%0,20"),
-    ("panelden", "🧪"): ("%69 · %65 · %62", "+%0,27 · −%0,02 · −%0,11"), ("panelden", "🔇/🪙"): ("%72 · %65 · %65", "+%0,09 · +%0,03 · +%0,09"),
+    ("panelden", None): ("%69 · %65 · %66", "+%0,21 · +%0,07 · +%0,13"), ("panelden", "💵"): ("%68 · %65 · %67", "+%0,26 · +%0,11 · +%0,20"),
+    ("panelden", "🧪"): ("%69 · %65 · %62", "+%0,26 · −%0,02 · −%0,11"), ("panelden", "🔇/🪙"): ("%71 · %65 · %65", "+%0,09 · +%0,03 · +%0,09"),
 }
 KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat, değmezse çıkış saatinde sat · stop yok · kaldıraç en fazla 2–3x, izole · 📐 pay = normal pozisyonuna oran · aynı saatteki sinyaller tek bütçe",
          "panelden": "Kural: limit 60 dk · 🎯'ye değerse sat, değmezse çıkış saatinde · stop yok · küçük miktar, kaldıraçsız · 📐 pay = normal pozisyonuna oran",
