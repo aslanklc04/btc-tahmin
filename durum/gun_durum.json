@@ -1,43 +1,7 @@
 {
 "gun": "2026-10-29",
-"giden": 0,
+"giden": 2,
 "log": [
-{
-"t": "26.10 01:05",
-"s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Çok güçlü ↑ · 8 saat Güçlü ↑ · prim ⛔ z -1.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 01:05",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: BNB (z -0.7)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 01:05",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -1.2 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 02:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 03:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.10 04:04",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: ARB (z +0.3)",
-"k": "gönderildi"
-},
 {
 "t": "26.10 04:04",
 "s": "🔸 yedek",
@@ -241,7 +205,43 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 05:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "🧪 24 saat: ADA (z +0.6)",
+"k": "gönderildi"
+},
+{
+"t": "29.10 05:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "🪙 ADA ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.6",
+"k": "gönderildi"
+},
+{
+"t": "29.10 05:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 05:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 05:04",
+"s": "panel",
+"e": "🪙 DOT ⭐ en güçlü · 8 saat · isabet %61 · prim ⛔ z -4.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 05:04",
+"s": "panel",
+"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⛔ z -1.0",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 0
+"panelden": 2
 }
