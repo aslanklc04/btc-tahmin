@@ -1,13 +1,7 @@
 {
 "gun": "2026-10-29",
-"giden": 3,
+"giden": 4,
 "log": [
-{
-"t": "26.10 07:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.2",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "26.10 09:03",
 "s": "ℹ️ bilgi",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.5",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 18:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: INJ (z +3.3, 24 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 2
+"panelden": 3
 }
