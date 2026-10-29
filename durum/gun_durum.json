@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "26.10 05:04",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: TRB (z +0.9), ETHFI (z +0.1), LDO (z +0.0), XTZ (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "26.10 05:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.4",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "29.10 06:04",
 "s": "panel",
 "e": "🧪 24 saat: SHIB (z -0.7)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "29.10 07:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.9",
 "k": "gitmedi — yalnız panel"
 }
 ],
