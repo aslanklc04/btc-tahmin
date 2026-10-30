@@ -1,0 +1,22 @@
+name: BTC yon2 - veri
+on:
+  push:
+    branches: [arastirma3]
+    paths: [btcyon2_veri.py, .github/workflows/btcyon2_veri.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy pyarrow yfinance lxml html5lib
+      - run: |
+          set +e; python -u btcyon2_veri.py > btcyon2_veri_log.txt 2>&1; echo "exit=$?" >> btcyon2_veri_log.txt; tail -60 btcyon2_veri_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add btcyon2_veri_log.txt; git add btcyon2_*.parquet 2>/dev/null || true; git commit -m "BTC yon2 verisi" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
