@@ -27,13 +27,18 @@ G = []
 for sym in ("BTCUSDT", "ETHUSDT", "SOLUSDT"):
     k = seri("spot", sym, "1d", pd.period_range("2017-08", "2026-09", freq="M").strftime("%Y-%m"), GUN); k["coin"] = sym[:-4]; G.append(k); log(sym, "günlük", len(k), k.index.min(), k.index.max())
 G = pd.concat(G).rename_axis("t").reset_index()
-u = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics"; Dd = []
-r = get(u, params=dict(assets="btc", metrics="CapMVRVCur,AdrActCnt,TxTfrValAdjUSD", frequency="1d", start_time="2013-01-01", page_size=10000))
-while r is not None:
-    j = r.json(); Dd += j.get("data", []); nx = j.get("next_page_url"); r = get(nx) if nx else None
-cm = pd.DataFrame(Dd)
+u = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics"; CM = []
+for met in ("CapMVRVCur", "AdrActCnt", "TxTfrValAdjUSD", "CapMrktCurUSD", "CapRealUSD"):                      # tek tek: biri ücretliyse diğerleri gelsin
+    Dd = []; r = get(u, params=dict(assets="btc", metrics=met, frequency="1d", start_time="2013-01-01", page_size=10000))
+    if r is None: log("coinmetrics yok:", met); continue
+    while r is not None:
+        j = r.json(); Dd += j.get("data", []); nx = j.get("next_page_url"); r = get(nx) if nx else None
+    x = pd.DataFrame(Dd)
+    if len(x) and met in x: CM.append(pd.Series(pd.to_numeric(x[met], errors="coerce").values, index=pd.to_datetime(x.time, utc=True).dt.floor("D"), name=met)); log("coinmetrics", met, len(x))
+cm = pd.concat(CM, axis=1) if CM else pd.DataFrame()
 if len(cm):
-    cm["t"] = pd.to_datetime(cm.time, utc=True).dt.floor("D"); cm = cm.set_index("t")[[c for c in ("CapMVRVCur", "AdrActCnt", "TxTfrValAdjUSD") if c in cm]].apply(pd.to_numeric, errors="coerce")
+    cm.index.name = "t"
+    if "CapMVRVCur" not in cm and {"CapMrktCurUSD", "CapRealUSD"} <= set(cm.columns): cm["CapMVRVCur"] = cm.CapMrktCurUSD / cm.CapRealUSD
     log("coinmetrics", len(cm), list(cm.columns), cm.index.min(), cm.index.max())
     G = G.merge(cm.reset_index().assign(coin="BTC"), on=["t", "coin"], how="left")
 G.to_parquet("btcyon2_gun.parquet", index=False)
