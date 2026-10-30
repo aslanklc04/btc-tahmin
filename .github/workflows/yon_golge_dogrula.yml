@@ -1,0 +1,23 @@
+name: Yon golge dogrulama (canli kod = arastirma?)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [yon_golge.py, yon_golge_karsilastir.py, .github/workflows/yon_golge_dogrula.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: |
+          set +e; python -u yon_golge.py --gecmis 2026-09-01 2026-10-27 > yon_golge_dogrula_log.txt 2>&1; echo "exit=$?" >> yon_golge_dogrula_log.txt
+          python yon_golge_karsilastir.py >> yon_golge_dogrula_log.txt 2>&1; tail -40 yon_golge_dogrula_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add yon_golge_dogrula_log.txt yon_golge_dogrula.csv 2>/dev/null; git commit -m "Yon golge dogrulama" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
