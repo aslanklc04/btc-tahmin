@@ -146,7 +146,7 @@ yaz("\n## Y11 — Zincir üstü değerleme (uzun vade, bilgi)")
 if "CapMVRVCur" in BG:
     mv = BG.CapMVRVCur; V11 = {"MVRV z (4 yıl)": (mv - mv.rolling(1460, min_periods=730).mean()) / mv.rolling(1460, min_periods=730).std(),
                                "aktif adres 30g/365g": BG.AdrActCnt.rolling(30).mean() / BG.AdrActCnt.rolling(365).mean(),
-                               "transfer hacmi 30g/365g": BG.TxTfrValAdjUSD.rolling(30).mean() / BG.TxTfrValAdjUSD.rolling(365).mean()}
+                               **({"transfer hacmi 30g/365g": BG.TxTfrValAdjUSD.rolling(30).mean() / BG.TxTfrValAdjUSD.rolling(365).mean()} if "TxTfrValAdjUSD" in BG else {})}
     baslik(DON_U); dU = donem(BG.index, DON_U)
     for vad, v in V11.items():
         v = v.shift(1)                                                                       # yayın gecikmesi
