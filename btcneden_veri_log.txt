@@ -1,32 +1,76 @@
-[    5 sn] vadeli mum 44496 2021-10-01 00:00:00+00:00 2026-10-29 23:00:00+00:00
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/btcneden_veri.py", line 80, in <module>
-    SP = mum("spot", "BTCUSDT"); log("spot mum", len(SP), SP.index.min(), SP.index.max())
-         ^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/btc-tahmin/btc-tahmin/btcneden_veri.py", line 28, in mum
-    k = pd.concat(P); k.columns = ["ot", "o", "h", "l", "c", "v", "qv", "tbv", "tbqv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
-                                                                                        ~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 1010, in __setitem__
-    iloc._setitem_with_indexer(indexer, value, self.name)
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 2646, in _setitem_with_indexer
-    indexer, value = self._maybe_mask_setitem_value(indexer, value)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 898, in _maybe_mask_setitem_value
-    value = self.obj.iloc._align_series(indexer, value)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 3202, in _align_series
-    return ser.reindex(new_ix)._values
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/series.py", line 6035, in reindex
-    return super().reindex(
-           ^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 5544, in reindex
-    return self._reindex_axes(
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 5566, in _reindex_axes
-    new_index, indexer = ax.reindex(
-                         ^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 4450, in reindex
-    raise ValueError("cannot reindex on an axis with duplicate labels")
-ValueError: cannot reindex on an axis with duplicate labels
-exit=1
+[    4 sn] vadeli mum 44496 2021-10-01 00:00:00+00:00 2026-10-29 23:00:00+00:00
+[    8 sn] spot mum 44519 2021-10-01 00:00:00+00:00 2026-10-29 23:00:00+00:00
+[   31 sn] fonlama 5478
+[   64 sn] metrik 43046 2021-12-01 00:00:00+00:00 2026-10-29 23:00:00+00:00
+[  115 sn] coinbase 44508 2021-10-01 00:00:00+00:00 2026-10-30 00:00:00+00:00
+[  126 sn] dvol 44521 2021-10-01 00:00:00+00:00 2026-10-30 00:00:00+00:00
+[  126 sn] saat yazıldı (44496, 22)
+[  151 sn] ETHUSDT 44496
+[  175 sn] SOLUSDT 44376
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  176 sn] yahoo nasdaq 1362
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  176 sn] yahoo sp500 1362
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  176 sn] yahoo dxy 1364
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  176 sn] yahoo faiz10 1362
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  176 sn] yahoo vix 1364
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  177 sn] yahoo altin 1365
+[  177 sn] https://farside.co.uk/bitcoin-etf-flow-all-data/ 403
+[  178 sn] etf BGeometrics 690 2024-01-11 00:00:00+00:00 2026-10-28 00:00:00+00:00
+[  178 sn] stabil 3258
+[  178 sn] coinmetrics 1977
+[  179 sn] korku 3190
+[  179 sn] günlük yazıldı (1977, 11) | dolu sayıları: {'nasdaq': 1361, 'sp500': 1361, 'dxy': 1363, 'faiz10': 1361, 'vix': 1363, 'altin': 1364, 'etf': 690, 'stabil': 1977, 'borsa_giris': 1977, 'borsa_cikis': 1977, 'korku': 1976}
+exit=0
