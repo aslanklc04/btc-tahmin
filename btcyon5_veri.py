@@ -19,7 +19,7 @@ def kitap(g):
     try:
         z = zipfile.ZipFile(io.BytesIO(r.content)); d = pd.read_csv(z.open(z.namelist()[0])); d.columns = [c.strip().lower() for c in d.columns]
         d["t"] = pd.to_datetime(d.timestamp, utc=True).dt.floor("h"); d["percentage"] = pd.to_numeric(d.percentage, errors="coerce"); d["notional"] = pd.to_numeric(d.notional, errors="coerce")
-        w = d.pivot_table(index="t", columns="percentage", values="notional", aggfunc="mean"); w.columns = [f"p{int(c):+d}" for c in w.columns]; return w
+        w = d.pivot_table(index="t", columns="percentage", values="notional", aggfunc="mean"); w.columns = [f"p{c:+g}" for c in w.columns]; return w
     except Exception as e: log("kitap", g, e); return None
 G = pd.date_range("2022-01-01", "2026-10-29").strftime("%Y-%m-%d")
 with ThreadPoolExecutor(12) as ex: P = [x for x in ex.map(kitap, G) if x is not None]
