@@ -1,37 +1,38 @@
 [    4 sn] vadeli 1 s 2328 2026-07-23 00:00:00+00:00 2026-10-27 23:00:00+00:00
-[    9 sn] balina 2328
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/yon_golge.py", line 141, in <module>
-    if __name__ == "__main__": main()
-                               ^^^^^^
-  File "/home/runner/work/btc-tahmin/btc-tahmin/yon_golge.py", line 111, in main
-    a, b = pd.Timestamp(sys.argv[2], tz="UTC"), pd.Timestamp(sys.argv[3], tz="UTC"); _, F = ozellik(a, b)
-                                                                                            ^^^^^^^^^^^^^
-  File "/home/runner/work/btc-tahmin/btc-tahmin/yon_golge.py", line 85, in ozellik
-    kr = yahoo("KRW=X", a0 - pd.Timedelta(days=10)); dx = yahoo("DX-Y.NYB", a0 - pd.Timedelta(days=20)); LS = ls_gunluk(a - pd.Timedelta(days=200), b)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/btc-tahmin/btc-tahmin/yon_golge.py", line 74, in yahoo
-    j = r.json()["chart"]["result"][0]; c = j["indicators"]["quote"][0]["close"]
-        ^^^^^^
-AttributeError: 'NoneType' object has no attribute 'json'
-exit=1
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/yon_golge_karsilastir.py", line 3, in <module>
-    A = pd.read_csv("yon_golge_referans.csv", parse_dates=["t"]).set_index("t"); B = pd.read_csv("yon_golge_dogrula.csv", parse_dates=["t"]).set_index("t")
-                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
-    return _read(filepath_or_buffer, kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 423, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
-    self._engine = self._make_engine(f, self.engine)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2988, in _make_engine
-    self.handles = get_handle(
-                   ^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/io/common.py", line 948, in get_handle
-    handle = open(handle, ioargs.mode)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'yon_golge_dogrula.csv'
+[   10 sn] balina 2328
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[   26 sn] spot 2328 upbit 2300 usdt 2305 kur 80 dxy 84 L/S gün 257
+[   26 sn] doğrulama yazıldı 1344
+exit=0
+ortak saat 1344 / 1344
+imb4    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 3.42e-15 · eşit (1e-6) %100
+imb24   dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 2.58e-16 · eşit (1e-6) %100
+kz      dolu ref 0.98 canlı 0.98 · korelasyon 1.0000 · ort. mutlak fark 7.16e-14 · eşit (1e-6) %100
+kd24    dolu ref 0.99 canlı 0.99 · korelasyon 1.0000 · ort. mutlak fark 0 · eşit (1e-6) %100
+uz      dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 1.08e-14 · eşit (1e-6) %100
+ud24    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 0 · eşit (1e-6) %100
+lsz     dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 3.2e-15 · eşit (1e-6) %100
+dxy5    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 0 · eşit (1e-6) %100
+posdiv  dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 0 · eşit (1e-6) %100
+negdiv  dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 0 · eşit (1e-6) %100
+vr      dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 7.02e-14 · eşit (1e-6) %100
+skor    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 1.31e-16 · eşit (1e-6) %100
+sinyal_w4: ref 173 · canlı 173 · aynı saat aynı sinyal 173 · uyum %100.0
+sinyal_neg: ref 8 · canlı 8 · aynı saat aynı sinyal 8 · uyum %100.0
