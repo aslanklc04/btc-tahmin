@@ -69,12 +69,15 @@ def coinbase(urun, a, b):
         if r is not None: P += r.json()
         x = y; time.sleep(0.15)
     d = pd.DataFrame(P, columns=["ts", "l", "h", "o", "c", "v"]); d.index = pd.to_datetime(d.ts, unit="s", utc=True); return d.c[~d.index.duplicated()].sort_index()
-def yahoo(tk, a):
-    r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{tk}", params=dict(period1=int(a.timestamp()), period2=int(time.time()), interval="1d"), headers=UA)
-    j = r.json()["chart"]["result"][0]; c = j["indicators"]["quote"][0]["close"]
-    ix = pd.to_datetime(j["timestamp"], unit="s", utc=True)
-    off = j.get("meta", {}).get("gmtoffset", 0); ix = (ix + pd.Timedelta(seconds=off)).normalize()                # borsa yerel günü (yfinance ile aynı)
-    s = pd.Series(c, index=ix, dtype=float).dropna(); return s[~s.index.duplicated(keep="last")]
+def yahoo(tk, a):                                                                             # araştırmayla aynı kaynak: yfinance (Yahoo çerez/crumb işini o yapıyor)
+    import yfinance as yf
+    for k in range(3):
+        try:
+            h = yf.Ticker(tk).history(start=a.strftime("%Y-%m-%d"), interval="1d", auto_adjust=True)
+            if len(h): s = pd.Series(h.Close.values, index=pd.DatetimeIndex(h.index.tz_localize(None).normalize()).tz_localize("UTC")); return s[~s.index.duplicated(keep="last")]
+        except Exception as e: log(tk, e)
+        time.sleep(3 + 3 * k)
+    raise RuntimeError(f"Yahoo {tk} alınamadı")
 def zp(s, n=720): return (s - s.rolling(n, min_periods=n // 2).mean().shift(1)) / s.rolling(n, min_periods=n // 2).std().shift(1)
 def ozellik(a, b):
     """a: ilk değerlendirilecek saat, b: son saat (dahil değil). Geçmiş pencere için 40 gün önceden veri çekilir."""

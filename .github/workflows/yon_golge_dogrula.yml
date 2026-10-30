@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {ref: arastirma3}
-      - run: pip install -q requests pandas numpy
+      - run: pip install -q requests pandas numpy yfinance
       - run: |
           set +e; python -u yon_golge.py --gecmis 2026-09-01 2026-10-27 > yon_golge_dogrula_log.txt 2>&1; echo "exit=$?" >> yon_golge_dogrula_log.txt
           python yon_golge_karsilastir.py >> yon_golge_dogrula_log.txt 2>&1; tail -40 yon_golge_dogrula_log.txt
