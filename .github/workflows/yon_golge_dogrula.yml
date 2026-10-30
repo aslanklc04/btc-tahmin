@@ -19,5 +19,5 @@ jobs:
           python yon_golge_karsilastir.py >> yon_golge_dogrula_log.txt 2>&1; tail -40 yon_golge_dogrula_log.txt
       - run: |
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add yon_golge_dogrula_log.txt yon_golge_dogrula.csv 2>/dev/null; git commit -m "Yon golge dogrulama" || exit 0
+          git add yon_golge_dogrula_log.txt; git add yon_golge_dogrula.csv 2>/dev/null || true; git commit -m "Yon golge dogrulama" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
