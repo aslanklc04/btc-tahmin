@@ -1,0 +1,41 @@
+name: Model4 - kesitsel siralama modeli (PROTOKOL_dortyol YOL 4)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [model4_veri.py, model4_egit.py, .github/workflows/model4.yml]
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        p: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy pyarrow
+      - run: python -u model4_veri.py ${{ matrix.p }} 12 2>&1 | tail -30
+      - uses: actions/upload-artifact@v4
+        with: {name: "model4-p-${{ matrix.p }}", path: "model4_p${{ matrix.p }}.parquet"}
+  egit:
+    needs: veri
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "model4-p-*"}
+      - run: pip install -q pandas numpy pyarrow lightgbm
+      - run: |
+          set +e; python -u model4_egit.py > model4_log.txt 2>&1; echo "exit=$?" >> model4_log.txt; tail -40 model4_log.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: model4-sonuc, path: "model4_sonuc.md\nmodel4_log.txt\nmodel4_secim.csv.gz"}
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add model4_log.txt; git add model4_sonuc.md 2>/dev/null || true; git commit -m "Model4 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
