@@ -25,7 +25,7 @@ def mum(pazar, sym):                                                            
         d = zcsv(r.content, [0, 1, 2, 3, 4, 5, 7, 9, 10]); return d[pd.to_numeric(d[0], errors="coerce").notna()].astype(float)
     U = [f"{V}/{pazar}/monthly/klines/{sym}/1h/{sym}-1h-{a}.zip" for a in AYLAR] + [f"{V}/{pazar}/daily/klines/{sym}/1h/{sym}-1h-{g}.zip" for g in GUNLER]
     with ThreadPoolExecutor(8) as ex: P = [x for x in ex.map(bir, U) if x is not None]
-    k = pd.concat(P); k.columns = ["ot", "o", "h", "l", "c", "v", "qv", "tbv", "tbqv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
+    k = pd.concat(P, ignore_index=True); k.columns = ["ot", "o", "h", "l", "c", "v", "qv", "tbv", "tbqv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
     k.index = pd.to_datetime(k.ot, unit="ms", utc=True); return k[~k.index.duplicated()].sort_index().drop(columns="ot")
 def fonlama(sym):
     F = []
@@ -34,7 +34,7 @@ def fonlama(sym):
         if r:
             z = zipfile.ZipFile(io.BytesIO(r.content)); d = pd.read_csv(z.open(z.namelist()[0])); d.columns = [c.strip().lower() for c in d.columns]
             F.append(pd.DataFrame({"t": pd.to_numeric(d[[c for c in d.columns if "time" in c][0]], errors="coerce"), "r": pd.to_numeric(d[[c for c in d.columns if "rate" in c][-1]], errors="coerce")}))
-    f = pd.concat(F).dropna(); f.loc[f.t > 1e14, "t"] = f.t / 1000; f.index = pd.to_datetime(f.t, unit="ms", utc=True).dt.floor("h")
+    f = pd.concat(F, ignore_index=True).dropna(); f.loc[f.t > 1e14, "t"] = f.t / 1000; f.index = pd.to_datetime(f.t, unit="ms", utc=True).dt.floor("h")
     return f.r[~f.index.duplicated()].sort_index()
 def metrik(sym):
     def gun(g):
