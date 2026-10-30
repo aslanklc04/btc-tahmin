@@ -1,0 +1,16 @@
+# 🧠 YOL 4 — kesitsel sıralama modeli · PROTOKOL_dortyol.md
+satır 4,588,386 · coin 136 · 2022-01 → 2026-10-25 · 5 sn
+
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/model4_egit.py", line 42, in <module>
+    G, PL = yuru(False), yuru(True)
+            ^^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/model4_egit.py", line 29, in yuru
+    mod = lgb.LGBMRegressor(**P).fit(tr[OZ], yt)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/lightgbm/sklearn.py", line 1478, in __init__
+    super().__init__(
+  File "/home/runner/.local/lib/python3.12/site-packages/lightgbm/sklearn.py", line 721, in __init__
+    raise LightGBMError(
+lightgbm.basic.LightGBMError: scikit-learn is required for lightgbm.sklearn. You must install scikit-learn and restart your session to use this module.
+exit=1
