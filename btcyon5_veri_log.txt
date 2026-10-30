@@ -1,14 +1,11 @@
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/btcyon5_veri.py", line 27, in <module>
-    KD = pd.concat(P).sort_index(); KD = KD[~KD.index.duplicated()]; KD.astype("float32").rename_axis("t").reset_index().to_parquet("btcyon5_kitap.parquet", index=False)
-         ^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 485, in concat
-    result = _get_result(
-             ^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 675, in _get_result
-    indexers[ax] = obj_labels.get_indexer(new_labels)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3903, in get_indexer
-    raise InvalidIndexError(self._requires_unique_msg)
-pandas.errors.InvalidIndexError: Reindexing only valid with uniquely valued Index objects
-exit=1
+[  101 sn] emir defteri 33253 2023-01-01 00:00:00+00:00 2026-10-29 23:00:00+00:00 ['p-5', 'p-4', 'p-3', 'p-2', 'p-1', 'p+1', 'p+2', 'p+3', 'p+4', 'p+5', 'p-0.2', 'p+0.2']
+[  101 sn] deribit 0 / 3524 işlem 1000
+[  138 sn] deribit 500 / 3524 işlem 500390
+[  176 sn] deribit 1000 / 3524 işlem 999593
+[  215 sn] deribit 1500 / 3524 işlem 1499593
+[  255 sn] deribit 2000 / 3524 işlem 1999593
+[  298 sn] deribit 2500 / 3524 işlem 2499593
+[  341 sn] deribit 3000 / 3524 işlem 2999593
+[  387 sn] deribit 3500 / 3524 işlem 3498887
+[  401 sn] opsiyon işlem 3521887 2022-01-01 00:00:20.191000+00:00 2026-10-28 15:43:10.317000+00:00 gün başı ort. 1998.8007945516458
+exit=0
