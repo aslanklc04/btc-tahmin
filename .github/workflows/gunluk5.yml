@@ -1,0 +1,23 @@
+name: Gunluk5 - gunde en fazla 5 en iyi sinyal (PROTOKOL_gunluk5)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [gunluk5.py, .github/workflows/gunluk5.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/download-artifact@v4
+        with: {path: parca, pattern: "karal5s-p-*", run-id: 40233596671, github-token: "${{ github.token }}"}
+      - run: pip install -q pandas numpy
+      - run: |
+          set +e; python -u gunluk5.py > gunluk5_log.txt 2>&1; echo "exit=$?" >> gunluk5_log.txt; tail -80 gunluk5_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add gunluk5_log.txt; git add gunluk5_sonuc.md 2>/dev/null || true; git commit -m "Gunluk5 sonucu" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
