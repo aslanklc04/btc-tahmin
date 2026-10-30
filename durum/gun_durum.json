@@ -1,49 +1,7 @@
 {
 "gun": "2026-10-30",
-"giden": 9,
+"giden": 11,
 "log": [
-{
-"t": "29.10 17:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 18:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: INJ (z +3.3, 24 saat)",
-"k": "gönderildi"
-},
-{
-"t": "29.10 19:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 22:04",
-"s": "panel",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.6",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 22:04",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.6",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 00:05",
-"s": "✅ ana",
-"e": "🧪 24 saat: DOGE (z +2.7), DOT (z +0.3), EGLD (z +2.6), ILV (z +2.0), PUNDIX (z +1.9), RAY (z +1.9), CHZ (z +1.9), SUPER (z +1.8), CELR (z +1.5), TURBO (z +13.3)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 00:05",
-"s": "✅ ana",
-"e": "🧪 24 saat: ANKR (z +3.5), FET (z +3.1)",
-"k": "gönderildi"
-},
 {
 "t": "30.10 00:05",
 "s": "🔸 yedek 📋 panelden",
@@ -240,6 +198,48 @@
 "t": "30.10 21:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 22:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: GNO (z +1.2), TAO (z +0.9), BONK (z +0.5), SAND (z +0.5), API3 (z +0.3), PYTH (z +0.3), GMT (z +0.2), RAD (z +0.2), LPT (z +0.1), MASK (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "30.10 22:06",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: INJ (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "30.10 22:06",
+"s": "panel",
+"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 22:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ARB (z -0.5)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 22:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.6)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 22:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ADA (z -1.8 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 22:06",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: PEPE (z -3.5 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
