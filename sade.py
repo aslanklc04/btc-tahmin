@@ -15,7 +15,7 @@ GR = {  # 📏 gerçekçi ölçüm (mesaj fiyatından limit giriş, vadeli komis
     ("panelden", None): ("%69 · %65 · %66", "+%0,21 · +%0,07 · +%0,13"), ("panelden", "💵"): ("%68 · %65 · %67", "+%0,26 · +%0,11 · +%0,20"),
     ("panelden", "🧪"): ("%69 · %65 · %62", "+%0,26 · −%0,02 · −%0,11"), ("panelden", "🔇/🪙"): ("%71 · %65 · %65", "+%0,09 · +%0,03 · +%0,09"),
 }
-KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat, değmezse çıkış saatinde sat · stop yok · kaldıraç en fazla 2–3x, izole · 📐 pay = normal pozisyonuna oran · aynı saatteki sinyaller tek bütçe",
+KURAL = {"ana": "Kural: limit 60 dk geçerli · 🎯'ye değerse orada sat, değmezse çıkış saatinde sat · stop yok · kaldıraç en fazla 2–3x, izole · 💰 pay = kaldıraç dahil pozisyon, sermayenin yüzdesi (💎 ELİT %20 · diğer %5 · aynı saatte toplam ≤ %40) · bakiyen zirvesinden %15+ aşağıdaysa payları yarıya indir",
          "panelden": "Kural: limit 60 dk · 🎯'ye değerse sat, değmezse çıkış saatinde · stop yok · küçük miktar, kaldıraçsız · 📐 pay = normal pozisyonuna oran",
          "yedek": "Girersen: kaldıraçsız, küçük · limit 60 dk · stop yok"}
 KURAL_TUR = {"⛓️": "Kural: limit 60 dk geçerli · 🎯 yok — çıkış saatinde kapat · stop yok · kaldıraç en fazla 2x, izole",           # 25.10: ⛓️ / 🧑'de 🎯 yok (21.10 kullanıcı)

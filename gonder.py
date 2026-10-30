@@ -58,7 +58,7 @@ def uyari():                                                                    
     if bozuk or ayr:
         tg_send("⚠️ SİSTEM UYARISI — bu saat bazı adımlar hata verdi, sinyaller eksik olabilir:\n" + (f"Adım: {', '.join(bozuk)}\n" if bozuk else "") + "\n".join(ayr[:8]) + "\n(Düzeltilene kadar her saat tekrar eder.)")
 PAY_RE = re.compile(r"(🎯 Kâr-al \$[0-9.,]+ \(\+%([0-9.]+)\))")
-PAY_NOT = "📐 pay = normal pozisyonuna göre önerilen büyüklük: 🎯 uzaksa coin oynak → daha küçük gir (×1'den büyük önerilmez). Aynı saatteki bütün sinyaller tek bütçe sayılır.\n"
+PAY_NOT = "💰 pay = kaldıraç dahil pozisyon büyüklüğü, sermayenin yüzdesi: 💎 ELİT %20 · ELİT değil %5 · aynı saatte toplam en fazla %40 · bakiyen zirvesinden %15+ aşağıdaysa payları yarıya indir.\n"
 def pay_ekle(metin):                                                                          # 24.10.2026 kullanıcı onayı: risk payı işareti (🎯 mesafesi ≥ %1,5 → pozisyon 1,5/mesafe oranında küçülür); gölge ölçüm karne_gercek.py
     def f(m):
         try: w = min(1.0, max(0.25, round(4 * 1.5 / float(m.group(2))) / 4))
@@ -97,6 +97,25 @@ def elit_isle(metin, tum, pe=False):
     ek = ELIT_SATIR if var else NORMAL_SATIR
     if j is not None: L.insert(j + 1, ek)
     else: L.insert(1 if len(L) > 1 else len(L), ek)
+    return "\n".join(L)
+# ---- 30.10.2026 kullanıcı onayı ("sadece 1"): para yönetimi — PROTOKOL_dortyol YOL 1 (P2/P4): 💎 ELİT sermayenin %20'si · ELİT değil %5 · aynı saatte toplam ≤ %40 · bakiye zirveden %15+ aşağıdaysa yarı pay
+#   geçmiş (D_T0, 2x, 1.000 $): yıllık +%41 · +%20 · +%49 (2022–24 · 2025 · 2026), en büyük düşüş −%21 · eşit %10'da 2025 −%18 idi (arastirma3 yol123_sonuc.md)
+PAY_ELIT, PAY_DIGER, PAY_SAAT = 20.0, 5.0, 40.0
+def _pay_liste(metin, tum, pe):
+    """Metindeki her '📐 pay ×' için (satır no, ELİT mi) — ELİT: mesaj bütünüyle ELİT ya da coin satırı 💎 ELİT / 📉🔥 (primi eksi terfi hariç)."""
+    cur = bool(tum and not pe); R = []
+    for i, l in enumerate(metin.split("\n")):
+        if l.startswith("• "): cur = (not pe) and bool(tum or l.startswith("• 💎 ELİT") or "📉🔥" in l.split("$")[0])
+        if "📐 pay ×" in l: R.append((i, cur))
+    return R
+def saat_carpani(ana, fon):
+    top = sum(PAY_ELIT if e else PAY_DIGER for m in ana for _, e in _pay_liste(pay_ekle(m.get("m", "")), elit_mi(m, fon), m.get("terfi") in ("panelf", "panelfx")))
+    return min(1.0, PAY_SAAT / top) if top > 0 else 1.0, top
+def pay_sermaye(metin, tum, pe, k):
+    L = metin.split("\n")
+    for i, e in _pay_liste(metin, tum, pe):
+        x = round((PAY_ELIT if e else PAY_DIGER) * k * 2) / 2
+        L[i] = re.sub(r"📐 pay ×[0-9,]+", f"💰 pay: sermayenin %{x:g} kadarı".replace(".", ","), L[i])
     return "\n".join(L)
 def gecikme(m):
     gec = time.time() - m["t"]
@@ -155,6 +174,7 @@ def main():
         except Exception as e: print("testere riski hesaplanamadı:", e)
     ana = sorted(ana, key=lambda m: 0 if (elit_mi(m, FON_ANA) or (dip_coin(m.get("m", "")) and m.get("terfi") not in ("panelf", "panelfx"))) else 1)          # 26.10: 💎 ELİT mesajlar en üstte (sıra içinde eski düzen korunur)
     n = len(ana); gonderilen = 0; karar = []
+    PK, PTOP = saat_carpani(ana, FON_ANA)                                                               # 30.10: saat bütçesi (toplam ≤ %40)
     KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
     for i, m in enumerate(ana):
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
@@ -165,10 +185,11 @@ def main():
             _bas = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "")
             _ek = ([TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI] if m.get("terfi") else []) + ([FON_ANA] if FON_ANA and not m.get("terfi") else [])
             if i > 0 and _ek: _ek = [f"🔥 fonlama çok yüksek (KuCoin BTC z {FZ:+.1f}) — ayrıntı ilk mesajda"]
+            if i == 0 and PK < 1: _ek = _ek + [f"💰 Bu saat toplam pay %{PTOP:g} çıkıyordu → %{PAY_SAAT:g} sınırına sığdırıldı (her pay ×{PK:.2f})".replace(".", ",")]
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {re.sub(r' · isabet %[0-9.]+', '', x['e'])[:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
             _tum = elit_mi(m, FON_ANA); _pe = m.get("terfi") in ("panelf", "panelfx"); _el = _tum or (dip_coin(m.get("m", "")) and not _pe); _bas = _bas + (" · 💎 ELİT" if _el else "")
             _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + elit_isle(t_, _tum, _pe)))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
-            try: ok = yolla(gecikme(m) + bicim(_sd2, lambda: (ELIT_SATIR if _el else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")))
+            try: ok = yolla(gecikme(m) + pay_sermaye(bicim(_sd2, lambda: (ELIT_SATIR if _el else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")), _tum, _pe, PK))
             except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
         GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else (" (🔥 prim eksi)" if m.get("terfi") in ("panelf", "panelfx") else " (🔥 panelden)")) if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
