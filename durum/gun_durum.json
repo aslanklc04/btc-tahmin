@@ -1,25 +1,7 @@
 {
 "gun": "2026-10-30",
-"giden": 6,
+"giden": 7,
 "log": [
-{
-"t": "28.10 23:05",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 05:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "🧪 24 saat: ADA (z +0.6)",
-"k": "gönderildi"
-},
-{
-"t": "29.10 05:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "🪙 ADA ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.6",
-"k": "gönderildi"
-},
 {
 "t": "29.10 05:04",
 "s": "panel",
@@ -240,6 +222,24 @@
 "t": "30.10 04:04",
 "s": "panel",
 "e": "🧪 24 saat: NEAR (z -1.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 05:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: TAO (z +2.9)",
+"k": "gönderildi"
+},
+{
+"t": "30.10 05:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 8 saat Güçlü ↑ · prim ⛔ z -3.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 05:04",
+"s": "panel",
+"e": "🧪 24 saat: ADA (z -2.0 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],

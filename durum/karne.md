@@ -1,13 +1,13 @@
-# 📒 Canlı karne — 30.10.2026 04:04
+# 📒 Canlı karne — 30.10.2026 05:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 67 | %67 | 0.38% | 25.7% | 15 | 68 · %72 · 0.57% | %62 · %67 |
-| 🔸 yedek (gönderildi) | 270 | %74 | 1.26% | 339.4% | 4 | 273 · %82 · 0.66% | %60 · %65 |
-| panel (gönderilmedi) | 345 | %54 | 0.31% | 107.5% | 11 | 349 · %59 · 0.21% | — |
-| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 10 | %40 | -0.52% | -5.2% | 4 | 13 · %69 · 0.63% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
-| ↳ panel · prim ⛔ (filtre) | 220 | %56 | 0.37% | 82.4% | 5 | — | — |
+| ✅ ana (gönderildi) | 67 | %67 | 0.38% | 25.7% | 16 | 68 · %72 · 0.57% | %62 · %67 |
+| 🔸 yedek (gönderildi) | 271 | %74 | 1.23% | 333.8% | 3 | 273 · %82 · 0.66% | %60 · %65 |
+| panel (gönderilmedi) | 345 | %54 | 0.31% | 107.5% | 14 | 350 · %59 · 0.21% | — |
+| ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 11 | %36 | -0.98% | -10.8% | 3 | 13 · %69 · 0.63% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
+| ↳ panel · prim ⛔ (filtre) | 220 | %56 | 0.37% | 82.4% | 8 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -21,7 +21,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 🌐🤝 ortak geniş liste | 109 · %66 | 254 | %76 | 1.21% | 306.7% | %60 · %65 | ✅ iyi · testle uyumlu |
 | 🔸 yedek | 💵 ABD alıyor | 5 · %40 | 9 | %56 | 3.92% | 35.3% | — | ✅ iyi |
 | 🔸 yedek | 🔇/🪙 coin tek | 1 · %100 | 5 | %60 | 0.53% | 2.7% | — | ✅ iyi |
-| 🔸 yedek | 🧪 24 s ana coin | 2 · %0 | 2 | %0 | -2.62% | -5.2% | — | ⏳ veri az |
+| 🔸 yedek | 🧪 24 s ana coin | 3 · %0 | 3 | %0 | -3.63% | -10.9% | — | ⏳ veri az |
 | panel | ₿ BTC saatlik / ⭐ / A | 64 · %44 | 150 | %47 | 0.05% | 7.1% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 0 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
@@ -41,7 +41,6 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 26.10 01:00 | yedek | 🌐🤝 | WLD | 4 s | -1.15% | ❌ |
 | 26.10 04:00 | ana | 🤝 | ARB | 4 s | -0.99% | ❌ |
 | 26.10 04:00 | yedek | 🌐🤝 | APE | 4 s | -0.20% | ❌ |
 | 26.10 04:00 | yedek | 🌐🤝 | ENS | 4 s | -0.23% | ❌ |
@@ -49,15 +48,15 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 26.10 05:00 | yedek | 🌐🤝 | XTZ | 4 s | +0.84% | ✅ |
 | 26.10 05:00 | yedek | 🌐🤝 | ETHFI | 4 s | +0.69% | ✅ |
 | 26.10 05:00 | yedek | 🌐🤝 | TRB | 4 s | +0.84% | ✅ |
-| 26.10 06:00 | yedek | 🌐🤝 | NMR | 4 s | -0.76% | ❌ |
-| 26.10 06:00 | yedek | 🌐🤝 | APE | 4 s | +0.29% | ✅ |
-| 26.10 06:00 | yedek | 🌐🤝 | YFI | 4 s | +0.15% | ✅ |
-| 26.10 06:00 | yedek | 🌐🤝 | LPT | 4 s | +0.03% | ✅ |
-| 26.10 06:00 | yedek | 🌐🤝 | METIS | 4 s | -0.92% | ❌ |
-| 26.10 06:00 | yedek | 🌐🤝 | QI | 4 s | +4.06% | ✅ |
-| 26.10 06:00 | yedek | 🌐🤝 | EGLD | 4 s | -1.31% | ❌ |
-| 26.10 06:00 | yedek | 🌐🤝 | ZRO | 4 s | -2.15% | ❌ |
 | 26.10 06:00 | yedek | 🌐🤝 | ACH | 4 s | +0.36% | ✅ |
+| 26.10 06:00 | yedek | 🌐🤝 | ZRO | 4 s | -2.15% | ❌ |
+| 26.10 06:00 | yedek | 🌐🤝 | EGLD | 4 s | -1.31% | ❌ |
+| 26.10 06:00 | yedek | 🌐🤝 | QI | 4 s | +4.06% | ✅ |
+| 26.10 06:00 | yedek | 🌐🤝 | NMR | 4 s | -0.76% | ❌ |
+| 26.10 06:00 | yedek | 🌐🤝 | LPT | 4 s | +0.03% | ✅ |
+| 26.10 06:00 | yedek | 🌐🤝 | YFI | 4 s | +0.15% | ✅ |
+| 26.10 06:00 | yedek | 🌐🤝 | APE | 4 s | +0.29% | ✅ |
+| 26.10 06:00 | yedek | 🌐🤝 | METIS | 4 s | -0.92% | ❌ |
 | 26.10 07:00 | yedek | 🌐🤝 | VET | 4 s | -2.46% | ❌ |
 | 26.10 22:00 | ana | 🤝 | OP | 4 s | +1.15% | ✅ |
 | 26.10 22:00 | yedek | 🌐🤝 | JASMY | 4 s | +0.19% | ✅ |
@@ -65,4 +64,5 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 26.10 22:00 | yedek | 🌐🤝 | ZRO | 4 s | -0.35% | ❌ |
 | 28.10 01:00 | ana | 🌐🧪 | TAO | 24 s | +1.89% | ✅ |
 | 28.10 21:00 | ana | 🌐🧪 | FIL | 24 s | +1.33% | ✅ |
+| 29.10 05:00 | yedek | 🧪 | ADA | 24 s | -5.64% | ❌ |
 | 29.10 05:00 | yedek | 🔇/🪙 | ADA | 8 s | +0.82% | ✅ |
