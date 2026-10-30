@@ -1,0 +1,32 @@
+[    5 sn] vadeli mum 44496 2021-10-01 00:00:00+00:00 2026-10-29 23:00:00+00:00
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/btcneden_veri.py", line 80, in <module>
+    SP = mum("spot", "BTCUSDT"); log("spot mum", len(SP), SP.index.min(), SP.index.max())
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/btc-tahmin/btc-tahmin/btcneden_veri.py", line 28, in mum
+    k = pd.concat(P); k.columns = ["ot", "o", "h", "l", "c", "v", "qv", "tbv", "tbqv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
+                                                                                        ~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 1010, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 2646, in _setitem_with_indexer
+    indexer, value = self._maybe_mask_setitem_value(indexer, value)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 898, in _maybe_mask_setitem_value
+    value = self.obj.iloc._align_series(indexer, value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexing.py", line 3202, in _align_series
+    return ser.reindex(new_ix)._values
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/series.py", line 6035, in reindex
+    return super().reindex(
+           ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 5544, in reindex
+    return self._reindex_axes(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 5566, in _reindex_axes
+    new_index, indexer = ax.reindex(
+                         ^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 4450, in reindex
+    raise ValueError("cannot reindex on an axis with duplicate labels")
+ValueError: cannot reindex on an axis with duplicate labels
+exit=1
