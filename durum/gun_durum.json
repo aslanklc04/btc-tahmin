@@ -3,18 +3,6 @@
 "giden": 9,
 "log": [
 {
-"t": "29.10 11:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 14:04",
-"s": "panel",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.1",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "29.10 16:04",
 "s": "✅ ana",
 "e": "🧪 24 saat: PENDLE (z +1.9)",
@@ -240,6 +228,18 @@
 "t": "30.10 19:04",
 "s": "panel",
 "e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 20:04",
+"s": "panel",
+"e": "🔇 DOGE ⭐ en güçlü · 8 saat · isabet %62 · prim ⚠️ z -0.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 20:04",
+"s": "panel",
+"e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ⚠️ z -0.6",
 "k": "gitmedi — yalnız panel"
 }
 ],
