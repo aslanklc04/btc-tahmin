@@ -5,12 +5,6 @@
 {
 "t": "29.10 06:04",
 "s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 06:04",
-"s": "panel",
 "e": "🧪 24 saat: SHIB (z -0.7)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 30.10 09:00 · $78,554",
 "k": "gönderildi"
+},
+{
+"t": "30.10 11:04",
+"s": "panel",
+"e": "🪙 BNB 4s Çok güçlü ↑ · 4 saat · isabet %59 · prim ⛔ z -1.1",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 3
