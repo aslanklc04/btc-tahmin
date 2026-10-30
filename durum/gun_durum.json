@@ -3,12 +3,6 @@
 "giden": 9,
 "log": [
 {
-"t": "29.10 16:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: PENDLE (z +1.9)",
-"k": "gönderildi"
-},
-{
 "t": "29.10 17:04",
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.5",
@@ -240,6 +234,12 @@
 "t": "30.10 20:04",
 "s": "panel",
 "e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ⚠️ z -0.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 21:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
