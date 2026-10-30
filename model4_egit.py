@@ -16,7 +16,7 @@ D["net_tp"] = np.where(hit, tp / Pe - 1 - FP - FL - fon, D.c4 / Pe - 1 - 2 * FP 
 D["net_t"] = (D.c4 / Pe - 1 - 2 * FP - fon).astype("float32")
 OZ = ["r1", "r4", "r24", "r72", "r168", "vo", "hc", "tepe", "dip", "fr", "fz", "b1", "b4", "b24", "rel24", "k_r4", "k_r24", "k_hc", "hs", "hcz"]
 yaz(f"# 🧠 YOL 4 — kesitsel sıralama modeli · PROTOKOL_dortyol.md\nsatır {len(D):,} · coin {D.coin.nunique()} · {D.t.min():%Y-%m} → {D.t.max():%Y-%m-%d} · {time.time() - T0:.0f} sn\n")
-P = dict(objective="regression", learning_rate=0.05, num_leaves=31, min_child_samples=500, subsample=0.8, subsample_freq=1, colsample_bytree=0.8, n_estimators=300, verbose=-1)
+P = dict(objective="regression", learning_rate=0.05, num_leaves=31, min_data_in_leaf=500, bagging_fraction=0.8, bagging_freq=1, feature_fraction=0.8, verbose=-1, seed=7)
 AYLAR = pd.date_range("2024-01-01", "2026-10-01", freq="MS", tz="UTC")
 rng = np.random.default_rng(7)
 def yuru(plasebo=False):
@@ -26,11 +26,11 @@ def yuru(plasebo=False):
         tr = D[(D.t >= a) & (D.t < b) & D.el].dropna(subset=["y"])
         yt = tr.y.values.copy()
         if plasebo: yt = tr.groupby("t").y.transform(lambda s: s.sample(frac=1, random_state=1).values).values
-        mod = lgb.LGBMRegressor(**P).fit(tr[OZ], yt)
-        thr = np.percentile(mod.predict(tr[OZ]), 90)
+        mod = lgb.train(P, lgb.Dataset(tr[OZ].values, label=yt), num_boost_round=300)
+        thr = np.percentile(mod.predict(tr[OZ].values), 90)
         te = D[(D.t >= m) & (D.t < m + pd.DateOffset(months=1)) & D.el].copy()
         if not len(te): continue
-        te["p"] = mod.predict(te[OZ]); best = te.sort_values(["t", "p"], ascending=[True, False]).groupby("t").head(1)
+        te["p"] = mod.predict(te[OZ].values); best = te.sort_values(["t", "p"], ascending=[True, False]).groupby("t").head(1)
         son = {}
         for r in best.itertuples():
             if r.p < thr or (r.coin in son and r.t - son[r.coin] < pd.Timedelta(hours=4)): continue
