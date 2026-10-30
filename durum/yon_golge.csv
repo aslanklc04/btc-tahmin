@@ -1,0 +1,4 @@
+kural,sinyal_saat,giris_saat,yon,giris,cikis,ham_yuzde,net_yuzde,sayilan,skor
+🔻 NEG zayıf alıcı + pencere → SAT,2026-10-29 14:00:00+00:00,2026-10-29 15:00:00+00:00,SAT,81155.4,,,,True,-0.007307
+🧮 W4 birleşik skor,2026-10-29 00:00:00+00:00,2026-10-29 01:00:00+00:00,SAT,81063.8,,,,True,-0.008571
+🧮 W4 birleşik skor,2026-10-29 14:00:00+00:00,2026-10-29 15:00:00+00:00,SAT,81155.4,,,,False,-0.007307

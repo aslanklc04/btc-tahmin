@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "30.10 00:05",
-"s": "🔸 yedek 📋 panelden",
-"e": "🪙 DOGE ⭐ en güçlü · 8 saat · isabet %60 · prim ✅ z +2.7",
-"k": "gönderildi"
-},
-{
-"t": "30.10 00:05",
-"s": "🔸 yedek 📋 panelden",
-"e": "🪙 DOT ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.3",
-"k": "gönderildi"
-},
-{
-"t": "30.10 00:05",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⚠️ z -0.1",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +228,18 @@
 "t": "30.10 22:06",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: PEPE (z -3.5 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 23:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · 8 saat Çok güçlü ↑ · prim ⛔ z -2.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 23:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -2.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
