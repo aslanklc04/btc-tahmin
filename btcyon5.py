@@ -94,7 +94,7 @@ if OP is not None and len(OP):
     ivp = O[orta & (O.tur == "P") & (O.m >= -0.15) & (O.m <= -0.05) & (O.iv > 0)].groupby("gun").iv.mean(); ivc = O[orta & (O.tur == "C") & (O.m >= 0.05) & (O.m <= 0.15) & (O.iv > 0)].groupby("gun").iv.mean()
     atm = O[orta & (O.m.abs() <= 0.02) & (O.iv > 0)].groupby("gun").iv.mean()
     G["skew"] = ivp - ivc; G["atm3"] = atm - atm.shift(3); G = G.sort_index()
-    yaz(f"_gün {len(G)} · K medyanları: put/call alım log {G.pc_alim[G.index < K_END].median():+.2f}, net {G.net[G.index < K_END].median():+.3f}, çarpıklık {G.skew[G.index < K_END].median():+.1f} IV puanı_"); baslik()
+    yaz(f"_gün {len(G)} · K medyanları: put/call alım log {G.pc_alim[G.index < K_END].median():+.2f}, net {G.net[G.index < K_END].median():+.3f}, çarpıklık {G["skew"][G.index < K_END].median():+.1f} IV puanı_"); baslik()
     AD2 = {"pc_alim": "put/call agresif alım oranı", "net": "agresif net yön (call − put)", "skew": "çarpıklık (OTM put IV − call IV)", "atm3": "ATM IV 3 g değişim"}
     for c in AD2: esikli("V2", AD2[c], G[c], (24, 72), gunluk=True)
     plasebo("V2")
