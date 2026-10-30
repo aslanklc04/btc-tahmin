@@ -16,6 +16,7 @@ def zprev(s, n, mn=None):                                                       
     x = s.dropna(); m = x.rolling(n, min_periods=mn or n // 2).mean().shift(1); sd = x.rolling(n, min_periods=mn or n // 2).std().shift(1)
     return ((x - m) / sd).reindex(s.index)
 # ---------------- saatlik türetilmiş ----------------
+H.loc[H.oi <= 0, ["oi", "oiv"]] = np.nan; H.loc[H.f_qv <= 0, ["f_qv", "f_tbqv"]] = np.nan; H.loc[H.s_qv <= 0, ["s_qv", "s_tbqv"]] = np.nan   # bozuk anlık görüntüler
 H["fon"] = H.fon.ffill(); H["p"] = H.cb_c / H.s_c - 1
 H["f_al"], H["s_al"] = H.f_tbqv, H.s_tbqv
 lc = np.log(H.f_c); H["lr"] = lc.diff()
@@ -39,7 +40,7 @@ st = GD.stabil.dropna() if "stabil" in GD else pd.Series(dtype=float)
 D["stabil_deg"] = (st.shift(-1) / st - 1).reindex(D.index) if len(st) else np.nan               # D 00:00 → D+1 00:00
 D["net_giris"] = (GD.borsa_giris - GD.borsa_cikis).reindex(D.index) if "borsa_giris" in GD else np.nan
 D["olay"] = D.index.strftime("%Y-%m-%d").isin(OLAYG); D["haftasonu"] = D.index.dayofweek >= 5
-D["don"] = donem(D.index)
+D = D.replace([np.inf, -np.inf], np.nan); D["don"] = donem(D.index)
 Z = {}
 for c, n in (("nasdaq_r", 90), ("dxy_r", 90), ("vix_r", 90), ("faiz_d", 90), ("altin_r", 90), ("prim_deg", 90), ("f_imb", 90), ("s_imb", 90), ("net_giris", 90), ("stabil_deg", 90), ("dvol_deg", 90), ("etf", 60), ("oi_deg", 90)):
     Z[c] = zprev(D[c], n, 30 if c == "etf" else None)
@@ -91,7 +92,7 @@ for c in AD: yaz(f"| {AD[c]} | {pz(EV.dus, c)} | {pz(EV.yuk, c)} | {pz(nor, c)} 
 yaz("\n_medyanlar (ham değer):_")
 yaz("| faktör | düşüş günü | yükseliş günü | sıradan gün |"); yaz("|---|---|---|---|")
 for c, f in (("r", 100), ("nasdaq_r", 100), ("dxy_r", 100), ("faiz_d", 1), ("prim_deg", 1e4), ("etf", 1), ("f_imb", 100), ("s_imb", 100), ("oi_deg", 100), ("tasfiye", 1), ("net_giris", 1), ("dvol_deg", 1)):
-    yaz(f"| {AD.get(c, 'BTC getirisi %')}{' (baz puan)' if c == 'prim_deg' else ''}{' (milyon $)' if c == 'etf' else ''}{' (saat sayısı, ≥%1,5 düşüş)' if c == 'tasfiye' else ''} | " + " | ".join(f"{f * EV.loc[m, c].median():+.2f}" for m in (EV.dus, EV.yuk, nor)) + " |")
+    yaz(f"| {AD.get(c, 'BTC getirisi %') if c != 'tasfiye' else 'Tasfiye saati (açık poz. saatte ≤ −%1,5)'}{' (baz puan)' if c == 'prim_deg' else ''}{' (BTC adedi)' if c in ('etf', 'net_giris') else ''}{' (%)' if c in ('nasdaq_r', 'dxy_r', 'f_imb', 's_imb', 'oi_deg') else ''}{' (baz puan)' if c == 'faiz_d' else ''} | " + " | ".join(f"{f * EV.loc[m, c].median():+.2f}" for m in (EV.dus, EV.yuk, nor)) + " |")
 # ================= A3 =================
 yaz("\n## A3 — Her büyük güne sebep etiketi (birden çok olabilir)")
 def etiket(t, yon):
@@ -115,7 +116,7 @@ for yon, ad in ((-1, "BÜYÜK DÜŞÜŞLER"), (1, "BÜYÜK YÜKSELİŞLER")):
     yaz("")
 def liste(yon, n=25):
     x = E[E.yon == yon].assign(a=lambda d: d.r.abs()).sort_values("a", ascending=False).head(n)
-    yaz("| gün | BTC | etiket | Nasdaq | dolar | prim Δ (bp) | ETF (m$) | açık poz. | tasfiye saat | vadeli/spot agresif | borsa giriş z |"); yaz("|---|---|---|---|---|---|---|---|---|---|---|")
+    yaz("| gün | BTC | etiket | Nasdaq | dolar | prim Δ (bp) | ETF (BTC) | açık poz. | tasfiye saat | vadeli/spot agresif | borsa giriş z |"); yaz("|---|---|---|---|---|---|---|---|---|---|---|")
     for r_ in x.itertuples():
         d = D.loc[r_.t]; z = Z.loc[r_.t]
         f = lambda v, k=100, p=1: "—" if pd.isna(v) else f"{k * v:+.{p}f}"
