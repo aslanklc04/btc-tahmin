@@ -1,0 +1,16 @@
+[   15 sn] 1 dk 2581920 2021-12-01 00:00:00+00:00 2026-10-29 23:59:00+00:00
+[   16 sn] balina saatlik 43032 balina hacim payı ort. 0.1568737495306235
+[   74 sn] upbit 43000 2021-11-30 07:00:00+00:00 2026-10-29 23:00:00+00:00
+[  121 sn] coinbase USDT 43042 2021-12-01 00:00:00+00:00 2026-10-30 00:00:00+00:00
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  quotes.sort_index(inplace=True)
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:514: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.drop(
+/home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  df.rename(columns={
+[  122 sn] USD/KRW 1300
+[  122 sn] bitti
+exit=0
