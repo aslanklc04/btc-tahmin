@@ -1,16 +1,84 @@
 # 🧠 YOL 4 — kesitsel sıralama modeli · PROTOKOL_dortyol.md
 satır 4,588,386 · coin 136 · 2022-01 → 2026-10-25 · 5 sn
 
-Traceback (most recent call last):
-  File "/home/runner/work/btc-tahmin/btc-tahmin/model4_egit.py", line 42, in <module>
-    G, PL = yuru(False), yuru(True)
-            ^^^^^^^^^^^
-  File "/home/runner/work/btc-tahmin/btc-tahmin/model4_egit.py", line 29, in yuru
-    mod = lgb.LGBMRegressor(**P).fit(tr[OZ], yt)
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/.local/lib/python3.12/site-packages/lightgbm/sklearn.py", line 1478, in __init__
-    super().__init__(
-  File "/home/runner/.local/lib/python3.12/site-packages/lightgbm/sklearn.py", line 721, in __init__
-    raise LightGBMError(
-lightgbm.basic.LightGBMError: scikit-learn is required for lightgbm.sklearn. You must install scikit-learn and restart your session to use this module.
-exit=1
+model 2024-01: eğitim 1,123,334 · seçilen toplam 385 · 17 sn
+model 2024-02: eğitim 1,150,103 · seçilen toplam 815 · 29 sn
+model 2024-03: eğitim 1,173,293 · seçilen toplam 1177 · 42 sn
+model 2024-04: eğitim 1,204,405 · seçilen toplam 1537 · 56 sn
+model 2024-05: eğitim 1,231,427 · seçilen toplam 1916 · 68 sn
+model 2024-06: eğitim 1,263,756 · seçilen toplam 2316 · 82 sn
+model 2024-07: eğitim 1,291,584 · seçilen toplam 2722 · 95 sn
+model 2024-08: eğitim 1,324,468 · seçilen toplam 3124 · 109 sn
+model 2024-09: eğitim 1,362,768 · seçilen toplam 3512 · 124 sn
+model 2024-10: eğitim 1,391,219 · seçilen toplam 3929 · 138 sn
+model 2024-11: eğitim 1,425,453 · seçilen toplam 4332 · 152 sn
+model 2024-12: eğitim 1,454,223 · seçilen toplam 4730 · 167 sn
+model 2025-01: eğitim 1,484,679 · seçilen toplam 5116 · 183 sn
+model 2025-02: eğitim 1,512,485 · seçilen toplam 5464 · 198 sn
+model 2025-03: eğitim 1,529,702 · seçilen toplam 5853 · 214 sn
+model 2025-04: eğitim 1,555,986 · seçilen toplam 6256 · 230 sn
+model 2025-05: eğitim 1,575,681 · seçilen toplam 6634 · 248 sn
+model 2025-06: eğitim 1,600,313 · seçilen toplam 6847 · 264 sn
+model 2025-07: eğitim 1,614,997 · seçilen toplam 7165 · 281 sn
+model 2025-08: eğitim 1,630,901 · seçilen toplam 7412 · 297 sn
+model 2025-09: eğitim 1,652,286 · seçilen toplam 7616 · 314 sn
+model 2025-10: eğitim 1,660,419 · seçilen toplam 7933 · 330 sn
+model 2025-11: eğitim 1,670,947 · seçilen toplam 8145 · 346 sn
+model 2025-12: eğitim 1,673,461 · seçilen toplam 8310 · 363 sn
+model 2026-01: eğitim 1,672,569 · seçilen toplam 8503 · 379 sn
+model 2026-02: eğitim 1,668,348 · seçilen toplam 8702 · 395 sn
+model 2026-03: eğitim 1,654,121 · seçilen toplam 8924 · 412 sn
+model 2026-04: eğitim 1,644,880 · seçilen toplam 9283 · 429 sn
+model 2026-05: eğitim 1,627,788 · seçilen toplam 9487 · 445 sn
+model 2026-06: eğitim 1,611,964 · seçilen toplam 9717 · 461 sn
+model 2026-07: eğitim 1,584,877 · seçilen toplam 9954 · 477 sn
+model 2026-08: eğitim 1,556,602 · seçilen toplam 10180 · 492 sn
+model 2026-09: eğitim 1,535,326 · seçilen toplam 10464 · 508 sn
+model 2026-10: eğitim 1,513,047 · seçilen toplam 10692 · 523 sn
+plasebo 2024-01: eğitim 1,123,334 · seçilen toplam 291 · 539 sn
+plasebo 2024-02: eğitim 1,150,103 · seçilen toplam 738 · 555 sn
+plasebo 2024-03: eğitim 1,173,293 · seçilen toplam 1099 · 572 sn
+plasebo 2024-04: eğitim 1,204,405 · seçilen toplam 1464 · 588 sn
+plasebo 2024-05: eğitim 1,231,427 · seçilen toplam 1842 · 604 sn
+plasebo 2024-06: eğitim 1,263,756 · seçilen toplam 2233 · 620 sn
+plasebo 2024-07: eğitim 1,291,584 · seçilen toplam 2672 · 637 sn
+plasebo 2024-08: eğitim 1,324,468 · seçilen toplam 3102 · 654 sn
+plasebo 2024-09: eğitim 1,362,768 · seçilen toplam 3516 · 672 sn
+plasebo 2024-10: eğitim 1,391,219 · seçilen toplam 3922 · 690 sn
+plasebo 2024-11: eğitim 1,425,453 · seçilen toplam 4369 · 708 sn
+plasebo 2024-12: eğitim 1,454,223 · seçilen toplam 4791 · 726 sn
+plasebo 2025-01: eğitim 1,484,679 · seçilen toplam 5109 · 746 sn
+plasebo 2025-02: eğitim 1,512,485 · seçilen toplam 5457 · 766 sn
+plasebo 2025-03: eğitim 1,529,702 · seçilen toplam 5810 · 785 sn
+plasebo 2025-04: eğitim 1,555,986 · seçilen toplam 6178 · 804 sn
+plasebo 2025-05: eğitim 1,575,681 · seçilen toplam 6558 · 824 sn
+plasebo 2025-06: eğitim 1,600,313 · seçilen toplam 6771 · 844 sn
+plasebo 2025-07: eğitim 1,614,997 · seçilen toplam 7089 · 865 sn
+plasebo 2025-08: eğitim 1,630,901 · seçilen toplam 7336 · 885 sn
+plasebo 2025-09: eğitim 1,652,286 · seçilen toplam 7540 · 906 sn
+plasebo 2025-10: eğitim 1,660,419 · seçilen toplam 7857 · 926 sn
+plasebo 2025-11: eğitim 1,670,947 · seçilen toplam 8069 · 946 sn
+plasebo 2025-12: eğitim 1,673,461 · seçilen toplam 8234 · 966 sn
+plasebo 2026-01: eğitim 1,672,569 · seçilen toplam 8427 · 986 sn
+plasebo 2026-02: eğitim 1,668,348 · seçilen toplam 8626 · 1006 sn
+plasebo 2026-03: eğitim 1,654,121 · seçilen toplam 8848 · 1026 sn
+plasebo 2026-04: eğitim 1,644,880 · seçilen toplam 9207 · 1047 sn
+plasebo 2026-05: eğitim 1,627,788 · seçilen toplam 9411 · 1067 sn
+plasebo 2026-06: eğitim 1,611,964 · seçilen toplam 9641 · 1087 sn
+plasebo 2026-07: eğitim 1,584,877 · seçilen toplam 9878 · 1106 sn
+plasebo 2026-08: eğitim 1,556,602 · seçilen toplam 10104 · 1126 sn
+plasebo 2026-09: eğitim 1,535,326 · seçilen toplam 10388 · 1146 sn
+plasebo 2026-10: eğitim 1,513,047 · seçilen toplam 10616 · 1166 sn
+_hücre: işlem · isabet · işlem başı net % (🎯 0,75σ ya da 4 s sonu; giriş piyasa + %0,1 kayma)_
+
+| | 2024 | 2025 | 2026 |
+|---|---|---|---|
+| MODEL 🎯 | 4730 · %55.7 · -0.21 | 3580 · %54.5 · -0.22 | 2382 · %50.3 · -0.19 |
+| model 4 s sonu | 4730 · %43.2 · -0.13 | 3580 · %43.4 · -0.24 | 2382 · %42.4 · -0.21 |
+| rastgele coin (aynı saatler) 🎯 | 4730 · %48.3 · -0.22 | 3580 · %49.2 · -0.27 | 2382 · %47.3 · -0.23 |
+| PLASEBO 🎯 | 4791 · %54.0 · -0.25 | 3443 · %51.8 · -0.25 | 2382 · %50.3 · -0.19 |
+
+model sıklığı: günde 10.4 işlem · en sık coin'ler: ZEC, AUCTION, AGLD, BTC, PENDLE, BCH, JTO, T
+
+**Karar YOL 4: ❌ geçmedi** (model şartı: ❌ · plasebo şartı sağlamıyor mu: ✅)
+exit=0
