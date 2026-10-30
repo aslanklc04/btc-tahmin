@@ -3,18 +3,6 @@
 "giden": 9,
 "log": [
 {
-"t": "29.10 07:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "29.10 09:03",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "29.10 09:03",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 29.10 09:00 · $80,234",
@@ -240,6 +228,18 @@
 "t": "30.10 13:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -1.7",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 15:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "30.10 15:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.9",
 "k": "gitmedi — yalnız panel"
 }
 ],
