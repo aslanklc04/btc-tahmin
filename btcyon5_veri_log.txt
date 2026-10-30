@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/btcyon5_veri.py", line 27, in <module>
+    KD = pd.concat(P).sort_index(); KD = KD[~KD.index.duplicated()]; KD.astype("float32").rename_axis("t").reset_index().to_parquet("btcyon5_kitap.parquet", index=False)
+         ^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 485, in concat
+    result = _get_result(
+             ^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 675, in _get_result
+    indexers[ax] = obj_labels.get_indexer(new_labels)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3903, in get_indexer
+    raise InvalidIndexError(self._requires_unique_msg)
+pandas.errors.InvalidIndexError: Reindexing only valid with uniquely valued Index objects
+exit=1
