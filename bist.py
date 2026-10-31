@@ -90,7 +90,7 @@ def hazirla(mod):
         # model özellikleri
         F["sig"] = sig; F["r1"] = lr; ku = [1, 4, 8, 24] if mod != "gun" else [1, 3, 5, 20]
         for k_ in ku: F[f"r{k_}"] = np.log(d.c).diff(k_)
-        for k_ in ([3 * N, 5 * N, 20 * N] if mod != "gun" else [60, 120]): F[f"rs{k_}"] = np.log(d.c).diff(k_)
+        for j_, k_ in enumerate([3 * N, 5 * N, 20 * N] if mod != "gun" else [60, 120]): F[f"rs_{j_}"] = np.log(d.c).diff(k_)
         xr = np.log(xc); F["x1"] = xr.diff(); F["x5s"] = xr.diff(5 * N); F["gorece5"] = np.log(d.c).diff(5 * N) - xr.diff(5 * N)
         F["u1"] = np.log(uu).diff(N); F["u5"] = np.log(uu).diff(5 * N); F["gun"] = ix.dayofweek
         if mod != "gun": F["saat"] = ix.tz_convert("Europe/Istanbul").hour
@@ -175,7 +175,7 @@ def calis(mod):
     for kod, X in CO.items():
         nu, nt, fz, ci, vur = X["EX"][eh]; F = X["F"].copy(); F["y"] = vur; F["nu"] = nu; F["cell"] = X["cell"]; F["kod"] = kod; F["i"] = np.arange(len(F)); rows.append(F[(F.cell >= 0) & F.nu.notna()])
     Z = pd.concat(rows); cols = [c for c in Z.columns if c not in ("y", "nu", "cell", "kod", "i")]
-    tr = Z[Z.cell == 0]; mdl = HistGradientBoostingClassifier(max_iter=300, learning_rate=0.05, max_leaf_nodes=31, min_samples_leaf=200, random_state=0).fit(tr[cols], tr.y)
+    tr = Z[Z.cell == 0]; dus = [c for c in cols if tr[c].nunique() < 2]; cols = [c for c in cols if c not in dus]; print("modelden düşen sütun:", dus); mdl = HistGradientBoostingClassifier(max_iter=300, learning_rate=0.05, max_leaf_nodes=31, min_samples_leaf=200, random_state=0).fit(tr[cols], tr.y)
     Z["p"] = mdl.predict_proba(Z[cols])[:, 1]; thr = np.quantile(Z.loc[Z.cell == 0, "p"], 0.90)
     hc = []; okm = []
     for k in range(NC):
@@ -193,4 +193,4 @@ def calis(mod):
 yaz("# 🇹🇷 BIST fizibilite — PROTOKOL_bist.md"); yaz(f"_{pd.Timestamp.now(tz='Europe/Istanbul'):%d.%m.%Y %H:%M} · net = dolar bazında, komisyon+BSMV %0,05/taraf, kayma %0,05 · yalnız AL_")
 SON = {m: calis(m) for m in (sys.argv[1:] or ["saat", "gun"])}
 yaz("\n# Özet"); [yaz(f"- **{'saatlik' if m == 'saat' else 'günlük'}:** seçilen {r['sec']} · umut verici {r['umut']} · sinyal adayı {r['aday']} · model {'ADAY' if r['model'] else 'geçmedi'} · plasebo umut/aday en çok {max(p[1] for p in r['PL'])}/{max(p[2] for p in r['PL'])}") for m, r in SON.items()]
-yaz(f"\n_süre {time.time() - T0:.0f} sn_"); open("bist_sonuc.md", "w").write("\n".join(out) + "\n")
+yaz(f"\n_süre {time.time() - T0:.0f} sn_"); open("bist_sonuc.md" if len(SON) > 1 else f"bist_sonuc_{list(SON)[0]}.md", "w").write("\n".join(out) + "\n")
