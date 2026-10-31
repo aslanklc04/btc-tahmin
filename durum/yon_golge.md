@@ -1,4 +1,4 @@
-# 🧭 BTC yön gölge izleme — 30.10.2026 23:07
+# 🧭 BTC yön gölge izleme — 31.10.2026 09:08
 
 _Mesaj göndermez. Başlangıç 28.10.2026 · veri 29.10 23:00 UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → 24 s sonu, kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._
 

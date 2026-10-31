@@ -1,25 +1,7 @@
 {
 "gun": "2026-10-31",
-"giden": 2,
+"giden": 4,
 "log": [
-{
-"t": "30.10 03:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: JASMY (z +2.6)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 03:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⛔ z -3.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 03:04",
-"s": "panel",
-"e": "🧪 24 saat: BTC (z -3.5 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 04:04",
 "s": "✅ ana",
@@ -241,7 +223,25 @@
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.7",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "31.10 09:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: METIS (z +1.8)",
+"k": "gönderildi"
+},
+{
+"t": "31.10 09:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: CRV (z +3.0, 8 saat)",
+"k": "gönderildi"
+},
+{
+"t": "31.10 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 31.10 09:00 · $77,270",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
