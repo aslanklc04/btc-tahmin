@@ -24,6 +24,37 @@ YEDEK_UST = ("ℹ️ BİLGİ · 🔸 YEDEK SİNYAL (işlem önerisi değil) — 
              "İşlem açacaksan kaldıraçsız ve küçük; asıl sinyaller ✅ İŞLEM SİNYALİ başlıklı olanlar.")   # 24.10.2026 kullanıcı onayı: yedek → bilgi (karal2_sonuc.md, denetim)
 PANELDEN_UST = ("🔸 YEDEK SİNYAL · 📋 PANELDEN (ana değil) — 💵 ABD alıyor / 🧪 24 s ana coin / 🔇🪙 coin tek türleri: panelden 🎯 hedefiyle (+0,45σ) 📏 gerçekçi ölçümde (mesaj fiyatından limit, vadeli komisyon + fonlama) %69 · %65 · %66 tuttu (2022–24 · 2025+ · 2026), saat isabeti %67 · %64 · %65, işlem başı +%0,21 · +%0,07 · +%0,12.\n"
                 "Küçük miktar, kaldıraçsız; istersen pas geç. 30 sinyal kapandığında canlı isabet %55'in altında ya da işlem başı kâr eksideyse kendiliğinden durur.")
+# ---- 31.10.2026 kullanıcı onayı ("direkt ekle ama önce tüm testleri yap"; arastirma3 PROTOKOL_ustuste.md Ek 1–2, T1–T5 geçti):
+# aynı coin için daha önce gönderilmiş, süresi dolmamış bir sinyal bu 📋 panelden sinyalinden ÖNCE 🎯 hedefine değdiyse → ♻️ işareti (yalnız bilgi; pay ve sıra değişmez)
+VURDU_F = "durum/onceki_vurdu.csv"
+VURDU_SATIR = ("♻️ ÖNCEKİ SİNYAL 🎯 VURDU — {ozet}. Geçmişte bu durumda 📋 panelden sinyali 🎯'ye %79 · %70 · %77 ulaştı (2022–24 · 2025 · 2026), "
+               "işlem başı +%0,31 · +%0,28 · +%0,20 (normal 📋: %69 · %66 · %69). Coin hedefini zaten vurmuş ve hâlâ güçlü → daha güvenilir.\n")
+def onceki_vurdu(e, t2):
+    """t2: bu sinyalin saati (UTC, saat başı). Dönüş: [(coin, önceki sinyal saati TR, ufku, sınıfı)] — yalnız 🎯'si t2'den önce değmiş, süresi dolmamış sinyaller."""
+    from karne import coz
+    from ortak import fetch_1h
+    K0 = {"ana": 0.75, "yedek": 0.5, "panelden": 0.45}; out = []
+    if not os.path.exists(KARNE_F): return out
+    K = pd.read_csv(KARNE_F, dtype=str).fillna(""); K = K[K.k.str.startswith("gönderildi") & (K.s != "panel")]
+    coins = {nm for nm, H, yon, tur, isr in coz(e, None) if yon > 0}
+    for nm in coins:
+        S1 = []
+        for r in K.itertuples():
+            tg = pd.Timestamp(r.t, tz=DISPLAY_TZ).tz_convert("UTC"); t0 = tg.floor("h"); su = int(float(r.sure)) if r.sure else None
+            if not (t0 < t2 < t0 + pd.Timedelta(hours=168)): continue
+            sn = "ana" if r.s.startswith("✅") else ("panelden" if "📋" in r.s else "yedek")
+            for c_, H, yon, tur, isr in coz(r.e, su):
+                if c_ == nm and yon > 0 and t0 < t2 < t0 + pd.Timedelta(hours=int(H)): S1.append((t0, int(H), sn))
+        if not S1: continue
+        try: c = fetch_1h((min(x[0] for x in S1) - pd.Timedelta(days=32)).value // 10**6, pd.Timestamp.now(tz="UTC").value // 10**6, sym=nm + "USDT")
+        except Exception as ex: print("♻️ saatlik yok:", nm, ex); continue
+        for t0, H, sn in sorted(set(S1)):
+            if t0 not in c.index: continue
+            lr = np.log(c.close[c.index <= t0]).diff().dropna().iloc[-720:]
+            if len(lr) < 168: continue
+            tp = c.close[t0] * (1 + K0[sn] * lr.std() * np.sqrt(H)); hh = c.high[(c.index > t0) & (c.index <= t2)]
+            if len(hh) and (hh >= tp).any(): out.append((nm, f"{t0.tz_convert(DISPLAY_TZ):%d.%m %H:%M}", H, sn)); break
+    return out
 PANELDEN_GUN, PANELDEN_DUR_F = None, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyal · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
@@ -215,7 +246,18 @@ def main():
         hak = len(pden) if PANELDEN_GUN is None else max(0, PANELDEN_GUN - GD["panelden"]); gid_ = pden[:hak]; np_ = len(gid_)   # 22.10 akşam kullanıcı: yedek gibi sınırsız
         for j, m in enumerate(gid_):
             ust = PANELDEN_UST.replace("📋 PANELDEN", f"📋 PANELDEN {j + 1}/{np_}" if np_ >= 2 else "📋 PANELDEN", 1) + "\n━━━━━━━━━━━━\n"
-            try: ok = yolla(gecikme(m) + bicim(lambda: sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else "")),
+            REC = ""
+            try:
+                vr = onceki_vurdu(m.get("e", ""), pd.Timestamp.now(tz="UTC").floor("h"))
+                if vr:
+                    REC = VURDU_SATIR.format(ozet=" · ".join(f"{c_} {t_} tarihli {h_} saatlik sinyali hedefine ulaştı" for c_, t_, h_, _ in vr))
+                    yeni = not os.path.exists(VURDU_F)
+                    with open(VURDU_F, "a", newline="", encoding="utf-8") as f_:
+                        w_ = csv.writer(f_)
+                        if yeni: w_.writerow(["t", "e", "coin", "onceki_saat", "onceki_ufuk", "onceki_sinif"])
+                        for c_, t_, h_, s_ in vr: w_.writerow([f"{simdi:%Y-%m-%d %H:%M}", m.get("e", ""), c_, t_, h_, s_])
+            except Exception as ex: print("♻️ kontrol hatası (mesaj yine gider):", repr(ex)); REC = ""
+            try: ok = yolla(gecikme(m) + REC + bicim(lambda: sade.sadelestir(pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "")), "panelden", m.get("e", ""), GEN, KARAL_K_PANEL, "📋 PANELDEN" + (f" {j + 1}/{np_}" if np_ >= 2 else "")),
                                               lambda: ust + PAY_NOT + pay_ekle(karal_degistir(m["m"], KARAL_K_PANEL, "📋 panelden hedefi +0,45σ (gerçekçi isabet %65–69, kâr küçük)")), m.get("e", "")))
             except Exception as e: print("panelden mesaj gönderilemedi:", repr(e)); ok = False
             gonderilen += ok; GD["giden"] += ok; GD["panelden"] += ok; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
