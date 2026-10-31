@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 31.10.2026 10:04
+# 📒 Canlı karne — 31.10.2026 11:03
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 84 | %69 | 0.70% | 58.7% | 4 | 84 · %74 · 0.90% | %62 · %67 |
+| ✅ ana (gönderildi) | 86 | %67 | 0.64% | 55.1% | 2 | 86 · %72 · 0.83% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 286 | %75 | 1.28% | 366.1% | 1 | 287 · %82 · 0.64% | %60 · %65 |
 | panel (gönderilmedi) | 378 | %56 | 0.39% | 146.3% | 5 | 378 · %61 · 0.26% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 15 | %47 | -0.83% | -12.4% | 1 | 16 · %69 · -0.01% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -13,10 +13,10 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
-| ✅ ana | 🌐🤝 ortak geniş liste | 10 · %80 | 23 | %91 | 1.75% | 40.2% | %69 · %76 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🤝 ortak geniş liste | 11 · %73 | 24 | %88 | 1.64% | 39.4% | %69 · %76 | ✅ iyi · testle uyumlu |
 | ✅ ana | 🌐🧪 24 s geniş liste | 19 · %74 | 31 | %68 | 0.20% | 6.3% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
-| ✅ ana | 🤝 BTC ile ortak | 8 · %38 | 22 | %59 | 0.69% | 15.2% | %63 · %68 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🤝 BTC ile ortak | 9 · %33 | 23 | %57 | 0.54% | 12.4% | %63 · %68 | ⚠️ testin altında, belirgin değil (p 0.34) |
 | ✅ ana | 🧪 24 s ana coin | 2 · %100 | 4 | %75 | 1.76% | 7.0% | %59 · %51 | ⏳ veri az |
 | 🔸 yedek | 🌐🤝 ortak geniş liste | 92 · %63 | 265 | %77 | 1.29% | 340.7% | %60 · %65 | ✅ iyi · testle uyumlu |
 | 🔸 yedek | 💵 ABD alıyor | 5 · %40 | 10 | %50 | 2.44% | 24.4% | — | ⚠️ orta |
@@ -37,13 +37,11 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | İşaret | Kapanan | İsabet | İşlem başı net | Açık | Testte (2024+ · 2026) |
 |---|---|---|---|---|---|
 | 📉🔥 | 4 | %100 | 2.99% | 0 | %67 · %71 |
-| 🚀 | 0 | %— | —% | 1 | %65 · %69 |
+| 🚀 | 1 | %0 | -2.84% | 0 | %65 · %69 |
 
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 30.10 00:00 | ana | 🌐🧪 | CELR | 24 s | +5.08% | ✅ |
-| 30.10 00:00 | ana | 🌐🧪 | SUPER | 24 s | -2.25% | ❌ |
 | 30.10 00:00 | ana | 🌐🧪 | RAY | 24 s | +1.47% | ✅ |
 | 30.10 00:00 | ana | 🌐🧪 | PUNDIX | 24 s | +11.74% | ✅ |
 | 30.10 00:00 | ana | 🌐🧪 | ILV | 24 s | +2.74% | ✅ |
@@ -67,3 +65,5 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 30.10 22:00 | yedek | 🌐🤝 | GNO | 4 s | +2.09% | ✅ |
 | 30.10 22:00 | yedek | 🌐🤝 | API3 | 4 s | +2.97% | ✅ |
 | 30.10 22:00 | yedek | 🌐🤝 | INJ | 4 s | +2.17% | ✅ |
+| 31.10 07:00 | ana | 🤝 🚀 | OP | 4 s | -2.84% | ❌ |
+| 31.10 07:00 | ana | 🌐🤝 | METIS | 4 s | -0.74% | ❌ |
