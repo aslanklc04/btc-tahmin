@@ -1,31 +1,7 @@
 {
 "gun": "2026-10-31",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "30.10 00:05",
-"s": "panel",
-"e": "🪙 SHIB ⭐ en güçlü · 8 saat · isabet %59 · prim ⚠️ z -0.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 00:05",
-"s": "panel",
-"e": "🧪 24 saat: OP (z -0.2)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 00:05",
-"s": "panel",
-"e": "🧪 24 saat: BNB (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 01:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.2",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 02:03",
 "s": "panel",
@@ -240,6 +216,30 @@
 "t": "31.10 01:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⛔ z -2.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "31.10 07:04",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: OP (z -3.0 ⛔), METIS (z +3.6)",
+"k": "gönderildi"
+},
+{
+"t": "31.10 07:04",
+"s": "panel",
+"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "31.10 07:04",
+"s": "panel",
+"e": "🧪 24 saat: BTC (z -1.8 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "31.10 07:04",
+"s": "panel",
+"e": "🧪 24 saat: NEAR (z -2.5 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
