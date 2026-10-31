@@ -1,5 +1,5 @@
 [    4 sn] vadeli 1 s 2328 2026-07-23 00:00:00+00:00 2026-10-27 23:00:00+00:00
-[   10 sn] balina 2328
+[    9 sn] balina 2328
 /home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:568: Pandas4Warning: The inplace keyword in DataFrame.sort_index is deprecated and will be removed in a future version (PDEP-8).
 See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
   quotes.sort_index(inplace=True)
@@ -18,8 +18,9 @@ See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace 
 /home/runner/.local/lib/python3.12/site-packages/yfinance/utils.py:518: Pandas4Warning: The inplace keyword in DataFrame.rename is deprecated and will be removed in a future version (PDEP-8).
 See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
   df.rename(columns={
-[   26 sn] spot 2328 upbit 2300 usdt 2305 kur 80 dxy 84 L/S gün 257
+[   26 sn] spot 2328 upbit 2300 usdt 2305 kur 81 dxy 84 L/S gün 257
 [   26 sn] doğrulama yazıldı 1344
+[   27 sn] korku doğrulama 56
 exit=0
 ortak saat 1344 / 1344
 imb4    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 3.42e-15 · eşit (1e-6) %100
@@ -36,3 +37,7 @@ vr      dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 7.02e
 skor    dolu ref 1.00 canlı 1.00 · korelasyon 1.0000 · ort. mutlak fark 1.31e-16 · eşit (1e-6) %100
 sinyal_w4: ref 173 · canlı 173 · aynı saat aynı sinyal 173 · uyum %100.0
 sinyal_neg: ref 8 · canlı 8 · aynı saat aynı sinyal 8 · uyum %100.0
+korku ortak gün 56 / 149
+dvol  ort. mutlak fark 0 · eşit %100
+dv3   ort. mutlak fark 0 · eşit %100
+dvz   ort. mutlak fark 7.78e-14 · eşit %100
