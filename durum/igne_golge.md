@@ -1,5 +1,5 @@
 # 🪡 İğne dönüşü — gölge izleme (mesaj gönderilmez)
-_güncellendi 2026-10-31 13:07 UTC · başlangıç 27.10.2026 · araştırma beklentisi: isabet ~%70, işlem başı ort. ~+%2,4 (bakılmamış coin'ler, vadeli)_
+_güncellendi 2026-10-31 14:08 UTC · başlangıç 27.10.2026 · araştırma beklentisi: isabet ~%70, işlem başı ort. ~+%2,4 (bakılmamış coin'ler, vadeli)_
 
 - toplam sinyal: 1 · kapanan: 1 · açık: 0
 - kapanan: isabet %100 · işlem başı ort. +5.69% · 🎯 1 · stop 0 · süre 0 · en kötü +5.7%
