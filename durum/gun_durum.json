@@ -3,12 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "30.10 02:03",
-"s": "panel",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -3.5",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "30.10 03:04",
 "s": "✅ ana",
 "e": "🧪 24 saat: JASMY (z +2.6)",
@@ -240,6 +234,12 @@
 "t": "31.10 07:04",
 "s": "panel",
 "e": "🧪 24 saat: NEAR (z -2.5 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "31.10 08:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.7",
 "k": "gitmedi — yalnız panel"
 }
 ],
