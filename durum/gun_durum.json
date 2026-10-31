@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "30.10 04:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: RSR (z +4.5)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 04:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -3.1",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 31.10 09:00 · $77,270",
 "k": "gönderildi"
+},
+{
+"t": "31.10 12:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.6",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
