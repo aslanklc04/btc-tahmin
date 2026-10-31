@@ -62,5 +62,10 @@
   "vthr": 0.9973941210052779,
   "tanim": "72 s yeni tepe (kapanış ≥ 72 s maks ve > 24–72 s önceki tepe) ve kümülatif vadeli agresif dengesizlik (2·alıcı−hacim) önceki tepedeki değerden düşük; P: oynaklık 24s/720s ≥ vthr veya sonraki saat 12–15 UTC"
  },
- "olusturma": "2026-10-30T19:34:10.616648+00:00"
+ "olusturma": "2026-10-30T19:34:10.616648+00:00",
+ "korku": {
+  "dv3_q90": 0.09231008006467536,
+  "dvz_esik": 2.0,
+  "tanim": "Deribit DVOL günün son saatlik kapanışı; dv3 = DVOL/3 gün önceki − 1; dvz = önceki 90 güne göre z (en az 60); sinyal gün sonu → ertesi gün 00:00 giriş"
+ }
 }

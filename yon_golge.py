@@ -1,5 +1,5 @@
 # yon_golge.py — 🧭 BTC YÖN GÖLGE İZLEME (30.10.2026, kullanıcı onayı). MESAJ GÖNDERMEZ, yalnız kayıt.
-# Araştırma: arastirma3/PROTOKOL_btcyon3.md (Z2) ve PROTOKOL_btcyon4.md (W4). Parametreler donduruldu: durum/yon_golge_param.json (yon_golge_param.py).
+# Araştırma: arastirma3/PROTOKOL_btcyon3.md (Z2), PROTOKOL_btcyon4.md (W4), PROTOKOL_btcyon6.md (😨 R4, R1b; 31.10 eklendi). Parametreler donduruldu: durum/yon_golge_param.json (yon_golge_param.py).
 #   🔻 NEG  : BTC 72 s yeni tepe yaparken kümülatif vadeli agresif alım önceki tepedekinden zayıf VE hareket penceresi (oynaklık 24s/720s ≥ eşik ya da sonraki saat 12–15 UTC) → 24 s SAT
 #   🧮 W4   : birleşik ridge skoru (balina dengesizliği 4/24 s · Kore primi z ve 24 s değişim · USDT primi z ve 24 s değişim · kalabalık L/S z · dolar 5 g · vadeli uyumsuzluk) üst %10 → AL, alt %10 → SAT, 24 s
 # Veri: Binance arşivi (data.binance.vision, bir gün gecikmeli) · Binance spot API · Upbit · Coinbase · Yahoo. Gölge bir gün geriden gelir; bu ölçüm için sorun değil (yalnız ileriye dönük kayıt).
@@ -78,6 +78,24 @@ def yahoo(tk, a):                                                               
         except Exception as e: log(tk, e)
         time.sleep(3 + 3 * k)
     raise RuntimeError(f"Yahoo {tk} alınamadı")
+def dvol_gunluk(a, b):                                                                       # Deribit DVOL saatlik → günün son saatlik kapanışı (araştırmayla aynı)
+    P = []; x = int(a.timestamp() * 1000); son = int(b.timestamp() * 1000)
+    while x < son:
+        y = min(x + 40 * 86400000, son); c = y
+        while True:
+            r = get("https://www.deribit.com/api/v2/public/get_volatility_index_data", params=dict(currency="BTC", start_timestamp=x, end_timestamp=c, resolution="3600"))
+            if r is None: break
+            j = r.json().get("result", {}); P += j.get("data", []); cont = j.get("continuation")
+            if not cont or cont <= x: break
+            c = cont
+        x = y
+    d = pd.DataFrame(P, columns=["ts", "o", "h", "l", "c"]); d.index = pd.to_datetime(d.ts, unit="ms", utc=True); d = d[~d.index.duplicated()].sort_index()
+    d = d[d.index < b]; return d.c.groupby(d.index.floor("D")).last()
+def korku(a, b):
+    dv = dvol_gunluk(a - pd.Timedelta(days=130), b); dv3 = dv / dv.shift(3) - 1
+    dvz = (dv - dv.rolling(90, min_periods=60).mean().shift(1)) / dv.rolling(90, min_periods=60).std().shift(1)
+    G = pd.DataFrame({"dvol": dv, "dv3": dv3, "dvz": dvz}); G["sinyal_r4"] = np.where(G.dvz >= PRM["korku"]["dvz_esik"], 1, 0); G["sinyal_r1b"] = np.where(G.dv3 >= PRM["korku"]["dv3_q90"], 1, 0)
+    G = G[(G.index >= a.floor("D")) & (G.index < b)]; G.index = G.index + pd.Timedelta(hours=23); return G      # sinyal saati = gün sonu (D 23:00 saati) → giriş D+1 00:00
 def zp(s, n=720): return (s - s.rolling(n, min_periods=n // 2).mean().shift(1)) / s.rolling(n, min_periods=n // 2).std().shift(1)
 def ozellik(a, b):
     """a: ilk değerlendirilecek saat, b: son saat (dahil değil). Geçmiş pencere için 40 gün önceden veri çekilir."""
@@ -112,24 +130,27 @@ def ozellik(a, b):
 def main():
     if len(sys.argv) >= 4 and sys.argv[1] == "--gecmis":
         a, b = pd.Timestamp(sys.argv[2], tz="UTC"), pd.Timestamp(sys.argv[3], tz="UTC"); _, F = ozellik(a, b)
-        F.rename_axis("t").reset_index().to_csv("yon_golge_dogrula.csv", index=False); log("doğrulama yazıldı", len(F)); return
+        F.rename_axis("t").reset_index().to_csv("yon_golge_dogrula.csv", index=False); log("doğrulama yazıldı", len(F))
+        G = korku(a, b); G.index = G.index.floor("D"); G.rename_axis("gun").reset_index().to_csv("yon_golge_dogrula_gun.csv", index=False); log("korku doğrulama", len(G)); return
     son = pd.Timestamp.now(tz="UTC").floor("D")                                                  # arşivde dün tamam
-    K, F = ozellik(BASLA, son); kapanis = K.index.max()
+    K, F = ozellik(BASLA, son); kapanis = K.index.max(); G = korku(BASLA, son)
     R = []
-    for kural, kol in (("🔻 NEG zayıf alıcı + pencere → SAT", "sinyal_neg"), ("🧮 W4 birleşik skor", "sinyal_w4")):
+    for kural, sr, ns in (("🔻 NEG zayıf alıcı + pencere → SAT", F.sinyal_neg, 24), ("🧮 W4 birleşik skor", F.sinyal_w4, 24),
+                          ("😨 korku zirvesi (DVOL z ≥ 2) → 3 g AL", G.sinyal_r4, 72), ("😨 korku sıçraması (DVOL 3 g ≥ +%9,2) → 7 g AL", G.sinyal_r1b, 168)):
         serbest = None
-        for t, yon in F.loc[F[kol] != 0, kol].items():
-            g = t + pd.Timedelta(hours=1); c = g + pd.Timedelta(hours=23); islem = serbest is None or g >= serbest
+        for t, yon in sr[sr != 0].items():
+            g = t + pd.Timedelta(hours=1); c = g + pd.Timedelta(hours=ns - 1); islem = serbest is None or g >= serbest
             gi = K.o.get(g, np.nan); ci = K.c.get(c, np.nan) if c <= kapanis else np.nan
-            ham = yon * (ci / gi - 1) if np.isfinite(ci) else np.nan; net = yon * (ci / (gi * (1 + KAYMA * yon)) - 1) - UCRET - yon * 3 * FON_8S if np.isfinite(ci) else np.nan
+            ham = yon * (ci / gi - 1) if np.isfinite(ci) else np.nan; net = yon * (ci / (gi * (1 + KAYMA * yon)) - 1) - UCRET - yon * (ns / 8) * FON_8S if np.isfinite(ci) else np.nan
             R.append(dict(kural=kural, sinyal_saat=t, giris_saat=g, yon="AL" if yon > 0 else "SAT", giris=gi, cikis=ci, ham_yuzde=None if np.isnan(ham) else round(100 * ham, 3),
-                          net_yuzde=None if np.isnan(net) else round(100 * net, 3), sayilan=islem, skor=round(float(F.skor[t]), 6)))
+                          net_yuzde=None if np.isnan(net) else round(100 * net, 3), sayilan=islem, skor=round(float(F.skor[t]), 6) if t in F.index else None))
             if islem: serbest = c + pd.Timedelta(hours=1)
     D = pd.DataFrame(R, columns=["kural", "sinyal_saat", "giris_saat", "yon", "giris", "cikis", "ham_yuzde", "net_yuzde", "sayilan", "skor"]); D.to_csv("durum/yon_golge.csv", index=False)
     L = [f"# 🧭 BTC yön gölge izleme — {pd.Timestamp.now(tz='Europe/Istanbul'):%d.%m.%Y %H:%M}", "",
-         f"_Mesaj göndermez. Başlangıç {BASLA:%d.%m.%Y} · veri {kapanis:%d.%m %H:%M} UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → 24 s sonu, kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._", "",
+         f"_Mesaj göndermez. Başlangıç {BASLA:%d.%m.%Y} · veri {kapanis:%d.%m %H:%M} UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → süre sonu (🔻🧮 24 s · 😨 3 g / 7 g), kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._", "",
          "| kural | sinyal saati | sayılan işlem | biten | yön isabeti | isabet (net > 0) | işlem başı net % | araştırma 2025–26 |", "|---|---|---|---|---|---|---|---|"]
-    REF = {"🔻 NEG zayıf alıcı + pencere → SAT": "50 · yön %64 · isabet %64 · +0,45", "🧮 W4 birleşik skor": "287 · yön %57 · isabet %51 · +0,04"}
+    REF = {"🔻 NEG zayıf alıcı + pencere → SAT": "50 · yön %64 · isabet %64 · +0,45", "🧮 W4 birleşik skor": "287 · yön %57 · isabet %51 · +0,04",
+           "😨 korku zirvesi (DVOL z ≥ 2) → 3 g AL": "11 · yön %64 · isabet %64 · +0,56", "😨 korku sıçraması (DVOL 3 g ≥ +%9,2) → 7 g AL": "19 · yön %68 · isabet %68 · +1,21"}
     for kural in REF:
         x = D[(D.kural == kural)]; s = x[x.sayilan]; b_ = s.dropna(subset=["net_yuzde"])
         L.append(f"| {kural} | {len(x)} | {len(s)} | {len(b_)} | " + (f"%{100 * (b_.ham_yuzde > 0).mean():.0f} | %{100 * (b_.net_yuzde > 0).mean():.0f} | {b_.net_yuzde.mean():+.2f}" if len(b_) else "— | — | —") + f" | {REF[kural]} |")
@@ -139,6 +160,7 @@ def main():
         L += [f"| {r.kural.split()[0]} {r.kural.split()[1]} | {pd.Timestamp(r.giris_saat):%d.%m %H:%M} | {r.yon} | {r.giris:,.0f} | {'—' if pd.isna(r.cikis) else f'{r.cikis:,.0f}'} | {'açık' if pd.isna(r.net_yuzde) else f'{r.net_yuzde:+.2f}'} |" for r in son5.itertuples()]
     open("durum/yon_golge.md", "w").write("\n".join(L) + "\n")
     json.dump(dict(guncelleme=pd.Timestamp.now(tz="UTC").isoformat(), veri_son=str(kapanis), skor_son=float(F.skor.iloc[-1]) if len(F) else None,
-                   negdiv_son=int(F.negdiv.iloc[-1]) if len(F) else None, kayit=len(D)), open("durum/yon_golge_durum.json", "w"), ensure_ascii=False, indent=1)
+                   negdiv_son=int(F.negdiv.iloc[-1]) if len(F) else None,
+                   dvol_son=float(G.dvol.iloc[-1]) if len(G) else None, dvz_son=float(G.dvz.iloc[-1]) if len(G) else None, dv3_son=float(G.dv3.iloc[-1]) if len(G) else None, kayit=len(D)), open("durum/yon_golge_durum.json", "w"), ensure_ascii=False, indent=1)
     log("yazıldı", len(D), "kayıt")
 if __name__ == "__main__": main()
