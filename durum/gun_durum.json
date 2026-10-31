@@ -1,13 +1,7 @@
 {
-"gun": "2026-10-31",
-"giden": 4,
+"gun": "2026-11-01",
+"giden": 0,
 "log": [
-{
-"t": "30.10 04:04",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -1.3 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 05:04",
 "s": "✅ ana",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ · prim ⛔ z -1.9",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "01.11 00:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.7",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 1
+"panelden": 0
 }
