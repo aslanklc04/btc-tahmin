@@ -25,3 +25,13 @@ _İlk sonuç: üst üste olmak tek başına fark yaratmıyor; ama önceki sinyal
 - S2 grupları (üst üste olanlar): **Z1** S1 zaten tuttu · **Z2** S1 tutmadı ama S2 anında kârda (t2'den önceki saatin kapanışı > S1 giriş fiyatı P) · **Z3** S1 tutmadı ve zararda.
 - Kontroller: üst üste olmayanlar · **momentum kontrolü** = üst üste olmayan ve coin'in sinyal öncesi 24 s getirisi (c_r24) Z1'in o dönemdeki medyanından yüksek olanlar (Z1 yalnızca "coin zaten yükseliyordu" demek mi?).
 - Karar (Z1 için, S2 sınıfı = hepsi ve ✅ ana ayrı): üç dönemde de isabet farkı ≥ +5 puan VE net farkı ≥ +%0,10 hem üst üste olmayanlara hem momentum kontrolüne; her dönem ≥ 30. "Sinyal adayı": üç dönemde isabet ≥ %70 ve net > 0. Z3 için aynı şartlar ters yönde ("S2'yi atla" kuralı).
+
+## Ek 2 (31.10.2026, kullanıcı: "direkt ekle ama önce tüm testleri yap") — 📋 panelden + önceki 🎯 vurmuş (Z1) için sağlamlık testleri (hesaptan önce)
+- **T1 coin yarıları:** coin adının md5'inin tek/çift olmasına göre iki ayrı coin grubu. Her yarıda (tüm dönemler birlikte) isabet ≥ %70 ve net > 0, her dönemde ≥ %65.
+- **T2 limit giriş (B_T0):** her dönemde Z1 isabeti üst üste olmayan 📋'den ≥ +3 puan (bilgi + destek).
+- **T3 katı vuruş:** S1'in ilk saati (mesajdan önceki dakikaları içerir) sayılmaz; vuruş t1 + 1 s'ten sonraki saatlerde. Z1 yine üç dönemde ≥ %70 ve net > 0.
+- **T4 aylık istikrar:** en az 5 Z1 sinyali olan aylarda Z1 isabeti, üst üste olmayan 📋'nin o ayki isabetinden ≥ olan ayların oranı ≥ %60.
+- **T5 coin yoğunluğu:** en çok Z1 sinyali veren 5 coin çıkarılınca (tüm dönemler) isabet ≥ %70 ve net > 0, her dönemde ≥ %65.
+- **T6 bilgi:** S1'in sınıfı ve ufku, vuruşun ne kadar önce olduğu (son 4 s / daha önce).
+- **T7 canlı (12.10.2026 →, durum/karne_gercek.csv):** canlıda gönderilmiş sinyallerde aynı ölçüm (az örnek; bilgi).
+- **Karar:** T1, T3, T4 ve T5 geçerse kullanıcının talimatıyla mesajlara "♻️ önceki sinyal 🎯 vurdu" işareti eklenir (📋 panelden için test sonucuyla; diğer sınıflarda yalnız bilgi). Biri geçmezse eklenmez, sonuç raporlanır.
