@@ -18,3 +18,10 @@ Her tür × S2 sınıfı (hepsi, ✅ ana, 🔸 yedek, 📋 panelden) × dönem: 
 - **"Üst üste işe yarıyor":** bir tür için (S2 sınıfı = hepsi ve ✅ ana ayrı ayrı) ÜÇ dönemde de isabet farkı ≥ +5 puan VE net farkı ≥ +%0,10, hem üst üste olmayanlara hem kontrole göre; her dönemde ≥ 30 üst üste sinyal.
 - **"Sinyal adayı":** üst üste sinyaller ÜÇ dönemde de isabet ≥ %70 ve net > 0 (≥ 30).
 - Ek kontrol: aynı yönde S1'in sonucu (S1 tuttu mu) S2'yi etkiliyor mu → bilgi (S1'in sonucu S2 anında bilinmediği için kural olamaz).
+
+## Ek 1 (31.10.2026, ilk sonuçlardan SONRA, hesaptan önce yazıldı) — "önceki sinyal zaten tuttu mu?"
+_İlk sonuç: üst üste olmak tek başına fark yaratmıyor; ama önceki sinyal (S1) sonunda tuttuysa S2 %75·%75·%76, tutmadıysa %59·%57·%54. S1'in sonu S2 anında bilinmez; bilinen kısmı test edilir. Bu hipotez veriye bakılarak doğdu — bu yüzden şart, kontrol grubu ve üç dönem şartı aynen geçerli, ayrıca "momentum kontrolü" eklendi._
+- Coin saatlik vadeli mum (yoksa spot). S1 🎯 = G·(1 + k·s) (k sınıfın σ katı: ana 0,75 · yedek 0,50 · panelden 0,45). S1 "**zaten tuttu**": t1'den başlayan saatlerden birinin en yükseği 🎯'ye değdi VE o saatin sonu ≤ t2 (S2 anında bilinir).
+- S2 grupları (üst üste olanlar): **Z1** S1 zaten tuttu · **Z2** S1 tutmadı ama S2 anında kârda (t2'den önceki saatin kapanışı > S1 giriş fiyatı P) · **Z3** S1 tutmadı ve zararda.
+- Kontroller: üst üste olmayanlar · **momentum kontrolü** = üst üste olmayan ve coin'in sinyal öncesi 24 s getirisi (c_r24) Z1'in o dönemdeki medyanından yüksek olanlar (Z1 yalnızca "coin zaten yükseliyordu" demek mi?).
+- Karar (Z1 için, S2 sınıfı = hepsi ve ✅ ana ayrı): üç dönemde de isabet farkı ≥ +5 puan VE net farkı ≥ +%0,10 hem üst üste olmayanlara hem momentum kontrolüne; her dönem ≥ 30. "Sinyal adayı": üç dönemde isabet ≥ %70 ve net > 0. Z3 için aynı şartlar ters yönde ("S2'yi atla" kuralı).
