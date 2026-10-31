@@ -1,0 +1,4 @@
+[  395 sn] mum 141 / 141
+[  395 sn] doğrulama 90
+exit=0
+referans 90 · canlı kod 90 · ortak 90 · yalnız referans [] · yalnız canlı []
