@@ -1,0 +1,22 @@
+name: Teknik golge tani
+on:
+  push:
+    branches: [arastirma3]
+    paths: [teknik_golge_tani.py, .github/workflows/teknik_golge_tani.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q requests pandas numpy
+      - run: |
+          set +e; python -u teknik_golge_tani.py > teknik_golge_tani_log.txt 2>&1; echo "exit=$?" >> teknik_golge_tani_log.txt; tail -60 teknik_golge_tani_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add teknik_golge_tani_log.txt; git commit -m "Teknik golge tani" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
