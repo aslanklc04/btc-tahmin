@@ -143,7 +143,7 @@ for k, dct in DUR.items(): Xs[k] = pd.Series(dct)
 FK = {"T1 fiyat > EMA200": Xs["T1 >EMA200"] == True, "T2 EMA20>50>200": Xs["T2 EMA20>50>200"] == True, "T3 ADX>25 ve +DI>−DI": Xs["T3 ADX>25 +DI>−DI"] == True,
       "T4 BTC > EMA200": Xs["T4 BTC>EMA200"] == True, "V1 hacim z ≥ 2": Xs["V1 hacim z≥2"] == True, "V2 OBV 24 s ↑": Xs["V2 OBV 24s↑"] == True, "V3 sıkışma sonrası": Xs["V3 sıkışma sonrası"] == True,
       "V4 > VWAP24": Xs["V4 >VWAP24"] == True, "RSI < 30": Xs.rsi < 30, "RSI 30–50": (Xs.rsi >= 30) & (Xs.rsi < 50), "RSI 50–70": (Xs.rsi >= 50) & (Xs.rsi < 70), "RSI ≥ 70": Xs.rsi >= 70,
-      "MACD hist > 0": Xs.hist > 0, "MACD hist < 0": Xs.hist < 0, "%B > 1 (üst bandın üstü)": Xs.pb > 1, "%B < 0 (alt bandın altı)": Xs.pb < 0, "ADX > 25": Xs.adx > 25, "ADX < 20 (trendsiz)": Xs.adx < 20,
+      "MACD hist > 0": Xs["hist"] > 0, "MACD hist < 0": Xs["hist"] < 0, "%B > 1 (üst bandın üstü)": Xs.pb > 1, "%B < 0 (alt bandın altı)": Xs.pb < 0, "ADX > 25": Xs.adx > 25, "ADX < 20 (trendsiz)": Xs.adx < 20,
       "Stoch %K < 20": Xs.kk < 20, "Stoch %K > 80": Xs.kk > 80}
 def hs(x): return f"{len(x)} · %{100 * x.ok.mean():.0f} · {100 * x.D_T0.mean():+.2f}" if len(x) else "—"
 GEC = []
