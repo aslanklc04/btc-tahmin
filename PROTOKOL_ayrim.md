@@ -33,3 +33,14 @@ Geçen tüm "ele" hücreleri (ve geçen kötü coin'ler) çıkarılınca sınıf
 
 ## Karar
 Önerilecekler: Bölüm 1–3'te şartı geçen ve plaseboyu belirgin aşanlar. Hiçbiri canlıya kullanıcı onayı olmadan eklenmez.
+
+## Ek 1 (01.11.2026, kullanıcı: "testleri yap geçerse ekle") — iki iyi hücre için sağlamlık testleri (hesaptan önce)
+Adaylar: **H1** ✅ ana 🌐🧪 ∧ BTC oynaklığı yüksek (b_vr ≥ 1,25) · **H3** 📋 panelden 💵 ∧ coin 24 s ≤ −%5 (c_r24 ≤ −0,05). (H2 ✅ ana 🌐🧪 ∧ 📉🔥 zaten 💎 ELİT içinde → ek işaret gerekmez.)
+- **T1 coin yarıları** (md5 tek/çift): her yarıda tüm dönemler birlikte isabet ≥ %70 VE net > 0; her dönemde ≥ %65.
+- **T2 limit giriş (B_T0):** her dönemde isabet ≥ %70.
+- **T3 aylık istikrar:** ≥ 5 sinyalli aylarda hücre isabeti, aynı grubun koşulsuz kalanının o ayki isabetinden ≥ olan ayların oranı ≥ %60.
+- **T4 coin yoğunluğu:** en çok sinyal veren 5 coin çıkarılınca tüm dönemler isabet ≥ %70 VE net > 0, her dönemde ≥ %65.
+- **T5 eşik duyarlılığı:** H1 için b_vr ≥ 1,15 ve ≥ 1,35 · H3 için c_r24 ≤ −0,04 ve ≤ −0,06 → her dönemde isabet ≥ %70 VE net > 0 (bıçak sırtı değil).
+- **T6 canlı hesap eşitliği:** canlıya yazılacak işaret kodu (Binance saatlik mumdan b_vr / c_r24) 2026-09-01 → 10-21 araştırma sinyallerinde işareti ≥ %98 aynı vermeli.
+- **T7 bilgi:** canlı karne (durum/karne_gercek.csv, 12.10 →) aynı ölçüm, az örnek.
+- **Karar:** her aday için T1–T6'nın hepsi geçerse mesaja işaret eklenir (sinyal kararlarına, sınıflara ve gönderime dokunmaz; yalnız bilgi satırı). Biri geçmezse eklenmez, raporlanır.
