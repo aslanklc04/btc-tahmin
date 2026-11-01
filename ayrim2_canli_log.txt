@@ -1,0 +1,6 @@
+T6: 34 sinyal saati (2026-09-01 → 10-21) · işaret aynı %100.0 · ort. mutlak fark 1.37e-14 · en büyük 4.37e-14 · işaretli (araştırma/canlı) 6/6 → ✔
+T6b sarmalayıcı btc_vr(01.11 17:00) = 0.4050 · seri = 0.4050
+T6c ayrıştırma: [('🧪 24 saat: QI (z +7.6)', ['🌐🧪']), ('🧪 24 saat: BTC (z +1.0)', ['🧪']), ('🤝 4 saat · BTC ile ortak: METIS (z +3.6)', ['🌐🤝'])]
+T7 canlı ✅ ana 🌐🧪 · BTC oynak (≥ 1,25): D 15 · %80 · +2.22 · B 9 · %78 · +3.09
+T7 canlı ✅ ana 🌐🧪 · diğer: D 18 · %72 · +0.39 · B 11 · %64 · -0.24
+exit=0
