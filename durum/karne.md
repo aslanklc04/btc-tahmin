@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 01.11.2026 12:04
+# 📒 Canlı karne — 01.11.2026 13:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 88 | %68 | 0.65% | 57.4% | 1 | 89 · %73 · 0.90% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 287 | %75 | 1.27% | 365.9% | 0 | 287 · %82 · 0.64% | %60 · %65 |
-| panel (gönderilmedi) | 388 | %57 | 0.39% | 150.6% | 2 | 388 · %61 · 0.27% | — |
+| panel (gönderilmedi) | 389 | %57 | 0.39% | 150.0% | 1 | 389 · %61 · 0.27% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 16 | %44 | -0.79% | -12.7% | 0 | 16 · %69 · -0.01% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 252 | %59 | 0.43% | 107.5% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -22,7 +22,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 💵 ABD alıyor | 5 · %20 | 11 | %45 | 2.19% | 24.1% | — | ⚠️ orta |
 | 🔸 yedek | 🔇/🪙 coin tek | 3 · %100 | 7 | %71 | 1.00% | 7.0% | — | ✅ iyi |
 | 🔸 yedek | 🧪 24 s ana coin | 2 · %50 | 4 | %25 | -1.47% | -5.9% | — | ⏳ veri az |
-| panel | ₿ BTC saatlik / ⭐ / A | 54 · %57 | 168 | %52 | 0.08% | 12.9% | — | ⚠️ orta |
+| panel | ₿ BTC saatlik / ⭐ / A | 53 · %58 | 169 | %51 | 0.07% | 12.4% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 0 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
 | panel | 🔇/🪙 coin tek | 21 · %71 | 71 | %59 | 0.24% | 17.3% | %55 · %53 | ✅ iyi · testle uyumlu |
