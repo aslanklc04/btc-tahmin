@@ -208,34 +208,40 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TG_SIRALI: ""
       - name: 🪡 igne donusu golge izleme (27.10.2026; mesaj gondermez, yalniz kayit)
+        id: igne
         if: always()
         continue-on-error: true
         timeout-minutes: 4
         run: python igne_golge.py
       - name: 🏦 borsadan cikis golge izleme (28.10.2026; mesaj gondermez, yalniz kayit)
+        id: borsa
         if: always()
         continue-on-error: true
         timeout-minutes: 3
         run: python borsa_golge.py
       - name: 🧭 BTC yon golge izleme (30.10.2026; gunde bir, 06 UTC; mesaj gondermez, yalniz kayit)
+        id: yon
         if: always()
         continue-on-error: true
         timeout-minutes: 12
         run: |
           if [ "$(date -u +%H)" = "06" ] || [ ! -f durum/yon_golge.csv ]; then pip install -q yfinance && python yon_golge.py; else echo "gunde bir (06 UTC)"; fi
       - name: 📐 teknik gosterge golge izleme (31.10.2026; gunde bir, 06 UTC; mesaj gondermez, yalniz kayit)
+        id: teknik
         if: always()
         continue-on-error: true
         timeout-minutes: 12
         run: |
           if [ "$(date -u +%H)" = "06" ] || [ ! -f durum/teknik_golge.csv ]; then python teknik_golge.py; else echo "gunde bir (06 UTC)"; fi
       - name: 🇹🇷 BIST golge izleme (01.11.2026; gunde bir, 16 UTC; mesaj gondermez, yalniz kayit)
+        id: bist
         if: always()
         continue-on-error: true
         timeout-minutes: 10
         run: |
           if [ "$(date -u +%H)" = "16" ] || [ ! -f durum/bist_golge.csv ]; then pip install -q yfinance && python bist_golge.py; else echo "gunde bir (16 UTC)"; fi
       - name: 📈 opsiyon piyasasi kayit (30.10.2026; 5. tur verisi; mesaj gondermez)
+        id: ops
         if: always()
         continue-on-error: true
         timeout-minutes: 2
@@ -253,6 +259,8 @@ jobs:
         if: always()   # 25.10 denetim: önceki bir adım düşse de karne kayıtları depoya yazılsın
         run: |
           [ -f son_durum.md ] || exit 0
+          G="igne=${{ steps.igne.outcome }} borsa=${{ steps.borsa.outcome }} yon=${{ steps.yon.outcome }} teknik=${{ steps.teknik.outcome }} bist=${{ steps.bist.outcome }} opsiyon=${{ steps.ops.outcome }}"
+          case "$G" in *failure*) printf '\n⚠️ Gölge izleme adımı hata verdi (sinyaller etkilenmez): %s\n' "$G" >> son_durum.md;; esac   # 01.11 denetim: continue-on-error hatası görünür olsun
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json durum/beklenen.csv durum/igne_golge.csv durum/igne_golge.md durum/igne_golge_durum.json durum/borsa_golge.csv durum/borsa_golge.md durum/borsa_golge_durum.json durum/yon_golge.csv durum/yon_golge.md durum/yon_golge_durum.json durum/opsiyon.csv durum/onceki_vurdu.csv durum/teknik_golge.csv durum/teknik_golge.md durum/teknik_golge_durum.json durum/bist_golge.csv durum/bist_golge.md durum/bist_golge_durum.json; do git add $f 2>/dev/null || true; done
