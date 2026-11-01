@@ -1,3 +1,94 @@
+### 01.11.2026 20:04
+📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
+ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.
+• 🟢 A sınıfı (4s): 6/10 tuttu (%60) · ort. %-0.10
+• 1 saat Çok güçlü ↑: 3/4 tuttu (%75) · ort. %-0.09
+• 4 saat Çok güçlü ↑: 1/2 tuttu (%50) · ort. %-0.01
+• 8 saat Güçlü ↑: 2/4 tuttu (%50) · ort. %+0.20
+• 1 saat Güçlü ↑: 9/16 tuttu (%56) · ort. %+0.03
+• 🔻 Coinbase kısa (24s): 1/5 tuttu (%20) · ort. %+0.19
+• 4 saat Güçlü ↑: 2/3 tuttu (%67) · ort. %+0.34
+• ⭐ en güçlü (8s): 2/3 tuttu (%67) · ort. %+0.46
+• 4 saat Güçlü ↑ ⏰: 3/3 tuttu (%100) · ort. %+0.42
+• 8 saat Güçlü ↓: 3/5 tuttu (%60) · ort. %+1.30
+• 8 saat Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.30
+💵 ABD onaylı (prim z > 0): 0/1 tuttu (%0) · onaysız: 29/45 tuttu (%64)
+Toplam: 33/56 tuttu (%59)
+(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)
+
+---
+
+### 01.11.2026 20:04
+🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
+ℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.
+• ADA ⭐ en güçlü: 2/2 tuttu (%100) · ort. %+1.11
+• 🤝 ADA ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.57
+• 🤝 ADA 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.57
+• 🤝 ADA 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+1.57
+• 🤝 ARB 4s Çok güçlü ↑: 1/2 tuttu (%50) · ort. %-0.38
+• 🤝 ARB 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.19
+• 🤝 BNB 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.03
+• BNB 🟢 A sınıfı: 7/9 tuttu (%78) · ort. %-0.25
+• BNB 4s Çok güçlü ↑: 1/3 tuttu (%33) · ort. %+0.57
+• DOGE ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.02
+• DOGE ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+0.83
+• 🤝 DOGE 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.97
+• DOT ⭐ en güçlü: 2/2 tuttu (%100) · ort. %+2.26
+• 🤝 ETH ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.74
+• 🤝 ETH 4s Çok güçlü ↑: 1/2 tuttu (%50) · ort. %-0.10
+• 🤝 ETH 🟢 A sınıfı: 1/3 tuttu (%33) · ort. %-0.07
+• ETH 4s Çok güçlü ↑: 2/2 tuttu (%100) · ort. %+0.63
+• ETH ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+0.53
+• ETH 🟢 A sınıfı: 1/2 tuttu (%50) · ort. %-1.04
+• 🤝 FLOKI 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-0.18
+• 🤝 LINK 🟢 A sınıfı: 1/3 tuttu (%33) · ort. %+0.01
+• 🤝 OP 🟢 A sınıfı: 1/3 tuttu (%33) · ort. %-0.54
+• 🤝 PEPE ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.99
+• SHIB ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.21
+• SHIB ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+1.90
+• 🤝 ENS 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.57
+• 🤝 JTO 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.05
+• 🤝 JTO 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.05
+• 🤝 LDO 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.11
+• 🤝 METIS 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-0.70
+• 🤝 METIS 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.70
+• 🤝 SNX 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.05
+• 🤝 SUSHI 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.20
+• 🤝 YFI ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.24
+• 🤝 YFI 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.24
+• 🤝 YFI 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+1.24
+Toplam: 37/58 tuttu (%64)
+🤝 ortak: 17/33 · tek başına: 20/25
+💵 ABD onaylı (prim z > 0): 11/19 tuttu (%58) · onaysız: 26/39 tuttu (%67)
+
+---
+
+### 01.11.2026 20:04
+🧪📊 24 SAAT DENEME — HAFTALIK
+Son 7 gün: 26/33 tuttu (%79) · ort. net %+2.07 · toplam %+68.2
+Başlangıçtan (07.10) beri: 51/76 tuttu (%67) · ort. net %+1.12 · toplam %+85.1
+💵 ABD onaylı: 28/42 tuttu (%67) · ort. net %+0.25 · toplam %+10.7 | onaysız: 22/33 tuttu (%67) · ort. net %+2.25 · toplam %+74.3
+(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)
+
+---
+
+### 01.11.2026 20:04
+⛓️📊 ARZ/TALEP (ETH) — HAFTALIK
+Bu hafta kapanan: sonuçlanan işlem yok
+Başlangıçtan (08.10) beri: 1/1 tuttu (%100) · ort. net %+2.62 · toplam %+2.6
+Açık işlem: 0
+
+---
+
+### 01.11.2026 20:04
+💵📊 ABD ALIYOR (kendi primi) — HAFTALIK
+Son 7 gün: 1/5 tuttu (%20) · ort. net %-2.70 · toplam %-13.5
+Başlangıçtan (08.10) beri: 7/19 tuttu (%37) · ort. net %+0.59 · toplam %+11.2
+ALGO 1/1 (+1.98) · CRV 0/2 (-0.78) · INJ 0/1 (-11.21) · NEAR 0/1 (-2.72)
+(giriş: mesaj anındaki fiyat · çıkış: süre sonu · limit komisyon dahil)
+
+---
+
 ### 25.10.2026 20:03
 📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
 ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.
