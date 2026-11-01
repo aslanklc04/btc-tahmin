@@ -1,22 +1,22 @@
-# 📏 Gerçekçi karne — 02.11.2026 01:06
+# 📏 Gerçekçi karne — 02.11.2026 02:07
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
-- **✅ ana:** 53 işlem / 32 saat · işlem isabeti %60 · **saat isabeti %53** · işlem başı +0.51% · limit doldu %60
-- **🔸 yedek:** 200 işlem / 27 saat · işlem isabeti %81 · **saat isabeti %74** · işlem başı +0.70% · limit doldu %74
+- **✅ ana:** 57 işlem / 34 saat · işlem isabeti %61 · **saat isabeti %53** · işlem başı +0.62% · limit doldu %62
+- **🔸 yedek:** 215 işlem / 28 saat · işlem isabeti %77 · **saat isabeti %71** · işlem başı +0.64% · limit doldu %75
 - **📋 panelden:** 11 işlem / 10 saat · işlem isabeti %64 · **saat isabeti %60** · işlem başı +0.43% · limit doldu %69
-- **Tümü:** 264 işlem / 55 saat · işlem isabeti %76 · **saat isabeti %62** · işlem başı +0.65% · limit doldu %70
-- Piyasadan giriş (D) karşılaştırma, tümü: 375 işlem / 61 saat · işlem isabeti %75 · **saat isabeti %62** · işlem başı +0.45%
+- **Tümü:** 283 işlem / 57 saat · işlem isabeti %73 · **saat isabeti %61** · işlem başı +0.63% · limit doldu %72
+- Piyasadan giriş (D) karşılaştırma, tümü: 394 işlem / 63 saat · işlem isabeti %73 · **saat isabeti %62** · işlem başı +0.44%
 - **💎 ELİT (ana):** limit 2 işlem / 2 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.00% · piyasadan 4 işlem / 3 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.75%
-- **ELİT değil (ana):** limit 51 işlem / 32 saat · işlem isabeti %59 · **saat isabeti %53** · işlem başı +0.49% · piyasadan 84 işlem / 36 saat · işlem isabeti %60 · **saat isabeti %56** · işlem başı +0.42%
+- **ELİT değil (ana):** limit 55 işlem / 34 saat · işlem isabeti %60 · **saat isabeti %53** · işlem başı +0.60% · piyasadan 88 işlem / 38 saat · işlem isabeti %60 · **saat isabeti %55** · işlem başı +0.50%
 
 ## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)
-- **T1 takip eden kâr-al (τ 0,25):** 264 işlem / 55 saat · işlem isabeti %76 · **saat isabeti %62** · işlem başı +0.76% — aynı işlemler şimdiki kuralla: 264 işlem / 55 saat · işlem isabeti %76 · **saat isabeti %62** · işlem başı +0.65%
-- **T3 zarardakini 2 katı süreye uzat:** 264 işlem / 55 saat · işlem isabeti %81 · **saat isabeti %69** · işlem başı +0.73% — aynı işlemler şimdiki kuralla: 264 işlem / 55 saat · işlem isabeti %76 · **saat isabeti %62** · işlem başı +0.65%
-- **🎯 ≥ %1,5 filtresi (ana + panelden):** 51 işlem / 35 saat · işlem isabeti %59 · **saat isabeti %54** · işlem başı +0.54% — filtresiz: 64 işlem / 39 saat · işlem isabeti %61 · **saat isabeti %51** · işlem başı +0.50% · elenenler (🎯 < %1,5): 13 işlem / 10 saat · işlem isabeti %69 · **saat isabeti %60** · işlem başı +0.34%
-- **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %62 · ort +0.34% · en kötü saat -8.89% · oynaklık 2.87 | risk paylı → %62 · ort +0.31% · en kötü -8.89% · oynaklık 2.88
-- **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** 21 işlem / 7 saat · işlem isabeti %90 · **saat isabeti %86** · işlem başı +0.29% — aynı sinyaller şimdiki 🎯 ile: 34 işlem / 8 saat · işlem isabeti %74 · **saat isabeti %62** · işlem başı +0.44% · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz
-- **🏛️ FOMC/CPI olaylı sinyaller:** 4 işlem / 4 saat · işlem isabeti %25 · **saat isabeti %25** · işlem başı -1.59% — olaysız: 260 işlem / 51 saat · işlem isabeti %77 · **saat isabeti %65** · işlem başı +0.68%
-- **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** 82 işlem / 39 saat · işlem isabeti %72 · **saat isabeti %72** · işlem başı +0.58% · testte (2025+) saat isabeti %70,5 (sınırda)
+- **T1 takip eden kâr-al (τ 0,25):** 283 işlem / 57 saat · işlem isabeti %73 · **saat isabeti %61** · işlem başı +0.72% — aynı işlemler şimdiki kuralla: 283 işlem / 57 saat · işlem isabeti %73 · **saat isabeti %61** · işlem başı +0.63%
+- **T3 zarardakini 2 katı süreye uzat:** 268 işlem / 57 saat · işlem isabeti %82 · **saat isabeti %70** · işlem başı +0.76% — aynı işlemler şimdiki kuralla: 268 işlem / 57 saat · işlem isabeti %76 · **saat isabeti %63** · işlem başı +0.68%
+- **🎯 ≥ %1,5 filtresi (ana + panelden):** 53 işlem / 37 saat · işlem isabeti %60 · **saat isabeti %57** · işlem başı +0.69% — filtresiz: 68 işlem / 41 saat · işlem isabeti %62 · **saat isabeti %51** · işlem başı +0.59% · elenenler (🎯 < %1,5): 15 işlem / 11 saat · işlem isabeti %67 · **saat isabeti %55** · işlem başı +0.21%
+- **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %61 · ort +0.47% · en kötü saat -8.89% · oynaklık 3.02 | risk paylı → %61 · ort +0.44% · en kötü -8.89% · oynaklık 3.03
+- **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** 30 işlem / 8 saat · işlem isabeti %83 · **saat isabeti %88** · işlem başı +0.23% — aynı sinyaller şimdiki 🎯 ile: 52 işlem / 9 saat · işlem isabeti %58 · **saat isabeti %56** · işlem başı +0.23% · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz
+- **🏛️ FOMC/CPI olaylı sinyaller:** 4 işlem / 4 saat · işlem isabeti %25 · **saat isabeti %25** · işlem başı -1.59% — olaysız: 279 işlem / 53 saat · işlem isabeti %74 · **saat isabeti %64** · işlem başı +0.66%
+- **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** 83 işlem / 40 saat · işlem isabeti %72 · **saat isabeti %72** · işlem başı +0.65% · testte (2025+) saat isabeti %70,5 (sınırda)
 
-_Kayıt: durum/karne_gercek.csv (375 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
+_Kayıt: durum/karne_gercek.csv (394 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
