@@ -14,7 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: l
-        run: echo "coinler=$(python3 -c "import json,os; a=open('durum/deneme24_liste.txt').read().split(); g=open('durum/genis_liste.txt').read().split() if os.path.exists('durum/genis_liste.txt') else []; print(json.dumps(a + [x for x in g if x not in a])))")" >> "$GITHUB_OUTPUT"
+        run: |
+          L=$(python3 -c "import json,os; a=open('durum/deneme24_liste.txt').read().split(); g=open('durum/genis_liste.txt').read().split() if os.path.exists('durum/genis_liste.txt') else []; print(json.dumps(a + [x for x in g if x not in a]))")
+          echo "coin sayisi: $(echo "$L" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')"
+          echo "coinler=$L" >> "$GITHUB_OUTPUT"
   egit:
     needs: liste
     runs-on: ubuntu-latest

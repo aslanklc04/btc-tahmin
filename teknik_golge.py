@@ -28,6 +28,14 @@ def mum(nm, a, b):
                 z = zipfile.ZipFile(io.BytesIO(x)); d = pd.read_csv(z.open(z.namelist()[0]), header=None, usecols=[0, 1, 2, 3, 4, 7]); P.append(d[pd.to_numeric(d[0], errors="coerce").notna()].astype(float))
             elif not P and g == gun[-1]: break
         if P:
+            if pazar != "spot":                                                                # 01.11 denetim: vadeli arşivde eksik gün (ör. 28.10.2026) → o gün spot fiyatı, hacim yok (NaN)
+                var = {pd.Timestamp(int(d_[0].iloc[0] / (1000 if d_[0].iloc[0] > 1e14 else 1)), unit="ms").strftime("%Y-%m-%d") for d_ in P}
+                for g in [g for g in gun[:-1] if g not in var]:
+                    x = get(f"{V}/spot/daily/klines/{nm}USDT/1h/{nm}USDT-1h-{g}.zip")
+                    if x:
+                        z = zipfile.ZipFile(io.BytesIO(x)); d = pd.read_csv(z.open(z.namelist()[0]), header=None, usecols=[0, 1, 2, 3, 4, 7]); d = d[pd.to_numeric(d[0], errors="coerce").notna()].astype(float)
+                        if sym.startswith("1000"): d[[1, 2, 3, 4]] *= 1000
+                        d[7] = np.nan; P.append(d); log("vadeli arşivde yok → spot:", nm, g)
             k = pd.concat(P, ignore_index=True); k.columns = ["ot", "o", "h", "l", "c", "qv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
             k = k.drop_duplicates("ot").sort_values("ot"); k.index = pd.to_datetime(k.ot, unit="ms", utc=True); return nm, k.drop(columns="ot").astype("float32").astype(float)
     return nm, None
