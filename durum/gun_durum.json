@@ -1,13 +1,7 @@
 {
 "gun": "2026-11-02",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "30.10 20:04",
-"s": "panel",
-"e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ⚠️ z -0.6",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 21:04",
 "s": "panel",
@@ -241,7 +235,13 @@
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ETH (z -0.4)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 01:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: INJ (z +3.1, 24 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
