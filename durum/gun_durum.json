@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-01",
-"giden": 4,
+"giden": 5,
 "log": [
-{
-"t": "30.10 19:04",
-"s": "panel",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -1.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 20:04",
-"s": "panel",
-"e": "🔇 DOGE ⭐ en güçlü · 8 saat · isabet %62 · prim ⚠️ z -0.4",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 20:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "01.11 22:04",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: OP (z -0.1)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "01.11 23:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: JTO (z +1.8), BAND (z +0.8), UMA (z +0.1), T (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "01.11 23:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -0.4)",
 "k": "gitmedi — yalnız panel"
 }
 ],
