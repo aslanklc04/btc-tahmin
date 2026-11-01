@@ -1,0 +1,24 @@
+name: Denetim yokla
+on:
+  push:
+    branches: [arastirma3]
+    paths: [denetim_yokla.py, .github/workflows/denetim_yokla.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: m}
+      - run: pip install -q -r m/requirements.txt
+      - run: |
+          set +e; python -u denetim_yokla.py > denetim_yokla_log.txt 2>&1; echo "exit=$?" >> denetim_yokla_log.txt; cat denetim_yokla_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add denetim_yokla_log.txt; git commit -m "Denetim yokla" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
