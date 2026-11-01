@@ -16,7 +16,7 @@ jobs:
       - run: pip install -q requests pandas numpy yfinance
       - run: |
           set +e; python -u yon_golge.py --gecmis 2026-09-01 2026-10-27 > yon_golge_dogrula_log.txt 2>&1; echo "exit=$?" >> yon_golge_dogrula_log.txt
-          python yon_golge_karsilastir.py >> yon_golge_dogrula_log.txt 2>&1; tail -40 yon_golge_dogrula_log.txt
+          python yon_golge_karsilastir.py >> yon_golge_dogrula_log.txt 2>&1; echo "=== 01.11 denetim: boşluklu pencere (28.10 vadeli arşivde yok) ===" >> yon_golge_dogrula_log.txt; python -u yon_golge.py --gecmis 2026-10-20 2026-11-01 >> yon_golge_dogrula_log.txt 2>&1; echo "exit2=$?" >> yon_golge_dogrula_log.txt; tail -40 yon_golge_dogrula_log.txt
       - run: |
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
           git add yon_golge_dogrula_log.txt; git add yon_golge_dogrula.csv 2>/dev/null || true; git commit -m "Yon golge dogrulama" || exit 0

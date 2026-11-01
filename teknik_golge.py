@@ -28,6 +28,14 @@ def mum(nm, a, b):
                 z = zipfile.ZipFile(io.BytesIO(x)); d = pd.read_csv(z.open(z.namelist()[0]), header=None, usecols=[0, 1, 2, 3, 4, 7]); P.append(d[pd.to_numeric(d[0], errors="coerce").notna()].astype(float))
             elif not P and g == gun[-1]: break
         if P:
+            if pazar != "spot":                                                                # 01.11 denetim: vadeli arşivde eksik gün (ör. 28.10.2026) → o gün spot fiyatı, hacim yok (NaN)
+                var = {pd.Timestamp(int(d_[0].iloc[0] / (1000 if d_[0].iloc[0] > 1e14 else 1)), unit="ms").strftime("%Y-%m-%d") for d_ in P}
+                for g in [g for g in gun[:-1] if g not in var]:
+                    x = get(f"{V}/spot/daily/klines/{nm}USDT/1h/{nm}USDT-1h-{g}.zip")
+                    if x:
+                        z = zipfile.ZipFile(io.BytesIO(x)); d = pd.read_csv(z.open(z.namelist()[0]), header=None, usecols=[0, 1, 2, 3, 4, 7]); d = d[pd.to_numeric(d[0], errors="coerce").notna()].astype(float)
+                        if sym.startswith("1000"): d[[1, 2, 3, 4]] *= 1000
+                        d[7] = np.nan; P.append(d); log("vadeli arşivde yok → spot:", nm, g)
             k = pd.concat(P, ignore_index=True); k.columns = ["ot", "o", "h", "l", "c", "qv"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
             k = k.drop_duplicates("ot").sort_values("ot"); k.index = pd.to_datetime(k.ot, unit="ms", utc=True); return nm, k.drop(columns="ot").astype("float32").astype(float)
     return nm, None
@@ -49,7 +57,11 @@ def hesap(a, b):
 def main():
     if len(sys.argv) >= 4 and sys.argv[1] == "--gecmis":
         _, R = hesap(pd.Timestamp(sys.argv[2], tz="UTC"), pd.Timestamp(sys.argv[3], tz="UTC")); R.to_csv("teknik_golge_dogrula.csv", index=False); log("doğrulama", len(R)); return
-    son = pd.Timestamp.now(tz="UTC").floor("D"); D, R = hesap(BASLA, son); out = []; serbest = {}
+    son = pd.Timestamp.now(tz="UTC").floor("D"); a = max(BASLA, son - pd.Timedelta(days=4))                  # yalnız son 4 gün yeniden hesaplanır (işlemler ≤ 24 s); öncesi kayıttan
+    try: ESK = pd.read_csv("durum/teknik_golge.csv"); ESK["sinyal_saat"] = pd.to_datetime(ESK.sinyal_saat, utc=True); ESK = ESK[ESK.sinyal_saat < a]
+    except Exception: ESK = pd.DataFrame()
+    D, R = hesap(a, son); out = []
+    serbest = {c_: t_ + pd.Timedelta(hours=26) for c_, t_ in ESK[ESK.sayilan.astype(str) == "True"].groupby("coin").sinyal_saat.max().items()} if len(ESK) else {}
     for r in R.sort_values("t").itertuples():
         d = D[r.coin]; i = d.index.searchsorted(r.t); e = i + 1; islem = r.t >= serbest.get(r.coin, pd.Timestamp(0, tz="UTC"))
         sat = dict(sinyal_saat=r.t, coin=r.coin, vz=round(r.vz, 2), sayilan=bool(islem), giris=np.nan, cikis=np.nan, hedef=np.nan, sonuc="açık", net_yuzde=np.nan)
@@ -61,7 +73,9 @@ def main():
             else: j = 23
             if islem: serbest[r.coin] = d.index[min(e + j, len(d) - 1)] + pd.Timedelta(hours=1) if e + j < len(d) else r.t + pd.Timedelta(hours=26)
         out.append(sat)
-    X = pd.DataFrame(out, columns=["sinyal_saat", "coin", "vz", "sayilan", "giris", "hedef", "cikis", "sonuc", "net_yuzde"]); X.to_csv("durum/teknik_golge.csv", index=False)
+    X = pd.DataFrame(out, columns=["sinyal_saat", "coin", "vz", "sayilan", "giris", "hedef", "cikis", "sonuc", "net_yuzde"])
+    if len(ESK): X = pd.concat([ESK[X.columns], X], ignore_index=True)
+    X["sayilan"] = X.sayilan.astype(str) == "True"; X = X.sort_values("sinyal_saat"); X.to_csv("durum/teknik_golge.csv", index=False)
     s = X[X.sayilan]; b_ = s.dropna(subset=["net_yuzde"]); gun = max((son - BASLA).days, 1)
     L = [f"# 📐 Teknik gösterge gölge izleme — {pd.Timestamp.now(tz='Europe/Istanbul'):%d.%m.%Y %H:%M}", "",
          "_Mesaj göndermez. Kural: alt Bollinger'den dönüş + BTC > EMA200 + hacim z ≥ 2 → sonraki saat açılışında AL, 🎯 +0,75σ·√4, en fazla 24 s (kayma %0,1, vadeli ücret, fonlama ≈ %0,01/8 s). Coin başına aynı anda tek işlem. Veri arşivden, bir gün gecikmeli._", "",

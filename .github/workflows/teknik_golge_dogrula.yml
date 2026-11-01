@@ -16,7 +16,7 @@ jobs:
       - run: pip install -q requests pandas numpy
       - run: |
           set +e; python -u teknik_golge.py --gecmis 2026-09-01 2026-10-28 > teknik_golge_dogrula_log.txt 2>&1; echo "exit=$?" >> teknik_golge_dogrula_log.txt
-          python teknik_golge_karsilastir.py >> teknik_golge_dogrula_log.txt 2>&1; tail -20 teknik_golge_dogrula_log.txt
+          python teknik_golge_karsilastir.py >> teknik_golge_dogrula_log.txt 2>&1; echo "=== 01.11 denetim: boşluklu pencere (28.10 vadeli arşivde yok) ===" >> teknik_golge_dogrula_log.txt; python -u teknik_golge.py --gecmis 2026-10-20 2026-11-01 >> teknik_golge_dogrula_log.txt 2>&1; echo "exit2=$?" >> teknik_golge_dogrula_log.txt; tail -40 teknik_golge_dogrula_log.txt
       - run: |
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
           git add teknik_golge_dogrula_log.txt; git add teknik_golge_dogrula.csv 2>/dev/null || true; git commit -m "Teknik golge dogrulama" || exit 0

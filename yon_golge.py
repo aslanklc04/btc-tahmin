@@ -29,7 +29,12 @@ def zipcsv(u, cols):
     return d[pd.to_numeric(d[cols[0]], errors="coerce").notna()].astype(float)
 def gunler(a, b): return pd.date_range(a.floor("D"), b.floor("D"), freq="D").strftime("%Y-%m-%d").tolist()
 def vadeli_1s(a, b):
-    with ThreadPoolExecutor(8) as ex: P = list(ex.map(lambda g: zipcsv(f"{V}/daily/klines/BTCUSDT/1h/BTCUSDT-1h-{g}.zip", [0, 1, 2, 3, 4, 7, 10]), gunler(a, b)))
+    G = gunler(a, b)
+    with ThreadPoolExecutor(8) as ex: P = list(ex.map(lambda g: zipcsv(f"{V}/daily/klines/BTCUSDT/1h/BTCUSDT-1h-{g}.zip", [0, 1, 2, 3, 4, 7, 10]), G))
+    for i, g in enumerate(G[:-1]):                                                             # 01.11 denetim: vadeli arşivde eksik gün (ör. 28.10.2026) → spot fiyatı, hacim/alıcı yok (NaN)
+        if P[i] is None:
+            x = zipcsv(f"https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1h/BTCUSDT-1h-{g}.zip", [0, 1, 2, 3, 4, 7, 10])
+            if x is not None: x[[7, 10]] = np.nan; P[i] = x; log("vadeli arşivde yok → spot:", g)
     k = pd.concat([p for p in P if p is not None], ignore_index=True); k.columns = ["ot", "o", "h", "l", "c", "qv", "tb"]; k.loc[k.ot > 1e14, "ot"] = k.ot / 1000
     k.index = pd.to_datetime(k.ot, unit="ms", utc=True); return k[~k.index.duplicated()].sort_index().drop(columns="ot")
 def balina(a, b):                                                                              # 1 dk → saatlik balina (önceki takvim ayının %95 işlem büyüklüğü eşiği)
