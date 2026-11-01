@@ -1,0 +1,24 @@
+name: Ayrim2 canli
+on:
+  push:
+    branches: [arastirma3]
+    paths: [ayrim2_canli.py, gonder_aday.py, .github/workflows/ayrim2_canli.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: m}
+      - run: pip install -q -r m/requirements.txt
+      - run: |
+          set +e; python -u ayrim2_canli.py > ayrim2_canli_log.txt 2>&1; echo "exit=$?" >> ayrim2_canli_log.txt; cat ayrim2_canli_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add ayrim2_canli_log.txt; git commit -m "Ayrim2 canli" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
