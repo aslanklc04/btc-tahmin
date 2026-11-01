@@ -1,0 +1,38 @@
+
+== bitcoin-data 1 BTC: HTTP 200 · 114961 bayt
+[{"d":"2022-11-01","unixTs":"1667260800","coinsAddr1btc":"1186889.250000000000"},{"d":"2022-11-02","unixTs":"1667347200","coinsAddr1btc":"1188036.420000000000"},{"d":"2022-11-03","unixTs":"1667433600","coinsAddr1btc":"1187975.560000000000"},{"d":"2022-11-04","unixTs":"1667520000","coinsAddr1btc":"1188558.730000000000"},{"d":"2022-11-05","unixTs":"1667606400","coinsAddr1btc":"1188407.859999999800"},{"d":"2022-11-06","unixTs":"1667692800","coinsAddr1btc":"1189570.930000000000"},{"d":"2022-11-07","unixTs":"1667779200","coinsAddr1btc":"1190996.100000000200"},{"d":"2022-11-08","unixTs":"1667865600"
+son satırlar: [{'d': '2026-10-29', 'unixTs': '1793232000', 'coinsAddr1btc': '1391627.867693070000'}, {'d': '2026-10-30', 'unixTs': '1793318400', 'coinsAddr1btc': '1393001.628887100000'}, {'d': '2026-10-31', 'unixTs': '1793404800', 'coinsAddr1btc': '1393446.894177700000'}]
+
+== bitcoin-data last: HTTP 200 · 79 bayt
+{"d":"2026-10-31","unixTs":"1793404800","coinsAddr1btc":"1393446.894177700000"}
+
+== bitcoin-data 10 BTC: HTTP 404 · 114 bayt
+{"timestamp":"2026-11-01T10:52:23.571+00:00","status":404,"error":"Not Found","path":"/v1/coins-addr-10-BTC/last"}
+
+== bitcoin-data mvrv last: HTTP 200 · 52 bayt
+{"d":"2026-10-31","unixTs":1793404800,"mvrv":1.4368}
+
+== CoinMetrics SplyAdrBalNtv1: HTTP 403 · 156 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'SplyAdrBalNtv1' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics SplyAdrBalNtv0.1: HTTP 403 · 158 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'SplyAdrBalNtv0.1' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics SplyAdrBalNtv0.01: HTTP 403 · 159 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'SplyAdrBalNtv0.01' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics SplyAdrBalNtv10: HTTP 403 · 157 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'SplyAdrBalNtv10' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics SplyCur: HTTP 200 · 2672 bayt
+{"data":[{"asset":"btc","time":"2026-10-01T00:00:00.000000000Z","SplyCur":"20092091.75155868"},{"asset":"btc","time":"2026-10-02T00:00:00.000000000Z","SplyCur":"20092532.3764109"},{"asset":"btc","time":"2026-10-03T00:00:00.000000000Z","SplyCur":"20092951.12629532"},{"asset":"btc","time":"2026-10-04T00:00:00.000000000Z","SplyCur":"20093398.00113705"},{"asset":"btc","time":"2026-10-05T00:00:00.000000000Z","SplyCur":"20093951.1258858"},{"asset":"btc","time":"2026-10-06T00:00:00.000000000Z","SplyCur":"20094435.50075681"},{"asset":"btc","time":"2026-10-07T00:00:00.000000000Z","SplyCur":"20094916.75
+
+== CoinMetrics AdrBalNtv1Cnt: HTTP 403 · 155 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'AdrBalNtv1Cnt' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics AdrBal1in100KCnt: HTTP 403 · 158 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'AdrBal1in100KCnt' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+
+== CoinMetrics SplyAdrBal1in100K: HTTP 403 · 159 bayt
+{"error":{"type":"forbidden","message":"Requested metric 'SplyAdrBal1in100K' with frequency '1d' for asset 'btc' is not available with supplied credentials."}}
+exit=0
