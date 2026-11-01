@@ -1,8 +1,11 @@
-futures/um BTCUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
-spot BTCUSDT 2026-10-27:200 2026-10-28:200 2026-10-29:200 2026-10-30:200 2026-10-31:200
-futures/um ETHUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
-futures/um SOLUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
-metrics 2026-10-27:200 2026-10-28:200 2026-10-29:200 2026-10-30:200 2026-10-31:200
-2026-10-30 22:06 🔸 yedek 🤝 4 saat · BTC ile ortak: GNO (z +1.2), TAO (z +0.9), BONK ( → ♻️ [('TAO', '30.10 05:00', 24, 'ana')]
-onceki_vurdu çalıştı: 105 · hata: 0
+2026-11-01 11:00:00+00:00 HTTP 200 coin 132 örnek n [20, 20, 20] 
+2026-11-01 10:00:00+00:00 HTTP 200 coin 132 örnek n [20, 20, 20] 
+2026-11-01 06:00:00+00:00 HTTP 200 coin 132 örnek n [20, 20, 20] 
+2026-10-31 12:00:00+00:00 HTTP 200 coin 0 örnek n [] {"saat":"2026103112","ornek_dosya":0,"coins":{}}
+2026-10-29 12:00:00+00:00 HTTP 200 coin 0 örnek n [] {"saat":"2026102912","ornek_dosya":0,"coins":{}}
+2026-10-26 06:00:00+00:00 HTTP 200 coin 0 örnek n [] {"saat":"2026102606","ornek_dosya":0,"coins":{}}
+GET / 200 {"ok":true,"yollar":["/dene","/saat?h=YYYYMMDDHH","/fonlama?c=BTC,ETH","/mum?c=BTC,ETH&i=1h&n=3"]}
+GET /saglik 200 {"ok":true,"yollar":["/dene","/saat?h=YYYYMMDDHH","/fonlama?c=BTC,ETH","/mum?c=BTC,ETH&i=1h&n=3"]}
+GET /health 200 {"ok":true,"yollar":["/dene","/saat?h=YYYYMMDDHH","/fonlama?c=BTC,ETH","/mum?c=BTC,ETH&i=1h&n=3"]}
+GET /durum 200 {"ok":true,"yollar":["/dene","/saat?h=YYYYMMDDHH","/fonlama?c=BTC,ETH","/mum?c=BTC,ETH&i=1h&n=3"]}
 exit=0
