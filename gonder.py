@@ -55,6 +55,22 @@ def onceki_vurdu(e, t2):
             tp = c.close[t0] * (1 + K0[sn] * lr.std() * np.sqrt(H)); hh = c.high[(c.index > t0) & (c.index <= t2)]
             if len(hh) and (hh >= tp).any(): out.append((nm, f"{t0.tz_convert(DISPLAY_TZ):%d.%m %H:%M}", H, sn)); break
     return out
+OYNAK_F, OYNAK_ESIK = "durum/btc_oynak.csv", 1.25                                               # 01.11.2026 kullanıcı onayı ("testleri yap geçerse ekle"): PROTOKOL_ayrim.md Ek 1 — T1–T6 geçti
+OYNAK_SATIR = ("🌪️ BTC OYNAK ({vr:.2f}× normal) + 🌐🧪 24 SAAT — geçmişte BTC bu kadar oynakken ✅ ana 🌐🧪 sinyalleri %76 · %77 · %76 tuttu (2022–24 · 2025 · 2026), "
+               "işlem başı +%1,49 · +%1,34 · +%0,67 (diğer zamanlarda %62 · %54 · %60). Daha güvenilir.\n")
+def _coz(e):
+    try:
+        from karne import coz
+        return coz(e, None)
+    except Exception: return []
+def btc_vr_seri(c, t):
+    """b_vr = BTC saatlik log getiri std: son 24 / son 720 (araştırma veri_seti.py ile aynı) · c: saatlik kapanış (indeks = kapanış), t: sinyal saati."""
+    lr = np.log(c[c.index <= t]).diff().dropna()
+    return float(lr.iloc[-24:].std() / lr.iloc[-720:].std()) if len(lr) >= 168 else float("nan")
+def btc_vr(t2):
+    from ortak import fetch_1h
+    c = fetch_1h((t2 - pd.Timedelta(hours=800)).value // 10**6, t2.value // 10**6 + 1, sym="BTCUSDT").close
+    return btc_vr_seri(c, t2)
 PANELDEN_GUN, PANELDEN_DUR_F = None, "durum/panelden_dur.json"                                     # 22.10.2026 kullanıcı onayı (panel_karal.py): panely → günde ≤ 2 🔸 yedek · karne.py durdurma kuralını yazar
 ALMA_ESIK = 2000                                                                               # sira_puani: ⛔ (ABD satıyor) olanlar +20 grup → ≥ 2000
 TERFI_PANEL = "🔥 yükseldi — vadelide fonlama çok yüksek (KuCoin BTC z {z:+.1f}): ABD'nin bu coin'i hafif sattığı (prim −1…0) sinyal · gerçekçi ölçümde bu saatlerde 🔥 ile ✅ ana olan sinyaller %75 · %75 · %69 tuttu (2022–24 · 2025+ · 2026), işlem başı +%0,73 · +%0,72 · +%0,45"
@@ -207,7 +223,17 @@ def main():
     n = len(ana); gonderilen = 0; karar = []
     PK, PTOP = saat_carpani(ana, FON_ANA)                                                               # 30.10: saat bütçesi (toplam ≤ %40)
     KAL = ""                                                                                   # 24.10.2026 kullanıcı: "kalabalık saatte en iyi 3" kaldırıldı (gerçekçi ölçümde 2025+ fark yok, 2026 kârı düşürdü)
+    VR, t_oyn = float("nan"), pd.Timestamp.now(tz="UTC").floor("h")
+    if any(t_ == "🌐🧪" for m in ana for _, _, _, t_, _ in _coz(m.get("e", ""))):
+        try: VR = btc_vr(t_oyn); print(f"🌪️ BTC oynaklık oranı {VR:.2f} (eşik {OYNAK_ESIK})")
+        except Exception as ex: print("🌪️ BTC oynaklık hesaplanamadı (mesaj yine gider):", repr(ex))
     for i, m in enumerate(ana):
+        _gc = [c_ for c_, _, _, t_, _ in _coz(m.get("e", "")) if t_ == "🌐🧪"]; OYN = OYNAK_SATIR.format(vr=VR) if _gc and np.isfinite(VR) and VR >= OYNAK_ESIK else ""
+        if OYN:
+            try:
+                _y = not os.path.exists(OYNAK_F)
+                with open(OYNAK_F, "a", encoding="utf-8", newline="") as f: f.write(("t,coinler,vr\n" if _y else "") + f"{t_oyn:%Y-%m-%d %H:%M},{' '.join(_gc)},{VR:.4f}\n")
+            except Exception as ex: print("🌪️ kaydı yazılamadı:", ex)
         ust = "✅ İŞLEM SİNYALİ" + (f" · {MADALYA[i] if i < 3 else '▫️'} ÖNCELİK {i + 1}/{n}" if n >= 2 else "") + "\n" + ((TERFI_P[m["terfi"]].format(z=FZ) if m.get("terfi") in TERFI_P else TERFI) + "\n" if m.get("terfi") else "") + (FON_ANA + "\n" if FON_ANA and not m.get("terfi") else "")
         if n >= 2 and i == 0: ust = (f"📋 BU SAAT {n} İŞLEM SİNYALİ — en iyisi üstte (sıra: test edilmiş isabet ve kâra göre sinyal türü · aynı türde Coinbase primi yüksek olan önce, z ≥ 3 geriye)\n"
                                      + "\n".join(f"{j + 1}. {x['e']}" for j, x in enumerate(ana)) + (f"\n(+ altta {sum(m_['o'] < ALMA_ESIK for m_ in yedek)} 🔸 yedek sinyal)" if any(m_["o"] < ALMA_ESIK for m_ in yedek) else "") + "\n━━━━━━━━━━━━\n" + ust)
@@ -220,7 +246,7 @@ def main():
             if n >= 2 and i == 0: _ek = [f"📋 Bu saat {n} işlem sinyali (en iyisi üstte): " + " · ".join(f"{j + 1}. {re.sub(r' · isabet %[0-9.]+', '', x['e'])[:60]}" for j, x in enumerate(ana[:10])) + (f" · +{n - 10} daha" if n > 10 else "")] + _ek
             _tum = elit_mi(m, FON_ANA); _pe = m.get("terfi") in ("panelf", "panelfx"); _el = _tum or (dip_coin(m.get("m", "")) and not _pe); _bas = _bas + (" · 💎 ELİT" if _el else "")
             _sd2 = lambda: (lambda t_: t_ and ("".join(x + "\n" for x in _ek if x) + elit_isle(t_, _tum, _pe)))(sade.sadelestir(pay_ekle(m["m"]), "ana", m.get("e", ""), GEN, 0.75, _bas))
-            try: ok = yolla(gecikme(m) + pay_sermaye(bicim(_sd2, lambda: (ELIT_SATIR if _el else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")), _tum, _pe, PK))
+            try: ok = yolla(gecikme(m) + OYN + pay_sermaye(bicim(_sd2, lambda: (ELIT_SATIR if _el else NORMAL_SATIR) + "\n" + ust + PAY_NOT + pay_ekle(m["m"]), m.get("e", "")), _tum, _pe, PK))
             except Exception as e: print("ana mesaj gönderilemedi:", repr(e)); ok = False
         GD["giden"] += ok; gonderilen += ok; karar.append(("✅ ana" + ((" (🔥 yedekten)" if m.get("terfi") in (True, "panely", "yedekg") else (" (🔥 prim eksi)" if m.get("terfi") in ("panelf", "panelfx") else " (🔥 panelden)")) if m.get("terfi") else ""), m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     gidecek = [m for m in yedek if m["o"] < ALMA_ESIK]; ny = len(gidecek)
