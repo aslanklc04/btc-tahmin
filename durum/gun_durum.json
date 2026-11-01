@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "30.10 06:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "🧪 24 saat: SHIB (z +0.7)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 06:04",
 "s": "panel",
 "e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -2.5",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "01.11 09:03",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 01.11 09:00 · $77,922",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
