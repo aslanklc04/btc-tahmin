@@ -56,7 +56,7 @@ def onceki_vurdu(e, t2):
             if len(hh) and (hh >= tp).any(): out.append((nm, f"{t0.tz_convert(DISPLAY_TZ):%d.%m %H:%M}", H, sn)); break
     return out
 OYNAK_F, OYNAK_ESIK = "durum/btc_oynak.csv", 1.25                                               # 01.11.2026 kullanıcı onayı ("testleri yap geçerse ekle"): PROTOKOL_ayrim.md Ek 1 — T1–T6 geçti
-OYNAK_SATIR = ("🌪️ BTC OYNAK ({vr:.2f}× normal) + 🌐🧪 24 SAAT — geçmişte BTC bu kadar oynakken ✅ ana 🌐🧪 sinyalleri %76 · %77 · %76 tuttu (2022–24 · 2025 · 2026), "
+OYNAK_SATIR = ("🌪️ BTC OYNAK ({vr:.2f}× normal) + 🌐🧪 24 SAAT — gerçekçi ölçümde BTC bu kadar oynakken ✅ ana 🌐🧪 sinyalleri %76 · %77 · %76 tuttu (2022–24 · 2025 · 2026), "
                "işlem başı +%1,49 · +%1,34 · +%0,67 (diğer zamanlarda %62 · %54 · %60). Daha güvenilir.\n")
 def _coz(e):
     try:
