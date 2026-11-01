@@ -3,16 +3,20 @@ on:
   push:
     branches: [arastirma3]
     paths: [kaynak_yokla.py, .github/workflows/kaynak_yokla.yml]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
-  y:
+  kos:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with: {ref: arastirma3}
-      - run: pip install -q requests && python -u kaynak_yokla.py
+      - run: pip install -q requests pandas
+      - run: |
+          set +e; python -u kaynak_yokla.py > kaynak_yokla_log.txt 2>&1; echo "exit=$?" >> kaynak_yokla_log.txt; cat kaynak_yokla_log.txt
       - run: |
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add kaynak_yokla.md; git commit -m "Kaynak yokla" || exit 0
-          for i in 1 2 3; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
+          git add kaynak_yokla_log.txt; git commit -m "Kaynak yokla" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done

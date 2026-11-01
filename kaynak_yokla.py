@@ -1,13 +1,18 @@
-# kaynak_yokla.py — 26.10: 🧑 bitcoin-data.com neden 18.10'da kaldı? Uç noktayı ve benzerlerini yokla (yalnız tanı)
-import requests, json
-S = requests.Session(); H = {"User-Agent": "btc-tahmin"}; L = []
-for u in ["https://bitcoin-data.com/v1/coins-addr-1-BTC", "https://bitcoin-data.com/v1/coins-addr-1-BTC/last", "https://bitcoin-data.com/v1/coins-addr-10-BTC",
-          "https://bitcoin-data.com/v1/btc-price", "https://bitcoin-data.com/v1/sopr", "https://bitcoin-data.com/v1/mvrv"]:
+# kaynak_yokla.py — 🧑 küçük yatırımcı verisi: bitcoin-data.com hâlâ durgun mu, yerine geçebilecek kaynak var mı (yalnız yoklama)
+import requests, pandas as pd
+H = {"User-Agent": "btc-tahmin"}
+def dene(ad, u, **k):
     try:
-        r = S.get(u, headers=H, timeout=60); hd = {k: v for k, v in r.headers.items() if k.lower().startswith(("x-", "retry", "date", "content-type"))}
-        try:
-            j = r.json(); son = j[-3:] if isinstance(j, list) else j
-        except Exception: son = r.text[:300]
-        L.append(f"## {u}\nHTTP {r.status_code} · {len(r.content):,} bayt · başlıklar {hd}\nson: {json.dumps(son, ensure_ascii=False)[:600]}\n")
-    except Exception as e: L.append(f"## {u}\nHATA {e!r}\n")
-open("kaynak_yokla.md", "w").write("\n".join(L)); print("\n".join(L))
+        r = requests.get(u, timeout=60, headers=H, **k); print(f"\n== {ad}: HTTP {r.status_code} · {len(r.content)} bayt"); print(r.text[:600].replace("\n", " "))
+        return r
+    except Exception as e: print(f"\n== {ad}: HATA {e}")
+r = dene("bitcoin-data 1 BTC", "https://bitcoin-data.com/v1/coins-addr-1-BTC")
+try:
+    j = r.json(); d = pd.DataFrame(j); print("son satırlar:", d.tail(3).to_dict("records"))
+except Exception as e: print("json yok", e)
+dene("bitcoin-data last", "https://bitcoin-data.com/v1/coins-addr-1-BTC/last")
+dene("bitcoin-data 10 BTC", "https://bitcoin-data.com/v1/coins-addr-10-BTC/last")
+dene("bitcoin-data mvrv last", "https://bitcoin-data.com/v1/mvrv/last")
+CM = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics"
+for m in ["SplyAdrBalNtv1", "SplyAdrBalNtv0.1", "SplyAdrBalNtv0.01", "SplyAdrBalNtv10", "SplyCur", "AdrBalNtv1Cnt", "AdrBal1in100KCnt", "SplyAdrBal1in100K"]:
+    dene(f"CoinMetrics {m}", CM, params=dict(assets="btc", metrics=m, frequency="1d", start_time="2026-10-01", page_size=100))
