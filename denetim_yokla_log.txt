@@ -1,0 +1,10 @@
+futures/um BTCUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
+spot BTCUSDT 2026-10-27:200 2026-10-28:200 2026-10-29:200 2026-10-30:200 2026-10-31:200
+futures/um ETHUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
+futures/um SOLUSDT 2026-10-27:200 2026-10-28:404 2026-10-29:200 2026-10-30:200 2026-10-31:200
+metrics 2026-10-27:200 2026-10-28:200 2026-10-29:200 2026-10-30:200 2026-10-31:200
+Traceback (most recent call last):
+  File "/home/runner/work/btc-tahmin/btc-tahmin/denetim_yokla.py", line 9, in <module>
+    import gonder
+ModuleNotFoundError: No module named 'gonder'
+exit=1
