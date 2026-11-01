@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "30.10 09:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: METIS (z +4.9)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 30.10 09:00 · $78,554",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "01.11 17:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "01.11 21:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⚠️ z -0.9",
 "k": "gitmedi — yalnız panel"
 }
 ],
