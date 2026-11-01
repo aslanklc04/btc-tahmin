@@ -5,7 +5,7 @@ for pz, sym in (("futures/um", "BTCUSDT"), ("spot", "BTCUSDT"), ("futures/um", "
     print(pz, sym, " ".join(f"{g}:{requests.head(f'{V}/{pz}/daily/klines/{sym}/1h/{sym}-1h-{g}.zip', timeout=30).status_code}" for g in ("2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31")))
 for pz, sym in (("futures/um", "BTCUSDT"),):
     print("metrics", " ".join(f"{g}:{requests.head(f'{V}/{pz}/daily/metrics/{sym}/{sym}-metrics-{g}.zip', timeout=30).status_code}" for g in ("2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31")))
-sys.path.insert(0, "m"); import os; os.chdir("m")
+import os; sys.path.insert(0, os.path.abspath("m")); os.chdir("m")
 import gonder
 K = pd.read_csv("durum/karne_kayit.csv", dtype=str).fillna(""); G = K[K.k.str.startswith("gönderildi") & (K.s != "panel")]
 n = h = 0
