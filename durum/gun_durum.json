@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-03",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "01.11 02:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "01.11 05:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "01.11 09:03",
 "s": "ℹ️ bilgi",
@@ -240,6 +228,18 @@
 "t": "03.11 00:04",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: LINK (z -1.7 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 01:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: REQ (z +0.2), QI (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "03.11 01:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
