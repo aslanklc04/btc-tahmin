@@ -20,3 +20,11 @@ Getiriler 1/4/12/24/72/168 s · oynaklık 24 s ve 168 s ve oranı · hacim z (24
 - **Plasebo:** her gün aynı sayıda rastgele coin-saat (farklı saat kuralıyla) ×20 → isabet ve net dağılımı.
 - **"Bulundu":** ÜÇ yılda da seçilenlerde olay oranı ≥ 3 × taban VE plasebonun en iyisinden yüksek VE işlem başı net > 0 VE günde ≥ 2 sinyal.
 - **"Kullanıcı hedefi":** ÜÇ yılda da olay oranı ≥ %50.
+
+## Ek 1 (02.11.2026, kullanıcı: "Senin işin sadece oynaklığı mı bulmak, coin'in yönünü bulsana") — YÖN modeli (hesaptan önce)
+İlk sonuç: model büyük hareketi bulur (+%10 isabeti %6–9 → %23–27) ama yön yok, net −%1…−3,4. Şimdi yön:
+- **Yön etiketi:** sonraki 24 s'te önce hangisi: +%10 (1) mi −%10 (0) mı (saatlik sıra; aynı saatte ikisi → −%10 sayılır, kötümser). İkisine de değmeyenler yön modeline girmez.
+- **Yön modeli:** aynı özellikler, aynı ayarlar ve çeyreklik yürüyen test; yalnız iki bariyerden birine değmiş satırlarla eğitilir.
+- **Seçim:** her gün, büyük hareket olasılığı (pompa modeli) ≥ 3 × taban olan adaylar içinde **yukarı olasılığı en yüksek** en fazla 4 (farklı saat, farklı coin), ve yukarı olasılığı ≥ 0,5 olmalı.
+- **İşlem:** 🎯 +%10 · stop −%10 (aynı saatte ikisi → stop) · değmezse 24 s sonra çıkış; ücret ve fonlama aynı.
+- **"Yön bulundu":** ÜÇ yılda da seçilenlerde (bariyere değenler arasında) yukarı önce oranı ≥ %60 VE işlem başı net > 0 VE rastgele seçimin (aynı aday havuzundan, ×20) en iyisinden iyi.
