@@ -1,55 +1,7 @@
 {
 "gun": "2026-11-02",
-"giden": 3,
+"giden": 5,
 "log": [
-{
-"t": "30.10 22:06",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: PEPE (z -3.5 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 23:04",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · 8 saat Çok güçlü ↑ · prim ⛔ z -2.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 23:04",
-"s": "panel",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ⛔ z -2.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 00:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↑ · prim ⛔ z -2.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 01:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: ALGO (z +2.7)",
-"k": "gönderildi"
-},
-{
-"t": "31.10 01:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⛔ z -2.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 07:04",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: OP (z -3.0 ⛔), METIS (z +3.6)",
-"k": "gönderildi"
-},
-{
-"t": "31.10 07:04",
-"s": "panel",
-"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.8",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "31.10 07:04",
 "s": "panel",
@@ -240,6 +192,54 @@
 "t": "02.11 20:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: ZEN (z +0.8), REQ (z +0.8), COTI (z +0.6), ATOM (z +0.6), FET (z +0.4), BCH (z +0.3), ZRO (z +0.2), LQTY (z +0.2), SNX (z +0.1), AAVE (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "02.11 21:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: CELR (z +0.1), TAO (z +0.0), QI (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Çok güçlü ↑ · prim ⚠️ z -0.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: DOGE (z -0.0)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: NEAR (z -0.3)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ETH (z -0.7)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: ARB (z -0.8)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 21:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: OP (z -0.9)",
 "k": "gitmedi — yalnız panel"
 }
 ],
