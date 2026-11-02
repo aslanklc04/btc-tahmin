@@ -3,18 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "01.11 09:03",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 01.11 09:00 · $77,922",
-"k": "gönderildi"
-},
-{
-"t": "01.11 17:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "01.11 21:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⚠️ z -0.9",
@@ -240,6 +228,18 @@
 "t": "03.11 01:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⛔ z -1.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 02:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 02:04",
+"s": "panel",
+"e": "🧪 24 saat: OP (z -5.3 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
