@@ -5,12 +5,6 @@
 {
 "t": "30.10 22:06",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ADA (z -1.8 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 22:06",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: PEPE (z -3.5 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "02.11 19:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 20:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -1.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
