@@ -1,13 +1,7 @@
 {
 "gun": "2026-11-02",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "30.10 22:06",
-"s": "panel",
-"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "30.10 22:06",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "02.11 09:03",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 02.11 09:00 · $78,378",
+"k": "gönderildi"
+},
+{
+"t": "02.11 10:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: QI (z +3.0)",
 "k": "gönderildi"
 }
 ],
