@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "30.10 22:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: INJ (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "30.10 22:06",
 "s": "panel",
 "e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -2.5",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 09:03",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 02.11 09:00 · $78,378",
+"k": "gönderildi"
 }
 ],
 "panelden": 2
