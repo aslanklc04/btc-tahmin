@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-02",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "30.10 21:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -2.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "30.10 22:06",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: GNO (z +1.2), TAO (z +0.9), BONK (z +0.5), SAND (z +0.5), API3 (z +0.3), PYTH (z +0.3), GMT (z +0.2), RAD (z +0.2), LPT (z +0.1), MASK (z +0.1)",
-"k": "gönderildi"
-},
 {
 "t": "30.10 22:06",
 "s": "🔸 yedek",
@@ -241,7 +229,19 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: INJ (z +3.1, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "02.11 03:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: AAVE (z +2.0, 24 saat)",
+"k": "gönderildi"
+},
+{
+"t": "02.11 03:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 1
+"panelden": 2
 }
