@@ -1,31 +1,7 @@
 {
-"gun": "2026-11-02",
-"giden": 8,
+"gun": "2026-11-03",
+"giden": 1,
 "log": [
-{
-"t": "31.10 17:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 18:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ · prim ⛔ z -1.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "01.11 00:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "01.11 02:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: QI (z +7.6)",
-"k": "gönderildi"
-},
 {
 "t": "01.11 02:04",
 "s": "panel",
@@ -241,7 +217,31 @@
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: RARE (z +0.8), VET (z +0.1)",
 "k": "gönderildi"
+},
+{
+"t": "03.11 00:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: PENDLE (z +0.9)",
+"k": "gönderildi"
+},
+{
+"t": "03.11 00:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⛔ z -2.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 00:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 00:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: LINK (z -1.7 ⛔)",
+"k": "gitmedi — yalnız panel"
 }
 ],
-"panelden": 2
+"panelden": 0
 }
