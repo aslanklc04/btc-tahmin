@@ -1,43 +1,7 @@
 {
 "gun": "2026-11-02",
-"giden": 5,
+"giden": 7,
 "log": [
-{
-"t": "31.10 07:04",
-"s": "panel",
-"e": "🧪 24 saat: BTC (z -1.8 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 07:04",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -2.5 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 08:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %60 · prim ⛔ z -1.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "31.10 09:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: METIS (z +1.8)",
-"k": "gönderildi"
-},
-{
-"t": "31.10 09:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: CRV (z +3.0, 8 saat)",
-"k": "gönderildi"
-},
-{
-"t": "31.10 09:04",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 31.10 09:00 · $77,270",
-"k": "gönderildi"
-},
 {
 "t": "31.10 12:04",
 "s": "panel",
@@ -240,6 +204,42 @@
 "t": "02.11 21:04",
 "s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: OP (z -0.9)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 22:04",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: BNT (z +2.9)",
+"k": "gönderildi"
+},
+{
+"t": "02.11 22:04",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: C98 (z +1.1), TNSR (z +0.4), PUNDIX (z +0.3), RSR (z +0.3), IO (z +0.0), SAND (z +0.0), CHZ (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "02.11 22:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 22:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: SHIB (z -0.6)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 22:04",
+"s": "panel",
+"e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.1 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "02.11 22:04",
+"s": "panel",
+"e": "🧪 24 saat: NEAR (z -1.1 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
