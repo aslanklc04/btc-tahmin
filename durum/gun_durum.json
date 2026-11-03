@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "02.11 03:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: AAVE (z +2.0, 24 saat)",
-"k": "gönderildi"
-},
-{
-"t": "02.11 03:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "03.11 10:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ · prim ⚠️ z -0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 19:05",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
 }
 ],
