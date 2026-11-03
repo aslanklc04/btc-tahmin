@@ -16,7 +16,7 @@ for nm in coins:
         if x.isna().any() or len(x) < 512 or y.isna().any() or len(y) < 24: continue
         ctx.append(torch.tensor(x.values, dtype=torch.float32)); meta.append((t, x.iloc[-1], y.values, x.iloc[-1] / x.iloc[-25] - 1))
     for b in range(0, len(ctx), 128):
-        q, _ = P.predict_quantiles(context=ctx[b:b + 128], prediction_length=24, quantile_levels=[0.1, 0.5, 0.9])
+        q, _ = P.predict_quantiles(ctx[b:b + 128], prediction_length=24, quantile_levels=[0.1, 0.5, 0.9])
         for k, (t, c0, y, m24) in enumerate(meta[b:b + 128]):
             qq = q[k].numpy(); R.append(dict(coin=nm, t=t, c0=c0, m1=qq[0, 1], m4=qq[3, 1], m24=qq[23, 1], q10=qq[23, 0], q90=qq[23, 2], y1=y[0], y4=y[3], y24=y[23], mom=m24))
     print(f"[{time.time() - T0:.0f} sn] {nm} {len(meta)}", flush=True)
