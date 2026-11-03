@@ -18,5 +18,5 @@ jobs:
           set +e; python -u makas_veri.py > makas_veri_log.txt 2>&1; echo "exit=$?" >> makas_veri_log.txt; tail -60 makas_veri_log.txt
       - run: |
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add makas_veri_log.txt; git add bist_*.parquet makas_veri_rapor.txt 2>/dev/null || true; git commit -m "Makas verisi" || exit 0
+          git add makas_veri_log.txt; git add makas_*.parquet 2>/dev/null || true; git commit -m "Makas verisi" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
