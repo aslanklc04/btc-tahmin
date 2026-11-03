@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "01.11 22:04",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: LQTY (z +0.5), BNT (z +0.5), AVAX (z +0.4), TURBO (z +0.3), CVC (z +0.2)",
-"k": "gönderildi"
-},
-{
-"t": "01.11 22:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.9",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: LQTY (z +1.8)",
 "k": "gönderildi"
+},
+{
+"t": "03.11 06:03",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.5",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
