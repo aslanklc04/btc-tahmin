@@ -1,0 +1,22 @@
+name: Chronos test
+on:
+  push:
+    branches: [arastirma3]
+    paths: [chronos_test.py, .github/workflows/chronos_test.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - run: pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch pandas numpy pyarrow chronos-forecasting
+      - run: |
+          set +e; python -u chronos_test.py > chronos_log.txt 2>&1; echo "exit=$?" >> chronos_log.txt; tail -30 chronos_log.txt
+      - run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add chronos_log.txt; for f in chronos_sonuc.md chronos_tahmin.csv.gz; do git add $f 2>/dev/null || true; done; git commit -m "Chronos test" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
