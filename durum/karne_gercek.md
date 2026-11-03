@@ -1,4 +1,4 @@
-# 📏 Gerçekçi karne — 03.11.2026 16:06
+# 📏 Gerçekçi karne — 03.11.2026 17:07
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
@@ -12,7 +12,7 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 
 ## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)
 - **T1 takip eden kâr-al (τ 0,25):** 319 işlem / 67 saat · işlem isabeti %73 · **saat isabeti %63** · işlem başı +0.67% — aynı işlemler şimdiki kuralla: 319 işlem / 67 saat · işlem isabeti %73 · **saat isabeti %63** · işlem başı +0.58%
-- **T3 zarardakini 2 katı süreye uzat:** 315 işlem / 65 saat · işlem isabeti %80 · **saat isabeti %74** · işlem başı +0.70% — aynı işlemler şimdiki kuralla: 315 işlem / 65 saat · işlem isabeti %73 · **saat isabeti %66** · işlem başı +0.62%
+- **T3 zarardakini 2 katı süreye uzat:** 317 işlem / 65 saat · işlem isabeti %80 · **saat isabeti %74** · işlem başı +0.70% — aynı işlemler şimdiki kuralla: 317 işlem / 65 saat · işlem isabeti %73 · **saat isabeti %65** · işlem başı +0.61%
 - **🎯 ≥ %1,5 filtresi (ana + panelden):** 56 işlem / 40 saat · işlem isabeti %59 · **saat isabeti %55** · işlem başı +0.64% — filtresiz: 72 işlem / 45 saat · işlem isabeti %61 · **saat isabeti %51** · işlem başı +0.54% · elenenler (🎯 < %1,5): 16 işlem / 12 saat · işlem isabeti %69 · **saat isabeti %58** · işlem başı +0.20%
 - **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %63 · ort +0.42% · en kötü saat -8.89% · oynaklık 3.00 | risk paylı → %64 · ort +0.40% · en kötü -8.89% · oynaklık 3.01
 - **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** 48 işlem / 13 saat · işlem isabeti %81 · **saat isabeti %85** · işlem başı +0.17% — aynı sinyaller şimdiki 🎯 ile: 85 işlem / 16 saat · işlem isabeti %64 · **saat isabeti %69** · işlem başı +0.26% · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz
