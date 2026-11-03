@@ -3,18 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "01.11 21:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⚠️ z -0.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "01.11 22:04",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: ARB (z +0.1), LINK (z +0.0), ATOM (z +3.3)",
-"k": "gönderildi"
-},
-{
 "t": "01.11 22:04",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: QI (z +1.3), TAO (z +1.2), FIDA (z +1.1), EGLD (z +1.1), GNO (z +1.1), ZEC (z +0.9), CAKE (z +0.7), ZEN (z +0.6), XTZ (z +0.5), ARPA (z +0.5)",
@@ -240,6 +228,18 @@
 "t": "03.11 02:04",
 "s": "panel",
 "e": "🧪 24 saat: OP (z -5.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 03:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⛔ z -1.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "03.11 03:04",
+"s": "panel",
+"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⛔ z -1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
