@@ -216,6 +216,13 @@ def main():
     if pterfi:
         for m in pterfi: m["terfi"] = m["c"]; m["m"] = m["m"].replace("⛔ ALMA", "⛔ ama 🔥 fonlama çok yüksek")
         panel = [m for m in panel if not m.get("terfi")]; ana = ana + sorted(pterfi, key=lambda m: (m["o"], m["s"]))
+    # 03.11.2026 kullanıcı onayı ("tm yap"; olasilik_sonuc.md · Bayes: ✅ ana 💵 0/4 → gerçek isabet < %65 olasılığı %99 · ✅ ana 🤝 10/19 → %88):
+    # yalnız 🤝 BTC ile ortak (ana coin) ve/veya 💵 ABD alıyor coin'lerinden oluşan ✅ ana mesajları panele iner (🔥 terfiler hariç). Karıştırılmış mesajlar (🌐🤝 vb. içeren) aynen gider.
+    _dus = [m for m in ana if not m.get("terfi") and (lambda t_: bool(t_) and all(x in ("🤝", "💵") for x in t_))([x[3] for x in _coz(m.get("e", ""))])]
+    if _dus:
+        ana = [m for m in ana if m not in _dus]
+        for m in _dus: m["c"] = "panel"; m["dusuk"] = True
+        panel = panel + _dus; print(f"⬇️ {len(_dus)} ✅ ana mesajı (yalnız 🤝/💵) panele indi")
     if SADE:                                                                                   # 25.10: ⚠️ testere riski için coin'lerin oynaklık/hacim durumu (yalnız uyarı)
         try: sade.risk_hesapla([c for m in ana + yedek + panel for c in re.findall(r"(?m)^• (?:(?:🚀|📉🔥|💧|💸) )*([A-Z0-9]{1,12})\b", m.get("m", ""))])
         except Exception as e: print("testere riski hesaplanamadı:", e)
@@ -253,7 +260,7 @@ def main():
     if SADE and gidecek:                                                                       # 24.10 sade biçim: tüm yedekler tek mesaj, coin başına iki satır · 25.10: çözülemezse aşağıdaki eski biçim
         try:
             _ham = "\n".join(pay_ekle(karal_degistir(m["m"], KARAL_K_YEDEK, "")) for m in gidecek)
-            _t = sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil)")
+            _t = sade.sadelestir(_ham, "yedek", gidecek[0].get("e", ""), GEN, KARAL_K_YEDEK, "ℹ️ BİLGİ · 🔸 YEDEK (işlem önerisi değil · 🎲 2025+ hedefe değme oranı rastgeleyle aynı: %63 / %62 — girersen çok küçük pay)")
         except Exception as e: print("yedek sade biçim hatası:", repr(e)); _t = None
         if _t:
             try: _t = sade.risk_ekle(_t)
@@ -288,7 +295,7 @@ def main():
             except Exception as e: print("panelden mesaj gönderilemedi:", repr(e)); ok = False
             gonderilen += ok; GD["giden"] += ok; GD["panelden"] += ok; karar.append(("🔸 yedek 📋 panelden", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
         panel = [m for m in panel if m not in gid_]
-    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
+    for m in panel: karar.append(("panel", m["e"], "gitmedi — yalnız panel" + (" (⬇️ Bayes: ana'dan indi)" if m.get("dusuk") else "") + (" (📋 bugünkü hak doldu)" if PANELDEN_GUN is not None and m["c"] == "panely" and m["o"] < ALMA_ESIK and not os.path.exists(PANELDEN_DUR_F) else ""), m))
     for m in bilgi: ok = yolla(bicim(lambda: sade.sadelestir(m["m"], "bilgi"), lambda: m["m"], "ℹ️ bilgi")); gonderilen += ok; karar.append(("ℹ️ bilgi", m["e"], "gönderildi" if ok else "GÖNDERİLEMEDİ", m))
     if DONUS: print(f"⚠️ {len(DONUS)} mesaj eski biçimle gitti (sade biçim çözülemedi): {DONUS}")
     print(f"Gönderildi: {gonderilen}/{len(q)} (ana {n}, yedek {len(yedek)}, panel {len(panel)}, bilgi {len(bilgi)}) · bugün giden sinyal: {GD['giden']}")
