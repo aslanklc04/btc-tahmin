@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "02.11 22:04",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: BNT (z +2.9)",
-"k": "gönderildi"
-},
-{
-"t": "02.11 22:04",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: C98 (z +1.1), TNSR (z +0.4), PUNDIX (z +0.3), RSR (z +0.3), IO (z +0.0), SAND (z +0.0), CHZ (z +0.0)",
 "k": "gönderildi"
@@ -241,6 +235,12 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: ALGO (z +4.3, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "05.11 01:03",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
