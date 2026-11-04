@@ -1,13 +1,7 @@
 {
 "gun": "2026-11-04",
-"giden": 3,
+"giden": 4,
 "log": [
-{
-"t": "02.11 21:04",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: NEAR (z -0.3)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "02.11 21:04",
 "s": "panel",
@@ -241,7 +235,13 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 04.11 09:00 · $77,748",
 "k": "gönderildi"
+},
+{
+"t": "04.11 16:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: AAVE (z +3.2, 24 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 2
+"panelden": 3
 }
