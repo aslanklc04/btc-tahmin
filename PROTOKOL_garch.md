@@ -19,3 +19,9 @@ _Kullanıcı (04.11): "Araştırmaya olasılık biliminden bir şeyler bul." GAR
 - **T4 coin yoğunluğu:** en çok sinyal veren 5 coin çıkarılınca tüm dönemler isabet farkı ≤ −5 VE net farkı < 0; her dönemde isabet farkı < 0.
 - **T5 eşik:** ρ ≤ 0,7 ve ρ ≤ 0,9 ile her dönemde isabet farkı ≤ −3 VE net farkı < 0.
 - **Karar:** hepsi geçerse kullanıcıya önerilir: ✅ ana sinyalinde coin'in GARCH oranı ρ ≤ 0,8 ise sinyal panele iner (ya da uyarı). Onaysız canlı yok.
+
+## Ek 2 (04.11.2026, kullanıcı: "tm dene … tüm sinyallerde de, ana'dan panele indirdiğin sinyallerde de; belki yeniden ana'ya çıkar") — GARCH'A GÖRE 🎯 (hesaptan önce)
+- **TG:** 🎯 = G·(1 + k·σ720·ρ̃·√H), ρ̃ = ρ'nun [0,5 · 2,0] aralığına kırpılmışı (ρ = σ_GARCH/σ720, garch_rho.csv.gz); k sınıf katsayısı (0,75 · 0,50 · 0,45). Diğer her şey T0 ile aynı (giriş D: 7. dk piyasa · B: limit; süre sonu çıkış; vadeli ücret + fonlama). 1 dk mum yeniden oynatma: garch2_veri.py (Actions).
+- **"TG daha iyi" (sınıf başına ve ana 🤝 / ana 💵 için ayrı):** ÜÇ dönemde de (2022-06→24 · 2025 · 2026) D ile isabet ≥ T0 − 1 puan VE işlem başı net ≥ T0 + %0,05; iki coin yarısında da (tüm dönemler) aynı; B ile de üç dönemde net farkı ≥ 0.
+- **"Yeniden ana'ya çıkar" (ana 🤝 ve ana 💵):** TG ile ÜÇ dönemde de isabet ≥ %65 VE net > 0 (≥ 30 sinyal; 💵'de dönem başına ≥ 15) VE "TG daha iyi" şartı.
+- Geçen olursa kullanıcıya önerilir; onaysız canlı yok.
