@@ -2,7 +2,7 @@
 import hashlib, numpy as np, pandas as pd
 out = []
 def yaz(s=""): out.append(s); print(s, flush=True)
-A = pd.read_parquet("ou2_mum.parquet"); A["t"] = pd.to_datetime(A.t, utc=True); A = A.drop_duplicates(["coin", "t"])
+A = pd.read_parquet("ou2_mum.parquet"); A["t"] = pd.to_datetime(A.t, utc=True); A = A.drop_duplicates(["coin", "t"]); A = A[~A.coin.isin(["AMDB", "CRCLB", "EWYB", "INTCB", "LITEB", "METAB", "MSFTB", "MSTRB", "NVDAB", "PLTRB", "QQQB", "SNDKB", "SPCXB", "TSLAB", "XAUT", "RWUSD", "SOXLB", "GOOGLB", "SKHYB", "MUB"])]   # 04.11: tokenleştirilmiş hisse / altın / stabil hariç (kripto değil)
 O = A.pivot(index="t", columns="coin", values="o").sort_index().astype(float); C = A.pivot(index="t", columns="coin", values="c").sort_index().astype(float)
 x = np.log(C["BTC"]); bo, bc = O["BTC"].values, C["BTC"].values; idx = C.index; W = 720
 yari = lambda s: int(hashlib.md5(s.encode()).hexdigest(), 16) % 2
