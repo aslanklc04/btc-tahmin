@@ -27,3 +27,12 @@ Testler (PROTOKOL_ayrim Ek 1 ile aynı eşikler; dönemler 2022-06→24 · 2025 
   Canlıda hesaplanamayan C20 (aylık GARCH uydurma) birleşime girmez (önceden karar). C5 ⊂ C6 olduğundan ikisi de geçerse C6 kullanılır. C22 canlıda: coin σ720 · √H ≥ araştırmadaki 2026 ✅ ana s'nin üst üçte bir eşiği (sabit sayı).
   Birleşim de T1–T5 (T5: b_vr 1,15/1,35) ve T8'i geçmeli. **T6 canlı hesap eşitliği** (Actions, Binance saatlik mum): canlı kodun c_r4, c_r24, s, z, H, dip hesabı 2026-09-01 → son araştırma sinyallerinde 🌪️+ işaretini ≥ %98 aynı vermeli. **T7** canlı karne (bilgi).
 **Karar:** birleşim T1–T6 + T8'in hepsini geçerse mesaja 🌪️+ satırı eklenir (sinyal kararları, sınıflar, sıralama ve pay değişmez; yalnız bilgi satırı, H1 🌪️ gibi). Geçmezse eklenmez, raporlanır.
+
+## Ek 2 (04.11.2026, kullanıcı: "ELİT ve BTC oynaklı çift işareti ekle") — 💎🌪️ işareti (hesaptan önce)
+Adaylar: **E1** = 💎 ELİT (C1 dip ∨ C3 🔥fon ∨ 🔀) ∧ C12 b_vr ≥ 1,25 · **E2** = canlıdaki 📉🔥 dip tanımı (rz ≤ −2 ve coin 🌐 geniş listede değil) ∧ C12.
+(K1 araştırmada rz ≤ −2'yi geniş liste coin'leri dahil ölçtü; canlıda 📉🔥 yalnız geniş liste dışı coin'lere konur → canlıyla aynı tanım E2 ayrıca sınanır.)
+- T1–T5: Ek 1 ile aynı (T5: b_vr 1,15/1,35; E2 için ayrıca rz −1,75/−2,25).
+- **T9 üstünlük:** her dönemde adayın isabeti ≥ ELİT'in geri kalanı + 5 puan VE net ≥ ELİT'in geri kalanı + %0,30 (işaret "ELİT içinde en güçlü" demek, öyle olmalı).
+- Seçim: E1 hepsini geçerse E1 (daha çok sinyal), yoksa E2 hepsini geçerse E2, ikisi de geçmezse eklenmez.
+- **T6 canlı:** b_vr hesabı ayrim Ek 1 T6'da canlıyla eşit çıktı (aynı fonksiyon btc_vr_seri). Kod testi: örnek kuyrukla (ELİT/değil × VR üstü/altı) işaret yalnız doğru mesajlara çıkmalı, mesajın geri kalanı, sınıfı, sırası ve payı değişmemeli.
+- Canlı: ✅ ana mesajında (seçilen tanım sağlanınca) başa "💎🌪️ ELİT + BTC OYNAK — en güçlü" satırı; pay, sınıf, sıra, gönderim aynı. Kayıt durum/btc_oynak.csv'ye (tur sütunu 💎🌪️).
