@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-04",
-"giden": 4,
+"giden": 6,
 "log": [
-{
-"t": "02.11 21:04",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ARB (z -0.8)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "02.11 21:04",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: OP (z -0.9)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "02.11 22:04",
 "s": "✅ ana",
@@ -241,7 +229,19 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "04.11 19:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "🧪 24 saat: ADA (z +0.8)",
+"k": "gönderildi"
+},
+{
+"t": "04.11 19:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "💵 ABD güçlü alıyor: ALGO (z +4.3, 24 saat)",
+"k": "gönderildi"
 }
 ],
-"panelden": 3
+"panelden": 5
 }
