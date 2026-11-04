@@ -5,12 +5,6 @@
 {
 "t": "02.11 21:04",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: ETH (z -0.7)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "02.11 21:04",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ARB (z -0.8)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "💵 ABD güçlü alıyor: AAVE (z +3.2, 24 saat)",
 "k": "gönderildi"
+},
+{
+"t": "04.11 17:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 3
