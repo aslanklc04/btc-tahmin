@@ -32,3 +32,10 @@ _Kullanıcı (04.11): "Araştırmaya olasılık biliminden bir şeyler bul." GAR
 - **Seçim (sınıf başına, YALNIZ 2022-06→24, D):** isabet ≥ T0 olan kombinasyonlar içinden işlem başı neti en yüksek olan.
 - **Test:** 2025 ve 2026'da ayrı ayrı isabet ≥ T0 − 0,5 puan VE net ≥ T0 + %0,05; iki coin yarısında (tüm dönemler) aynı; B (limit) ile üç dönemde net farkı ≥ 0. Hepsi geçerse kullanıcıya önerilir (önce gölge).
 - Tüm 30 kombinasyonun tablosu (3 dönem) bilgi olarak raporlanır.
+
+## Ek 4 (04.11.2026, kullanıcı: "Riski minimize etti mi? Risk azaldıysa tüm testleri yap, geçerse ekle") — ✅ ana, kısmi GARCH (γ↑ 0,25 · γ↓ 1,5) RİSK + TAM TEST (hesaptan önce)
+Karşılaştırma bugünkü T0 ile, ✅ ana, D (ana) ve B (destek).
+- **R1 risk (her dönemde: 2022-06→24 · 2025 · 2026):** CVaR5 (en kötü %5'in ort.) ≥ T0'ınki (daha kötü değil) VE işlem getirisinin std'si ≤ T0 VE günlük toplam getiri dizisinin en büyük düşüşü (MDD) ≥ T0'ınki − %1 (mutlak).
+- **"Risk azaldı":** R1 üç dönemde geçer VE en az iki dönemde CVaR5 ya da std T0'dan belirgin iyi (CVaR5 ≥ +%0,05 ya da std ≤ −%0,02).
+- **Tam test (hepsi):** T1 her dönemde isabet ≥ T0 − 0,5 puan VE net ≥ T0 · T2 iki coin yarısında (tüm dönemler) isabet ≥ T0 − 0,5 VE net ≥ T0 VE CVaR5 ≥ T0 · T3 limit (B) üç dönemde net ≥ T0 VE CVaR5 ≥ T0 − %0,05 · T4 aylık: ≥ 20 sinyalli aylarda net ≥ T0 olan ay oranı ≥ %55 · T5 ilk 5 coin hariç (tüm dönemler) isabet ≥ T0 − 0,5 VE net ≥ T0 · T6 komşu kombinasyonlar (γ↑ 0 ve 0,5 × γ↓ 1,0 ve 1,5): her biri üç dönemde net ≥ T0 − %0,02 (bıçak sırtı değil).
+- **Karar:** "risk azaldı" VE tam testin hepsi geçerse canlıya eklenir (✅ ana mesajlarında 🎯 bu kurala göre); geçmezse eklenmez.
