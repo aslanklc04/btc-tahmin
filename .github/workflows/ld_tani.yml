@@ -1,0 +1,28 @@
+name: Likidite tani (salt okuma)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [ld_tani_tetik.txt]
+permissions:
+  contents: write
+jobs:
+  tani:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: m}
+      - uses: actions/cache/restore@v4
+        with:
+          path: durum/derinlik_saat.pkl
+          key: ldgecmis-yok
+          restore-keys: ldgecmis-
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          pip install -q pandas numpy
+          python ld_tani.py > ld_tani_log.txt 2>&1; cat ld_tani_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add ld_tani_log.txt; git commit -m "likidite tani" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
