@@ -11,3 +11,11 @@ _Kullanıcı (04.11): "Araştırmaya olasılık biliminden bir şeyler bul." GAR
 - **"İyi":** ÜÇ dönemde (2022-06→24 · 2025 · 2026) de koşullu grubun isabeti, aynı sınıfta koşulsuz kalanlardan ≥ +5 puan VE net ≥ +%0,10; her dönem ≥ 30; B_T0 ile de üç dönemde fark > 0. **"Kötü":** tersi (≤ −5, ≤ −%0,10).
 - **Plasebo:** ρ değerleri sınıf × dönem içinde karıştırılır ×50 → tesadüfen geçen hücre sayısı.
 - Geçen hücre olursa ayrim Ek 1'deki T1–T5 sağlamlık testleri (coin yarıları, limit, aylık istikrar, ilk 5 coin hariç, eşik ±0,1) uygulanır; hepsi geçerse kullanıcıya önerilir.
+
+## Ek 1 (04.11.2026, ilk sonuçtan sonra, hesaptan önce) — geçen tek hücre: ✅ ana ∧ G2 (ρ ≤ 0,8) "kötü" — sağlamlık testleri (ters yönde)
+- **T1 coin yarıları:** her yarıda (tüm dönemler) isabet farkı ≤ −5 puan VE net farkı < 0.
+- **T2 limit giriş:** her dönemde B_T0 isabet farkı < 0 VE B_T0 net farkı < 0.
+- **T3 aylık istikrar:** ≥ 5 sinyalli aylarda hücre isabeti ≤ aynı sınıfın geri kalanı olan ay oranı ≥ %60.
+- **T4 coin yoğunluğu:** en çok sinyal veren 5 coin çıkarılınca tüm dönemler isabet farkı ≤ −5 VE net farkı < 0; her dönemde isabet farkı < 0.
+- **T5 eşik:** ρ ≤ 0,7 ve ρ ≤ 0,9 ile her dönemde isabet farkı ≤ −3 VE net farkı < 0.
+- **Karar:** hepsi geçerse kullanıcıya önerilir: ✅ ana sinyalinde coin'in GARCH oranı ρ ≤ 0,8 ise sinyal panele iner (ya da uyarı). Onaysız canlı yok.
