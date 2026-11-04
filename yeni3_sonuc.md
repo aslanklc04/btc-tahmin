@@ -1,0 +1,27 @@
+# 🔭 Üç yeni fikir — PROTOKOL_yeni3.md
+_04.11.2026 12:30 · 141 coin · 2022-06 → 30.10.2026 · giriş sonraki saat açılışı +%0,1 · 🎯 0,75·σ720·√H · vadeli ücret · hücre: işlem · isabet · net %_
+
+## Y1 gecikmeli takip (BTC sıçradı, coin geride kaldı) · H 4
+| yarı0 22–24 | yarı0 2025 | yarı0 2026 | yarı1 22–24 | yarı1 2025 | yarı1 2026 |
+|---|---|---|---|---|---|
+| 313 · %60 · +0.08 | 94 · %63 · +0.19 | 90 · %46 · -0.39 | 296 · %58 · -0.09 | 76 · %71 · +0.53 | 103 · %54 · -0.31 |
+- dönem / rastgele: 2022-06→24 609 · %59 · -0.00 / rastgele en iyi %64 · +0.27 ✘ · 2025 170 · %66 · +0.34 / rastgele en iyi %62 · +0.24 ✔ · 2026 193 · %50 · -0.35 / rastgele en iyi %60 · +0.18 ✘
+- bilgi (2025+): haftada 3.8 sinyal · farklı gün 1.1 · farklı saat 1.4 · ✅ ana saatiyle aynı %19 · ELİT %9 · 🌪️ %8 · en kötü -23.8% · tümü 972 · %59 · -0.01
+**Y1 → ❌ bulunamadı**
+
+## Y2 göreli güç (BTC 4 s ≤ −%2,5, coin düşmedi) · H 12
+| yarı0 22–24 | yarı0 2025 | yarı0 2026 | yarı1 22–24 | yarı1 2025 | yarı1 2026 |
+|---|---|---|---|---|---|
+| 356 · %52 · +0.52 | 158 · %38 · -0.36 | 93 · %38 · -0.29 | 386 · %45 · +0.76 | 119 · %29 · -1.20 | 71 · %25 · -1.46 |
+- dönem / rastgele: 2022-06→24 742 · %49 · +0.64 / rastgele en iyi %51 · -0.51 ✘ · 2025 277 · %34 · -0.72 / rastgele en iyi %50 · -1.08 ✘ · 2026 164 · %32 · -0.79 / rastgele en iyi %46 · -1.01 ✘
+- bilgi (2025+): haftada 4.6 sinyal · farklı gün 0.9 · farklı saat 1.8 · ✅ ana saatiyle aynı %33 · ELİT %12 · 🌪️ %14 · en kötü -49.6% · tümü 1183 · %43 · +0.12
+**Y2 → ❌ bulunamadı**
+
+## Y3 hacim kırılımı (5× hacim, 3σ mum, 168 s zirve kırıldı) · H 4
+| yarı0 22–24 | yarı0 2025 | yarı0 2026 | yarı1 22–24 | yarı1 2025 | yarı1 2026 |
+|---|---|---|---|---|---|
+| 1148 · %69 · -0.04 | 352 · %72 · -0.04 | 603 · %78 · +0.17 | 1106 · %67 · -0.15 | 377 · %68 · -0.25 | 525 · %70 · -0.42 |
+- dönem / rastgele: 2022-06→24 2254 · %68 · -0.10 / rastgele en iyi %55 · +0.04 ✘ · 2025 729 · %70 · -0.15 / rastgele en iyi %56 · +0.05 ✘ · 2026 1128 · %74 · -0.10 / rastgele en iyi %56 · +0.02 ✘
+- bilgi (2025+): haftada 19.5 sinyal · farklı gün 5.0 · farklı saat 15.9 · ✅ ana saatiyle aynı %8 · ELİT %1 · 🌪️ %2 · en kötü -20.9% · tümü 4111 · %70 · -0.11
+**Y3 → ❌ bulunamadı**
+
