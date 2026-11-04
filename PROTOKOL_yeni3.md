@@ -18,3 +18,12 @@ teknik3_mum (Binance vadeli 1 s, 141 coin, 2022-06 → 2026-10-30). Sinyal t saa
 - **"Bulundu"**: 6 hücrenin HEPSİNDE ≥ 20 işlem, isabet ≥ %70, işlem başı net ≥ +%0,30 VE her dönemde rastgele seçimin (aynı gün aynı sayıda rastgele coin-saat, aynı 🎯/H/ücret, ×20) en iyisinden yüksek isabet ve net.
 - **Bilgi:** haftada sinyal · haftada farklı gün · farklı saat · ✅ ana / ELİT / 🌪️ ile aynı saate düşme oranı (2025+) · en kötü işlem.
 - Üç fikir; bulunan olursa canlı öncesi PROTOKOL_ayrim Ek 1 tarzı sağlamlık testleri (aylık istikrar, ilk 5 coin hariç, eşik duyarlılığı) ayrıca yazılır ve yapılır.
+
+## Ek 1 (04.11.2026, kullanıcı: "Olasılık devam") — Y3 hacim kırılımı + olasılık teorisiyle stop/hedef (hesaptan önce; Y3'ün stopsuz sonucu görüldü, bu yüzden SIKI ayrım)
+Y3 stopsuz: isabet %68–74 ama net eksi (kayıplar büyük). Olasılık teorisi: sürüklenmesiz rastgele yürüyüşte 🎯 (+k·σ·√H) stoptan (−m·σ·√H) önce gelme olasılığı m/(k+m) (kumarbazın iflası).
+Sinyalin gerçek üstünlüğü = gözlenen 🎯-önce oranı − m/(k+m). Kurallar:
+- Izgara (18): k ∈ {0,75 · 1,0 · 1,5} × m ∈ {1,0 · 1,5 · 2,0} × H ∈ {4 · 12}. Stop: giriş × (1 − m·σ720·√H), stop-market (ücret %0,05 + kayma %0,1); aynı saatte 🎯 ve stop → stop sayılır (kötümser). Değmezse H sonunda çıkış.
+- **Seçim YALNIZ keşif hücresinde** (coin yarısı 0 × 2022-06→24): en yüksek işlem başı net; ≥ 40 işlem.
+- **Doğrulama:** seçilen tek ayar diğer 5 hücrenin HER BİRİNDE ≥ 20 işlem, isabet ≥ %70, net ≥ +%0,30 VE üstünlük (🎯-önce − m/(k+m)) > 0 VE her dönemde rastgele coin-saat (aynı gün, aynı kural, ×20) en iyisinden yüksek isabet ve net.
+- Seçilen ayarın tesadüfen iyi çıkma olasılığına karşı: plasebo seçimi — Y3 olayları yerine rastgele coin-saatlerle aynı ızgara + aynı keşif seçimi ×20 → doğrulama hücrelerinde geçen sayısı (bilgi).
+- Bilgi: haftada sinyal, farklı gün/saat, en kötü işlem, ızgaranın tamamı (keşif hücresi).
