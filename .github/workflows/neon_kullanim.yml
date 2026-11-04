@@ -1,0 +1,38 @@
+name: Neon kullanim hakki (salt okuma)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [neon_kullanim_tetik.txt, .github/workflows/neon_kullanim.yml]
+permissions:
+  contents: write
+jobs:
+  bak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/setup-node@v4
+        with: {node-version: "24"}
+      - env:
+          NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+        run: |
+          set +e; PID=round-bread-18476082; ORG=org-icy-pond-67091821; A="https://console.neon.tech/api/v2"
+          g() { echo "== $1"; curl -s -m 60 -H "Authorization: Bearer $NEON_API_KEY" -H "Accept: application/json" "$A$1" | head -c 3000; echo; }
+          { date -u
+            g "/projects/$PID"
+            g "/consumption_history/v2/projects?org_id=$ORG&from=2026-10-01T00:00:00Z&to=$(date -u +%Y-%m-%dT%H:00:00Z)&granularity=daily&metrics=compute_unit_seconds,root_branch_bytes_month"
+            g "/consumption_history/projects?org_id=$ORG&from=2026-10-01T00:00:00Z&to=$(date -u +%Y-%m-%dT%H:00:00Z)&granularity=daily"
+            g "/projects/$PID/functions"
+            g "/projects/$PID/functions/derinlik"
+            g "/projects/$PID/functions/derinlik/usage"
+            g "/organizations/$ORG/usage"
+            npm install -g neon@latest > /dev/null 2>&1
+            echo "== neon --help"; neon --help 2>&1 | head -60
+            echo "== neon functions --help"; neon functions --help 2>&1 | head -40
+            for c in "usage" "functions usage derinlik" "billing" "functions get derinlik -o yaml"; do echo "== neon $c"; neon $c --project-id $PID 2>&1 | head -60; done
+          } > neon_kullanim_log.txt 2>&1
+          sed -i "s/$NEON_API_KEY/***/g" neon_kullanim_log.txt; cat neon_kullanim_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add neon_kullanim_log.txt; git commit -m "Neon kullanim" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
