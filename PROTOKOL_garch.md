@@ -25,3 +25,10 @@ _Kullanıcı (04.11): "Araştırmaya olasılık biliminden bir şeyler bul." GAR
 - **"TG daha iyi" (sınıf başına ve ana 🤝 / ana 💵 için ayrı):** ÜÇ dönemde de (2022-06→24 · 2025 · 2026) D ile isabet ≥ T0 − 1 puan VE işlem başı net ≥ T0 + %0,05; iki coin yarısında da (tüm dönemler) aynı; B ile de üç dönemde net farkı ≥ 0.
 - **"Yeniden ana'ya çıkar" (ana 🤝 ve ana 💵):** TG ile ÜÇ dönemde de isabet ≥ %65 VE net > 0 (≥ 30 sinyal; 💵'de dönem başına ≥ 15) VE "TG daha iyi" şartı.
 - Geçen olursa kullanıcıya önerilir; onaysız canlı yok.
+
+## Ek 3 (04.11.2026, kullanıcı: "İsabeti düşürmeden: oynaklık fazla olacak dediğinde hedefi biraz uzağa, azalacak dediğinde biraz yakına; birçok kombinasyon dene") — KISMİ GARCH HEDEFİ (hesaptan önce)
+- Hedef çarpanı m = ρ^γ↑ (ρ ≥ 1 ise) · ρ^γ↓ (ρ < 1 ise); [0,5 · 2,0] kırpılır, 0,05'e yuvarlanır. 🎯 = G·(1 + k·σ720·√H·m). γ↑ ∈ {0 · 0,25 · 0,5 · 0,75 · 1} × γ↓ ∈ {0 · 0,25 · 0,5 · 0,75 · 1 · 1,5} = **30 kombinasyon** (0/0 = bugünkü T0).
+- Veri: garch3_veri.py (Actions) her sinyal için m = 0,50 … 2,00 (0,05 adım, 31 seviye) netlerini 1 dk yoldan hesaplar (D ve B).
+- **Seçim (sınıf başına, YALNIZ 2022-06→24, D):** isabet ≥ T0 olan kombinasyonlar içinden işlem başı neti en yüksek olan.
+- **Test:** 2025 ve 2026'da ayrı ayrı isabet ≥ T0 − 0,5 puan VE net ≥ T0 + %0,05; iki coin yarısında (tüm dönemler) aynı; B (limit) ile üç dönemde net farkı ≥ 0. Hepsi geçerse kullanıcıya önerilir (önce gölge).
+- Tüm 30 kombinasyonun tablosu (3 dönem) bilgi olarak raporlanır.
