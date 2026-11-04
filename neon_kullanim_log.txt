@@ -1,0 +1,271 @@
+Wed Nov  4 09:07:10 UTC 2026
+== /projects/round-bread-18476082
+{"project":{"data_storage_bytes_hour":0,"data_transfer_bytes":0,"written_data_bytes":0,"compute_time_seconds":0,"active_time_seconds":0,"cpu_used_sec":0,"id":"round-bread-18476082","platform_id":"aws","region_id":"aws-eu-central-1","name":"binance vadeli","slug":"round-bread-18476082","provisioner":"k8s-neonvm","default_endpoint_settings":{"autoscaling_limit_min_cu":0.25,"autoscaling_limit_max_cu":2,"suspend_timeout_seconds":0},"settings":{"allowed_ips":{"ips":[],"protected_branches_only":false},"enable_logical_replication":false,"block_public_connections":false,"block_vpc_connections":false,"hipaa":false},"pg_version":18,"proxy_host":"c-8.eu-central-1.aws.neon.tech","branch_logical_size_limit":1024,"branch_logical_size_limit_bytes":1073741824,"store_passwords":true,"creation_source":"console","history_retention_seconds":21600,"created_at":"2026-10-12T15:46:08Z","updated_at":"2026-10-26T15:48:41Z","synthetic_storage_size":0,"consumption_period_start":"2026-11-01T00:00:00Z","consumption_period_end":"2026-12-01T00:00:00Z","owner_id":"org-icy-pond-67091821","owner":{"email":"asklc0404@gmail.com","name":"asklc04","branches_limit":10,"subscription_type":"free_v3"},"compute_last_active_at":"2026-10-12T15:59:55Z","org_id":"org-icy-pond-67091821","effective_project_permission":"ADMIN"}}
+== /consumption_history/v2/projects?org_id=org-icy-pond-67091821&from=2026-10-01T00:00:00Z&to=2026-11-04T09:00:00Z&granularity=daily&metrics=compute_unit_seconds,root_branch_bytes_month
+{"code":"","message":"This endpoint is not available. It is included with Launch plans and above."}
+== /consumption_history/projects?org_id=org-icy-pond-67091821&from=2026-10-01T00:00:00Z&to=2026-11-04T09:00:00Z&granularity=daily
+{"code":"","message":"This endpoint is not available. It is included with Scale plans and above."}
+== /projects/round-bread-18476082/functions
+this route does not exist
+== /projects/round-bread-18476082/functions/derinlik
+this route does not exist
+== /projects/round-bread-18476082/functions/derinlik/usage
+this route does not exist
+== /organizations/org-icy-pond-67091821/usage
+this route does not exist
+== neon --help
+neon <command> [options]
+
+Commands:
+neon api [path]
+└────────────────>    Call any Neon API route directly (authenticated
+                      passthrough)
+neon api-keys
+└────────────────>    Manage API keys [aliases: api-key]
+neon ask
+└────────────────>    Ask a question about Neon
+neon bootstrap [directory]
+└────────────────>    Scaffold a new project from a Neon starter template,
+                      then install agent tooling and link a Neon project
+neon branches
+└────────────────>    Manage branches [aliases: branch]
+neon buckets
+└────────────────>    Manage branch object-storage buckets and their objects
+                      [aliases: bucket]
+neon checkout [id|name]
+└────────────────>    Pin a branch in the local context (.neon) so
+                      subsequent commands target it
+neon claim
+└────────────────>    Create and claim temporary Neon projects [aliases:
+                      claimable]
+neon completion
+└────────────────>    generate completion script
+neon config
+└────────────────>    Manage a branch with a neon.ts policy
+neon connection-string [branch]
+└────────────────>    Get connection string [aliases: cs]
+neon credentials
+└────────────────>    Manage branch credentials [aliases: credential]
+neon data-api
+└────────────────>    Manage the Neon Data API for a database
+neon databases
+└────────────────>    Manage databases [aliases: database, db]
+neon deploy
+└────────────────>    Apply a neon.ts policy to a branch (alias for `config
+                      apply`)
+neon dev
+└────────────────>    Run Neon Functions locally with a dev server
+neon diff [compare-branch]
+└────────────────>    Show a git-style schema diff between the current
+                      branch and another branch
+neon docs
+└────────────────>    Search neon.com docs, guides, and more
+neon env
+└────────────────>    Manage a branch's Neon env variables locally
+neon feedback
+└────────────────>    Send feedback to Neon
+neon functions
+└────────────────>    Manage Neon Functions [aliases: function]
+neon git
+└────────────────>    Sync the checked-out Neon branch to your git branch
+                      (Preview)
+neon init
+└────────────────>    Set up coding agents and this directory for Neon. -y
+                      is Recommended. -y with Custom flags applies those
+                      answers without prompts.
+neon inspect
+== neon functions --help
+neon function <sub-command> [options]
+
+Commands:
+neon functions delete <slug>
+└────────────────>    Delete a function on the branch
+neon functions deploy <slug>
+└────────────────>    Deploy a function from a local directory
+neon functions domains
+└────────────────>    Manage custom domains on the branch [aliases: domain]
+neon functions get <slug>
+└────────────────>    Show a function's details
+neon functions list
+└────────────────>    List functions on the branch
+neon functions new [template]
+└────────────────>    Create a function from a Function Registry template
+neon functions templates
+└────────────────>    Browse Function Registry templates
+
+Options:
+--project-id
+└────────────────>  Project ID [string]
+--branch
+└────────────────>  Branch ID or name [string]
+
+Global options: see neon --help
+
+== neon usage
+neon <command> [options]
+
+Commands:
+neon api [path]
+└────────────────>    Call any Neon API route directly (authenticated
+                      passthrough)
+neon api-keys
+└────────────────>    Manage API keys [aliases: api-key]
+neon ask
+└────────────────>    Ask a question about Neon
+neon bootstrap [directory]
+└────────────────>    Scaffold a new project from a Neon starter template,
+                      then install agent tooling and link a Neon project
+neon branches
+└────────────────>    Manage branches [aliases: branch]
+neon buckets
+└────────────────>    Manage branch object-storage buckets and their objects
+                      [aliases: bucket]
+neon checkout [id|name]
+└────────────────>    Pin a branch in the local context (.neon) so
+                      subsequent commands target it
+neon claim
+└────────────────>    Create and claim temporary Neon projects [aliases:
+                      claimable]
+neon completion
+└────────────────>    generate completion script
+neon config
+└────────────────>    Manage a branch with a neon.ts policy
+neon connection-string [branch]
+└────────────────>    Get connection string [aliases: cs]
+neon credentials
+└────────────────>    Manage branch credentials [aliases: credential]
+neon data-api
+└────────────────>    Manage the Neon Data API for a database
+neon databases
+└────────────────>    Manage databases [aliases: database, db]
+neon deploy
+└────────────────>    Apply a neon.ts policy to a branch (alias for `config
+                      apply`)
+neon dev
+└────────────────>    Run Neon Functions locally with a dev server
+neon diff [compare-branch]
+└────────────────>    Show a git-style schema diff between the current
+                      branch and another branch
+neon docs
+└────────────────>    Search neon.com docs, guides, and more
+neon env
+└────────────────>    Manage a branch's Neon env variables locally
+neon feedback
+└────────────────>    Send feedback to Neon
+neon functions
+└────────────────>    Manage Neon Functions [aliases: function]
+neon git
+└────────────────>    Sync the checked-out Neon branch to your git branch
+                      (Preview)
+neon init
+└────────────────>    Set up coding agents and this directory for Neon. -y
+                      is Recommended. -y with Custom flags applies those
+                      answers without prompts.
+neon inspect
+== neon functions usage derinlik
+neon function <sub-command> [options]
+
+Commands:
+neon functions delete <slug>
+└────────────────>    Delete a function on the branch
+neon functions deploy <slug>
+└────────────────>    Deploy a function from a local directory
+neon functions domains
+└────────────────>    Manage custom domains on the branch [aliases: domain]
+neon functions get <slug>
+└────────────────>    Show a function's details
+neon functions list
+└────────────────>    List functions on the branch
+neon functions new [template]
+└────────────────>    Create a function from a Function Registry template
+neon functions templates
+└────────────────>    Browse Function Registry templates
+
+Options:
+--project-id
+└────────────────>  Project ID [string]
+--branch
+└────────────────>  Branch ID or name [string]
+
+Global options: see neon --help
+
+ERROR: Unknown commands: usage, derinlik
+== neon billing
+neon <command> [options]
+
+Commands:
+neon api [path]
+└────────────────>    Call any Neon API route directly (authenticated
+                      passthrough)
+neon api-keys
+└────────────────>    Manage API keys [aliases: api-key]
+neon ask
+└────────────────>    Ask a question about Neon
+neon bootstrap [directory]
+└────────────────>    Scaffold a new project from a Neon starter template,
+                      then install agent tooling and link a Neon project
+neon branches
+└────────────────>    Manage branches [aliases: branch]
+neon buckets
+└────────────────>    Manage branch object-storage buckets and their objects
+                      [aliases: bucket]
+neon checkout [id|name]
+└────────────────>    Pin a branch in the local context (.neon) so
+                      subsequent commands target it
+neon claim
+└────────────────>    Create and claim temporary Neon projects [aliases:
+                      claimable]
+neon completion
+└────────────────>    generate completion script
+neon config
+└────────────────>    Manage a branch with a neon.ts policy
+neon connection-string [branch]
+└────────────────>    Get connection string [aliases: cs]
+neon credentials
+└────────────────>    Manage branch credentials [aliases: credential]
+neon data-api
+└────────────────>    Manage the Neon Data API for a database
+neon databases
+└────────────────>    Manage databases [aliases: database, db]
+neon deploy
+└────────────────>    Apply a neon.ts policy to a branch (alias for `config
+                      apply`)
+neon dev
+└────────────────>    Run Neon Functions locally with a dev server
+neon diff [compare-branch]
+└────────────────>    Show a git-style schema diff between the current
+                      branch and another branch
+neon docs
+└────────────────>    Search neon.com docs, guides, and more
+neon env
+└────────────────>    Manage a branch's Neon env variables locally
+neon feedback
+└────────────────>    Send feedback to Neon
+neon functions
+└────────────────>    Manage Neon Functions [aliases: function]
+neon git
+└────────────────>    Sync the checked-out Neon branch to your git branch
+                      (Preview)
+neon init
+└────────────────>    Set up coding agents and this directory for Neon. -y
+                      is Recommended. -y with Custom flags applies those
+                      answers without prompts.
+neon inspect
+== neon functions get derinlik -o yaml
+id: derinlik
+slug: derinlik
+name: derinlik
+invocation_url: https://br-still-union-baibtf1k-derinlik.compute.c-8.eu-central-1.aws.neon.tech/
+current_deployment:
+  id: 11
+  status: completed
+  memory_mib: 2048
+  runtime: nodejs24
+  created_at: 2026-11-04T09:05:48.450948Z
+active_deployment:
+  id: 11
+  status: completed
+  memory_mib: 2048
+  runtime: nodejs24
+  created_at: 2026-11-04T09:05:48.450948Z
+created_at: 2026-10-12T16:06:34.451448Z
