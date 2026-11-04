@@ -29,3 +29,14 @@ Hepsi geçse bile 💧 kendiliğinden canlıya EKLENMEZ: sonuç kullanıcıya g�
 ## Ek 3 (14.10.2026 ~12:20 TR, karşılaştırma sonucu görülmeden)
 Neon kontrolünde son tam saatte 60 dakikanın 56'sı ölçülmüş (%93; zamanlayıcı ara sıra bir dakika atlıyor). Saatlik ortalama 56 ve 60 örnekle
 pratikte aynıdır; ölçüm uyumu zaten U1–U5 ile doğrudan sınanıyor. Kapsam eşiği %95 → %90 (kullanıcı onayı: "hangisi daha iyiyse"). Diğer ölçütler aynı.
+
+## Ek 4 (04.11.2026 ~12:15 TR, 3 dakikalık dönemin karşılaştırma sonucu görülmeden)
+Neon 27.10'da ücretsiz hak bitince durdu; 3 dakikada bir örneklemeye geçirildi (ana 15 coin 20/saat, ek coin'ler 10/saat) ve
+01.11.2026 00:00 UTC'de hak yenilenince yeniden ölçmeye başladı. 3 dakikalık dönem AYRICA değerlendirilir (NEON_BASLA):
+  - Yalnız ≥ 01.11.2026 00:00 UTC saatleri (1 dakikalık eski saatler bu karara girmez).
+  - Saatlik değer: beklenen örneğin en az yarısı ölçülmüşse (ana ≥ 10, ek ≥ 5; eski dönemde sabit ≥ 10 idi).
+  - Kapsam: beklenen ana 20 / ek 10 örneğin ≥ %90'ı (Ek 3 eşiği aynı).
+  - U1–U5 ve coin başına ≥ 72 ortak saat şartı aynı. Ortak saat 72'den azsa sonuç ARA KONTROL'dür (karar değil, uyumlu_coinler.txt değişmez);
+    Neon yalnız son 72 saati tuttuğu için çekilen saatler kayda eklenir ve sonraki çalıştırmada tamamlanır.
+  - Bilgi: U2/U3 medyanları 18.10 (1 dakikalık) sonucuyla yan yana verilir — 3 dk örnekleme ölçümü bozdu mu.
+Sonuç ne olursa olsun 💧 canlıya kendiliğinden EKLENMEZ (Ek 2).

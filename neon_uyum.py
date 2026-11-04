@@ -32,7 +32,11 @@ yaz(f"# 💧 Neon ↔ Binance arşivi uyumu — {pd.Timestamp.now(tz='Europe/Ist
 # Neon saatleri
 NE, NN = {}, {}
 CEK = set(re.findall(r"'?([A-Z0-9]+)'?: '[A-Z0-9]+USDT'", src[src.index('COINS'):src.index('EK')]))
-saatler = pd.date_range(pd.Timestamp("2026-10-12 16:00", tz="UTC"), son_arsiv - pd.Timedelta(hours=1), freq="1h")
+BASLA = pd.Timestamp(os.environ["NEON_BASLA"], tz="UTC") if os.environ.get("NEON_BASLA") else None          # Ek 4 (04.11): 3 dk dönemi ayrı
+YENI = pd.Timestamp("2026-11-01", tz="UTC")                                                   # 3 dk örnekleme başlangıcı (ana 20/saat, ek 10/saat)
+bek_s = lambda nm, H: (60 if nm in CEK else 30) if H < YENI else (20 if nm in CEK else 10)   # H: Neon saati (etiket öncesi)
+ilk_saat = max(BASLA, pd.Timestamp.now(tz="UTC").floor("h") - pd.Timedelta(hours=71)) if BASLA is not None else pd.Timestamp("2026-10-12 16:00", tz="UTC")
+saatler = pd.date_range(ilk_saat, son_arsiv - pd.Timedelta(hours=1), freq="1h")
 def ns(H):
     for k in range(3):
         try: return H, S.get(f"{U}/saat", params={"h": H.strftime("%Y%m%d%H")}, timeout=120).json()
@@ -42,7 +46,7 @@ with ThreadPoolExecutor(6) as ex:
     for H, d in ex.map(ns, saatler):
         if not d: continue
         for nm, v in d.get("coins", {}).items():
-            if v.get("n", 0) >= 10: NE.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v["bid1"] + v["ask1"]
+            if v.get("n", 0) >= (10 if H < YENI else bek_s(nm, H) / 2): NE.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v["bid1"] + v["ask1"]
             NN.setdefault(nm, {})[H + pd.Timedelta(hours=1)] = v.get("n", 0)
 KAYIT_F = "neon_derinlik/neon_saat_kayit.pkl"                                                # 17.10: Neon yalnız son 72 saati tutuyor, arşiv ~1,5 gün geride → ortak saat 72'ye ulaşamıyordu. Çekilen saatler kalıcı kaydedilir, birleştirilir.
 try:
@@ -53,10 +57,15 @@ try:
         for t_, v_ in dd.items(): NN.setdefault(nm, {}).setdefault(t_, v_)
 except Exception as e: print("Neon kaydı yok/okunamadı:", e)
 pd.to_pickle({"NE": NE, "NN": NN}, KAYIT_F)
+if BASLA is not None:                                                                        # değerlendirme yalnız BASLA sonrası (kayıt hepsini tutar)
+    NE = {nm: {t_: v_ for t_, v_ in dd.items() if t_ > BASLA} for nm, dd in NE.items()}; NE = {k: v for k, v in NE.items() if v}
+    NN = {nm: {t_: v_ for t_, v_ in dd.items() if t_ > BASLA} for nm, dd in NN.items()}
 yaz(f"Neon saat (istenen): {len(saatler)} · Neon verisi olan coin: {len(NE)} · kayıtla birlikte coin başına en çok {max((len(v) for v in NE.values()), default=0)} saat\n")
 rows, HAV = [], []
 MINS = int(os.environ.get("NEON_ARA", "72"))                                                 # NEON_ARA: ara kontrol (karar değil)
 ARA = "NEON_ARA" in os.environ
+ORT = max((len(pd.Index(list(NE[nm])).intersection(AR[nm].index)) for nm in set(NE) & set(AR)), default=0)
+if BASLA is not None and ORT < 72: ARA, MINS = True, max(24, ORT)                             # Ek 4: 72 saatten az → ara kontrol
 for nm in sorted(set(NE) & set(AR)):
     a = AR[nm]; la = np.log(a.where(a > 0)); m720, s720 = la.rolling(720, min_periods=168).mean().shift(1), la.rolling(720, min_periods=168).std().shift(1)
     n = pd.Series(NE[nm]).sort_index(); ix = n.index.intersection(a.index)
@@ -64,7 +73,7 @@ for nm in sorted(set(NE) & set(AR)):
     ln, la_ = np.log(n[ix]), la[ix]; zn = (ln - m720[ix]) / s720[ix]; za = (la_ - m720[ix]) / s720[ix]
     kor = ln.corr(la_); fark = (ln - la_).abs().median(); zf = (zn - za).abs().median(); uy = ((zn <= -2) != (za <= -2)).mean()
     ok = kor >= 0.75 and fark <= 0.10 and zf <= 0.25 and uy <= 0.02
-    bek = 60 if nm in CEK else 30; kap = pd.Series(NN.get(nm, {})).reindex(ix).fillna(0).sum() / (bek * len(ix)); ok = ok and kap >= 0.90
+    bek = sum(bek_s(nm, t_ - pd.Timedelta(hours=1)) for t_ in ix); kap = pd.Series(NN.get(nm, {})).reindex(ix).fillna(0).sum() / bek; ok = ok and kap >= 0.90
     HAV.append(pd.DataFrame({"coin": nm, "t": ix, "ln": ln.values, "la": la_.values, "zn": zn.values, "za": za.values}))
     rows.append((nm, len(ix), kor, fark, zf, uy, kap, "✅" if ok else "❌"))
 T = pd.DataFrame(rows, columns=["coin", "saat", "U1 kor", "U2 |log fark| med", "U3 |z fark| med", "U3 LD uyuşmazlık", "kapsam", "sonuç"])
@@ -88,6 +97,8 @@ if len(HV):
 yaz(f"\n**U4 gün gün:** {u4s} → {'✅' if U4 else '❌'}\n**U5 💧 olayları:** {u5s} → {'✅' if U5 else '❌'}")
 NET = U1g and U4 and U5 if len(ilk13) else False                                              # UYUM_KARARI.md: "uymayan coin varsa o coin hariç tutulur" (kullanıcı 15.10: geçenleri ekle, geçmeyenleri ekleme) — uymayan coin listeye girmez
 yaz(f"\n## Karar (UYUM_KARARI.md)\n- İlk 13 coin: {'✅ NET UYUM (canlıya EKLENMEZ, kullanıcı onayı beklenir)' if NET else '❌ net değil'}\n- Uyan coin'ler ({len(uyan)}): {', '.join(uyan) or '—'}\n- Uymayan (hariç): {', '.join(d[d['sonuç'] != '✅'].coin.tolist()) or '—'}")
-if ARA: L.insert(1, f"**ARA KONTROL (karar değil): coin başına en az {MINS} ortak saat; asıl karar ≥ 72 saatle 16.10'da.**")
+if ARA: L.insert(1, f"**ARA KONTROL (karar değil): coin başına en az {MINS} ortak saat; asıl karar ≥ 72 ortak saatle.**" + (f" · 3 dk dönemi (Ek 4): {BASLA:%d.%m %H:%M} UTC sonrası, en çok {ORT} ortak saat" if BASLA is not None else ""))
+if BASLA is not None and len(d):
+    yaz(f"\n**Bilgi — 1 dk (18.10) ↔ 3 dk:** U2 medyan 18.10 ≈ 0,003–0,004 · şimdi {d['U2 |log fark| med'].median():.3f} · U3 medyan 18.10 ≈ 0,015–0,020 · şimdi {d['U3 |z fark| med'].median():.3f} · kapsam medyanı {d['kapsam'].median():.3f}")
 if not ARA: open("neon_derinlik/uyumlu_coinler.txt", "w").write("\n".join(uyan) + "\n")
-open("neon_uyum_ara_sonuc.md" if ARA else "neon_uyum_sonuc.md", "w").write("\n".join(L) + "\n")
+open(("neon_uyum3_ara_sonuc.md" if ARA else "neon_uyum3_sonuc.md") if BASLA is not None else ("neon_uyum_ara_sonuc.md" if ARA else "neon_uyum_sonuc.md"), "w").write("\n".join(L) + "\n")
