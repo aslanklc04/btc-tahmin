@@ -1,5 +1,5 @@
 # 🏦 Borsadan güçlü çıkış (BTC/ETH) — gölge izleme (mesaj gönderilmez)
-_güncellendi 2026-11-04 16:06 UTC · başlangıç 28.10.2026 · araştırma: isabet %72 · %85 · %90, işlem başı +%0,4 · +%1,5 · +%2,2 · son z: BTC 3.14 · ETH 2.79 (eşik 1,5)_
+_güncellendi 2026-11-04 17:07 UTC · başlangıç 28.10.2026 · araştırma: isabet %72 · %85 · %90, işlem başı +%0,4 · +%1,5 · +%2,2 · son z: BTC 3.14 · ETH 2.79 (eşik 1,5)_
 
 - toplam sinyal: 3 (her biri 2 sürüm) · kapanan satır: 6 · açık: 0
 - stopsuz: 3 kapanan · isabet %100 · işlem başı ort. +2.87% · en kötü +2.8%
