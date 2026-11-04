@@ -1,0 +1,65 @@
+[13 sn] kodlandı
+[14 sn] gerçek: test 1126 · keşif seçimi 0 · geçen 0
+[15 sn] plasebo 0: (0, 0)
+[16 sn] plasebo 1: (0, 0)
+[17 sn] plasebo 2: (0, 0)
+[18 sn] plasebo 3: (0, 0)
+[19 sn] plasebo 4: (0, 0)
+[20 sn] plasebo 5: (0, 0)
+[21 sn] plasebo 6: (0, 0)
+[22 sn] plasebo 7: (0, 0)
+[23 sn] plasebo 8: (0, 0)
+[24 sn] plasebo 9: (0, 0)
+[25 sn] plasebo 10: (0, 0)
+[26 sn] plasebo 11: (0, 0)
+[27 sn] plasebo 12: (0, 0)
+[29 sn] plasebo 13: (0, 0)
+[30 sn] plasebo 14: (0, 0)
+[31 sn] plasebo 15: (0, 0)
+[32 sn] plasebo 16: (0, 0)
+[33 sn] plasebo 17: (0, 0)
+[34 sn] plasebo 18: (0, 0)
+[35 sn] plasebo 19: (0, 0)
+# 🕯️ BTC mum örüntüleri — PROTOKOL_mum.md
+_04.11.2026 21:13 · 1 s / 4 s / 1 g · keşif < 01.07.2024 · V1 2024-07→2025 · V2 2026 · ücret %0,12 · Benjamini–Hochberg q 0,05_
+
+| zaman dilimi · aile | test | keşifte seçilen | doğrulamayı geçen |
+|---|---|---|---|
+| 4s · F1 renk×6 | 44 | 0 | 0 |
+| 4s · F1 renk×5 | 64 | 0 | 0 |
+| 4s · F1 renk×4 | 32 | 0 | 0 |
+| 1s · F3 renk·gövde×2 | 72 | 0 | 0 |
+| 4s · F1 renk×3 | 16 | 0 | 0 |
+| 1s · F1 renk×6 | 128 | 0 | 0 |
+| 1s · F3 renk·gövde×3 | 214 | 0 | 0 |
+| 1s · F3 renk·gövde×1 | 12 | 0 | 0 |
+| 1s · F4 renk·gövde·gölge×1 | 108 | 0 | 0 |
+| 1s · F2 seri | 20 | 0 | 0 |
+| 1s · F1 renk×4 | 32 | 0 | 0 |
+| 1g · F1 renk×4 | 32 | 0 | 0 |
+| 4s · F3 renk·gövde×2 | 66 | 0 | 0 |
+| 1s · F1 renk×5 | 64 | 0 | 0 |
+| 1g · F1 renk×5 | 38 | 0 | 0 |
+| 4s · F3 renk·gövde×1 | 12 | 0 | 0 |
+| 1s · F1 renk×3 | 16 | 0 | 0 |
+| 4s · F2 seri | 16 | 0 | 0 |
+| 4s · F4 renk·gövde·gölge×1 | 52 | 0 | 0 |
+| 4s · F1 renk×2 | 8 | 0 | 0 |
+| 1s · F1 renk×2 | 8 | 0 | 0 |
+| 1g · F1 renk×2 | 8 | 0 | 0 |
+| 1g · F1 renk×3 | 16 | 0 | 0 |
+| 1g · F3 renk·gövde×1 | 12 | 0 | 0 |
+| 1g · F3 renk·gövde×2 | 8 | 0 | 0 |
+| 1g · F1 renk×1 | 4 | 0 | 0 |
+| 1g · F4 renk·gövde·gölge×1 | 4 | 0 | 0 |
+| 1g · F2 seri | 12 | 0 | 0 |
+| 4s · F1 renk×1 | 4 | 0 | 0 |
+| 1s · F1 renk×1 | 4 | 0 | 0 |
+| **toplam** | **1126** | **0** | **0** |
+
+**Plasebo (×20, örüntü–getiri bağı koparılmış):** keşif seçimi ort. 0.0 (en çok 0) · doğrulamayı geçen ort. 0.00 (en çok 0)
+
+**Sonuç → ❌ bulunamadı** (gerçek 0 · plasebo en çok 0)
+
+
+_süre 35 sn_
