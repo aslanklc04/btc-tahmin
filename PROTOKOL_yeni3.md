@@ -27,3 +27,10 @@ Sinyalin gerçek üstünlüğü = gözlenen 🎯-önce oranı − m/(k+m). Kural
 - **Doğrulama:** seçilen tek ayar diğer 5 hücrenin HER BİRİNDE ≥ 20 işlem, isabet ≥ %70, net ≥ +%0,30 VE üstünlük (🎯-önce − m/(k+m)) > 0 VE her dönemde rastgele coin-saat (aynı gün, aynı kural, ×20) en iyisinden yüksek isabet ve net.
 - Seçilen ayarın tesadüfen iyi çıkma olasılığına karşı: plasebo seçimi — Y3 olayları yerine rastgele coin-saatlerle aynı ızgara + aynı keşif seçimi ×20 → doğrulama hücrelerinde geçen sayısı (bilgi).
 - Bilgi: haftada sinyal, farklı gün/saat, en kötü işlem, ızgaranın tamamı (keşif hücresi).
+
+## Ek 2 (04.11.2026, kullanıcı: "Test et") — Y3 TERSİ: kırılımdan sonra SHORT (hesaptan önce)
+Ek 1'de 🎯-önce oranı tüm hücrelerde teorinin altında çıktı (fiyat kırılımdan sonra geri dönüyor) → ters yön sınanır. Olaylar, seçim (saatte en çok 3, hacim oranına göre), coin meşguliyeti aynı.
+- Short giriş: t+1 açılışı × 0,999 (kayma aleyhe). 🎯 = giriş × (1 − k·σ720·√H) (limit, ücret %0,02) · stop = giriş × (1 + m·σ720·√H) (stop-market, %0,05 + kayma %0,1) · aynı saatte ikisi → stop · değmezse H sonunda kapanışta çıkış (%0,05 + %0,1).
+  Getiri = (giriş − çıkış) / giriş. Fonlama kötümser: %0,01 / 8 s ÖDENİR (gerçekte short pozitif fonlamada alır).
+- Izgara, keşif hücresi (yarı 0 × 2022-06→24, en yüksek net, ≥ 40 işlem), doğrulama (5 hücre: ≥ 20 işlem, isabet ≥ %70, net ≥ +%0,30, üstünlük > 0), rastgele coin-saat short karşılaştırması (her dönemde en iyisinden iyi) ve plasebo seçimi ×20: Ek 1 ile AYNI.
+- Bilgi: aynı ayarla 2025+ haftada sinyal, farklı gün, en kötü işlem; ayrıca ızgaranın tüm doğrulama hücrelerindeki net (yalnız bilgi — seçim değiştirmez).
