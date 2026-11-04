@@ -3,6 +3,7 @@
 //   /saat?h=YYYYMMDDHH : o saatin (UTC) dakikalık ölçümlerinin ortalaması (canlı sistem her saat bunu okur)
 //   /dene   : şu anki ölçüm (yazmaz) — kurulum kontrolü
 //   /fonlama?c=BTC,ETH,... : her coin'in son 100 fonlama ödemesi (Binance USDT-M) — 💸 coin fonlaması için
+//   /kopya?p=/bapi/futures/v1/.../copy-trade/...&b=<json> : Binance Copy Trading herkese açık verisi (04.11.2026, kullanıcı: "Neon'dan çek")
 //   /mum?c=BTC,ETH,...&i=1h|5m|1m&n=..&a=ms : Binance USDT-M vadeli mumları (27.10.2026 — 🪡 iğne gölge izleme). Ağırlık korumalı:
 //        n ≤ 170 (1h) / 600 (5m) / 5 (1m) · en çok 160 coin · 15'erli gruplar · Binance 418/429 derse kalan coin'ler atlanır (derinlik ölçümünü korumak için)
 import { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand, DeleteObjectsCommand } from '@aws-sdk/client-s3';
@@ -222,6 +223,19 @@ export default {
       const a = u.searchParams.get('a') ? Number(u.searchParams.get('a')) : null;
       const cs = (u.searchParams.get('c') ?? '').split(',').map((x) => x.trim().toUpperCase()).filter((x) => /^[A-Z0-9]{1,15}$/.test(x)).slice(0, 160);
       return json(await mumlar([...new Set(cs)], i, n, a));
+    }
+    if (u.pathname === '/kopya') {                                                          // 04.11.2026: Binance Copy Trading herkese açık verisi (yalnız copy-trade yolları; açık vekil değil)
+      const yol = u.searchParams.get('p') ?? '';
+      if (!/^\/bapi\/futures\/v[12]\/(friendly|public)\/future\/copy-trade\/[A-Za-z0-9\-\/]+$/.test(yol)) return json({ hata: 'yol' }, 400);
+      const q = new URLSearchParams(u.searchParams); q.delete('p'); q.delete('b');
+      const govde = u.searchParams.get('b');
+      try {
+        const r = await fetch(`https://www.binance.com${yol}${q.toString() ? '?' + q.toString() : ''}`, {
+          method: govde ? 'POST' : 'GET', body: govde ?? undefined,
+          headers: { 'content-type': 'application/json', clienttype: 'web', lang: 'en', 'user-agent': 'Mozilla/5.0' } });
+        const t = await r.text();
+        return new Response(t.slice(0, 3_000_000), { status: r.status, headers: { 'content-type': 'application/json' } });
+      } catch (e) { return json({ hata: String(e) }, 502); }
     }
     if (u.pathname === '/saat') {
       const h = u.searchParams.get('h') ?? saatAnahtari(new Date(Date.now() - 3600_000));
