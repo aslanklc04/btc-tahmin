@@ -37,6 +37,20 @@ if eksik:
             s = pd.concat(parca).groupby(level=0).mean(); s.index = pd.DatetimeIndex(s.index).as_unit("ns")
             D = D.reindex(D.index.union(s.index)); D.loc[s.index, nm] = D.loc[s.index, nm].fillna(s)
     print(f"arşivden dolduruldu: {len(eksik)} coin · {time.time()-T0:.0f} sn")
+# 1b) 04.11.2026 düzeltme: Neon kesintisinde (25.10–01.11, 157 saat) D'de saat satırları hiç yoktu → 720 saatlik taban ekim ortasına kaydı,
+#     kasımda z ≤ −2 oranı %3–5 yerine %11–22 çıktı (ld_tani.py). 36 saatten eski, D'de satırı olmayan saatler Binance arşivinden doldurulur (satır bir kez eklenir).
+tam = pd.date_range((now - pd.Timedelta(days=40)).ceil("D"), now - pd.Timedelta(hours=36), freq="1h")
+bos = [t for t in tam if t not in D.index]
+if bos:
+    gunler = sorted({(t - pd.Timedelta(minutes=1)).strftime("%Y-%m-%d") for t in bos}); bix = pd.DatetimeIndex(bos).as_unit("ns")
+    with ThreadPoolExecutor(16) as ex: R = list(ex.map(arsiv_gun, [(nm, g) for nm in COINS for g in gunler]))
+    D = D.reindex(D.index.union(bix)); n_ = 0
+    for nm in COINS:
+        parca = [s for n2, s in R if n2 == nm and s is not None]
+        if not parca: continue
+        s = pd.concat(parca).groupby(level=0).mean(); s.index = pd.DatetimeIndex(s.index).as_unit("ns"); s = s[s.index.isin(bix)]
+        D.loc[s.index, nm] = s.values; n_ += len(s)
+    print(f"💧 boşluk arşivden: {len(bos)} saat · {len(gunler)} gün · {n_} değer · {time.time()-T0:.0f} sn")
 # 2) Neon: son 72 saatte eksik saatler (etiket H+1 = saatin bitişi)
 def neon(H):
     for k in range(3):
