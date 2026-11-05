@@ -5,12 +5,6 @@
 {
 "t": "02.11 22:04",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: SHIB (z -0.6)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "02.11 22:04",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: NEAR (z -1.1 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🧪 24 saat: NEAR (z -0.5)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "05.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 05.11 09:00 · $80,400",
+"k": "gönderildi"
 }
 ],
 "panelden": 0

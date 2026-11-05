@@ -1,12 +1,12 @@
-# 📏 Gerçekçi karne — 05.11.2026 08:07
+# 📏 Gerçekçi karne — 05.11.2026 09:07
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
 - **✅ ana:** 61 işlem / 38 saat · işlem isabeti %64 · **saat isabeti %58** · işlem başı +0.79% · limit doldu %64
 - **🔸 yedek:** 247 işlem / 35 saat · işlem isabeti %76 · **saat isabeti %74** · işlem başı +0.60% · limit doldu %78
-- **📋 panelden:** 15 işlem / 14 saat · işlem isabeti %53 · **saat isabeti %50** · işlem başı -0.12% · limit doldu %75
+- **📋 panelden:** 15 işlem / 14 saat · işlem isabeti %53 · **saat isabeti %50** · işlem başı -0.12% · limit doldu %68
 - **Tümü:** 323 işlem / 71 saat · işlem isabeti %73 · **saat isabeti %63** · işlem başı +0.60% · limit doldu %74
-- Piyasadan giriş (D) karşılaştırma, tümü: 434 işlem / 77 saat · işlem isabeti %72 · **saat isabeti %65** · işlem başı +0.43%
+- Piyasadan giriş (D) karşılaştırma, tümü: 436 işlem / 78 saat · işlem isabeti %72 · **saat isabeti %65** · işlem başı +0.44%
 - **💎 ELİT (ana):** limit 2 işlem / 2 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.00% · piyasadan 4 işlem / 3 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.75%
 - **ELİT değil (ana):** limit 59 işlem / 38 saat · işlem isabeti %63 · **saat isabeti %58** · işlem başı +0.78% · piyasadan 92 işlem / 42 saat · işlem isabeti %61 · **saat isabeti %57** · işlem başı +0.61%
 
@@ -19,4 +19,4 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 - **🏛️ FOMC/CPI olaylı sinyaller:** 4 işlem / 4 saat · işlem isabeti %25 · **saat isabeti %25** · işlem başı -1.59% — olaysız: 319 işlem / 67 saat · işlem isabeti %73 · **saat isabeti %66** · işlem başı +0.63%
 - **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** 105 işlem / 49 saat · işlem isabeti %72 · **saat isabeti %73** · işlem başı +0.59% · testte (2025+) saat isabeti %70,5 (sınırda)
 
-_Kayıt: durum/karne_gercek.csv (434 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
+_Kayıt: durum/karne_gercek.csv (436 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
