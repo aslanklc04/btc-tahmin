@@ -14,3 +14,13 @@ _Kullanıcı (05.11): "Borsayı alt etmenin yollarını araştır, bul." Kaynak:
 - Ayar seçimi YALNIZ keşifte (en yüksek ortalama net, ≥ 40 olay).
 - **"Bulundu":** seçilen ayar 2024, 2025, 2026'nın HER BİRİNDE ≥ 20 olay · ortalama net ≥ +%2 · medyan net > 0 · kazanma ≥ %55 · piyasaya göre ortalama net > 0 · −%50'den kötü işlem oranı ≤ %10.
 - Bilgi: tüm ayarlar tablosu, en kötü işlem, −%30 stoplu sürüm (günlük yüksekle; aynı gün değerse stop sayılır), yılda olay sayısı.
+
+## Ek 1 (05.11.2026, kullanıcı: "testleri yap, geçerse kur") — PORTFÖY düzeyi sağlamlık testleri (hesaptan önce)
+Dürüstlük notu: k 1 · H 30 keşifte seçildi; "her listelemeye %2" portföy görünümü 2024–26 tek-işlem sonuçları görüldükten SONRA bilgi olarak hesaplandı. Bu yüzden
+aşağıdaki testler daha önce bakılmamış kesitlerle ve zorlaştırılmış maliyetlerle yapılır; asıl karar canlı gölgede verilir.
+- Portföy: her olaya sermayenin %2'si, 1× short, k 1 · H 30; aynı anda en çok 40 açık pozisyon (fazlası atlanır); aylık getiri = o ay kapanan işlemlerin toplamı × 0,02.
+- **Şart (2024 · 2025 · 2026 AYRI AYRI, her testte):** yıllık toplam > 0 · en kötü ay ≥ −%10 · yıl içi birikimli en büyük düşüş ≥ −%20 · pozitif ay oranı ≥ %55.
+- Testler: P0 temel · P1 kayma %0,30/taraf · P2 negatif fonlama ×1,5 · P3 coin yarısı 0 · P4 coin yarısı 1 (md5; her yarı %2) · P5 en çok kazandıran 5 olay çıkarılmış ·
+  P6 komşu ayarlar k 3 · H 30, k 1 · H 14, k 3 · H 14 (her biri ayrı) · P7 P1 + P2 birlikte.
+- **Karar:** hepsi geçerse 🆕 gölge (mesajsız) kurulur: her yeni Binance USDT-M perpetual listelemesi kaydedilir, L+1 00:00 UTC açılışında kâğıt üstü short, 30 gün; aylık karne.
+  Canlı karar şartı gölgede önceden: ≥ 3 ay ve ≥ 40 kapanmış işlemde aynı portföy şartları (aylık) + işlem başı ort. > 0.
