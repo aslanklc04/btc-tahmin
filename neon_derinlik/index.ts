@@ -224,6 +224,12 @@ export default {
       const cs = (u.searchParams.get('c') ?? '').split(',').map((x) => x.trim().toUpperCase()).filter((x) => /^[A-Z0-9]{1,15}$/.test(x)).slice(0, 160);
       return json(await mumlar([...new Set(cs)], i, n, a));
     }
+    if (u.pathname === '/bilgi') {                                                          // 05.11.2026: vadeli sembol bilgisi (tür: COIN / hisse / emtia…) — 🆕 listeleme gölgesi için
+      try {
+        const r = await fetch('https://fapi.binance.com/fapi/v1/exchangeInfo'); const j: any = await r.json();
+        return json((j.symbols ?? []).map((x: any) => ({ s: x.symbol, ut: x.underlyingType, ust: x.underlyingSubType, ct: x.contractType, st: x.status, od: x.onboardDate })));
+      } catch (e) { return json({ hata: String(e) }, 502); }
+    }
     if (u.pathname === '/kopya') {                                                          // 04.11.2026: Binance Copy Trading herkese açık verisi (yalnız copy-trade yolları; açık vekil değil)
       const yol = u.searchParams.get('p') ?? '';
       if (!/^\/bapi\/futures\/v[12]\/(friendly|public)\/future\/copy-trade\/[A-Za-z0-9\-\/]+$/.test(yol)) return json({ hata: 'yol' }, 400);
