@@ -1,5 +1,5 @@
 # yeniliste.py — PROTOKOL_yeniliste.md: yeni listelenen vadeli kontratları short → yeniliste_sonuc.md
-import re, itertools, numpy as np, pandas as pd
+import os, re, itertools, numpy as np, pandas as pd
 out = []
 def yaz(s=""): out.append(s); print(s, flush=True)
 K = pd.read_parquet("yeniliste_mum.parquet"); F = pd.read_parquet("yeniliste_fon.parquet")
@@ -7,7 +7,8 @@ K["t"] = pd.to_datetime(K.t, utc=True).dt.floor("D"); K = K.drop_duplicates(["s"
 HARIC = re.compile(r"^(USDC|FDUSD|TUSD|BUSD|USDP|DAI|BTCDOM|DEFI|FOOTBALL|BLUEBIRD|XAU|XAG|XPT|XPD|PAXG|AAPL|TSLA|NVDA|MSTR|COIN|AMZN|GOOGL|META|MSFT|HOOD|CRCL|SPY|QQQ|AMD|PLTR|INTC|NFLX|BABA)USDT$")
 taban = lambda s: re.sub(r"^(1000000|100000|10000|1000|1M)", "", s[:-4])
 ilk = K.groupby("s").t.min(); son = K.groupby("s").t.max()
-S = pd.DataFrame({"ilk": ilk, "son": son}); S = S[~S.index.str.match(HARIC)]; S["b"] = [taban(s) for s in S.index]
+import json; VB = {x["s"]: x for x in json.load(open("vadeli_bilgi.json"))}                         # Ek 2: yalnız COIN perpetual
+S = pd.DataFrame({"ilk": ilk, "son": son}); S = S[~S.index.str.match(HARIC)]; S = S[[(s not in VB) or (VB[s]["ut"] == "COIN" and VB[s]["ct"] == "PERPETUAL") for s in S.index]]; S["b"] = [taban(s) for s in S.index]
 S = S.sort_values("ilk").groupby("b").head(1)                                                    # aynı coin'in ilk kontratı
 EV = S[S.ilk >= pd.Timestamp("2021-01-01", tz="UTC")]
 O = K.pivot(index="t", columns="s", values="o"); C = K.pivot(index="t", columns="s", values="c"); Hh = K.pivot(index="t", columns="s", values="h")
@@ -52,4 +53,4 @@ for p in ("2024", "2025", "2026"):
     yaz(f"- {p}: {hf(d)} · en kötü {100 * d.net.min():.0f}% · fonlama ort. {100 * d.fon.mean():+.2f}% {'✔' if g else '✘'}")
 yaz(f"\n**Sonuç → {'✅ BULUNDU' if ok else '❌ bulunamadı'}**")
 R30 = tablo(0.30); Y3 = yil(R30[sec]); yaz("\n_Bilgi — −%30 stoplu (aynı ayar):_ " + " · ".join(f"{p}: {hf(Y3[p])}" for p in ("K", "2024", "2025", "2026")))
-open("yeniliste_sonuc.md", "w").write("\n".join(out) + "\n"); R[sec].to_csv("yeniliste_olaylar.csv", index=False)
+open(os.environ.get("YL_CIKTI", "yeniliste_sonuc.md"), "w").write("\n".join(out) + "\n"); R[sec].to_csv(os.environ.get("YL_OLAY", "yeniliste_olaylar.csv"), index=False)

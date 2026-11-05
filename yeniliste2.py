@@ -46,4 +46,4 @@ for ad, kw in TEST.items():
     S = portfoy(**kw); g = all(v[0] > 0 and v[1] >= -0.10 and v[2] >= -0.20 and v[3] >= 0.55 for v in S.values()); HEP &= g
     yaz(f"| {ad} | " + " | ".join(f"{100 * v[0]:+.1f}% · {100 * v[1]:+.1f}% · {100 * v[2]:.1f}% · %{100 * v[3]:.0f} · {v[4]}" for v in S.values()) + f" | {'✔' if g else '✘'} |")
 yaz(f"\n**Sonuç → {'✅ HEPSİ GEÇTİ → 🆕 gölge kurulur' if HEP else '❌ geçmedi → gölge kurulmaz'}**")
-open("yeniliste2_sonuc.md", "w").write("\n".join(out) + "\n")
+open(__import__("os").environ.get("YL2_CIKTI", "yeniliste2_sonuc.md"), "w").write("\n".join(out) + "\n")
