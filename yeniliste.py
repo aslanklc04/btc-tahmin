@@ -26,7 +26,7 @@ def olay(s, L, k, H, stop=None):
     fr = FG.get(s); fon = fr[(fr.index >= gun[i0]) & (fr.index < te + pd.Timedelta(days=1))].sum() if fr is not None else 0.0
     r = -(ce / o - 1)
     if stop is not None and (Hh[s].iloc[i0:i1 + 1].dropna() >= o * (1 + stop)).any(): r = -stop - 0.002
-    net = max(r, -1.0) - UC + fon
+    net = max(max(r, -1.0) - UC + fon, -1.0)                                                    # 1× short: fonlama dahil kayıp en çok −%100 (tasfiye)
     em = ESKI.iloc[i0] & C.iloc[min(i1, len(gun) - 1)].notna(); mk = (C.iloc[min(i1, len(gun) - 1)][em] / O.iloc[i0][em] - 1).mean()
     return net, net + mk, fon
 AY = list(itertools.product((1, 3, 7), (7, 14, 30)))
