@@ -1,0 +1,31 @@
+== 1. ilk çalışma (başlatma)
+🆕 gölge başlatıldı: 923 mevcut sembol bilinen sayıldı
+**Durum:** bekleyen 0 · açık 0 · kapanan 0 (fonlaması kesin 0) · girişsiz 0
+== 2. bilinen'den 5 yakın coin çıkarıldı, BAŞLA 2026-09-01
+🆕 yeni listeleme: CTUSDT · 01.10.2026
+🆕 yeni listeleme: MARSCOINUSDT · 01.09.2026
+🆕 yeni listeleme: PONSUSDT · 06.09.2026
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (fonlaması kesin 3) · girişsiz 0
+**Kapananlar:** işlem başı ort. +9.8% · medyan +56.4% · kârlı %67 · −%50'den kötü %33
+== 3. ikinci kez (değişmemeli)
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (fonlaması kesin 3) · girişsiz 0
+**Kapananlar:** işlem başı ort. +9.8% · medyan +56.4% · kârlı %67 · −%50'den kötü %33
+== kayıt
+s,L,giris_t,giris,cikis_t,cikis,fiyat_net,fon,net,durum
+MARSCOINUSDT,2026-09-01 00:00:00+00:00,2026-09-02 00:00:00+00:00,0.06655,2026-10-01 00:00:00+00:00,0.12745,-0.918101427498122,0.019627179999999998,-0.898474247498122,kapalı
+PONSUSDT,2026-09-06 00:00:00+00:00,2026-09-07 00:00:00+00:00,0.8503,2026-10-06 00:00:00+00:00,0.3959,0.5313996236622368,0.03264908,0.5640487036622368,kapalı
+CTUSDT,2026-10-01 00:00:00+00:00,2026-10-02 00:00:00+00:00,0.49211,2026-10-31 00:00:00+00:00,0.14331,0.7057846213245006,-0.07772176000000001,0.6280628613245006,kapalı
+== özet
+# 🆕 Yeni listeleme short — GÖLGE (gözlem amaçlı; gerçek işlem ve mesaj yok)
+_05.11.2026 23:23 · başlangıç 01.09.2026 · kural: listelemeden 1 gün sonra short, 30 gün, 1×, her işleme %2 · ücret+kayma %0,30 + gerçek fonlama_
+_⚠️ Geçmiş testi tam geçmedi (pozitif ay oranı şartı 4 hücrede %42–50); bu yüzden yalnız gözlem. Fonlaması kesinleşmemiş işlemler 'geçici'._
+
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (fonlaması kesin 3) · girişsiz 0
+**Kapananlar:** işlem başı ort. +9.8% · medyan +56.4% · kârlı %67 · −%50'den kötü %33
+| ay | işlem | aylık (%2'lik payla) |
+|---|---|---|
+| 2026-10 | 3 | +0.6% |
+
+Toplam +0.6% · pozitif ay %100 · en kötü ay +0.6% · en büyük düşüş 0.0%
+
+_Karar için ≥ 3 ay ve ≥ 40 kapanan işlem gerekiyor (şu an 1 ay · 3 işlem)._
