@@ -7,7 +7,11 @@ def liste(prefix, dizin=True):
     while True:
         p = {"prefix": prefix, "marker": mark}
         if dizin: p["delimiter"] = "/"
-        x = ET.fromstring(ses.get(S3, params=p, timeout=60).content); ns = {"s": x.tag.split("}")[0][1:]}
+        for i in range(6):
+            try: x = ET.fromstring(requests.get(S3, params=p, timeout=60).content); break
+            except Exception: time.sleep(3 * (i + 1))
+        else: return out
+        ns = {"s": x.tag.split("}")[0][1:]}
         ks = [e.text for e in x.findall("s:CommonPrefixes/s:Prefix", ns)] if dizin else [e.text for e in x.findall("s:Contents/s:Key", ns)]
         out += ks; tr = x.find("s:IsTruncated", ns)
         if tr is None or tr.text != "true" or not ks: return out
@@ -15,12 +19,12 @@ def liste(prefix, dizin=True):
 SYM = [p.rstrip("/").split("/")[-1] for p in liste("data/futures/um/monthly/klines/")]
 SYM = [s for s in SYM if s.endswith("USDT") and "_" not in s]; print("sembol", len(SYM), flush=True)
 def zipcsv(url):
-    for i in range(3):
+    for i in range(5):
         try:
-            r = ses.get(url, timeout=60)
+            r = requests.get(url, timeout=60)
             if r.status_code == 404: return None
             z = zipfile.ZipFile(io.BytesIO(r.content)); return pd.read_csv(z.open(z.namelist()[0]), header=None)
-        except Exception: time.sleep(2)
+        except Exception: time.sleep(2 * (i + 1))
     return None
 def sembol(s):
     ks = [k for k in liste(f"data/futures/um/monthly/klines/{s}/1d/", False) if k.endswith(".zip")]
@@ -32,7 +36,7 @@ def sembol(s):
     if len(f):
         f = f[pd.to_numeric(f[0], errors="coerce").notna()].iloc[:, [0, 2]]; f.columns = ["t", "fr"]; f = f.astype(float); f["s"] = s
     return k, f
-with ThreadPoolExecutor(24) as ex: R = list(ex.map(sembol, SYM))
+with ThreadPoolExecutor(12) as ex: R = list(ex.map(sembol, SYM))
 K = pd.concat([r[0] for r in R if len(r[0])]); F = pd.concat([r[1] for r in R if len(r[1])])
 K["t"] = pd.to_datetime(K.t, unit="ms", utc=True); F["t"] = pd.to_datetime(F.t, unit="ms", utc=True)
 K.to_parquet("yeniliste_mum.parquet", index=False); F.to_parquet("yeniliste_fon.parquet", index=False)
