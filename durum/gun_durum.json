@@ -5,12 +5,6 @@
 {
 "t": "03.11 02:04",
 "s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "03.11 02:04",
-"s": "panel",
 "e": "🧪 24 saat: OP (z -5.3 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "05.11 20:04",
 "s": "panel",
 "e": "🧪 24 saat: BTC (z -0.6)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "05.11 21:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⛔ z -1.7",
 "k": "gitmedi — yalnız panel"
 }
 ],
