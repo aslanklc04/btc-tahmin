@@ -1,17 +1,367 @@
-alexfare/pyobd False 2026-11-05T12:16:09Z 3707 0
-ExaDev/pipewright False 2026-11-03T18:30:01Z 762 0
-obd-car-doctor/obd-auto-doctor False 2026-10-17T05:42:20Z 4096 0
-basharawwad/streaming-asr-hands-on False 2026-10-05T20:39:40Z 1102 0
-mikevocalz/lightcycle False 2026-10-01T23:10:45Z 49889 0
-gustavozacarias04/obd2-dashboard-android False 2026-09-20T15:12:54Z 43 0
-mizcausevic-dev/kg-cui-vault-host False 2026-08-10T11:37:53Z 31 0
-Omni-Chain-Protocols/emissions-adapters False 2026-04-01T12:29:40Z 10447 0
-doomspork/emissions False 2026-03-07T22:01:09Z 1239 2
-Wynergy-Fibre-Solutions/wfsl-admission-guard False 2026-01-26T02:25:05Z 11578 0
-priyasrivastava12/unified-observability-sdk False 2025-12-11T16:03:35Z 24 0
-Define101/emissions-adapters False 2024-05-23T13:38:58Z 9685 0
-0xnirmal/emissions-adapters False 2023-03-17T17:16:49Z 8750 0
-FERK14/Conso-energie-prediction False 2022-09-20T11:49:13Z 18684 0
-Nimba-Algo-Trading/GAZ-NEURONAL-EN-CROISSANCE-IMPL-MENTATION-EN-MQL5 False 2021-12-12T08:36:48Z 11 0
-Soca2015/Projet-4--Open-Class-Rooms False 2021-05-03T14:30:19Z 5912 0
-== wayback
+== son commit
+2026-03-21 11:47:32 -0400 Update protocolIds (#225)
+== dosyalar
+README.md
+adapters
+no-emissions
+package.json
+pnpm-lock.yaml
+protocols
+runner
+test-clickhouse.ts
+tsconfig.json
+types
+utils
+wipProtocols
+== package.json
+{
+  "name": "emissions-adapters",
+  "scripts": {
+    "test": "mkdir -p utils/testCharts && ts-node utils/test.ts",
+    "store-emissions": "npx ts-node --logError --transpile-only runner/storeEmission.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.911.0",
+    "@clickhouse/client": "^1.11.1",
+    "@defillama/sdk": "^5.0.126",
+    "@supercharge/promise-pool": "^3.2.0",
+    "axios": "^1.3.4",
+    "chart.js": "^3.5.1",
+    "chartjs-node-canvas": "^4.1.6",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.5.0",
+    "form-data": "^4.0.0",
+    "graphql-request": "^5.2.0",
+    "node-fetch": "2.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "@types/node-fetch": "^2.6.3",
+    "ts-node": "^10.9.1"
+  }
+}
+== README
+# Emissions Adapters Guide:
+https://docs.llama.fi/list-your-project/emissions-dashboard
+
+## Testing
+```
+npm t [fileName]
+
+# Example
+npm t protocols/gearbox.ts
+```
+
+## Further Questions:
+Ask in our Discord, give us a pat on the head and we wont bite.
+== protocols
+310
+SmarDex.ts aave.ts abracadabra.ts acala.ts across.ts aerodrome.ts aethir.ts aevo.ts agility-lsd.ts alexlab.ts altlayer.ts ankr.ts apecoin.ts api3.ts aptos.ts apwine.ts arbitrum-exchange.ts arbitrum.ts arkham.ts aster.ts asymetrix.ts aura.ts avax.ts axelar.ts axs.ts babylon.ts balancer.ts baseswap.ts basic.ts beam.ts benddao.ts benqi.ts berachain.ts biconomy.ts bigtime.ts bitcoin.ts bittensor.ts blackhole.ts blast.ts bluefin.ts 
+== arbitrum-exchange.ts
+import { manualCliff, manualLinear } from "../adapters/manual";
+import { Protocol } from "../types/adapters";
+import { periodToSeconds } from "../utils/time";
+
+const start = 1678975200;
+const qty = 20000000;
+
+const arbidex: Protocol = {
+  "Initial Mint": manualCliff(start, qty * 0.029),
+  Treasury: manualLinear(start, start + periodToSeconds.year * 2, qty * 0.05),
+  "Liquidity Incentives": manualLinear(
+    start,
+    start + periodToSeconds.month * 36,
+    qty * 0.871,
+  ),
+  Team: manualLinear(start, start + periodToSeconds.year * 2, qty * 0.05),
+  meta: {
+    notes: [
+      "Initial Mint was composed by : Seed Investors (36.5%), Pre Sale (56.04%), Treasury (30%), Team (30%)",
+    ],
+    token: "arbitrum:0xD5954c3084a1cCd70B4dA011E67760B8e78aeE84",
+    sources: [
+      "https://arbitrum-exchange.gitbook.io/arbitrumdex/usdarx-tokenomics/usdarx-token",
+    ],
+    protocolIds: ["2685"],
+  },
+  categories: {
+    publicSale: ["Initial Mint"],
+    farming: ["Liquidity Incentives"],
+    insiders: ["Team"],
+    noncirculating: ["Treasury"],
+  },
+};
+
+export default arbidex;
+== aptos.ts
+import { Protocol } from "../types/adapters";
+import { manualCliff, manualStep } from "../adapters/manual";
+import { periodToSeconds } from "../utils/time";
+
+const totalQty = 1000000000;
+const start = 1662940800;
+const aptos: Protocol = {
+  community: [
+    manualCliff(start, totalQty * 0.125),
+    manualStep(
+      start,
+      periodToSeconds.month,
+      120,
+      (510217359.767 - totalQty * 0.125) / 120,
+    ),
+  ],
+  "core contributors": [
+    manualStep(
+      start + periodToSeconds.month * 13,
+      periodToSeconds.month,
+      6,
+      (totalQty * 0.19 * 3) / 48,
+    ),
+    manualStep(
+      start + periodToSeconds.month * 19,
+      periodToSeconds.month,
+      30,
+      (totalQty * 0.19) / 48,
+    ),
+  ],
+  foundation: [
+    manualCliff(start, totalQty * 0.005),
+    manualStep(start, periodToSeconds.month, 120, (totalQty * 0.16) / 120),
+  ],
+  investors: [
+    manualStep(
+      start + periodToSeconds.month * 13,
+      periodToSeconds.month,
+      6,
+      (134782640.233 * 3) / 48,
+    ),
+    manualStep(
+      start + periodToSeconds.month * 19,
+      periodToSeconds.month,
+      30,
+      134782640.233 / 48,
+    ),
+  ],
+  meta: {
+    sources: ["https://aptosfoundation.org/currents/aptos-tokenomics-overview"],
+    token: "coingecko:aptos",
+    protocolIds: ["2725"],
+  },
+  categories: {
+    noncirculating: ["foundation","community"],
+    privateSale: ["investors"],
+    insiders: ["core contributors"],
+  },
+};
+export default aptos;
+== optimism.ts
+import { manualCliff, manualLinear, manualStep } from "../adapters/manual";
+import { Protocol } from "../types/adapters";
+import { periodToSeconds } from "../utils/time";
+
+const qty = 4294967296;
+
+const optimism: Protocol = {
+  "Ecosystem Fund": [
+    manualLinear("2022-06-01", "2023-04-31", 94175479),
+    manualLinear("2023-05-01", "2024-04-31", 90e6),
+    manualLinear("2024-05-01", "2025-04-31", 94e6),
+    manualLinear("2025-05-01", "2026-04-31", 108e6),
+  ],
+  "Retroactive Public Goods Funding": [
+    manualLinear("2022-06-01", "2023-04-31", 3710574),
+    manualLinear("2023-05-01", "2024-04-31", 9e7),
+    manualLinear("2024-05-01", "2025-04-31", 12e7),
+    manualLinear("2025-05-01", "2026-04-31", 42e7),
+  ],
+  Airdrops: [
+    manualCliff("2022-06-01", qty * 0.05),
+    manualCliff("2023-02-09", 11742277),
+  ],
+  Team: [
+    manualCliff("2023-05-31", qty * 0.19 * 0.25),
+    manualStep(
+      "2023-05-31",
+      periodToSeconds.month,
+      36,
+      (qty * 0.19 * 0.75) / 36,
+    ),
+  ],
+  Investors: [
+    manualCliff("2023-05-31", qty * 0.17 * 0.25),
+    manualStep(
+      "2023-05-31",
+      periodToSeconds.month,
+      36,
+      (qty * 0.17 * 0.75) / 36,
+    ),
+  ],
+  meta: {
+    notes: [
+      `Total supply inflates at 2% per year but the documentation doesnt describe how they're allocated.`,
+      `35% of initial total supply has not been allocated by the foundation.`,
+      `Ecosystem fund and Retroactive Public Goods Funding unlocks have been estimated in the referenced spreadsheet.`,
+      `Futures airdrops (14%) are unpredictable and have therefore been excluded from analysis.`,
+    ],
+    token: "optimism:0x4200000000000000000000000000000000000042",
+    sources: [
+      "https://docs.google.com/spreadsheets/d/1qVMhLmmch3s6XSbiBe8hgD4ntMkPIOhc1WrhsYsQc7M/edit#gid=1283480580",
+      "https://community.optimism.io/docs/governance/allocations/",
+      "https://discord.com/channels/667044843901681675/667044844366987296/1111586687605297152",
+    ],
+    protocolIds: ["2967"],
+  },
+  categories: {
+    airdrop: ["Airdrops"],
+    noncirculating: ["Retroactive Public Goods Funding","Ecosystem Fund"],
+    privateSale: ["Investors"],
+    insiders: ["Team"],
+  },
+};
+
+export default optimism;
+== types
+adapters.ts
+export type Exports = {
+  timestampFrom: number;
+  sources: string[];
+  vestingSchedule: Allocation;
+  comments: string | undefined;
+  cap: number | Function | undefined;
+};
+export type Contracts = { [tag: string]: string };
+export type Allocation = {
+  insiders: SubAllocation[];
+  community: SubAllocation[];
+};
+
+export type SubAllocation = {
+  name: string;
+  total: number;
+  from?: number;
+  until?: number;
+  schedule: any;
+};
+export type AdapterResult = {
+  type: "cliff" | "linear" | "step";
+  start?: number | string;
+  end?: number | string;
+  amount: number;
+  steps?: number;
+  cliff?: number;
+  stepDuration?: number | string;
+  receiver?: string;
+  token?: string;
+  confirmed?: boolean;
+  dateFormat?: string;
+};
+export type RawResult = {
+  timestamp: number;
+  change: number;
+  continuousEnd: number | undefined;
+};
+export type StepAdapterResult = {
+  start: number;
+  stepDuration: number;
+  steps: number;
+  amount: number;
+  type: "step";
+  dateFormat?: string;
+};
+export type CliffAdapterResult = {
+  type: "cliff";
+  start: number;
+  amount: number;
+  dateFormat?: string;
+  isUnlock?: boolean;
+};
+export type LinearAdapterResult = {
+  type: "linear";
+  start: number;
+  end: number;
+  amount: number;
+  dateFormat?: string;
+  isUnlock?: boolean;
+};
+export type ChartData = {
+  timestamps: number[];
+  unlocked: number[];
+  rawEmission: number[];
+  burned: number[];
+  isContinuous: boolean;
+  apiData?: ApiChartData[];
+};
+export type ApiChartData = {
+  timestamp: number;
+  unlocked: number;
+  rawEmission: number;
+  burned: number;
+  label?: string;
+};
+export type TransposedApiChartData = {
+  label: string;
+  data: any;
+};
+export type ChartYAxisData = {
+  start: number;
+  increment: number;
+  data: number[];
+  end: number;
+};
+export type ProtocolV1 = {
+  [section: string]: any;
+  documented?: Documented;
+  meta: Metadata;
+  categories: { [key in SectionType]?: string[] | undefined };
+};
+
+export interface ProtocolV2 extends Record<string, any> {
+  meta: MetadataV2;
+  categories: Categories;
+  documented?: Documented;
+}
+
+export type Protocol = ProtocolV1 | ProtocolV2;
+export type Documented = {
+  replaces: string[];
+  [section: string]: any;
+};
+export type IncompleteSection = {
+  key: string;
+  allocation: number | undefined;
+  lastRecord: any;
+  skipExtrapolation?: boolean;
+};
+export type SectionType =
+  | "publicSale"
+  | "privateSale"
+  | "insiders"
+  | "airdrop"
+  | "farming"
+  | "noncirculating"
+  | "liquidity"
+  | "staking";
+export type RawSection = {
+== utils
+block.ts
+categoryData.ts
+chainCalls.ts
+chart.ts
+clickhouse.ts
+constants.ts
+convertToChartData.ts
+convertToRawData.ts
+discord.ts
+dune.ts
+env.ts
+events.ts
+fetchURL.ts
+futures.ts
+queries.ts
+sendToImageHost.ts
+template-v2.html
+template.html
+test.ts
+time.ts
+v2-chart-generator.ts
+v2-processor.ts
