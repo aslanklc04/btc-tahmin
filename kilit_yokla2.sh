@@ -1,4 +1,5 @@
 set +e
-echo "== github arama (ham)"; curl -s "https://api.github.com/search/repositories?q=emissions-adapters" | head -c 1500; echo
-echo "== wayback cdx emissions"; curl -s "https://web.archive.org/cdx/search/cdx?url=api.llama.fi/emissions&output=json&limit=50" | head -c 3000; echo
-echo "== wayback cdx emission/*"; curl -s "https://web.archive.org/cdx/search/cdx?url=api.llama.fi/emission/*&output=json&limit=30&collapse=urlkey" | head -c 3000; echo
+curl -s "https://api.github.com/search/repositories?q=emissions-adapters&per_page=50" | python3 -c "
+import json,sys; d=json.load(sys.stdin)
+for r in sorted(d['items'], key=lambda r: r['pushed_at'], reverse=True): print(r['full_name'], r['fork'], r['pushed_at'], r['size'], r['stargazers_count'])"
+echo "== wayback"; curl -s -m 60 "https://web.archive.org/cdx/search/cdx?url=api.llama.fi/emissions&limit=20" | head -20
