@@ -24,3 +24,9 @@ aşağıdaki testler daha önce bakılmamış kesitlerle ve zorlaştırılmış 
   P6 komşu ayarlar k 3 · H 30, k 1 · H 14, k 3 · H 14 (her biri ayrı) · P7 P1 + P2 birlikte.
 - **Karar:** hepsi geçerse 🆕 gölge (mesajsız) kurulur: her yeni Binance USDT-M perpetual listelemesi kaydedilir, L+1 00:00 UTC açılışında kâğıt üstü short, 30 gün; aylık karne.
   Canlı karar şartı gölgede önceden: ≥ 3 ay ve ≥ 40 kapanmış işlemde aynı portföy şartları (aylık) + işlem başı ort. > 0.
+
+## Ek 2 (05.11.2026) — VERİ DÜZELTMESİ (sonuçtan bağımsız): hisse/emtia/döviz kontratları ayıklanır
+Gölge kurulurken Binance'in sembol bilgisi (fapi exchangeInfo, Neon /bilgi) çekildi: 942 kontratın 235'i TRADIFI_PERPETUAL (hisse, emtia, döviz; çoğu 2026'da listelendi).
+Bunlar "yeni coin" değil; listeleme sonrası arz/heves düşüşü mekanizması onlarda yok → olaylardan çıkarılır: yalnız underlyingType = COIN ve contractType = PERPETUAL.
+(Kapatılmış eski kontratlar bilgide yok; TRADIFI 2025-12'den önce yoktu, o yüzden eski kapatılanlar coin sayılır.) Aynı kurallar ve şartlarla Ek 1 testleri yeniden çalıştırılır;
+önceki (kirli) sonuçlar dosyada kalır, yerine geçen sonuç ayrıca yazılır.
