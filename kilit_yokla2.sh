@@ -1,5 +1,9 @@
 set +e
-curl -s "https://api.github.com/search/repositories?q=emissions-adapters&per_page=50" | python3 -c "
-import json,sys; d=json.load(sys.stdin)
-for r in sorted(d['items'], key=lambda r: r['pushed_at'], reverse=True): print(r['full_name'], r['fork'], r['pushed_at'], r['size'], r['stargazers_count'])"
-echo "== wayback"; curl -s -m 60 "https://web.archive.org/cdx/search/cdx?url=api.llama.fi/emissions&limit=20" | head -20
+GIT_TERMINAL_PROMPT=0 git clone -q --depth 1 https://github.com/Omni-Chain-Protocols/emissions-adapters.git ea && cd ea
+echo "== son commit"; git log -1 --format="%ci %s"
+echo "== dosyalar"; ls; echo "== package.json"; cat package.json | head -50
+echo "== README"; head -80 README.md
+echo "== protocols"; ls protocols | wc -l; ls protocols | head -40 | tr '\n' ' '; echo
+for p in arbitrum aptos optimism; do f=$(ls protocols | grep -i "^$p" | head -1); echo "== $f"; cat protocols/$f | head -70; done
+echo "== types"; ls types; sed -n 1,120p types/adapters.ts 2>/dev/null
+echo "== utils"; ls utils | head -40
