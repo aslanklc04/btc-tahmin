@@ -1,14 +1,39 @@
-== arama
+== github arama (ham)
+{
+  "total_count": 16,
+  "incomplete_results": false,
+  "items": [
+    {
+      "id": 616047738,
+      "node_id": "R_kgDOJLgkeg",
+      "name": "emissions-adapters",
+      "full_name": "0xnirmal/emissions-adapters",
+      "private": false,
+      "owner": {
+        "login": "0xnirmal",
+        "id": 12548832,
+        "node_id": "MDQ6VXNlcjEyNTQ4ODMy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/12548832?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/0xnirmal",
+        "html_url": "https://github.com/0xnirmal",
+        "followers_url": "https://api.github.com/users/0xnirmal/followers",
+        "following_url": "https://api.github.com/users/0xnirmal/following{/other_user}",
+        "gists_url": "https://api.github.com/users/0xnirmal/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/0xnirmal/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/0xnirmal/subscriptions",
+        "organizations_url": "https://api.github.com/users/0xnirmal/orgs",
+        "repos_url": "https://api.github.com/users/0xnirmal/repos",
+        "events_url": "https://api.github.com/users/0xnirmal/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/0xnirmal/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/0xnirmal/emissions-adapters",
+      "description": null,
+      "fork": false
+== wayback cdx emissions
 
-== DefiLlama/emissions-adapters
-remote: Repository not found.
-fatal: repository 'https://github.com/DefiLlama/emissions-adapters/' not found
-== DefiLlama/emissions
-remote: Repository not found.
-fatal: repository 'https://github.com/DefiLlama/emissions/' not found
-== DefiLlama/unlocks
-remote: Repository not found.
-fatal: repository 'https://github.com/DefiLlama/unlocks/' not found
-== DefiLlama/emission-adapters
-remote: Repository not found.
-fatal: repository 'https://github.com/DefiLlama/emission-adapters/' not found
+== wayback cdx emission/*
+
