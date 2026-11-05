@@ -13,7 +13,7 @@ jobs:
         with: {ref: arastirma3}
       - run: |
           pip install -q requests
-          python kilit_yokla.py > kilit_yokla_log.txt 2>&1; cat kilit_yokla_log.txt
+          python kilit_yokla.py > kilit_yokla_log.txt 2>&1 || true; cat kilit_yokla_log.txt
           git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
           git add kilit_yokla_log.txt; git commit -m "kilit yoklama" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
