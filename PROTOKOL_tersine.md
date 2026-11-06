@@ -13,3 +13,9 @@ pompa50/pompaonce ile aynı (682 coin vadelisi, günlük, kapatılanlar dahil, h
 - **"Bulundu" (S ve L ayrı):** seçilen ayar 2024, 2025, 2026'nın HER BİRİNDE ≥ 30 olay · ort. net ≥ +%1 · medyan > 0 · kazanma ≥ %55 · ≤ −%50 oranı ≤ %10 ·
   aynı coin'lerde rastgele (olay olmayan) günlerde aynı yönlü aynı süreli işlemlerin (×200) ort. net %95'inden yüksek.
 - Bilgi: tüm ayarlar tablosu, en kötü işlem, ortalama fonlama, %2'lik portföyle yıllık toplam / en kötü ay.
+
+## Ek 1 (06.11.2026) — S (yükselişten sonra short) GEÇTİ: seçilen ayar +%50 · H 1 · stop yok. Sağlamlık testleri (hesaptan önce)
+2024, 2025, 2026 her birinde (şart: ort. net > 0 ve kazanma ≥ %55; R7 hariç):
+- R1 coin yarısı 0 · R2 coin yarısı 1 (md5) · R3 en çok kazandıran 5 işlem çıkarılmış · R4 kayma %0,30/taraf · R5 ödenen fonlama ×1,5 · R6 komşu ayarlar: eşik +%40 ve +%60, H 2 (ayrı ayrı) ·
+- R7 portföy (her işleme %2, aynı gün en çok 10 işlem): yıllık toplam > 0 · en kötü ay ≥ −%10 · pozitif ay ≥ %55.
+- Hepsi geçerse: önce GÖLGE (mesajsız, kâğıt üstü) — canlı para için en az 2 ay ve 60 işlem gölge şartı: aynı R7 ölçütleri + işlem başı ort. > 0.
