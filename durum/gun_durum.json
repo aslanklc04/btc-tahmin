@@ -3,12 +3,6 @@
 "giden": 1,
 "log": [
 {
-"t": "04.11 16:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: AAVE (z +3.2, 24 saat)",
-"k": "gönderildi"
-},
-{
 "t": "04.11 17:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
@@ -240,6 +234,12 @@
 "t": "06.11 14:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Çok güçlü ↑ · prim ⚠️ z -0.7",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "06.11 16:03",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.8",
 "k": "gitmedi — yalnız panel"
 }
 ],
