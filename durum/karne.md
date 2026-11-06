@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 06.11.2026 18:04
+# 📒 Canlı karne — 06.11.2026 19:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 99 | %70 | 0.98% | 97.2% | 1 | 99 · %74 · 0.99% | %62 · %67 |
+| ✅ ana (gönderildi) | 99 | %70 | 0.98% | 97.2% | 2 | 99 · %74 · 0.99% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 344 | %71 | 1.11% | 382.1% | 1 | 344 · %78 · 0.54% | %60 · %65 |
 | panel (gönderilmedi) | 456 | %55 | 0.30% | 137.9% | 10 | 458 · %60 · 0.20% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 26 | %42 | -0.73% | -19.0% | 1 | 26 · %65 · -0.24% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -23,10 +23,10 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 💵 ABD alıyor | 8 · %38 | 18 | %44 | 1.21% | 21.7% | — | ⚠️ orta |
 | 🔸 yedek | 🔇/🪙 coin tek | 1 · %0 | 8 | %62 | 0.69% | 5.5% | — | ✅ iyi |
 | 🔸 yedek | 🧪 24 s ana coin | 3 · %67 | 6 | %33 | -1.38% | -8.3% | — | ❌ kötü |
-| panel | ₿ BTC saatlik / ⭐ / A | 53 · %55 | 206 | %50 | 0.05% | 9.8% | — | ⚠️ orta |
+| panel | ₿ BTC saatlik / ⭐ / A | 52 · %54 | 206 | %50 | 0.05% | 9.8% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 0 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
-| panel | 🔇/🪙 coin tek | 16 · %69 | 82 | %60 | 0.26% | 21.4% | %55 · %53 | ✅ iyi · testle uyumlu |
+| panel | 🔇/🪙 coin tek | 15 · %73 | 82 | %60 | 0.26% | 21.4% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 4 · %0 | 13 | %46 | -0.33% | -4.3% | — | ❌ kötü |
 | panel | 🤝 BTC ile ortak | 17 · %71 | 93 | %68 | 0.86% | 80.1% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🧪 24 s ana coin | 10 · %60 | 29 | %52 | 1.18% | 34.2% | %55 · %53 | ✅ iyi · testle uyumlu |
