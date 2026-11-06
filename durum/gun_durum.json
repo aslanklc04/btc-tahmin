@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "04.11 09:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: INJ (z +3.8, 24 saat), BTC (z +3.6, 24 saat)",
-"k": "gönderildi"
-},
-{
-"t": "04.11 09:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "04.11 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 04.11 09:00 · $77,748",
 "k": "gönderildi"
@@ -241,6 +229,18 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: AUDIO (z +6.5)",
 "k": "gönderildi"
+},
+{
+"t": "06.11 12:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↑ · prim ⚠️ z -0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "06.11 12:04",
+"s": "panel",
+"e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ⚠️ z -0.8",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
