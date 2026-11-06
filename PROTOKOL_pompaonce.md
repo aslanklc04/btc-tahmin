@@ -16,3 +16,9 @@ Her özellik için Y / D / K medyanları ve "Y'de %X, K'de %Y" oranları; dönem
 - Bulunan olursa işlem testi ayrıca yazılır (bu protokol işlem kuralı koymaz).
 ## 3. Büyütenler — Y içinde yükselişin boyu (en yüksek / açılış) ile özelliklerin Spearman ilişkisi, dönem ayrı (bilgi).
 ## 4. Sonrası — Y gününün kapanışından sonraki 1 / 3 / 7 gün getirisi (medyan, pozitif oranı), dönem ayrı (bilgi).
+
+## Ek 1 (06.11.2026, kullanıcı: "%30'dan fazla yükselenleri, normal en fazla %10 yükselenlerden ayıran ne?") — hesaptan önce
+- Günlük değişim r = C[t+1] / C[t] − 1 (Binance kazananlar listesi gibi). **B30:** r ≥ +%30 · **N10:** 0 < r ≤ +%10 (normal yükselen) · karşılaştırma için **Ç30:** r ≤ −%30.
+- Her özellik (t kapanışında bilinen, bölüm 1'dekiler; "aynı gün Y sayısı" hariç) için dönem dönem: B30 / N10 medyanları ve ayırma gücü AUC (rastgele bir B30'un özelliği rastgele bir N10'dan büyük olma olasılığı).
+- **"Ayırt edici":** dört dönemin HER BİRİNDE |AUC − 0,5| ≥ 0,10 ve aynı yönde. Aynı ölçü B30 ↔ Ç30 için de verilir (yön ayrımı); orada da ayırt edici çıkarsa "yön işareti" sayılır.
+- Bilgi: tüm özelliklerle HistGradientBoosting yıllık yürüyen test AUC (B30 ↔ N10 ve B30 ↔ Ç30).
