@@ -15,7 +15,7 @@ def islem(j, g, yon, H, stop):
     """g: olay günü satırı · yon −1 short, +1 long → (net, çıkış satırı) | None"""
     i0, i1 = g + 1, g + H
     if i1 >= n or not np.isfinite(Ov[i0, j]): return None
-    pe = Ov[i0, j] * (1 - 0.001 * yon)                                                             # kayma aleyhe
+    pe = Ov[i0, j] * (1 + 0.001 * yon)                                                             # kayma aleyhe (06.11 düzeltme: işaret ters yazılmıştı)
     net = None
     for i in range(i0, i1 + 1):
         if stop is not None:
@@ -24,7 +24,7 @@ def islem(j, g, yon, H, stop):
     if net is None:
         cc = Cv[i0:i1 + 1, j]; ok = np.where(np.isfinite(cc))[0]
         if not len(ok): return None
-        ex = i0 + ok[-1]; net = yon * (cc[ok[-1]] / pe - 1)
+        ex = i0 + ok[-1]; net = yon * (cc[ok[-1]] * (1 - 0.001 * yon) / pe - 1)                       # çıkışta da kayma
     fon = Fv[i0:ex + 1, j].sum() * (-yon)                                                          # short pozitif fonlamada alır
     return max(max(net, -1.0) - 0.001 + fon, -1.0), ex, fon
 def calistir(yon, esik, H, stop, rng=None, gunler=None):
