@@ -75,7 +75,7 @@ X["B30"], X["N10"], X["C30"] = (X.gd >= 0.30), (X.gd > 0) & (X.gd <= 0.10), (X.g
 yaz("| dönem | B30 | N10 | Ç30 |"); yaz("|---|---|---|---|")
 for d in DON: x = X[X.don == d]; yaz(f"| {d} | {int(x.B30.sum())} | {int(x.N10.sum()):,} | {int(x.C30.sum())} |")
 def auc(a, b):
-    a, b = a.dropna(), b.dropna()
+    a, b = a.replace([np.inf, -np.inf], np.nan).dropna(), b.replace([np.inf, -np.inf], np.nan).dropna()
     if len(a) < 20 or len(b) < 20: return np.nan
     return roc_auc_score(np.r_[np.ones(len(a)), np.zeros(len(b))], np.r_[a.values, b.values])
 FE5 = [f for f in FC if not f.startswith("aynı gün")]; AY = {"N10": [], "C30": []}
@@ -90,7 +90,7 @@ for kars, ad in (("N10", "normal yükselen (≤ +%10)"), ("C30", "−%30 düşen
         ok = all(np.isfinite(u) and abs(u - 0.5) >= 0.10 for u in au) and (all(u > 0.5 for u in au) or all(u < 0.5 for u in au))
         if ok: AY[kars].append(f)
         yaz(f"| {f} | " + " | ".join(cells) + f" | {'✅' if ok else ''} |")
-    XX = X[X.B30 | X[kars]].copy(); XX["yy"] = XX.B30.astype(int); r = []
+    XX = X[X.B30 | X[kars]].copy().replace([np.inf, -np.inf], np.nan); XX["yy"] = XX.B30.astype(int); r = []
     for yl in (2024, 2025, 2026):
         tr, te = XX[XX.t.dt.year < yl], XX[XX.t.dt.year == yl]
         if te.yy.nunique() < 2: continue
