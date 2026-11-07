@@ -1,13 +1,7 @@
 {
 "gun": "2026-11-07",
-"giden": 4,
+"giden": 5,
 "log": [
-{
-"t": "05.11 20:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↑ · prim ⚠️ z -0.6",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "05.11 20:04",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "07.11 13:04",
 "s": "🔸 yedek 📋 panelden",
 "e": "🧪 24 saat: BTC (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "07.11 14:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: RARE (z +2.1)",
 "k": "gönderildi"
 }
 ],
