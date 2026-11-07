@@ -19,3 +19,12 @@ pompa50/pompaonce ile aynı (682 coin vadelisi, günlük, kapatılanlar dahil, h
 - R1 coin yarısı 0 · R2 coin yarısı 1 (md5) · R3 en çok kazandıran 5 işlem çıkarılmış · R4 kayma %0,30/taraf · R5 ödenen fonlama ×1,5 · R6 komşu ayarlar: eşik +%40 ve +%60, H 2 (ayrı ayrı) ·
 - R7 portföy (her işleme %2, aynı gün en çok 10 işlem): yıllık toplam > 0 · en kötü ay ≥ −%10 · pozitif ay ≥ %55.
 - Hepsi geçerse: önce GÖLGE (mesajsız, kâğıt üstü) — canlı para için en az 2 ay ve 60 işlem gölge şartı: aynı R7 ölçütleri + işlem başı ort. > 0.
+
+## Ek 2 (07.11.2026) — Gölge kararı
+Ek 1 sonucu: 10 testin 7'si geçti (R1 coin yarısı 0 · 2025, R6b eşik +%60 · 2024, R7 2026 pozitif ay %50 kaldı) → kural gereği "gölge kurulur" şartı sağlanmadı.
+Kullanıcı (07.11) kararı Claude'a bıraktı: risk ve mesaj içermediği için GÖZLEM AMAÇLI gölge kurulur ve kayıtlarda bu durum yazılır.
+- Gölge kuralı (değişmez): günlük değişim (C[g]/C[g−1] − 1) ≥ +%50 olan COIN perpetual'lar (Neon /bilgi; hisse/emtia/döviz hariç) → g+1 açılışında kâğıt üstü short
+  (kayma %0,10 aleyhe), g+1 kapanışında çıkış (kayma %0,10), ücret %0,05 + %0,05, gerçek fonlama (aylık arşivle kesinleşir), 1×, her işleme %2; aynı gün en çok 10 işlem
+  (en yüksek günlük değişimden başlayarak — karar anında bilinen sıra).
+- Canlı para şartı: ≥ 2 ay ve ≥ 60 kapanan işlem · toplam > 0 · en kötü ay ≥ −%10 · pozitif ay ≥ %55 · işlem başı ort. > 0.
+- Not: Ek 1 R7'de "günde en çok 10" seçimi sonuca göre (en kötü 10) yapılmıştı — kötümser ama gerçekçi değil; gölgede karar anında bilinen sıra kullanılır.
