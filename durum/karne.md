@@ -1,4 +1,4 @@
-# 📒 Canlı karne — 07.11.2026 04:04
+# 📒 Canlı karne — 07.11.2026 05:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 3 · %33 | 26 | %85 | 1.52% | 39.5% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 10 · %90 | 39 | %74 | 1.24% | 48.2% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 9 · %89 | 39 | %74 | 1.24% | 48.2% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 1 · %100 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 3 · %33 | 25 | %56 | 0.47% | 11.7% | %63 · %68 | ⚠️ testin altında, belirgin değil (p 0.31) |
@@ -29,7 +29,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | panel | 🔇/🪙 coin tek | 14 · %71 | 85 | %61 | 0.29% | 24.7% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 5 · %20 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
 | panel | 🤝 BTC ile ortak | 13 · %69 | 93 | %68 | 0.86% | 80.1% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 9 · %33 | 32 | %47 | 0.97% | 31.2% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.21) |
+| panel | 🧪 24 s ana coin | 8 · %25 | 32 | %47 | 0.97% | 31.2% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.21) |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
