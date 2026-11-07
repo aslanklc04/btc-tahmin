@@ -247,6 +247,13 @@ jobs:
         timeout-minutes: 10
         run: |
           if [ "$(date -u +%H)" = "10" ] || [ ! -f durum/yeniliste_bilinen.txt ]; then python yeniliste_golge.py; else echo "gunde bir (10 UTC)"; fi
+      - name: 🔄 sert yukselisten sonra short golgesi (07.11.2026; gunde bir, 10 UTC; gozlem amacli, mesaj gondermez, gercek islem yok)
+        id: yukselis
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 12
+        run: |
+          if [ "$(date -u +%H)" = "10" ] || [ ! -f durum/yukselis_son.json ]; then python yukselis_golge.py; else echo "gunde bir (10 UTC)"; fi
       - name: 📈 opsiyon piyasasi kayit (30.10.2026; 5. tur verisi; mesaj gondermez)
         id: ops
         if: always()
@@ -266,11 +273,11 @@ jobs:
         if: always()   # 25.10 denetim: önceki bir adım düşse de karne kayıtları depoya yazılsın
         run: |
           [ -f son_durum.md ] || exit 0
-          G="igne=${{ steps.igne.outcome }} borsa=${{ steps.borsa.outcome }} yon=${{ steps.yon.outcome }} teknik=${{ steps.teknik.outcome }} bist=${{ steps.bist.outcome }} opsiyon=${{ steps.ops.outcome }} yeniliste=${{ steps.yeniliste.outcome }}"
+          G="igne=${{ steps.igne.outcome }} borsa=${{ steps.borsa.outcome }} yon=${{ steps.yon.outcome }} teknik=${{ steps.teknik.outcome }} bist=${{ steps.bist.outcome }} opsiyon=${{ steps.ops.outcome }} yeniliste=${{ steps.yeniliste.outcome }} yukselis=${{ steps.yukselis.outcome }}"
           case "$G" in *failure*) printf '\n⚠️ Gölge izleme adımı hata verdi (sinyaller etkilenmez): %s\n' "$G" >> son_durum.md;; esac   # 01.11 denetim: continue-on-error hatası görünür olsun
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json durum/beklenen.csv durum/igne_golge.csv durum/igne_golge.md durum/igne_golge_durum.json durum/borsa_golge.csv durum/borsa_golge.md durum/borsa_golge_durum.json durum/yon_golge.csv durum/yon_golge.md durum/yon_golge_durum.json durum/opsiyon.csv durum/onceki_vurdu.csv durum/teknik_golge.csv durum/teknik_golge.md durum/teknik_golge_durum.json durum/bist_golge.csv durum/bist_golge.md durum/bist_golge_durum.json durum/btc_oynak.csv durum/yeniliste_golge.csv durum/yeniliste_golge.md durum/yeniliste_bilinen.txt; do git add $f 2>/dev/null || true; done
+          git add son_durum.md; git add durum/defter_kayit.csv 2>/dev/null || true; git add durum/gun_durum.json 2>/dev/null || true; for f in durum/karne_kayit.csv durum/karne.md durum/karne_durum.json durum/haftalik_rapor.md durum/d10_durum.json durum/kaynak_tazelik.json durum/panelden_dur.json durum/karne_gercek.csv durum/karne_gercek.md durum/karne_gercek_durum.json durum/beklenen.csv durum/igne_golge.csv durum/igne_golge.md durum/igne_golge_durum.json durum/borsa_golge.csv durum/borsa_golge.md durum/borsa_golge_durum.json durum/yon_golge.csv durum/yon_golge.md durum/yon_golge_durum.json durum/opsiyon.csv durum/onceki_vurdu.csv durum/teknik_golge.csv durum/teknik_golge.md durum/teknik_golge_durum.json durum/bist_golge.csv durum/bist_golge.md durum/bist_golge_durum.json durum/btc_oynak.csv durum/yeniliste_golge.csv durum/yeniliste_golge.md durum/yeniliste_bilinen.txt durum/yukselis_golge.csv durum/yukselis_golge.md durum/yukselis_son.json durum/yukselis_coin.txt; do git add $f 2>/dev/null || true; done
           git commit -m "Saatlik durum" || echo "degisiklik yok"
           ok=0; for i in 1 2 3; do git pull --rebase --autostash -X theirs && git push && ok=1 && break; sleep 5; done   # aynı saatte iki çalışma olursa panelin yenisi kalır
           [ $ok = 1 ] || { echo '::error::panel depoya gönderilemedi'; exit 1; }
