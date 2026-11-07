@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-07",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "05.11 18:04",
-"s": "🔸 yedek 📋 panelden",
-"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.6",
-"k": "gönderildi"
-},
-{
-"t": "05.11 18:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Güçlü ↑ · prim ⚠️ z -0.7",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "05.11 20:04",
 "s": "✅ ana",
@@ -241,6 +229,18 @@
 "s": "🔸 yedek 📋 panelden",
 "e": "🧪 24 saat: NEAR (z +0.2)",
 "k": "gönderildi"
+},
+{
+"t": "07.11 12:03",
+"s": "✅ ana",
+"e": "🧪 24 saat: AUDIO (z +4.6)",
+"k": "gönderildi"
+},
+{
+"t": "07.11 12:03",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
