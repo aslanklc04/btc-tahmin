@@ -1,6 +1,6 @@
-# 🧭 BTC yön gölge izleme — 06.11.2026 09:07
+# 🧭 BTC yön gölge izleme — 07.11.2026 09:08
 
-_Mesaj göndermez. Başlangıç 28.10.2026 · veri 05.11 23:00 UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → süre sonu (🔻🧮 24 s · 😨 3 g / 7 g), kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._
+_Mesaj göndermez. Başlangıç 28.10.2026 · veri 06.11 23:00 UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → süre sonu (🔻🧮 24 s · 😨 3 g / 7 g), kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._
 
 | kural | sinyal saati | sayılan işlem | biten | yön isabeti | isabet (net > 0) | işlem başı net % | araştırma 2025–26 |
 |---|---|---|---|---|---|---|---|
@@ -17,6 +17,6 @@ _Mesaj göndermez. Başlangıç 28.10.2026 · veri 05.11 23:00 UTC'ye kadar (ar�
 | 🧮 W4 | 30.10 17:00 | SAT | 77,318 | 77,570 | -0.50 |
 | 🧮 W4 | 31.10 17:00 | SAT | 77,570 | 78,111 | -0.87 |
 | 🧮 W4 | 01.11 18:00 | SAT | 77,949 | 77,124 | +0.89 |
-| 🧮 W4 | 05.11 00:00 | SAT | 80,504 | 76,088 | +5.32 |
+| 🧮 W4 | 05.11 00:00 | SAT | 80,466 | 76,050 | +5.32 |
 | 😨 korku | 30.10 00:00 | AL | 77,963 | 78,313 | +0.16 |
-| 😨 korku | 06.11 00:00 | AL | nan | — | açık |
+| 😨 korku | 06.11 00:00 | AL | 76,088 | — | açık |
