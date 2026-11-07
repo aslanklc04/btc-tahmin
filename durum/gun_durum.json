@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-07",
-"giden": 0,
+"giden": 2,
 "log": [
-{
-"t": "05.11 12:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "05.11 17:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: QI (z +2.8)",
-"k": "gönderildi"
-},
 {
 "t": "05.11 18:04",
 "s": "🔸 yedek 📋 panelden",
@@ -241,7 +229,19 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 07.11 09:00 · $76,034",
 "k": "gönderildi"
+},
+{
+"t": "07.11 11:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: SUSHI (z +2.1)",
+"k": "gönderildi"
+},
+{
+"t": "07.11 11:04",
+"s": "🔸 yedek 📋 panelden",
+"e": "🧪 24 saat: NEAR (z +0.2)",
+"k": "gönderildi"
 }
 ],
-"panelden": 0
+"panelden": 1
 }
