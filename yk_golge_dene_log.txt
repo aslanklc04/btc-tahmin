@@ -1,0 +1,63 @@
+== 20.10'dan bugüne geriye dönük deneme
+🔄 21.10 BULLAUSDT +63% → ertesi gün short (gölge)
+🔄 22.10 MAGMAUSDT +57% → ertesi gün short (gölge)
+🔄 23.10 IRYSUSDT +272% → ertesi gün short (gölge)
+🔄 24.10 JCTUSDT +169% → ertesi gün short (gölge)
+🔄 24.10 ORDERUSDT +113% → ertesi gün short (gölge)
+🔄 24.10 BMTUSDT +65% → ertesi gün short (gölge)
+🔄 26.10 QUSDT +248% → ertesi gün short (gölge)
+🔄 26.10 AINUSDT +87% → ertesi gün short (gölge)
+🔄 26.10 BULLAUSDT +66% → ertesi gün short (gölge)
+🔄 27.10 AINUSDT +124% → ertesi gün short (gölge)
+🔄 27.10 EVAAUSDT +120% → ertesi gün short (gölge)
+🔄 27.10 APRUSDT +52% → ertesi gün short (gölge)
+🔄 29.10 IDOLUSDT +66% → ertesi gün short (gölge)
+🔄 29.10 PARTIUSDT +54% → ertesi gün short (gölge)
+🔄 30.10 IDOLUSDT +71% → ertesi gün short (gölge)
+🔄 30.10 SOPHUSDT +54% → ertesi gün short (gölge)
+🔄 01.11 ESPORTSUSDT +101% → ertesi gün short (gölge)
+🔄 04.11 ELSAUSDT +60% → ertesi gün short (gölge)
+🔄 06.11 AKEUSDT +78% → ertesi gün short (gölge)
+🔄 06.11 ONEUSDT +70% → ertesi gün short (gölge)
+**Durum:** bekleyen 2 · kapanan 15 (fonlaması kesin 13) · girişsiz 3
+**Kapananlar:** işlem başı ort. +14.7% · medyan +23.4% · kârlı %87 · −%50'den kötü %13
+== ikinci çalışma (değişmemeli)
+**Durum:** bekleyen 2 · kapanan 15 (fonlaması kesin 13) · girişsiz 3
+**Kapananlar:** işlem başı ort. +14.7% · medyan +23.4% · kârlı %87 · −%50'den kötü %13
+== kayıt
+s,g,r,giris_g,giris,cikis,fiyat_net,fon,net,durum
+BULLAUSDT,2026-10-21,0.6344299489506524,2026-10-22,0.11526,0.08185,0.28744470012264556,0.00013953,0.28758423012264556,kapalı
+MAGMAUSDT,2026-10-22,0.5666924624671104,2026-10-23,0.50615,0.38696,0.23295298884778293,0.00062381,0.23357679884778293,kapalı
+IRYSUSDT,2026-10-23,2.722546161321671,2026-10-24,0.07661,0.04034,0.47138270773057356,0.00262219,0.4740048977305736,kapalı
+JCTUSDT,2026-10-24,1.6861844623038653,2026-10-25,0.007018,0.006126,0.12435419431971151,0.0045743599999999995,0.1289285543197115,kapalı
+ORDERUSDT,2026-10-24,1.1254165404422904,2026-10-25,0.07019,0.04577,0.34560732822864193,-0.02895015,0.3166571782286419,kapalı
+BMTUSDT,2026-10-24,0.6510903426791277,2026-10-25,0.03709,0.03238,0.12424063562079213,-0.01784765,0.10639298562079214,kapalı
+QUSDT,2026-10-26,2.4787933771830346,2026-10-27,0.199393,0.053101,0.7321535795724609,4.397000000000001e-05,0.7321975495724609,kapalı
+AINUSDT,2026-10-26,0.8708234675085504,2026-10-27,0.0711,0.15909,-1.001,0.005561099999999999,-0.9954388999999999,kapalı
+BULLAUSDT,2026-10-26,0.6594541698379908,2026-10-27,0.1526,0.07137,0.530370361186875,-0.017771969999999998,0.512598391186875,kapalı
+AINUSDT,2026-10-27,1.2372380818450286,2026-10-28,,,,,,giriş yok
+EVAAUSDT,2026-10-27,1.2020735524256652,2026-10-28,,,,,,giriş yok
+APRUSDT,2026-10-27,0.5193387398627576,2026-10-28,,,,,,giriş yok
+IDOLUSDT,2026-10-29,0.6561499229035703,2026-10-30,0.013959,0.023861,-0.713785283313258,0.00263967,-0.711145613313258,kapalı
+PARTIUSDT,2026-10-29,0.5375321336760928,2026-10-30,0.05979,0.05107,0.14313376413710943,-0.0007212200000000001,0.14241254413710944,kapalı
+IDOLUSDT,2026-10-30,0.7088734512640551,2026-10-31,0.02387,0.017628,0.2590213116342148,0.0023994200000000006,0.2614207316342148,kapalı
+SOPHUSDT,2026-10-30,0.5410764872521245,2026-10-31,0.002176,0.001419,0.3455804959371137,-0.00700416,0.3385763359371137,kapalı
+ESPORTSUSDT,2026-11-01,1.0134281200631912,2026-11-02,0.017845,0.01456,0.18145171481372113,,,kapalı
+ELSAUSDT,2026-11-04,0.601010874559657,2026-11-05,0.10455,0.08309,0.20266957105359795,,,kapalı
+AKEUSDT,2026-11-06,0.7810650887573962,2026-11-07,,,,,,bekliyor
+ONEUSDT,2026-11-06,0.6976590522937511,2026-11-07,,,,,,bekliyor
+== özet
+# 🔄 Sert yükselişten (+%50) sonra 1 gün short — GÖLGE (gözlem amaçlı; gerçek işlem ve mesaj yok)
+_07.11.2026 11:40 · son işlenen gün 2026-11-06 · coin 519 · kural: günlük ≥ +%50 → ertesi gün açılışta short, kapanışta çıkış · 1× · %2 · günde ≤ 10 · ücret+kayma %0,40 + gerçek fonlama_
+_⚠️ Sağlamlık testlerinin 3'ünde kaldı (arastirma3 PROTOKOL_tersine Ek 1–2); yalnız gözlem. Fonlaması kesinleşmemiş işlemler 'geçici'._
+
+**Durum:** bekleyen 2 · kapanan 15 (fonlaması kesin 13) · girişsiz 3
+**Kapananlar:** işlem başı ort. +14.7% · medyan +23.4% · kârlı %87 · −%50'den kötü %13
+| ay | işlem | aylık (%2'lik payla) |
+|---|---|---|
+| 2026-10 | 13 | +3.7% |
+| 2026-11 | 2 | +0.8% |
+
+Toplam +4.4% · pozitif ay %100 · en kötü ay +0.8%
+
+_Karar için ≥ 2 ay ve ≥ 60 kapanan işlem gerekiyor (şu an 2 ay · 15 işlem)._
