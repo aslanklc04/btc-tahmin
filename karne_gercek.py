@@ -148,6 +148,16 @@ def rapor(Y, now):
         e = ((a.fz >= 2) | (a.tur == "🔀") | pd.Series([(t, c) in dip for t, c in zip(a.t0, a.coin)], index=a.index)) & ~((a.fz >= 2) & (pd.to_numeric(a.z, errors="coerce") < 0) & (a.tur != "🚀"))   # 26.10: primi eksi coin'den 🔥 ile ana → ELİT değil
         L.append(f"- **💎 ELİT (ana):** limit {ol(a[e], 'B_T0')} · piyasadan {ol(a[e], 'D_T0')}")
         L.append(f"- **ELİT değil (ana):** limit {ol(a[~e], 'B_T0')} · piyasadan {ol(a[~e], 'D_T0')}")
+        oyn = set()                                                                            # 08.11.2026: 🌪️ (durum/btc_oynak.csv) + 💼 kâğıt üstü hesap
+        if os.path.exists("durum/btc_oynak.csv"):
+            for r in pd.read_csv("durum/btc_oynak.csv", dtype=str).fillna("").itertuples():
+                for c_ in str(r.coinler).split(): oyn.add((pd.Timestamp(r.t, tz="UTC").floor("h"), c_))
+        o_ = pd.Series([(pd.Timestamp(t).floor("h"), c) in oyn for t, c in zip(a.t0, a.coin)], index=a.index)
+        L.append(f"- **🌪️ BTC oynak (ana):** limit {ol(a[o_], 'B_T0')} · piyasadan {ol(a[o_], 'D_T0')}")
+        k_ = a[(e | o_) & a.B_T0.notna()].sort_values("t0"); bak, tepe, dd = 150.0, 150.0, 0.0
+        for v in k_.B_T0: bak += 0.05 * bak * float(v); tepe = max(tepe, bak); dd = min(dd, bak / tepe - 1)
+        L.append(f"- **💼 Kâğıt üstü hesap (yalnız 💎 ELİT + 🌪️, 12.10'dan beri):** 150 $ ile başlasaydın, her işleme bakiyenin %5'i, kaldıraçsız, mesaj fiyatına limit (dolmayan sayılmaz) → "
+                 f"{len(k_)} işlem · kârlı %{100 * (k_.B_T0 > 0).mean() if len(k_) else 0:.0f} · bakiye **{bak:.2f} $** ({100 * (bak / 150 - 1):+.2f}%) · en büyük düşüş {100 * dd:.1f}% _(sırayla bileşik; aynı saatteki işlemler yaklaşık)_")
     except Exception as e_: print("ELİT satırı:", e_)
     L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)")
     b = Y.dropna(subset=["B_T0", "B_T1"]); L.append(f"- **T1 takip eden kâr-al (τ 0,25):** {ol(b, 'B_T1')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
