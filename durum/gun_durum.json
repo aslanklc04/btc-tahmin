@@ -5,12 +5,6 @@
 {
 "t": "07.11 22:04",
 "s": "panel",
-"e": "₿ BTC 1 saat Çok güçlü ↑ · 4 saat Çok güçlü ↑ · prim ⚠️ z -0.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "07.11 22:04",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: SUI (z -0.5)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "09.11 01:05",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: CRV (z +3.6, 8 saat), ETH (z +3.3, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "09.11 02:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: FIL (z +2.3, 8 saat), INJ (z +5.5, 24 saat), ALGO (z +3.8, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],

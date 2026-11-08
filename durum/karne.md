@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 09.11.2026 01:06
+# 📒 Canlı karne — 09.11.2026 02:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 115 | %68 | 0.78% | 89.6% | 20 | 115 · %71 · 0.80% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 386 | %70 | 1.01% | 390.0% | 1 | 386 · %77 · 0.52% | %60 · %65 |
-| panel (gönderilmedi) | 493 | %56 | 0.29% | 141.7% | 15 | 493 · %60 · 0.19% | — |
+| panel (gönderilmedi) | 494 | %56 | 0.29% | 142.1% | 17 | 498 · %60 · 0.20% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 32 | %38 | -0.65% | -20.8% | 1 | 32 · %56 · -0.24% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 275 | %59 | 0.39% | 105.9% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -13,22 +13,22 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
-| ✅ ana | 🌐🤝 ortak geniş liste | 6 · %50 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 14 · %64 | 47 | %68 | 0.89% | 41.7% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🤝 ortak geniş liste | 5 · %60 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 13 · %62 | 47 | %68 | 0.89% | 41.7% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 1 · %100 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
-| ✅ ana | 🤝 BTC ile ortak | 6 · %83 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🤝 BTC ile ortak | 4 · %100 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
 | ✅ ana | 🧪 24 s ana coin | 0 | 4 | %75 | 1.76% | 7.0% | %59 · %51 | ⏳ veri az |
-| 🔸 yedek | 🌐🤝 ortak geniş liste | 83 · %64 | 348 | %74 | 1.07% | 372.9% | %60 · %65 | ✅ iyi · testle uyumlu |
+| 🔸 yedek | 🌐🤝 ortak geniş liste | 68 · %75 | 348 | %74 | 1.07% | 372.9% | %60 · %65 | ✅ iyi · testle uyumlu |
 | 🔸 yedek | 💵 ABD alıyor | 8 · %38 | 19 | %42 | 1.12% | 21.2% | — | ⚠️ orta |
 | 🔸 yedek | 🔇/🪙 coin tek | 3 · %0 | 10 | %50 | 0.50% | 5.0% | — | ⚠️ orta |
 | 🔸 yedek | 🧪 24 s ana coin | 5 · %40 | 9 | %33 | -1.01% | -9.1% | — | ❌ kötü |
-| panel | ₿ BTC saatlik / ⭐ / A | 50 · %50 | 221 | %51 | 0.05% | 10.8% | — | ⚠️ orta |
+| panel | ₿ BTC saatlik / ⭐ / A | 50 · %52 | 222 | %51 | 0.05% | 11.2% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 0 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
 | panel | 🔇/🪙 coin tek | 21 · %71 | 92 | %62 | 0.27% | 24.7% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 3 · %33 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
-| panel | 🤝 BTC ile ortak | 20 · %70 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
+| panel | 🤝 BTC ile ortak | 18 · %72 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🧪 24 s ana coin | 7 · %0 | 33 | %45 | 0.94% | 30.9% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.16) |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
