@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 08.11.2026 16:04
+# 📒 Canlı karne — 08.11.2026 17:03
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 112 | %68 | 0.78% | 87.4% | 4 | 112 · %71 · 0.80% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 385 | %70 | 1.01% | 389.6% | 2 | 386 · %77 · 0.52% | %60 · %65 |
-| panel (gönderilmedi) | 489 | %56 | 0.29% | 142.1% | 1 | 489 · %60 · 0.19% | — |
+| panel (gönderilmedi) | 489 | %56 | 0.29% | 142.1% | 2 | 489 · %60 · 0.19% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 31 | %35 | -0.68% | -21.1% | 2 | 32 · %56 · -0.24% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 275 | %59 | 0.39% | 105.9% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -27,7 +27,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 0 | 4 | %75 | 0.80% | 3.2% | — | ⏳ veri az |
 | panel | 🔇/🪙 coin tek | 18 · %78 | 89 | %63 | 0.28% | 25.0% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🔻 BTC kısa | 4 · %25 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
+| panel | 🔻 BTC kısa | 3 · %33 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
 | panel | 🤝 BTC ile ortak | 20 · %70 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🧪 24 s ana coin | 7 · %0 | 33 | %45 | 0.94% | 30.9% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.16) |
 

@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "07.11 11:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: SUSHI (z +2.1)",
-"k": "gönderildi"
-},
-{
-"t": "07.11 11:04",
 "s": "🔸 yedek 📋 panelden",
 "e": "🧪 24 saat: NEAR (z +0.2)",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "08.11 14:04",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "08.11 17:03",
+"s": "panel",
+"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ✅ z +1.2",
 "k": "gitmedi — yalnız panel"
 }
 ],
