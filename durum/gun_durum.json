@@ -3,12 +3,6 @@
 "giden": 6,
 "log": [
 {
-"t": "06.11 21:04",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.4",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "07.11 03:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ ⏰ · prim ⚠️ z -0.3",
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 08.11 09:00 · $75,830",
 "k": "gönderildi"
+},
+{
+"t": "08.11 10:04",
+"s": "panel",
+"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ⚠️ z -0.9",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 1
