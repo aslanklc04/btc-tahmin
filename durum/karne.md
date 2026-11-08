@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 08.11.2026 18:03
+# 📒 Canlı karne — 08.11.2026 19:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 113 | %68 | 0.80% | 90.9% | 3 | 113 · %72 · 0.82% | %62 · %67 |
+| ✅ ana (gönderildi) | 114 | %68 | 0.81% | 92.5% | 2 | 114 · %72 · 0.83% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 385 | %70 | 1.01% | 389.6% | 2 | 386 · %77 · 0.52% | %60 · %65 |
 | panel (gönderilmedi) | 490 | %57 | 0.29% | 142.3% | 1 | 490 · %60 · 0.19% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 31 | %35 | -0.68% | -21.1% | 2 | 32 · %56 · -0.24% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 6 · %50 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 12 · %67 | 45 | %69 | 0.96% | 43.1% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 13 · %69 | 46 | %70 | 0.97% | 44.6% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 1 · %100 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 6 · %83 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
