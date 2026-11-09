@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 09.11.2026 19:04
+# 📒 Canlı karne — 09.11.2026 20:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 116 | %67 | 0.73% | 84.8% | 21 | 137 · %75 · 1.13% | %62 · %67 |
+| ✅ ana (gönderildi) | 117 | %68 | 0.74% | 86.8% | 20 | 137 · %75 · 1.13% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
 | panel (gönderilmedi) | 507 | %56 | 0.29% | 147.9% | 12 | 517 · %61 · 0.25% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 5 · %60 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 14 · %57 | 48 | %67 | 0.77% | 36.9% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 15 · %60 | 49 | %67 | 0.79% | 38.9% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 1 · %100 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 4 · %100 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
@@ -45,9 +45,9 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
 | 08.11 00:00 | yedek | 🌐🤝 | EGLD | 4 s | +0.44% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | CHZ | 4 s | +0.40% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | C98 | 4 s | -0.13% | ❌ |
-| 08.11 00:00 | yedek | 🌐🤝 | CTSI | 4 s | +0.73% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | SNX | 4 s | +0.20% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | ACH | 4 s | +0.19% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | RAD | 4 s | +1.29% | ✅ |
 | 08.11 00:00 | ana | 🌐🤝 | VET | 4 s | +0.26% | ✅ |
 | 08.11 00:00 | ana | 🤝 | APT | 4 s | +0.65% | ✅ |
 | 08.11 00:00 | ana | 🤝 | DOT | 4 s | +0.86% | ✅ |
@@ -55,17 +55,17 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 08.11 00:00 | ana | 🤝 | ADA | 4 s | +0.24% | ✅ |
 | 08.11 00:00 | ana | 🌐🤝 | TRB | 4 s | +0.48% | ✅ |
 | 08.11 00:00 | yedek | 🌐🤝 | LTC | 4 s | +0.38% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | RAD | 4 s | +1.29% | ✅ |
 | 08.11 00:00 | yedek | 🌐🤝 | ATOM | 4 s | +0.25% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | RENDER | 4 s | +0.02% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | ACH | 4 s | +0.19% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | KSM | 4 s | +0.27% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | C98 | 4 s | -0.13% | ❌ |
 | 08.11 00:00 | yedek | 🌐🤝 | ROSE | 4 s | +0.32% | ✅ |
 | 08.11 00:00 | yedek | 🌐🤝 | FIDA | 4 s | +0.48% | ✅ |
 | 08.11 00:00 | yedek | 🌐🤝 | ETC | 4 s | -0.04% | ❌ |
 | 08.11 00:00 | yedek | 🌐🤝 | APE | 4 s | +0.24% | ✅ |
 | 08.11 00:00 | yedek | 🌐🤝 | ENS | 4 s | +0.62% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | KSM | 4 s | +0.27% | ✅ |
-| 08.11 00:00 | yedek | 🌐🤝 | SAND | 4 s | +0.67% | ✅ |
-| 08.11 08:00 | yedek | 💵 | CRV | 8 s | -0.50% | ❌ |
+| 08.11 00:00 | yedek | 🌐🤝 | CTSI | 4 s | +0.73% | ✅ |
+| 08.11 00:00 | yedek | 🌐🤝 | CHZ | 4 s | +0.40% | ✅ |
 | 08.11 08:00 | yedek | 💵 | NEAR | 24 s | -1.68% | ❌ |
+| 08.11 08:00 | yedek | 💵 | CRV | 8 s | -0.50% | ❌ |
 | 08.11 11:00 | ana | 🌐🧪 | SUSHI | 24 s | -4.80% | ❌ |
+| 08.11 20:00 | ana | 🌐🧪 | ROSE | 24 s | +1.99% | ✅ |
