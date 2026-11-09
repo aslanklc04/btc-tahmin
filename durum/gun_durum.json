@@ -3,12 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "07.11 22:04",
-"s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: SUI (z -0.5)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "07.11 23:03",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⚠️ z -0.3",
@@ -240,6 +234,12 @@
 "t": "09.11 02:04",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: FIL (z +2.3, 8 saat), INJ (z +5.5, 24 saat), ALGO (z +3.8, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "09.11 07:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
