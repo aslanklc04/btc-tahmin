@@ -1,31 +1,7 @@
 {
 "gun": "2026-11-09",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "07.11 23:03",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⚠️ z -0.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "07.11 23:03",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "08.11 00:05",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: VET (z +2.6), APT (z +1.2), DOT (z +0.7), OP (z +0.5), ADA (z +0.4), TRB (z +3.3)",
-"k": "gönderildi"
-},
-{
-"t": "08.11 00:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: LTC (z +2.0), ATOM (z +1.8), KSM (z +1.4), C98 (z +1.1), ACH (z +1.1), ROSE (z +1.0), FIDA (z +0.9), ETC (z +0.9), APE (z +0.9), ENS (z +0.8)",
-"k": "gönderildi"
-},
 {
 "t": "08.11 00:05",
 "s": "🔸 yedek",
@@ -241,6 +217,30 @@
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "09.11 09:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: ATOM (z +2.8)",
+"k": "gönderildi"
+},
+{
+"t": "09.11 09:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ · prim ✅ z +0.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "09.11 09:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: ADA (z +3.0, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "09.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 09.11 09:00 · $74,472",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
