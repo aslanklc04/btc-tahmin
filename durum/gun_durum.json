@@ -5,12 +5,6 @@
 {
 "t": "08.11 00:05",
 "s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: CTSI (z +0.8), RAD (z +0.8), CHZ (z +0.8), SNX (z +0.5), KAVA (z +0.5), GMT (z +0.5), HBAR (z +0.4), AXL (z +0.4), JASMY (z +0.3), SOL (z +0.3)",
-"k": "gönderildi"
-},
-{
-"t": "08.11 00:05",
-"s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: TAO (z +0.3), ARKM (z +0.3), XLM (z +0.2), EGLD (z +0.2), INJ (z +0.2), ICP (z +0.2), COMP (z +0.2), GRT (z +0.1), MANA (z +0.1), IO (z +0.0)",
 "k": "gönderildi"
 },
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 09.11 09:00 · $74,472",
 "k": "gönderildi"
+},
+{
+"t": "09.11 10:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.5",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
