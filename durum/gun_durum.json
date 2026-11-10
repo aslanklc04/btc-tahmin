@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "09.11 01:05",
-"s": "✅ ana",
-"e": "🧪 24 saat: VET (z +8.7), APE (z +3.6), CRV (z +3.6), C98 (z +3.4), SPELL (z +3.2), VTHO (z +3.1), COMP (z +3.1), XLM (z +3.1)",
-"k": "gönderildi"
-},
-{
-"t": "09.11 01:05",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "📉🔥 💵 ABD güçlü alıyor: SOL (z +3.2, 24 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "10.11 21:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: XRP (z +2.3, 24 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
