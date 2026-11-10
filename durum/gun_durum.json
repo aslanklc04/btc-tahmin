@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "08.11 08:03",
-"s": "🔸 yedek 📋 panelden",
-"e": "💵 ABD güçlü alıyor: NEAR (z +2.0, 24 saat), CRV (z +3.2, 8 saat)",
-"k": "gönderildi"
-},
-{
 "t": "08.11 09:04",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ⚠️ z -0.6",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.1",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "10.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 10.11 09:00 · $74,816",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
