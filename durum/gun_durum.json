@@ -3,24 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "09.11 00:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +0.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 00:04",
-"s": "panel",
-"e": "🪙 ETH 4s Çok güçlü ↑ · 4 saat · isabet %60 · prim ✅ z +0.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 01:05",
-"s": "✅ ana",
-"e": "🧪 24 saat: CHZ (z +2.9), JASMY (z +2.5), QI (z +2.5), UMA (z +2.4), SAND (z +2.1), ENS (z +2.1), ETC (z +2.0), ALGO (z +2.0), MASK (z +1.8), POL (z +1.7)",
-"k": "gönderildi"
-},
-{
 "t": "09.11 01:05",
 "s": "✅ ana",
 "e": "🧪 24 saat: VET (z +8.7), APE (z +3.6), CRV (z +3.6), C98 (z +3.4), SPELL (z +3.2), VTHO (z +3.1), COMP (z +3.1), XLM (z +3.1)",
@@ -241,6 +223,24 @@
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: FIL (z +2.5, 8 saat), NEAR (z +2.1, 24 saat), AAVE (z +2.1, 24 saat), UNI (z +3.7, 4 saat)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "10.11 20:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.7",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "10.11 20:04",
+"s": "panel",
+"e": "🔇 DOT ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "10.11 20:04",
+"s": "panel",
+"e": "📉🔥 💵 ABD güçlü alıyor: SOL (z +3.2, 24 saat)",
+"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
 }
 ],
 "panelden": 0
