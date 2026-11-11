@@ -73,9 +73,13 @@ def main():
     if X.empty: print("karne: çözülen sinyal yok"); return
     X = X.drop_duplicates(["t0", "coin", "H", "yon", "tur"]).reset_index(drop=True)          # aynı saatte aynı sinyal iki kez (yeniden çalışma) → tek
     now = pd.Timestamp.now(tz="UTC"); bas = X.t0.min() - pd.Timedelta(days=32); P, PH = {}, {}   # 21.10: 32 gün önceden (🎯 kâr-al σ için 720 saat)
-    for nm in X.coin.unique():
-        try: _o = fetch_1h(bas.value // 10**6, now.value // 10**6, sym=nm + "USDT"); P[nm], PH[nm] = _o.close, _o.high
-        except Exception as e: print("karne fiyat yok:", nm, e)
+    def _al(nm):                                                                            # 11.11.2026: paralel (coin sayısı arttıkça sırayla çekmek 4 dk sınırını aştı)
+        try: return nm, fetch_1h(bas.value // 10**6, now.value // 10**6, sym=nm + "USDT")
+        except Exception as e: print("karne fiyat yok:", nm, e); return nm, None
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(8) as ex:
+        for nm, _o in ex.map(_al, X.coin.unique()):
+            if _o is not None: P[nm], PH[nm] = _o.close, _o.high
     net, kap, ntp, ktp = [], [], [], []
     for r in X.itertuples():
         c = P.get(r.coin); t1 = r.t0 + pd.Timedelta(hours=int(r.H))

@@ -191,7 +191,7 @@ jobs:
         id: karne
         if: always()
         continue-on-error: true
-        timeout-minutes: 4
+        timeout-minutes: 8
         run: python karne.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
