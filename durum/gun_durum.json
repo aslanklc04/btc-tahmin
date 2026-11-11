@@ -5,12 +5,6 @@
 {
 "t": "09.11 01:05",
 "s": "panel",
-"e": "🧪 24 saat: ADA (z +1.0), DOT (z +0.8), DOGE (z +0.6), BNB (z +0.3), LINK (z +0.2)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 01:05",
-"s": "panel",
 "e": "💵 ABD güçlü alıyor: CRV (z +3.6, 8 saat), ETH (z +3.3, 24 saat)",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "11.11 19:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "11.11 21:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: BTC (z +2.0, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
