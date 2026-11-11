@@ -5,12 +5,6 @@
 {
 "t": "09.11 01:05",
 "s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.5",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 01:05",
-"s": "panel",
 "e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +1.0",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "10.11 21:04",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: XRP (z +2.3, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "11.11 03:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: ADA (z +3.5, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
