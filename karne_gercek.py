@@ -80,6 +80,7 @@ def main():
     ESK = pd.read_csv(CSV_F) if os.path.exists(CSV_F) else pd.DataFrame(columns=["anahtar"])
     if len(ESK) and "tpp" not in ESK: ESK = pd.DataFrame(columns=["anahtar"])                    # 24.10: 🎯 mesafesi sütunu eklendi → önbellek bir kez yeniden hesaplanır
     tamam = set(ESK.anahtar[ESK.get("tam", pd.Series(dtype=bool)).astype(str) == "True"]) if len(ESK) else set()
+    if len(ESK): tamam -= set(ESK.anahtar[(ESK.sinif == "ana") & (ESK.get("h5", pd.Series("", index=ESK.index)).astype(str) != "True")])   # 12.11.2026 gölge B_H5: eski ✅ ana satırları bir kez yeniden hesaplanır
     now = pd.Timestamp.now(tz="UTC")
     FZ = fon_serisi(X.t0.min() - pd.Timedelta(days=60))
     X["fz"] = [float(FZ[FZ.index <= t].iloc[-1]) if (FZ.index <= t).any() else np.nan for t in X.t0]
@@ -114,9 +115,10 @@ def main():
         if fB:
             ab = dict(M=M, a=a, Pe=Pb, fin=finb, chk=chkb, Hm=Hm, t0m=t0m)
             d.update(B_T0=sim(tp=tp, **ab), B_T1=sim(tp=tp, tau=TAU, s1=s1, **ab), B_T3=sim(tp=tp, uzat=True, **ab), B_A2=sim(tp=tpa, **ab))
+            if r.sinif == "ana": d.update(B_H5=sim(tp=G * (1 + 0.5 * s1 * np.sqrt(r.H)), **ab))     # 12.11.2026 gölge (PROTOKOL_h80 Ek 2): yakın hedef 0,5σ
             _bk = BK.get((f"{r.tg.tz_convert(DISPLAY_TZ):%Y-%m-%d %H:%M}", r.coin))
             if _bk: d.update(B_R2=sim(tp=_bk, **ab) if _bk > Pb * 1.002 else np.nan, R2_var=True)
-        d["tam"] = bool(len(M) >= 2 * Hm)
+        d["tam"] = bool(len(M) >= 2 * Hm); d["h5"] = True
         out.append(d)
     Y = pd.concat([ESK[~ESK.anahtar.isin([o["anahtar"] for o in out])], pd.DataFrame(out)], ignore_index=True) if len(ESK) else pd.DataFrame(out)
     if Y.empty: print("karne_gercek: kapanan yok"); return
@@ -124,7 +126,8 @@ def main():
     rapor(Y, now)
 def rapor(Y, now):
     Y = Y.copy(); Y["t0"] = pd.to_datetime(Y.t0, utc=True)
-    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2", "B_R2"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
+    for c in ("B_T0", "D_T0", "B_T1", "B_T3", "B_A2", "B_R2", "B_H5"): Y[c] = pd.to_numeric(Y.get(c), errors="coerce")
+    h5_satir = None
     def ol(d, c):
         x = d[["t0", c]].dropna()
         if x.empty: return "—"
@@ -158,8 +161,17 @@ def rapor(Y, now):
         for v in k_.B_T0: bak += 0.05 * bak * float(v); tepe = max(tepe, bak); dd = min(dd, bak / tepe - 1)
         L.append(f"- **💼 Kâğıt üstü hesap (yalnız 💎 ELİT + 🌪️, 12.10'dan beri):** 150 $ ile başlasaydın, her işleme bakiyenin %5'i, kaldıraçsız, mesaj fiyatına limit (dolmayan sayılmaz) → "
                  f"{len(k_)} işlem · kârlı %{100 * (k_.B_T0 > 0).mean() if len(k_) else 0:.0f} · bakiye **{bak:.2f} $** ({100 * (bak / 150 - 1):+.2f}%) · en büyük düşüş {100 * dd:.1f}% _(sırayla bileşik; aynı saatteki işlemler yaklaşık)_")
+        h_ = a[(e | o_) & a.B_H5.notna() & a.B_T0.notna()]                                         # 12.11.2026 gölge: yakın hedef (PROTOKOL_h80 Ek 2)
+        if len(h_):
+            krr = ""
+            if len(h_) >= 40:
+                i5, n5, n0 = (h_.B_H5 > 0).mean(), h_.B_H5.mean(), h_.B_T0.mean()
+                krr = " · **önceden yazılı karar: " + ("✅ şart sağlandı → mesajlara yakın 🎯 satırı kullanıcıya önerilir" if (i5 >= 0.80 and n5 > 0 and n5 >= 0.7 * n0) else ("❌ gölge kapatılmalı" if (i5 < 0.75 or n5 <= 0) else "⏳ arada, izleme sürüyor")) + "**"
+            h5_satir = (f"- **🎯 yakın hedef (0,5σ) — yalnız 💎 ELİT + 🌪️, limit giriş:** {ol(h_, 'B_H5')} — aynı işlemler bugünkü hedefle (0,75σ): {ol(h_, 'B_T0')}"
+                        f" · karar ≥ 40 işlemde (isabet ≥ %80, net > 0 ve bugünkü netin ≥ %70'i){krr}")
     except Exception as e_: print("ELİT satırı:", e_)
     L.append("\n## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)")
+    if h5_satir: L.append(h5_satir)
     b = Y.dropna(subset=["B_T0", "B_T1"]); L.append(f"- **T1 takip eden kâr-al (τ 0,25):** {ol(b, 'B_T1')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     b = Y.dropna(subset=["B_T0", "B_T3"]); L.append(f"- **T3 zarardakini 2 katı süreye uzat:** {ol(b, 'B_T3')} — aynı işlemler şimdiki kuralla: {ol(b, 'B_T0')}")
     Y["tpp"] = pd.to_numeric(Y.get("tpp"), errors="coerce"); ap = Y[Y.sinif.isin(["ana", "panelden"])].dropna(subset=["B_T0", "tpp"])
