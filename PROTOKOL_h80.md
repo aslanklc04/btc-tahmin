@@ -20,3 +20,13 @@ Y1 🔸 yedek · Y2 yedek ∧ b_vr ≥ 1,25 · Y3 yedek ∧ fon ≥ 2 · P1 📋
 ## Dürüstlük — her geçen aday için ZORUNLU risk tablosu
 İsabet hedefi yakınlaştırarak yükseltilirse kazançlar küçülür, kayıplar aynı kalır. Bu yüzden: ortalama kazanç / ortalama kayıp, kaç kazanç bir kaybı siler, en kötü işlem, en kötü %5'in ortalaması,
 bugünkü hedefle (sınıf k'sı) aynı sinyallerin net'i (kâr feda edildi mi), haftada sinyal. Aynı alt kümenin tüm k tablosu bilgi olarak verilir.
+
+## Ek 1 (12.11.2026) — LİMİT GİRİŞ (B) ÖNCELİKLİ sürüm (hesaptan önce; dürüstlük notuyla)
+Ana test ❌ (D ölçümünde %80 + kâr yok: 7. dakikada piyasadan girince yakın hedefin çoğu zaten geçilmiş oluyor). Ama ana testin tablosunda 2025 ve 2026 **limit girişli (B)** sütunları
+görüldü: yakın hedefte isabet %80–95 ve net artı. **Bu fikir o sütunlar görüldükten sonra doğdu** → 2025/26 B sonuçları artık "hiç bakılmamış" değil; bu ek bir ön doğrulamadır,
+asıl kanıt canlı gölgeden gelir. Mesajlardaki talimat zaten limit giriş olduğu için B gerçek kullanımı temsil eder.
+- Aynı 13 alt küme × 6 hedef. Roller değişir: **keşif** yarı 0 × 2022-06→24, **B**: n ≥ 40, isabet ≥ %80, net ≥ +%0,15 sağlayan k'lar içinden neti en yüksek.
+- **Doğrulama (B):** diğer 5 hücrenin her birinde n ≥ 20, isabet ≥ %75, net > 0 · 2025 ve 2026'nın her birinde isabet ≥ %80 ve net ≥ +%0,15.
+- Plasebo aynı (etiket karıştırma ×50). D sonuçları bilgi olarak verilir (şart değil).
+- Zorunlu risk tablosu + limit dolma oranı + "aynı sinyaller bugünkü hedefle" karşılaştırması (kârdan ne feda ediliyor).
+- Geçen olursa: canlıya yalnız GÖLGE satırı (gerçekçi karnede aynı sinyallerin yakın hedefle sonucu); mesajlardaki 🎯 değişmez — değişiklik ancak gölge sonucu + kullanıcı onayıyla.
