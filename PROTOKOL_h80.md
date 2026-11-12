@@ -30,3 +30,8 @@ asıl kanıt canlı gölgeden gelir. Mesajlardaki talimat zaten limit giriş old
 - Plasebo aynı (etiket karıştırma ×50). D sonuçları bilgi olarak verilir (şart değil).
 - Zorunlu risk tablosu + limit dolma oranı + "aynı sinyaller bugünkü hedefle" karşılaştırması (kârdan ne feda ediliyor).
 - Geçen olursa: canlıya yalnız GÖLGE satırı (gerçekçi karnede aynı sinyallerin yakın hedefle sonucu); mesajlardaki 🎯 değişmez — değişiklik ancak gölge sonucu + kullanıcı onayıyla.
+
+## Ek 2 (12.11.2026, kullanıcı: "Tamam ekle") — canlı gölge satırı
+- Gerçekçi karnede (karne_gercek.py) 💎 ELİT ∪ 🌪️ sinyalleri için limit girişle 🎯 = G·(1 + 0,5·σ720·√H) sonucu (B_H5) ayrıca hesaplanır; mesajlardaki 🎯 DEĞİŞMEZ.
+- **Önceden yazılı karar:** ≥ 40 dolan gölge işleminde isabet ≥ %80 VE işlem başı net > 0 VE net, aynı işlemlerin bugünkü hedefli netinin en az %70'i → mesajlara ikinci "yakın 🎯" satırı kullanıcıya önerilir.
+  ≥ 40 işlemde isabet < %75 ya da net ≤ 0 → gölge kapatılır.
