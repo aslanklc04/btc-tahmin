@@ -1,0 +1,27 @@
+name: Duyuru golgesi deneme (arastirma3)
+on:
+  push:
+    branches: [arastirma3]
+    paths: [dy_golge_dene_tetik.txt]
+permissions:
+  contents: write
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          pip install -q requests pandas numpy
+          mkdir -p durum; rm -f durum/duyuru_*
+          set +e
+          { echo "== 01.09'dan bugüne geriye dönük deneme (4 sayfa)"; DG_BASLA=2026-09-01 DG_SAYFA=4 python duyuru_golge_dene.py
+            echo "== ikinci çalışma (yeni olay eklenmemeli)"; DG_BASLA=2026-09-01 DG_SAYFA=4 python duyuru_golge_dene.py
+            echo "== kayıt"; cat durum/duyuru_golge.csv; echo "== özet"; cat durum/duyuru_golge.md; echo "== bilinen"; wc -l durum/duyuru_bilinen.txt; } > dy_golge_dene_log.txt 2>&1
+          tail -40 dy_golge_dene_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add dy_golge_dene_log.txt; git commit -m "duyuru gölgesi deneme" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
