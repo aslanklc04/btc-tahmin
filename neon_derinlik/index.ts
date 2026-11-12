@@ -224,6 +224,15 @@ export default {
       const cs = (u.searchParams.get('c') ?? '').split(',').map((x) => x.trim().toUpperCase()).filter((x) => /^[A-Z0-9]{1,15}$/.test(x)).slice(0, 160);
       return json(await mumlar([...new Set(cs)], i, n, a));
     }
+    if (u.pathname === '/duyuru_detay') {                                                   // 12.11.2026: tek duyurunun gövdesi (PROTOKOL_cift)
+      const kod = u.searchParams.get('kod') ?? '';
+      if (!/^[0-9a-f]{32}$/.test(kod)) return json({ hata: 'kod' }, 400);
+      try {
+        const r = await fetch(`https://www.binance.com/bapi/composite/v1/public/cms/article/detail/query?articleCode=${kod}`, { headers: { clienttype: 'web', lang: 'en', 'user-agent': 'Mozilla/5.0' } });
+        const t = await r.text();
+        return new Response(t.slice(0, 1_000_000), { status: r.status, headers: { 'content-type': 'application/json' } });
+      } catch (e) { return json({ hata: String(e) }, 502); }
+    }
     if (u.pathname === '/duyuru') {                                                         // 12.11.2026: Binance duyuru arşivi (yalnız CMS liste ucu; PROTOKOL_duyuru)
       const c = u.searchParams.get('c') ?? '161', pg = u.searchParams.get('p') ?? '1', sz = u.searchParams.get('n') ?? '50';
       if (!/^\d{1,4}$/.test(c) || !/^\d{1,4}$/.test(pg) || !/^\d{1,2}$/.test(sz)) return json({ hata: 'parametre' }, 400);
