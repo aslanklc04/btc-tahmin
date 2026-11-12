@@ -1,22 +1,26 @@
-161 toplam: 446
-hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-katalog 161 makale 446
-48 toplam: 2294
-hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
-katalog 48 makale 2294
-49 toplam: 4500
-hata 49 49 Expecting value: line 1 column 1 (char 0) 
-hata 49 49 Expecting value: line 1 column 1 (char 0) 
-hata 49 49 Expecting value: line 1 column 1 (char 0) 
-hata 49 49 Expecting value: line 1 column 1 (char 0) 
-hata 49 49 Expecting value: line 1 column 1 (char 0) 
-katalog 49 makale 960
-toplam 3700 1500595579000 1794502450592
+json değil 77 429 ''
+json değil 77 429 ''
+json değil 77 429 ''
+json değil 103 429 ''
+json değil 103 429 ''
+json değil 103 429 ''
+json değil 139 429 ''
+json değil 139 429 ''
+json değil 139 429 ''
+json değil 139 429 ''
+sayfa atlandı 139
+json değil 166 429 ''
+json değil 166 429 ''
+json değil 166 429 ''
+json değil 166 429 ''
+sayfa atlandı 166
+json değil 167 429 ''
+json değil 167 429 ''
+json değil 167 429 ''
+json değil 167 429 ''
+sayfa atlandı 167
+json değil 200 429 ''
+json değil 200 429 ''
+json değil 200 429 ''
+son sayfa 226
+eklenen 3480 atlanan sayfa 3 toplam 7180
