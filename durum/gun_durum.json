@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-12",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "09.11 11:04",
-"s": "panel",
-"e": "🧪 24 saat: OP (z +1.2)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 13:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: CRV (z +3.7, 8 saat)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "09.11 18:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "12.11 18:04",
 "s": "panel",
 "e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "12.11 20:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: TAO (z +2.5)",
+"k": "gönderildi"
+},
+{
+"t": "12.11 20:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: LINK (z +3.1, 8 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
