@@ -1,0 +1,29 @@
+== 01.09'dan bugüne geriye dönük deneme (4 sayfa)
+· S MARSCOIN: vadelisi 7 günden yeni, atlandı
+· D USDP: vadelisi yok, atlandı
+📢 S HYPE (HYPEUSDT) · duyuru 24.09 → 25.09 açılışında short (gölge)
+📢 D EPIC (EPICUSDT) · duyuru 14.10 → 15.10 açılışında short (gölge)
+📢 D QUICK (QUICKUSDT) · duyuru 14.10 → 15.10 açılışında short (gölge)
+· S PREDICT: vadelisi yok, atlandı
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (D 2 · S 1; fonlaması kesin 2) · girişsiz 0
+== ikinci çalışma (yeni olay eklenmemeli)
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (D 2 · S 1; fonlaması kesin 2) · girişsiz 0
+== kayıt
+tur,g,coin,s,baslik,giris_g,giris,cikis_g,cikis,fiyat_net,fon,net,durum
+S,2026-09-24,HYPE,HYPEUSDT,Binance Will List Hyperliquid (HYPE) with Seed Tag Applied,2026-09-25,92.062,2026-10-01,87.623,0.04531203513478499,-0.00015428000000000005,0.04515775513478499,kapalı
+D,2026-10-14,EPIC,EPICUSDT,"Binance Will Delist EPIC, QUICK on 2026-10-28",2026-10-15,0.3129,2026-10-21,0.1837,0.4107361209083805,0.011501049999999999,0.42223717090838053,kapalı
+D,2026-10-14,QUICK,QUICKUSDT,"Binance Will Delist EPIC, QUICK on 2026-10-28",2026-10-15,0.01285,2026-10-21,0.01285,-0.003002002002001957,,,kapalı
+== özet
+# 📢 Binance duyurusu sonrası 7 gün short — GÖLGE (gözlem amaçlı; gerçek işlem ve mesaj yok)
+_12.11.2026 21:53 · başlangıç 01.09.2026 · D: listeden çıkarma duyurusu · S: vadelisi olan coin'in spot listelenmesi · duyurudan sonraki gün açılışta short, 7. gün kapanışta çıkış · 1× · %2 · ücret+kayma %0,40 + gerçek fonlama_
+_⚠️ Geçmiş testi 'veri yetersiz' çıktı (arastirma3 PROTOKOL_duyuru); yalnız gözlem. Fonlaması kesinleşmemiş işlemler 'geçici'._
+
+**Durum:** bekleyen 0 · açık 0 · kapanan 3 (D 2 · S 1; fonlaması kesin 2) · girişsiz 0
+**Kapananlar:** işlem başı ort. +15.5% · medyan +4.5% · kârlı %67 · −%50'den kötü %0
+| ay | işlem | aylık (%2'lik payla) |
+|---|---|---|
+| 2026-10 | 3 | +0.9% |
+
+_Karar için ≥ 40 kapanan işlem gerekiyor (şu an 3)._
+== bilinen
+160 durum/duyuru_bilinen.txt
