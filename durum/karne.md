@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 12.11.2026 16:04
+# 📒 Canlı karne — 12.11.2026 17:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 144 | %73 | 1.32% | 189.5% | 2 | 144 · %76 · 1.11% | %62 · %67 |
+| ✅ ana (gönderildi) | 144 | %73 | 1.32% | 189.5% | 3 | 144 · %76 · 1.11% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
 | panel (gönderilmedi) | 546 | %59 | 0.37% | 203.8% | 6 | 546 · %62 · 0.29% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |

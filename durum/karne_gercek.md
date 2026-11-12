@@ -1,4 +1,4 @@
-# 📏 Gerçekçi karne — 12.11.2026 16:05
+# 📏 Gerçekçi karne — 12.11.2026 17:05
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
@@ -13,6 +13,7 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 - **💼 Kâğıt üstü hesap (yalnız 💎 ELİT + 🌪️, 12.10'dan beri):** 150 $ ile başlasaydın, her işleme bakiyenin %5'i, kaldıraçsız, mesaj fiyatına limit (dolmayan sayılmaz) → 17 işlem · kârlı %100 · bakiye **152.91 $** (+1.94%) · en büyük düşüş 0.0% _(sırayla bileşik; aynı saatteki işlemler yaklaşık)_
 
 ## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)
+- **🎯 yakın hedef (0,5σ) — yalnız 💎 ELİT + 🌪️, limit giriş:** 17 işlem / 10 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.90% — aynı işlemler bugünkü hedefle (0,75σ): 17 işlem / 10 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +2.26% · karar ≥ 40 işlemde (isabet ≥ %80, net > 0 ve bugünkü netin ≥ %70'i)
 - **T1 takip eden kâr-al (τ 0,25):** 399 işlem / 95 saat · işlem isabeti %72 · **saat isabeti %61** · işlem başı +0.62% — aynı işlemler şimdiki kuralla: 399 işlem / 95 saat · işlem isabeti %72 · **saat isabeti %61** · işlem başı +0.55%
 - **T3 zarardakini 2 katı süreye uzat:** 395 işlem / 95 saat · işlem isabeti %78 · **saat isabeti %68** · işlem başı +0.61% — aynı işlemler şimdiki kuralla: 395 işlem / 95 saat · işlem isabeti %72 · **saat isabeti %61** · işlem başı +0.55%
 - **🎯 ≥ %1,5 filtresi (ana + panelden):** 89 işlem / 63 saat · işlem isabeti %63 · **saat isabeti %59** · işlem başı +0.63% — filtresiz: 116 işlem / 73 saat · işlem isabeti %62 · **saat isabeti %53** · işlem başı +0.49% · elenenler (🎯 < %1,5): 27 işlem / 20 saat · işlem isabeti %59 · **saat isabeti %45** · işlem başı +0.02%
