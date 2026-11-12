@@ -1,7 +1,22 @@
-161 ilk yanıt: {"ok": true, "yollar": ["/dene", "/saat?h=YYYYMMDDHH", "/fonlama?c=BTC,ETH", "/mum?c=BTC,ETH&i=1h&n=3"]}
-katalog 161 makale 0
-48 ilk yanıt: {"code": "000000", "message": null, "messageDetail": null, "data": {"catalogs": [{"catalogId": 48, "parentCatalogId": null, "icon": "https://public.bnbstatic.com/image/cms/content/body/202505/d3201bf0be35bb246b65a767221410e0.png", "catalogName": "New Cryptocurrency Listing", "description": null, "catalogType": 1, "total": 2294, "articles": [{"id": 289917, "code": "e7a88ff576b541608d0845f3b666ec66", "title": "Binance Futures Will Launch Multiple TradFi USD\u24c8-Margined Perpetual Contracts (2026-11-12)", "type": 1, "releaseDate": 1794390318328}, {"id": 289715, "code": "2d89a5966b174a2689ab2c2a
-katalog 48 makale 50
-49 ilk yanıt: {"code": "000000", "message": null, "messageDetail": null, "data": {"catalogs": [{"catalogId": 49, "parentCatalogId": null, "icon": "https://public.bnbstatic.com/image/cms/content/body/202505/1c644f6be4cad5a1c149e7318d85e9ff.png", "catalogName": "Latest Binance News", "description": null, "catalogType": 1, "total": 4500, "articles": [{"id": 290149, "code": "0729ad59cde74700b4eaa96c33441e71", "title": "Binance Completes Coverage of Assets Impacted in Security Incident; New Proof of Reserves Published", "type": 1, "releaseDate": 1794502450592}, {"id": 289935, "code": "ab1542773b3b4b28b3722fc4299
-katalog 49 makale 100
-toplam 150 1788438625942 1794502450592
+161 toplam: 446
+hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 161 24 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+katalog 161 makale 446
+48 toplam: 2294
+hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+hata 48 116 list index out of range {"code":"000000","message":null,"messageDetail":null,"data":{"catalogs":[]},"success":true}
+katalog 48 makale 2294
+49 toplam: 4500
+hata 49 49 Expecting value: line 1 column 1 (char 0) 
+hata 49 49 Expecting value: line 1 column 1 (char 0) 
+hata 49 49 Expecting value: line 1 column 1 (char 0) 
+hata 49 49 Expecting value: line 1 column 1 (char 0) 
+hata 49 49 Expecting value: line 1 column 1 (char 0) 
+katalog 49 makale 960
+toplam 3700 1500595579000 1794502450592
