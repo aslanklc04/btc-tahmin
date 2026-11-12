@@ -5,12 +5,6 @@
 {
 "t": "09.11 09:04",
 "s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ · prim ✅ z +0.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 09:04",
-"s": "panel",
 "e": "💵 ABD güçlü alıyor: ADA (z +3.0, 24 saat)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "🧪 24 saat: BNB (z -0.1)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "12.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 12.11 09:00 · $73,586",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
