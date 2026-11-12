@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "09.11 11:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: EGLD (z +3.0)",
-"k": "gönderildi"
-},
-{
-"t": "09.11 11:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 11:04",
 "s": "panel",
 "e": "🧪 24 saat: OP (z +1.2)",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +229,18 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: FIL (z +2.0)",
 "k": "gönderildi"
+},
+{
+"t": "12.11 18:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "12.11 18:04",
+"s": "panel",
+"e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.1",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
