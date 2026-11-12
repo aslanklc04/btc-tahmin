@@ -20,3 +20,11 @@ burada sınanan şey İLK TEPKİDEN SONRAKİ günlerdeki sürüklenme (giriş er
   aynı coin'lerde rastgele (olaysız) günlerde aynı işlemin (×200) ort. net %95'inden yüksek.
 - Yeterli olay yoksa (keşif < 25 ya da doğrulama yılı < 15) "veri yetersiz" raporlanır — sonuç zorlanmaz.
 - Bilgi: g günü (duyuru günü) getirisi, tüm H tablosu, en kötü işlem, ortalama fonlama.
+
+## Ek 1 (12.11.2026, kullanıcı: "Ekle") — duyuru gölgesi (gözlem amaçlı; kural ve karar şartı önceden)
+Ana test: üç türde de keşif olayı < 25 → VERİ YETERSİZ. H 7, 2025–26 tablosu görüldükten sonra seçildi (dürüstlük notu) → asıl sınav bu gölgedir.
+- İzlenen: **D** "Binance Will Delist <coinler> on <tarih>" (spot) ve **S** "Binance Will List <ad> (<COIN>)" (perpetual'ı duyurudan ≥ 7 gün önce listelenmiş). M (izleme etiketi) izlenmez (2026'da ortalama eksi).
+- Kural: duyurunun UTC günü g → g+1 açılışında kâğıt üstü short (kayma %0,10 aleyhe), g+7 kapanışında çıkış (kayma %0,10; kontrat erken kapanırsa son kapanış), ücret %0,05 + %0,05, gerçek fonlama, 1×, her işleme %2.
+  Yalnız Binance USDT-M COIN perpetual'ı olan coin'ler (Neon /bilgi). Aynı coin + tür için 30 gün içinde ikinci olay sayılmaz. Başlangıç 12.11.2026 sonrası duyurular.
+- **Önceden yazılı karar:** ≥ 40 kapanan işlem (D + S birlikte) → işlem başı ort. > 0 · medyan > 0 · kârlı ≥ %55 · −%50'den kötü ≤ %10 · %2'lik payla toplam > 0 ve en kötü ay ≥ −%10
+  → gerçek parayla küçük deneme kullanıcıya sorulur. Aksi halde gölge kapatılır.
