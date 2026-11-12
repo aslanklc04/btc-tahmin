@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "09.11 09:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: ATOM (z +2.8)",
-"k": "gönderildi"
-},
-{
-"t": "09.11 09:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ · prim ✅ z +0.0",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "12.11 03:04",
 "s": "panel",
 "e": "🧪 24 saat: DOGE (z +0.6)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "12.11 08:04",
+"s": "panel",
+"e": "🧪 24 saat: BNB (z -0.1)",
 "k": "gitmedi — yalnız panel"
 }
 ],
