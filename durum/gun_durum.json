@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-12",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "09.11 02:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: FIL (z +2.3, 8 saat), INJ (z +5.5, 24 saat), ALGO (z +3.8, 24 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "09.11 07:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.5",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "09.11 09:04",
 "s": "✅ ana",
@@ -240,6 +228,18 @@
 "t": "12.11 02:03",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: INJ (z +7.0, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "12.11 03:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: INJ (z +2.8), NMR (z +1.5)",
+"k": "gönderildi"
+},
+{
+"t": "12.11 03:04",
+"s": "panel",
+"e": "🧪 24 saat: DOGE (z +0.6)",
 "k": "gitmedi — yalnız panel"
 }
 ],
