@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 13.11.2026 17:04
+# 📒 Canlı karne — 13.11.2026 18:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 147 | %71 | 1.28% | 188.4% | 3 | 149 · %74 · 1.10% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
-| panel (gönderilmedi) | 569 | %58 | 0.32% | 182.3% | 11 | 573 · %62 · 0.26% | — |
+| panel (gönderilmedi) | 570 | %58 | 0.32% | 182.7% | 11 | 573 · %62 · 0.26% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 277 | %59 | 0.40% | 111.6% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -25,7 +25,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 🧪 24 s ana coin | 3 · %33 | 9 | %33 | -1.01% | -9.1% | — | ❌ kötü |
 | panel | ₿ BTC saatlik / ⭐ / A | 34 · %62 | 240 | %52 | 0.04% | 10.7% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
-| panel | 💵 ABD alıyor | 19 · %79 | 23 | %78 | 0.89% | 20.4% | — | ✅ iyi |
+| panel | 💵 ABD alıyor | 20 · %80 | 24 | %79 | 0.87% | 20.8% | — | ✅ iyi |
 | panel | 🔇/🪙 coin tek | 33 · %73 | 115 | %63 | 0.28% | 32.6% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 1 · %100 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
 | panel | 🤝 BTC ile ortak | 7 · %71 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
