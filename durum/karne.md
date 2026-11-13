@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 13.11.2026 19:04
+# 📒 Canlı karne — 13.11.2026 20:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 147 | %71 | 1.28% | 188.4% | 3 | 149 · %74 · 1.10% | %62 · %67 |
+| ✅ ana (gönderildi) | 148 | %72 | 1.30% | 191.7% | 2 | 149 · %74 · 1.10% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
 | panel (gönderilmedi) | 570 | %58 | 0.32% | 182.7% | 11 | 573 · %62 · 0.26% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 4 · %50 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 40 · %75 | 79 | %75 | 1.78% | 140.6% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 41 · %76 | 80 | %75 | 1.80% | 143.8% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 0 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 4 · %100 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
@@ -23,13 +23,13 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 💵 ABD alıyor | 2 · %0 | 20 | %40 | 0.98% | 19.5% | — | ⚠️ orta |
 | 🔸 yedek | 🔇/🪙 coin tek | 2 · %0 | 10 | %50 | 0.50% | 5.0% | — | ⚠️ orta |
 | 🔸 yedek | 🧪 24 s ana coin | 3 · %33 | 9 | %33 | -1.01% | -9.1% | — | ❌ kötü |
-| panel | ₿ BTC saatlik / ⭐ / A | 34 · %62 | 240 | %52 | 0.04% | 10.7% | — | ⚠️ orta |
+| panel | ₿ BTC saatlik / ⭐ / A | 32 · %62 | 240 | %52 | 0.04% | 10.7% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
 | panel | 💵 ABD alıyor | 20 · %80 | 24 | %79 | 0.87% | 20.8% | — | ✅ iyi |
-| panel | 🔇/🪙 coin tek | 33 · %73 | 115 | %63 | 0.28% | 32.6% | %55 · %53 | ✅ iyi · testle uyumlu |
+| panel | 🔇/🪙 coin tek | 32 · %72 | 115 | %63 | 0.28% | 32.6% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🔻 BTC kısa | 1 · %100 | 14 | %50 | -0.27% | -3.8% | — | ⚠️ orta |
 | panel | 🤝 BTC ile ortak | 7 · %71 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
-| panel | 🧪 24 s ana coin | 19 · %58 | 48 | %54 | 0.97% | 46.4% | %55 · %53 | ✅ iyi · testle uyumlu |
+| panel | 🧪 24 s ana coin | 18 · %61 | 48 | %54 | 0.97% | 46.4% | %55 · %53 | ✅ iyi · testle uyumlu |
 
 **Önceden yazılı karar (15.10.2026):** 12.11.2026 tarihinden itibaren ✅ ana türünde ≥ 20 kapanan sinyal varken canlı isabet testin belirgin altında (binom p < 0,05) VE işlem başı net < 0 ise → ana'dan çıkarma önerisi (kullanıcıya sorulur).
 _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet < %50 ve zararda · ≥ 20 sinyal + test varsa testle karşılaştırılır · ⏳ = 5'ten az kapanan_
@@ -44,15 +44,14 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 09.11 01:00 | ana | 🌐🧪 | CRV | 24 s | +3.99% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | APE | 24 s | +3.09% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | XLM | 24 s | +2.32% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | POL | 24 s | +3.58% | ✅ |
-| 09.11 01:00 | ana | 🌐🧪 | UMA | 24 s | +3.93% | ✅ |
+| 09.11 01:00 | ana | 🌐🧪 | SAND | 24 s | +6.00% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | ALGO | 24 s | +2.98% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | ETC | 24 s | +4.54% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | ENS | 24 s | +6.34% | ✅ |
-| 09.11 01:00 | ana | 🌐🧪 | SAND | 24 s | +6.00% | ✅ |
+| 09.11 01:00 | ana | 🌐🧪 | UMA | 24 s | +3.93% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | QI | 24 s | +6.17% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | JASMY | 24 s | +10.46% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | CHZ | 24 s | +3.52% | ✅ |
@@ -69,3 +68,4 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 12.11 03:00 | ana | 🌐🧪 | INJ | 24 s | -0.86% | ❌ |
 | 12.11 03:00 | ana | 🌐🧪 | NMR | 24 s | -0.15% | ❌ |
 | 12.11 17:00 | ana | 🌐🧪 | FIL | 24 s | -0.03% | ❌ |
+| 12.11 20:00 | ana | 🌐🧪 | TAO | 24 s | +3.27% | ✅ |
