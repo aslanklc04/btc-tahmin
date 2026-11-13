@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-13",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "11.11 10:04",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ · prim ✅ z +0.3",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "11.11 10:04",
-"s": "panel",
-"e": "🔇 DOT ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.7",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "11.11 17:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "13.11 11:03",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.11 17:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: FIL (z +2.1)",
+"k": "gönderildi"
+},
+{
+"t": "13.11 17:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: FIL (z +2.1, 8 saat), ETH (z +3.7, 24 saat), SOL (z +3.2, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],

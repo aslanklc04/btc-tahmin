@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 13.11.2026 16:03
+# 📒 Canlı karne — 13.11.2026 17:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 146 | %72 | 1.29% | 188.5% | 3 | 147 · %75 · 1.09% | %62 · %67 |
+| ✅ ana (gönderildi) | 147 | %71 | 1.28% | 188.4% | 3 | 149 · %74 · 1.10% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
-| panel (gönderilmedi) | 569 | %58 | 0.32% | 182.3% | 8 | 572 · %62 · 0.25% | — |
+| panel (gönderilmedi) | 569 | %58 | 0.32% | 182.3% | 11 | 573 · %62 · 0.26% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 277 | %59 | 0.40% | 111.6% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 4 · %50 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 40 · %78 | 78 | %76 | 1.80% | 140.6% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 40 · %75 | 79 | %75 | 1.78% | 140.6% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 0 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 4 · %100 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
@@ -44,7 +44,6 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 09.11 01:00 | ana | 🌐🧪 | C98 | 24 s | +6.92% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | CRV | 24 s | +3.99% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | APE | 24 s | +3.09% | ✅ |
 | 09.11 01:00 | ana | 🌐🧪 | XLM | 24 s | +2.32% | ✅ |
@@ -69,3 +68,4 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 10.11 19:00 | ana | 🌐🧪 | ACH | 24 s | +1.63% | ✅ |
 | 12.11 03:00 | ana | 🌐🧪 | INJ | 24 s | -0.86% | ❌ |
 | 12.11 03:00 | ana | 🌐🧪 | NMR | 24 s | -0.15% | ❌ |
+| 12.11 17:00 | ana | 🌐🧪 | FIL | 24 s | -0.03% | ❌ |
