@@ -1,37 +1,7 @@
 {
 "gun": "2026-11-13",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "10.11 19:04",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z +2.1), LINK (z +0.7), ADA (z +0.4)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "10.11 19:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: FIL (z +2.5, 8 saat), NEAR (z +2.1, 24 saat), AAVE (z +2.1, 24 saat), UNI (z +3.7, 4 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "10.11 20:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "10.11 20:04",
-"s": "panel",
-"e": "🔇 DOT ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +0.2",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "10.11 20:04",
-"s": "panel",
-"e": "📉🔥 💵 ABD güçlü alıyor: SOL (z +3.2, 24 saat)",
-"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
-},
 {
 "t": "10.11 21:04",
 "s": "panel",
@@ -241,6 +211,36 @@
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.1",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.11 09:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: BNB (z +0.8)",
+"k": "gönderildi"
+},
+{
+"t": "13.11 09:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.11 09:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.11 09:04",
+"s": "panel",
+"e": "💧 💵 ABD güçlü alıyor: XRP (z +2.5, 24 saat)",
+"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "13.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 13.11 09:00 · $68,144",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
