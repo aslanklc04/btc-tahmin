@@ -3,18 +3,6 @@
 "giden": 1,
 "log": [
 {
-"t": "10.11 21:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: XRP (z +2.3, 24 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "11.11 03:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: ADA (z +3.5, 24 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "11.11 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 11.11 09:00 · $73,924",
@@ -241,6 +229,18 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 13.11 09:00 · $68,144",
 "k": "gönderildi"
+},
+{
+"t": "13.11 10:04",
+"s": "panel",
+"e": "🧪 24 saat: NEAR (z -0.2)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "13.11 10:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: CRV (z +4.4, 8 saat), INJ (z +3.3, 24 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
