@@ -19,3 +19,8 @@ Soru: geçmişte kazanan büyük hesaplar sonraki ay da kazanıyor mu? Evetse po
 - Sıralama tablosu batıp kapanan hesapları içermiyor olabilir → sonuç OLDUĞUNDAN İYİ görünür. Şart bu yanlılıkla bile tutmazsa güçlü "hayır"; tutarsa asıl kanıt canlı ileriye dönük izlemedir.
 - Para yatırma/çekme hesap değerini bozar; paydada bu yüzden kâr/zarar serisi ve ortalama hesap değeri kullanılır.
 - Geçerse sonraki adım (ayrı protokol): en iyi hesapların açık pozisyonlarını günlük kaydeden gölge + "çoğunluk yönü" sinyalinin sınanması. Teknik ayrıntılar (API alan adları, seri sıklığı) veri yapısı görülünce yazılır; ŞARTLAR değişmez.
+
+## Ek 0 (14.11.2026) — teknik ayrıntılar (veri YAPISI görüldü; sonuç görülmedi; şartlar değişmedi)
+- Sıralama tablosu: 47.798 hesap; %53'ünün tüm zamanlar kârı eksi, 21.939'unun hesap değeri < 100 $ → batan hesaplar tabloda duruyor (hayatta kalan yanlılığı küçük).
+- Hesap geçmişi: "portfolio" → "allTime" serisi (yaklaşık haftalık noktalar; birikimli kâr/zarar ve hesap değeri). Bir tarihteki değer = o tarihten önceki son gözlem (en çok 10 gün eski; yoksa eksik).
+- Evren: tüm zamanlar hacmine göre ilk 3.000 hesap (3.000. hesabın hacmi ≈ 288 M $).

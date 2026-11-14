@@ -1,0 +1,22 @@
+name: Hyperliquid hesap gecmisleri
+on:
+  push:
+    branches: [arastirma3]
+    paths: [hl_veri_tetik.txt]
+permissions:
+  contents: write
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: arastirma3}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          pip install -q requests pandas pyarrow
+          python -u hl_veri.py 2>&1 | tee hl_veri_log.txt
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add hl_veri_log.txt; git add hl_seri.parquet hl_meta.parquet 2>/dev/null || true; git commit -m "Hyperliquid hesap gecmisleri" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin arastirma3 && git push origin HEAD:arastirma3 && break; sleep 5; done
