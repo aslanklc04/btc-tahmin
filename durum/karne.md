@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 14.11.2026 17:03
+# 📒 Canlı karne — 14.11.2026 18:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 150 | %71 | 1.22% | 182.9% | 3 | 150 · %74 · 1.04% | %62 · %67 |
+| ✅ ana (gönderildi) | 150 | %71 | 1.22% | 182.9% | 10 | 150 · %74 · 1.04% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
-| panel (gönderilmedi) | 592 | %57 | 0.25% | 149.9% | 14 | 592 · %60 · 0.18% | — |
+| panel (gönderilmedi) | 592 | %57 | 0.25% | 149.9% | 17 | 592 · %60 · 0.18% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 277 | %59 | 0.40% | 111.6% | 1 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -37,8 +37,8 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## İşaretli ✅ ana sinyaller (19.10'dan beri ayrı kayıt; 13.10 SHIB 📉🔥 elle eklendi)
 | İşaret | Kapanan | İsabet | İşlem başı net | Açık | Testte (2024+ · 2026) |
 |---|---|---|---|---|---|
-| 📉🔥 | 5 | %80 | 2.23% | 0 | %67 · %71 |
-| 💧 | 2 | %100 | 3.48% | 1 | %68 · %69 |
+| 📉🔥 | 5 | %80 | 2.23% | 1 | %67 · %71 |
+| 💧 | 2 | %100 | 3.48% | 2 | %68 · %69 |
 | 🚀 | 1 | %0 | -2.84% | 0 | %65 · %69 |
 
 ## Son 25 kapanan (gönderilen)
