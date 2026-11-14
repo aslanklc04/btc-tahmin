@@ -1,4 +1,4 @@
-# 📏 Gerçekçi karne — 14.11.2026 02:05
+# 📏 Gerçekçi karne — 14.11.2026 03:05
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
@@ -15,7 +15,7 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 ## 👻 Gölge izleme (mesaj gitmez; birkaç ay sonra karar için)
 - **🎯 yakın hedef (0,5σ) — yalnız 💎 ELİT + 🌪️, limit giriş:** 17 işlem / 10 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +1.90% — aynı işlemler bugünkü hedefle (0,75σ): 17 işlem / 10 saat · işlem isabeti %100 · **saat isabeti %100** · işlem başı +2.26% · karar ≥ 40 işlemde (isabet ≥ %80, net > 0 ve bugünkü netin ≥ %70'i)
 - **T1 takip eden kâr-al (τ 0,25):** 403 işlem / 98 saat · işlem isabeti %71 · **saat isabeti %60** · işlem başı +0.62% — aynı işlemler şimdiki kuralla: 403 işlem / 98 saat · işlem isabeti %71 · **saat isabeti %60** · işlem başı +0.55%
-- **T3 zarardakini 2 katı süreye uzat:** 400 işlem / 96 saat · işlem isabeti %78 · **saat isabeti %69** · işlem başı +0.62% — aynı işlemler şimdiki kuralla: 400 işlem / 96 saat · işlem isabeti %72 · **saat isabeti %61** · işlem başı +0.56%
+- **T3 zarardakini 2 katı süreye uzat:** 402 işlem / 97 saat · işlem isabeti %78 · **saat isabeti %68** · işlem başı +0.62% — aynı işlemler şimdiki kuralla: 402 işlem / 97 saat · işlem isabeti %72 · **saat isabeti %61** · işlem başı +0.55%
 - **🎯 ≥ %1,5 filtresi (ana + panelden):** 93 işlem / 66 saat · işlem isabeti %61 · **saat isabeti %58** · işlem başı +0.62% — filtresiz: 120 işlem / 76 saat · işlem isabeti %61 · **saat isabeti %53** · işlem başı +0.49% · elenenler (🎯 < %1,5): 27 işlem / 20 saat · işlem isabeti %59 · **saat isabeti %45** · işlem başı +0.02%
 - **📐 risk payı (pay = 1,5 / 🎯 %, en fazla ×1):** saat sepeti eşit pay → saat isabeti %60 · ort +0.37% · en kötü saat -8.89% · oynaklık 3.06 | risk paylı → %61 · ort +0.36% · en kötü -8.89% · oynaklık 3.06
 - **R2 🎯 = modelin beklenen fiyatı (🤝, 25.10'dan beri):** 70 işlem / 15 saat · işlem isabeti %81 · **saat isabeti %80** · işlem başı +0.13% — aynı sinyaller şimdiki 🎯 ile: 129 işlem / 18 saat · işlem isabeti %67 · **saat isabeti %67** · işlem başı +0.30% · beklenen girişin %0,2 üstünde değilse R2 işlem yapmaz

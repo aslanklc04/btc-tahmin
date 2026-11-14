@@ -3,12 +3,6 @@
 "giden": 1,
 "log": [
 {
-"t": "12.11 09:04",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 12.11 09:00 · $73,586",
-"k": "gönderildi"
-},
-{
 "t": "12.11 15:04",
 "s": "panel",
 "e": "🧪 24 saat: ETH (z +0.6)",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: CRV (z +4.5, 8 saat)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "14.11 03:04",
+"s": "panel",
+"e": "💧 💵 ABD güçlü alıyor: DOGE (z +3.1, 24 saat)",
+"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
 }
 ],
 "panelden": 0
