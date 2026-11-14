@@ -1,25 +1,7 @@
 {
 "gun": "2026-11-14",
-"giden": 4,
+"giden": 5,
 "log": [
-{
-"t": "13.11 10:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: CRV (z +4.4, 8 saat), INJ (z +3.3, 24 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "13.11 11:03",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "13.11 17:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: FIL (z +2.1)",
-"k": "gönderildi"
-},
 {
 "t": "13.11 17:04",
 "s": "panel",
@@ -240,6 +222,24 @@
 "t": "14.11 20:04",
 "s": "panel",
 "e": "📉🔥 💵 ABD güçlü alıyor: NEAR (z +2.2, 24 saat)",
+"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "14.11 21:03",
+"s": "✅ ana",
+"e": "🧪 24 saat: GRT (z +2.3)",
+"k": "gönderildi"
+},
+{
+"t": "14.11 21:03",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +1.5",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "14.11 21:03",
+"s": "panel",
+"e": "📉🔥 💵 ABD güçlü alıyor: LINK (z +2.4, 8 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
 }
 ],
