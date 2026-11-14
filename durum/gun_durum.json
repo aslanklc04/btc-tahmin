@@ -5,12 +5,6 @@
 {
 "t": "12.11 15:04",
 "s": "panel",
-"e": "🧪 24 saat: ETH (z +0.6)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "12.11 15:04",
-"s": "panel",
 "e": "🧪 24 saat: LINK (z -0.6)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "💧 💵 ABD güçlü alıyor: DOGE (z +3.1, 24 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "14.11 04:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.4",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
