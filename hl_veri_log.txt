@@ -1,0 +1,16 @@
+[2 sn] 0 · 70 nokta · hata 0
+[256 sn] 200 · 16880 nokta · hata 0
+[509 sn] 400 · 33497 nokta · hata 0
+[762 sn] 600 · 49448 nokta · hata 0
+[1017 sn] 800 · 65171 nokta · hata 0
+[1270 sn] 1000 · 80971 nokta · hata 0
+[1524 sn] 1200 · 96950 nokta · hata 0
+[1780 sn] 1400 · 112286 nokta · hata 0
+[2035 sn] 1600 · 128224 nokta · hata 0
+[2286 sn] 1800 · 144140 nokta · hata 0
+[2539 sn] 2000 · 159618 nokta · hata 0
+[2795 sn] 2200 · 174988 nokta · hata 0
+[3048 sn] 2400 · 190468 nokta · hata 0
+[3301 sn] 2600 · 205316 nokta · hata 0
+[3554 sn] 2800 · 220941 nokta · hata 0
+bitti: 3000 hesap · 236550 nokta · 2023-04-19 22:45:00.375000+00:00 → 2026-11-14 20:14:08.535000+00:00 · hata 0 · 3807 sn
