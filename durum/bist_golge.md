@@ -1,9 +1,9 @@
-# 🇹🇷 BIST gölge izleme — 13.11.2026 19:05
+# 🇹🇷 BIST gölge izleme — 14.11.2026 19:05
 
 _Mesaj göndermez. Kural: günlük RSI 14, 30'un üstüne döner + OBV 5 günde yükselir → ertesi seans açılışında AL, 🎯 +0,75σ·2 (σ = 250 g), en fazla 10 seans. Ücret %0,05/taraf, kayma %0,05, net dolar bazında. Hisse başına aynı anda tek işlem. Stop yok (araştırmadaki gibi). 63 hisse (BIST 30 + 33 büyük hisse). ⚠️ = işlem sırasında bir günde ±%11'den büyük hareket (BIST'te ±%10 sınırı var → büyük ihtimalle bedelli/bölünme düzeltmesi; sonuç şüpheli)._
 
 - Başlangıç 02.11.2026 · son veri 13.11.2026 · sinyal 13 (biten 12, açık 1)
-- **Canlı gölge:** isabet %100 · 🎯 oranı %100 · işlem başı dolar net +4.51% (TL +4.69%)
+- **Canlı gölge:** isabet %100 · 🎯 oranı %100 · işlem başı dolar net +4.53% (TL +4.69%)
 - **Araştırma (karşılaştırma):** BIST 30 %74 · %74 · %72 (+0,67 · +0,52 · +1,30) · diğer %68 · %75 · %67 (+0,37 · +1,45 · +0,22) · 63 hissede yılda ≈ 30–40 sinyal
 
 | sinyal günü | hisse | grup | RSI | giriş | 🎯 | sonuç | çıkış günü | dolar net % |
@@ -19,5 +19,5 @@ _Mesaj göndermez. Kural: günlük RSI 14, 30'un üstüne döner + OBV 5 günde 
 | 04.11.2026 | ODAS | diğer | 32 | 4.72 | 4.936 | 🎯 | 09.11 | +4.19 |
 | 04.11.2026 | PASEU | diğer | 31 | 27.86 | 30.38 | 🎯 | 09.11 | +8.63 |
 | 04.11.2026 | SKBNK | diğer | 30 | 3.44 | 3.663 | 🎯 | 06.11 | +6.04 |
-| 04.11.2026 | VESTL | diğer | 38 | 14 | 14.65 | 🎯 | 13.11 | +3.75 |
+| 04.11.2026 | VESTL | diğer | 38 | 14 | 14.65 | 🎯 | 13.11 | +3.92 |
 | 09.11.2026 | KTLEV | diğer | 31 | 5.11 | 5.553 | 🎯 | 10.11 | +8.32 |

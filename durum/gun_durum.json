@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "13.11 09:04",
-"s": "panel",
-"e": "💧 💵 ABD güçlü alıyor: XRP (z +2.5, 24 saat)",
-"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
-},
-{
-"t": "13.11 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 13.11 09:00 · $68,144",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "14.11 18:04",
 "s": "panel",
 "e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ✅ z +0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "14.11 19:04",
+"s": "panel",
+"e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ⚠️ z -0.9",
 "k": "gitmedi — yalnız panel"
 }
 ],
