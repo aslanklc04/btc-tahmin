@@ -1,5 +1,5 @@
 # 🐋 Hyperliquid'de kazanan büyük hesaplar sonraki ay da kazanıyor mu? — PROTOKOL_hl.md
-_15.11.2026 10:26 · evren: hacme göre ilk 3.000 hesap (47.798 içinden) · 19 oluşum tarihi (2025-03 → 2026-09) · uygun: hesap değeri ≥ 50.000 $, ≥ 90 gün geçmiş, etkin · ileri 30 gün getirisi (kâr / hesap değeri) · takip maliyeti yok (iyimser)_
+_15.11.2026 10:31 · evren: hacme göre ilk 3.000 hesap (47.798 içinden) · 19 oluşum tarihi (2025-03 → 2026-09) · uygun: hesap değeri ≥ 50.000 $, ≥ 90 gün geçmiş, etkin · ileri 30 gün getirisi (kâr / hesap değeri) · takip maliyeti yok (iyimser)_
 
 _Tarih başına uygun hesap: ort. 913 (en az 644, en çok 1045) · tüm uygun hesapların ileri getirisi: medyan +0.13% · ort. +2.00% · kârlı %51_
 
@@ -85,3 +85,4 @@ _Tarih başına uygun hesap: ort. 913 (en az 644, en çok 1045) · tüm uygun he
 
 _Bilgi — yalnız hesap değeri ≥ 1 M $ (6314 gözlem): S2'ye göre en iyi %10 ileri medyan +0.23% · kârlı %51 · hepsi medyan +1.92%_
 _Bilgi — sıralama tablosu bugün: 47.798 hesabın %53'ü tüm zamanlarda zararda · ilk 3.000'de (hacme göre) zararda olan %55 · ilk 3.000'in toplam kârı +3.70 milyar $ (kazananlar +6.64 · kaybedenler -2.94)_
+_Sağlamlık notu — aylık 'hepsi medyan' değeri ile aynı 30 günün fiyat değişimi arasındaki korelasyon: HYPE +0.75 (16 ay) · BTC +0.55 (19 ay) · ETH +0.58 (19 ay) → hesap kârı büyük ölçüde piyasa yönünü (elde tutulan coin'leri) yansıtıyor; 'geçmişte kazanan' çoğu zaman 'o dönemde daha çok long olan' demek ve piyasa dönünce sıralama tersine dönüyor._

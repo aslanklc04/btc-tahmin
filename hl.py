@@ -39,4 +39,12 @@ for s, ad in AD.items():
 yaz(f"## Sonuç → {'✅ kalıcılık var: ' + ', '.join(AD[k] for k, v in SON.items() if v) if any(SON.values()) else '❌ geçmişte kazanan hesaplar sonraki ay kazanmaya devam etmiyor'}")
 b = A[A.a0 >= 1e6]; yaz(f"\n_Bilgi — yalnız hesap değeri ≥ 1 M $ ({len(b)} gözlem): S2'ye göre en iyi %10 ileri medyan " + (lambda t: f"{100 * t.f.median():+.2f}% · kârlı %{100 * (t.f > 0).mean():.0f}")(pd.concat([g[g.s2 >= g.s2.quantile(0.9)] for _, g in b.groupby('F')])) + f" · hepsi medyan {100 * b.f.median():+.2f}%_")
 yaz(f"_Bilgi — sıralama tablosu bugün: 47.798 hesabın %{100 * (M.pnl_all < 0).mean():.0f}'ü tüm zamanlarda zararda · ilk 3.000'de (hacme göre) zararda olan %{100 * (M.head(3000).pnl_all < 0).mean():.0f} · ilk 3.000'in toplam kârı {M.head(3000).pnl_all.sum() / 1e9:+.2f} milyar $ (kazananlar {M.head(3000).pnl_all.clip(lower=0).sum() / 1e9:+.2f} · kaybedenler {M.head(3000).pnl_all.clip(upper=0).sum() / 1e9:+.2f})_")
+# sağlamlık notu (sonuçtan sonra eklendi, karar kuralını değiştirmez): "hepsi medyan" piyasa yönüyle mi oynuyor?
+try:
+    K = pd.read_parquet("yeniliste_mum.parquet"); K["t"] = pd.to_datetime(K.t, utc=True).dt.floor("D"); um = A.groupby("F").f.median(); kr = []
+    for s_ in ("HYPEUSDT", "BTCUSDT", "ETHUSDT"):
+        p = K[K.s == s_].drop_duplicates("t").set_index("t").c.sort_index(); r = pd.Series({F: p.asof(F + G) / p.asof(F) - 1 for F in um.index if p.index.min() <= F})
+        kr.append(f"{s_[:-4]} {um.reindex(r.index).corr(r):+.2f} ({len(r)} ay)")
+    yaz("_Sağlamlık notu — aylık 'hepsi medyan' değeri ile aynı 30 günün fiyat değişimi arasındaki korelasyon: " + " · ".join(kr) + " → hesap kârı büyük ölçüde piyasa yönünü (elde tutulan coin'leri) yansıtıyor; 'geçmişte kazanan' çoğu zaman 'o dönemde daha çok long olan' demek ve piyasa dönünce sıralama tersine dönüyor._")
+except Exception as e: yaz(f"_Sağlamlık notu hesaplanamadı: {e}_")
 open("hl_sonuc.md", "w").write("\n".join(out) + "\n")

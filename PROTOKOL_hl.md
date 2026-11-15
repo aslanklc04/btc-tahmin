@@ -27,3 +27,10 @@ Soru: geçmişte kazanan büyük hesaplar sonraki ay da kazanıyor mu? Evetse po
 
 ## Ek 0b (15.11.2026) — teknik düzeltme (sonuç görülmeden; şartlar aynı)
 Serilerdeki nokta aralığı medyan 7 gün, %90'ı 14 gün (en çok 14,9) çıktı → "en çok 10 gün eski" kuralı eski hesapları rastgele düşürürdü; tolerans 15 güne çıkarıldı.
+
+## Ek 1 (15.11.2026, sonuçtan SONRA — karar kuralı değişmedi, yalnız bilgi satırı)
+`hl_sonuc.md`'deki "hepsi medyan" sütunu aydan aya −%17 … +%28 oynuyordu; hata olup olmadığına bakıldı. Hata değil:
+bu değer aynı 30 günün HYPE / BTC / ETH fiyat değişimiyle +0,75 / +0,55 / +0,58 korelasyonlu. Yani API'nin verdiği
+hesap kârı elde tutulan coin'lerin değer değişimini de içeriyor ve hesapların çoğu piyasayla aynı yönde. `hl.py` sonuna
+bu korelasyonu yazan bir "sağlamlık notu" eklendi. Sonuç (❌) aynı; yorum: "geçmişte kazanan" sıralaması büyük ölçüde
+"o dönemde daha çok long olan"ı seçiyor.
