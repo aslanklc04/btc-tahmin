@@ -1,3 +1,62 @@
+### 15.11.2026 20:04
+📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
+ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.
+• 1 saat Güçlü ↑: 11/19 tuttu (%58) · ort. %+0.17
+• 🟢 A sınıfı (4s): 0/3 tuttu (%0) · ort. %-1.06
+• 4 saat Güçlü ↑: 1/2 tuttu (%50) · ort. %+0.17
+• 4 saat Güçlü ↑ ⏰: 1/2 tuttu (%50) · ort. %-1.81
+• 8 saat Güçlü ↓: 2/3 tuttu (%67) · ort. %+0.81
+• 🔻 Coinbase kısa (24s): 1/1 tuttu (%100) · ort. %+7.20
+💵 ABD onaylı (prim z > 0): 13/26 tuttu (%50) · onaysız: yok
+Toplam: 16/30 tuttu (%53)
+(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)
+
+---
+
+### 15.11.2026 20:04
+🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
+ℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.
+• ADA ⭐ en güçlü 🔇: 5/8 tuttu (%62) · ort. %-0.48
+• BNB ⭐ en güçlü 🔇: 1/2 tuttu (%50) · ort. %-0.37
+• BNB 4s Çok güçlü ↑: 1/3 tuttu (%33) · ort. %-0.60
+• BNB 🟢 A sınıfı: 5/14 tuttu (%36) · ort. %-0.35
+• DOGE ⭐ en güçlü 🔇: 3/5 tuttu (%60) · ort. %-0.78
+• DOT ⭐ en güçlü 🔇: 5/8 tuttu (%62) · ort. %-0.16
+• ETH 4s Çok güçlü ↑: 1/3 tuttu (%33) · ort. %-1.89
+• ETH 🟢 A sınıfı: 2/6 tuttu (%33) · ort. %-1.24
+• ETH ⭐ en güçlü 🔇: 1/1 tuttu (%100) · ort. %+4.03
+• SHIB ⭐ en güçlü 🔇: 3/5 tuttu (%60) · ort. %-0.22
+Toplam: 27/55 tuttu (%49) · tek başına: 27/55
+💵 ABD onaylı (prim z > 0): 24/50 tuttu (%48) · onaysız: 3/5 tuttu (%60)
+
+---
+
+### 15.11.2026 20:04
+🧪📊 24 SAAT DENEME — HAFTALIK
+Son 7 gün: 40/74 tuttu (%54) · ort. net %-0.53 · toplam %-38.9
+Başlangıçtan (07.10) beri: 102/175 tuttu (%58) · ort. net %+0.38 · toplam %+67.3
+💵 ABD onaylı: 77/123 tuttu (%63) · ort. net %+0.46 · toplam %+56.1 | onaysız: 24/51 tuttu (%47) · ort. net %+0.22 · toplam %+11.1
+(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)
+
+---
+
+### 15.11.2026 20:04
+⛓️📊 ARZ/TALEP (ETH) — HAFTALIK
+Bu hafta kapanan: sonuçlanan işlem yok
+Başlangıçtan (08.10) beri: 1/1 tuttu (%100) · ort. net %+2.62 · toplam %+2.6
+Açık işlem: 0
+
+---
+
+### 15.11.2026 20:04
+💵📊 ABD ALIYOR (kendi primi) — HAFTALIK
+Son 7 gün: 18/42 tuttu (%43) · ort. net %-0.76 · toplam %-32.0
+Başlangıçtan (08.10) beri: 27/68 tuttu (%40) · ort. net %-0.37 · toplam %-25.2
+AAVE 1/2 (-1.34) · ADA 2/2 (+1.13) · ALGO 1/1 (+1.39) · BTC 0/4 (-2.57) · CRV 3/5 (+0.48) · DOGE 0/1 (-11.34) · ETH 1/2 (-1.72) · FIL 2/6 (-0.84) · INJ 2/3 (+1.99) · LINK 2/3 (-0.46) · NEAR 2/3 (+1.42) · SOL 1/2 (-2.01) · UNI 0/5 (-1.22) · XRP 1/3 (-1.34)
+(giriş: mesaj anındaki fiyat · çıkış: süre sonu · limit komisyon dahil)
+
+---
+
 ### 08.11.2026 20:03
 📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
 ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.

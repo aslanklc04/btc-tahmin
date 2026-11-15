@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-15",
-"giden": 6,
+"giden": 7,
 "log": [
-{
-"t": "14.11 21:03",
-"s": "panel",
-"e": "📉🔥 💵 ABD güçlü alıyor: LINK (z +2.4, 8 saat)",
-"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
-},
-{
-"t": "14.11 22:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: C98 (z +1.6)",
-"k": "gönderildi"
-},
 {
 "t": "14.11 22:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "15.11 19:04",
 "s": "panel",
 "e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ✅ z +0.8",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "15.11 20:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: AVAX (z +1.5)",
+"k": "gönderildi"
+},
+{
+"t": "15.11 20:04",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ✅ z +2.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
