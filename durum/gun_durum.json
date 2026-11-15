@@ -3,12 +3,6 @@
 "giden": 4,
 "log": [
 {
-"t": "14.11 14:03",
-"s": "panel",
-"e": "🔇 DOT ⭐ en güçlü · 8 saat · isabet %58 · prim ✅ z +1.0",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "14.11 16:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.8",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "📉🔥 💵 ABD güçlü alıyor: FIL (z +4.7, 8 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "15.11 08:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: BTC (z +2.5, 24 saat), LINK (z +2.0, 8 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
