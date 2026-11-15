@@ -1,13 +1,7 @@
 {
 "gun": "2026-11-15",
-"giden": 5,
+"giden": 6,
 "log": [
-{
-"t": "14.11 18:04",
-"s": "panel",
-"e": "🔇 DOGE ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.7",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "14.11 18:04",
 "s": "panel",
@@ -240,6 +234,12 @@
 "t": "15.11 12:03",
 "s": "✅ ana",
 "e": "🧪 24 saat: BAT (z +2.6)",
+"k": "gönderildi"
+},
+{
+"t": "15.11 14:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: KAVA (z +3.7)",
 "k": "gönderildi"
 }
 ],
