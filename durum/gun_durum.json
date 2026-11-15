@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "14.11 18:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: SHIB (z +0.8), BONK (z +2.3), COTI (z +1.8), LPT (z +1.8), FIL (z +1.8), STRK (z +3.2), ZK (z +3.2)",
-"k": "gönderildi"
-},
-{
-"t": "14.11 18:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.8",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 15.11 09:00 · $64,516",
 "k": "gönderildi"
+},
+{
+"t": "15.11 11:04",
+"s": "panel",
+"e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.3",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
