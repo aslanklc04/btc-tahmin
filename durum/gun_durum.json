@@ -3,12 +3,6 @@
 "giden": 6,
 "log": [
 {
-"t": "14.11 20:04",
-"s": "panel",
-"e": "📉🔥 💵 ABD güçlü alıyor: NEAR (z +2.2, 24 saat)",
-"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
-},
-{
 "t": "14.11 21:03",
 "s": "✅ ana",
 "e": "🧪 24 saat: GRT (z +2.3)",
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "📉🔥 💧 💵 ABD güçlü alıyor: DOGE (z +3.2, 24 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "15.11 17:03",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: LINK (z +2.5, 8 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
