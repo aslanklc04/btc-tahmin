@@ -24,3 +24,6 @@ Soru: geçmişte kazanan büyük hesaplar sonraki ay da kazanıyor mu? Evetse po
 - Sıralama tablosu: 47.798 hesap; %53'ünün tüm zamanlar kârı eksi, 21.939'unun hesap değeri < 100 $ → batan hesaplar tabloda duruyor (hayatta kalan yanlılığı küçük).
 - Hesap geçmişi: "portfolio" → "allTime" serisi (yaklaşık haftalık noktalar; birikimli kâr/zarar ve hesap değeri). Bir tarihteki değer = o tarihten önceki son gözlem (en çok 10 gün eski; yoksa eksik).
 - Evren: tüm zamanlar hacmine göre ilk 3.000 hesap (3.000. hesabın hacmi ≈ 288 M $).
+
+## Ek 0b (15.11.2026) — teknik düzeltme (sonuç görülmeden; şartlar aynı)
+Serilerdeki nokta aralığı medyan 7 gün, %90'ı 14 gün (en çok 14,9) çıktı → "en çok 10 gün eski" kuralı eski hesapları rastgele düşürürdü; tolerans 15 güne çıkarıldı.
