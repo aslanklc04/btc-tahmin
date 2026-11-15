@@ -5,12 +5,6 @@
 {
 "t": "14.11 07:04",
 "s": "panel",
-"e": "🧪 24 saat: ADA (z -0.4)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "14.11 07:04",
-"s": "panel",
 "e": "💵 ABD güçlü alıyor: BTC (z +5.9, 24 saat)",
 "k": "gitmedi — yalnız panel"
 },
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "📉🔥 💵 ABD güçlü alıyor: ETH (z +3.3, 24 saat)",
 "k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
+},
+{
+"t": "15.11 04:03",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +3.0",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
