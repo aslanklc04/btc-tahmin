@@ -1,11 +1,11 @@
-# 📒 Canlı karne — 16.11.2026 00:04
+# 📒 Canlı karne — 16.11.2026 01:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 166 | %66 | 0.78% | 129.8% | 14 | 171 · %70 · 0.69% | %62 · %67 |
+| ✅ ana (gönderildi) | 167 | %66 | 0.79% | 132.6% | 14 | 171 · %70 · 0.69% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 387 | %70 | 1.00% | 388.3% | 0 | 387 · %77 · 0.51% | %60 · %65 |
-| panel (gönderilmedi) | 639 | %54 | 0.08% | 52.6% | 11 | 642 · %59 · 0.02% | — |
+| panel (gönderilmedi) | 640 | %54 | 0.08% | 51.8% | 10 | 643 · %59 · 0.02% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
 | ↳ panel · prim ⛔ (filtre) | 278 | %59 | 0.37% | 104.0% | 0 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
@@ -14,7 +14,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
 | ✅ ana | 🌐🤝 ortak geniş liste | 0 | 30 | %80 | 1.21% | 36.3% | %69 · %76 | ✅ iyi · testle uyumlu |
-| ✅ ana | 🌐🧪 24 s geniş liste | 48 · %62 | 95 | %65 | 0.90% | 85.2% | %60 · %60 | ✅ iyi · testle uyumlu |
+| ✅ ana | 🌐🧪 24 s geniş liste | 49 · %63 | 96 | %66 | 0.92% | 87.9% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
 | ✅ ana | 🔀 zıt yön | 0 | 1 | %100 | 0.84% | 0.8% | %64 · %81 | ⏳ veri az |
 | ✅ ana | 🤝 BTC ile ortak | 0 | 29 | %62 | 0.48% | 13.8% | %63 · %68 | ✅ iyi · testle uyumlu |
@@ -25,7 +25,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 🧪 24 s ana coin | 0 | 9 | %33 | -1.01% | -9.1% | — | ❌ kötü |
 | panel | ₿ BTC saatlik / ⭐ / A | 29 · %55 | 250 | %52 | 0.04% | 9.4% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
-| panel | 💵 ABD alıyor | 41 · %49 | 45 | %51 | -0.44% | -19.9% | — | ⚠️ orta |
+| panel | 💵 ABD alıyor | 42 · %48 | 46 | %50 | -0.45% | -20.7% | — | ⚠️ orta |
 | panel | 🔇/🪙 coin tek | 50 · %46 | 142 | %56 | -0.03% | -4.8% | %55 · %53 | ⚠️ isabet testle uyumlu ama zararda |
 | panel | 🔻 BTC kısa | 1 · %100 | 15 | %53 | 0.22% | 3.3% | — | ⚠️ orta |
 | panel | 🤝 BTC ile ortak | 0 | 100 | %68 | 0.82% | 82.5% | %55 · %53 | ✅ iyi · testle uyumlu |
@@ -44,11 +44,10 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 ## Son 25 kapanan (gönderilen)
 | Saat | Sınıf | Tür | Coin | Süre | Net | |
 |---|---|---|---|---|---|---|
-| 10.11 19:00 | ana | 🌐🧪 | NMR | 24 s | +1.64% | ✅ |
-| 10.11 19:00 | ana | 🌐🧪 | SEI | 24 s | +3.52% | ✅ |
+| 10.11 19:00 | ana | 🌐🧪 | LDO | 24 s | +0.49% | ✅ |
 | 10.11 19:00 | ana | 🌐🧪 | ACH | 24 s | +1.63% | ✅ |
-| 12.11 03:00 | ana | 🌐🧪 | NMR | 24 s | -0.15% | ❌ |
 | 12.11 03:00 | ana | 🌐🧪 | INJ | 24 s | -0.86% | ❌ |
+| 12.11 03:00 | ana | 🌐🧪 | NMR | 24 s | -0.15% | ❌ |
 | 12.11 17:00 | ana | 🌐🧪 | FIL | 24 s | -0.03% | ❌ |
 | 12.11 20:00 | ana | 🌐🧪 | TAO | 24 s | +3.27% | ✅ |
 | 13.11 09:00 | ana | 🧪 📉🔥 | BNB | 24 s | -0.81% | ❌ |
@@ -56,16 +55,17 @@ _Not: ✅ iyi = isabet ≥ %55 ve kârda · ⚠️ orta · ❌ kötü = isabet <
 | 14.11 01:00 | ana | 🌐🧪 | APE | 24 s | -13.60% | ❌ |
 | 14.11 07:00 | ana | 🌐🧪 💧 | XRP | 24 s | -2.40% | ❌ |
 | 14.11 07:00 | ana | 🌐🧪 | ETC | 24 s | -6.24% | ❌ |
-| 14.11 18:00 | ana | 🌐🧪 | COTI | 24 s | -1.92% | ❌ |
 | 14.11 18:00 | ana | 🌐🧪 | ZK | 24 s | -4.49% | ❌ |
 | 14.11 18:00 | ana | 🌐🧪 | STRK | 24 s | -1.08% | ❌ |
 | 14.11 18:00 | ana | 🌐🧪 | FIL | 24 s | -9.06% | ❌ |
+| 14.11 18:00 | ana | 🌐🧪 | LPT | 24 s | -2.09% | ❌ |
+| 14.11 18:00 | ana | 🌐🧪 | COTI | 24 s | -1.92% | ❌ |
 | 14.11 18:00 | ana | 🌐🧪 | BONK | 24 s | -4.48% | ❌ |
 | 14.11 18:00 | ana | 🧪 📉🔥💧 | SHIB | 24 s | -3.26% | ❌ |
-| 14.11 18:00 | ana | 🌐🧪 | LPT | 24 s | -2.09% | ❌ |
-| 14.11 20:00 | ana | 🌐🧪 | FLOW | 24 s | -4.76% | ❌ |
 | 14.11 20:00 | ana | 🧪 📉🔥 | BNB | 24 s | +0.83% | ✅ |
 | 14.11 20:00 | ana | 🌐🧪 | XLM | 24 s | +0.76% | ✅ |
+| 14.11 20:00 | ana | 🌐🧪 | FLOW | 24 s | -4.76% | ❌ |
 | 14.11 21:00 | ana | 🌐🧪 | GRT | 24 s | -0.04% | ❌ |
 | 14.11 22:00 | ana | 🌐🧪 | C98 | 24 s | -2.49% | ❌ |
 | 15.11 00:00 | ana | 🌐🧪 💧 | RSR | 24 s | +1.18% | ✅ |
+| 15.11 01:00 | ana | 🌐🧪 | ARPA | 24 s | +2.75% | ✅ |
