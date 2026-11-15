@@ -3,18 +3,6 @@
 "giden": 1,
 "log": [
 {
-"t": "14.11 22:04",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +2.1",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "14.11 23:04",
-"s": "panel",
-"e": "📉🔥 💵 ABD güçlü alıyor: FIL (z +2.6, 8 saat), UNI (z +2.2, 4 saat)",
-"k": "gitmedi — yalnız panel (⬇️ Bayes: ana'dan indi)"
-},
-{
 "t": "15.11 00:04",
 "s": "✅ ana",
 "e": "🧪 24 saat: RSR (z +1.7)",
@@ -241,6 +229,18 @@
 "s": "✅ ana",
 "e": "🧪 24 saat: ETHFI (z +2.0)",
 "k": "gönderildi"
+},
+{
+"t": "16.11 02:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.11 02:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: NEAR (z +7.6, 24 saat), AVAX (z +7.1, 4 saat), INJ (z +3.2, 24 saat)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
