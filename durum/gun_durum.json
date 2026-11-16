@@ -5,12 +5,6 @@
 {
 "t": "15.11 02:03",
 "s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.11 02:03",
-"s": "panel",
 "e": "🔇 DOGE ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
 },
@@ -240,6 +234,12 @@
 "t": "16.11 10:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.11 12:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
