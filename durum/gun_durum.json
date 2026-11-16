@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "15.11 00:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: RSR (z +1.7)",
-"k": "gönderildi"
-},
-{
-"t": "15.11 00:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +3.4",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "16.11 02:04",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: NEAR (z +7.6, 24 saat), AVAX (z +7.1, 4 saat), INJ (z +3.2, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.11 04:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: LINK (z +2.9, 8 saat), UNI (z +2.1, 4 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
