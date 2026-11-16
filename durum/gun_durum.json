@@ -3,12 +3,6 @@
 "giden": 3,
 "log": [
 {
-"t": "15.11 02:03",
-"s": "panel",
-"e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ⚠️ z -0.6",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "15.11 03:04",
 "s": "panel",
 "e": "🔇 ADA ⭐ en güçlü · 8 saat · isabet %61 · prim ✅ z +1.7",
@@ -240,6 +234,12 @@
 "t": "16.11 15:34",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.7",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "16.11 21:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: BTC (z +2.1, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
