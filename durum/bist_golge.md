@@ -1,9 +1,9 @@
-# 🇹🇷 BIST gölge izleme — 17.11.2026 19:04
+# 🇹🇷 BIST gölge izleme — 18.11.2026 19:04
 
 _Mesaj göndermez. Kural: günlük RSI 14, 30'un üstüne döner + OBV 5 günde yükselir → ertesi seans açılışında AL, 🎯 +0,75σ·2 (σ = 250 g), en fazla 10 seans. Ücret %0,05/taraf, kayma %0,05, net dolar bazında. Hisse başına aynı anda tek işlem. Stop yok (araştırmadaki gibi). 63 hisse (BIST 30 + 33 büyük hisse). ⚠️ = işlem sırasında bir günde ±%11'den büyük hareket (BIST'te ±%10 sınırı var → büyük ihtimalle bedelli/bölünme düzeltmesi; sonuç şüpheli)._
 
-- Başlangıç 02.11.2026 · son veri 17.11.2026 · sinyal 13 (biten 12, açık 1)
-- **Canlı gölge:** isabet %100 · 🎯 oranı %100 · işlem başı dolar net +4.53% (TL +4.69%)
+- Başlangıç 02.11.2026 · son veri 18.11.2026 · sinyal 13 (biten 13, açık 0)
+- **Canlı gölge:** isabet %92 · 🎯 oranı %92 · işlem başı dolar net +3.28% (TL +3.49%)
 - **Araştırma (karşılaştırma):** BIST 30 %74 · %74 · %72 (+0,67 · +0,52 · +1,30) · diğer %68 · %75 · %67 (+0,37 · +1,45 · +0,22) · 63 hissede yılda ≈ 30–40 sinyal
 
 | sinyal günü | hisse | grup | RSI | giriş | 🎯 | sonuç | çıkış günü | dolar net % |
@@ -14,7 +14,7 @@ _Mesaj göndermez. Kural: günlük RSI 14, 30'un üstüne döner + OBV 5 günde 
 | 03.11.2026 | EREGL | BIST30 | 34 | 31.14 | 32.34 | 🎯 | 04.11 | +3.65 |
 | 03.11.2026 | ISMEN | diğer | 30 | 25.92 | 26.71 | 🎯 | 04.11 | +2.86 |
 | 03.11.2026 | TTRAK | diğer | 34 | 350 | 359 | 🎯 | 04.11 | +2.38 |
-| 04.11.2026 | SASA | BIST30 | 42 | 1.68 | 1.768 | açık | — | — |
+| 04.11.2026 | SASA | BIST30 | 42 | 1.68 | 1.768 | süre | 18.11 | -11.66 |
 | 04.11.2026 | ARCLK | diğer | 35 | 69.5 | 71.55 | 🎯 | 05.11 | +2.75 |
 | 04.11.2026 | ODAS | diğer | 32 | 4.72 | 4.936 | 🎯 | 09.11 | +4.19 |
 | 04.11.2026 | PASEU | diğer | 31 | 27.86 | 30.38 | 🎯 | 09.11 | +8.63 |
