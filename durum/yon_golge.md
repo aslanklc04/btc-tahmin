@@ -1,12 +1,12 @@
-# 🧭 BTC yön gölge izleme — 17.11.2026 09:05
+# 🧭 BTC yön gölge izleme — 18.11.2026 09:05
 
-_Mesaj göndermez. Başlangıç 28.10.2026 · veri 16.11 23:00 UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → süre sonu (🔻🧮 24 s · 😨 3 g / 7 g), kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._
+_Mesaj göndermez. Başlangıç 28.10.2026 · veri 17.11 23:00 UTC'ye kadar (arşiv bir gün gecikmeli) · işlem: sinyalden sonraki saat açılışı → süre sonu (🔻🧮 24 s · 😨 3 g / 7 g), kayma %0,1 + ücret %0,1 + fonlama ≈ %0,03 · aynı kuralda aynı anda tek işlem._
 
 | kural | sinyal saati | sayılan işlem | biten | yön isabeti | isabet (net > 0) | işlem başı net % | araştırma 2025–26 |
 |---|---|---|---|---|---|---|---|
 | 🔻 NEG zayıf alıcı + pencere → SAT | 0 | 0 | 0 | — | — | — | 50 · yön %64 · isabet %64 · +0,45 |
-| 🧮 W4 birleşik skor | 158 | 12 | 11 | %73 | %55 | +1.19 | 287 · yön %57 · isabet %51 · +0,04 |
-| 😨 korku zirvesi (DVOL z ≥ 2) → 3 g AL | 4 | 3 | 2 | %50 | %50 | -0.87 | 11 · yön %64 · isabet %64 · +0,56 |
+| 🧮 W4 birleşik skor | 158 | 12 | 12 | %75 | %58 | +1.09 | 287 · yön %57 · isabet %51 · +0,04 |
+| 😨 korku zirvesi (DVOL z ≥ 2) → 3 g AL | 4 | 3 | 3 | %67 | %67 | -0.25 | 11 · yön %64 · isabet %64 · +0,56 |
 | 😨 korku sıçraması (DVOL 3 g ≥ +%9,2) → 7 g AL | 2 | 1 | 0 | — | — | — | 19 · yön %68 · isabet %68 · +1,21 |
 
 **Son işlemler**
@@ -15,9 +15,9 @@ _Mesaj göndermez. Başlangıç 28.10.2026 · veri 16.11 23:00 UTC'ye kadar (ar�
 |---|---|---|---|---|---|
 | 🧮 W4 | 11.11 05:00 | SAT | 73,703 | 73,701 | -0.17 |
 | 🧮 W4 | 13.11 01:00 | SAT | 71,096 | 68,308 | +3.76 |
-| 🧮 W4 | 15.11 02:00 | AL | 62,592 | 64,571 | +2.93 |
-| 🧮 W4 | 16.11 02:00 | AL | 64,571 | — | açık |
+| 🧮 W4 | 15.11 02:00 | AL | 62,592 | 64,538 | +2.88 |
+| 🧮 W4 | 16.11 02:00 | AL | 64,538 | 64,747 | +0.09 |
 | 😨 korku | 30.10 00:00 | AL | 77,963 | 78,313 | +0.16 |
 | 😨 korku | 06.11 00:00 | AL | 76,050 | 74,824 | -1.90 |
-| 😨 korku | 15.11 00:00 | AL | 64,130 | — | açık |
+| 😨 korku | 15.11 00:00 | AL | 64,130 | 64,947 | +0.98 |
 | 😨 korku | 15.11 00:00 | AL | 64,130 | — | açık |
