@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-19",
-"giden": 0,
+"giden": 1,
 "log": [
-{
-"t": "15.11 19:04",
-"s": "panel",
-"e": "🔇 SHIB ⭐ en güçlü · 8 saat · isabet %60 · prim ✅ z +0.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "15.11 20:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: AVAX (z +1.5)",
-"k": "gönderildi"
-},
 {
 "t": "15.11 20:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "19.11 00:04",
 "s": "panel",
 "e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⛔ z -1.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "19.11 01:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: CTSI (z +1.8)",
+"k": "gönderildi"
+},
+{
+"t": "19.11 01:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.4",
 "k": "gitmedi — yalnız panel"
 }
 ],
