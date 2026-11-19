@@ -3,24 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "16.11 09:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "16.11 09:04",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 16.11 09:00 · $64,475",
-"k": "gönderildi"
-},
-{
-"t": "16.11 10:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "16.11 12:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +1.0",
@@ -240,6 +222,24 @@
 "t": "19.11 23:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.11 01:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Güçlü ↑ ⏰ · prim ✅ z +1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.11 01:04",
+"s": "panel",
+"e": "🪙 BNB 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +1.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "20.11 01:04",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
