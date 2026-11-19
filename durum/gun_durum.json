@@ -3,12 +3,6 @@
 "giden": 2,
 "log": [
 {
-"t": "15.11 22:03",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: FIL (z +2.1, 8 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "16.11 01:03",
 "s": "✅ ana",
 "e": "🧪 24 saat: ETHFI (z +2.0)",
@@ -241,6 +235,12 @@
 "s": "✅ ana",
 "e": "🔇🔀 DOT ⭐ en güçlü · 4 saat · isabet %58 · prim ✅ z +1.3",
 "k": "gönderildi"
+},
+{
+"t": "19.11 06:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ⚠️ z -0.7",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0

@@ -1,4 +1,4 @@
-# 📏 Gerçekçi karne — 19.11.2026 05:04
+# 📏 Gerçekçi karne — 19.11.2026 06:04
 _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajdaki talimat) · vadeli ücret + fonlama · Binance 1 dk mum · 🎯 bugünkü sınıf kuralı. Eski karne (karne.md) saat kapanışından giriş ve %0,04 maliyet sayar → bundan iyimser._
 
 ## Gönderilen sinyaller (B: limit giriş)
@@ -6,8 +6,8 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 - **🔸 yedek:** 283 işlem / 37 saat · işlem isabeti %76 · **saat isabeti %73** · işlem başı +0.58% · limit doldu %80
 - **📋 panelden:** 22 işlem / 21 saat · işlem isabeti %41 · **saat isabeti %38** · işlem başı -0.48% · limit doldu %67
 - **Tümü:** 435 işlem / 114 saat · işlem isabeti %70 · **saat isabeti %59** · işlem başı +0.42% · limit doldu %76
-- Piyasadan giriş (D) karşılaştırma, tümü: 570 işlem / 125 saat · işlem isabeti %70 · **saat isabeti %59** · işlem başı +0.33%
-- **💎 ELİT (ana):** limit 9 işlem / 8 saat · işlem isabeti %89 · **saat isabeti %88** · işlem başı +1.06% · piyasadan 12 işlem / 9 saat · işlem isabeti %92 · **saat isabeti %89** · işlem başı +1.27%
+- Piyasadan giriş (D) karşılaştırma, tümü: 571 işlem / 126 saat · işlem isabeti %70 · **saat isabeti %60** · işlem başı +0.33%
+- **💎 ELİT (ana):** limit 9 işlem / 8 saat · işlem isabeti %89 · **saat isabeti %88** · işlem başı +1.06% · piyasadan 13 işlem / 10 saat · işlem isabeti %92 · **saat isabeti %90** · işlem başı +1.23%
 - **ELİT değil (ana):** limit 121 işlem / 74 saat · işlem isabeti %59 · **saat isabeti %55** · işlem başı +0.18% · piyasadan 171 işlem / 80 saat · işlem isabeti %61 · **saat isabeti %54** · işlem başı +0.26%
 - **🌪️ BTC oynak (ana):** limit 39 işlem / 21 saat · işlem isabeti %62 · **saat isabeti %67** · işlem başı +0.10% · piyasadan 56 işlem / 23 saat · işlem isabeti %70 · **saat isabeti %61** · işlem başı +0.33%
 - **💼 Kâğıt üstü hesap (yalnız 💎 ELİT + 🌪️, 12.10'dan beri):** 150 $ ile başlasaydın, her işleme bakiyenin %5'i, kaldıraçsız, mesaj fiyatına limit (dolmayan sayılmaz) → 48 işlem · kârlı %67 · bakiye **150.98 $** (+0.66%) · en büyük düşüş -3.0% _(sırayla bileşik; aynı saatteki işlemler yaklaşık)_
@@ -22,4 +22,4 @@ _Giriş: mesajın geldiği dakikadan, kapanış fiyatına limit 60 dk (B; mesajd
 - **🏛️ FOMC/CPI olaylı sinyaller:** 5 işlem / 5 saat · işlem isabeti %20 · **saat isabeti %20** · işlem başı -2.58% — olaysız: 430 işlem / 109 saat · işlem isabeti %70 · **saat isabeti %61** · işlem başı +0.46%
 - **A2 (fonlama yüksek + saatte en iyi 5, PROTOKOL_saat70):** 115 işlem / 59 saat · işlem isabeti %70 · **saat isabeti %69** · işlem başı +0.45% · testte (2025+) saat isabeti %70,5 (sınırda)
 
-_Kayıt: durum/karne_gercek.csv (570 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
+_Kayıt: durum/karne_gercek.csv (571 satır) · 22.10 öncesi mesajlarda 🎯 farklıydı/yoktu; burada hepsi bugünkü kuralla ölçülür._
