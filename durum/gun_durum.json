@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "19.11 21:03",
-"s": "✅ ana",
-"e": "🧪 24 saat: GMT (z +1.6)",
-"k": "gönderildi"
-},
-{
 "t": "19.11 23:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.2",
@@ -240,6 +234,12 @@
 "t": "21.11 03:04",
 "s": "panel",
 "e": "🧪 24 saat: ETH (z -3.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.11 04:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -2.5",
 "k": "gitmedi — yalnız panel"
 }
 ],
