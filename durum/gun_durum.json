@@ -1,31 +1,7 @@
 {
 "gun": "2026-11-21",
-"giden": 9,
+"giden": 10,
 "log": [
-{
-"t": "20.11 19:05",
-"s": "panel",
-"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.4",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "20.11 19:05",
-"s": "panel",
-"e": "🪙 SHIB ⭐ en güçlü · 8 saat · isabet %59 · prim ⚠️ z -0.7",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "20.11 19:05",
-"s": "panel",
-"e": "🧪 24 saat: DOT (z +2.2), OP (z +0.5)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "20.11 19:05",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -0.1)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "20.11 19:05",
 "s": "panel",
@@ -240,6 +216,30 @@
 "t": "21.11 07:05",
 "s": "panel",
 "e": "🧪 24 saat: BNB (z -1.3 ⛔)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.11 08:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: AI (z +4.2)",
+"k": "gönderildi"
+},
+{
+"t": "21.11 08:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.11 08:04",
+"s": "panel",
+"e": "🧪 24 saat: BTC (z -0.1)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "21.11 08:04",
+"s": "panel",
+"e": "🧪 24 saat: ADA (z -0.8)",
 "k": "gitmedi — yalnız panel"
 }
 ],
