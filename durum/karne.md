@@ -1,13 +1,13 @@
-# 📒 Canlı karne — 22.11.2026 08:04
+# 📒 Canlı karne — 22.11.2026 09:03
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
 | ✅ ana (gönderildi) | 203 | %66 | 0.64% | 129.5% | 2 | 203 · %68 · 0.60% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 453 | %68 | 0.86% | 390.9% | 10 | 453 · %76 · 0.46% | %60 · %65 |
-| panel (gönderilmedi) | 761 | %54 | 0.03% | 25.7% | 5 | 762 · %59 · -0.03% | — |
+| panel (gönderilmedi) | 762 | %54 | 0.03% | 23.7% | 4 | 763 · %59 · -0.04% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
-| ↳ panel · prim ⛔ (filtre) | 297 | %59 | 0.36% | 106.0% | 3 | — | — |
+| ↳ panel · prim ⛔ (filtre) | 298 | %59 | 0.35% | 104.0% | 2 | — | — |
 _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde fiyat hedefe değdiyse oradan çıkılmış sayılır (testte ✅ ana %69–74), değmediyse süre sonu. Geçmiş sinyallere de aynı kuralla uygulanır. Hedef: ✅ ana +0,75σ · 🔸 yedek +0,50σ · 📋 panelden +0,45σ (22.10'dan beri; geçmiş sinyaller de aynı kuralla ölçülür) · ⛓️ ETH ve 🧑 küçük yatırımcıda hedef yok (süre sonunda sat)._
 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
@@ -23,10 +23,10 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 | 🔸 yedek | 💵 ABD alıyor | 0 | 20 | %40 | 0.98% | 19.5% | — | ⚠️ orta |
 | 🔸 yedek | 🔇/🪙 coin tek | 0 | 10 | %50 | 0.50% | 5.0% | — | ⚠️ orta |
 | 🔸 yedek | 🧪 24 s ana coin | 0 | 9 | %33 | -1.01% | -9.1% | — | ❌ kötü |
-| panel | ₿ BTC saatlik / ⭐ / A | 41 · %63 | 289 | %53 | 0.10% | 27.9% | — | ⚠️ orta |
+| panel | ₿ BTC saatlik / ⭐ / A | 42 · %62 | 290 | %53 | 0.09% | 25.9% | — | ⚠️ orta |
 | panel | 🌐🤝 ortak geniş liste | 0 | 29 | %48 | -0.22% | -6.5% | %60 · %65 | ⚠️ testin altında, belirgin değil (p 0.15) |
-| panel | 💵 ABD alıyor | 31 · %29 | 68 | %44 | -0.58% | -39.4% | — | ❌ kötü |
-| panel | 🔇/🪙 coin tek | 29 · %62 | 164 | %56 | -0.08% | -13.1% | %55 · %53 | ⚠️ isabet testle uyumlu ama zararda |
+| panel | 💵 ABD alıyor | 30 · %30 | 68 | %44 | -0.58% | -39.4% | — | ❌ kötü |
+| panel | 🔇/🪙 coin tek | 28 · %61 | 164 | %56 | -0.08% | -13.1% | %55 · %53 | ⚠️ isabet testle uyumlu ama zararda |
 | panel | 🔻 BTC kısa | 3 · %67 | 18 | %56 | 0.44% | 7.9% | — | ✅ iyi |
 | panel | 🤝 BTC ile ortak | 12 · %42 | 112 | %65 | 0.73% | 82.3% | %55 · %53 | ✅ iyi · testle uyumlu |
 | panel | 🧪 24 s ana coin | 24 · %50 | 81 | %47 | -0.41% | -33.3% | %55 · %53 | ⚠️ testin altında, belirgin değil (p 0.08) |
