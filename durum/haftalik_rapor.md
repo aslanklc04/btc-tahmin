@@ -1,3 +1,108 @@
+### 22.11.2026 20:04
+📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
+ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.
+• 4 saat Güçlü ↑ ⏰: 4/5 tuttu (%80) · ort. %+0.30
+• 8 saat Güçlü ↓: 5/7 tuttu (%71) · ort. %+0.88
+• 1 saat Güçlü ↑: 10/16 tuttu (%62) · ort. %+0.25
+• 🔻 Coinbase kısa (24s): 2/3 tuttu (%67) · ort. %+1.56
+• 🟢 A sınıfı (4s): 4/6 tuttu (%67) · ort. %+0.24
+• 1 saat Çok güçlü ↑: 2/3 tuttu (%67) · ort. %+1.14
+• 8 saat Çok güçlü ↑: 1/2 tuttu (%50) · ort. %+1.49
+• 8 saat Güçlü ↑: 1/2 tuttu (%50) · ort. %-0.17
+• ⭐ en güçlü (8s): 0/1 tuttu (%0) · ort. %-1.12
+💵 ABD onaylı (prim z > 0): 11/18 tuttu (%61) · onaysız: 11/17 tuttu (%65)
+Toplam: 29/45 tuttu (%64)
+(Yön sinyalin ufku sonundaki fiyata göre; ort. = sinyal yönünde getiri)
+
+---
+
+### 22.11.2026 20:04
+🪙📊 ALTCOİN HAFTALIK SONUÇ (iç ölçüm) — son 7 gün
+ℹ️ Gönderilmeyen / yedek sinyaller dahil modelin tüm coin sinyalleri.
+• ADA ⭐ en güçlü 🔇: 0/1 tuttu (%0) · ort. %-2.59
+• 🤝 ADA ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-1.26
+• 🤝 ADA 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-1.26
+• 🤝 ADA 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-1.26
+• 🤝 APT ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.49
+• 🤝 APT 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.49
+• 🤝 ARB 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-2.32
+• 🤝 ARB ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-1.11
+• 🤝 ARB 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-1.11
+• BNB 🟢 A sınıfı: 2/6 tuttu (%33) · ort. %-0.69
+• BNB 4s Çok güçlü ↑: 2/3 tuttu (%67) · ort. %-0.11
+• BNB ⭐ en güçlü 🔇: 0/1 tuttu (%0) · ort. %-2.46
+• 🤝 BNB 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-1.64
+• 🤝 BNB ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.26
+• DOGE ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.00
+• 🤝 DOGE 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.94
+• 🤝 DOGE ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.52
+• 🤝 DOGE 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.52
+• DOT ⭐ en güçlü 🔇: 2/4 tuttu (%50) · ort. %-0.64
+• 🤝 DOT 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-1.97
+• ETH 🟢 A sınıfı: 4/6 tuttu (%67) · ort. %-0.04
+• ETH 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.39
+• 🤝 ETH 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+3.73
+• 🤝 FLOKI ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.32
+• 🤝 FLOKI 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.32
+• 🤝 LINK ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.76
+• 🤝 LINK 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+1.76
+• 🤝 NEAR ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.77
+• 🤝 NEAR 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.77
+• 🤝 OP 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-2.59
+• SHIB ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.85
+• 🤝 SHIB ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-1.12
+• 🤝 SUI 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-2.07
+• 🤝 SUI ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.95
+• 🤝 AI 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-2.31
+• 🤝 AI ⭐ en güçlü: 0/1 tuttu (%0) · ort. %-0.79
+• 🤝 AI 4s Çok güçlü ↑: 0/1 tuttu (%0) · ort. %-0.79
+• 🤝 AXL ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+2.01
+• 🤝 AXL 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+2.01
+• 🤝 AXL 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+2.01
+• 🤝 FLOW ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.29
+• 🤝 FLOW 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+0.29
+• 🤝 FLOW 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+0.29
+• 🤝 GMT 🟢 A sınıfı: 0/1 tuttu (%0) · ort. %-0.39
+• 🤝 JTO 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.17
+• 🤝 JTO 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+1.17
+• 🤝 UMA ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+1.75
+• 🤝 UMA 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+1.75
+• 🤝 W ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+0.52
+• 🤝 ZEC ⭐ en güçlü: 1/1 tuttu (%100) · ort. %+3.93
+• 🤝 ZEC 4s Çok güçlü ↑: 1/1 tuttu (%100) · ort. %+3.93
+• 🤝 ZEC 🟢 A sınıfı: 1/1 tuttu (%100) · ort. %+3.93
+Toplam: 38/67 tuttu (%57)
+🤝 ortak: 25/43 · tek başına: 13/24
+💵 ABD onaylı (prim z > 0): 25/36 tuttu (%69) · onaysız: 13/31 tuttu (%42)
+
+---
+
+### 22.11.2026 20:04
+🧪📊 24 SAAT DENEME — HAFTALIK
+Son 7 gün: 29/51 tuttu (%57) · ort. net %-0.41 · toplam %-20.9
+Başlangıçtan (07.10) beri: 131/226 tuttu (%58) · ort. net %+0.21 · toplam %+46.4
+💵 ABD onaylı: 98/165 tuttu (%59) · ort. net %+0.09 · toplam %+14.5 | onaysız: 32/60 tuttu (%53) · ort. net %+0.53 · toplam %+31.8
+(Giriş: mesaj anındaki fiyat · çıkış: 24 saat sonra · limit komisyon dahil)
+
+---
+
+### 22.11.2026 20:04
+⛓️📊 ARZ/TALEP (ETH) — HAFTALIK
+Bu hafta kapanan: sonuçlanan işlem yok
+Başlangıçtan (08.10) beri: 1/1 tuttu (%100) · ort. net %+2.62 · toplam %+2.6
+Açık işlem: 0
+
+---
+
+### 22.11.2026 20:04
+💵📊 ABD ALIYOR (kendi primi) — HAFTALIK
+Son 7 gün: 8/31 tuttu (%26) · ort. net %-0.91 · toplam %-28.3
+Başlangıçtan (08.10) beri: 34/92 tuttu (%37) · ort. net %-0.49 · toplam %-45.0
+AAVE 1/2 (+0.52) · AVAX 0/1 (-0.60) · BTC 0/3 (-2.10) · CRV 1/3 (-0.96) · DOGE 0/2 (-0.92) · ETH 1/1 (+3.61) · FIL 2/5 (-0.77) · INJ 1/3 (-2.52) · LINK 1/4 (-1.00) · NEAR 0/2 (-1.73) · UNI 1/4 (-0.49) · XRP 0/1 (-0.47)
+(giriş: mesaj anındaki fiyat · çıkış: süre sonu · limit komisyon dahil)
+
+---
+
 ### 15.11.2026 20:04
 📊 HAFTALIK SONUÇ (BTC modeli, iç ölçüm) — son 7 gün
 ℹ️ BTC ⭐ / A / saatlik sinyaller ve 🔻 kısa artık Telegram'a gönderilmiyor (kazandırmadılar); bu rapor yalnız iç ölçüm.
