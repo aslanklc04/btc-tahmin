@@ -5,12 +5,6 @@
 {
 "t": "21.11 06:05",
 "s": "panel",
-"e": "🤝 4 saat · BTC ile ortak: BNB (z -1.1 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "21.11 06:05",
-"s": "panel",
 "e": "🤝 4 saat · BTC ile ortak: ADA (z -1.2 ⛔)",
 "k": "gitmedi — yalnız panel"
 },
@@ -238,6 +232,12 @@
 },
 {
 "t": "22.11 13:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.11 03:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
