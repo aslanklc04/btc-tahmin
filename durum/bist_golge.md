@@ -1,8 +1,8 @@
-# 🇹🇷 BIST gölge izleme — 22.11.2026 19:04
+# 🇹🇷 BIST gölge izleme — 23.11.2026 19:05
 
 _Mesaj göndermez. Kural: günlük RSI 14, 30'un üstüne döner + OBV 5 günde yükselir → ertesi seans açılışında AL, 🎯 +0,75σ·2 (σ = 250 g), en fazla 10 seans. Ücret %0,05/taraf, kayma %0,05, net dolar bazında. Hisse başına aynı anda tek işlem. Stop yok (araştırmadaki gibi). 63 hisse (BIST 30 + 33 büyük hisse). ⚠️ = işlem sırasında bir günde ±%11'den büyük hareket (BIST'te ±%10 sınırı var → büyük ihtimalle bedelli/bölünme düzeltmesi; sonuç şüpheli)._
 
-- Başlangıç 02.11.2026 · son veri 20.11.2026 · sinyal 13 (biten 13, açık 0)
+- Başlangıç 02.11.2026 · son veri 23.11.2026 · sinyal 13 (biten 13, açık 0)
 - **Canlı gölge:** isabet %92 · 🎯 oranı %92 · işlem başı dolar net +3.28% (TL +3.49%)
 - **Araştırma (karşılaştırma):** BIST 30 %74 · %74 · %72 (+0,67 · +0,52 · +1,30) · diğer %68 · %75 · %67 (+0,37 · +1,45 · +0,22) · 63 hissede yılda ≈ 30–40 sinyal
 
