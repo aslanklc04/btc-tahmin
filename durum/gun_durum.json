@@ -5,12 +5,6 @@
 {
 "t": "21.11 07:05",
 "s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: ALGO (z +0.8), ETC (z +0.8), ICP (z +0.8), SAND (z +0.8), PYTH (z +0.8), ZRO (z +0.8), SKL (z +0.7), ACH (z +0.7), CAKE (z +0.7), LDO (z +0.6)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 07:05",
-"s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: BONK (z +0.5), DASH (z +0.5), FIL (z +0.5), AXS (z +0.5), RLC (z +0.4), COMP (z +0.4), SUPER (z +0.3), POL (z +0.3), NMR (z +0.2), RAY (z +0.2)",
 "k": "gönderildi"
 },
@@ -240,6 +234,12 @@
 "t": "23.11 17:04",
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -10.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.11 21:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: AAVE (z +2.1, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
