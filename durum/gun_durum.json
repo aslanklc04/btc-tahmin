@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "21.11 07:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: BONK (z +0.5), DASH (z +0.5), FIL (z +0.5), AXS (z +0.5), RLC (z +0.4), COMP (z +0.4), SUPER (z +0.3), POL (z +0.3), NMR (z +0.2), RAY (z +0.2)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 07:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: VET (z +0.2), SEI (z +0.2), KNC (z +0.2), STRK (z +0.1), BICO (z +0.1), IMX (z +0.0), AAVE (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 07:05",
 "s": "panel",
 "e": "₿ BTC 1 saat Çok güçlü ↑ · prim ⛔ z -3.4",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +228,18 @@
 "t": "23.11 21:04",
 "s": "panel",
 "e": "💵 ABD güçlü alıyor: AAVE (z +2.1, 24 saat)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.11 22:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.11 22:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: FIL (z +2.4, 8 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
