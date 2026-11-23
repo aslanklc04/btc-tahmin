@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-23",
-"giden": 1,
+"giden": 2,
 "log": [
-{
-"t": "21.11 07:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: XTZ (z +1.7), JASMY (z +1.5), MAGIC (z +1.4), MANA (z +1.4), BAT (z +1.2), MASK (z +1.2), REZ (z +1.2), ROSE (z +1.2), YFI (z +1.2), 1INCH (z +1.2)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 07:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: BAND (z +1.1), MINA (z +1.0), GNO (z +1.0), RAD (z +1.0), ZRX (z +1.0), ZEN (z +1.0), QNT (z +1.0), AMP (z +0.9), RSR (z +0.9), CRV (z +0.9)",
-"k": "gönderildi"
-},
 {
 "t": "21.11 07:05",
 "s": "🔸 yedek",
@@ -240,6 +228,18 @@
 "t": "23.11 11:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "23.11 17:04",
+"s": "✅ ana",
+"e": "🧪 24 saat: SOL (z +1.7)",
+"k": "gönderildi"
+},
+{
+"t": "23.11 17:04",
+"s": "panel",
+"e": "🔻 BTC KISA (24 s) · ABD satıyor z -10.0",
 "k": "gitmedi — yalnız panel"
 }
 ],
