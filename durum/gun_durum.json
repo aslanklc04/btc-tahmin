@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "21.11 07:05",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: FLOW (z +2.5), APT (z +1.6), FLOKI (z +0.9), UMA (z +2.4), AXL (z +2.4), W (z +2.3), JTO (z +2.1), AI (z +3.9)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 07:05",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: XTZ (z +1.7), JASMY (z +1.5), MAGIC (z +1.4), MANA (z +1.4), BAT (z +1.2), MASK (z +1.2), REZ (z +1.2), ROSE (z +1.2), YFI (z +1.2), 1INCH (z +1.2)",
 "k": "gönderildi"
@@ -241,6 +235,12 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 23.11 09:00 · $61,685",
 "k": "gönderildi"
+},
+{
+"t": "23.11 11:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
