@@ -1,9 +1,9 @@
-# 📒 Canlı karne — 24.11.2026 08:04
+# 📒 Canlı karne — 24.11.2026 09:04
 _Kayıt: 12.10 02:00 → bugün · ölçüm testlerle aynı (sinyal saati kapanışı → süre sonu kapanışı, maliyet %0,04) · açık = süresi dolmamış, hesaba girmez_
 
 | Sınıf | Kapanan | İsabet | İşlem başı net | Toplam | Açık | 🎯 kâr-al ile: kapanan · isabet · net | Testte isabet (tüm · 2026) |
 |---|---|---|---|---|---|---|---|
-| ✅ ana (gönderildi) | 206 | %65 | 0.62% | 128.7% | 2 | 206 · %68 · 0.60% | %62 · %67 |
+| ✅ ana (gönderildi) | 206 | %65 | 0.62% | 128.7% | 3 | 206 · %68 · 0.60% | %62 · %67 |
 | 🔸 yedek (gönderildi) | 463 | %67 | 0.84% | 387.2% | 0 | 463 · %75 · 0.44% | %60 · %65 |
 | panel (gönderilmedi) | 772 | %54 | 0.03% | 22.8% | 5 | 774 · %59 · -0.04% | — |
 | ↳ 🔸 yedek · 📋 panelden (22.10'dan beri) | 33 | %36 | -0.68% | -22.5% | 0 | 33 · %55 · -0.28% | %69 · %65 · %66 (gerçekçi, 🎯 +0,45σ; 2022–24 · 2025+ · 2026) |
@@ -13,6 +13,7 @@ _🎯 kâr-al ile = 21.10'dan beri mesajda yazan hedef (+0,75σ): süre içinde 
 ## Tür notları — TÜM sinyaller (ana · yedek · panel)
 | Sınıf | Tür | Bu hafta kapanan | Başlangıçtan beri kapanan | İsabet | İşlem başı net | Toplam | Testte isabet (tüm · 2026) | Not |
 |---|---|---|---|---|---|---|---|---|
+| ✅ ana | ⛓️ arz/talep | 0 | 0 | %— | —% | 0.0% | %58 · %58 | ⏳ veri az |
 | ✅ ana | 🌐🤝 ortak geniş liste | 8 · %62 | 38 | %76 | 1.09% | 41.6% | %69 · %76 | ✅ iyi · testle uyumlu |
 | ✅ ana | 🌐🧪 24 s geniş liste | 10 · %50 | 117 | %64 | 0.67% | 78.8% | %60 · %60 | ✅ iyi · testle uyumlu |
 | ✅ ana | 💵 ABD alıyor | 0 | 4 | %0 | -2.52% | -10.1% | %54 · %54 | ⏳ veri az |
