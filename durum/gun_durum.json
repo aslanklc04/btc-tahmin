@@ -4,18 +4,6 @@
 "log": [
 {
 "t": "21.11 08:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: AI (z +4.2)",
-"k": "gönderildi"
-},
-{
-"t": "21.11 08:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⚠️ z -0.1",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "21.11 08:04",
 "s": "panel",
 "e": "🧪 24 saat: BTC (z -0.1)",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +228,18 @@
 "t": "24.11 17:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Çok güçlü ↑ · prim ✅ z +0.6",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.11 19:04",
+"s": "panel",
+"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +3.0",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "24.11 19:04",
+"s": "panel",
+"e": "💵 ABD güçlü alıyor: BTC (z +3.0, 24 saat)",
 "k": "gitmedi — yalnız panel"
 }
 ],
