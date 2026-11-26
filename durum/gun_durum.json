@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "22.11 06:05",
-"s": "✅ ana",
-"e": "🤝 4 saat · BTC ile ortak: GMT (z +2.5)",
-"k": "gönderildi"
-},
-{
-"t": "22.11 06:05",
 "s": "🔸 yedek",
 "e": "🤝 4 saat · BTC ile ortak: FET (z +1.5), GNO (z +1.4), CHZ (z +0.9), MAGIC (z +0.8), ARPA (z +0.7), C98 (z +0.6), AUCTION (z +0.4), METIS (z +0.4), GLM (z +0.2), PYTH (z +0.0)",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "26.11 06:04",
 "s": "panel",
 "e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.4",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.11 07:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
 }
 ],
