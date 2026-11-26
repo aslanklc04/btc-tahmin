@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "22.11 06:05",
-"s": "🔸 yedek",
-"e": "🤝 4 saat · BTC ile ortak: FET (z +1.5), GNO (z +1.4), CHZ (z +0.9), MAGIC (z +0.8), ARPA (z +0.7), C98 (z +0.6), AUCTION (z +0.4), METIS (z +0.4), GLM (z +0.2), PYTH (z +0.0)",
-"k": "gönderildi"
-},
-{
-"t": "22.11 06:05",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ⛔ z -2.6",
 "k": "gitmedi — yalnız panel"
@@ -241,6 +235,12 @@
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
+},
+{
+"t": "26.11 09:04",
+"s": "ℹ️ bilgi",
+"e": "☀️ Günlük özet — 🧭 BTC 26.11 09:00 · $60,820",
+"k": "gönderildi"
 }
 ],
 "panelden": 0
