@@ -1,4 +1,4 @@
-# 📐 Teknik gösterge gölge izleme — 26.11.2026 09:07
+# 📐 Teknik gösterge gölge izleme — 27.11.2026 09:06
 
 _Mesaj göndermez. Kural: alt Bollinger'den dönüş + BTC > EMA200 + hacim z ≥ 2 → sonraki saat açılışında AL, 🎯 +0,75σ·√4, en fazla 24 s (kayma %0,1, vadeli ücret, fonlama ≈ %0,01/8 s). Coin başına aynı anda tek işlem. Veri arşivden, bir gün gecikmeli._
 
