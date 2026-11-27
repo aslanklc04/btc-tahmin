@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "22.11 08:04",
-"s": "panel",
-"e": "🧪 24 saat: NEAR (z -1.6 ⛔)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "22.11 09:03",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 22.11 09:00 · $58,924",
@@ -238,6 +232,12 @@
 },
 {
 "t": "26.11 18:04",
+"s": "panel",
+"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.11 06:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
 "k": "gitmedi — yalnız panel"
