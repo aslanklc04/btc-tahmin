@@ -3,12 +3,6 @@
 "giden": 0,
 "log": [
 {
-"t": "24.11 06:04",
-"s": "panel",
-"e": "🧪 24 saat: BNB (z +0.4)",
-"k": "gitmedi — yalnız panel"
-},
-{
 "t": "24.11 09:04",
 "s": "✅ ana",
 "e": "⛓️ ETH arz/talep SAT (kısa) (SAT-1, 3–7 gün)",
@@ -240,6 +234,12 @@
 "t": "28.11 00:04",
 "s": "panel",
 "e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +0.1",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "28.11 01:04",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.3",
 "k": "gitmedi — yalnız panel"
 }
 ],
