@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "24.11 06:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: FET (z +1.6)",
-"k": "gönderildi"
-},
-{
-"t": "24.11 06:04",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +0.5",
 "k": "gitmedi — yalnız panel"
@@ -240,6 +234,12 @@
 "t": "27.11 19:03",
 "s": "panel",
 "e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +0.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.11 23:03",
+"s": "panel",
+"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ✅ z +0.3",
 "k": "gitmedi — yalnız panel"
 }
 ],
