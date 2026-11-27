@@ -1,55 +1,7 @@
 {
 "gun": "2026-11-27",
-"giden": 0,
+"giden": 5,
 "log": [
-{
-"t": "23.11 05:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: FET (z +2.7)",
-"k": "gönderildi"
-},
-{
-"t": "23.11 09:04",
-"s": "ℹ️ bilgi",
-"e": "☀️ Günlük özet — 🧭 BTC 23.11 09:00 · $61,685",
-"k": "gönderildi"
-},
-{
-"t": "23.11 11:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.11 17:04",
-"s": "✅ ana",
-"e": "🧪 24 saat: SOL (z +1.7)",
-"k": "gönderildi"
-},
-{
-"t": "23.11 17:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -10.0",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.11 21:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: AAVE (z +2.1, 24 saat)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.11 22:04",
-"s": "panel",
-"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.9",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "23.11 22:04",
-"s": "panel",
-"e": "💵 ABD güçlü alıyor: FIL (z +2.4, 8 saat)",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "24.11 00:03",
 "s": "panel",
@@ -240,6 +192,54 @@
 "t": "27.11 14:04",
 "s": "panel",
 "e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.11 18:05",
+"s": "✅ ana",
+"e": "🤝 4 saat · BTC ile ortak: EGLD (z +2.4), GMT (z +2.0), BNB (z +0.8), DOT (z +0.0)",
+"k": "gönderildi"
+},
+{
+"t": "27.11 18:05",
+"s": "✅ ana",
+"e": "🧪 24 saat: GMT (z +2.0)",
+"k": "gönderildi"
+},
+{
+"t": "27.11 18:05",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: SEI (z +1.9), FIL (z +1.6), COMP (z +1.0), CHZ (z +1.0), ENA (z +1.0), BLUR (z +0.8), MAGIC (z +0.8), AGLD (z +0.7), APE (z +0.7), SUPER (z +0.5)",
+"k": "gönderildi"
+},
+{
+"t": "27.11 18:05",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: BONK (z +0.5), ENS (z +0.4), LDO (z +0.4), POWR (z +0.3), MASK (z +0.3), QNT (z +0.3), STX (z +0.3), T (z +0.3), MINA (z +0.2), ETHFI (z +0.2)",
+"k": "gönderildi"
+},
+{
+"t": "27.11 18:05",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: AUCTION (z +0.1)",
+"k": "gönderildi"
+},
+{
+"t": "27.11 18:05",
+"s": "panel",
+"e": "₿ BTC ⭐ en güçlü (8 s) · isabet %63 · prim ⛔ z -1.2",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.11 18:05",
+"s": "panel",
+"e": "🧪 24 saat: ETH (z +0.3)",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "27.11 18:05",
+"s": "panel",
+"e": "🧪 24 saat: BTC (z -1.2 ⛔)",
 "k": "gitmedi — yalnız panel"
 }
 ],
