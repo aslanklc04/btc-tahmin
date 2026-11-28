@@ -4,12 +4,6 @@
 "log": [
 {
 "t": "24.11 09:04",
-"s": "✅ ana",
-"e": "⛓️ ETH arz/talep SAT (kısa) (SAT-1, 3–7 gün)",
-"k": "gönderildi"
-},
-{
-"t": "24.11 09:04",
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 24.11 09:00 · $60,629",
 "k": "gönderildi"
@@ -240,6 +234,12 @@
 "t": "28.11 01:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.3",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "28.11 04:04",
+"s": "panel",
+"e": "🪙 ETH 🟢 A sınıfı · 4 saat · isabet %58 · prim ✅ z +1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
