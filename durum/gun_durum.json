@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-28",
-"giden": 2,
+"giden": 3,
 "log": [
-{
-"t": "25.11 00:03",
-"s": "panel",
-"e": "₿ BTC 4 saat Güçlü ↑ ⏰ · prim ⚠️ z -0.8",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "25.11 05:04",
-"s": "panel",
-"e": "₿ BTC 🟢 A sınıfı (4 s) · isabet %59 · prim ✅ z +0.1",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "25.11 05:04",
 "s": "panel",
@@ -241,6 +229,18 @@
 "s": "ℹ️ bilgi",
 "e": "☀️ Günlük özet — 🧭 BTC 28.11 09:00 · $59,738",
 "k": "gönderildi"
+},
+{
+"t": "28.11 10:03",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: BLUR (z +1.2)",
+"k": "gönderildi"
+},
+{
+"t": "28.11 10:03",
+"s": "panel",
+"e": "₿ BTC 1 saat Güçlü ↑ · prim ✅ z +0.7",
+"k": "gitmedi — yalnız panel"
 }
 ],
 "panelden": 0
