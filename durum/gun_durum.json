@@ -1,19 +1,7 @@
 {
 "gun": "2026-11-28",
-"giden": 6,
+"giden": 7,
 "log": [
-{
-"t": "25.11 23:04",
-"s": "panel",
-"e": "₿ BTC 8 saat Güçlü ↓ (bilgi)",
-"k": "gitmedi — yalnız panel"
-},
-{
-"t": "26.11 06:04",
-"s": "panel",
-"e": "🔻 BTC KISA (24 s) · ABD satıyor z -3.4",
-"k": "gitmedi — yalnız panel"
-},
 {
 "t": "26.11 07:04",
 "s": "panel",
@@ -240,6 +228,18 @@
 "t": "28.11 13:04",
 "s": "panel",
 "e": "₿ BTC 1 saat Güçlü ↑ · 4 saat Çok güçlü ↑ · prim ✅ z +0.9",
+"k": "gitmedi — yalnız panel"
+},
+{
+"t": "28.11 14:03",
+"s": "🔸 yedek",
+"e": "🤝 4 saat · BTC ile ortak: CVC (z +0.7), 1INCH (z +0.3)",
+"k": "gönderildi"
+},
+{
+"t": "28.11 14:03",
+"s": "panel",
+"e": "₿ BTC 1 saat Çok güçlü ↑ · prim ✅ z +1.1",
 "k": "gitmedi — yalnız panel"
 }
 ],
